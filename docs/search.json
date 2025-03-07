@@ -1,10 +1,52 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "gitsam",
+    "objectID": "projects/gilded_age/gilded_age.html",
+    "href": "projects/gilded_age/gilded_age.html",
+    "title": "The New Gilded Age",
     "section": "",
-    "text": "This is a Quarto website. modified\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "The term ‘Gilded Age’ was originally coined by Mark Twain in his novel The Gilded Age: A Tale of Today (Twain and Warner 1873), describing an era characterized by rapid economic expansion, extreme wealth concentration, and political corruption. A similar dynamic is emerging today, where financial and technological elites dominate economic output while wealth inequality reaches historic highs (Piketty 2014). The late 19th century saw industrial monopolies like Standard Oil and U.S. Steel controlling markets; today, tech giants such as Amazon, Apple, and Google exhibit similar dominance (Zucman 2019).\nSimultaneously, the Federal Reserve’s response to financial instability, particularly through excessive monetary expansion, contrasts with past policy mistakes that led to severe economic contractions due to monetary shrinkage (Bernanke 2000). If current economic trends persist—marked by the increasing concentration of wealth, hyperinflation risks, and geopolitical tensions—then the U.S. may be heading toward another crisis akin to the 1929 stock market collapse (Kindleberger 1978)."
+  },
+  {
+    "objectID": "projects/gilded_age/gilded_age.html#extreme-wealth-concentration-and-economic-disparities",
+    "href": "projects/gilded_age/gilded_age.html#extreme-wealth-concentration-and-economic-disparities",
+    "title": "The New Gilded Age",
+    "section": "Extreme Wealth Concentration and Economic Disparities",
+    "text": "Extreme Wealth Concentration and Economic Disparities\nIn the late 19th century, “Robber Barons” controlled vast industrial empires while working-class Americans suffered under exploitative labor conditions (Irwin 2017). Today, the economic landscape reflects a similar dynamic: the top 1% of Americans hold over 30% of total U.S. wealth, and financial markets remain dominated by a handful of institutional investors and corporations (Saez and Zucman 2020). If historical trends hold, wealth concentration at this level often precedes financial and political crises."
+  },
+  {
+    "objectID": "projects/gilded_age/gilded_age.html#financial-market-distortions-due-to-federal-reserve-policies",
+    "href": "projects/gilded_age/gilded_age.html#financial-market-distortions-due-to-federal-reserve-policies",
+    "title": "The New Gilded Age",
+    "section": "Financial Market Distortions Due to Federal Reserve Policies",
+    "text": "Financial Market Distortions Due to Federal Reserve Policies\nHistorically, the Federal Reserve’s failure to manage monetary policy effectively has exacerbated financial downturns. During the Great Depression, the Fed allowed the money supply to contract, worsening deflation (Friedman and Schwartz 1993). Conversely, in the 2008 financial crisis, the Fed implemented massive QE programs to avoid liquidity shortages (Gopinath and Gourinchas 2020). If the Fed continues expanding the money supply unchecked while maintaining low interest rates, it could trigger runaway inflation or asset bubbles (Reinhart and Rogoff 2010)."
+  },
+  {
+    "objectID": "projects/gilded_age/gilded_age.html#protectionist-policies-and-global-trade-disruptions",
+    "href": "projects/gilded_age/gilded_age.html#protectionist-policies-and-global-trade-disruptions",
+    "title": "The New Gilded Age",
+    "section": "Protectionist Policies and Global Trade Disruptions",
+    "text": "Protectionist Policies and Global Trade Disruptions\nIn response to financial instability, the U.S. may turn to protectionist measures similar to those seen in the early 20th century, such as the Smoot-Hawley Tariff Act (Irwin 2017). If the U.S. imposes broad tariffs on allies like Canada, Mexico, and the EU (excluding the UK), retaliatory tariffs could significantly reduce global trade, accelerating economic fragmentation (Acker 2020)."
+  },
+  {
+    "objectID": "projects/gilded_age/gilded_age.html#capital-controls",
+    "href": "projects/gilded_age/gilded_age.html#capital-controls",
+    "title": "The New Gilded Age",
+    "section": "Capital Controls",
+    "text": "Capital Controls\nTo prevent capital flight, the U.S. government might implement capital controls, restricting the movement of funds outside the country (Dornbusch 1996). Such policies could initially stabilize domestic financial markets by preventing liquidity outflows, but they would ultimately deter foreign investment and reduce the credibility of the U.S. dollar (Prasad 2021). If capital controls are implemented alongside protectionist trade policies, the global financial system could realign, reducing reliance on the dollar (Eichengreen 2019)."
+  },
+  {
+    "objectID": "projects/gilded_age/gilded_age.html#internal-conflict",
+    "href": "projects/gilded_age/gilded_age.html#internal-conflict",
+    "title": "The New Gilded Age",
+    "section": "Internal Conflict",
+    "text": "Internal Conflict\nWith increasing partisan division, the U.S. could experience state-led resistance against federal economic policies. Democratic-led states might oppose Republican federal mandates, leading to legal disputes over taxation, social policies, and trade regulations (Levitsky and Ziblatt 2018). In extreme cases, states like California could advocate for economic or political autonomy, mirroring secessionist movements of the 19th century, while Texas, despite its strong Republican leanings, might push for greater state sovereignty in response to federal overreach or shifting national policies (Acker 2020)."
+  },
+  {
+    "objectID": "projects/gilded_age/gilded_age.html#u.s.-dollar-as-the-global-reserve-currency",
+    "href": "projects/gilded_age/gilded_age.html#u.s.-dollar-as-the-global-reserve-currency",
+    "title": "The New Gilded Age",
+    "section": "U.S. Dollar as the Global Reserve Currency",
+    "text": "U.S. Dollar as the Global Reserve Currency\nThe decline of the British pound post-World War II illustrates how global reserve currencies can lose dominance due to internal and external economic shifts (Eichengreen 2019). If U.S. political instability continues, central banks worldwide may accelerate diversification away from dollar holdings, increasing reliance on alternative financial networks such as BRICS payment systems, Bitcoin, and other emerging digital currencies. (Prasad 2021)."
   },
   {
     "objectID": "about.html",
@@ -12,5 +54,12 @@
     "title": "About",
     "section": "",
     "text": "About this site"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "gitsam",
+    "section": "",
+    "text": "This is a Quarto website. modified\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
   }
 ]

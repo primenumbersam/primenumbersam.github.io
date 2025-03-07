@@ -9,8 +9,8 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
-      - href: about.qmd
-        text: another about
+      - href: projects/gilded_age/gilded_age.qmd
+        text: The New Gilded Age
     tools:
       - icon: youtube
         href: https://www.youtube.com/@primenumbersam
