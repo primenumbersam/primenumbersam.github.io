@@ -1,12 +1,40 @@
 ---
 title: "GitSAM"
+bibliography: references.bib
 format:
   html:
     code-fold: true
+    toc: true
 jupyter: python3
 ---
 
+내가 관심있는 것들...왜? [^1].
+
+[^1]: 그냥요.
+
+### 책들 
+- **@pascal1670pensees**: *"Human nature is full of contradictions; reason alone cannot guide us—faith and intuition must complement our understanding."*  
+- **@voltaire1759candide**: *"Unconditional optimism is dangerous; do not fall into the trap of blind optimism, but instead cultivate your own reality."*  
+- **@twain1881prince**: *"Social status is arbitrary; true worth is not determined by birth but by one's character and actions."*  
+- **@friedman1980free**: *"Economic freedom is essential for political freedom; individuals should have the power to make their own choices in the marketplace."*
+
+### 그림
+
 For a demonstration of a line plot on a polar axis, see @fig-polar.
+
+![image-web 대한민국 인구분포 변화](https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/South_korea_population_pyramid_1960-2020.gif/645px-South_korea_population_pyramid_1960-2020.gif)
+
+### 수식
+
+$$
+e^{-\pi i} = -1
+$$ {#eq-poisson}
+
+| Default | Left | Right | Center |
+|---------|:-----|------:|:------:|
+| 12      | 12   |    12 |   12   |
+| 123     | 123  |   123 |  123   |
+| 1       | 1    |     1 |   1    |
 
 ```{python}
 #| label: fig-polar
@@ -25,3 +53,5 @@ ax.set_rticks([0.5, 1, 1.5, 2])
 ax.grid(True)
 plt.show()
 ```
+
+
