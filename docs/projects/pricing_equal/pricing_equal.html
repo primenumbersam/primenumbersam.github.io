@@ -22,7 +22,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -69,6 +89,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -116,7 +165,7 @@ ul.task-list li input[type="checkbox"] {
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools tools-wide">
-    <a href="https://www.gitsam.com" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-user-group"></i></a>
+    <a href="https://www.gitsam.com" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-house"></i></a>
     <a href="https://www.youtube.com/@primenumbersam" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-youtube"></i></a>
     <div class="dropdown">
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
@@ -141,8 +190,22 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link active" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#main" id="toc-main" class="nav-link" data-scroll-target="#main">Main</a>
+  <ul class="collapse">
+  <li><a href="#model-scenario" id="toc-model-scenario" class="nav-link" data-scroll-target="#model-scenario">Model Scenario</a></li>
+  <li><a href="#emm-based-call-option-valuation-theory" id="toc-emm-based-call-option-valuation-theory" class="nav-link" data-scroll-target="#emm-based-call-option-valuation-theory">EMM-based Call Option Valuation Theory</a></li>
+  <li><a href="#empirical-analysis" id="toc-empirical-analysis" class="nav-link" data-scroll-target="#empirical-analysis">Empirical Analysis</a></li>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">Discussion</a></li>
+  </ul></li>
+  <li><a href="#literature-review" id="toc-literature-review" class="nav-link" data-scroll-target="#literature-review">Literature Review</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -185,10 +248,151 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>By applying the EMM-based asset pricing approach, this study quantifies the impact of structural inequalities on the valuation of ostensibly equal opportunities. The results emphasize the importance of considering underlying economic disparities when evaluating the fairness and effectiveness of qualification standards in society.</p>
+</section>
+<section id="main" class="level2">
+<h2 class="anchored" data-anchor-id="main">Main</h2>
+<section id="model-scenario" class="level3">
+<h3 class="anchored" data-anchor-id="model-scenario">Model Scenario</h3>
+<p>In short, we consider a society divided into two distinct classes:</p>
+<ul>
+<li><strong>Proletariat (P)</strong>: Individuals with access to general opportunities.</li>
+<li><strong>Capitalist (C)</strong>: Individuals with access to both general and exclusive special opportunities.</li>
+</ul>
+<p>Internally, both classes operate within perfectly competitive markets that adhere to the no-arbitrage principle. However, due to capital constraints, members of the P class cannot access the special opportunities available to the C class, rendering these opportunities unattainable. Consequently, while the absolute value of special opportunities is equal to or greater than that of general opportunities, the P class cannot exploit potential arbitrage opportunities due to these constraints. Both classes have offspring who inherit the economic outcomes of their parents’ investments. To claim these inherited assets, all offspring must meet a minimum qualification standard (e.g., educational credentials), analogous to the strike price (<span class="math inline">\(K\)</span>) in option pricing. Until this qualification is met, the offspring hold a call option on their parents’ assets.</p>
+<p>In detail, consider two distinct social classes: the proletariat (P), representing working-class individuals, and the capitalist class (C), representing wealthy individuals. These two classes face fundamentally different opportunity sets due to deep-seated structural inequalities. Such societal barriers, from both democratic and utilitarian viewpoints, constitute a significant social inefficiency.</p>
+<p>To analyze the structural origins of this inefficiency, we apply the concept of <strong>Limits to Arbitrage Theory</strong>, which suggests markets are not always fully efficient. This inefficiency arises because of various constraints, such as behavioral biases, risk constraints, and notably, capital constraints. Capital constraints imply that significant capital is required to engage in arbitrage, effectively isolating classes economically. We assume, therefore, that the proletariat and capitalist classes are economically segregated due to these capital constraints.</p>
+<p>Within each class, economic opportunities exist in a perfectly competitive market, satisfying the no-arbitrage condition internally. Members of the proletariat (P) freely select from a common set of general opportunities available to them. Conversely, members of the capitalist class (C) not only share these general opportunities but also exclusively access additional “special opportunities.” From the viewpoint of proletariat class members, these special opportunities represent unattainable benefits (“grapes beyond reach”), carrying higher or equal absolute value compared to general opportunities.</p>
+<p>Theoretically, if members of the capitalist class could short-sell general opportunities and simultaneously long-position special opportunities, they could realize arbitrage profits. However, due to aforementioned capital constraints (“limits to arbitrage”), such arbitrage trading is practically impossible within this model.</p>
+<p>Both classes have offspring who inherit the economic results (absolute asset values) of their parents’ investment choices. To claim these inherited assets, children from both classes must meet identical minimum qualification standards (e.g., university diplomas, basic educational credentials). Although the qualification standard is identical for both, outcomes differ significantly due to inherited assets. For instance, a business administration graduate from the capitalist class inherits and manages substantial capital (businesses), while an identically qualified individual from the proletariat class works as an employee, earning wages in capitalist-owned enterprises.</p>
+<p>The minimum qualification standard can be understood as a fixed barrier or strike price (K) of a <strong>call option</strong>. Until the qualification requirement is fulfilled, the children effectively hold call options on their parents’ assets. This model aims to quantify the absolute value of these call options for each class, reflecting the inherited economic outcomes accessible to the offspring.</p>
+</section>
+<section id="emm-based-call-option-valuation-theory" class="level3">
+<h3 class="anchored" data-anchor-id="emm-based-call-option-valuation-theory">EMM-based Call Option Valuation Theory</h3>
+<p>Assume a simple 1 period setting with only two possible states (e.g.&nbsp;good or bad). Under the Equivalent Martingale Measure (EMM), the fair market value of a call option at time 0, denoted as <span class="math inline">\(\hat{f}_0\)</span>, must satisfy:</p>
+<p><span class="math display">\[\hat{f_0}\cdot R = E^q[f_1]\]</span> where <span class="math inline">\(f_1=max(S_0 \cdot U-K,0)\)</span></p>
+<p><span class="math display">\[S_0\cdot R=E^q[S_1]\]</span> where <span class="math inline">\(S_0\)</span> = the current price of risky underlying asset</p>
+<p>From these two equations, we have the EMM or the state price density for good state <span class="math inline">\(q\)</span> as: <span class="math display">\[
+q = \frac{R - D}{U - D}
+\]</span></p>
+<p>Thus, the present fair value of the call option is given by:</p>
+<p><span class="math display">\[
+\hat{f}_0 = \frac{1}{R}\left[ \frac{R - D}{U - D}(S_0 \cdot U - K) + \frac{U - R}{U - D} \cdot 0 \right] = \frac{(R - D)(U - 1)}{R(U - D)}
+\]</span></p>
+<p>assuming that</p>
+<ul>
+<li>Initial Asset Price (normalized): <span class="math inline">\(S_0=1\)</span><br>
+</li>
+<li>Strike Price (qualification threshold): <span class="math inline">\(K=1\)</span><br>
+</li>
+<li>Maturity: 20 years (quarterly steps = 80 periods)</li>
+</ul>
+<p>This formula indicates a clear proportional relationship for estimating current fair values representing inherited qualification-based claims for each class over a 20-year maturity period. While this valuation could be approximated using continuous distributions (e.g., Black-Scholes under symmetric assumptions <span class="math inline">\(U \cdot D=1\)</span>), our discrete binomial model allows straightforward interpretation without loss of economic intuition.</p>
+</section>
+<section id="empirical-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="empirical-analysis">Empirical Analysis</h3>
+<p>We employ distinct underlying assets for each class. Using the historical dataset (Q1 1982–Q4 2019, 152 quarterly observations), we estimated the parameters and their associated fair values of call options for each class.</p>
+<p><strong>For Proletariat (P) Class Children:</strong></p>
+<ul>
+<li><strong>Risky Asset</strong>: US Median usual weekly Real earnings (LES1252881600Q)<br>
+</li>
+<li><strong>Risk-Free Asset</strong>: US Real GDP per capita (A939RX0Q048SBEA)<br>
+</li>
+<li>Parameters:
+<ul>
+<li>$U_p = $: 75th percentile growth of wage (risky asset)<br>
+</li>
+<li>$D_p = $: 25th percentile growth of wage<br>
+</li>
+<li>$R_p = $: Median growth rate of Real GDP per capita (risk-free asset)</li>
+</ul></li>
+</ul>
+<p><strong>For Capitalist (C) Class Children:</strong></p>
+<ul>
+<li><strong>Risky Asset</strong>: S&amp;P 500 equity returns (SPX)<br>
+</li>
+<li><strong>Risk-Free Asset</strong>: US 10-Year Treasury Bond Yield (DGS10)<br>
+</li>
+<li>Parameters:
+<ul>
+<li>$U_c = $: 75th percentile quarterly growth of the equity index<br>
+</li>
+<li>$D_c = $: 25th percentile quarterly growth of the equity index<br>
+</li>
+<li>$R_c = $: Median quarterly growth of 10-year Treasury bonds</li>
+</ul></li>
+</ul>
+<p><strong>Empirical Results:</strong></p>
+<ul>
+<li><strong>For Proletariat (P) class children</strong>, <span class="math inline">\(\hat{P}_0=?\)</span><br>
+</li>
+<li><strong>For Capitalist (C) class children</strong>, <span class="math inline">\(\hat{C}_0=?\)</span></li>
+</ul>
+</section>
+<section id="discussion" class="level3">
+<h3 class="anchored" data-anchor-id="discussion">Discussion</h3>
+<p>This model clarifies the stark inequality underlying “ostensibly equal” qualification standards. Although formally identical, the call options’ absolute valuations significantly diverge, reflecting distinct economic inheritances accessible to each class. This disparity highlights structural inefficiencies and deep-rooted inequalities, persisting despite nominally identical qualification standards.</p>
+<p>Ultimately, this analysis underscores how asset-based class differentiation profoundly impacts the perceived and realized absolute value of educational and economic opportunities, illuminating critical implications for economic policy, educational equity, and social justice frameworks.</p>
+</section>
+</section>
+<section id="literature-review" class="level2">
+<h2 class="anchored" data-anchor-id="literature-review">Literature Review</h2>
+<p>In societies characterized by pronounced economic stratification, opportunities presented as equal often yield disparate outcomes across different social strata. This disparity arises from inherent structural inefficiencies that restrict access to certain opportunities based on class. The <strong>Limits to Arbitrage Theory</strong> posits that market inefficiencies can persist due to various constraints, including capital limitations, preventing rational traders from correcting mispricings <span class="citation" data-cites="shleifer1997limits">(<a href="#ref-shleifer1997limits" role="doc-biblioref">Shleifer and Vishny 1997</a>)</span>. This paper explores how such constraints contribute to the unequal valuation of opportunities between the proletariat (P) and capitalist (C) classes.</p>
+<p>This study is rooted in the broader financial economics literature exploring the persistence of structural inequalities, capital constraints, and arbitrage limitations that create and maintain market inefficiencies and unequal opportunity sets.</p>
+<p>The theoretical foundation relies primarily on the limits to arbitrage theory, initially articulated by Shleifer and Vishny <span class="citation" data-cites="shleifer1997limits">(<a href="#ref-shleifer1997limits" role="doc-biblioref">Shleifer and Vishny 1997</a>)</span>. Their seminal work shows how market inefficiencies persist due to practical constraints, particularly capital constraints, restricting the ability of arbitrageurs to exploit and correct mispricings. These constraints arise from significant capital requirements that effectively segregate participants into distinct economic spheres, as emphasized by subsequent studies on financially constrained arbitrageurs <span class="citation" data-cites="gromb2002equilibrium xiong2001convergence">(<a href="#ref-gromb2002equilibrium" role="doc-biblioref">Gromb and Vayanos 2002</a>; <a href="#ref-xiong2001convergence" role="doc-biblioref">Xiong 2001</a>)</span>. Kondor further highlights how risks associated with arbitrage can amplify structural inefficiencies, making profitable arbitrage difficult even in seemingly competitive markets <span class="citation" data-cites="kondor2009risk">(<a href="#ref-kondor2009risk" role="doc-biblioref">Kondor 2009</a>)</span>.</p>
+<p>Geanakoplos’ research introduces the leverage cycle, which explains how fluctuations in leverage and capital availability perpetuate systemic inequality and financial instability <span class="citation" data-cites="geanakoplos2010leverage">(<a href="#ref-geanakoplos2010leverage" role="doc-biblioref">Geanakoplos 2010</a>)</span>. Complementary studies, such as that by Gromb and Vayanos, also demonstrate the welfare implications of constrained arbitrageurs operating under capital limitations, further exacerbating persistent inequality <span class="citation" data-cites="gromb2002equilibrium">(<a href="#ref-gromb2002equilibrium" role="doc-biblioref">Gromb and Vayanos 2002</a>)</span>. Moreover, Barberis and Thaler’s comprehensive survey on behavioral finance indicates how cognitive and behavioral constraints exacerbate market inefficiencies, reinforcing the structural barriers that differentiate economic outcomes across social strata <span class="citation" data-cites="barberis2003survey">(<a href="#ref-barberis2003survey" role="doc-biblioref">Barberis and Thaler 2003</a>)</span>.</p>
+<p>Extending beyond purely financial contexts, sociological and economic research provides additional perspectives on structural inequalities and opportunity valuation. Bourdieu’s concept of social reproduction underscores how cultural capital perpetuates socioeconomic inequalities across generations <span class="citation" data-cites="bourdieu1973cultural">(<a href="#ref-bourdieu1973cultural" role="doc-biblioref">Bourdieu 1973</a>)</span>. Recent empirical evidence by Stansbury <span class="citation" data-cites="stansbury2024class">(<a href="#ref-stansbury2024class" role="doc-biblioref">Stansbury 2024</a>)</span> and findings by the Social Mobility Commission <span class="citation" data-cites="smc2023class">(<a href="#ref-smc2023class" role="doc-biblioref">Social Mobility Commission 2023</a>)</span> further demonstrate how economic capital inherited through generations shapes differential outcomes, even when individuals ostensibly possess identical qualifications.</p>
+<p>Chetty et al.&nbsp;provide compelling evidence linking parental economic conditions to children’s educational outcomes and future earnings, strongly supporting the relevance of inherited economic positions in determining opportunity valuations <span class="citation" data-cites="chetty2014family">(<a href="#ref-chetty2014family" role="doc-biblioref">Chetty et al. 2014</a>)</span>. Similarly, Piketty’s influential book highlights the crucial role inherited wealth plays in perpetuating structural economic disparities, emphasizing the critical nature of capital inheritance in shaping individuals’ economic trajectories and their access to opportunities <span class="citation" data-cites="piketty2014capital">(<a href="#ref-piketty2014capital" role="doc-biblioref">Piketty 2014</a>)</span>.</p>
+<p>Policy implications regarding these structural inequalities and efforts to enhance social mobility have been explored extensively by institutions such as the OECD. Their analyses suggest policy frameworks that might alleviate the persistent inequalities discussed herein <span class="citation" data-cites="oecd2018mobility">(<a href="#ref-oecd2018mobility" role="doc-biblioref">OECD 2018</a>)</span>. Reeves’ concept of the “glass floor” further illustrates how affluent socioeconomic backgrounds systematically maintain class advantages despite equal or even lesser merit-based qualifications <span class="citation" data-cites="reeves2017glassfloor">(<a href="#ref-reeves2017glassfloor" role="doc-biblioref">Reeves 2017</a>)</span>.</p>
+<p>Collectively, these studies underline a coherent narrative: ostensibly equal opportunities often conceal significant disparities rooted in inherited structural inequalities, persistent capital constraints, and behavioral limitations to arbitrage. Our model complements this literature by quantitatively evaluating how these structural factors systematically influence the absolute value of identical qualification standards across distinct socioeconomic groups.</p>
 
 
 
-</main> <!-- /main -->
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-barberis2003survey" class="csl-entry" role="listitem">
+Barberis, Nicholas, and Richard Thaler. 2003. <span>“A Survey of Behavioral Finance.”</span> <em>Handbook of the Economics of Finance</em> 1: 1053–1128.
+</div>
+<div id="ref-bourdieu1973cultural" class="csl-entry" role="listitem">
+Bourdieu, Pierre. 1973. <span>“Cultural Reproduction and Social Reproduction,”</span> 71–112.
+</div>
+<div id="ref-chetty2014family" class="csl-entry" role="listitem">
+Chetty, Raj, Nathaniel Hendren, Patrick Kline, and Emmanuel Saez. 2014. <span>“Where Is the Land of Opportunity? The Geography of Intergenerational Mobility in the United States.”</span> <em>Quarterly Journal of Economics</em> 129 (4): 1553–623.
+</div>
+<div id="ref-geanakoplos2010leverage" class="csl-entry" role="listitem">
+Geanakoplos, John. 2010. <span>“The Leverage Cycle.”</span> <em>NBER Macroeconomics Annual</em> 24: 1–65.
+</div>
+<div id="ref-gromb2002equilibrium" class="csl-entry" role="listitem">
+Gromb, Denis, and Dimitri Vayanos. 2002. <span>“Equilibrium and Welfare in Markets with Financially Constrained Arbitrageurs.”</span> <em>Journal of Financial Economics</em> 66 (2-3): 361–407.
+</div>
+<div id="ref-kondor2009risk" class="csl-entry" role="listitem">
+Kondor, Peter. 2009. <span>“Risk in Dynamic Arbitrage: Price Effects of Convergence Trading.”</span> <em>The Journal of Finance</em> 64 (2): 638–58.
+</div>
+<div id="ref-oecd2018mobility" class="csl-entry" role="listitem">
+OECD. 2018. <span>“A Broken Social Elevator? How to Promote Social Mobility.”</span> OECD Publishing. <a href="https://www.oecd.org/social/social-mobility-2018-report.pdf">https://www.oecd.org/social/social-mobility-2018-report.pdf</a>.
+</div>
+<div id="ref-piketty2014capital" class="csl-entry" role="listitem">
+Piketty, Thomas. 2014. <em>Capital in the Twenty-First Century</em>. Harvard University Press.
+</div>
+<div id="ref-reeves2017glassfloor" class="csl-entry" role="listitem">
+Reeves, Richard V. 2017. <em>Dream Hoarders: How the American Upper Middle Class Is Leaving Everyone Else in the Dust</em>. Brookings Institution Press.
+</div>
+<div id="ref-shleifer1997limits" class="csl-entry" role="listitem">
+Shleifer, Andrei, and Robert W. Vishny. 1997. <span>“The Limits of Arbitrage.”</span> <em>The Journal of Finance</em> 52 (1): 35–55.
+</div>
+<div id="ref-smc2023class" class="csl-entry" role="listitem">
+Social Mobility Commission. 2023. <span>“State of the Nation Report 2023: Class, Meritocracy and Inequality.”</span> <em>UK Government Publication</em>. <a href="https://www.gov.uk/government/publications/social-mobility-commission-2023-report">https://www.gov.uk/government/publications/social-mobility-commission-2023-report</a>.
+</div>
+<div id="ref-stansbury2024class" class="csl-entry" role="listitem">
+Stansbury, Anna. 2024. <span>“Class and Career Outcomes Among the Highly Educated.”</span> <em>Financial Times</em>. <a href="https://www.ft.com/content/ddf5fe9b-cf67-48f8-a01b-69f1e5635a1b">https://www.ft.com/content/ddf5fe9b-cf67-48f8-a01b-69f1e5635a1b</a>.
+</div>
+<div id="ref-xiong2001convergence" class="csl-entry" role="listitem">
+Xiong, Wei. 2001. <span>“Convergence Trading with Wealth Effects.”</span> <em>Journal of Financial Economics</em> 62 (2): 247–92.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

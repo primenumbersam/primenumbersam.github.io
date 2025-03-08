@@ -27,7 +27,7 @@ For a demonstration of a line plot on a polar axis, see @fig-polar.
 ### 수식
 
 $$
-e^{-\pi i} = -1
+e^{\pi i} = -1
 $$ {#eq-poisson}
 
 | Default | Left | Right | Center |

@@ -17,7 +17,7 @@ website:
           - href: projects/pricing_equal/pricing_equal.qmd
             text: Pricing Equal Opportunity
     tools:
-      - icon: user-group
+      - icon: house
         href: https://www.gitsam.com
       - icon: youtube
         href: https://www.youtube.com/@primenumbersam

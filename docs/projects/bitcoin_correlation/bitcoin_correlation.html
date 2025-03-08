@@ -134,7 +134,7 @@ div.csl-indent {
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools tools-wide">
-    <a href="https://www.gitsam.com" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-user-group"></i></a>
+    <a href="https://www.gitsam.com" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-house"></i></a>
     <a href="https://www.youtube.com/@primenumbersam" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-youtube"></i></a>
     <div class="dropdown">
       <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
@@ -167,9 +167,9 @@ div.csl-indent {
   <li><a href="#key-summary" id="toc-key-summary" class="nav-link active" data-scroll-target="#key-summary">Key Summary</a></li>
   <li><a href="#추가-조사-사항" id="toc-추가-조사-사항" class="nav-link" data-scroll-target="#추가-조사-사항">추가 조사 사항</a>
   <ul class="collapse">
-  <li><a href="#나스닥-100-지수" id="toc-나스닥-100-지수" class="nav-link" data-scroll-target="#나스닥-100-지수">나스닥-100 지수</a></li>
-  <li><a href="#미국-달러-인덱스dxy" id="toc-미국-달러-인덱스dxy" class="nav-link" data-scroll-target="#미국-달러-인덱스dxy">미국 달러 인덱스(DXY)</a></li>
-  <li><a href="#다른-경제지표와의-상관관계" id="toc-다른-경제지표와의-상관관계" class="nav-link" data-scroll-target="#다른-경제지표와의-상관관계">다른 경제지표와의 상관관계</a></li>
+  <li><a href="#ndx" id="toc-ndx" class="nav-link" data-scroll-target="#ndx">NDX</a></li>
+  <li><a href="#dxy" id="toc-dxy" class="nav-link" data-scroll-target="#dxy">DXY</a></li>
+  <li><a href="#other-indicators" id="toc-other-indicators" class="nav-link" data-scroll-target="#other-indicators">Other indicators</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -199,71 +199,71 @@ div.csl-indent {
 <section id="key-summary" class="level2">
 <h2 class="anchored" data-anchor-id="key-summary">Key Summary</h2>
 <ul>
-<li>비트코인과 강한 양의 상관관계를 보이는 것은, 나스닥 대형 기술주들이 포함된 나스닥-100 지수 (상관계수는 약 0.8에서 0.9로 추정됨, 데이터 period 및 frequency 보충) <span class="citation" data-cites="nasdaq2023">(<a href="#ref-nasdaq2023" role="doc-biblioref">Nasdaq 2023</a>)</span>.<br>
+<li>주의: 선형 상관관계는 시간에 따라 변동할 수 있으며, 특히 비트코인은 시장 심리, 규제 변화, 기술적 요인 등에 크게 영향을 받습니다. 예를 들어, 따라서 최신 데이터를 주기적으로 확인하는 것이 중요합니다.<br>
 </li>
-<li>비트코인과 강한 음의 상관관계를 보이는 것은, 미국 달러 인덱스(DXY) (상관계수는 약 -0.7, 데이터 period 및 frequency 보충) <span class="citation" data-cites="coindesk2023">(<a href="#ref-coindesk2023" role="doc-biblioref">Coindesk 2023</a>)</span>. 달러와 반대 방향으로 움직이는 비트코인은 인플레이션 헤지 자산으로 간주될 가능성을 시사함.</li>
-<li>비트코인과 다른 경제지표(예: 금, GDP, 인플레이션)와의 상관관계는 덜 명확하거나 약했음. 금과의 상관관계는 시기마다 변동이 크고, GDP와의 관계는 간접적입니다 <span class="citation" data-cites="cointelegraph2023 cryptoslate2022">(<a href="#ref-cointelegraph2023" role="doc-biblioref">Cointelegraph 2023</a>; <a href="#ref-cryptoslate2022" role="doc-biblioref">Cryptoslate 2022</a>)</span>.<br>
+<li>비트코인과 강한 양의 상관관계를 보이는 것은, 나스닥 대형 기술주들이 포함된 나스닥-100 지수 (NDX) (상관계수는 약 0.8에서 0.9로 추정됨, 데이터 period 및 frequency 보충) <span class="citation" data-cites="nasdaq2023">(<a href="#ref-nasdaq2023" role="doc-biblioref">Nasdaq 2023</a>)</span>.<br>
 </li>
-<li>주의: 선형 상관관계는 시간에 따라 변동할 수 있으며, 특히 비트코인은 시장 심리, 규제 변화, 기술적 요인 등에 크게 영향을 받습니다. 예를 들어, 따라서 최신 데이터를 주기적으로 확인하는 것이 중요합니다.</li>
+<li>비트코인과 강한 음의 상관관계를 보이는 것은, 미국 달러 지수 (DXY) (상관계수는 약 -0.7, 데이터 period 및 frequency 보충) <span class="citation" data-cites="coindesk2023">(<a href="#ref-coindesk2023" role="doc-biblioref">Coindesk 2023</a>)</span>. 달러와 반대 방향으로 움직이는 비트코인은 인플레이션 헤지 자산으로 간주될 가능성을 시사함.</li>
+<li>비트코인과 다른 경제지표(예: 금, GDP, 인플레이션)와의 상관관계는 덜 명확하거나 약했음. 금과의 상관관계는 시기마다 변동이 크고, GDP와의 관계는 간접적입니다 <span class="citation" data-cites="cointelegraph2023 cryptoslate2022">(<a href="#ref-cointelegraph2023" role="doc-biblioref">Cointelegraph 2023</a>; <a href="#ref-cryptoslate2022" role="doc-biblioref">Cryptoslate 2022</a>)</span>.</li>
 </ul>
 </section>
 <section id="추가-조사-사항" class="level2">
 <h2 class="anchored" data-anchor-id="추가-조사-사항">추가 조사 사항</h2>
-<section id="나스닥-100-지수" class="level3">
-<h3 class="anchored" data-anchor-id="나스닥-100-지수">나스닥-100 지수</h3>
+<section id="ndx" class="level3">
+<h3 class="anchored" data-anchor-id="ndx">NDX</h3>
 <ul>
 <li>나스닥-100 지수와 coupling이 더욱 심해지기 시작한 시기는 정확히 언제였는지 조사. 비트코인 ETF 승인 이후 기관 투자자의 참여 증가부터?</li>
 <li>2020년 COVID-19 위기 이후 비트코인과 주식시장 간 상관관계가 강화된 사례가 관찰되었으나 <span class="citation" data-cites="nasdaq2020">(<a href="#ref-nasdaq2020" role="doc-biblioref">Nasdaq 2020</a>)</span>, 2023년에도 나스닥-100 지수와의 강한 상관관계가 계속 유지되었나?</li>
 <li>2022년 5월 연방준비제도(Fed)의 금리 인상 발표 시 나스닥과 비트코인 모두 하락한 사례가 관찰된 적이 있었음.</li>
 </ul>
 </section>
-<section id="미국-달러-인덱스dxy" class="level3">
-<h3 class="anchored" data-anchor-id="미국-달러-인덱스dxy">미국 달러 인덱스(DXY)</h3>
+<section id="dxy" class="level3">
+<h3 class="anchored" data-anchor-id="dxy">DXY</h3>
 <ul>
-<li>DXY와 비트코인의 역관계가 인플레이션 헤지 자산으로서 비트코인의 역할을 설명하며, 특히 글로벌 경제 불확실성 시 이 관계가 두드러진다고 분석합니다 <span class="citation" data-cites="coinglass2023">(<a href="#ref-coinglass2023" role="doc-biblioref">Coinglass 2023</a>)</span>.<br>
+<li>DXY와 비트코인의 역관계가 인플레이션 헤지 자산으로서 비트코인의 역할을 설명하며, 특히 글로벌 경제 불확실성 시 이 관계가 두드러진다고 분석 <span class="citation" data-cites="coinglass2023">(<a href="#ref-coinglass2023" role="doc-biblioref">Coinglass 2023</a>)</span>.<br>
 </li>
 <li>2023년 4월 GDP 데이터 발표 전후로 음의 상관관계가 강화? negative coupling이 심해지기 시작한 시기는 정확히 언제였는지 조사.</li>
 </ul>
 </section>
-<section id="다른-경제지표와의-상관관계" class="level3">
-<h3 class="anchored" data-anchor-id="다른-경제지표와의-상관관계">다른 경제지표와의 상관관계</h3>
-<p>다른 경제지표와의 상관관계는 덜 명확하거나 약하며, 아래 표를 통해 요약합니다.</p>
+<section id="other-indicators" class="level3">
+<h3 class="anchored" data-anchor-id="other-indicators">Other indicators</h3>
+<p>덜 명확하거나 약하며, 아래 표를 통해 요약.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 7%">
-<col style="width: 10%">
-<col style="width: 42%">
-<col style="width: 40%">
+<col style="width: 9%">
+<col style="width: 16%">
+<col style="width: 56%">
+<col style="width: 16%">
 </colgroup>
 <thead>
 <tr class="header">
-<th><strong>경제지표</strong></th>
-<th><strong>상관관계 유형</strong></th>
-<th><strong>상세 설명</strong></th>
-<th><strong>출처</strong></th>
+<th>경제지표</th>
+<th>상관관계 유형</th>
+<th>상세 설명</th>
+<th>출처</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>인플레이션</td>
+<td><strong>인플레이션</strong></td>
 <td>불명확, 잠재적 양의 상관관계</td>
 <td>인플레이션 헤지 자산으로 간주되지만, 연구 결과 상충</td>
 <td><span class="citation" data-cites="science2021">(<a href="#ref-science2021" role="doc-biblioref">Dyhrberg 2021</a>)</span></td>
 </tr>
 <tr class="even">
-<td>금리(Interest Rates)</td>
+<td><strong>금리 (Interest Rates)</strong></td>
 <td>음의 상관관계, 강함</td>
 <td>금리 상승 시 비트코인 가격 하락, 특히 2022~2023년 Fed 금리 인상 시 관찰</td>
 <td><span class="citation" data-cites="forbes2024">(<a href="#ref-forbes2024" role="doc-biblioref">Forbes 2024</a>)</span></td>
 </tr>
 <tr class="odd">
-<td>금(Gold)</td>
+<td><strong>금 (Gold)</strong></td>
 <td>불규칙, 약함</td>
 <td>상관계수는 시기마다 변동</td>
 <td><span class="citation" data-cites="cointelegraph2023">(<a href="#ref-cointelegraph2023" role="doc-biblioref">Cointelegraph 2023</a>)</span></td>
 </tr>
 <tr class="even">
-<td>GDP</td>
+<td><strong>GDP</strong></td>
 <td>간접적, 약함</td>
 <td>경제 성장 시 비트코인 수요 증가 가능, 하지만 명확한 상관관계는 미흡</td>
 <td><span class="citation" data-cites="cryptoslate2022">(<a href="#ref-cryptoslate2022" role="doc-biblioref">Cryptoslate 2022</a>)</span></td>
