@@ -15,7 +15,7 @@ website:
           - href: projects/pricing_equal/pricing_equal.qmd
             text: Pricing Equal Opportunity
           - href: projects/correlation_crypto/correlation_crypto.qmd
-            text: Bitcoin Correlation
+            text: Correlation in Crypto
     tools:
       - icon: house
         href: https://www.gitsam.com

@@ -62,9 +62,9 @@ assuming that
 
 * Initial Asset Price (normalized): $S_0=1$  
 * Strike Price (qualification threshold): $K=1$  
-* Maturity: 20 years (quarterly steps = 80 periods)  
+* Maturity: 18 years (quarterly steps = 72 periods)  
 
-This formula indicates a clear proportional relationship for estimating current fair values representing inherited qualification-based claims for each class over a 20-year maturity period. While this valuation could be approximated using continuous distributions (e.g., Black-Scholes under symmetric assumptions $U \cdot D=1$), our discrete binomial model allows straightforward interpretation without loss of economic intuition.
+This formula indicates a clear proportional relationship for estimating current fair values representing inherited qualification-based claims for each class over a 18-year maturity period. While this valuation could be approximated using continuous distributions (e.g., Black-Scholes under symmetric assumptions $U \cdot D=1$), our discrete binomial model allows straightforward interpretation without loss of economic intuition.
 
 ### Empirical Analysis
 
@@ -75,23 +75,126 @@ We employ distinct underlying assets for each class. Using the historical datase
 * **Risky Asset**: US Median usual weekly Real earnings (LES1252881600Q)  
 * **Risk-Free Asset**: US Real GDP per capita (A939RX0Q048SBEA)  
 * Parameters:  
-  - $U_p = $: 75th percentile growth of wage (risky asset)  
-  - $D_p = $: 25th percentile growth of wage  
-  - $R_p = $: Median growth rate of Real GDP per capita (risk-free asset)  
+  - $U_p$:= 75th percentile growth of wage (risky asset)  
+  - $D_p$:= 25th percentile growth of wage  
+  - $R_p$:= Median growth rate of Real GDP per capita
 
 **For Capitalist (C) Class Children:**  
 
-* **Risky Asset**: S&P 500 equity returns (SPX)  
-* **Risk-Free Asset**: US 10-Year Treasury Bond Yield (DGS10)  
+* **Risky Asset**: S&P 500 equity (SPX)  
+* **Risk-Free Asset**: US 10-Year Treasury Bond
 * Parameters:  
-  - $U_c = $: 75th percentile quarterly growth of the equity index  
-  - $D_c = $: 25th percentile quarterly growth of the equity index  
-  - $R_c = $: Median quarterly growth of 10-year Treasury bonds  
+  - $U_c$:= 75th percentile quarterly growth of the equity index  
+  - $D_c$:= 25th percentile quarterly growth of the equity index  
+  - $R_c$:= Median of quarterly US 10-Year Treasury Bond Yield (DGS10)
 
 **Empirical Results:**
 
 * **For Proletariat (P) class children**, $\hat{P}_0=?$  
 * **For Capitalist (C) class children**, $\hat{C}_0=?$  
+
+```{python}
+import yfinance as yf
+import pandas_datareader.data as web
+import pandas as pd
+import numpy as np
+
+# 데이터 기간 설정
+start_date = '1982-01-01'
+end_date = '2019-12-31'
+
+# S&P 500 데이터 가져오기
+sp500 = yf.download("^GSPC", start=start_date, end=end_date, interval="1d")
+sp500_q = sp500['Close'].resample('QE').last()  # 분기별 종가 데이터
+
+# FRED 데이터 가져오기
+us_median_weekly_earnings = web.DataReader('LES1252881600Q', 'fred', start_date, end_date)
+us_real_gdp_per_capita = web.DataReader('A939RX0Q048SBEA', 'fred', start_date, end_date)
+us_10yr_treasury_yield = web.DataReader('DGS10', 'fred', start_date, end_date)
+
+# 인덱스를 맞추기 위해 분기별로 재샘플링
+us_median_weekly_earnings = us_median_weekly_earnings.resample('QE').last()
+us_real_gdp_per_capita = us_real_gdp_per_capita.resample('QE').last()
+us_10yr_treasury_yield = us_10yr_treasury_yield.resample('QE').last()
+
+# 데이터프레임으로 변환
+data = pd.DataFrame({
+    'SP500': sp500_q.squeeze(),
+    'Median_Weekly_Earnings': us_median_weekly_earnings['LES1252881600Q'].squeeze(),
+    'Real_GDP_per_Capita': us_real_gdp_per_capita['A939RX0Q048SBEA'].squeeze(),
+    '10yr_Treasury_Yield': us_10yr_treasury_yield['DGS10'].squeeze()
+}, index=sp500_q.index)
+
+# 결측값 제거
+data.dropna(inplace=True)
+
+# 수익률 계산
+data['SP500_Return'] = data['SP500'].pct_change()
+data['Earnings_Growth'] = data['Median_Weekly_Earnings'].pct_change()
+data['GDP_Growth'] = data['Real_GDP_per_Capita'].pct_change()
+
+# 통계치 계산
+U_p = data['Earnings_Growth'].quantile(0.75)+1
+D_p = data['Earnings_Growth'].quantile(0.25)+1
+R_p = data['GDP_Growth'].median()+1
+
+U_c = data['SP500_Return'].quantile(0.75)+1
+D_c = data['SP500_Return'].quantile(0.25)+1
+R_c = data['10yr_Treasury_Yield'].median()
+R_c = R_c / 100 +1
+
+print(f"Proletariat Class Children Parameters:")
+print(f"U_p: {U_p:.2f}")
+print(f"D_p: {D_p:.2f}")
+print(f"R_p: {R_p:.2f}")
+
+print(f"\nCapitalist Class Children Parameters:")
+print(f"U_c: {U_c:.2f}")
+print(f"D_c: {D_c:.2f}")
+print(f"R_c: {R_c:.2f}")
+
+
+# Binomial Option Pricing Model
+def binomial_option_pricing(K, S_0, T, U, D, R, dt):
+    """
+    K: Strike price
+    S_0: Initial stock price
+    T: Time to maturity (in years)
+    U: Up factor
+    D: Down factor
+    R: Risk-free rate
+    dt: Number of steps for each year
+    """
+    n = T*dt # Number of steps in the binomial tree
+    q = (R - D) / (U - D)
+
+    # Initialize option values at maturity
+    option_values = np.zeros((n + 1, 1))
+    for i in range(n + 1):
+        ST = S_0 * (U ** i) * (D ** (n - i))
+        option_values[i] = max(0, ST - K)
+
+    # Backward recursion for option values
+    for j in range(n - 1, -1, -1):
+        for i in range(j + 1):
+            option_values[i] = (q * option_values[i + 1] + (1 - q) * option_values[i]) / R
+
+    return option_values[0, 0]
+
+
+# Parameters
+K = 1  # Strike price
+S_0 = 1  # Initial stock price
+T = 18  # Time to maturity (18 years)
+dt = 4 # Number of steps for each year
+
+# Calculate option prices
+option_price_proletariat = binomial_option_pricing(K, S_0, T, U_p, D_p, R_p, dt)
+option_price_capitalist = binomial_option_pricing(K, S_0, T, U_c, D_c, R_c, dt)
+
+print(f"\nProletariat Class Call Option Price: {option_price_proletariat:.2f}")
+print(f"Capitalist Class Call Option Price: {option_price_capitalist:.2f}")
+```
 
 ### Discussion
 
@@ -99,14 +202,13 @@ This model clarifies the stark inequality underlying "ostensibly equal" qualific
 
 Ultimately, this analysis underscores how asset-based class differentiation profoundly impacts the perceived and realized absolute value of educational and economic opportunities, illuminating critical implications for economic policy, educational equity, and social justice frameworks.
 
-
 ## Literature Review
 
 In societies characterized by pronounced economic stratification, opportunities presented as equal often yield disparate outcomes across different social strata. This disparity arises from inherent structural inefficiencies that restrict access to certain opportunities based on class. The **Limits to Arbitrage Theory** posits that market inefficiencies can persist due to various constraints, including capital limitations, preventing rational traders from correcting mispricings [@shleifer1997limits]. This paper explores how such constraints contribute to the unequal valuation of opportunities between the proletariat (P) and capitalist (C) classes.
 
 This study is rooted in the broader financial economics literature exploring the persistence of structural inequalities, capital constraints, and arbitrage limitations that create and maintain market inefficiencies and unequal opportunity sets.
 
-The theoretical foundation relies primarily on the limits to arbitrage theory, initially articulated by Shleifer and Vishny [@shleifer1997limits]. Their seminal work shows how market inefficiencies persist due to practical constraints, particularly capital constraints, restricting the ability of arbitrageurs to exploit and correct mispricings. These constraints arise from significant capital requirements that effectively segregate participants into distinct economic spheres, as emphasized by subsequent studies on financially constrained arbitrageurs [@gromb2002equilibrium; @xiong2001convergence]. Kondor further highlights how risks associated with arbitrage can amplify structural inefficiencies, making profitable arbitrage difficult even in seemingly competitive markets [@kondor2009risk].
+The theoretical foundation relies primarily on the limits to arbitrage theory, initially articulated by Shleifer and Vishny [@shleifer1997limits]. Their seminal work shows how market inefficiencies persist due to practical constraints, particularly capital constraints, restricting the ability of arbitrageurs to exploit and correct mispricings. These constraints arise from significant capital requirements that effectively segregate participants into distinct economic spheres, as emphasized by subsequent studies on financially constrained arbitrageurs [@gromb2002equilibrium; @xiong2001convergence].
 
 Geanakoplos' research introduces the leverage cycle, which explains how fluctuations in leverage and capital availability perpetuate systemic inequality and financial instability [@geanakoplos2010leverage]. Complementary studies, such as that by Gromb and Vayanos, also demonstrate the welfare implications of constrained arbitrageurs operating under capital limitations, further exacerbating persistent inequality [@gromb2002equilibrium]. Moreover, Barberis and Thaler's comprehensive survey on behavioral finance indicates how cognitive and behavioral constraints exacerbate market inefficiencies, reinforcing the structural barriers that differentiate economic outcomes across social strata [@barberis2003survey].
 
