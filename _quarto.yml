@@ -10,14 +10,18 @@ website:
         text: Formats
       - text: "Projects"
         menu: 
+          - href: projects/correlation_crypto/correlation_crypto.qmd
+            text: Correlation in Crypto
           - href: projects/gilded_age/gilded_age.qmd
             text: The New Gilded Age
           - href: projects/pricing_equal/pricing_equal.qmd
             text: Pricing Equal Opportunity
-          - href: projects/correlation_crypto/correlation_crypto.qmd
-            text: Correlation in Crypto
           - href: projects/dichotomy/dichotomy.qmd
             text: Dichotomy
+          - href: projects/pareto_index/pareto_index.qmd
+            text: Estimating Pareto Index
+          - href: projects/corner_solution/corner_solution.qmd
+            text: Heading to Corner Solutions
     tools:
       - icon: house
         href: https://www.gitsam.com
