@@ -9,7 +9,7 @@
 <meta name="author" content="GitSAM">
 <meta name="dcterms.date" content="2025-03-11">
 
-<title>Pricing the Equal Opportunities under Structural Inequality – GitSAM</title>
+<title>Pricing the seemingly Equal Opportunities under Structural Inequality – GitSAM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -204,7 +204,7 @@ window.Quarto = {
  <span class="dropdown-text">Estimating Pareto Index</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../projects/corner_solution/corner_solution.qmd">
+    <a class="dropdown-item" href="../../projects/corner_solution/corner_solution.html">
  <span class="dropdown-text">Heading to Corner Solutions</span></a>
   </li>  
     </ul>
@@ -250,6 +250,7 @@ window.Quarto = {
   <li><a href="#empirical-analysis" id="toc-empirical-analysis" class="nav-link" data-scroll-target="#empirical-analysis">Empirical Analysis</a></li>
   <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">Discussion</a></li>
   </ul></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#literature-review" id="toc-literature-review" class="nav-link" data-scroll-target="#literature-review">Literature Review</a></li>
   </ul>
 </nav>
@@ -259,7 +260,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Pricing the Equal Opportunities under Structural Inequality</h1>
+<h1 class="title">Pricing the seemingly Equal Opportunities under Structural Inequality</h1>
 <p class="subtitle lead">An EMM-based Asset Pricing Approach</p>
 </div>
 
@@ -376,7 +377,7 @@ q = \frac{R - D}{U - D}
 </li>
 <li><strong>For Capitalist (C) class children</strong>, <span class="math inline">\(\hat{C}_0=?\)</span></li>
 </ul>
-<div id="eb76c3df" class="cell" data-execution_count="1">
+<div id="020e5e48" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> yfinance <span class="im">as</span> yf</span>
@@ -477,8 +478,8 @@ q = \frac{R - D}{U - D}
 <span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>option_price_proletariat <span class="op">=</span> binomial_option_pricing(K, S_0, T, U_p, D_p, R_p, dt)</span>
 <span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>option_price_capitalist <span class="op">=</span> binomial_option_pricing(K, S_0, T, U_c, D_c, R_c, dt)</span>
 <span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Proletariat Class Call Option Price: </span><span class="sc">{</span>option_price_proletariat<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
-<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Capitalist Class Call Option Price: </span><span class="sc">{</span>option_price_capitalist<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Fair price of Call Option, held by Proletariat Class Children:</span><span class="ch">\n</span><span class="ss"> </span><span class="sc">{</span>option_price_proletariat<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Fair price of Call Option, held by Capitalist Class Children:</span><span class="ch">\n</span><span class="ss"> </span><span class="sc">{</span>option_price_capitalist<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>YF.download() has changed argument auto_adjust default to True</code></pre>
@@ -497,8 +498,10 @@ U_c: 1.07
 D_c: 0.99
 R_c: 1.05
 
-Proletariat Class Call Option Price: 0.30
-Capitalist Class Call Option Price: 0.97</code></pre>
+Fair price of Call Option, held by Proletariat Class Children:
+ 0.30
+Fair price of Call Option, held by Capitalist Class Children:
+ 0.97</code></pre>
 </div>
 </div>
 </section>
@@ -508,10 +511,12 @@ Capitalist Class Call Option Price: 0.97</code></pre>
 <p>Ultimately, this analysis underscores how asset-based class differentiation profoundly impacts the perceived and realized absolute value of educational and economic opportunities, illuminating critical implications for economic policy, educational equity, and social justice frameworks.</p>
 </section>
 </section>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>In societies characterized by pronounced economic stratification, opportunities presented as equal often yield disparate outcomes across different social strata. This disparity arises from inherent structural inefficiencies that restrict access to certain opportunities based on class. The <strong>Limits to Arbitrage Theory</strong> posits that market inefficiencies can persist due to various constraints, including capital limitations, preventing rational traders from correcting mispricings <span class="citation" data-cites="shleifer1997limits">(<a href="#ref-shleifer1997limits" role="doc-biblioref">Shleifer and Vishny 1997</a>)</span>. This paper explores how such constraints contribute to the unequal valuation of opportunities between the proletariat (P) and capitalist (C) classes.</p>
+</section>
 <section id="literature-review" class="level2">
 <h2 class="anchored" data-anchor-id="literature-review">Literature Review</h2>
-<p>In societies characterized by pronounced economic stratification, opportunities presented as equal often yield disparate outcomes across different social strata. This disparity arises from inherent structural inefficiencies that restrict access to certain opportunities based on class. The <strong>Limits to Arbitrage Theory</strong> posits that market inefficiencies can persist due to various constraints, including capital limitations, preventing rational traders from correcting mispricings <span class="citation" data-cites="shleifer1997limits">(<a href="#ref-shleifer1997limits" role="doc-biblioref">Shleifer and Vishny 1997</a>)</span>. This paper explores how such constraints contribute to the unequal valuation of opportunities between the proletariat (P) and capitalist (C) classes.</p>
-<p>This study is rooted in the broader financial economics literature exploring the persistence of structural inequalities, capital constraints, and arbitrage limitations that create and maintain market inefficiencies and unequal opportunity sets.</p>
 <p>The theoretical foundation relies primarily on the limits to arbitrage theory, initially articulated by Shleifer and Vishny <span class="citation" data-cites="shleifer1997limits">(<a href="#ref-shleifer1997limits" role="doc-biblioref">Shleifer and Vishny 1997</a>)</span>. Their seminal work shows how market inefficiencies persist due to practical constraints, particularly capital constraints, restricting the ability of arbitrageurs to exploit and correct mispricings. These constraints arise from significant capital requirements that effectively segregate participants into distinct economic spheres, as emphasized by subsequent studies on financially constrained arbitrageurs <span class="citation" data-cites="gromb2002equilibrium xiong2001convergence">(<a href="#ref-gromb2002equilibrium" role="doc-biblioref">Gromb and Vayanos 2002</a>; <a href="#ref-xiong2001convergence" role="doc-biblioref">Xiong 2001</a>)</span>.</p>
 <p>Geanakoplos’ research introduces the leverage cycle, which explains how fluctuations in leverage and capital availability perpetuate systemic inequality and financial instability <span class="citation" data-cites="geanakoplos2010leverage">(<a href="#ref-geanakoplos2010leverage" role="doc-biblioref">Geanakoplos 2010</a>)</span>. Complementary studies, such as that by Gromb and Vayanos, also demonstrate the welfare implications of constrained arbitrageurs operating under capital limitations, further exacerbating persistent inequality <span class="citation" data-cites="gromb2002equilibrium">(<a href="#ref-gromb2002equilibrium" role="doc-biblioref">Gromb and Vayanos 2002</a>)</span>. Moreover, Barberis and Thaler’s comprehensive survey on behavioral finance indicates how cognitive and behavioral constraints exacerbate market inefficiencies, reinforcing the structural barriers that differentiate economic outcomes across social strata <span class="citation" data-cites="barberis2003survey">(<a href="#ref-barberis2003survey" role="doc-biblioref">Barberis and Thaler 2003</a>)</span>.</p>
 <p>Extending beyond purely financial contexts, sociological and economic research provides additional perspectives on structural inequalities and opportunity valuation. Bourdieu’s concept of social reproduction underscores how cultural capital perpetuates socioeconomic inequalities across generations <span class="citation" data-cites="bourdieu1973cultural">(<a href="#ref-bourdieu1973cultural" role="doc-biblioref">Bourdieu 1973</a>)</span>. Recent empirical evidence by Stansbury <span class="citation" data-cites="stansbury2024class">(<a href="#ref-stansbury2024class" role="doc-biblioref">Stansbury 2024</a>)</span> and findings by the Social Mobility Commission <span class="citation" data-cites="smc2023class">(<a href="#ref-smc2023class" role="doc-biblioref">Social Mobility Commission 2023</a>)</span> further demonstrate how economic capital inherited through generations shapes differential outcomes, even when individuals ostensibly possess identical qualifications.</p>

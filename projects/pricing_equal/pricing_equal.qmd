@@ -1,5 +1,5 @@
 ---
-title: Pricing the Equal Opportunities under Structural Inequality
+title: Pricing the seemingly Equal Opportunities under Structural Inequality
 subtitle: An EMM-based Asset Pricing Approach
 author: GitSAM
 date: today
@@ -192,8 +192,8 @@ dt = 4 # Number of steps for each year
 option_price_proletariat = binomial_option_pricing(K, S_0, T, U_p, D_p, R_p, dt)
 option_price_capitalist = binomial_option_pricing(K, S_0, T, U_c, D_c, R_c, dt)
 
-print(f"\nProletariat Class Call Option Price: {option_price_proletariat:.2f}")
-print(f"Capitalist Class Call Option Price: {option_price_capitalist:.2f}")
+print(f"\nFair price of Call Option, held by Proletariat Class Children:\n {option_price_proletariat:.2f}")
+print(f"Fair price of Call Option, held by Capitalist Class Children:\n {option_price_capitalist:.2f}")
 ```
 
 ### Discussion
@@ -202,12 +202,11 @@ This model clarifies the stark inequality underlying "ostensibly equal" qualific
 
 Ultimately, this analysis underscores how asset-based class differentiation profoundly impacts the perceived and realized absolute value of educational and economic opportunities, illuminating critical implications for economic policy, educational equity, and social justice frameworks.
 
-## Literature Review
+## Introduction
 
 In societies characterized by pronounced economic stratification, opportunities presented as equal often yield disparate outcomes across different social strata. This disparity arises from inherent structural inefficiencies that restrict access to certain opportunities based on class. The **Limits to Arbitrage Theory** posits that market inefficiencies can persist due to various constraints, including capital limitations, preventing rational traders from correcting mispricings [@shleifer1997limits]. This paper explores how such constraints contribute to the unequal valuation of opportunities between the proletariat (P) and capitalist (C) classes.
 
-This study is rooted in the broader financial economics literature exploring the persistence of structural inequalities, capital constraints, and arbitrage limitations that create and maintain market inefficiencies and unequal opportunity sets.
-
+## Literature Review
 The theoretical foundation relies primarily on the limits to arbitrage theory, initially articulated by Shleifer and Vishny [@shleifer1997limits]. Their seminal work shows how market inefficiencies persist due to practical constraints, particularly capital constraints, restricting the ability of arbitrageurs to exploit and correct mispricings. These constraints arise from significant capital requirements that effectively segregate participants into distinct economic spheres, as emphasized by subsequent studies on financially constrained arbitrageurs [@gromb2002equilibrium; @xiong2001convergence].
 
 Geanakoplos' research introduces the leverage cycle, which explains how fluctuations in leverage and capital availability perpetuate systemic inequality and financial instability [@geanakoplos2010leverage]. Complementary studies, such as that by Gromb and Vayanos, also demonstrate the welfare implications of constrained arbitrageurs operating under capital limitations, further exacerbating persistent inequality [@gromb2002equilibrium]. Moreover, Barberis and Thaler's comprehensive survey on behavioral finance indicates how cognitive and behavioral constraints exacerbate market inefficiencies, reinforcing the structural barriers that differentiate economic outcomes across social strata [@barberis2003survey].
