@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="GitSAM">
-<meta name="dcterms.date" content="2025-03-10">
+<meta name="dcterms.date" content="2025-03-11">
 
-<title>Corner Solutions – GitSAM</title>
+<title>Corner Solution – GitSAM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -91,6 +91,7 @@ div.csl-indent {
 
 
 <link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="ache">
 </head>
 
 <body class="nav-fixed">
@@ -120,6 +121,10 @@ div.csl-indent {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-projects">    
         <li>
+    <a class="dropdown-item" href="../../projects/correlation_crypto/correlation_crypto.html">
+ <span class="dropdown-text">Correlation in Crypto</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="../../projects/gilded_age/gilded_age.html">
  <span class="dropdown-text">The New Gilded Age</span></a>
   </li>  
@@ -128,12 +133,16 @@ div.csl-indent {
  <span class="dropdown-text">Pricing Equal Opportunity</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../projects/correlation_crypto/correlation_crypto.html">
- <span class="dropdown-text">Correlation in Crypto</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="../../projects/dichotomy/dichotomy.html">
  <span class="dropdown-text">Dichotomy</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../projects/pareto_index/pareto_index.html">
+ <span class="dropdown-text">Estimating Pareto Index</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../projects/corner_solution/corner_solution.qmd">
+ <span class="dropdown-text">Heading to Corner Solutions</span></a>
   </li>  
     </ul>
   </li>
@@ -179,7 +188,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Corner Solutions</h1>
+<h1 class="title">Corner Solution</h1>
 <p class="subtitle lead">or multiple equilibria</p>
 </div>
 
@@ -197,7 +206,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 10, 2025</p>
+      <p class="date">March 11, 2025</p>
     </div>
   </div>
   
@@ -217,25 +226,12 @@ div.csl-indent {
 
 <section id="literature-review" class="level2">
 <h2 class="anchored" data-anchor-id="literature-review">Literature Review</h2>
-<p>현대 금융시장 구조와 투자 전략 - 구조: 특정 산업 집중도, 산업 내 특정 기업의 집중도, 대형주의 프리미엄, 금융기관의 정부 보증 효과, 슈퍼스타 기업의 부상 - 전략: 자산 가격 및 위험조정 수익률에 미치는 영향</p>
-<p>대형 금융기관들이 암묵적인 정부 보증으로 인해 위험조정 수익률이 더 낮다는 증거를 제시합니다. 이는 정부가 대형 금융기관의 주주를 보호하는 경향 때문에 발생하며, 비금융 대기업에서는 다른 패턴이 나타날 수 있음을 시사합니다 <span class="citation" data-cites="gandhi2015size">(<a href="#ref-gandhi2015size" role="doc-biblioref">Gandhi and Lustig 2015</a>)</span>.</p>
-<p>Resurrected size premium after controlling for the junk? <span class="citation" data-cites="asness2018size">(<a href="#ref-asness2018size" role="doc-biblioref">Asness et al. 2018</a>)</span>.</p>
-<p>Passive ETF <span class="citation" data-cites="jiang2020passive">(<a href="#ref-jiang2020passive" role="doc-biblioref">Jiang, Vayanos, and Zheng 2020</a>)</span>. - One of the most important capital-market developments of the past thirty years has been the growth of passive investing. - flows into passive funds raise disproportionately the stock prices of the largest firms in the economy. - The growth of passive investing can thus be one of the drivers of the observed rise in industry concentration (Gutierrez and Philippon (2017), Grullon, Larkin, and Michaely (2019))</p>
-<p>Superstar firms <span class="citation" data-cites="autor2020fall">(<a href="#ref-autor2020fall" role="doc-biblioref">Autor et al. 2020</a>)</span>.</p>
 <p>미래에셋 - TIGER 미국테크TOP10 INDXX: 나스닥 시가총액 10개 ETF 종목 코드 <a href="https://www.tigeretf.com/ko/product/search/detail/index.do?ksdFund=KR7381170000">381170</a> - AI 관련 미국 빅테크 주식 상위 10개 ETF 종목 코드 <a href="https://www.tigeretf.com/ko/product/search/detail/index.do?ksdFund=KR7490090008">490090</a></p>
-<p>만약 시장의 모든 asset의 correlation이 1이면 이론은 어떻게 될까?</p>
-<p>No‐arbitrage pricing theory(무위험 차익거래 이론)에서 SDF(Stochastic Discount Factor, 확률적 할인인자)는 “risky asset” 그 자체로 정의되지는 않습니다. SDF는 기본적으로 자산의 현금흐름을 할인하여 현재가치를 계산하는 역할을 하며, 다음 조건을 만족합니다:</p>
-<p>[ E= 1, ]</p>
-<p>여기서 ( R )은 자산의 수익률입니다. 일반적으로 SDF는 경제 주체의 소비, 투자 등 상태 변수와 관련되어 있으며, 위험(특히, 경제의 나쁜 상태에서의 위험)에 대한 보상을 반영하는 역할을 합니다. 따라서 SDF는 보통 소비의 한계 효용의 역수와 같이 “위험을 회피하는” 성격을 띄어, 자산 수익률과는 음의 상관관계를 보이는 경향이 있습니다. 이는 투자자가 나쁜 경제 상황(소비가 줄어드는 상황)에서 높은 할인율(즉, 낮은 SDF)을 부여함으로써, 해당 상태에서의 자산의 가치를 높게 평가하기 때문입니다.</p>
-<p>만약 시장의 모든 자산 간 상관관계가 1(즉, 완벽한 상관관계)을 이룬다면, 이는 모든 자산의 수익률이 동일한 단일 위험 요인에 의해 완벽히 구동된다는 것을 의미합니다. 이런 상황에서는 다음과 같은 결과가 발생합니다:</p>
-<ol type="1">
-<li><strong>단일 요인 모형으로의 축소:</strong> 모든 자산이 동일한 위험 요인에 의해 움직이므로, 시장은 사실상 하나의 위험 요인만을 고려하는 단일 요인 모형(CAPM과 유사한 상황)으로 축소됩니다.<br>
-</li>
-<li><strong>다양화의 무용성:</strong> 자산들 사이에 공통의 위험 외에 분산투자를 통한 위험 분산 효과가 존재하지 않게 됩니다. 즉, 개별 자산의 고유 위험(idiosyncratic risk)이 모두 소멸하므로, 포트폴리오 다각화의 이점이 없어집니다.<br>
-</li>
-<li><strong>SDF의 식별 문제:</strong> 모든 자산의 수익률이 동일한 움직임을 보이면, SDF가 단일 요인에 의해 결정될 수밖에 없으며, 자산간 크로스 섹셔널(cross-sectional) 수익률 차이를 설명할 수 있는 여지가 줄어듭니다. 이는 실증적 자산가격 모형의 검증에 어려움을 줄 수 있습니다.</li>
-</ol>
-<p>요약하면, SDF는 위험자산 그 자체라기보다는 위험에 대한 보상과 할인 기능을 수행하는 경제 상태 변수와 관련된 할인인자이며, 보통 자산 수익률과 음의 상관관계를 보입니다. 그리고 시장의 모든 자산이 완벽하게 상관관계를 가진다면, 자산 가격 결정 모형은 단일 요인 모형으로 축소되고, 분산투자를 통한 위험 분산 효과가 상실되며, SDF의 역할도 단순화되어 자산간 차별적 위험 보상의 설명력이 감소하게 됩니다.</p>
+<p>현대 금융시장 구조와 투자 전략 - 구조: 특정 산업 집중도, 산업 내 특정 기업의 집중도, 대형주의 프리미엄, 금융기관의 정부 보증 효과, 슈퍼스타 기업의 부상 - 전략: 자산 가격 및 위험조정 수익률에 미치는 영향</p>
+<p>Superstar firms <span class="citation" data-cites="autor2020fall">(<a href="#ref-autor2020fall" role="doc-biblioref">Autor et al. 2020</a>)</span>.</p>
+<p>Resurrected size premium after controlling for the junk? <span class="citation" data-cites="asness2018size">(<a href="#ref-asness2018size" role="doc-biblioref">Asness et al. 2018</a>)</span>.</p>
+<p>정부가 대형 금융기관의 주주를 보호하는 경향. 대형 금융기관들이 암묵적인 정부 보증으로 인해 위험조정 수익률이 더 낮다 <span class="citation" data-cites="gandhi2015size">(<a href="#ref-gandhi2015size" role="doc-biblioref">Gandhi and Lustig 2015</a>)</span>.</p>
+<p>Passive ETF <span class="citation" data-cites="jiang2020passive">(<a href="#ref-jiang2020passive" role="doc-biblioref">Jiang, Vayanos, and Zheng 2020</a>)</span>. - One of the most important capital-market developments of the past thirty years has been the growth of passive investing. - flows into passive funds raise disproportionately the stock prices of the largest firms in the economy. - The growth of passive investing can thus be one of the drivers of the observed rise in industry concentration (Gutierrez and Philippon (2017), Grullon, Larkin, and Michaely (2019))</p>
 
 
 
