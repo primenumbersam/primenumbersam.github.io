@@ -16,6 +16,8 @@ website:
             text: Pricing Equal Opportunity
           - href: projects/correlation_crypto/correlation_crypto.qmd
             text: Correlation in Crypto
+          - href: projects/dichotomy/dichotomy.qmd
+            text: Dichotomy
     tools:
       - icon: house
         href: https://www.gitsam.com
