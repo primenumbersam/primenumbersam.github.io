@@ -2,7 +2,7 @@
 title: Pricing the seemingly Equal Opportunities under Structural Inequality
 subtitle: An EMM-based Asset Pricing Approach
 author: GitSAM
-date: today
+date: 03/08/2025
 abstract: This study examines the valuation of seemingly equal opportunities that, due to structural societal inequalities, hold different absolute values for distinct social classes. By applying the Equivalent Martingale Measure (EMM) approach within the framework of rational asset pricing theory, we analyze how capital constraints and limits to arbitrage perpetuate inefficiencies in opportunity valuation between the proletariat and capitalist classes.
 bibliography: references.bib
 format:

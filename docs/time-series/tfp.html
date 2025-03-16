@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="GitSAM">
+<meta name="dcterms.date" content="2025-03-15">
 
-<title>About – GitSAM</title>
+<title>TFP Growth, Stationarity, and Structural Change – GitSAM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +25,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-ddd961a2510921635943dfbbd19534c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-ddd961a2510921635943dfbbd19534c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,8 +69,37 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
 <link rel="stylesheet" href="ache">
 </head>
 
@@ -79,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">GitSAM</span>
     </a>
   </div>
@@ -90,7 +121,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Formats</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -99,27 +130,27 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-projects">    
         <li>
-    <a class="dropdown-item" href="./projects/correlation_crypto/correlation_crypto.html">
+    <a class="dropdown-item" href="../projects/correlation_crypto/correlation_crypto.html">
  <span class="dropdown-text">Correlation in Crypto</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./projects/gilded_age/gilded_age.html">
+    <a class="dropdown-item" href="../projects/gilded_age/gilded_age.html">
  <span class="dropdown-text">The New Gilded Age</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./projects/pricing_equal/pricing_equal.html">
+    <a class="dropdown-item" href="../projects/pricing_equal/pricing_equal.html">
  <span class="dropdown-text">Pricing Equal Opportunity</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./projects/dichotomy/dichotomy.html">
+    <a class="dropdown-item" href="../projects/dichotomy/dichotomy.html">
  <span class="dropdown-text">Distinct Dichotomy</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./projects/pareto_index/pareto_index.html">
+    <a class="dropdown-item" href="../projects/pareto_index/pareto_index.html">
  <span class="dropdown-text">Estimating Pareto Index</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./projects/corner_solution/corner_solution.html">
+    <a class="dropdown-item" href="../projects/corner_solution/corner_solution.html">
  <span class="dropdown-text">Heading to Corner Solutions</span></a>
   </li>  
     </ul>
@@ -130,19 +161,19 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-time-series">    
         <li>
-    <a class="dropdown-item" href="./time-series/labor_decoupling.html">
+    <a class="dropdown-item" href="../time-series/labor_decoupling.html">
  <span class="dropdown-text">노동 기여와 분배</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./time-series/indicator_growth.html">
+    <a class="dropdown-item" href="../time-series/indicator_growth.html">
  <span class="dropdown-text">경제성장 지표</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./time-series/joint_covariance_stationary.html">
+    <a class="dropdown-item" href="../time-series/joint_covariance_stationary.html">
  <span class="dropdown-text">Stationarity?</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./time-series/tfp.html">
+    <a class="dropdown-item" href="../time-series/tfp.html">
  <span class="dropdown-text">TFP?</span></a>
   </li>  
     </ul>
@@ -180,9 +211,20 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#깃샘학원" id="toc-깃샘학원" class="nav-link active" data-scroll-target="#깃샘학원">깃샘학원</a></li>
-  <li><a href="#문제-고위직-엘리트들의-항진명제식-발언-분석" id="toc-문제-고위직-엘리트들의-항진명제식-발언-분석" class="nav-link" data-scroll-target="#문제-고위직-엘리트들의-항진명제식-발언-분석">문제: 고위직 엘리트들의 항진명제식 발언 분석</a></li>
-  <li><a href="#해결책-사고력과-리더십을-키우는-혁신적-교육-프로그램" id="toc-해결책-사고력과-리더십을-키우는-혁신적-교육-프로그램" class="nav-link" data-scroll-target="#해결책-사고력과-리더십을-키우는-혁신적-교육-프로그램">해결책: 사고력과 리더십을 키우는 혁신적 교육 프로그램</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#main" id="toc-main" class="nav-link" data-scroll-target="#main">Main</a>
+  <ul class="collapse">
+  <li><a href="#understanding-tfp-in-macroeconomic-models" id="toc-understanding-tfp-in-macroeconomic-models" class="nav-link" data-scroll-target="#understanding-tfp-in-macroeconomic-models">Understanding TFP in Macroeconomic Models</a></li>
+  <li><a href="#empirical-evidence-on-tfp-stationarity" id="toc-empirical-evidence-on-tfp-stationarity" class="nav-link" data-scroll-target="#empirical-evidence-on-tfp-stationarity">Empirical Evidence on TFP Stationarity</a></li>
+  <li><a href="#is-tfp-growth-declining-in-the-long-run" id="toc-is-tfp-growth-declining-in-the-long-run" class="nav-link" data-scroll-target="#is-tfp-growth-declining-in-the-long-run">Is TFP Growth Declining in the Long Run?</a></li>
+  <li><a href="#why-might-tfp-growth-decline-over-time" id="toc-why-might-tfp-growth-decline-over-time" class="nav-link" data-scroll-target="#why-might-tfp-growth-decline-over-time">Why Might TFP Growth Decline Over Time?</a></li>
+  <li><a href="#could-tfp-growth-accelerate-again" id="toc-could-tfp-growth-accelerate-again" class="nav-link" data-scroll-target="#could-tfp-growth-accelerate-again">Could TFP Growth Accelerate Again?</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a>
+  <ul class="collapse">
+  <li><a href="#implications-for-time-series-analysis" id="toc-implications-for-time-series-analysis" class="nav-link" data-scroll-target="#implications-for-time-series-analysis">Implications for Time Series Analysis</a></li>
+  <li><a href="#remarks" id="toc-remarks" class="nav-link" data-scroll-target="#remarks">Remarks</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -191,14 +233,26 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">About</h1>
+<h1 class="title">TFP Growth, Stationarity, and Structural Change</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>GitSAM </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 15, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -208,147 +262,118 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="깃샘학원" class="level3">
-<h3 class="anchored" data-anchor-id="깃샘학원">깃샘학원</h3>
-<p><strong>“We Build Leaders, Not Just Winners.”</strong></p>
-<p>깃샘학원의 목표는 성공한 엘리트 양성이 아니다: 단순한 시험 점수나 경제적 성공을 목표로 하지 않습니다. 깃샘학원의 목표는 훌륭한 리더 양성이다: 공감력, 윤리적 책임감, 논리적 사고력, 실질적 문제 해결 능력을 갖추어 사회적으로 선한 영향력을 발휘할 수 있는 진정한 리더 양성이 목표이다.</p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p><strong>The growth rate of Total Factor Productivity (TFP)</strong> is <strong>not</strong> a fixed constant; rather, it evolves over time and may be subject to long-term decline. While mainstream macroeconomic <strong>models</strong> frequently assume a constant TFP growth rate, this assumption is increasingly being questioned. Several structural factors—diminishing returns to R&amp;D, demographic constraints, and sectoral shifts towards lower-productivity industries—suggest that aggregate TFP growth may continue to slow. However, TFP growth is not uniform across sectors. Certain industries, such as AI, biotechnology, and advanced energy technologies, exhibit significantly higher productivity gains, leading to growing <strong>sectoral disparities</strong> in innovation.</p>
+<p>From an econometric perspective, a decline in TFP growth could alter its stationarity properties, weakening its stochastic trend and making it more likely to transition <strong>from</strong> an <span class="math inline">\(I(1)\)</span> (non-stationary) stochastic process <strong>to</strong> an <span class="math inline">\(I(0)\)</span> (stationary) stochastic process. If <strong>structural breaks</strong> exist in TFP growth, traditional time-series models based on constant-trend cointegration <strong>assumptions</strong> may fail. Thus, accurately modeling TFP trends requires dynamic econometric techniques that account for <strong>time-varying structural changes</strong>.</p>
 </section>
-<section id="문제-고위직-엘리트들의-항진명제식-발언-분석" class="level3">
-<h3 class="anchored" data-anchor-id="문제-고위직-엘리트들의-항진명제식-발언-분석">문제: 고위직 엘리트들의 항진명제식 발언 분석</h3>
-<section id="서론" class="level4">
-<h4 class="anchored" data-anchor-id="서론">1. 서론</h4>
-<p>고위직 엘리트들은 정치, 법조, 경제, 경영 등 다양한 분야에서 영향력을 행사하며, 공적인 자리에서의 발언이 중요한 의미를 갖는다. 그러나 이들의 발언 중 상당수는 논리적으로 항진명제(tautology)에 가까우며, 이는 정보 비대칭을 활용한 책임 회피 전략으로 사용되는 경우가 많다. 여기 분석에서는 몇가지 대표적 사례들을 분석하고, 이러한 발언 방식을 만들어 내는 구조적 원인을 탐구하며, 개선 방안을 제안하고자 한다.</p>
+<section id="main" class="level2">
+<h2 class="anchored" data-anchor-id="main">Main</h2>
+<section id="understanding-tfp-in-macroeconomic-models" class="level3">
+<h3 class="anchored" data-anchor-id="understanding-tfp-in-macroeconomic-models">Understanding TFP in Macroeconomic Models</h3>
+<p>TFP represents technological progress that enhances economic output beyond capital and labor inputs. In the <strong>Solow-Swan growth model</strong>, TFP follows an <strong>exponential trend</strong>, expressed as:</p>
+<p><span class="math display">\[
+A_t = A_0 e^{gt} \epsilon_t
+\]</span></p>
+<p>where <span class="math inline">\(g\)</span> is the growth rate and <span class="math inline">\(\epsilon_t\)</span> captures <strong>short-term fluctuations</strong>. This implies that TFP is not strictly stationary; rather, its log form follows a unit root process with a deterministic trend:</p>
+<p><span class="math display">\[
+\log A_t = g t + u_t, \quad u_t \sim I(0)
+\]</span></p>
+<p>Thus, mainstream macroeconomic models do <strong>not</strong> assume TFP is stationary in levels, <strong>but</strong> often assume its deviation from trend is stationary.</p>
 </section>
-<section id="사례-분석" class="level4">
-<h4 class="anchored" data-anchor-id="사례-분석">2. 사례 분석</h4>
-<section id="법조-분야" class="level5">
-<h5 class="anchored" data-anchor-id="법조-분야">법조 분야</h5>
+<section id="empirical-evidence-on-tfp-stationarity" class="level3">
+<h3 class="anchored" data-anchor-id="empirical-evidence-on-tfp-stationarity">Empirical Evidence on TFP Stationarity</h3>
+<p>Empirical studies show: 1. <strong>Long-Run TFP</strong> behaves as a non-stationary process (<span class="math inline">\(I(1)\)</span>), meaning that it exhibits persistent growth and shocks that do not revert over time. 2. <strong>Short-Run TFP Shocks</strong> (deviations from trend) are often stationary (<span class="math inline">\(I(0)\)</span>) process.</p>
+<p>If GDP and capital stock are also <span class="math inline">\(I(1)\)</span>, Solow’s production function suggests they should be cointegrated:</p>
+<p><span class="math display">\[
+\log Y_t - \alpha \log K_t - (1-\alpha) \log L_t - g t = u_t, \quad u_t \sim I(0)
+\]</span></p>
+<p>Thus, GDP, capital, and labor may be cointegrated due to the common trend driven by TFP.</p>
+</section>
+<section id="is-tfp-growth-declining-in-the-long-run" class="level3">
+<h3 class="anchored" data-anchor-id="is-tfp-growth-declining-in-the-long-run">Is TFP Growth Declining in the Long Run?</h3>
+<p>Many studies suggest that TFP growth rates have declined since the mid-20th century.</p>
+<p><strong>U.S. TFP Growth Trends (Annual Growth Rates)</strong>: - <strong>1950s–1970s:</strong> ~2.5% per year<br>
+- <strong>1980s–1990s:</strong> ~1.5% per year<br>
+- <strong>2000s–2020s:</strong> ~0.5%-1.0% per year</p>
+<p>The <strong>productivity slowdown hypothesis</strong> suggests that <strong>long-term economic growth potential</strong> is becoming weaker than before.</p>
+</section>
+<section id="why-might-tfp-growth-decline-over-time" class="level3">
+<h3 class="anchored" data-anchor-id="why-might-tfp-growth-decline-over-time">Why Might TFP Growth Decline Over Time?</h3>
+<p>Several key factors contribute to the observed decline in TFP growth:</p>
+<ol type="1">
+<li><strong>The Low-Hanging Fruit Hypothesis (Gordon, 2016)</strong>
 <ul>
-<li>“최근 고위 공직자 비리 의혹 수사에 대한 검찰의 입장은?”
-<ul>
-<li>검찰총장: “모든 수사는 법과 절차에 따라 공정하게 진행됩니다.”</li>
-<li><strong>논리적 문제점</strong>: 법과 절차에 따른다는 것은 당연한 원칙이며, 구체적인 수사 진행 상황을 설명하지 않음.</li>
-<li><strong>개선된 답변</strong>: “해당 의혹과 관련해 △△ 증거를 확보했으며, 3월 말까지 관계자 소환 조사를 진행할 예정입니다. 또한, 수사 결과는 국민에게 투명하게 공개할 것입니다.”</li>
+<li>Past technological revolutions (electricity, automobiles, antibiotics) were <strong>one-time events</strong> that provided massive boosts.<br>
+</li>
+<li>Recent innovations (social media, fintech, AI) may not have the same economy-wide productivity effects.</li>
 </ul></li>
-</ul>
-</section>
-<section id="경제-분야" class="level5">
-<h5 class="anchored" data-anchor-id="경제-분야">경제 분야</h5>
+<li><strong>Declining R&amp;D Efficiency (Bloom et al., 2020)</strong>
 <ul>
-<li>“금리 인상 가능성에 대해 어떻게 전망하나요?”
-<ul>
-<li>한국은행 총재: “통화 정책은 물가 안정을 우선시할 것입니다.”</li>
-<li><strong>논리적 문제점</strong>: 물가 안정을 목표로 한다는 것은 이미 알려진 사실로, 구체적 조건이 제시되지 않음.</li>
-<li><strong>개선된 답변</strong>: “실업률은 5% 미만으로 유지되지만 연내 물가 상승률이 3%를 넘을 경우, 4분기 중 금리를 0.25%p 추가 인상할 계획입니다. 기준 금리 인상을 통해 물가의 안정성을 확보하고자 합니다.”</li>
+<li>“Ideas are getting harder to find.”<br>
+</li>
+<li>R&amp;D investment has increased, but the number of researchers needed to sustain TFP growth has risen exponentially.</li>
 </ul></li>
-</ul>
-</section>
-<section id="정치-분야" class="level5">
-<h5 class="anchored" data-anchor-id="정치-분야">정치 분야</h5>
+<li><strong>Demographic Constraints and Human Capital Decay</strong>
 <ul>
-<li>“차기 총선에서 여당의 승리 가능성은 어떻게 보는가?”
-<ul>
-<li>여당 대변인: “선거 결과는 유권자의 선택에 달려 있습니다.”</li>
-<li><strong>논리적 문제점</strong>: 선거 결과가 유권자의 선택에 따른다는 것은 자명한 사실이며, 선거 전략이나 예측을 제공하지 않음.</li>
-<li><strong>개선된 답변</strong>: “현 지지율(45%)과 △△ 정책 공약을 바탕으로 20석 이상 확대를 목표로 합니다.”</li>
+<li><strong>Aging populations</strong> in advanced economies reduce labor force dynamism and innovation.<br>
+</li>
+<li><strong>Education quality improvements</strong> may have plateaued, reducing skilled labor supply.</li>
 </ul></li>
-</ul>
-</section>
-<section id="경영-분야" class="level5">
-<h5 class="anchored" data-anchor-id="경영-분야">경영 분야</h5>
+<li><strong>Sectoral Shift to Low-Productivity Industries</strong>
 <ul>
-<li>“C사 제품의 안전성 논란에 대한 대응은?”
-<ul>
-<li>C사 홍보팀장: “고객 안전을 최우선으로 삼고 있습니다.”</li>
-<li><strong>논리적 문제점</strong>: 고객 안전을 최우선으로 한다는 것은 원칙적인 선언일 뿐, 실제 조치에 대한 설명이 없음.</li>
-<li><strong>개선된 답변</strong>: “문제 제품 5만 개 전량 리콜하며, 피해 보상금을 제품 가격의 120%로 책정했습니다. 또한, 향후 안전성 강화를 위한 추가 조치를 마련할 것입니다.”</li>
+<li>Advanced economies have shifted <strong>from</strong> manufacturing <strong>to</strong> services (e.g., healthcare, education, public sector).<br>
+</li>
+<li>Services typically have lower TFP growth, as they rely heavily on human labor and are difficult to automate.</li>
 </ul></li>
-</ul>
-</section>
-</section>
-<section id="발언-방식-분석-및-원인" class="level4">
-<h4 class="anchored" data-anchor-id="발언-방식-분석-및-원인">3. 발언 방식 분석 및 원인</h4>
-<section id="정보-비대칭-활용-극대화" class="level5">
-<h5 class="anchored" data-anchor-id="정보-비대칭-활용-극대화">(1) 정보 비대칭 활용 극대화</h5>
-<p>고위직 인사들은 상대적으로 많은 정보를 보유하고 있으나, 이를 공개하지 않음으로써 해석의 여지를 남긴다. 이는 논란을 회피하고 의도적으로 불확실성을 유지하는 전략이다.</p>
-</section>
-<section id="항진명제-활용" class="level5">
-<h5 class="anchored" data-anchor-id="항진명제-활용">(2) 항진명제 활용</h5>
-<p>애매모호한 표현을 사용하여 논란을 피하는 동시에, 어느 쪽으로든 해석이 가능하도록 발언함으로써 책임을 최소화한다.</p>
-</section>
-<section id="자격-논란과-인신공격-전략" class="level5">
-<h5 class="anchored" data-anchor-id="자격-논란과-인신공격-전략">(3) 자격 논란과 인신공격 전략</h5>
-<p>논리적으로 반박하기 어려운 경우, 상대방의 자격을 문제 삼아 논의 자체를 흐리는 방식이 자주 활용된다.</p>
-</section>
-<section id="사회적제도적-보상-구조" class="level5">
-<h5 class="anchored" data-anchor-id="사회적제도적-보상-구조">(4) 사회적·제도적 보상 구조</h5>
-<p>책임을 명확히 지는 것보다 애매한 발언을 통해 책임을 회피하는 것이 생존 전략으로 작용하는 구조가 자리 잡고 있다. 이러한 환경에서는 모호한 표현이 오히려 유리하게 작용할 가능성이 크다.</p>
-</section>
-</section>
-<section id="해결-방안" class="level4">
-<h4 class="anchored" data-anchor-id="해결-방안">4. 해결 방안</h4>
-<section id="발언의-책임-명확화" class="level5">
-<h5 class="anchored" data-anchor-id="발언의-책임-명확화">(1) 발언의 책임 명확화</h5>
+<li><strong>Increased Regulation and Market Distortions</strong>
 <ul>
-<li>공적인 자리에서의 발언이 결과에 미치는 영향을 추적하는 피드백 시스템을 도입하여, 모호한 발언이 아니라 구체적인 답변을 유도해야 한다.</li>
-<li>“중대성이 낮다”고 발언한 경우, 이후 정책·법적 판단에서 이에 대한 책임을 질 수 있도록 제도적 장치를 마련해야 한다.</li>
-</ul>
+<li><strong>Growing regulations, tax policies, and political uncertainty</strong> increase inefficiencies, reducing overall productivity.</li>
+</ul></li>
+</ol>
 </section>
-<section id="논의-구조-개선" class="level5">
-<h5 class="anchored" data-anchor-id="논의-구조-개선">(2) 논의 구조 개선</h5>
+<section id="could-tfp-growth-accelerate-again" class="level3">
+<h3 class="anchored" data-anchor-id="could-tfp-growth-accelerate-again">Could TFP Growth Accelerate Again?</h3>
+<p>While aggregate TFP growth may appear to be declining, there are <strong>huge disparities across sectors</strong>. Just as <strong>wealth concentration is increasing</strong>, TFP growth could also be <strong>highly concentrated within specific industries</strong>:</p>
+<ol type="1">
+<li><strong>AI and Automation</strong>
 <ul>
-<li>논리적 토론을 강화하고, 인신공격을 차단하는 규칙을 도입해야 한다.</li>
-<li>예를 들어, 토론 중 상대의 과거나 자격을 논하는 발언이 나오면 자동으로 발언권을 제한하는 시스템을 고려할 수 있다.</li>
-</ul>
-</section>
-<section id="교육-및-사고방식-변화" class="level5">
-<h5 class="anchored" data-anchor-id="교육-및-사고방식-변화">(3) 교육 및 사고방식 변화</h5>
+<li>AI-driven automation could drastically improve productivity, particularly in certain white-collar jobs.<br>
+</li>
+<li>However, productivity gains may be highly concentrated in tech-driven industries, rather than the economy as a whole.</li>
+</ul></li>
+<li><strong>Sectoral Disparities in TFP Growth</strong>
 <ul>
-<li><strong>기계식 시험</strong> 중심이 아닌, 논리적 사고 및 창의적 문제 해결을 평가하는 교육 방식으로 변화해야 한다.</li>
-<li>특히, <strong>AI와 블록체인을 활용한 교육 평가 시스템</strong>을 통해 논리적 사고 과정을 명확하게 평가하는 방법이 필요하다.</li>
-</ul>
-</section>
-</section>
-<section id="결론" class="level4">
-<h4 class="anchored" data-anchor-id="결론">5. 결론</h4>
-<p>고위직 엘리트들의 항진명제식 발언은 정보 비대칭을 활용한 책임 회피 전략의 일부로 작용하며, 이는 사회적·제도적 보상 구조와 결합하여 지속적으로 강화된다. 이러한 문제를 해결하기 위해서는 발언의 책임을 명확히 하고, 논의 구조를 개선하며, 교육 시스템의 변화를 통해 논리적 사고력을 강화하는 접근이 필요하다. 특히, AI와 블록체인을 활용한 평가 방식은 발언의 모호성을 줄이고 구체적인 논리적 사고를 촉진하는 데 기여할 수 있을 것이다.</p>
-<hr>
-</section>
-</section>
-<section id="해결책-사고력과-리더십을-키우는-혁신적-교육-프로그램" class="level3">
-<h3 class="anchored" data-anchor-id="해결책-사고력과-리더십을-키우는-혁신적-교육-프로그램">해결책: 사고력과 리더십을 키우는 혁신적 교육 프로그램</h3>
-<section id="혁신적-교육-및-평가-시스템-ai-블록체인-기반" class="level4">
-<h4 class="anchored" data-anchor-id="혁신적-교육-및-평가-시스템-ai-블록체인-기반">혁신적 교육 및 평가 시스템 (AI &amp; 블록체인 기반)</h4>
+<li><strong>Within-market concentration</strong>: A small number of firms (e.g., winners in the winner-takes-all structure) are experiencing high TFP growth, while others stagnate.<br>
+</li>
+<li><strong>Cross-market concentration</strong>: Some sectors (AI, biotech) may experience massive productivity boosts, while others (traditional services, public sector) may stagnate.</li>
+</ul></li>
+<li><strong>Energy Revolution and New Technological Frontiers</strong>
 <ul>
-<li>Prompt-based Evaluation: AI를 활용하여 학생의 사고 과정 자체를 블록체인에 기록하고, 창의성·논리성·윤리적 책임감까지 정량적·객관적으로 평가</li>
-<li>Proof of Thinking: 학습 과정을 블록체인에 저장하여 자기성찰 능력을 강화하고, 위변조 방지</li>
-<li>토론·윤리적 판단·전략적 사고 중심 교육: 동료와의 토론을 통해 사고력과 문제 해결력을 강화</li>
+<li>Advances in nuclear fusion, renewables, and space-based energy production could dramatically shift TFP growth.<br>
+</li>
+<li>However, large-scale adoption is <strong>slow</strong> due to political, regulatory, and financial constraints.</li>
+</ul></li>
+</ol>
+</section>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<section id="implications-for-time-series-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="implications-for-time-series-analysis">Implications for Time Series Analysis</h3>
+<p><strong>If the long-run TFP growth rate is declining</strong>, its stochastic trend may weaken, making it more likely to transition from a unit root (<span class="math inline">\(I(1)\)</span>) process to a stationary (<span class="math inline">\(I(0)\)</span>) process over time. This has important implications for <strong>empirical modeling</strong> and <strong>forecasting</strong>, particularly in cases where researchers <strong>assume</strong> a <strong>constant growth trend</strong> in <strong>TFP-driven models</strong>. To properly account for these shifts, researchers should:</p>
+<ul>
+<li>Use <strong>structural break tests</strong> (e.g., <strong>Bai-Perron</strong>) to detect shifts in TFP growth trends and assess whether different growth regimes exist.<br>
+</li>
+<li>Apply <strong>rolling unit root tests</strong> to examine whether TFP has moved from an <span class="math inline">\(I(1)\)</span> process toward an <span class="math inline">\(I(0)\)</span> process over time.<br>
+</li>
+<li>Incorporate <strong>time-varying cointegration approaches</strong> to avoid biased estimations that assume stable relationships in <strong>economic growth models</strong>.</li>
 </ul>
 </section>
-<section id="혁신적-강의-방식" class="level4">
-<h4 class="anchored" data-anchor-id="혁신적-강의-방식">혁신적 강의 방식</h4>
-<ul>
-<li>개념 시각화: python, desmos 등 기술을 활용하여 수학과 과학의 추상적 개념을 구체적으로 시각화</li>
-<li>실전 응용 모형 중심: 실전에 활용되고 있는 과학 모형들을 구체적으로 이해하고 적용하는 방식</li>
-</ul>
-</section>
-<section id="자연과학-모형-이해" class="level4">
-<h4 class="anchored" data-anchor-id="자연과학-모형-이해">자연과학 모형 이해</h4>
-<ul>
-<li>대수학, 기하학, 미적분학, 확률통계학</li>
-<li>고전역학, 통계물리학, 상대성이론, 양자역학, 유기화학, 분자생물학</li>
-<li>국제 경시대회(AMC 등) 및 입시 대비 문제풀이</li>
-<li>Python을 활용한 데이터 계산 및 시각화</li>
-</ul>
-</section>
-<section id="ai-및-기술-도구-이해와-활용법" class="level4">
-<h4 class="anchored" data-anchor-id="ai-및-기술-도구-이해와-활용법">AI 및 기술 도구 이해와 활용법</h4>
-<ul>
-<li>AI 활용 리서치 및 정보 검색 방법</li>
-<li>금융·투자 전략을 위한 선형대수학 (Google Colab 활용)</li>
-<li>창업·재테크를 위한 통계학 (Google Sheets 활용)</li>
-<li>LLM(대규모 언어 모델) 개발을 위한 확률 최적화 이론 및 미적분 해석학</li>
-</ul>
+<section id="remarks" class="level3">
+<h3 class="anchored" data-anchor-id="remarks">Remarks</h3>
+<p>TFP growth is not uniform across industries; while aggregate TFP growth may be declining, specific sectors are experiencing rapid technological advancements. Just as <strong>wealth</strong> and <strong>market concentration</strong> have increased, <strong>TFP gains</strong> are increasingly concentrated within high-tech and innovation-driven industries. The result is a growing <strong>disparity</strong> between leading-edge industries (AI, biotech, energy) and traditional sectors (public services, healthcare, education), which exhibit slower productivity improvements.</p>
+<p>As <strong>sectoral divergence</strong> in productivity widens, traditional macroeconomic models that assume <strong>homogeneous TFP growth</strong> may require revision. Future research should focus on developing <strong>heterogeneous growth models</strong> that account for <strong>cross-sectoral differences</strong>, while also employing more dynamic econometric techniques to capture the evolving nature of TFP trends.</p>
 
 
 </section>

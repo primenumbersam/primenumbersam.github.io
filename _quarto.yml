@@ -22,6 +22,16 @@ website:
             text: Estimating Pareto Index
           - href: projects/corner_solution/corner_solution.qmd
             text: Heading to Corner Solutions
+      - text: "Time-series"
+        menu: 
+          - href: time-series/labor_decoupling.qmd
+            text: 노동 기여와 분배
+          - href: time-series/indicator_growth.qmd
+            text: 경제성장 지표
+          - href: time-series/joint_covariance_stationary.qmd
+            text: Stationarity?
+          - href: time-series/tfp.qmd
+            text: TFP?
     tools:
       - icon: house
         href: https://www.gitsam.com
