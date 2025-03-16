@@ -8,6 +8,8 @@ format:
 jupyter: python3
 ---
 
+[비판:상속세 제도 개편](https://www.gitsam.com/1b8d716ee0de805dab82e3d4536604bb?pvs=4)
+
 내가 관심있는 것들...왜? [^1].
 
 [^1]: 그냥요.

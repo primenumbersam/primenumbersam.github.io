@@ -123,9 +123,37 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
-<link rel="stylesheet" href="ache">
 </head>
 
 <body class="nav-fixed">
@@ -146,8 +174,8 @@ div.csl-indent {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> 
-<span class="menu-text">Formats</span></a>
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-projects" role="link" data-bs-toggle="dropdown" aria-expanded="false">
@@ -247,6 +275,13 @@ div.csl-indent {
   <li><a href="#분석-방법" id="toc-분석-방법" class="nav-link" data-scroll-target="#분석-방법">분석 방법</a></li>
   </ul></li>
   <li><a href="#토론-discussions" id="toc-토론-discussions" class="nav-link" data-scroll-target="#토론-discussions">토론 (Discussions)</a></li>
+  <li><a href="#부록-conditioning-theorems-in-probability-theory" id="toc-부록-conditioning-theorems-in-probability-theory" class="nav-link" data-scroll-target="#부록-conditioning-theorems-in-probability-theory">부록: Conditioning Theorems in Probability Theory</a>
+  <ul class="collapse">
+  <li><a href="#adams-law-smoothing-property-of-conditional-expectation" id="toc-adams-law-smoothing-property-of-conditional-expectation" class="nav-link" data-scroll-target="#adams-law-smoothing-property-of-conditional-expectation">Adam’s Law: Smoothing Property of Conditional Expectation</a></li>
+  <li><a href="#eves-law-variance-decomposition-formula" id="toc-eves-law-variance-decomposition-formula" class="nav-link" data-scroll-target="#eves-law-variance-decomposition-formula">Eve’s Law: Variance Decomposition Formula</a></li>
+  <li><a href="#covariance-decomposition-formula" id="toc-covariance-decomposition-formula" class="nav-link" data-scroll-target="#covariance-decomposition-formula">Covariance Decomposition Formula</a></li>
+  <li><a href="#bias-variance-decomposition-of-mse" id="toc-bias-variance-decomposition-of-mse" class="nav-link" data-scroll-target="#bias-variance-decomposition-of-mse">Bias-Variance Decomposition of MSE</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -406,7 +441,7 @@ div.csl-indent {
 <section id="데이터" class="level3">
 <h3 class="anchored" data-anchor-id="데이터">데이터</h3>
 <ul>
-<li><strong>데이터 소스:</strong> <a href="https://github.com/FinanceData/FinanceDataReader">FinanceDataReader</a></li>
+<li><strong>데이터 소스:</strong> <a href="https://github.com/ccxt/ccxt">CCXT</a></li>
 <li><strong>데이터 기간:</strong> 2024년 3월 1일 - 2025년 2월 28일</li>
 <li><strong>데이터 빈도 (Data Frequency):</strong> 일간(Daily)</li>
 <li><strong>분석 대상 암호화폐:</strong>
@@ -423,7 +458,7 @@ div.csl-indent {
 <li>각 롤링 윈도우 크기(30, 60, 90일)에 대해 <strong>롤링 상관 행렬(rolling correlation matrix)</strong>을 계산.</li>
 <li>평균 상관계수(mean of rolling correlation matrix)를 도출하여 암호화폐 간의 관계를 분석.</li>
 </ul>
-<div id="e94a9ed1" class="cell" data-execution_count="1">
+<div id="dc7b48e9" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 분석 결과 (Results)</span></span>
@@ -551,7 +586,7 @@ bitfinex supports: ['BTC/USDT', 'ETH/USDT', 'USDT/USD', 'XRP/USDT', 'SOL/USDT', 
 poloniex supports: ['BTC/USDT', 'ETH/USDT', 'XRP/USDT', 'SOL/USDT', 'LINK/USDT', 'ONDO/USDT', 'ADA/USDT', 'TRX/USDT', 'DOGE/USDT']</code></pre>
 </div>
 </div>
-<div id="236f7a8c" class="cell" data-execution_count="2">
+<div id="ebe2d2a7" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -584,16 +619,16 @@ poloniex supports: ['BTC/USDT', 'ETH/USDT', 'XRP/USDT', 'SOL/USDT', 'LINK/USDT',
 <pre><code>
 [Window = 30 days] Mean Correlation Matrix
             BTC/USDT  ETH/USDT  XRP/USDT  SOL/USDT  LINK/USDT  ADA/USDT  TRX/USDT  DOGE/USDT  USDT/USD  ONDO/USDT
-BTC/USDT   1.000000  0.797105  0.565396  0.740181   0.681814  0.703330  0.381443   0.811459  0.448836   0.348155
-ETH/USDT   0.797105  1.000000  0.554712  0.700525   0.734957  0.717653  0.377609   0.744033  0.281970   0.378043
-XRP/USDT   0.565396  0.554712  1.000000  0.548503   0.565133  0.648923  0.314937   0.587623  0.162215   0.226388
-SOL/USDT   0.740181  0.700525  0.548503  1.000000   0.670887  0.681713  0.316931   0.691400  0.249392   0.299814
-LINK/USDT  0.681814  0.734957  0.565133  0.670887   1.000000  0.757642  0.309791   0.665422  0.229266   0.413497
-ADA/USDT   0.703330  0.717653  0.648923  0.681713   0.757642  1.000000  0.413841   0.723846  0.255016   0.327677
-TRX/USDT   0.381443  0.377609  0.314937  0.316931   0.309791  0.413841  1.000000   0.366327  0.180625   0.112381
-DOGE/USDT  0.811459  0.744033  0.587623  0.691400   0.665422  0.723846  0.366327   1.000000  0.311443   0.345945
-USDT/USD   0.448836  0.281970  0.162215  0.249392   0.229266  0.255016  0.180625   0.311443  1.000000   0.239174
-ONDO/USDT  0.348155  0.378043  0.226388  0.299814   0.413497  0.327677  0.112381   0.345945  0.239174   1.000000</code></pre>
+BTC/USDT   1.000000  0.797105  0.565396  0.740181   0.681814  0.703330  0.381448   0.811458  0.448836   0.348155
+ETH/USDT   0.797105  1.000000  0.554712  0.700525   0.734957  0.717653  0.377615   0.744033  0.281971   0.378042
+XRP/USDT   0.565396  0.554712  1.000000  0.548503   0.565133  0.648923  0.314941   0.587624  0.162216   0.226387
+SOL/USDT   0.740181  0.700525  0.548503  1.000000   0.670887  0.681714  0.316936   0.691401  0.249393   0.299813
+LINK/USDT  0.681814  0.734957  0.565133  0.670887   1.000000  0.757643  0.309796   0.665423  0.229266   0.413496
+ADA/USDT   0.703330  0.717653  0.648923  0.681714   0.757643  1.000000  0.413845   0.723846  0.255017   0.327676
+TRX/USDT   0.381448  0.377615  0.314941  0.316936   0.309796  0.413845  1.000000   0.366332  0.180630   0.112383
+DOGE/USDT  0.811458  0.744033  0.587624  0.691401   0.665423  0.723846  0.366332   1.000000  0.311444   0.345943
+USDT/USD   0.448836  0.281971  0.162216  0.249393   0.229266  0.255017  0.180630   0.311444  1.000000   0.239174
+ONDO/USDT  0.348155  0.378042  0.226387  0.299813   0.413496  0.327676  0.112383   0.345943  0.239174   1.000000</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
@@ -606,16 +641,16 @@ ONDO/USDT  0.348155  0.378043  0.226388  0.299814   0.413497  0.327677  0.112381
 <pre><code>
 [Window = 60 days] Mean Correlation Matrix
             BTC/USDT  ETH/USDT  XRP/USDT  SOL/USDT  LINK/USDT  ADA/USDT  TRX/USDT  DOGE/USDT  USDT/USD  ONDO/USDT
-BTC/USDT   1.000000  0.794220  0.512291  0.739069   0.661759  0.686840  0.315185   0.813363  0.439727   0.343463
-ETH/USDT   0.794220  1.000000  0.493631  0.686624   0.707772  0.690285  0.302908   0.724075  0.288541   0.368641
-XRP/USDT   0.512291  0.493631  1.000000  0.498921   0.533043  0.627303  0.267398   0.535395  0.125374   0.201147
-SOL/USDT   0.739069  0.686624  0.498921  1.000000   0.649832  0.665617  0.269848   0.684101  0.234385   0.281718
-LINK/USDT  0.661759  0.707772  0.533043  0.649832   1.000000  0.742523  0.253491   0.636039  0.212387   0.396643
-ADA/USDT   0.686840  0.690285  0.627303  0.665617   0.742523  1.000000  0.367449   0.707571  0.237445   0.310394
-TRX/USDT   0.315185  0.302908  0.267398  0.269848   0.253491  0.367449  1.000000   0.302247  0.151088   0.087378
-DOGE/USDT  0.813363  0.724075  0.535395  0.684101   0.636039  0.707571  0.302247   1.000000  0.308610   0.329430
-USDT/USD   0.439727  0.288541  0.125374  0.234385   0.212387  0.237445  0.151088   0.308610  1.000000   0.239657
-ONDO/USDT  0.343463  0.368641  0.201147  0.281718   0.396643  0.310394  0.087378   0.329430  0.239657   1.000000</code></pre>
+BTC/USDT   1.000000  0.794220  0.512291  0.739069   0.661759  0.686840  0.315186   0.813363  0.439727   0.343463
+ETH/USDT   0.794220  1.000000  0.493632  0.686624   0.707773  0.690285  0.302910   0.724075  0.288542   0.368641
+XRP/USDT   0.512291  0.493632  1.000000  0.498921   0.533044  0.627304  0.267399   0.535395  0.125375   0.201147
+SOL/USDT   0.739069  0.686624  0.498921  1.000000   0.649833  0.665617  0.269850   0.684102  0.234386   0.281717
+LINK/USDT  0.661759  0.707773  0.533044  0.649833   1.000000  0.742523  0.253493   0.636039  0.212388   0.396643
+ADA/USDT   0.686840  0.690285  0.627304  0.665617   0.742523  1.000000  0.367450   0.707572  0.237446   0.310394
+TRX/USDT   0.315186  0.302910  0.267399  0.269850   0.253493  0.367450  1.000000   0.302249  0.151090   0.087379
+DOGE/USDT  0.813363  0.724075  0.535395  0.684102   0.636039  0.707572  0.302249   1.000000  0.308611   0.329430
+USDT/USD   0.439727  0.288542  0.125375  0.234386   0.212388  0.237446  0.151090   0.308611  1.000000   0.239657
+ONDO/USDT  0.343463  0.368641  0.201147  0.281717   0.396643  0.310394  0.087379   0.329430  0.239657   1.000000</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
@@ -628,16 +663,16 @@ ONDO/USDT  0.343463  0.368641  0.201147  0.281718   0.396643  0.310394  0.087378
 <pre><code>
 [Window = 90 days] Mean Correlation Matrix
             BTC/USDT  ETH/USDT  XRP/USDT  SOL/USDT  LINK/USDT  ADA/USDT  TRX/USDT  DOGE/USDT  USDT/USD  ONDO/USDT
-BTC/USDT   1.000000  0.792785  0.469713  0.741462   0.643975  0.678632  0.265846   0.810099  0.425962   0.341469
-ETH/USDT   0.792785  1.000000  0.446245  0.688565   0.694381  0.671355  0.237438   0.706158  0.281146   0.365844
-XRP/USDT   0.469713  0.446245  1.000000  0.452215   0.500434  0.606132  0.228845   0.490717  0.097375   0.189753
-SOL/USDT   0.741462  0.688565  0.452215  1.000000   0.633733  0.652648  0.246976   0.683198  0.235332   0.277572
-LINK/USDT  0.643975  0.694381  0.500434  0.633733   1.000000  0.727256  0.210145   0.608506  0.186046   0.384874
-ADA/USDT   0.678632  0.671355  0.606132  0.652648   0.727256  1.000000  0.328958   0.693337  0.222492   0.300068
-TRX/USDT   0.265846  0.237438  0.228845  0.246976   0.210145  0.328958  1.000000   0.241865  0.123591   0.078513
-DOGE/USDT  0.810099  0.706158  0.490717  0.683198   0.608506  0.693337  0.241865   1.000000  0.296289   0.320652
-USDT/USD   0.425962  0.281146  0.097375  0.235332   0.186046  0.222492  0.123591   0.296289  1.000000   0.242642
-ONDO/USDT  0.341469  0.365844  0.189753  0.277572   0.384874  0.300068  0.078513   0.320652  0.242642   1.000000</code></pre>
+BTC/USDT   1.000000  0.792785  0.469713  0.741462   0.643975  0.678632  0.265847   0.810099  0.425962   0.341469
+ETH/USDT   0.792785  1.000000  0.446246  0.688565   0.694381  0.671355  0.237440   0.706158  0.281146   0.365844
+XRP/USDT   0.469713  0.446246  1.000000  0.452216   0.500435  0.606132  0.228845   0.490717  0.097376   0.189752
+SOL/USDT   0.741462  0.688565  0.452216  1.000000   0.633733  0.652648  0.246976   0.683199  0.235333   0.277571
+LINK/USDT  0.643975  0.694381  0.500435  0.633733   1.000000  0.727257  0.210147   0.608506  0.186046   0.384874
+ADA/USDT   0.678632  0.671355  0.606132  0.652648   0.727257  1.000000  0.328959   0.693337  0.222493   0.300068
+TRX/USDT   0.265847  0.237440  0.228845  0.246976   0.210147  0.328959  1.000000   0.241866  0.123592   0.078513
+DOGE/USDT  0.810099  0.706158  0.490717  0.683199   0.608506  0.693337  0.241866   1.000000  0.296289   0.320651
+USDT/USD   0.425962  0.281146  0.097376  0.235333   0.186046  0.222493  0.123592   0.296289  1.000000   0.242642
+ONDO/USDT  0.341469  0.365844  0.189752  0.277571   0.384874  0.300068  0.078513   0.320651  0.242642   1.000000</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
@@ -668,12 +703,68 @@ Important
 <li>상관계수가 낮은 암호화폐 자산 조합을 식별하고, 헤지 투자 전략을 논의.</li>
 <li>특정 암호화폐 간의 높은 상관관계가 나타나는 이유 및 그에 따른 리스크 분석.</li>
 </ul>
+<p>2024년 3월부터 2025년 2월까지 암호화폐 시장에 큰 영향을 미친 주요 변화 원인과 그 시기:</p>
+<ol type="1">
+<li><p>비트코인 반감기 (2024년 4월 20일) 비트코인 채굴 보상이 6.25 BTC에서 3.125 BTC로 절반으로 감소했습니다. 이는 비트코인의 공급 감소로 이어져 가격에 상승 압력을 가했습니다.</p></li>
+<li><p>비트코인 ETF 자금 유입 증가 (2024년 10월) 비트코인 ETF로의 지속적인 자금 유입이 관찰되었습니다. 10월까지 ETF 투자자들이 총 345,200 BTC(200억 달러 이상의 가치)를 매입했습니다.</p></li>
+<li><p>트럼프의 대통령 당선 (2024년 11월) 도널드 트럼프가 “암호화폐 대통령”이 되겠다는 공약을 내세우며 당선되었습니다. 이는 암호화폐 시장에 대한 긍정적인 기대감을 불러일으켰습니다.</p></li>
+<li><p>EU의 암호화폐 시장 규제(MiCA) 전면 시행 (2024년 12월 30일) 유럽연합에서 암호화폐 시장 규제(MiCA)가 전면 시행되었습니다. 이로 인해 EU 전역에서 암호화폐 서비스 제공업체들에 대한 통일된 규제 프레임워크가 적용되기 시작했습니다.</p></li>
+<li><p>트럼프의 암호화폐 정책 발표 (2025년 1월) 트럼프 대통령이 취임 후 미국을 “암호화폐의 수도”로 만들겠다는 계획을 발표했습니다. 여기에는 비트코인 전략적 비축 등의 아이디어가 포함되었습니다.</p></li>
+</ol>
+<p>위의 변화와 시기가 stars and bins에서 bins 역할을 한다는 가정하여, 기간 stars는 다음과 같이 나누어 상관관계를 conditional 해 볼 수 있다.</p>
+<ol type="1">
+<li>20224년 3월 1일 (관측기간 시작일) - 2024년 4월 20일</li>
+<li>2024년 4월 21일 - 2024년 9월 30일</li>
+<li>2024년 10월 1일 - 2024년 11월 5일</li>
+<li>2024년 11월 6일 - 2024년 12월 31일</li>
+<li>2025년 1월 1일 - 2025년 2월 28일 (관측기간 종료일)</li>
+</ol>
+<p>변화를 <span class="math inline">\(Z\)</span>로 표기했다면, covariance decomposition formula에 의해,</p>
+</section>
+<section id="부록-conditioning-theorems-in-probability-theory" class="level2">
+<h2 class="anchored" data-anchor-id="부록-conditioning-theorems-in-probability-theory">부록: Conditioning Theorems in Probability Theory</h2>
+<section id="adams-law-smoothing-property-of-conditional-expectation" class="level3">
+<h3 class="anchored" data-anchor-id="adams-law-smoothing-property-of-conditional-expectation">Adam’s Law: Smoothing Property of Conditional Expectation</h3>
+<p>Also known as the <strong>Law of Total Expectation</strong> or <strong>Law of Iterated Expectations</strong>.</p>
+<p>If <span class="math inline">\(X\)</span> is a random variable whose expectation <span class="math inline">\(E(X)\)</span> is defined and <span class="math inline">\(Z\)</span> is any random variable defined on the same probability space, then: <span class="math display">\[E(X) = E(E(X|Z)).\]</span></p>
+<p>A conditional expectation can be viewed as a Radon–Nikodym derivative, making the tower property a direct consequence of the chain rule for conditional expectations.</p>
+<p>A special discrete case: If <span class="math inline">\(\{Z_{i}\}\)</span> is a finite or countable partition of the sample space, then: <span class="math display">\[E(X) = \sum_{i} E(X \mid Z_i)P(Z_i).\]</span></p>
+</section>
+<section id="eves-law-variance-decomposition-formula" class="level3">
+<h3 class="anchored" data-anchor-id="eves-law-variance-decomposition-formula">Eve’s Law: Variance Decomposition Formula</h3>
+<p>Known as the <strong>Conditional Variance Formula</strong> or the <strong>Law of Iterated Variances</strong>.</p>
+<p>If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are random variables defined on the same probability space, and if <span class="math inline">\(Y\)</span> has finite variance, then:</p>
+<p><span class="math display">\[\operatorname{Var}(Y)=E[\operatorname{Var}(Y\mid X)]+\operatorname{Var}(E[Y\mid X]).\]</span></p>
+<p>This is a special case of the covariance decomposition formula.</p>
+<p>Applications: Explained by X, on average - 분산 = “(조건부 분산)의 평균” + “(조건부 평균)의 분산”</p>
+<ul>
+<li><p><strong>Analysis of Variance (ANOVA)</strong>: Variability in <span class="math inline">\(Y\)</span> splits into an “unexplained” within-group variance and an “explained” between-group variance. The F-test examines if the explained variance is significantly large, indicating a meaningful effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span>.</p></li>
+<li><p><strong>Linear Regression Models</strong>: The proportion of explained variance is measured as <span class="math inline">\(R^2\)</span>. For simple linear regression (single predictor), <span class="math inline">\(R^2\)</span> equals the squared Pearson correlation coefficient between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p></li>
+<li><p><strong>Machine Learning and Bayesian Inference</strong>: In many Bayesian and ensemble methods, one decomposes prediction uncertainty via the law of total variance. For a Bayesian neural network with random parameters <span class="math inline">\(\theta\)</span>: <span class="math inline">\(\operatorname {Var} (Y)=\operatorname {E} {\bigl [}\operatorname {Var} (Y\mid \theta ){\bigr ]}+\operatorname {Var} {\bigl (}\operatorname {E} [Y\mid \theta ]{\bigr )}\)</span> often referred to as “aleatoric” (within-model) vs.&nbsp;“epistemic” (between-model) uncertainty</p></li>
+<li><p><strong>Information Theory</strong>: For jointly Gaussian <span class="math inline">\((X,Y)\)</span>, the fraction <span class="math inline">\(\operatorname {Var} (\operatorname {E} [Y\mid X])/\operatorname {Var} (Y)\)</span> relates directly to the mutual information <span class="math inline">\(I(Y;X)\)</span>. In non-Gaussian settings, a high explained-variance ratio still indicates significant information about Y contained in X</p></li>
+</ul>
+<p><strong>Example 1 (Exam Scores)</strong>: Suppose students’ exam scores vary between two classrooms. The variance of all scores (<span class="math inline">\(Y\)</span>) can be decomposed into the variance within classrooms (unexplained) and the variance between classroom averages (explained), reflecting differences in teaching quality or resources.</p>
+<p><strong>Example 2 (Mixture of Two Gaussians)</strong>: Consider <span class="math inline">\(Y\)</span> as a mixture of two normal distributions, where the mixing distribution is Bernoulli with parameter <span class="math inline">\(p\)</span>. Suppose:</p>
+<p><span class="math display">\[Y \mid (X=0) \sim N(\mu_0, \sigma_0^2), \quad Y \mid (X=1) \sim N(\mu_1, \sigma_1^2).\]</span></p>
+<p>Then the law of total variance gives:</p>
+<p><span class="math display">\[\operatorname{Var}(Y) = p\sigma_1^2 + (1-p)\sigma_0^2 + p(1-p)(\mu_1 - \mu_0)^2.\]</span></p>
+</section>
+<section id="covariance-decomposition-formula" class="level3">
+<h3 class="anchored" data-anchor-id="covariance-decomposition-formula">Covariance Decomposition Formula</h3>
+<p>Known as the <strong>Law of Total Covariance</strong> or <strong>Conditional Covariance Formula</strong>.</p>
+<p>If <span class="math inline">\(X\)</span>, <span class="math inline">\(Y\)</span>, and <span class="math inline">\(Z\)</span> are random variables defined on the same probability space, with finite covariance between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, then:</p>
+<p><span class="math display">\[\operatorname{cov}(X,Y)=E[\operatorname{cov}(X,Y\mid Z)]+\operatorname{cov}(E[X\mid Z],E[Y\mid Z]).\]</span></p>
+<p>This relationship is a particular instance of the general Law of Total Cumulance and is crucial for analyzing dependencies among variables conditioned on a third variable or groupings.</p>
+</section>
+<section id="bias-variance-decomposition-of-mse" class="level3">
+
 
 
 
 </section>
+</section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Bias-Variance Decomposition of MSE</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-coindesk2023" class="csl-entry" role="listitem">
 Coindesk. 2023. <span>“Bitcoin’s Negative Correlation with Dollar Index Strengthens Ahead of u.s. GDP Data.”</span> <em>Coindesk Markets</em>. <a href="https://www.coindesk.com/markets/2023/04/27/bitcoins-negative-correlation-with-dollar-index-strengthens-ahead-of-us-gdp">https://www.coindesk.com/markets/2023/04/27/bitcoins-negative-correlation-with-dollar-index-strengthens-ahead-of-us-gdp</a>.
 </div>

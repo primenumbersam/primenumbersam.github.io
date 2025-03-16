@@ -6,8 +6,7 @@ website:
   title: "GitSAM"
   navbar:
     left:
-      - href: index.qmd
-        text: Formats
+      - about.qmd
       - text: "Projects"
         menu: 
           - href: projects/correlation_crypto/correlation_crypto.qmd
