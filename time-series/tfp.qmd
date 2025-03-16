@@ -15,6 +15,7 @@ format:
 From an econometric perspective, a decline in TFP growth could alter its stationarity properties, weakening its stochastic trend and making it more likely to transition **from** an $I(1)$ (non-stationary) stochastic process **to** an $I(0)$ (stationary) stochastic process. If **structural breaks** exist in TFP growth, traditional time-series models based on constant-trend cointegration **assumptions** may fail. Thus, accurately modeling TFP trends requires dynamic econometric techniques that account for **time-varying structural changes**.  
 
 ## Main
+
 ### Understanding TFP in Macroeconomic Models
 
 TFP represents technological progress that enhances economic output beyond capital and labor inputs. In the **Solow-Swan growth model**, TFP follows an **exponential trend**, expressed as:
@@ -34,8 +35,9 @@ Thus, mainstream macroeconomic models do **not** assume TFP is stationary in lev
 ### Empirical Evidence on TFP Stationarity
 
 Empirical studies show:
-1. **Long-Run TFP** behaves as a non-stationary process ($I(1)$), meaning that it exhibits persistent growth and shocks that do not revert over time.
-2. **Short-Run TFP Shocks** (deviations from trend) are often stationary ($I(0)$) process.
+
+- **Long-Run TFP** behaves as a non-stationary process ($I(1)$), meaning that it exhibits persistent growth and shocks that do not revert over time.
+- **Short-Run TFP Shocks** (deviations from trend) are often stationary ($I(0)$) process.
 
 If GDP and capital stock are also $I(1)$, Solow's production function suggests they should be cointegrated:
 
@@ -50,6 +52,7 @@ Thus, GDP, capital, and labor may be cointegrated due to the common trend driven
 Many studies suggest that TFP growth rates have declined since the mid-20th century.
 
 **U.S. TFP Growth Trends (Annual Growth Rates)**:
+
 - **1950s–1970s:** ~2.5% per year  
 - **1980s–1990s:** ~1.5% per year  
 - **2000s–2020s:** ~0.5%-1.0% per year  

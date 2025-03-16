@@ -100,7 +100,6 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="../styles.css">
-<link rel="stylesheet" href="ache">
 </head>
 
 <body class="nav-fixed">
@@ -121,18 +120,14 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
-<span class="menu-text">Formats</span></a>
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-projects" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Projects</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-projects">    
-        <li>
-    <a class="dropdown-item" href="../projects/correlation_crypto/correlation_crypto.html">
- <span class="dropdown-text">Correlation in Crypto</span></a>
-  </li>  
         <li>
     <a class="dropdown-item" href="../projects/gilded_age/gilded_age.html">
  <span class="dropdown-text">The New Gilded Age</span></a>
@@ -153,13 +148,29 @@ window.Quarto = {
     <a class="dropdown-item" href="../projects/corner_solution/corner_solution.html">
  <span class="dropdown-text">Heading to Corner Solutions</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../time-series/joint_covariance_stationary.html">
+ <span class="dropdown-text">Stationary process</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../time-series/tfp.html">
+ <span class="dropdown-text">TFP?</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-time-series" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Time-series</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">한글</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-time-series">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-">    
+        <li>
+    <a class="dropdown-item" href="../projects/correlation_crypto/correlation_crypto.html">
+ <span class="dropdown-text">암호화폐들의 상관관계</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../time-series/yield_curve.html">
+ <span class="dropdown-text">채권투자와 금리</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../time-series/labor_decoupling.html">
  <span class="dropdown-text">노동 기여와 분배</span></a>
@@ -167,14 +178,6 @@ window.Quarto = {
         <li>
     <a class="dropdown-item" href="../time-series/indicator_growth.html">
  <span class="dropdown-text">경제성장 지표</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../time-series/joint_covariance_stationary.html">
- <span class="dropdown-text">Stationarity?</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../time-series/tfp.html">
- <span class="dropdown-text">TFP?</span></a>
   </li>  
     </ul>
   </li>
@@ -283,7 +286,11 @@ A_t = A_0 e^{gt} \epsilon_t
 </section>
 <section id="empirical-evidence-on-tfp-stationarity" class="level3">
 <h3 class="anchored" data-anchor-id="empirical-evidence-on-tfp-stationarity">Empirical Evidence on TFP Stationarity</h3>
-<p>Empirical studies show: 1. <strong>Long-Run TFP</strong> behaves as a non-stationary process (<span class="math inline">\(I(1)\)</span>), meaning that it exhibits persistent growth and shocks that do not revert over time. 2. <strong>Short-Run TFP Shocks</strong> (deviations from trend) are often stationary (<span class="math inline">\(I(0)\)</span>) process.</p>
+<p>Empirical studies show:</p>
+<ul>
+<li><strong>Long-Run TFP</strong> behaves as a non-stationary process (<span class="math inline">\(I(1)\)</span>), meaning that it exhibits persistent growth and shocks that do not revert over time.</li>
+<li><strong>Short-Run TFP Shocks</strong> (deviations from trend) are often stationary (<span class="math inline">\(I(0)\)</span>) process.</li>
+</ul>
 <p>If GDP and capital stock are also <span class="math inline">\(I(1)\)</span>, Solow’s production function suggests they should be cointegrated:</p>
 <p><span class="math display">\[
 \log Y_t - \alpha \log K_t - (1-\alpha) \log L_t - g t = u_t, \quad u_t \sim I(0)
@@ -293,9 +300,14 @@ A_t = A_0 e^{gt} \epsilon_t
 <section id="is-tfp-growth-declining-in-the-long-run" class="level3">
 <h3 class="anchored" data-anchor-id="is-tfp-growth-declining-in-the-long-run">Is TFP Growth Declining in the Long Run?</h3>
 <p>Many studies suggest that TFP growth rates have declined since the mid-20th century.</p>
-<p><strong>U.S. TFP Growth Trends (Annual Growth Rates)</strong>: - <strong>1950s–1970s:</strong> ~2.5% per year<br>
-- <strong>1980s–1990s:</strong> ~1.5% per year<br>
-- <strong>2000s–2020s:</strong> ~0.5%-1.0% per year</p>
+<p><strong>U.S. TFP Growth Trends (Annual Growth Rates)</strong>:</p>
+<ul>
+<li><strong>1950s–1970s:</strong> ~2.5% per year<br>
+</li>
+<li><strong>1980s–1990s:</strong> ~1.5% per year<br>
+</li>
+<li><strong>2000s–2020s:</strong> ~0.5%-1.0% per year</li>
+</ul>
 <p>The <strong>productivity slowdown hypothesis</strong> suggests that <strong>long-term economic growth potential</strong> is becoming weaker than before.</p>
 </section>
 <section id="why-might-tfp-growth-decline-over-time" class="level3">

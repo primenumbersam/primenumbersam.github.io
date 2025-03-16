@@ -9,8 +9,6 @@ website:
       - about.qmd
       - text: "Projects"
         menu: 
-          - href: projects/correlation_crypto/correlation_crypto.qmd
-            text: Correlation in Crypto
           - href: projects/gilded_age/gilded_age.qmd
             text: The New Gilded Age
           - href: projects/pricing_equal/pricing_equal.qmd
@@ -21,16 +19,21 @@ website:
             text: Estimating Pareto Index
           - href: projects/corner_solution/corner_solution.qmd
             text: Heading to Corner Solutions
-      - text: "Time-series"
+          - href: time-series/joint_covariance_stationary.qmd
+            text: Stationary process
+          - href: time-series/tfp.qmd
+            text: TFP?
+      - text: "한글"
         menu: 
+          - href: projects/correlation_crypto/correlation_crypto.qmd
+            text: 암호화폐들의 상관관계
+          - href: time-series/yield_curve.qmd
+            text: 채권투자와 금리
           - href: time-series/labor_decoupling.qmd
             text: 노동 기여와 분배
           - href: time-series/indicator_growth.qmd
             text: 경제성장 지표
-          - href: time-series/joint_covariance_stationary.qmd
-            text: Stationarity?
-          - href: time-series/tfp.qmd
-            text: TFP?
+
     tools:
       - icon: house
         href: https://www.gitsam.com

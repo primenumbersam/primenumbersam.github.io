@@ -183,10 +183,6 @@ window.Quarto = {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-projects">    
         <li>
-    <a class="dropdown-item" href="../../projects/correlation_crypto/correlation_crypto.html">
- <span class="dropdown-text">Correlation in Crypto</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="../../projects/gilded_age/gilded_age.html">
  <span class="dropdown-text">The New Gilded Age</span></a>
   </li>  
@@ -206,13 +202,29 @@ window.Quarto = {
     <a class="dropdown-item" href="../../projects/corner_solution/corner_solution.html">
  <span class="dropdown-text">Heading to Corner Solutions</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../time-series/joint_covariance_stationary.html">
+ <span class="dropdown-text">Stationary process</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../time-series/tfp.html">
+ <span class="dropdown-text">TFP?</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-time-series" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Time-series</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">한글</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-time-series">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-">    
+        <li>
+    <a class="dropdown-item" href="../../projects/correlation_crypto/correlation_crypto.html">
+ <span class="dropdown-text">암호화폐들의 상관관계</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../time-series/yield_curve.html">
+ <span class="dropdown-text">채권투자와 금리</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../../time-series/labor_decoupling.html">
  <span class="dropdown-text">노동 기여와 분배</span></a>
@@ -220,14 +232,6 @@ window.Quarto = {
         <li>
     <a class="dropdown-item" href="../../time-series/indicator_growth.html">
  <span class="dropdown-text">경제성장 지표</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../time-series/joint_covariance_stationary.html">
- <span class="dropdown-text">Stationarity?</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../../time-series/tfp.html">
- <span class="dropdown-text">TFP?</span></a>
   </li>  
     </ul>
   </li>
@@ -458,7 +462,7 @@ window.Quarto = {
 <li>각 롤링 윈도우 크기(30, 60, 90일)에 대해 <strong>롤링 상관 행렬(rolling correlation matrix)</strong>을 계산.</li>
 <li>평균 상관계수(mean of rolling correlation matrix)를 도출하여 암호화폐 간의 관계를 분석.</li>
 </ul>
-<div id="dc7b48e9" class="cell" data-execution_count="1">
+<div id="26cfef25" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 분석 결과 (Results)</span></span>
@@ -586,7 +590,7 @@ bitfinex supports: ['BTC/USDT', 'ETH/USDT', 'USDT/USD', 'XRP/USDT', 'SOL/USDT', 
 poloniex supports: ['BTC/USDT', 'ETH/USDT', 'XRP/USDT', 'SOL/USDT', 'LINK/USDT', 'ONDO/USDT', 'ADA/USDT', 'TRX/USDT', 'DOGE/USDT']</code></pre>
 </div>
 </div>
-<div id="ebe2d2a7" class="cell" data-execution_count="2">
+<div id="c6c78a3c" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -619,16 +623,16 @@ poloniex supports: ['BTC/USDT', 'ETH/USDT', 'XRP/USDT', 'SOL/USDT', 'LINK/USDT',
 <pre><code>
 [Window = 30 days] Mean Correlation Matrix
             BTC/USDT  ETH/USDT  XRP/USDT  SOL/USDT  LINK/USDT  ADA/USDT  TRX/USDT  DOGE/USDT  USDT/USD  ONDO/USDT
-BTC/USDT   1.000000  0.797105  0.565396  0.740181   0.681814  0.703330  0.381448   0.811458  0.448836   0.348155
-ETH/USDT   0.797105  1.000000  0.554712  0.700525   0.734957  0.717653  0.377615   0.744033  0.281971   0.378042
-XRP/USDT   0.565396  0.554712  1.000000  0.548503   0.565133  0.648923  0.314941   0.587624  0.162216   0.226387
-SOL/USDT   0.740181  0.700525  0.548503  1.000000   0.670887  0.681714  0.316936   0.691401  0.249393   0.299813
-LINK/USDT  0.681814  0.734957  0.565133  0.670887   1.000000  0.757643  0.309796   0.665423  0.229266   0.413496
-ADA/USDT   0.703330  0.717653  0.648923  0.681714   0.757643  1.000000  0.413845   0.723846  0.255017   0.327676
-TRX/USDT   0.381448  0.377615  0.314941  0.316936   0.309796  0.413845  1.000000   0.366332  0.180630   0.112383
-DOGE/USDT  0.811458  0.744033  0.587624  0.691401   0.665423  0.723846  0.366332   1.000000  0.311444   0.345943
-USDT/USD   0.448836  0.281971  0.162216  0.249393   0.229266  0.255017  0.180630   0.311444  1.000000   0.239174
-ONDO/USDT  0.348155  0.378042  0.226387  0.299813   0.413496  0.327676  0.112383   0.345943  0.239174   1.000000</code></pre>
+BTC/USDT   1.000000  0.797104  0.565393  0.740176   0.681812  0.703326  0.381429   0.811457  0.448834   0.348162
+ETH/USDT   0.797104  1.000000  0.554710  0.700521   0.734956  0.717649  0.377599   0.744032  0.281968   0.378049
+XRP/USDT   0.565393  0.554710  1.000000  0.548502   0.565132  0.648923  0.314931   0.587622  0.162210   0.226404
+SOL/USDT   0.740176  0.700521  0.548502  1.000000   0.670884  0.681713  0.316932   0.691398  0.249384   0.299832
+LINK/USDT  0.681812  0.734956  0.565132  0.670884   1.000000  0.757641  0.309781   0.665422  0.229261   0.413510
+ADA/USDT   0.703326  0.717649  0.648923  0.681713   0.757641  1.000000  0.413843   0.723845  0.255010   0.327691
+TRX/USDT   0.381429  0.377599  0.314931  0.316932   0.309781  0.413843  1.000000   0.366315  0.180608   0.112423
+DOGE/USDT  0.811457  0.744032  0.587622  0.691398   0.665422  0.723845  0.366315   1.000000  0.311438   0.345962
+USDT/USD   0.448834  0.281968  0.162210  0.249384   0.229261  0.255010  0.180608   0.311438  1.000000   0.239179
+ONDO/USDT  0.348162  0.378049  0.226404  0.299832   0.413510  0.327691  0.112423   0.345962  0.239179   1.000000</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
@@ -641,16 +645,16 @@ ONDO/USDT  0.348155  0.378042  0.226387  0.299813   0.413496  0.327676  0.112383
 <pre><code>
 [Window = 60 days] Mean Correlation Matrix
             BTC/USDT  ETH/USDT  XRP/USDT  SOL/USDT  LINK/USDT  ADA/USDT  TRX/USDT  DOGE/USDT  USDT/USD  ONDO/USDT
-BTC/USDT   1.000000  0.794220  0.512291  0.739069   0.661759  0.686840  0.315186   0.813363  0.439727   0.343463
-ETH/USDT   0.794220  1.000000  0.493632  0.686624   0.707773  0.690285  0.302910   0.724075  0.288542   0.368641
-XRP/USDT   0.512291  0.493632  1.000000  0.498921   0.533044  0.627304  0.267399   0.535395  0.125375   0.201147
-SOL/USDT   0.739069  0.686624  0.498921  1.000000   0.649833  0.665617  0.269850   0.684102  0.234386   0.281717
-LINK/USDT  0.661759  0.707773  0.533044  0.649833   1.000000  0.742523  0.253493   0.636039  0.212388   0.396643
-ADA/USDT   0.686840  0.690285  0.627304  0.665617   0.742523  1.000000  0.367450   0.707572  0.237446   0.310394
-TRX/USDT   0.315186  0.302910  0.267399  0.269850   0.253493  0.367450  1.000000   0.302249  0.151090   0.087379
-DOGE/USDT  0.813363  0.724075  0.535395  0.684102   0.636039  0.707572  0.302249   1.000000  0.308611   0.329430
-USDT/USD   0.439727  0.288542  0.125375  0.234386   0.212388  0.237446  0.151090   0.308611  1.000000   0.239657
-ONDO/USDT  0.343463  0.368641  0.201147  0.281717   0.396643  0.310394  0.087379   0.329430  0.239657   1.000000</code></pre>
+BTC/USDT   1.000000  0.794219  0.512289  0.739064   0.661757  0.686837  0.315176   0.813361  0.439726   0.343467
+ETH/USDT   0.794219  1.000000  0.493629  0.686619   0.707771  0.690282  0.302901   0.724074  0.288540   0.368644
+XRP/USDT   0.512289  0.493629  1.000000  0.498919   0.533042  0.627303  0.267393   0.535394  0.125371   0.201156
+SOL/USDT   0.739064  0.686619  0.498919  1.000000   0.649829  0.665617  0.269847   0.684098  0.234379   0.281729
+LINK/USDT  0.661757  0.707771  0.533042  0.649829   1.000000  0.742521  0.253485   0.636038  0.212385   0.396651
+ADA/USDT   0.686837  0.690282  0.627303  0.665617   0.742521  1.000000  0.367449   0.707570  0.237441   0.310403
+TRX/USDT   0.315176  0.302901  0.267393  0.269847   0.253485  0.367449  1.000000   0.302241  0.151080   0.087397
+DOGE/USDT  0.813361  0.724074  0.535394  0.684098   0.636038  0.707570  0.302241   1.000000  0.308608   0.329439
+USDT/USD   0.439726  0.288540  0.125371  0.234379   0.212385  0.237441  0.151080   0.308608  1.000000   0.239658
+ONDO/USDT  0.343467  0.368644  0.201156  0.281729   0.396651  0.310403  0.087397   0.329439  0.239658   1.000000</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
@@ -663,16 +667,16 @@ ONDO/USDT  0.343463  0.368641  0.201147  0.281717   0.396643  0.310394  0.087379
 <pre><code>
 [Window = 90 days] Mean Correlation Matrix
             BTC/USDT  ETH/USDT  XRP/USDT  SOL/USDT  LINK/USDT  ADA/USDT  TRX/USDT  DOGE/USDT  USDT/USD  ONDO/USDT
-BTC/USDT   1.000000  0.792785  0.469713  0.741462   0.643975  0.678632  0.265847   0.810099  0.425962   0.341469
-ETH/USDT   0.792785  1.000000  0.446246  0.688565   0.694381  0.671355  0.237440   0.706158  0.281146   0.365844
-XRP/USDT   0.469713  0.446246  1.000000  0.452216   0.500435  0.606132  0.228845   0.490717  0.097376   0.189752
-SOL/USDT   0.741462  0.688565  0.452216  1.000000   0.633733  0.652648  0.246976   0.683199  0.235333   0.277571
-LINK/USDT  0.643975  0.694381  0.500435  0.633733   1.000000  0.727257  0.210147   0.608506  0.186046   0.384874
-ADA/USDT   0.678632  0.671355  0.606132  0.652648   0.727257  1.000000  0.328959   0.693337  0.222493   0.300068
-TRX/USDT   0.265847  0.237440  0.228845  0.246976   0.210147  0.328959  1.000000   0.241866  0.123592   0.078513
-DOGE/USDT  0.810099  0.706158  0.490717  0.683199   0.608506  0.693337  0.241866   1.000000  0.296289   0.320651
-USDT/USD   0.425962  0.281146  0.097376  0.235333   0.186046  0.222493  0.123592   0.296289  1.000000   0.242642
-ONDO/USDT  0.341469  0.365844  0.189752  0.277571   0.384874  0.300068  0.078513   0.320651  0.242642   1.000000</code></pre>
+BTC/USDT   1.000000  0.792784  0.469710  0.741457   0.643973  0.678629  0.265840   0.810098  0.425961   0.341473
+ETH/USDT   0.792784  1.000000  0.446244  0.688561   0.694380  0.671352  0.237434   0.706157  0.281144   0.365848
+XRP/USDT   0.469710  0.446244  1.000000  0.452214   0.500433  0.606131  0.228841   0.490715  0.097372   0.189761
+SOL/USDT   0.741457  0.688561  0.452214  1.000000   0.633730  0.652648  0.246975   0.683196  0.235327   0.277582
+LINK/USDT  0.643973  0.694380  0.500433  0.633730   1.000000  0.727255  0.210142   0.608505  0.186043   0.384880
+ADA/USDT   0.678629  0.671352  0.606131  0.652648   0.727255  1.000000  0.328958   0.693336  0.222488   0.300076
+TRX/USDT   0.265840  0.237434  0.228841  0.246975   0.210142  0.328958  1.000000   0.241861  0.123586   0.078526
+DOGE/USDT  0.810098  0.706157  0.490715  0.683196   0.608505  0.693336  0.241861   1.000000  0.296287   0.320660
+USDT/USD   0.425961  0.281144  0.097372  0.235327   0.186043  0.222488  0.123586   0.296287  1.000000   0.242643
+ONDO/USDT  0.341473  0.365848  0.189761  0.277582   0.384880  0.300076  0.078526   0.320660  0.242643   1.000000</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
@@ -757,14 +761,47 @@ Important
 <p>This relationship is a particular instance of the general Law of Total Cumulance and is crucial for analyzing dependencies among variables conditioned on a third variable or groupings.</p>
 </section>
 <section id="bias-variance-decomposition-of-mse" class="level3">
-
+<h3 class="anchored" data-anchor-id="bias-variance-decomposition-of-mse">Bias-Variance Decomposition of MSE</h3>
+<p><strong>Key:</strong> The Bias-Variance Decomposition emphasizes the <strong>trade-off</strong> between making <span class="math inline">\(\hat{Y}\)</span> reliably close to its own expected value (low variance) and aligning that expected value with the true target <span class="math inline">\(\mathbb{E}[Y]\)</span> (low bias).</p>
+<p>In many estimation or prediction settings, we have a random outcome <span class="math inline">\(Y\)</span> and an estimator (or model prediction) <span class="math inline">\(\hat{Y}\)</span>. The <strong>Mean Squared Error (MSE)</strong> of <span class="math inline">\(\hat{Y}\)</span> is:</p>
+<p><span class="math display">\[
+\mathrm{MSE}(\hat{Y})
+= \mathbb{E}\bigl[(Y - \hat{Y})^2\bigr].
+\]</span></p>
+<p>If we decompose <span class="math inline">\(\hat{Y}\)</span> around its expected value, we can split MSE into a <strong>bias</strong> term and a <strong>variance</strong> term (plus any irreducible noise in certain contexts). Formally, assume</p>
+<p><span class="math display">\[
+\hat{Y} = f(X) + \text{estimation noise},
+\quad
+Y = f(X) + \varepsilon,
+\]</span></p>
+<p>where <span class="math inline">\(\varepsilon\)</span> is an irreducible error term with mean zero (e.g., observational or inherent noise). Then:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathrm{MSE}(\hat{Y})
+&amp;= \mathbb{E}\bigl[(Y - \hat{Y})^2\bigr]\\
+&amp;= \underbrace{\mathbb{E}\Bigl[\bigl(\hat{Y} - \mathbb{E}[\hat{Y}]\bigr)^2\Bigr]}_{\text{Variance}(\hat{Y})}
+\;+\;
+\underbrace{\Bigl(\mathbb{E}[\hat{Y}] \;-\; \mathbb{E}[Y]\Bigr)^2}_{\text{Bias}(\hat{Y})^2}
+\;+\;
+\underbrace{\mathbb{E}\bigl[\varepsilon^2\bigr]}_{\text{Irreducible noise}},
+\end{aligned}
+\]</span></p>
+<p>where: 1. <strong>Variance</strong>: <span class="math inline">\(\text{Var}(\hat{Y})\)</span> represents how much <span class="math inline">\(\hat{Y}\)</span> fluctuates around its own mean. 2. <strong>Bias</strong>: <span class="math inline">\(\text{Bias}(\hat{Y})^2\)</span> measures how far <span class="math inline">\(\hat{Y}\)</span> (on average) deviates from the true mean <span class="math inline">\(\mathbb{E}[Y]\)</span>. 3. <strong>Irreducible noise</strong>: <span class="math inline">\(\mathbb{E}[\varepsilon^2]\)</span> is the part of the error that cannot be reduced by any estimator.</p>
+<p>In a strictly theoretical sense (when <span class="math inline">\(\varepsilon\)</span> is embedded in <span class="math inline">\(Y\)</span>), one often writes the <strong>Bias-Variance decomposition</strong> as:</p>
+<p><span class="math display">\[
+\mathrm{MSE}(\hat{Y})
+= \underbrace{\mathrm{Var}(\hat{Y})}_{\text{Variance term}}
+\;+\;
+\underbrace{\mathrm{Bias}(\hat{Y})^2}_{\text{Bias term}}.
+\]</span></p>
+<p>Here, if there is additional irreducible noise, it appears as a separate constant term. This decomposition closely aligns with the Law of Total Variance (Eve’s Law) in the sense that the total mean squared difference can be split into a “spread around the estimator’s mean” plus the “squared difference of that mean from the true value,” mirroring how variance itself decomposes into conditional components.</p>
 
 
 
 </section>
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Bias-Variance Decomposition of MSE</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-coindesk2023" class="csl-entry" role="listitem">
 Coindesk. 2023. <span>“Bitcoin’s Negative Correlation with Dollar Index Strengthens Ahead of u.s. GDP Data.”</span> <em>Coindesk Markets</em>. <a href="https://www.coindesk.com/markets/2023/04/27/bitcoins-negative-correlation-with-dollar-index-strengthens-ahead-of-us-gdp">https://www.coindesk.com/markets/2023/04/27/bitcoins-negative-correlation-with-dollar-index-strengthens-ahead-of-us-gdp</a>.
 </div>

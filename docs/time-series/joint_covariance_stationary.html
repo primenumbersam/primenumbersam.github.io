@@ -100,7 +100,6 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="../styles.css">
-<link rel="stylesheet" href="ache">
 </head>
 
 <body class="nav-fixed">
@@ -121,18 +120,14 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
-<span class="menu-text">Formats</span></a>
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-projects" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Projects</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-projects">    
-        <li>
-    <a class="dropdown-item" href="../projects/correlation_crypto/correlation_crypto.html">
- <span class="dropdown-text">Correlation in Crypto</span></a>
-  </li>  
         <li>
     <a class="dropdown-item" href="../projects/gilded_age/gilded_age.html">
  <span class="dropdown-text">The New Gilded Age</span></a>
@@ -153,13 +148,29 @@ window.Quarto = {
     <a class="dropdown-item" href="../projects/corner_solution/corner_solution.html">
  <span class="dropdown-text">Heading to Corner Solutions</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../time-series/joint_covariance_stationary.html">
+ <span class="dropdown-text">Stationary process</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../time-series/tfp.html">
+ <span class="dropdown-text">TFP?</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-time-series" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Time-series</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">한글</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-time-series">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-">    
+        <li>
+    <a class="dropdown-item" href="../projects/correlation_crypto/correlation_crypto.html">
+ <span class="dropdown-text">암호화폐들의 상관관계</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../time-series/yield_curve.html">
+ <span class="dropdown-text">채권투자와 금리</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="../time-series/labor_decoupling.html">
  <span class="dropdown-text">노동 기여와 분배</span></a>
@@ -167,14 +178,6 @@ window.Quarto = {
         <li>
     <a class="dropdown-item" href="../time-series/indicator_growth.html">
  <span class="dropdown-text">경제성장 지표</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../time-series/joint_covariance_stationary.html">
- <span class="dropdown-text">Stationarity?</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../time-series/tfp.html">
- <span class="dropdown-text">TFP?</span></a>
   </li>  
     </ul>
   </li>
@@ -256,20 +259,20 @@ window.Quarto = {
 </header>
 
 
-<p>Covariance stationarity and cointegration describe different statistical properties of time series data. <strong>Covariance stationarity</strong> applies to series where <strong>mean, variance, and autocovariance do not change over time</strong>, while <strong>cointegration</strong> describes cases where <strong>non-stationary (<span class="math inline">\(I(1)\)</span>) time series maintain a stable long-run equilibrium</strong>. This study explores how these concepts relate and how <strong>cointegration allows for non-stationary series to form stationary linear combinations</strong>.</p>
+<p>Covariance stationarity and cointegration describe different statistical properties of time series data. <strong>Covariance stationarity</strong> applies to series where mean, variance, and autocovariance do not change over time, while <strong>cointegration</strong> describes cases where non-stationary <span class="math inline">\(I(1)\)</span> time-series maintain a stable long-run equilibrium. This study explores how these concepts relate and how <strong>cointegration allows for non-stationary series to form stationary linear combinations</strong>.</p>
 <section id="integration-order" class="level2">
 <h2 class="anchored" data-anchor-id="integration-order">Integration Order</h2>
 <p>The <strong>integration order</strong> of a time series determines how many times it must be <strong>differenced</strong> to become <strong>stationary</strong>. A series is:</p>
 <ul>
-<li><strong>I(0) (stationary)</strong> if it has a constant mean, variance, and autocovariance.</li>
-<li><strong>I(1) (unit root process)</strong> if it is non-stationary but becomes stationary after first differencing.</li>
-<li><strong>I(d)</strong> if it requires <span class="math inline">\(d\)</span> differences to become stationary.</li>
+<li><span class="math inline">\(I(0)\)</span> (stationary) process if it has a constant mean, variance, and autocovariance.</li>
+<li><span class="math inline">\(I(1)\)</span> (unit root) process if it is non-stationary but becomes stationary after first differencing.</li>
+<li><span class="math inline">\(I(d)\)</span> process if it requires <span class="math inline">\(d\)</span> differences to become stationary.</li>
 </ul>
-<p>Economic time series such as <strong>GDP, money supply, and asset prices</strong> often exhibit <strong>I(1) behavior</strong>, meaning they contain <strong>stochastic trends</strong> and require differencing to achieve <strong>stationarity</strong>.</p>
+<p>Economic time series such as <strong>GDP, money supply, and asset prices</strong> often exhibit <span class="math inline">\(I(1)\)</span> behavior, meaning they contain <strong>stochastic trends</strong> and require differencing to achieve <strong>stationarity</strong>.</p>
 </section>
 <section id="joint-covariance-stationarity-vs.-cointegration" class="level2">
 <h2 class="anchored" data-anchor-id="joint-covariance-stationarity-vs.-cointegration">Joint Covariance Stationarity vs.&nbsp;Cointegration</h2>
-<p><strong>Joint covariance stationarity</strong> applies when each time series maintains a <strong>constant mean, variance, and autocovariance</strong> over time. <strong>Cointegration</strong>, on the other hand, describes cases where two or more <strong>non-stationary (I(1))</strong> series share a <strong>long-term equilibrium</strong>, forming a <strong>stationary linear combination</strong>.</p>
+<p><strong>Joint covariance stationarity</strong> applies when <strong>each</strong> time-series maintains a constant mean, variance, and autocovariance over time. <strong>Cointegration</strong>, on the other hand, describes cases where <strong>two or more</strong> non-stationary <span class="math inline">\(I(1)\)</span> time-series <strong>share</strong> a long-term equilibrium, forming a <strong>stationary linear combination</strong>.</p>
 <section id="joint-covariance-stationary-series-weak-sense-stationarity" class="level3">
 <h3 class="anchored" data-anchor-id="joint-covariance-stationary-series-weak-sense-stationarity">Joint Covariance Stationary Series (Weak-Sense Stationarity)</h3>
 <p>A set of time series <span class="math inline">\(X_t\)</span> and <span class="math inline">\(Y_t\)</span> are <strong>jointly covariance stationary</strong> if they satisfy:</p>
@@ -284,13 +287,13 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="cointegrated-series">Cointegrated Series</h3>
 <p>A set of time series <span class="math inline">\(X_t\)</span> and <span class="math inline">\(Y_t\)</span> are <strong>cointegrated</strong> if:</p>
 <ol type="1">
-<li><p>Each series is <strong>I(1) (non-stationary)</strong>.</p></li>
-<li><p>A <strong>linear combination exists</strong> that is <strong>I(0) (stationary)</strong>:</p>
+<li><p>Each series is <span class="math inline">\(I(1)\)</span> (non-stationary) process.</p></li>
+<li><p>A <strong>linear combination exists</strong> that is <span class="math inline">\(I(0)\)</span> (stationary) process:</p>
 <p><span class="math display">\[
 \beta_1 X_t + \beta_2 Y_t = u_t
 \]</span></p></li>
 </ol>
-<p>where <span class="math inline">\(u_t\)</span> is <strong><span class="math inline">\(I(0)\)</span> (stationary)</strong>.</p>
+<p>where <span class="math inline">\(u_t\)</span> is <span class="math inline">\(I(0)\)</span> (stationary) process.</p>
 <p>Thus, <strong>even though individual variables are non-stationary, their linear combination is stationary</strong>, implying a <strong>long-run equilibrium relationship</strong>.</p>
 </section>
 <section id="the-relationship-between-covariance-stationarity-and-cointegration" class="level3">
@@ -315,7 +318,7 @@ window.Quarto = {
 <td>Each series is non-stationary (I(1)), but a linear combination is stationary</td>
 </tr>
 <tr class="even">
-<td><strong>Unit Root (I(d))</strong></td>
+<td><strong>Unit Root <span class="math inline">\(I(d)\)</span></strong></td>
 <td>I(0) for each series</td>
 <td>I(1) for each series, but a specific linear combination is I(0)</td>
 </tr>
@@ -335,14 +338,14 @@ window.Quarto = {
 <h4 class="anchored" data-anchor-id="cointegrated-series-can-be-transformed-into-covariance-stationary-series">Cointegrated Series Can Be Transformed into Covariance Stationary Series</h4>
 <p>If <span class="math inline">\(X_t\)</span> and <span class="math inline">\(Y_t\)</span> are <strong>cointegrated</strong>, their first differences <span class="math inline">\(\Delta X_t\)</span>, <span class="math inline">\(\Delta Y_t\)</span> (or the residual <span class="math inline">\(u_t\)</span>) are stationary.</p>
 <ul>
-<li>The <strong>error correction term</strong> ( u_t ) is stationary ( I(0) ), meaning it satisfies the covariance stationarity conditions.</li>
+<li>The <strong>error correction term</strong> <span class="math inline">\(u_t\)</span> is stationary <span class="math inline">\(I(0)\)</span> process, meaning it satisfies the covariance stationarity conditions.</li>
 </ul>
 </section>
 <section id="joint-covariance-stationary-series-are-not-cointegrated" class="level4">
 <h4 class="anchored" data-anchor-id="joint-covariance-stationary-series-are-not-cointegrated">Joint Covariance Stationary Series Are Not Cointegrated</h4>
 <p>If <span class="math inline">\(X_t\)</span> and <span class="math inline">\(Y_t\)</span> are both <strong>already <span class="math inline">\(I(0)\)</span> (stationary)</strong>, then any linear combination of them is also stationary.</p>
 <ul>
-<li>They cannot be cointegrated because cointegration only applies to non-stationary (I(1)) series.</li>
+<li>They cannot be cointegrated because cointegration only applies to non-stationary (<span class="math inline">\(I(1)\)</span>) series.</li>
 <li>If all series are already covariance stationary, testing for cointegration is unnecessary.</li>
 </ul>
 </section>
@@ -351,7 +354,7 @@ window.Quarto = {
 <section id="implications-for-empirical-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="implications-for-empirical-analysis">Implications for Empirical Analysis</h2>
 <ul>
-<li>Before testing for cointegration, check for stationarity. If all series are I(0), cointegration does not apply.</li>
+<li>Before testing for cointegration, check for stationarity. If all series are <span class="math inline">\(I(0)\)</span>, cointegration does not apply.</li>
 <li>If series are cointegrated, their residuals (error correction term) should be covariance stationary.</li>
 <li>Many macroeconomic variables (e.g., GDP &amp; consumption, money supply &amp; inflation) are cointegrated rather than purely covariance stationary.</li>
 </ul>
