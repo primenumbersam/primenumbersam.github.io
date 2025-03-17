@@ -9,7 +9,7 @@
 <meta name="author" content="GitSAM">
 <meta name="dcterms.date" content="2025-03-15">
 
-<title>Covariance Stationarity, Integration Order, and Cointegration – GitSAM</title>
+<title>TFP Growth, Stationarity, and Structural Change – GitSAM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -149,12 +149,12 @@ window.Quarto = {
  <span class="dropdown-text">Heading to Corner Solutions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../time-series/joint_covariance_stationary.html">
- <span class="dropdown-text">Stationary process</span></a>
+    <a class="dropdown-item" href="../projects/asset_puzzle/asset_puzzle.html">
+ <span class="dropdown-text">Asset Premium Puzzles</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../time-series/tfp.html">
- <span class="dropdown-text">TFP?</span></a>
+    <a class="dropdown-item" href="../projects/tfp.html">
+ <span class="dropdown-text">Structural Change</span></a>
   </li>  
     </ul>
   </li>
@@ -214,7 +214,26 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#integration-order" id="toc-integration-order" class="nav-link active" data-scroll-target="#integration-order">Integration Order</a></li>
+  <li><a href="#tfp-총요소생산성" id="toc-tfp-총요소생산성" class="nav-link active" data-scroll-target="#tfp-총요소생산성">TFP (총요소생산성)</a>
+  <ul class="collapse">
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#main" id="toc-main" class="nav-link" data-scroll-target="#main">Main</a>
+  <ul class="collapse">
+  <li><a href="#understanding-tfp-in-macroeconomic-models" id="toc-understanding-tfp-in-macroeconomic-models" class="nav-link" data-scroll-target="#understanding-tfp-in-macroeconomic-models">Understanding TFP in Macroeconomic Models</a></li>
+  <li><a href="#empirical-evidence-on-tfp-stationarity" id="toc-empirical-evidence-on-tfp-stationarity" class="nav-link" data-scroll-target="#empirical-evidence-on-tfp-stationarity">Empirical Evidence on TFP Stationarity</a></li>
+  <li><a href="#is-tfp-growth-declining-in-the-long-run" id="toc-is-tfp-growth-declining-in-the-long-run" class="nav-link" data-scroll-target="#is-tfp-growth-declining-in-the-long-run">Is TFP Growth Declining in the Long Run?</a></li>
+  <li><a href="#why-might-tfp-growth-decline-over-time" id="toc-why-might-tfp-growth-decline-over-time" class="nav-link" data-scroll-target="#why-might-tfp-growth-decline-over-time">Why Might TFP Growth Decline Over Time?</a></li>
+  <li><a href="#could-tfp-growth-accelerate-again" id="toc-could-tfp-growth-accelerate-again" class="nav-link" data-scroll-target="#could-tfp-growth-accelerate-again">Could TFP Growth Accelerate Again?</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a>
+  <ul class="collapse">
+  <li><a href="#implications-for-time-series-analysis" id="toc-implications-for-time-series-analysis" class="nav-link" data-scroll-target="#implications-for-time-series-analysis">Implications for Time Series Analysis</a></li>
+  <li><a href="#remarks" id="toc-remarks" class="nav-link" data-scroll-target="#remarks">Remarks</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#appendix-covariance-stationarity-integration-order-and-cointegration" id="toc-appendix-covariance-stationarity-integration-order-and-cointegration" class="nav-link" data-scroll-target="#appendix-covariance-stationarity-integration-order-and-cointegration">Appendix: Covariance Stationarity, Integration Order, and Cointegration</a>
+  <ul class="collapse">
+  <li><a href="#integration-order" id="toc-integration-order" class="nav-link" data-scroll-target="#integration-order">Integration Order</a></li>
   <li><a href="#joint-covariance-stationarity-vs.-cointegration" id="toc-joint-covariance-stationarity-vs.-cointegration" class="nav-link" data-scroll-target="#joint-covariance-stationarity-vs.-cointegration">Joint Covariance Stationarity vs.&nbsp;Cointegration</a>
   <ul class="collapse">
   <li><a href="#joint-covariance-stationary-series-weak-sense-stationarity" id="toc-joint-covariance-stationary-series-weak-sense-stationarity" class="nav-link" data-scroll-target="#joint-covariance-stationary-series-weak-sense-stationarity">Joint Covariance Stationary Series (Weak-Sense Stationarity)</a></li>
@@ -222,6 +241,7 @@ window.Quarto = {
   <li><a href="#the-relationship-between-covariance-stationarity-and-cointegration" id="toc-the-relationship-between-covariance-stationarity-and-cointegration" class="nav-link" data-scroll-target="#the-relationship-between-covariance-stationarity-and-cointegration">The Relationship Between Covariance Stationarity and Cointegration</a></li>
   </ul></li>
   <li><a href="#implications-for-empirical-analysis" id="toc-implications-for-empirical-analysis" class="nav-link" data-scroll-target="#implications-for-empirical-analysis">Implications for Empirical Analysis</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -230,7 +250,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Covariance Stationarity, Integration Order, and Cointegration</h1>
+<h1 class="title">TFP Growth, Stationarity, and Structural Change</h1>
 </div>
 
 
@@ -259,6 +279,134 @@ window.Quarto = {
 </header>
 
 
+<section id="tfp-총요소생산성" class="level1">
+<h1>TFP (총요소생산성)</h1>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p><strong>The growth rate of Total Factor Productivity (TFP)</strong> is <strong>not</strong> a fixed constant; rather, it evolves over time and may be subject to long-term decline. While mainstream macroeconomic <strong>models</strong> frequently assume a constant TFP growth rate, this assumption is increasingly being questioned. Several structural factors—diminishing returns to R&amp;D, demographic constraints, and sectoral shifts towards lower-productivity industries—suggest that aggregate TFP growth may continue to slow. However, TFP growth is not uniform across sectors. Certain industries, such as AI, biotechnology, and advanced energy technologies, exhibit significantly higher productivity gains, leading to growing <strong>sectoral disparities</strong> in innovation.</p>
+<p>From an econometric perspective, a decline in TFP growth could alter its stationarity properties, weakening its stochastic trend and making it more likely to transition <strong>from</strong> an <span class="math inline">\(I(1)\)</span> (non-stationary) stochastic process <strong>to</strong> an <span class="math inline">\(I(0)\)</span> (stationary) stochastic process. If <strong>structural breaks</strong> exist in TFP growth, traditional time-series models based on constant-trend cointegration <strong>assumptions</strong> may fail. Thus, accurately modeling TFP trends requires dynamic econometric techniques that account for <strong>time-varying structural changes</strong>.</p>
+</section>
+<section id="main" class="level2">
+<h2 class="anchored" data-anchor-id="main">Main</h2>
+<section id="understanding-tfp-in-macroeconomic-models" class="level3">
+<h3 class="anchored" data-anchor-id="understanding-tfp-in-macroeconomic-models">Understanding TFP in Macroeconomic Models</h3>
+<p>TFP represents technological progress that enhances economic output beyond capital and labor inputs. In the <strong>Solow-Swan growth model</strong>, TFP follows an <strong>exponential trend</strong>, expressed as:</p>
+<p><span class="math display">\[
+A_t = A_0 e^{gt} \epsilon_t
+\]</span></p>
+<p>where <span class="math inline">\(g\)</span> is the growth rate and <span class="math inline">\(\epsilon_t\)</span> captures <strong>short-term fluctuations</strong>. This implies that TFP is not strictly stationary; rather, its log form follows a unit root process with a deterministic trend:</p>
+<p><span class="math display">\[
+\log A_t = g t + u_t, \quad u_t \sim I(0)
+\]</span></p>
+<p>Thus, mainstream macroeconomic models do <strong>not</strong> assume TFP is stationary in levels, <strong>but</strong> often assume its deviation from trend is stationary.</p>
+</section>
+<section id="empirical-evidence-on-tfp-stationarity" class="level3">
+<h3 class="anchored" data-anchor-id="empirical-evidence-on-tfp-stationarity">Empirical Evidence on TFP Stationarity</h3>
+<p>Empirical studies show:</p>
+<ul>
+<li><strong>Long-Run TFP</strong> behaves as a non-stationary process (<span class="math inline">\(I(1)\)</span>), meaning that it exhibits persistent growth and shocks that do not revert over time.</li>
+<li><strong>Short-Run TFP Shocks</strong> (deviations from trend) are often stationary (<span class="math inline">\(I(0)\)</span>) process.</li>
+</ul>
+<p>If GDP and capital stock are also <span class="math inline">\(I(1)\)</span>, Solow’s production function suggests they should be cointegrated:</p>
+<p><span class="math display">\[
+\log Y_t - \alpha \log K_t - (1-\alpha) \log L_t - g t = u_t, \quad u_t \sim I(0)
+\]</span></p>
+<p>Thus, GDP, capital, and labor may be cointegrated due to the common trend driven by TFP.</p>
+</section>
+<section id="is-tfp-growth-declining-in-the-long-run" class="level3">
+<h3 class="anchored" data-anchor-id="is-tfp-growth-declining-in-the-long-run">Is TFP Growth Declining in the Long Run?</h3>
+<p>Many studies suggest that TFP growth rates have declined since the mid-20th century.</p>
+<p><strong>U.S. TFP Growth Trends (Annual Growth Rates)</strong>:</p>
+<ul>
+<li><strong>1950s–1970s:</strong> ~2.5% per year<br>
+</li>
+<li><strong>1980s–1990s:</strong> ~1.5% per year<br>
+</li>
+<li><strong>2000s–2020s:</strong> ~0.5%-1.0% per year</li>
+</ul>
+<p>The <strong>productivity slowdown hypothesis</strong> suggests that <strong>long-term economic growth potential</strong> is becoming weaker than before.</p>
+</section>
+<section id="why-might-tfp-growth-decline-over-time" class="level3">
+<h3 class="anchored" data-anchor-id="why-might-tfp-growth-decline-over-time">Why Might TFP Growth Decline Over Time?</h3>
+<p>Several key factors contribute to the observed decline in TFP growth:</p>
+<ol type="1">
+<li><strong>The Low-Hanging Fruit Hypothesis (Gordon, 2016)</strong>
+<ul>
+<li>Past technological revolutions (electricity, automobiles, antibiotics) were <strong>one-time events</strong> that provided massive boosts.<br>
+</li>
+<li>Recent innovations (social media, fintech, AI) may not have the same economy-wide productivity effects.</li>
+</ul></li>
+<li><strong>Declining R&amp;D Efficiency (Bloom et al., 2020)</strong>
+<ul>
+<li>“Ideas are getting harder to find.”<br>
+</li>
+<li>R&amp;D investment has increased, but the number of researchers needed to sustain TFP growth has risen exponentially.</li>
+</ul></li>
+<li><strong>Demographic Constraints and Human Capital Decay</strong>
+<ul>
+<li><strong>Aging populations</strong> in advanced economies reduce labor force dynamism and innovation.<br>
+</li>
+<li><strong>Education quality improvements</strong> may have plateaued, reducing skilled labor supply.</li>
+</ul></li>
+<li><strong>Sectoral Shift to Low-Productivity Industries</strong>
+<ul>
+<li>Advanced economies have shifted <strong>from</strong> manufacturing <strong>to</strong> services (e.g., healthcare, education, public sector).<br>
+</li>
+<li>Services typically have lower TFP growth, as they rely heavily on human labor and are difficult to automate.</li>
+</ul></li>
+<li><strong>Increased Regulation and Market Distortions</strong>
+<ul>
+<li><strong>Growing regulations, tax policies, and political uncertainty</strong> increase inefficiencies, reducing overall productivity.</li>
+</ul></li>
+</ol>
+</section>
+<section id="could-tfp-growth-accelerate-again" class="level3">
+<h3 class="anchored" data-anchor-id="could-tfp-growth-accelerate-again">Could TFP Growth Accelerate Again?</h3>
+<p>While aggregate TFP growth may appear to be declining, there are <strong>huge disparities across sectors</strong>. Just as <strong>wealth concentration is increasing</strong>, TFP growth could also be <strong>highly concentrated within specific industries</strong>:</p>
+<ol type="1">
+<li><strong>AI and Automation</strong>
+<ul>
+<li>AI-driven automation could drastically improve productivity, particularly in certain white-collar jobs.<br>
+</li>
+<li>However, productivity gains may be highly concentrated in tech-driven industries, rather than the economy as a whole.</li>
+</ul></li>
+<li><strong>Sectoral Disparities in TFP Growth</strong>
+<ul>
+<li><strong>Within-market concentration</strong>: A small number of firms (e.g., winners in the winner-takes-all structure) are experiencing high TFP growth, while others stagnate.<br>
+</li>
+<li><strong>Cross-market concentration</strong>: Some sectors (AI, biotech) may experience massive productivity boosts, while others (traditional services, public sector) may stagnate.</li>
+</ul></li>
+<li><strong>Energy Revolution and New Technological Frontiers</strong>
+<ul>
+<li>Advances in nuclear fusion, renewables, and space-based energy production could dramatically shift TFP growth.<br>
+</li>
+<li>However, large-scale adoption is <strong>slow</strong> due to political, regulatory, and financial constraints.</li>
+</ul></li>
+</ol>
+</section>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<section id="implications-for-time-series-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="implications-for-time-series-analysis">Implications for Time Series Analysis</h3>
+<p><strong>If the long-run TFP growth rate is declining</strong>, its stochastic trend may weaken, making it more likely to transition from a unit root (<span class="math inline">\(I(1)\)</span>) process to a stationary (<span class="math inline">\(I(0)\)</span>) process over time. This has important implications for <strong>empirical modeling</strong> and <strong>forecasting</strong>, particularly in cases where researchers <strong>assume</strong> a <strong>constant growth trend</strong> in <strong>TFP-driven models</strong>. To properly account for these shifts, researchers should:</p>
+<ul>
+<li>Use <strong>structural break tests</strong> (e.g., <strong>Bai-Perron</strong>) to detect shifts in TFP growth trends and assess whether different growth regimes exist.<br>
+</li>
+<li>Apply <strong>rolling unit root tests</strong> to examine whether TFP has moved from an <span class="math inline">\(I(1)\)</span> process toward an <span class="math inline">\(I(0)\)</span> process over time.<br>
+</li>
+<li>Incorporate <strong>time-varying cointegration approaches</strong> to avoid biased estimations that assume stable relationships in <strong>economic growth models</strong>.</li>
+</ul>
+</section>
+<section id="remarks" class="level3">
+<h3 class="anchored" data-anchor-id="remarks">Remarks</h3>
+<p>TFP growth is not uniform across industries; while aggregate TFP growth may be declining, specific sectors are experiencing rapid technological advancements. Just as <strong>wealth</strong> and <strong>market concentration</strong> have increased, <strong>TFP gains</strong> are increasingly concentrated within high-tech and innovation-driven industries. The result is a growing <strong>disparity</strong> between leading-edge industries (AI, biotech, energy) and traditional sectors (public services, healthcare, education), which exhibit slower productivity improvements.</p>
+<p>As <strong>sectoral divergence</strong> in productivity widens, traditional macroeconomic models that assume <strong>homogeneous TFP growth</strong> may require revision. Future research should focus on developing <strong>heterogeneous growth models</strong> that account for <strong>cross-sectoral differences</strong>, while also employing more dynamic econometric techniques to capture the evolving nature of TFP trends.</p>
+</section>
+</section>
+</section>
+<section id="appendix-covariance-stationarity-integration-order-and-cointegration" class="level1">
+<h1>Appendix: Covariance Stationarity, Integration Order, and Cointegration</h1>
 <p>Covariance stationarity and cointegration describe different statistical properties of time series data. <strong>Covariance stationarity</strong> applies to series where mean, variance, and autocovariance do not change over time, while <strong>cointegration</strong> describes cases where non-stationary <span class="math inline">\(I(1)\)</span> time-series maintain a stable long-run equilibrium. This study explores how these concepts relate and how <strong>cointegration allows for non-stationary series to form stationary linear combinations</strong>.</p>
 <section id="integration-order" class="level2">
 <h2 class="anchored" data-anchor-id="integration-order">Integration Order</h2>
@@ -360,6 +508,7 @@ window.Quarto = {
 </ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

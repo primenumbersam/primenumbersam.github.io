@@ -19,10 +19,10 @@ website:
             text: Estimating Pareto Index
           - href: projects/corner_solution/corner_solution.qmd
             text: Heading to Corner Solutions
-          - href: time-series/joint_covariance_stationary.qmd
-            text: Stationary process
-          - href: time-series/tfp.qmd
-            text: TFP?
+          - href: projects/asset_puzzle/asset_puzzle.qmd
+            text: Asset Premium Puzzles      
+          - href: projects/tfp.qmd
+            text: Structural Change
       - text: "한글"
         menu: 
           - href: projects/correlation_crypto/correlation_crypto.qmd

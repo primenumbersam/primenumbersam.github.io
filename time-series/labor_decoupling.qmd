@@ -3,7 +3,7 @@ title: "노동: 기여한 만큼 분배가 되었나?"
 author: "GitSAM"
 date: 03/16/2025
 keywords: 노동생산성, 노동분배율, 공정, decoupling
-bibliography: references.bib
+bibliography: labor_references.bib
 format:
   html:
     code-fold: true
