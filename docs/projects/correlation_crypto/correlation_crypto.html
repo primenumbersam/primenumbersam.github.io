@@ -466,7 +466,7 @@ window.Quarto = {
 <li>각 롤링 윈도우 크기(30, 60, 90일)에 대해 <strong>롤링 상관 행렬(rolling correlation matrix)</strong>을 계산.</li>
 <li>평균 상관계수(mean of rolling correlation matrix)를 도출하여 암호화폐 간의 관계를 분석.</li>
 </ul>
-<div id="4d44a996" class="cell" data-execution_count="2">
+<div id="62efc602" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 분석 결과 (Results)</span></span>
@@ -594,7 +594,7 @@ bitfinex supports: ['BTC/USDT', 'ETH/USDT', 'USDT/USD', 'XRP/USDT', 'SOL/USDT', 
 poloniex supports: ['BTC/USDT', 'ETH/USDT', 'XRP/USDT', 'SOL/USDT', 'LINK/USDT', 'ONDO/USDT', 'ADA/USDT', 'TRX/USDT', 'DOGE/USDT']</code></pre>
 </div>
 </div>
-<div id="7b85bc54" class="cell" data-execution_count="3">
+<div id="862dfddc" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -627,16 +627,16 @@ poloniex supports: ['BTC/USDT', 'ETH/USDT', 'XRP/USDT', 'SOL/USDT', 'LINK/USDT',
 <pre><code>
 [Window = 30 days] Mean Correlation Matrix
             BTC/USDT  ETH/USDT  XRP/USDT  SOL/USDT  LINK/USDT  ADA/USDT  TRX/USDT  DOGE/USDT  USDT/USD  ONDO/USDT
-BTC/USDT   1.000000  0.797860  0.567901  0.741174   0.683407  0.704172  0.382569   0.812311  0.450488   0.348317
-ETH/USDT   0.797860  1.000000  0.557302  0.701898   0.736282  0.718387  0.379209   0.745424  0.284259   0.378396
-XRP/USDT   0.567901  0.557302  1.000000  0.551380   0.567762  0.651334  0.316163   0.590110  0.165080   0.228550
-SOL/USDT   0.741174  0.701898  0.551380  1.000000   0.672486  0.683087  0.318726   0.693132  0.252265   0.300724
-LINK/USDT  0.683407  0.736282  0.567762  0.672486   1.000000  0.757956  0.311395   0.667528  0.231900   0.414424
-ADA/USDT   0.704172  0.718387  0.651334  0.683087   0.757956  1.000000  0.414284   0.724381  0.256822   0.326920
-TRX/USDT   0.382569  0.379209  0.316163  0.318726   0.311395  0.414284  1.000000   0.367542  0.183200   0.113355
-DOGE/USDT  0.812311  0.745424  0.590110  0.693132   0.667528  0.724381  0.367542   1.000000  0.313370   0.347007
-USDT/USD   0.450488  0.284259  0.165080  0.252265   0.231900  0.256822  0.183200   0.313370  1.000000   0.239516
-ONDO/USDT  0.348317  0.378396  0.228550  0.300724   0.414424  0.326920  0.113355   0.347007  0.239516   1.000000</code></pre>
+BTC/USDT   1.000000  0.797853  0.567901  0.741178   0.683410  0.704174  0.382560   0.812315  0.450489   0.348316
+ETH/USDT   0.797853  1.000000  0.557317  0.701900   0.736281  0.718366  0.379120   0.745416  0.284255   0.378379
+XRP/USDT   0.567901  0.557317  1.000000  0.551384   0.567765  0.651307  0.316071   0.590108  0.165085   0.228533
+SOL/USDT   0.741178  0.701900  0.551384  1.000000   0.672491  0.683081  0.318680   0.693135  0.252268   0.300719
+LINK/USDT  0.683410  0.736281  0.567765  0.672491   1.000000  0.757954  0.311362   0.667530  0.231903   0.414418
+ADA/USDT   0.704174  0.718366  0.651307  0.683081   0.757954  1.000000  0.414274   0.724381  0.256827   0.326921
+TRX/USDT   0.382560  0.379120  0.316071  0.318680   0.311362  0.414274  1.000000   0.367513  0.183209   0.113358
+DOGE/USDT  0.812315  0.745416  0.590108  0.693135   0.667530  0.724381  0.367513   1.000000  0.313375   0.347004
+USDT/USD   0.450489  0.284255  0.165085  0.252268   0.231903  0.256827  0.183209   0.313375  1.000000   0.239516
+ONDO/USDT  0.348316  0.378379  0.228533  0.300719   0.414418  0.326921  0.113358   0.347004  0.239516   1.000000</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
@@ -649,16 +649,16 @@ ONDO/USDT  0.348317  0.378396  0.228550  0.300724   0.414424  0.326920  0.113355
 <pre><code>
 [Window = 60 days] Mean Correlation Matrix
             BTC/USDT  ETH/USDT  XRP/USDT  SOL/USDT  LINK/USDT  ADA/USDT  TRX/USDT  DOGE/USDT  USDT/USD  ONDO/USDT
-BTC/USDT   1.000000  0.794499  0.515181  0.739416   0.663307  0.687373  0.316881   0.813995  0.441244   0.342867
-ETH/USDT   0.794499  1.000000  0.496328  0.686704   0.709256  0.690786  0.305216   0.725333  0.290231   0.368211
-XRP/USDT   0.515181  0.496328  1.000000  0.501653   0.535512  0.629728  0.269128   0.538347  0.127987   0.201797
-SOL/USDT   0.739416  0.686704  0.501653  1.000000   0.650504  0.666240  0.271134   0.684931  0.235206   0.281334
-LINK/USDT  0.663307  0.709256  0.535512  0.650504   1.000000  0.742312  0.255740   0.638219  0.215399   0.396690
-ADA/USDT   0.687373  0.690786  0.629728  0.666240   0.742312  1.000000  0.367683   0.707737  0.238349   0.308895
-TRX/USDT   0.316881  0.305216  0.269128  0.271134   0.255740  0.367683  1.000000   0.304689  0.153140   0.087188
-DOGE/USDT  0.813995  0.725333  0.538347  0.684931   0.638219  0.707737  0.304689   1.000000  0.310558   0.328836
-USDT/USD   0.441244  0.290231  0.127987  0.235206   0.215399  0.238349  0.153140   0.310558  1.000000   0.239446
-ONDO/USDT  0.342867  0.368211  0.201797  0.281334   0.396690  0.308895  0.087188   0.328836  0.239446   1.000000</code></pre>
+BTC/USDT   1.000000  0.794498  0.515179  0.739420   0.663311  0.687376  0.316873   0.813998  0.441243   0.342865
+ETH/USDT   0.794498  1.000000  0.496347  0.686716   0.709256  0.690778  0.305153   0.725331  0.290226   0.368198
+XRP/USDT   0.515179  0.496347  1.000000  0.501660   0.535516  0.629710  0.269057   0.538342  0.127984   0.201784
+SOL/USDT   0.739420  0.686716  0.501660  1.000000   0.650511  0.666238  0.271099   0.684934  0.235205   0.281327
+LINK/USDT  0.663311  0.709256  0.535516  0.650511   1.000000  0.742314  0.255717   0.638222  0.215398   0.396685
+ADA/USDT   0.687376  0.690778  0.629710  0.666238   0.742314  1.000000  0.367675   0.707740  0.238351   0.308895
+TRX/USDT   0.316873  0.305153  0.269057  0.271099   0.255717  0.367675  1.000000   0.304669  0.153144   0.087188
+DOGE/USDT  0.813998  0.725331  0.538342  0.684934   0.638222  0.707740  0.304669   1.000000  0.310559   0.328833
+USDT/USD   0.441243  0.290226  0.127984  0.235205   0.215398  0.238351  0.153144   0.310559  1.000000   0.239446
+ONDO/USDT  0.342865  0.368198  0.201784  0.281327   0.396685  0.308895  0.087188   0.328833  0.239446   1.000000</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
@@ -671,16 +671,16 @@ ONDO/USDT  0.342867  0.368211  0.201797  0.281334   0.396690  0.308895  0.087188
 <pre><code>
 [Window = 90 days] Mean Correlation Matrix
             BTC/USDT  ETH/USDT  XRP/USDT  SOL/USDT  LINK/USDT  ADA/USDT  TRX/USDT  DOGE/USDT  USDT/USD  ONDO/USDT
-BTC/USDT   1.000000  0.793041  0.472848  0.741661   0.645544  0.678996  0.268781   0.810553  0.427806   0.341224
-ETH/USDT   0.793041  1.000000  0.449356  0.688664   0.695999  0.672070  0.241350   0.707762  0.283345   0.366039
-XRP/USDT   0.472848  0.449356  1.000000  0.455283   0.503215  0.608591  0.231506   0.493813  0.100239   0.190861
-SOL/USDT   0.741661  0.688664  0.455283  1.000000   0.634605  0.653246  0.249218   0.683791  0.235912   0.277560
-LINK/USDT  0.645544  0.695999  0.503215  0.634605   1.000000  0.727156  0.213635   0.610947  0.189270   0.385690
-ADA/USDT   0.678996  0.672070  0.608591  0.653246   0.727156  1.000000  0.329834   0.693549  0.223739   0.299241
-TRX/USDT   0.268781  0.241350  0.231506  0.249218   0.213635  0.329834  1.000000   0.245551  0.126440   0.079691
-DOGE/USDT  0.810553  0.707762  0.493813  0.683791   0.610947  0.693549  0.245551   1.000000  0.298659   0.321072
-USDT/USD   0.427806  0.283345  0.100239  0.235912   0.189270  0.223739  0.126440   0.298659  1.000000   0.242537
-ONDO/USDT  0.341224  0.366039  0.190861  0.277560   0.385690  0.299241  0.079691   0.321072  0.242537   1.000000</code></pre>
+BTC/USDT   1.000000  0.793040  0.472849  0.741665   0.645547  0.678999  0.268774   0.810556  0.427805   0.341223
+ETH/USDT   0.793040  1.000000  0.449375  0.688675   0.695999  0.672065  0.241298   0.707756  0.283341   0.366027
+XRP/USDT   0.472849  0.449375  1.000000  0.455291   0.503218  0.608580  0.231448   0.493808  0.100240   0.190851
+SOL/USDT   0.741665  0.688675  0.455291  1.000000   0.634612  0.653248  0.249192   0.683795  0.235916   0.277557
+LINK/USDT  0.645547  0.695999  0.503218  0.634612   1.000000  0.727158  0.213617   0.610949  0.189271   0.385686
+ADA/USDT   0.678999  0.672065  0.608580  0.653248   0.727158  1.000000  0.329826   0.693551  0.223741   0.299241
+TRX/USDT   0.268774  0.241298  0.231448  0.249192   0.213617  0.329826  1.000000   0.245536  0.126442   0.079692
+DOGE/USDT  0.810556  0.707756  0.493808  0.683795   0.610949  0.693551  0.245536   1.000000  0.298661   0.321071
+USDT/USD   0.427805  0.283341  0.100240  0.235916   0.189271  0.223741  0.126442   0.298661  1.000000   0.242537
+ONDO/USDT  0.341223  0.366027  0.190851  0.277557   0.385686  0.299241  0.079692   0.321071  0.242537   1.000000</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
@@ -746,8 +746,9 @@ Important
 <p>If <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are random variables defined on the same probability space, and if <span class="math inline">\(Y\)</span> has finite variance, then:</p>
 <p><span class="math display">\[\operatorname{Var}(Y)=E[\operatorname{Var}(Y\mid X)]+\operatorname{Var}(E[Y\mid X]).\]</span></p>
 <p>This is a special case of the covariance decomposition formula.</p>
-<p>Applications: Explained by X, on average - 분산 = “(조건부 분산)의 평균” + “(조건부 평균)의 분산”</p>
+<p>Applications</p>
 <ul>
+<li><p>분산 = “(조건부 분산)의 평균” + “(조건부 평균)의 분산”</p></li>
 <li><p><strong>Analysis of Variance (ANOVA)</strong>: Variability in <span class="math inline">\(Y\)</span> splits into an “unexplained” within-group variance and an “explained” between-group variance. The F-test examines if the explained variance is significantly large, indicating a meaningful effect of <span class="math inline">\(X\)</span> on <span class="math inline">\(Y\)</span>.</p></li>
 <li><p><strong>Linear Regression Models</strong>: The proportion of explained variance is measured as <span class="math inline">\(R^2\)</span>. For simple linear regression (single predictor), <span class="math inline">\(R^2\)</span> equals the squared Pearson correlation coefficient between <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p></li>
 <li><p><strong>Machine Learning and Bayesian Inference</strong>: In many Bayesian and ensemble methods, one decomposes prediction uncertainty via the law of total variance. For a Bayesian neural network with random parameters <span class="math inline">\(\theta\)</span>: <span class="math inline">\(\operatorname {Var} (Y)=\operatorname {E} {\bigl [}\operatorname {Var} (Y\mid \theta ){\bigr ]}+\operatorname {Var} {\bigl (}\operatorname {E} [Y\mid \theta ]{\bigr )}\)</span> often referred to as “aleatoric” (within-model) vs.&nbsp;“epistemic” (between-model) uncertainty</p></li>
@@ -792,7 +793,12 @@ Y = f(X) + \varepsilon,
 \underbrace{\mathbb{E}\bigl[\varepsilon^2\bigr]}_{\text{Irreducible noise}},
 \end{aligned}
 \]</span></p>
-<p>where: 1. <strong>Variance</strong>: <span class="math inline">\(\text{Var}(\hat{Y})\)</span> represents how much <span class="math inline">\(\hat{Y}\)</span> fluctuates around its own mean. 2. <strong>Bias</strong>: <span class="math inline">\(\text{Bias}(\hat{Y})^2\)</span> measures how far <span class="math inline">\(\hat{Y}\)</span> (on average) deviates from the true mean <span class="math inline">\(\mathbb{E}[Y]\)</span>. 3. <strong>Irreducible noise</strong>: <span class="math inline">\(\mathbb{E}[\varepsilon^2]\)</span> is the part of the error that cannot be reduced by any estimator.</p>
+<p>where:</p>
+<ol type="1">
+<li><strong>Variance</strong>: <span class="math inline">\(\text{Var}(\hat{Y})\)</span> represents how much <span class="math inline">\(\hat{Y}\)</span> fluctuates around its own mean.</li>
+<li><strong>Bias</strong>: <span class="math inline">\(\text{Bias}(\hat{Y})^2\)</span> measures how far <span class="math inline">\(\hat{Y}\)</span> (on average) deviates from the true mean <span class="math inline">\(\mathbb{E}[Y]\)</span>.</li>
+<li><strong>Irreducible noise</strong>: <span class="math inline">\(\mathbb{E}[\varepsilon^2]\)</span> is the part of the error that cannot be reduced by any estimator.</li>
+</ol>
 <p>In a strictly theoretical sense (when <span class="math inline">\(\varepsilon\)</span> is embedded in <span class="math inline">\(Y\)</span>), one often writes the <strong>Bias-Variance decomposition</strong> as:</p>
 <p><span class="math display">\[
 \mathrm{MSE}(\hat{Y})
