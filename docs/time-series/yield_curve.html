@@ -6,10 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="GitSAM">
-<meta name="dcterms.date" content="2025-03-15">
+<meta name="author" content="gitSAM">
+<meta name="dcterms.date" content="2025-03-16">
+<meta name="keywords" content="bond, interest rate, duration, yield curve">
 
-<title>TFP Growth, Stationarity, and Structural Change – GitSAM</title>
+<title>Yield curve – GitSAM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -218,34 +253,22 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#tfp-총요소생산성" id="toc-tfp-총요소생산성" class="nav-link active" data-scroll-target="#tfp-총요소생산성">TFP (총요소생산성)</a>
+  <li><a href="#채권-가격과-시장-금리의-관계" id="toc-채권-가격과-시장-금리의-관계" class="nav-link active" data-scroll-target="#채권-가격과-시장-금리의-관계">채권 가격과 시장 금리의 관계</a>
   <ul class="collapse">
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#main" id="toc-main" class="nav-link" data-scroll-target="#main">Main</a>
+  <li><a href="#예제-시장-금리-하락-시-채권-가격-변화" id="toc-예제-시장-금리-하락-시-채권-가격-변화" class="nav-link" data-scroll-target="#예제-시장-금리-하락-시-채권-가격-변화">예제 : 시장 금리 하락 시 채권 가격 변화</a></li>
+  <li><a href="#term-채권의-기간" id="toc-term-채권의-기간" class="nav-link" data-scroll-target="#term-채권의-기간">Term (채권의 기간)</a></li>
+  <li><a href="#duration-채권-듀레이션" id="toc-duration-채권-듀레이션" class="nav-link" data-scroll-target="#duration-채권-듀레이션">Duration (채권 듀레이션)</a></li>
+  <li><a href="#term-structure기간구조" id="toc-term-structure기간구조" class="nav-link" data-scroll-target="#term-structure기간구조">Term Structure(기간구조)</a></li>
+  <li><a href="#채권-투자-전략" id="toc-채권-투자-전략" class="nav-link" data-scroll-target="#채권-투자-전략">채권 투자 전략</a></li>
+  </ul></li>
+  <li><a href="#yield-curve수익률-곡선" id="toc-yield-curve수익률-곡선" class="nav-link" data-scroll-target="#yield-curve수익률-곡선">Yield Curve(수익률 곡선)</a>
   <ul class="collapse">
-  <li><a href="#understanding-tfp-in-macroeconomic-models" id="toc-understanding-tfp-in-macroeconomic-models" class="nav-link" data-scroll-target="#understanding-tfp-in-macroeconomic-models">Understanding TFP in Macroeconomic Models</a></li>
-  <li><a href="#empirical-evidence-on-tfp-stationarity" id="toc-empirical-evidence-on-tfp-stationarity" class="nav-link" data-scroll-target="#empirical-evidence-on-tfp-stationarity">Empirical Evidence on TFP Stationarity</a></li>
-  <li><a href="#is-tfp-growth-declining-in-the-long-run" id="toc-is-tfp-growth-declining-in-the-long-run" class="nav-link" data-scroll-target="#is-tfp-growth-declining-in-the-long-run">Is TFP Growth Declining in the Long Run?</a></li>
-  <li><a href="#why-might-tfp-growth-decline-over-time" id="toc-why-might-tfp-growth-decline-over-time" class="nav-link" data-scroll-target="#why-might-tfp-growth-decline-over-time">Why Might TFP Growth Decline Over Time?</a></li>
-  <li><a href="#could-tfp-growth-accelerate-again" id="toc-could-tfp-growth-accelerate-again" class="nav-link" data-scroll-target="#could-tfp-growth-accelerate-again">Could TFP Growth Accelerate Again?</a></li>
+  <li><a href="#polynomial-regression" id="toc-polynomial-regression" class="nav-link" data-scroll-target="#polynomial-regression">Polynomial Regression</a></li>
+  <li><a href="#spline-regression" id="toc-spline-regression" class="nav-link" data-scroll-target="#spline-regression">Spline Regression</a></li>
+  <li><a href="#nelson-siegel-svensson-model" id="toc-nelson-siegel-svensson-model" class="nav-link" data-scroll-target="#nelson-siegel-svensson-model">Nelson-Siegel &amp; Svensson model</a></li>
+  <li><a href="#gaussian-process-neural-networks" id="toc-gaussian-process-neural-networks" class="nav-link" data-scroll-target="#gaussian-process-neural-networks">Gaussian Process, Neural Networks</a></li>
   </ul></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a>
-  <ul class="collapse">
-  <li><a href="#implications-for-time-series-analysis" id="toc-implications-for-time-series-analysis" class="nav-link" data-scroll-target="#implications-for-time-series-analysis">Implications for Time Series Analysis</a></li>
-  <li><a href="#remarks" id="toc-remarks" class="nav-link" data-scroll-target="#remarks">Remarks</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#appendix-covariance-stationarity-integration-order-and-cointegration" id="toc-appendix-covariance-stationarity-integration-order-and-cointegration" class="nav-link" data-scroll-target="#appendix-covariance-stationarity-integration-order-and-cointegration">Appendix: Covariance Stationarity, Integration Order, and Cointegration</a>
-  <ul class="collapse">
-  <li><a href="#integration-order" id="toc-integration-order" class="nav-link" data-scroll-target="#integration-order">Integration Order</a></li>
-  <li><a href="#joint-covariance-stationarity-vs.-cointegration" id="toc-joint-covariance-stationarity-vs.-cointegration" class="nav-link" data-scroll-target="#joint-covariance-stationarity-vs.-cointegration">Joint Covariance Stationarity vs.&nbsp;Cointegration</a>
-  <ul class="collapse">
-  <li><a href="#joint-covariance-stationary-series-weak-sense-stationarity" id="toc-joint-covariance-stationary-series-weak-sense-stationarity" class="nav-link" data-scroll-target="#joint-covariance-stationary-series-weak-sense-stationarity">Joint Covariance Stationary Series (Weak-Sense Stationarity)</a></li>
-  <li><a href="#cointegrated-series" id="toc-cointegrated-series" class="nav-link" data-scroll-target="#cointegrated-series">Cointegrated Series</a></li>
-  <li><a href="#the-relationship-between-covariance-stationarity-and-cointegration" id="toc-the-relationship-between-covariance-stationarity-and-cointegration" class="nav-link" data-scroll-target="#the-relationship-between-covariance-stationarity-and-cointegration">The Relationship Between Covariance Stationarity and Cointegration</a></li>
-  </ul></li>
-  <li><a href="#implications-for-empirical-analysis" id="toc-implications-for-empirical-analysis" class="nav-link" data-scroll-target="#implications-for-empirical-analysis">Implications for Empirical Analysis</a></li>
-  </ul></li>
+  <li><a href="#code-scatter-plot-yield-curve" id="toc-code-scatter-plot-yield-curve" class="nav-link" data-scroll-target="#code-scatter-plot-yield-curve">Code: Scatter Plot + Yield Curve</a></li>
   </ul>
 </nav>
     </div>
@@ -254,7 +277,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">TFP Growth, Stationarity, and Structural Change</h1>
+<h1 class="title">Yield curve</h1>
+<p class="subtitle lead">금리와 채권가격</p>
 </div>
 
 
@@ -264,14 +288,14 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>GitSAM </p>
+             <p>gitSAM </p>
           </div>
   </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 15, 2025</p>
+      <p class="date">March 16, 2025</p>
     </div>
   </div>
   
@@ -279,240 +303,182 @@ window.Quarto = {
   </div>
   
 
+<div>
+  <div class="keywords">
+    <div class="block-title">Keywords</div>
+    <p>bond, interest rate, duration, yield curve</p>
+  </div>
+</div>
 
 </header>
 
 
-<section id="tfp-총요소생산성" class="level1">
-<h1>TFP (총요소생산성)</h1>
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p><strong>The growth rate of Total Factor Productivity (TFP)</strong> is <strong>not</strong> a fixed constant; rather, it evolves over time and may be subject to long-term decline. While mainstream macroeconomic <strong>models</strong> frequently assume a constant TFP growth rate, this assumption is increasingly being questioned. Several structural factors—diminishing returns to R&amp;D, demographic constraints, and sectoral shifts towards lower-productivity industries—suggest that aggregate TFP growth may continue to slow. However, TFP growth is not uniform across sectors. Certain industries, such as AI, biotechnology, and advanced energy technologies, exhibit significantly higher productivity gains, leading to growing <strong>sectoral disparities</strong> in innovation.</p>
-<p>From an econometric perspective, a decline in TFP growth could alter its stationarity properties, weakening its stochastic trend and making it more likely to transition <strong>from</strong> an <span class="math inline">\(I(1)\)</span> (non-stationary) stochastic process <strong>to</strong> an <span class="math inline">\(I(0)\)</span> (stationary) stochastic process. If <strong>structural breaks</strong> exist in TFP growth, traditional time-series models based on constant-trend cointegration <strong>assumptions</strong> may fail. Thus, accurately modeling TFP trends requires dynamic econometric techniques that account for <strong>time-varying structural changes</strong>.</p>
-</section>
-<section id="main" class="level2">
-<h2 class="anchored" data-anchor-id="main">Main</h2>
-<section id="understanding-tfp-in-macroeconomic-models" class="level3">
-<h3 class="anchored" data-anchor-id="understanding-tfp-in-macroeconomic-models">Understanding TFP in Macroeconomic Models</h3>
-<p>TFP represents technological progress that enhances economic output beyond capital and labor inputs. In the <strong>Solow-Swan growth model</strong>, TFP follows an <strong>exponential trend</strong>, expressed as:</p>
+<section id="채권-가격과-시장-금리의-관계" class="level2">
+<h2 class="anchored" data-anchor-id="채권-가격과-시장-금리의-관계">채권 가격과 시장 금리의 관계</h2>
+<p>채권 가격 (bond price)과 시장 금리(yield rate, 채권 수익률)는 <strong>역의 관계</strong>(inverse relationship)</p>
+<ul>
+<li>금리가 오르면 채권 가격은 하락하고,</li>
+<li>금리가 내리면 채권 가격은 상승한다.</li>
+</ul>
+<p>왜?</p>
+<ul>
+<li>시장 금리가 상승하면 기존의 낮은 금리를 가진 채권의 상대적 매력이 떨어지므로 가격이 하락하고,</li>
+<li>시장 금리가 하락하면 기존의 높은 금리를 가진 채권이 더 매력적으로 보이므로 가격이 상승한다.</li>
+</ul>
+<p>채권의 현재 가치(PV)를 수식으로 표현하면 다음과 같다.</p>
 <p><span class="math display">\[
-A_t = A_0 e^{gt} \epsilon_t
+P = \sum_{t=1}^{T} \frac{C}{(1 + r)^t} + \frac{F}{(1 + r)^T}
 \]</span></p>
-<p>where <span class="math inline">\(g\)</span> is the growth rate and <span class="math inline">\(\epsilon_t\)</span> captures <strong>short-term fluctuations</strong>. This implies that TFP is not strictly stationary; rather, its log form follows a unit root process with a deterministic trend:</p>
+<p>여기서,<br>
+- <span class="math inline">\(P\)</span> : 채권 가격 (Present Value)<br>
+- <span class="math inline">\(C\)</span> : 매년 지급되는 쿠폰 이자 (Coupon Payment)<br>
+- <span class="math inline">\(F\)</span> : 만기 시 원금(Face Value)<br>
+- <span class="math inline">\(r\)</span> : 시장 금리 (Yield Rate)<br>
+- <span class="math inline">\(T\)</span> : 잔존 만기</p>
+<p>시장금리(<span class="math inline">\(r\)</span>)가 증가하면 할인율이 커져서 내가 가진 채권의 현재 가치(<span class="math inline">\(P\)</span>)가 낮아짐</p>
+<section id="예제-시장-금리-하락-시-채권-가격-변화" class="level3">
+<h3 class="anchored" data-anchor-id="예제-시장-금리-하락-시-채권-가격-변화">예제 : 시장 금리 하락 시 채권 가격 변화</h3>
+<p>가정:</p>
+<ul>
+<li>채권의 액면가: 1,000달러</li>
+<li>쿠폰 이자율: 5% (연간)</li>
+<li>만기: 3년</li>
+<li>현재 시장 금리: 5% → 2% (3% 하락)</li>
+</ul>
+<p>인플레이션 때문에 기준금리가 내려가서 시장 금리가 하락하면,</p>
+<p>새로 발행되는 2% 금리의 채권보다 기존 5%의 쿠폰을 지급하는 채권이 더 매력적으로 보이므로,</p>
+<p>기존 채권의 가격이 상승한다.</p>
+</section>
+<section id="term-채권의-기간" class="level3">
+<h3 class="anchored" data-anchor-id="term-채권의-기간">Term (채권의 기간)</h3>
+<p>채권 금리는 단순히 하나의 고정된 값이 아니라, <strong>만기</strong>에 따라 다르게 형성됨.</p>
+<ul>
+<li><strong>단기 채권(Short-term bonds, 1년 이하)</strong>: 단기 금리는 중앙은행의 정책금리(예: 연준의 FFR, 한국은행의 기준금리)와 직접적으로 연결됨.</li>
+<li><strong>중기 채권(Mid-term bonds, 2~10년)</strong>: 경제 성장률, 인플레이션 기대치, 신용 위험 등에 영향을 받음.</li>
+<li><strong>장기 채권(Long-term bonds, 10년 이상)</strong>: 장기 인플레이션 기대, 국가 신용, 경기 사이클 등에 따라 수익률이 결정됨.</li>
+</ul>
+</section>
+<section id="duration-채권-듀레이션" class="level3">
+<h3 class="anchored" data-anchor-id="duration-채권-듀레이션">Duration (채권 듀레이션)</h3>
+<p>채권은 듀레이션(Duration)이 길수록 금리 변화에 대한 가격 민감도가 커진다.<br>
+- 장기 채권: 금리 변화에 더 민감<br>
+- 단기 채권: 금리 변화에 덜 민감</p>
+</section>
+<section id="term-structure기간구조" class="level3">
+<h3 class="anchored" data-anchor-id="term-structure기간구조">Term Structure(기간구조)</h3>
+<p>Term Structure는 <strong>채권 시장에서 만기(term)에 따라 형성되는 금리 구조</strong></p>
+<p>Term Structure는 주로 <strong>Yield Curve(수익률 곡선)</strong>의 형태로 시각화된다.</p>
+</section>
+<section id="채권-투자-전략" class="level3">
+<h3 class="anchored" data-anchor-id="채권-투자-전략">채권 투자 전략</h3>
+<ul>
+<li><strong>금리 상승 (Yield 상승) 예상</strong> → 채권 가격 하락 → 기존 장기 채권 보유자는 손해. 기존 장기 채권을 매도하고, 새로운 금리가 반영된 채권을 매수. 기준금리 상승때문에 <strong>단기 채권</strong>은 괜찮음.</li>
+<li><strong>금리 하락 (Yield 하락) 에상</strong> → 채권 가격 상승 → 기존 장기 채권 보유자는 이득. 기존 채권을 보유하여 가격 상승에 따른 자본 이득(capital gain) 확보. <strong>장기 채권</strong>을 보유하는 것이 유리.</li>
+</ul>
+</section>
+</section>
+<section id="yield-curve수익률-곡선" class="level2">
+<h2 class="anchored" data-anchor-id="yield-curve수익률-곡선">Yield Curve(수익률 곡선)</h2>
+<p>Yield Curve는 만기별 수익률을 연결한 곡선으로, 주요 형태는 3가지:</p>
+<ul>
+<li><strong>정상적인 형태(Normal Yield Curve)</strong>: 장기 금리가 단기 금리보다 높음 → 경제 성장이 기대되는 경우</li>
+<li><strong>역전된 형태(Inverted Yield Curve)</strong>: 장기 금리가 단기 금리보다 낮음 → 경기 침체 신호</li>
+<li><strong>평평한 형태(Flat Yield Curve)</strong>: 단기와 장기 금리 차이가 거의 없음 → 경기 전환기</li>
+</ul>
+<p>이렇게 다양한 형태가 나타나는 이유를 설명하는 이론들에는, <strong>금리 기대이론(Expectations Hypothesis), 유동성 프리미엄 이론(Liquidity Premium Theory), 시장 분할 이론(Market Segmentation Theory)</strong> 등이 있음.</p>
+<p><strong>Yield Curve(수익률 곡선)</strong>는 본질적으로 <span class="math inline">\((\text{만기}, \text{yield})\)</span> 쌍에 대한 <strong>Conditional Expectation Model</strong>을 적용한 결과라고 볼 수 있다.</p>
+<p>채권 시장에서 다양한 만기의 국채(예: 1년, 2년, 5년, 10년, 30년 등)의 수익률 데이터를 수집하면, 기본적으로 (만기, yield) 쌍의 산점도(scatter plot)를 얻을 수 있다.</p>
+<p>이후, Yield Curve는 이러한 데이터를 조건부 기대값 모형 (Conditional Expectation model)을 사용하여 스무딩(Smoothing)하거나 추정(Fitting)한 것이라고 볼 수 있다.</p>
+<p>수익률 곡선을 추정하는 대표적인 방법으로 다음과 같은 모델들이 있습니다.</p>
+<section id="polynomial-regression" class="level3">
+<h3 class="anchored" data-anchor-id="polynomial-regression">Polynomial Regression</h3>
+<ul>
+<li><p>가장 기본적인 방법은 2차 또는 3차 다항식을 사용하여 스무딩한 곡선을 추정.</p>
 <p><span class="math display">\[
-\log A_t = g t + u_t, \quad u_t \sim I(0)
+\mathbb{E}[Y | T] = \beta_0 + \beta_1 T + \beta_2 T^2 + \beta_3 T^3 + \epsilon
+\]</span> 여기서:</p>
+<ul>
+<li><span class="math inline">\(T\)</span>는 채권의 만기,</li>
+<li><span class="math inline">\(Y\)</span>는 수익률(Yield),</li>
+<li><span class="math inline">\(\mathbb{E}[Y | T]\)</span>는 조건부 기대값.</li>
+</ul></li>
+</ul>
+</section>
+<section id="spline-regression" class="level3">
+<h3 class="anchored" data-anchor-id="spline-regression">Spline Regression</h3>
+<ul>
+<li><strong>Cubic Spline</strong> 또는 <strong>B-spline</strong>을 사용하여 여러 구간에서 스무딩된 Yield Curve를 만듬.</li>
+</ul>
+</section>
+<section id="nelson-siegel-svensson-model" class="level3">
+<h3 class="anchored" data-anchor-id="nelson-siegel-svensson-model">Nelson-Siegel &amp; Svensson model</h3>
+<ul>
+<li><p>실무에서 많이 사용하는 Nelson-Siegel Model의 기본 식 <span class="math display">\[
+Y(T) = \beta_0 + \beta_1 \frac{1 - e^{-T/\tau}}{T/\tau} + \beta_2 \left(\frac{1 - e^{-T/\tau}}{T/\tau} - e^{-T/\tau} \right)
 \]</span></p>
-<p>Thus, mainstream macroeconomic models do <strong>not</strong> assume TFP is stationary in levels, <strong>but</strong> often assume its deviation from trend is stationary.</p>
-</section>
-<section id="empirical-evidence-on-tfp-stationarity" class="level3">
-<h3 class="anchored" data-anchor-id="empirical-evidence-on-tfp-stationarity">Empirical Evidence on TFP Stationarity</h3>
-<p>Empirical studies show:</p>
+<p>여기서:</p>
 <ul>
-<li><strong>Long-Run TFP</strong> behaves as a non-stationary process (<span class="math inline">\(I(1)\)</span>), meaning that it exhibits persistent growth and shocks that do not revert over time.</li>
-<li><strong>Short-Run TFP Shocks</strong> (deviations from trend) are often stationary (<span class="math inline">\(I(0)\)</span>) process.</li>
-</ul>
-<p>If GDP and capital stock are also <span class="math inline">\(I(1)\)</span>, Solow’s production function suggests they should be cointegrated:</p>
-<p><span class="math display">\[
-\log Y_t - \alpha \log K_t - (1-\alpha) \log L_t - g t = u_t, \quad u_t \sim I(0)
-\]</span></p>
-<p>Thus, GDP, capital, and labor may be cointegrated due to the common trend driven by TFP.</p>
-</section>
-<section id="is-tfp-growth-declining-in-the-long-run" class="level3">
-<h3 class="anchored" data-anchor-id="is-tfp-growth-declining-in-the-long-run">Is TFP Growth Declining in the Long Run?</h3>
-<p>Many studies suggest that TFP growth rates have declined since the mid-20th century.</p>
-<p><strong>U.S. TFP Growth Trends (Annual Growth Rates)</strong>:</p>
-<ul>
-<li><strong>1950s–1970s:</strong> ~2.5% per year<br>
-</li>
-<li><strong>1980s–1990s:</strong> ~1.5% per year<br>
-</li>
-<li><strong>2000s–2020s:</strong> ~0.5%-1.0% per year</li>
-</ul>
-<p>The <strong>productivity slowdown hypothesis</strong> suggests that <strong>long-term economic growth potential</strong> is becoming weaker than before.</p>
-</section>
-<section id="why-might-tfp-growth-decline-over-time" class="level3">
-<h3 class="anchored" data-anchor-id="why-might-tfp-growth-decline-over-time">Why Might TFP Growth Decline Over Time?</h3>
-<p>Several key factors contribute to the observed decline in TFP growth:</p>
-<ol type="1">
-<li><strong>The Low-Hanging Fruit Hypothesis (Gordon, 2016)</strong>
-<ul>
-<li>Past technological revolutions (electricity, automobiles, antibiotics) were <strong>one-time events</strong> that provided massive boosts.<br>
-</li>
-<li>Recent innovations (social media, fintech, AI) may not have the same economy-wide productivity effects.</li>
+<li><span class="math inline">\(\beta_0, \beta_1, \beta_2\)</span>는 모델의 파라미터</li>
+<li><span class="math inline">\(\tau\)</span>는 시간 척도 조정 파라미터</li>
+<li><span class="math inline">\(T\)</span>는 만기 (term)</li>
 </ul></li>
-<li><strong>Declining R&amp;D Efficiency (Bloom et al., 2020)</strong>
-<ul>
-<li>“Ideas are getting harder to find.”<br>
-</li>
-<li>R&amp;D investment has increased, but the number of researchers needed to sustain TFP growth has risen exponentially.</li>
-</ul></li>
-<li><strong>Demographic Constraints and Human Capital Decay</strong>
-<ul>
-<li><strong>Aging populations</strong> in advanced economies reduce labor force dynamism and innovation.<br>
-</li>
-<li><strong>Education quality improvements</strong> may have plateaued, reducing skilled labor supply.</li>
-</ul></li>
-<li><strong>Sectoral Shift to Low-Productivity Industries</strong>
-<ul>
-<li>Advanced economies have shifted <strong>from</strong> manufacturing <strong>to</strong> services (e.g., healthcare, education, public sector).<br>
-</li>
-<li>Services typically have lower TFP growth, as they rely heavily on human labor and are difficult to automate.</li>
-</ul></li>
-<li><strong>Increased Regulation and Market Distortions</strong>
-<ul>
-<li><strong>Growing regulations, tax policies, and political uncertainty</strong> increase inefficiencies, reducing overall productivity.</li>
-</ul></li>
-</ol>
-</section>
-<section id="could-tfp-growth-accelerate-again" class="level3">
-<h3 class="anchored" data-anchor-id="could-tfp-growth-accelerate-again">Could TFP Growth Accelerate Again?</h3>
-<p>While aggregate TFP growth may appear to be declining, there are <strong>huge disparities across sectors</strong>. Just as <strong>wealth concentration is increasing</strong>, TFP growth could also be <strong>highly concentrated within specific industries</strong>:</p>
-<ol type="1">
-<li><strong>AI and Automation</strong>
-<ul>
-<li>AI-driven automation could drastically improve productivity, particularly in certain white-collar jobs.<br>
-</li>
-<li>However, productivity gains may be highly concentrated in tech-driven industries, rather than the economy as a whole.</li>
-</ul></li>
-<li><strong>Sectoral Disparities in TFP Growth</strong>
-<ul>
-<li><strong>Within-market concentration</strong>: A small number of firms (e.g., winners in the winner-takes-all structure) are experiencing high TFP growth, while others stagnate.<br>
-</li>
-<li><strong>Cross-market concentration</strong>: Some sectors (AI, biotech) may experience massive productivity boosts, while others (traditional services, public sector) may stagnate.</li>
-</ul></li>
-<li><strong>Energy Revolution and New Technological Frontiers</strong>
-<ul>
-<li>Advances in nuclear fusion, renewables, and space-based energy production could dramatically shift TFP growth.<br>
-</li>
-<li>However, large-scale adoption is <strong>slow</strong> due to political, regulatory, and financial constraints.</li>
-</ul></li>
-</ol>
-</section>
-</section>
-<section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<section id="implications-for-time-series-analysis" class="level3">
-<h3 class="anchored" data-anchor-id="implications-for-time-series-analysis">Implications for Time Series Analysis</h3>
-<p><strong>If the long-run TFP growth rate is declining</strong>, its stochastic trend may weaken, making it more likely to transition from a unit root (<span class="math inline">\(I(1)\)</span>) process to a stationary (<span class="math inline">\(I(0)\)</span>) process over time. This has important implications for <strong>empirical modeling</strong> and <strong>forecasting</strong>, particularly in cases where researchers <strong>assume</strong> a <strong>constant growth trend</strong> in <strong>TFP-driven models</strong>. To properly account for these shifts, researchers should:</p>
-<ul>
-<li>Use <strong>structural break tests</strong> (e.g., <strong>Bai-Perron</strong>) to detect shifts in TFP growth trends and assess whether different growth regimes exist.<br>
-</li>
-<li>Apply <strong>rolling unit root tests</strong> to examine whether TFP has moved from an <span class="math inline">\(I(1)\)</span> process toward an <span class="math inline">\(I(0)\)</span> process over time.<br>
-</li>
-<li>Incorporate <strong>time-varying cointegration approaches</strong> to avoid biased estimations that assume stable relationships in <strong>economic growth models</strong>.</li>
 </ul>
 </section>
-<section id="remarks" class="level3">
-<h3 class="anchored" data-anchor-id="remarks">Remarks</h3>
-<p>TFP growth is not uniform across industries; while aggregate TFP growth may be declining, specific sectors are experiencing rapid technological advancements. Just as <strong>wealth</strong> and <strong>market concentration</strong> have increased, <strong>TFP gains</strong> are increasingly concentrated within high-tech and innovation-driven industries. The result is a growing <strong>disparity</strong> between leading-edge industries (AI, biotech, energy) and traditional sectors (public services, healthcare, education), which exhibit slower productivity improvements.</p>
-<p>As <strong>sectoral divergence</strong> in productivity widens, traditional macroeconomic models that assume <strong>homogeneous TFP growth</strong> may require revision. Future research should focus on developing <strong>heterogeneous growth models</strong> that account for <strong>cross-sectoral differences</strong>, while also employing more dynamic econometric techniques to capture the evolving nature of TFP trends.</p>
-</section>
-</section>
-</section>
-<section id="appendix-covariance-stationarity-integration-order-and-cointegration" class="level1">
-<h1>Appendix: Covariance Stationarity, Integration Order, and Cointegration</h1>
-<p>Covariance stationarity and cointegration describe different statistical properties of time series data. <strong>Covariance stationarity</strong> applies to series where mean, variance, and autocovariance do not change over time, while <strong>cointegration</strong> describes cases where non-stationary <span class="math inline">\(I(1)\)</span> time-series maintain a stable long-run equilibrium. This study explores how these concepts relate and how <strong>cointegration allows for non-stationary series to form stationary linear combinations</strong>.</p>
-<section id="integration-order" class="level2">
-<h2 class="anchored" data-anchor-id="integration-order">Integration Order</h2>
-<p>The <strong>integration order</strong> of a time series determines how many times it must be <strong>differenced</strong> to become <strong>stationary</strong>. A series is:</p>
+<section id="gaussian-process-neural-networks" class="level3">
+<h3 class="anchored" data-anchor-id="gaussian-process-neural-networks">Gaussian Process, Neural Networks</h3>
 <ul>
-<li><span class="math inline">\(I(0)\)</span> (stationary) process if it has a constant mean, variance, and autocovariance.</li>
-<li><span class="math inline">\(I(1)\)</span> (unit root) process if it is non-stationary but becomes stationary after first differencing.</li>
-<li><span class="math inline">\(I(d)\)</span> process if it requires <span class="math inline">\(d\)</span> differences to become stationary.</li>
-</ul>
-<p>Economic time series such as <strong>GDP, money supply, and asset prices</strong> often exhibit <span class="math inline">\(I(1)\)</span> behavior, meaning they contain <strong>stochastic trends</strong> and require differencing to achieve <strong>stationarity</strong>.</p>
-</section>
-<section id="joint-covariance-stationarity-vs.-cointegration" class="level2">
-<h2 class="anchored" data-anchor-id="joint-covariance-stationarity-vs.-cointegration">Joint Covariance Stationarity vs.&nbsp;Cointegration</h2>
-<p><strong>Joint covariance stationarity</strong> applies when <strong>each</strong> time-series maintains a constant mean, variance, and autocovariance over time. <strong>Cointegration</strong>, on the other hand, describes cases where <strong>two or more</strong> non-stationary <span class="math inline">\(I(1)\)</span> time-series <strong>share</strong> a long-term equilibrium, forming a <strong>stationary linear combination</strong>.</p>
-<section id="joint-covariance-stationary-series-weak-sense-stationarity" class="level3">
-<h3 class="anchored" data-anchor-id="joint-covariance-stationary-series-weak-sense-stationarity">Joint Covariance Stationary Series (Weak-Sense Stationarity)</h3>
-<p>A set of time series <span class="math inline">\(X_t\)</span> and <span class="math inline">\(Y_t\)</span> are <strong>jointly covariance stationary</strong> if they satisfy:</p>
-<ol type="1">
-<li><strong>Constant Mean</strong>: <span class="math inline">\(E[X_t] = \mu_X\)</span>, <span class="math inline">\(E[Y_t] = \mu_Y\)</span> for all <span class="math inline">\(t\)</span>.</li>
-<li><strong>Constant Variance</strong>: <span class="math inline">\(Var(X_t)\)</span> and <span class="math inline">\(Var(Y_t)\)</span> do not change over time.</li>
-<li><strong>Autocovariance Depends Only on Lag</strong>: <span class="math inline">\(Cov(X_t, X_{t-h})\)</span> and <span class="math inline">\(Cov(Y_t, Y_{t-h})\)</span> depend only on the lag <span class="math inline">\(h\)</span>, not on <span class="math inline">\(t\)</span>.</li>
-</ol>
-<p>If two time series are both <strong>weakly stationary</strong>, then any <strong>linear combination</strong> of them is also stationary.</p>
-</section>
-<section id="cointegrated-series" class="level3">
-<h3 class="anchored" data-anchor-id="cointegrated-series">Cointegrated Series</h3>
-<p>A set of time series <span class="math inline">\(X_t\)</span> and <span class="math inline">\(Y_t\)</span> are <strong>cointegrated</strong> if:</p>
-<ol type="1">
-<li><p>Each series is <span class="math inline">\(I(1)\)</span> (non-stationary) process.</p></li>
-<li><p>A <strong>linear combination exists</strong> that is <span class="math inline">\(I(0)\)</span> (stationary) process:</p>
-<p><span class="math display">\[
-\beta_1 X_t + \beta_2 Y_t = u_t
-\]</span></p></li>
-</ol>
-<p>where <span class="math inline">\(u_t\)</span> is <span class="math inline">\(I(0)\)</span> (stationary) process.</p>
-<p>Thus, <strong>even though individual variables are non-stationary, their linear combination is stationary</strong>, implying a <strong>long-run equilibrium relationship</strong>.</p>
-</section>
-<section id="the-relationship-between-covariance-stationarity-and-cointegration" class="level3">
-<h3 class="anchored" data-anchor-id="the-relationship-between-covariance-stationarity-and-cointegration">The Relationship Between Covariance Stationarity and Cointegration</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 15%">
-<col style="width: 50%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Property</th>
-<th>Joint Covariance Stationary Series</th>
-<th>Cointegrated Series</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Stationarity</strong></td>
-<td>Each series is stationary (I(0))</td>
-<td>Each series is non-stationary (I(1)), but a linear combination is stationary</td>
-</tr>
-<tr class="even">
-<td><strong>Unit Root <span class="math inline">\(I(d)\)</span></strong></td>
-<td>I(0) for each series</td>
-<td>I(1) for each series, but a specific linear combination is I(0)</td>
-</tr>
-<tr class="odd">
-<td><strong>Mean &amp; Variance Stability</strong></td>
-<td>Mean &amp; variance are constant over time</td>
-<td>Individual series do not have stable mean &amp; variance, but the combination does</td>
-</tr>
-<tr class="even">
-<td><strong>Long-run Relationship</strong></td>
-<td>No long-term relationship constraint</td>
-<td>A long-run equilibrium relationship exists</td>
-</tr>
-</tbody>
-</table>
-<section id="cointegrated-series-can-be-transformed-into-covariance-stationary-series" class="level4">
-<h4 class="anchored" data-anchor-id="cointegrated-series-can-be-transformed-into-covariance-stationary-series">Cointegrated Series Can Be Transformed into Covariance Stationary Series</h4>
-<p>If <span class="math inline">\(X_t\)</span> and <span class="math inline">\(Y_t\)</span> are <strong>cointegrated</strong>, their first differences <span class="math inline">\(\Delta X_t\)</span>, <span class="math inline">\(\Delta Y_t\)</span> (or the residual <span class="math inline">\(u_t\)</span>) are stationary.</p>
-<ul>
-<li>The <strong>error correction term</strong> <span class="math inline">\(u_t\)</span> is stationary <span class="math inline">\(I(0)\)</span> process, meaning it satisfies the covariance stationarity conditions.</li>
-</ul>
-</section>
-<section id="joint-covariance-stationary-series-are-not-cointegrated" class="level4">
-<h4 class="anchored" data-anchor-id="joint-covariance-stationary-series-are-not-cointegrated">Joint Covariance Stationary Series Are Not Cointegrated</h4>
-<p>If <span class="math inline">\(X_t\)</span> and <span class="math inline">\(Y_t\)</span> are both <strong>already <span class="math inline">\(I(0)\)</span> (stationary)</strong>, then any linear combination of them is also stationary.</p>
-<ul>
-<li>They cannot be cointegrated because cointegration only applies to non-stationary (<span class="math inline">\(I(1)\)</span>) series.</li>
-<li>If all series are already covariance stationary, testing for cointegration is unnecessary.</li>
+<li><strong>Gaussian Process Regression (GPR)</strong> 또는 <strong>딥러닝 모델(Neural Networks)</strong>을 활용하여 Yield Curve를 추정하는 방법</li>
 </ul>
 </section>
 </section>
-</section>
-<section id="implications-for-empirical-analysis" class="level2">
-<h2 class="anchored" data-anchor-id="implications-for-empirical-analysis">Implications for Empirical Analysis</h2>
-<ul>
-<li>Before testing for cointegration, check for stationarity. If all series are <span class="math inline">\(I(0)\)</span>, cointegration does not apply.</li>
-<li>If series are cointegrated, their residuals (error correction term) should be covariance stationary.</li>
-<li>Many macroeconomic variables (e.g., GDP &amp; consumption, money supply &amp; inflation) are cointegrated rather than purely covariance stationary.</li>
-</ul>
+<section id="code-scatter-plot-yield-curve" class="level2">
+<h2 class="anchored" data-anchor-id="code-scatter-plot-yield-curve">Code: Scatter Plot + Yield Curve</h2>
+<p><strong>(만기, 수익률)</strong> 데이터 산점도를 그린 후, <strong>스무딩된 Yield Curve</strong>를 적용.</p>
+<div id="1662788a" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Yield Curve(수익률 곡선)**는 본질적으로 (term,yield) 쌍에 대한 Conditional Expectation Model을 적용한 결과</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.optimize <span class="im">import</span> curve_fit</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 예제 데이터 (만기, 수익률)</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>maturity <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>])  <span class="co"># 만기 (years)</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>yield_rates <span class="op">=</span> np.array([<span class="fl">3.2</span>, <span class="fl">3.4</span>, <span class="fl">3.5</span>, <span class="fl">3.7</span>, <span class="fl">3.8</span>, <span class="fl">4.0</span>, <span class="fl">4.2</span>, <span class="fl">4.3</span>])  <span class="co"># 수익률 (%)</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Nelson-Siegel 모델 함수 정의</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> nelson_siegel(T, beta0, beta1, beta2, tau):</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> beta0 <span class="op">+</span> beta1 <span class="op">*</span> (<span class="dv">1</span> <span class="op">-</span> np.exp(<span class="op">-</span>T<span class="op">/</span>tau)) <span class="op">/</span> (T<span class="op">/</span>tau) <span class="op">+</span> beta2 <span class="op">*</span> ((<span class="dv">1</span> <span class="op">-</span> np.exp(<span class="op">-</span>T<span class="op">/</span>tau)) <span class="op">/</span> (T<span class="op">/</span>tau) <span class="op">-</span> np.exp(<span class="op">-</span>T<span class="op">/</span>tau))</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 초기값 설정 및 최적화</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>popt, _ <span class="op">=</span> curve_fit(nelson_siegel, maturity, yield_rates, p0<span class="op">=</span>[<span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>])</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 스무딩된 곡선 생성</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>T_fit <span class="op">=</span> np.linspace(<span class="fl">0.5</span>, <span class="dv">30</span>, <span class="dv">100</span>)  <span class="co"># 연속적인 만기 값</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>Y_fit <span class="op">=</span> nelson_siegel(T_fit, <span class="op">*</span>popt)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># 산점도 및 수익률 곡선 그래프</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>plt.scatter(maturity, yield_rates, color<span class="op">=</span><span class="st">'blue'</span>, label<span class="op">=</span><span class="st">"Observed Data (Scatter)"</span>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>plt.plot(T_fit, Y_fit, color<span class="op">=</span><span class="st">'red'</span>, linestyle<span class="op">=</span><span class="st">'-'</span>, label<span class="op">=</span><span class="st">"Fitted Yield Curve (Nelson-Siegel)"</span>)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Maturity (Years)"</span>)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Yield (%)"</span>)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Yield Curve: Scatter Plot with Nelson-Siegel Fit"</span>)</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="yield_curve_files/figure-html/cell-2-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

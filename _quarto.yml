@@ -23,6 +23,8 @@ website:
             text: Asset Premium Puzzles      
           - href: projects/tfp.qmd
             text: Structural Change
+          - href: projects/incomplete/incomplete.qmd
+            text: Incomplete market
       - text: "한글"
         menu: 
           - href: projects/correlation_crypto/correlation_crypto.qmd
@@ -33,7 +35,6 @@ website:
             text: 노동 기여와 분배
           - href: time-series/indicator_growth.qmd
             text: 경제성장 지표
-
     tools:
       - icon: house
         href: https://www.gitsam.com
@@ -42,14 +43,11 @@ website:
       - icon: github
         menu:
           - text: Source Code
-            href:  https://github.com/primenumbersam/primenumbersam.github.io
+            href: https://github.com/primenumbersam/primenumbersam.github.io
           - text: Report a Bug
-            href:  mailto:primenumbersam@gmail.com
+            href: mailto:primenumbersam@gmail.com
 format:
   html:
     theme: cosmo
     css: styles.css
     toc: true
-
-
-

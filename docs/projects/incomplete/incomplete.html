@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="GitSAM">
+<meta name="dcterms.date" content="2025-03-19">
+
+<title>Monetary Policy and Market Imperfections – GitSAM</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-ddd961a2510921635943dfbbd19534c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">GitSAM</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-projects" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Projects</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-projects">    
+        <li>
+    <a class="dropdown-item" href="../../projects/gilded_age/gilded_age.html">
+ <span class="dropdown-text">The New Gilded Age</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../projects/pricing_equal/pricing_equal.html">
+ <span class="dropdown-text">Pricing Equal Opportunity</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../projects/dichotomy/dichotomy.html">
+ <span class="dropdown-text">Distinct Dichotomy</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../projects/pareto_index/pareto_index.html">
+ <span class="dropdown-text">Estimating Pareto Index</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../projects/corner_solution/corner_solution.html">
+ <span class="dropdown-text">Heading to Corner Solutions</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../projects/asset_puzzle/asset_puzzle.html">
+ <span class="dropdown-text">Asset Premium Puzzles</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../projects/tfp.html">
+ <span class="dropdown-text">Structural Change</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../projects/incomplete/incomplete.html">
+ <span class="dropdown-text">Incomplete market</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">한글</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-">    
+        <li>
+    <a class="dropdown-item" href="../../projects/correlation_crypto/correlation_crypto.html">
+ <span class="dropdown-text">암호화폐들의 상관관계</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../time-series/yield_curve.html">
+ <span class="dropdown-text">채권투자와 금리</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../time-series/labor_decoupling.html">
+ <span class="dropdown-text">노동 기여와 분배</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../time-series/indicator_growth.html">
+ <span class="dropdown-text">경제성장 지표</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools tools-wide">
+    <a href="https://www.gitsam.com" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-house"></i></a>
+    <a href="https://www.youtube.com/@primenumbersam" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-youtube"></i></a>
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/primenumbersam/primenumbersam.github.io">
+            Source Code
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="mailto:primenumbersam@gmail.com">
+            Report a Bug
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#core-assumptions-of-neoclassical-economics-and-monetarism" id="toc-core-assumptions-of-neoclassical-economics-and-monetarism" class="nav-link" data-scroll-target="#core-assumptions-of-neoclassical-economics-and-monetarism">Core Assumptions of Neoclassical Economics and Monetarism</a></li>
+  <li><a href="#complete-vs.-incomplete-markets" id="toc-complete-vs.-incomplete-markets" class="nav-link" data-scroll-target="#complete-vs.-incomplete-markets">Complete vs.&nbsp;Incomplete Markets</a></li>
+  <li><a href="#friedman-consumption-smoothing-model-complete-markets" id="toc-friedman-consumption-smoothing-model-complete-markets" class="nav-link" data-scroll-target="#friedman-consumption-smoothing-model-complete-markets">Friedman Consumption Smoothing Model (Complete Markets)</a></li>
+  <li><a href="#consumption-investment-trade-off-under-liquidity-constraints" id="toc-consumption-investment-trade-off-under-liquidity-constraints" class="nav-link" data-scroll-target="#consumption-investment-trade-off-under-liquidity-constraints">Consumption-Investment Trade-off under Liquidity Constraints</a></li>
+  <li><a href="#bewley-model-precautionary-savings-in-an-incomplete-market" id="toc-bewley-model-precautionary-savings-in-an-incomplete-market" class="nav-link" data-scroll-target="#bewley-model-precautionary-savings-in-an-incomplete-market">Bewley Model: Precautionary Savings in an Incomplete Market</a></li>
+  <li><a href="#aiyagari-model-general-equilibrium-with-incomplete-markets" id="toc-aiyagari-model-general-equilibrium-with-incomplete-markets" class="nav-link" data-scroll-target="#aiyagari-model-general-equilibrium-with-incomplete-markets">Aiyagari Model: General Equilibrium with Incomplete Markets</a></li>
+  <li><a href="#harrison-kreps-1978-model-asset-pricing-with-heterogeneous-beliefs" id="toc-harrison-kreps-1978-model-asset-pricing-with-heterogeneous-beliefs" class="nav-link" data-scroll-target="#harrison-kreps-1978-model-asset-pricing-with-heterogeneous-beliefs">Harrison &amp; Kreps (1978) Model: Asset Pricing with Heterogeneous Beliefs</a></li>
+  <li><a href="#policy-implications-of-models" id="toc-policy-implications-of-models" class="nav-link" data-scroll-target="#policy-implications-of-models">Policy Implications of Models</a></li>
+  <li><a href="#bridging-the-gap-between-theory-and-reality" id="toc-bridging-the-gap-between-theory-and-reality" class="nav-link" data-scroll-target="#bridging-the-gap-between-theory-and-reality">Bridging the Gap Between Theory and Reality</a></li>
+  <li><a href="#empirical-review-evaluating-policy-recommendations-in-practice" id="toc-empirical-review-evaluating-policy-recommendations-in-practice" class="nav-link" data-scroll-target="#empirical-review-evaluating-policy-recommendations-in-practice">Empirical Review: Evaluating Policy Recommendations in Practice</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix">Appendix</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Monetary Policy and Market Imperfections</h1>
+<p class="subtitle lead">재량적 통화정책?</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>GitSAM </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 19, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+<div>
+  <div class="abstract">
+    <div class="block-title">Abstract</div>
+    This paper explains monetary policy effects using neoclassical economics and monetarism perspectives, contrasting them with New Keynesian views. Through theoretical models (Friedman, Aiyagari, Bewley, Harrison &amp; Kreps), it shows that incomplete markets and heterogeneous agents can cause monetary policy to unintentionally worsen inequality and distort markets. Policymakers should thus carefully consider these market imperfections to promote long-term stability and mitigate distributional distortions.
+  </div>
+</div>
+
+
+</header>
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Neoclassical economics emphasizes that rational individuals base decisions primarily on long-term trends rather than short-term fluctuations. In this view, rational agents with forward-looking expectations base decisions on an infinite-horizon optimization, meaning they will not invest in assets or projects that have a declining long-term trajectory or negative net present value. Market prices, in turn, are thought to reflect these rational expectations about future fundamentals. This philosophy is exemplified in models of Milton Friedman and his successors, where individuals smooth consumption over time and focus on permanent income, and in modern macroeconomic models that assume agents plan for the long run. The neoclassical mindset links naturally with Friedman’s monetarism, which asserts that steady, rules-based growth of the money supply yields better outcomes than reactive fine-tuning. Both frameworks assume that people anticipate the future well, so erratic policy shifts mainly lead to price changes rather than lasting gains in output or employment. Representative models include Friedman’s Permanent Income Hypothesis, Bewley’s incomplete-market model, Aiyagari’s general equilibrium model with heterogeneous agents, and the speculative asset-pricing model by Harrison &amp; Kreps <span class="citation" data-cites="friedman1957theory bewley1986stationary aiyagari1994uninsured harrison1978speculative">(<a href="#ref-friedman1957theory" role="doc-biblioref">Friedman 1957</a>; <a href="#ref-bewley1986stationary" role="doc-biblioref">Bewley 1986</a>; <a href="#ref-aiyagari1994uninsured" role="doc-biblioref">Aiyagari 1994</a>; <a href="#ref-harrison1978speculative" role="doc-biblioref">Harrison and Kreps 1978</a>)</span>.</p>
+<p>Friedman’s monetarism closely aligns with neoclassical thinking, promoting predictable, rules-based monetary policy to ensure market stability and long-term neutrality of money. In contrast, Keynesian and New Keynesian frameworks highlight the importance of short-term interventions due to market frictions such as price stickiness. New Keynesians agree that people are forward-looking, but they highlight that wages and prices can be “sticky” (slow to adjust), which prevents markets from clearing quickly. As a result, even rational agents may be temporarily unable to reach optimal outcomes, and monetary policy can have powerful real effects in the short term. For example, if prices cannot adjust immediately, an unexpected cut in interest rates may boost real spending and output rather than just raising prices. New Keynesian models therefore rationalize active stabilization policy – they contend that without it, the economy can suffer prolonged recessions or unemployment that a well-timed policy intervention could ameliorate. This stands in contrast to the monetarist/neoclassical view that markets self-correct relatively quickly. Despite these differences, both schools provide valuable insight: neoclassical and monetarist models offer clarity about long-run tendencies and private sector behavior under rational expectations, while Keynesian models stress the importance of short-run dynamics and coordination failures. The analysis in this paper bridges these perspectives by using theoretical models to examine how <strong>market imperfections</strong> – such as incomplete markets and heterogeneous expectations – modify the standard predictions. Although the models are abstract, each provides important long-term policy guidance. Understanding their lessons can help policymakers design monetary strategies that foster stability without creating new problems in the process.</p>
+</section>
+<section id="core-assumptions-of-neoclassical-economics-and-monetarism" class="level2">
+<h2 class="anchored" data-anchor-id="core-assumptions-of-neoclassical-economics-and-monetarism">Core Assumptions of Neoclassical Economics and Monetarism</h2>
+<p>Three core assumptions underpin the neoclassical and monetarist perspective in macroeconomics:</p>
+<ul>
+<li><p><strong>Rational expectations and infinite-horizon optimization:</strong> Individuals and firms are assumed to form expectations about the future in a rational way (using all available information) and to optimize their decisions over an infinite time horizon. In practice, this means economic agents base current consumption, saving, and investment on the expected present value of long-term outcomes, rather than overreacting to short-lived changes. They anticipate the future effects of policies, so systematic policy actions are largely already “priced in” to decisions. This assumption was emphasized by the new classical economists who followed Friedman, such as Robert Lucas, in arguing that only unexpected policy moves affect real behavior in the short run. Under rational expectations, people won’t persistently spend windfalls or chase assets whose fundamentals don’t justify their price, since they foresee the eventual reversion to fundamental value.</p></li>
+<li><p><strong>Market clearing in the long run (flexible prices):</strong> Neoclassical models typically assume that prices of goods, services, and factors adjust to equilibrate supply and demand, at least in the long run. While short-term frictions can occur, the long-run default is an economy at full employment with resources fully utilized. Any deviations (recessions or booms) are seen as temporary, provided policy does not introduce long-term distortions. This view contrasts with Keynesian models where wages or prices might remain out of equilibrium for an extended period. The neoclassical stance is that given enough time, economic forces will push the economy back to its potential output with stable growth. Monetarists, too, believed that “markets naturally move toward a stable center” in the absence of big shocks. Thus, they argue against aggressive intervention that attempts to exploit short-run trade-offs (like pumping up output at the cost of higher inflation), because eventually prices adjust and only inflation remains.</p></li>
+<li><p><strong>Neutrality of money regarding real economic outcomes in the long run:</strong><span class="citation" data-cites="lucas1972expectations friedman1968role">(<a href="#ref-lucas1972expectations" role="doc-biblioref">Lucas Jr 1972</a>; <a href="#ref-friedman1968role" role="doc-biblioref">Friedman 1968</a>)</span>. A cornerstone of monetarism and neoclassical thought is that changes in the money supply only have transient effects on real variables (output, employment) and no effect in the long run. In the long run, an exogenous increase in the money stock is reflected in higher nominal prices and wages, but real consumption, investment, and output return to their original path. In other words, money is “neutral” with respect to real economic activity once prices have fully adjusted. Most economists agree that this long-run neutrality holds approximately true in practice – doubling the money supply eventually doubles the price level – and monetarists place great importance on it. This assumption underlies the monetarist recommendation to avoid monetary surprises: any attempt to permanently boost employment by printing money will just create inflation once people’s expectations catch up. Rational agents, thinking in an infinite-horizon framework, will not be tricked for long; they come to expect higher inflation, negating any output gains. Monetary policy, therefore, is seen primarily as a tool for controlling inflation and nominal variables, not as a way to engineer long-term higher growth.</p></li>
+</ul>
+<p>These core assumptions shape the policy mindset in the neoclassical/monetarist framework. If agents are highly forward-looking and markets tend to clear, discretionary stabilization policy has limited power – it might only cause short-term blips or even destabilize expectations. Instead, maintaining credible, consistent policy (such as a steady money growth rule or inflation target) is viewed as the optimal approach for long-run welfare. In the next sections, we examine how relaxing some of these assumptions – by introducing incomplete markets, borrowing constraints, or heterogeneous beliefs – changes the conclusions and policy implications.</p>
+</section>
+<section id="complete-vs.-incomplete-markets" class="level2">
+<h2 class="anchored" data-anchor-id="complete-vs.-incomplete-markets">Complete vs.&nbsp;Incomplete Markets</h2>
+<p>Complete markets allow full insurance against risks and unlimited borrowing, resulting in smooth consumption aligned with permanent income. Incomplete markets, however, feature borrowing constraints and uninsurable shocks, creating heterogeneity and precautionary savings, leading to wealth disparities and more volatile consumption patterns <span class="citation" data-cites="aiyagari1994uninsured bewley1986stationary">(<a href="#ref-aiyagari1994uninsured" role="doc-biblioref">Aiyagari 1994</a>; <a href="#ref-bewley1986stationary" role="doc-biblioref">Bewley 1986</a>)</span>. Thus, one fundamental way real economies depart from the idealized benchmark is that <strong>markets are incomplete</strong>. In a <em>complete market</em> environment, individuals can fully insure against uncertainties and can borrow or save freely at a given interest rate. In that ideal case, people smooth their consumption over time nearly perfectly. Consumption ends up being much less volatile than income, because during bad times individuals can borrow or draw on savings, and during good times they can save extra income for the future. In fact, theory predicts that with complete markets, consumption at any point reflects an individual’s <em>permanent income</em> (the expected long-term average income), not the transitory ups and downs of current income. A direct implication is that temporary policy measures (like one-time stimulus checks or short-lived tax cuts) would have only a small effect on consumption – because rational consumers know such windfalls are transitory, they prefer to save a large portion of them, aiming to maintain a stable consumption path. In a complete market, households effectively pool risks and smooth out idiosyncratic shocks; as a result, their spending is steady and mainly influenced by changes in expected lifetime resources rather than short-term liquidity fluctuations.</p>
+<p>By contrast, in <strong>incomplete market</strong> settings, individuals do not have access to perfect insurance or unlimited borrowing. They face idiosyncratic income shocks (e.g.&nbsp;job loss, illness) that they must largely bear on their own. Additionally, they may encounter <strong>liquidity constraints</strong> or borrowing limits that prevent them from smoothing consumption fully. The models developed by Truman Bewley, S. Rao Aiyagari, and others formalize this situation. In these models, all agents are ex ante identical (they have the same preferences and potential income distribution), but they become <strong>ex post heterogeneous</strong> because each experiences different income shocks over time and they cannot completely insure against these shocks (<a href="https://julia.quantecon.org/multi_agent_models/aiyagari.html#:~:text=">54. The Aiyagari Model — Quantitative Economics with Julia</a>). Households thus engage in <strong>precautionary saving</strong> – they tend to save more when they have income, building a buffer of assets to self-insure against future bad draws. Consumption is no longer completely smooth; when a negative shock hits a liquidity-constrained household, it may have to cut consumption sharply because it cannot borrow easily. Conversely, a positive shock to a hand-to-mouth household leads to a spike in consumption if they were previously constrained. Incomplete markets therefore produce higher <em>marginal propensities to consume</em> out of transitory income changes – in other words, people spend a larger fraction of any temporary income windfall than they would under complete markets (<a href="https://conference.nber.org/confer/2022/MWs22/Lecture1.html#:~:text=,crucial%20for%20us">Lecture 1 Standard Incomplete Markets Steady State</a>). This is consistent with empirical data showing many households, especially those with low wealth, quickly spend stimulus payments or bonuses, as they have unmet needs or debts to pay.</p>
+<p>Another key difference is that incomplete markets generate a non-trivial distribution of wealth. Since each individual’s asset accumulation depends on their history of shocks and their precautionary saving motive, over time the economy develops inequality in wealth and consumption. Some agents will build up sizable precautionary balances (if they experience good income luck or have frugal preferences), while others might remain near the borrowing constraint with minimal savings. The <strong>wealth distribution</strong> in such models is typically highly skewed, capturing the fact that a small fraction of people may hold a large share of total assets – a feature very much in line with real-world data. By contrast, in a representative agent or complete markets model, distributional issues are either absent or of no consequence, since everyone effectively pools risks together. Incomplete markets thus bring distributional considerations to the forefront of macroeconomic analysis.</p>
+<p>For policymakers, these differences mean that monetary and fiscal policy can have <strong>uneven effects</strong> across the population and can influence aggregate demand through channels that are muted in complete-market models. For example, an interest rate cut in an incomplete market setting might stimulate borrowing and spending for some agents, but for others it mainly reduces their interest income (if they are savers), potentially widening inequality. Likewise, a government stimulus targeted at liquidity-constrained households could yield a relatively large boost to consumption (due to their high propensity to consume out of additional income), whereas the same payment to a wealthier, fully insured household might just be saved. In summary, incomplete markets make the macroeconomy less “frictionless” and more sensitive to distribution and credit conditions. We next examine specific models that incorporate these features, to draw out their policy insights.</p>
+</section>
+<section id="friedman-consumption-smoothing-model-complete-markets" class="level2">
+<h2 class="anchored" data-anchor-id="friedman-consumption-smoothing-model-complete-markets">Friedman Consumption Smoothing Model (Complete Markets)</h2>
+<p>Milton Friedman’s model of consumption – known as the <strong>Permanent Income Hypothesis (PIH)</strong> – suggests consumption depends primarily on permanent rather than temporary income changes. Hence, monetary policy must focus on long-term credibility rather than short-run stimulus <span class="citation" data-cites="friedman1957theory hall1978stochastic">(<a href="#ref-friedman1957theory" role="doc-biblioref">Friedman 1957</a>; <a href="#ref-hall1978stochastic" role="doc-biblioref">Hall 1978</a>)</span>. This is a cornerstone of the neoclassical view on consumption behavior. Friedman proposed that an individual’s consumption at any given time is determined not by current income alone, but by their <strong>permanent income</strong>, which is the expected long-term average income. Temporary fluctuations in income, according to this theory, have only a small effect on consumption because people use saving and borrowing to smooth out those fluctuations. In other words, households act like long-term planners: if they receive an unexpectedly high income this year, they will not dramatically raise their spending, understanding that the extra income may not last. Instead, they will save most of it (or pay down debt), spreading the benefit over future years. Conversely, if income dips briefly, they can draw on past savings or borrow to maintain their usual consumption level, expecting to repay when income recovers. This behavior leads to relatively stable consumption paths, as illustrated by Friedman’s famous observation that consumption is much smoother than the often volatile income streams that individuals experience year to year.</p>
+<p>(<a href="https://python.quantecon.org/perm_income.html">60. The Permanent Income Model — Intermediate Quantitative Economics with Python</a>) <em>Example of consumption smoothing in a simulation of the permanent income model – the green line shows fluctuating income, while the black line shows consumption, which varies much less due to saving/borrowing. The blue line (debt) rises when income is below average and falls (becoming savings) when income is above average. Rational consumers use credit markets to smooth out income shocks, keeping consumption on a steady trajectory.</em></p>
+<p>Friedman’s model assumes that credit markets function well (people can borrow against future income) and that consumers are forward-looking and rational. Under these conditions, <strong>monetary and fiscal policy have limited ability to alter consumption unless they affect expected long-term income</strong>. For example, a one-time tax rebate or a temporarily lower interest rate might not stimulate much extra spending – consumers recognize that this is a short-term change. Indeed, a key takeaway of the permanent income theory is that <strong>policies which only increase current income without raising expected future income will mostly lead to higher saving rather than higher spending</strong>. Friedman contrasted this with the Keynesian view in which consumers have a high marginal propensity to consume out of current income (perhaps because they are myopic or liquidity-constrained). He argued that the Keynesian assumption was flawed in ignoring forward-looking behavior. Empirical puzzles of the mid-20th century (such as why consumption didn’t rise one-for-one with income gains from, say, war-time fiscal expansions) could be explained by PIH: people understood those income gains were temporary and saved much of them.</p>
+<p>In policy terms, the Friedman consumption model supports a rather conservative use of demand management. A central bank that rapidly expands money or lowers interest rates might not trigger a large consumption boom unless people believe those actions will persist and raise their permanent income or wealth. Similarly, a government stimulus check will be partly saved if households treat it as a transitory windfall. An important implication is that <strong>discretionary policy “surprises” are not a reliable way to boost aggregate demand</strong> – rational agents will react mainly to the expected persistent components of policy. Monetarists like Friedman instead advocated <strong>rule-based policies</strong> (such as steadily growing the money supply at a fixed rate) to provide a stable environment for consumers and investors to plan. If policy is erratic, it could even be counterproductive: for instance, trying to exploit a short-run trade-off by pushing unemployment lower than its natural rate would just raise inflation expectations, with little lasting benefit to output (this is essentially Friedman’s adaptive expectations version of the Phillips Curve argument). In summary, Friedman’s complete-market consumption model underscores the importance of expectations and permanent income. It suggests that <strong>monetary policy should focus on the long-term nominal stability</strong> (controlling inflation) and avoid frequent discretionary shifts, because people will see through those shifts and adjust their saving behavior accordingly. It also implies that fiscal stabilization (e.g.&nbsp;stimulus payments) will be most effective when aimed at households likely to be liquidity-constrained, a point that becomes clearer once we consider incomplete market models.</p>
+</section>
+<section id="consumption-investment-trade-off-under-liquidity-constraints" class="level2">
+<h2 class="anchored" data-anchor-id="consumption-investment-trade-off-under-liquidity-constraints">Consumption-Investment Trade-off under Liquidity Constraints</h2>
+<p>Liquidity constraints disrupt optimal consumption-investment trade-offs. Constrained agents cannot invest sufficiently during downturns, weakening monetary policy’s effectiveness, particularly in stimulating investment or consumption among constrained households.</p>
+<p>A central theme in a standard intertemporal choice problem is the <strong>trade-off between consuming today and investing for tomorrow</strong>. In a frictionless world, consumers equate the marginal benefit of spending an extra dollar today with the marginal benefit of saving that dollar (investing it to spend later). This optimality condition (often called the Euler equation in macroeconomics) ensures that resources are allocated to their most valued use over time. However, in reality many households and firms face <strong>liquidity constraints</strong> or borrowing limits that prevent them from freely making this trade-off. Such constraints are a key imperfection that alters the impact of monetary policy and other shocks.</p>
+<p>When agents are liquidity-constrained, they cannot borrow as much as they would like against future income. This means in bad times they might <em>want</em> to maintain consumption or invest in opportunities (human capital, business expansion, etc.), but they simply lack the funds or credit access to do so. Consequently, current consumption may fall below the level that would be chosen under complete markets, and valuable investments might be foregone. For instance, a skilled worker who becomes unemployed may cut back sharply on consumption – not because their lifetime income prospects are shattered, but because in that moment they don’t have liquid assets or credit to smooth over the gap. Likewise, a small business might pass up a profitable investment because banks refuse credit due to the firm’s lack of collateral. These scenarios lead to a suboptimal allocation of resources over time, amplifying short-run fluctuations and causing longer-run consequences (lost growth from underinvestment, etc.).</p>
+<p>From a policy perspective, liquidity constraints mean that <strong>monetary policy may have an asymmetric effect</strong>. If the central bank raises interest rates, it generally cools off borrowing and spending – both unconstrained and constrained agents will cut back (the former by choice, the latter perhaps by necessity as credit becomes more expensive or scarce). But if the central bank lowers interest rates to stimulate the economy, those who are constrained might <em>still</em> be unable to borrow (banks may not lend to them even at low rates, if their balance sheet is weak or job uncertain) and thus cannot increase consumption or investment. In other words, there is a segment of the population for whom monetary easing doesn’t translate into more spending because they were not borrowing in the first place (they were at their borrowing limit). Instead, the stimulus might mainly induce already well-capitalized agents to borrow or invest more – which can have distributional effects.</p>
+<p>On the other hand, consider fiscal policy: a transfer (like a stimulus check or unemployment benefit extension) given to a liquidity-constrained household is likely to be spent in large part, precisely because that household’s consumption was suppressed by lack of funds. Empirical evidence and incomplete-market models both find that households with little liquid wealth have <strong>high marginal propensities to consume (MPCs)</strong> out of such transfers. This contrasts with the near-zero MPC out of a transitory income increase for a fully smoothed consumer in Friedman’s framework. Therefore, liquidity constraints reconcile why Keynesian-style demand stimulus can work in practice (many people do spend most of an extra dollar if they were cash-strapped), even though Friedman’s theory might suggest they shouldn’t. Modern heterogeneous agent models incorporate this insight by showing that when a large fraction of consumers are hand-to-mouth or buffer-stock savers, aggregate consumption is sensitive to the distribution of income and cash-on-hand.</p>
+<p>For investment, liquidity constraints imply that not all investment opportunities are realized, especially among smaller firms or entrepreneurs, if external finance is costly or unavailable. In a recession, even if the central bank slashes interest rates, banks may be risk-averse and tighten lending standards, so only the safest borrowers benefit from low rates. This can lead to a situation often described as “pushing on a string,” where monetary policy loses traction in stimulating additional private investment or consumption because the bottleneck is in credit access, not the cost of credit per se.</p>
+<p>In summary, the consumption-investment trade-off under liquidity constraints highlights that <strong>market imperfections can dampen or distort the transmission of monetary policy</strong>. A perfectly rational, unconstrained agent might respond to lower interest rates by optimally borrowing and spending more (since the opportunity cost of funds is lower). But a constrained agent does nothing (they can’t borrow anyway), and an unconstrained wealthy agent might already be satiated in consumption and only shift their portfolio. These dynamics mean that in downturns, monetary policy might need support from fiscal measures that target constrained agents to be fully effective. It also means that policymakers should be aware of credit conditions and possibly use regulatory tools to ensure that rate cuts get passed through to borrowers. The general principle is that <strong>in the presence of liquidity constraints, short-run fluctuations can have long-run costs (foregone investment, lower human capital accumulation) and policies should aim to alleviate these constraints during bad times</strong>.</p>
+</section>
+<section id="bewley-model-precautionary-savings-in-an-incomplete-market" class="level2">
+<h2 class="anchored" data-anchor-id="bewley-model-precautionary-savings-in-an-incomplete-market">Bewley Model: Precautionary Savings in an Incomplete Market</h2>
+<ul>
+<li>Assumes heterogeneous agents face idiosyncratic income shocks and borrowing limits.</li>
+<li>Exogenous interest rates.</li>
+<li>Generates wealth inequality through precautionary savings.</li>
+<li>Highlights the importance of social safety nets and targeted fiscal policies for macroeconomic stability <span class="citation" data-cites="bewley1986stationary">(<a href="#ref-bewley1986stationary" role="doc-biblioref">Bewley 1986</a>)</span>.</li>
+</ul>
+<p>The <strong>Bewley model</strong> (named after economist Truman Bewley) is a foundational framework for analyzing incomplete markets with heterogeneous agents. In Bewley’s setup, we consider a large number of infinitely-lived consumers who face <strong>idiosyncratic income shocks</strong> in each period. These shocks are uninsurable – there is no complete set of insurance markets for them – and consumers can only trade a single risk-free asset (such as a bond or money) to self-insure. Moreover, consumers face a <strong>borrowing limit</strong> (they cannot have debt beyond a certain level, often this is set to zero for simplicity). Despite all consumers having the same preferences and income process ex ante, the randomness of shocks makes them <strong>heterogeneous ex post</strong> in terms of their asset holdings and current income. This type of model is often called a <em>heterogeneous agent incomplete-markets model</em>, or simply a <strong>Bewley model</strong>, after the seminal work in <span class="citation" data-cites="bewley1986stationary">(<a href="#ref-bewley1986stationary" role="doc-biblioref">Bewley 1986</a>)</span>. It has become a workhorse for understanding consumption, saving, and wealth distribution under uncertainty.</p>
+<p>In the Bewley model, each consumer solves a <strong>consumption-saving problem</strong>: how much to consume today versus save as a buffer for future uncertainty. A typical finding is the emergence of a <strong>precautionary saving motive</strong> – people save not just for lifecycle reasons (retirement, etc.) but also to buffer against income risk. Those who experience good shocks build up assets, while those hit by bad shocks draw down assets or if they have none, they hit the borrowing constraint and their consumption drops. Over time, the model reaches an equilibrium where the <strong>cross-sectional distribution of wealth is stationary</strong> (in a statistical sense): some fraction of the population has high wealth, some has low wealth, with persistent inequality generated purely from idiosyncratic risk and saving behavior. This equilibrium typically features a <strong>fat-tailed distribution</strong>, meaning there are some very high-wealth individuals (who had a run of good shocks or especially strong saving discipline) and a significant mass of low-wealth individuals who might be frequently at the edge of the borrowing constraint. Quantitatively, such models can generate wealth concentration that qualitatively resembles that observed in real economies (though matching the extreme concentration in actual data often requires adding other elements like heterogeneity in earnings ability or rates of return).</p>
+<p>One key aspect of the Bewley model is that the interest rate is treated as exogenous (or determined outside the model, say by a central bank or a global capital market). In other words, Bewley’s original formulation is a <strong>partial equilibrium</strong> analysis: it looks at an individual’s optimal saving given an interest rate, but does not necessarily determine that interest rate from within the model. This is akin to studying a small open economy where people can save or borrow at a fixed world interest rate, or a situation with a perfectly elastic supply of funds. Under this fixed interest rate, not everyone can dissave indefinitely because of the borrowing constraint, so in aggregate there will typically be positive net saving (since precautionary motives induce people to hold assets). If the interest rate is high relative to people’s time preference and risk, the low-wealth agents will borrow up to the limit and the high-wealth will save a lot, and an equilibrium wealth distribution forms. If the interest rate is too high, precautionary saving might not be enough to sustain it (people try to borrow too much); if it’s too low, people accumulate assets and the economy might reach a point where the lowest wealth is at the borrowing limit and highest is still saving – typically there is some interest rate that balances asset demand and the “excess” of precautionary saving.</p>
+<p>While the technical details can be involved, the intuition gleaned from the Bewley model is powerful for policy. It shows how <strong>incomplete markets alone (without any price rigidity or aggregate shocks) can lead to under-consumption by some and the accumulation of large buffers by others</strong>. This has implications for long-run growth and inequality. If many people are constrained and cannot invest in their education or businesses, the economy might underperform its potential. It also implies that policies like social insurance (unemployment insurance, social security, etc.) can affect aggregate outcomes: for example, providing more generous unemployment benefits might reduce the need for precautionary saving, which could actually stimulate consumption among lower-wealth households and reduce inequality. On the flip side, too generous a safety net could reduce the incentive to save at all. Bewley-type models have been used to examine optimal policy in this context, such as what level of unemployment insurance optimally trades off providing insurance versus maintaining incentives.</p>
+<p>An important extension of the Bewley model is to use it for <strong>wealth distribution insights</strong>. The model clarifies that even if everyone has identical earning potential, incomplete markets will generate inequality simply due to luck and precautionary behavior. This suggests that some observed inequality is not due to differences in skill or hard work, but due to insufficient insurance against life’s risks. Policymakers concerned with excessive inequality might draw on this insight to justify progressive taxation or public insurance programs that effectively do what missing markets would have – help smooth incomes and consumption across states of the world. Indeed, one policy implication highlighted in such models is that improving access to credit for credit-worthy but constrained households, or providing more public insurance, could make the overall economy better off by allowing more efficient consumption and investment choices (though there are always trade-offs and moral hazard issues to consider).</p>
+<p>In summary, the Bewley model provides a micro-founded explanation for why some people end up liquidity-constrained and how that influences their behavior. For monetary policy, it warns that aggregate demand may be more sensitive to the distribution of wealth and income than traditional models would suggest – if a recession hits the lower-wealth population hard, their consumption will contract strongly (since they can’t borrow), potentially deepening the downturn. Purely focusing on interest rates as a lever might be insufficient; fiscal redistributive tools or direct transfers could be more potent in such scenarios. The model’s relevance has grown as economists recognize the limitations of the representative-agent paradigm and seek to incorporate heterogeneous agent effects into macroeconomic policy analysis.</p>
+</section>
+<section id="aiyagari-model-general-equilibrium-with-incomplete-markets" class="level2">
+<h2 class="anchored" data-anchor-id="aiyagari-model-general-equilibrium-with-incomplete-markets">Aiyagari Model: General Equilibrium with Incomplete Markets</h2>
+<ul>
+<li>Incorporates endogenous determination of interest rates through production equilibrium.</li>
+<li>Demonstrates “excess capital accumulation” due to precautionary motives.</li>
+<li>Advocates capital income taxation for improved welfare and highlights the distributional consequences of monetary policy changes <span class="citation" data-cites="aiyagari1994uninsured">(<a href="#ref-aiyagari1994uninsured" role="doc-biblioref">Aiyagari 1994</a>)</span>.</li>
+</ul>
+<p>S. Rao Aiyagari’s model builds directly on the Bewley framework but adds an important layer: a production economy that yields a <strong>general equilibrium</strong> determination of prices (interest rate and possibly wages). In the Aiyagari (1994) model, we still have infinitely-lived agents with idiosyncratic income shocks and borrowing constraints (precisely the Bewley setup on the household side), but now those households supply savings to, and borrow from, a productive sector with capital. In essence, Aiyagari embeds the precautionary savings behavior into a full macroeconomic model with capital accumulation. The result is a self-contained macroeconomic equilibrium where the <strong>interest rate is endogenously determined</strong> by the supply and demand for capital, rather than being fixed externally. Households’ collective saving (driven by precautionary motives) feeds into the capital stock, and firms’ demand for capital (based on productivity and diminishing returns) determines the equilibrium interest rate that clears the capital market.</p>
+<p>One of Aiyagari’s key findings is that in an economy with uninsurable income risk, the equilibrium interest rate will generally be <strong>lower</strong> than it would be in a comparable complete-markets economy. Intuitively, because households value holding assets as a buffer (beyond what they would in a no-risk scenario), they tend to save more, which pushes down the return to capital. In other words, there is <strong>excess aggregate saving due to precautionary motives</strong>, leading to a larger capital stock and lower interest rate than the classical model without income risk would predict <span class="citation" data-cites="MARCET20072621">(<a href="#ref-MARCET20072621" role="doc-biblioref">Marcet, Obiols-Homs, and Weil 2007</a>)</span>. This is sometimes referred to as the “Aiyagari excess capital result.” It implies that the laissez-faire outcome might not be socially optimal – there could be “too much” capital from a certain perspective, because individuals don’t internalize that by saving so much for themselves, they depress the return for everyone. One practical implication Aiyagari pointed out is that a government could improve welfare by taxing capital income and redistributing it (or using it to fund social insurance) in such an economy. By doing so, it reduces the need for individuals to self-insure via excessive capital accumulation, potentially moving the economy closer to the golden-rule level of capital (where consumption is maximized). This was a striking result since in a standard frictionless model, capital taxation is often detrimental in the long run – but here, moderate capital taxation can correct an inefficiency arising from incomplete markets.</p>
+<p>The Aiyagari model also provides insight into the interplay between <strong>inequality and aggregate production</strong>. Unlike the Bewley model, which was partial equilibrium, here the <strong>distribution of wealth affects aggregate supply</strong> (through capital accumulation). If the wealth is concentrated in fewer hands, the aggregate consumption could be lower (since wealthy individuals have lower MPCs, they might save a lot of their income), and the aggregate capital might be higher (since those with excess wealth invest it). This has led to extensive research on the quantitative impact of redistributive policies on growth and output. For instance, if you redistribute wealth from the rich (low MPC) to the poor (high MPC), you might raise current consumption but reduce saving and thus future capital – whether that is good or bad for long-run output depends on parameters, but in some cases it can actually increase output if the economy was above the golden rule level of capital to start with <span class="citation" data-cites="MARCET20072621">(<a href="#ref-MARCET20072621" role="doc-biblioref">Marcet, Obiols-Homs, and Weil 2007</a>)</span>.</p>
+<p>Another aspect is the <strong>feedback of interest rates on inequality</strong>. In Aiyagari’s equilibrium, the interest rate settles at a level where households are indifferent between saving and not saving (on the margin). If interest rates are very low, borrowing is cheap, but also the reward for saving is low, which could discourage some saving. However, typically in these models many households still save because of risk aversion and precaution. The low interest rate also means that those who are borrowing-constrained are not paying a huge interest burden (assuming they can borrow at that rate), but many cannot borrow much anyway due to the constraint. Overall, compared to a representative-agent model, the Aiyagari model predicts different responses to monetary policy. For example, if the central bank lowers the interest rate (below the equilibrium that would prevail from just technology and time preference), it transfers resources from savers to borrowers. In an economy with inequality, this has non-neutral effects: borrowers (often poorer agents) gain relief and might consume more, while savers (wealthier agents) earn less on their assets and might consume less (or seek riskier investments). The <strong>distributional effects of monetary policy</strong> come into play. Recent research in heterogeneous agent New Keynesian (HANK) models builds on this by adding nominal rigidities, but even in the basic Aiyagari model, one can see that monetary policy is not just about one representative agent’s intertemporal choice – it will create winners and losers due to heterogeneity in assets and consumption propensities.</p>
+<p>For policymakers, Aiyagari’s work underscores a few points: (1) <strong>Monetary neutrality may not hold cleanly in the short run</strong> even if prices are flexible, because redistributions caused by interest rate changes can affect aggregate demand; (2) there may be a role for <strong>permanent fiscal policy</strong> (like capital taxation or debt issuance) to influence the long-run capital stock and interest rate in a way that improves welfare, countering the incomplete-market externality; (3) evaluating monetary policy requires understanding the underlying wealth distribution – for instance, a low interest rate environment will tend to benefit borrowers and younger households (via cheaper credit, higher asset values) while hurting those who rely on interest income (like pensioners or wealthier rentiers). If mismanaged, prolonged ultra-low rates can contribute to asset price inflation (as savers seek returns in real estate or stocks), thereby <strong>widening wealth inequality</strong> if only the already-wealthy hold those appreciating assets. Indeed, some attribute the rise in asset valuations and wealth concentration in recent decades partly to very low global real interest rates and ample liquidity, consistent with the mechanisms in Aiyagari-type models.</p>
+<p>In conclusion, the Aiyagari model enriches our understanding by marrying heterogeneity with production. It reminds us that <strong>macroeconomic policy cannot be divorced from distributional considerations</strong>. The long-term natural rate of interest, the effectiveness of fiscal redistribution, and the impact of monetary policy all look different once we acknowledge that not everyone is alike in the economy. By capturing how liquidity constraints and precautionary savings influence aggregate capital, this model provides guidance on questions like whether and how to tax wealth, and how aggressive monetary policy should be in, say, pushing interest rates to very low levels. Policymakers drawing on these insights might strive for a balance: ensuring there is enough aggregate saving for investment and growth, but not so much that it reflects unmet social insurance needs or creates financial imbalances.</p>
+</section>
+<section id="harrison-kreps-1978-model-asset-pricing-with-heterogeneous-beliefs" class="level2">
+<h2 class="anchored" data-anchor-id="harrison-kreps-1978-model-asset-pricing-with-heterogeneous-beliefs">Harrison &amp; Kreps (1978) Model: Asset Pricing with Heterogeneous Beliefs</h2>
+<ul>
+<li>Heterogeneous investor beliefs combined with short-sale constraints can cause speculative bubbles, elevating asset prices above fundamental values.</li>
+<li>Suggests improving market completeness and transparency to curb speculation and volatility <span class="citation" data-cites="harrison1978speculative">(<a href="#ref-harrison1978speculative" role="doc-biblioref">Harrison and Kreps 1978</a>)</span>.</li>
+</ul>
+<p>The Harrison and Kreps (1978) model introduces a different kind of market imperfection into macro-finance: <strong>heterogeneous beliefs</strong> among investors, combined with constraints on short selling. Unlike the previous models (which focused on borrowing constraints and income risk), this model lives in the world of asset trading and speculation. Harrison and Kreps asked what happens in an asset market when investors have differing opinions about an asset’s value and they are not allowed to short sell the asset freely. Their answer was groundbreaking: even if all investors are rational (in that they update beliefs consistently with their own information), the mere diversity of opinion can lead to asset prices exceeding the valuation of even the most optimistic individual investor.</p>
+<p>Here’s the intuition: suppose some investors (“optimists”) believe a stock or house will be very valuable in the future, while others (“pessimists”) believe it will not. If short selling is constrained (pessimists cannot easily borrow the asset to sell it short), the market price will be determined largely by the optimists’ willingness to pay. Now add the element of <strong>speculation</strong> – investors may buy an asset not just for its fundamental value (like dividends or rent) but also for the option to resell it in the future. Harrison &amp; Kreps showed that when beliefs differ, an investor might pay more than their own estimate of the asset’s fundamental value <strong>because they anticipate that someone even more optimistic might buy it at a higher price later</strong>. In effect, a <em>resale option</em> is priced in. This leads to what we might call a <strong>speculative premium</strong> on the asset price. The price can rise above the level that any single investor would pay if they had to hold the asset forever. In their words, the <em>right to resell</em> makes investors willing to pay more than the asset’s “hold-to-maturity” value. The inability of pessimists to short sell means nothing counteracts this upward pressure – the pessimists simply sit out of the market rather than actively pushing the price down by shorting. Thus, the market price reflects an <strong>over-optimistic valuation</strong>, driven by the most bullish views and the prospect of flipping the asset.</p>
+<p>This mechanism helps explain phenomena like asset price bubbles or situations where market prices seem to detach from fundamental values. Real estate is a commonly cited example: investors might buy houses at high prices not only because they expect rising rents or income (fundamentals), but because they think they can later sell the house to someone else at an even higher price (speculation). If enough people believe housing prices will keep rising, and skeptics can’t effectively short the housing market, the result is a self-reinforcing price boom. The Harrison-Kreps model formalized how even <strong>fully rational agents with rational expectations (each given their own belief)</strong> can end up trading at prices that embed a speculative component. It doesn’t require irrational exuberance; it only requires disagreement and some friction (short-sale constraints) that prevents full arbitrage. In their equilibrium, everyone understands the price is above their own fundamental valuation, but they also know someone else might be willing to pay even more, so it can still be rational to buy now and plan to sell later – a clear parallel to the greater fool theory, but derived in a rigorous way.</p>
+<p>Policy implications from the Harrison &amp; Kreps model revolve around <strong>financial market regulation and information disclosure</strong>. One implication is that short-selling constraints can fuel overpricing. If regulators make short selling too restrictive (perhaps in an attempt to curb volatility or prevent speculative attacks), they might inadvertently remove a balancing force that keeps prices close to fundamentals. The model would suggest that allowing more short selling (with proper oversight to avoid abuse) could actually lead to more informative, less one-sided pricing. Another implication is the value of <strong>transparency and common information</strong>. In the model, beliefs are heterogeneous and “dogmatic” – each trader sticks to their prior and interprets signals in their own way. If public information can help align beliefs (or at least inform the pessimists and optimists of each other’s views), it might reduce the degree of disagreement. However, complete agreement is unrealistic; differences in models, data interpretation, or risk appetite will always create some dispersion of opinion.</p>
+<p>From a monetary policy perspective, one might not immediately see a connection, since H&amp;K is about asset pricing in a frictional financial market. But there are subtle links. Central banks today pay close attention to asset markets – housing, equities, etc. – because large deviations of asset prices from fundamentals can pose risks to financial stability and the broader economy. For instance, if low interest rates contribute to a speculative housing boom (by making borrowing cheap and encouraging optimistic beliefs about ongoing price growth), a subsequent crash could harm banks and consumers, leading to a recession. The H&amp;K model suggests that a booming asset market is not necessarily a sign of solid fundamentals; it could be a sign of constrained pessimism and resale-driven pricing. Policymakers, therefore, should be cautious in interpreting asset price signals. It also provides an argument for <strong>macroprudential policies</strong>: tools that directly address asset market excess (for example, tighter loan-to-value ratios in mortgage lending during a housing boom, or stricter margin requirements in stock trading). These can be seen as ways to mitigate the speculative dynamics – essentially pricking bubbles before they grow too large. By making it harder to purely speculate (through leverage restrictions) or by encouraging more two-sided markets (perhaps by permitting certain derivatives or short positions), regulators might reduce the likelihood of severe mispricings.</p>
+<p>In summary, the Harrison &amp; Kreps model adds another layer to our understanding: market outcomes can be <strong>inefficient</strong> not just because of <strong>real-side</strong> frictions (like incomplete insurance) but also because of <strong>financial-side</strong> frictions (like trading constraints and belief dispersion). It is a reminder that even with rational actors, markets may need regulatory oversight to ensure they reflect true economic value. For a policymaker, being aware of this mechanism is important. It cautions against assuming that all investors have the same expectations (they don’t), and it illustrates why asset price booms can develop even without obvious irrationality. Recognizing a speculative bubble early is notoriously difficult, but understanding models like this helps officials appreciate the warning signs (e.g., when asset prices only make sense under very optimistic scenarios and buyers cite the ability to resell as justification). It also supports measures to improve market completeness – such as permitting more sophisticated financial instruments – because a more complete market (ability to hedge, to short, etc.) ironically may prevent the wild swings that incomplete markets allow.</p>
+</section>
+<section id="policy-implications-of-models" class="level2">
+<h2 class="anchored" data-anchor-id="policy-implications-of-models">Policy Implications of Models</h2>
+<ul>
+<li>Monetarism emphasizes stable, predictable policy frameworks.</li>
+<li>Bewley and Aiyagari models highlight social insurance and targeted redistribution.</li>
+<li>Harrison &amp; Kreps stress regulation of speculative financial markets.</li>
+</ul>
+<p>Each of the models discussed offers distinct insights for the design of monetary policy and related economic policies. We summarize the key policy implications from each framework:</p>
+<ul>
+<li><p><strong>Friedman/Monetarist Consumption Smoothing (Complete Markets):</strong> The policy lesson here is to <strong>avoid erratic or overly activist monetary policy</strong>, and instead commit to clear, long-term rules. Since consumers base spending on permanent income, temporary boosts from monetary expansions will mostly be saved, providing at best a short-lived stimulus. Trying to exploit short-run trade-offs (like printing money to lower unemployment) is ineffective once people adjust their expectations, and it risks creating inflation with no long-term gain in output. Thus, monetarists argue for steady money supply growth or an inflation target that is credible, so that businesses and consumers can make plans without fearing surprises. In practice, this translated to proposals like Friedman’s k-percent rule (grow the money supply by a fixed percent each year) and, later, to inflation targeting regimes adopted by many central banks. Fiscal policy in this view should also be prudent: large deficits might lead people to expect future taxes (Ricardian equivalence), so they save any tax cuts. Overall, the Friedman model supports <strong>policy credibility and consistency</strong>. A lack of credibility – say if a central bank is suspected of financing deficits or pursuing political goals – could unmoor expectations and cause instability. To avoid such outcomes, many countries gave central banks independent status and clear mandates (e.g.&nbsp;2% inflation target). The monetarist perspective also cautions against using monetary policy to address issues like unemployment beyond its natural rate or wealth inequality directly; those should be tackled with structural and fiscal tools, as monetary policy’s role is limited to nominal stabilization in the long run.</p></li>
+<li><p><strong>Bewley Incomplete-Market Model:</strong> A major implication from the Bewley model is the importance of the <strong>social safety net and credit market policies</strong>. Because individuals cannot fully insure against job loss or income drops, they self-insure by accumulating precautionary savings and cutting consumption in bad times. Policies that provide insurance – unemployment benefits, food assistance, public healthcare, etc. – can alleviate the most severe constraints and prevent sharp collapses in consumption among those hit by shocks. This not only has a humanitarian rationale but also a macroeconomic one: by softening the blow of recessions on individuals, these policies help stabilize aggregate demand (people with insurance don’t cut spending as drastically when something bad happens). However, overly generous benefits could discourage work or saving, so the model implies an optimal balance. Furthermore, ensuring access to credit for credit-worthy households (for example, through student loan programs or small business loans) can improve efficiency: it allows productive investments (education, entrepreneurship) that might not happen if people are liquidity-constrained. From a monetary policy perspective, if many consumers are liquidity-constrained, fiscal tools might be more direct in boosting demand – central banks may encourage governments to step in when needed (as seen in the 2020 COVID crisis, where direct payments had a large effect on spending). Another insight is that <strong>inequality in wealth can reduce aggregate demand</strong>, since the wealthy spend a smaller fraction of each extra dollar than the poor. So, extremely skewed wealth distribution (which the Bewley model shows arising from incomplete markets) could lead to a chronic shortfall in demand (some economists link this to secular stagnation). In such cases, redistributive fiscal policies or higher inflation targets (to erode real debt and boost spending) might be considered. The Bewley model thus broadens the mandate of policymakers: stable inflation is important, but so is the <em>distribution</em> of resources, as it feeds into macro stability.</p></li>
+<li><p><strong>Aiyagari General Equilibrium Model:</strong> Building on Bewley, Aiyagari adds that <strong>monetary and fiscal policy can influence the long-run capital stock and interest rate</strong> in an economy with incomplete markets. One direct policy implication from Aiyagari (1995) was that moderate <strong>capital income taxation</strong> can be welfare-improving. Taxing capital and redistributing income (or f## Empirical Review: Evaluating Policy Recommendations in Practice<br>
+History provides a testing ground for the theories discussed, and the record reveals both successes and challenges for various policy approaches. We review a few notable episodes and empirical findings to see how the theoretical predictions held up and what lessons were learned:</p></li>
+<li><p><strong>The Great Depression and its aftermath:</strong> Monetarists, led by Friedman and Schwartz, famously argued that the Federal Reserve’s failure to prevent a sharp contraction of the money supply was the primary cause of the Great Depression in the 1930s. They documented how bank failures and Fed inaction led to deflation and collapsing output. This case strongly validated the importance of stabilizing the money supply (or more broadly, aggregate demand) – a point on which Keynesians and monetarists eventually agreed, even if their recommended methods differed. The Depression also underscored the dangers of debt-deflation (Irving Fisher’s theory): once prices fell, the real burden of debt skyrocketed, squeezing borrowers (a scenario an incomplete-markets model with many bankruptcies would show vividly). The policy response in the 1930s was mixed – initially, very little was done by monetary authorities; later, fiscal New Deal programs provided relief and the abandonment of the gold standard allowed some monetary expansion. The eventual massive fiscal stimulus of World War II finally ended the Depression. In theoretical retrospect, the Great Depression illustrates that when monetary policy is constrained (or mismanaged), fiscal policy and other interventions become crucial to restore confidence and demand. It also led to institutional changes: deposit insurance was introduced (addressing a Bewley-model type issue of self-insurance by preventing bank runs), and central banks became more attuned to their role as <em>lenders of last resort</em>.</p></li>
+<li><p><strong>Post-WWII Keynesian vs Monetarist debates:</strong> In the postwar decades, Keynesian demand management (using fiscal deficits or surpluses to smooth the business cycle) was in vogue. This worked with moderate success in the 1950s and 60s when economies were often below full capacity and inflation was low. However, the late 1960s and 1970s brought <strong>stagflation</strong> – high inflation and high unemployment – which was a rude awakening that simple Keynesian policies had limits. Friedman’s prediction of the natural rate of unemployment (and the breakdown of the Phillips Curve trade-off) was confirmed when governments trying to push unemployment too low ended up with accelerating inflation but no further gains in employment. Monetarists advocated focusing on inflation and letting unemployment find its natural level. This led to the famous <strong>Volcker disinflation</strong> in the early 1980s: the Fed (and other central banks) raised interest rates dramatically, inducing recessions that tamed inflation expectations. The cost was high in terms of lost output in the short run, but the benefit was decades of more stable prices thereafter. The success of this strategy gave credibility to rule-like behavior (Volcker essentially followed a monetarist playbook initially, targeting money growth, then later switching to direct inflation targeting). It also vindicated the rational expectations view to some extent – once the policy regime changed credibly, inflation fell faster than old models predicted, as people adjusted expectations. However, there was also learning that <strong>pure monetarist targeting of monetary aggregates proved difficult</strong> in practice (the relationship between money supply measures and the economy broke down in the 1980s), so central banks shifted to interest rate targets and broad-based judgment. The empirical lesson: controlling inflation is crucial and possible, but requires willingness to endure short-term pain, and policy must adapt to structural changes (financial innovation changed money demand, for example).</p></li>
+<li><p><strong>Rise of New Keynesian Consensus (1990s–2000s):</strong> By the 1990s, a synthesis emerged: a baseline New Keynesian model (which is essentially an RBC core with price-stickiness and a monetary policy rule) became the standard for many central banks. This model, often featuring a representative agent, did well for normal business cycle fluctuations and was validated by the period of the Great Moderation (mid-1980s to 2007) when inflation and output volatility were relatively low. Central banks fine-tuned interest rates in response to output gaps and inflation deviations (Taylor rule behavior) and generally succeeded in keeping economies stable. However, this era also saw <strong>growing inequality</strong> in many countries (due to globalization, technological change, and possibly financial asset booms). Mainstream macro models largely ignored inequality, assuming it didn’t affect aggregate outcomes. Empirically though, questions arose: was the glut of global savings partly a result of rising wealth concentration and emerging-market reserve accumulation (an incomplete-market global effect)? Were low interest rates fueling a series of asset bubbles (tech stocks in the 90s, housing in the 2000s) that could have devastating effects when they burst? These questions became painfully acute with the <strong>2008 Global Financial Crisis</strong>. The crisis was triggered by a combination of factors aligned with multiple models: a Harrison-Kreps style speculative bubble in housing and complex financial products, a huge build-up of debt by households (many of whom turned out to be liquidity-constrained and defaulted when house prices fell), and a banking sector that was under-capitalized and had assumed house prices could only go up. When the bubble burst, it led to a cascade of failures (incomplete markets suddenly very incomplete as credit froze). Central banks cut rates to zero and beyond (some did QE), and governments provided fiscal stimulus and bailouts. The recovery was slow, and in some places inequality worsened as those with assets recovered faster (stocks rebounded) than those without. The aftermath spawned a rethinking: macro models now incorporate financial frictions and heterogeneity much more.</p>
+<p>Empirical studies on quantitative easing (QE) found that it did boost asset prices (bond purchases raised bond prices and lowered yields, and likely spilled over to equities and real estate). This helped stabilize the financial system and likely prevented an even worse downturn. But it also had a side effect: by making assets more expensive, <strong>QE disproportionately benefited wealthy asset holders</strong>, contributing to wealth inequality. Central bankers like Janet Yellen and Mario Draghi acknowledged these effects, though they argued that doing nothing would have hurt the poor even more via higher unemployment. This nuanced outcome is very much in line with Aiyagari-type reasoning – there are distributional consequences, but one must weigh them against macro stabilization gains. Research generally shows that while monetary policy can temporarily widen income and wealth gaps (for example, a surprise rate cut tends to increase asset values), the <strong>long-term distributional effects are smaller</strong> compared to other forces. Still, the perception of unequal gains can erode public support for central banks, a reality policymakers must manage via communication and, ideally, coordination with fiscal policy (e.g., fiscal tools can redistribute some of the gains more broadly).</p></li>
+<li><p><strong>Pandemic response (2020) and current outlook:</strong> The COVID-19 shock led to an even more aggressive policy response than 2008, in part because lessons were learned. Governments globally unleashed fiscal stimulus of unprecedented scale, much of it directed at households and businesses in need (basically applying the Keynesian and incomplete-markets playbook to support incomes). Central banks slashed rates and bought assets again, but this time fiscal policy did the heavy lifting in sustaining demand. The result was a surprisingly fast recovery, but also some side effects: inflation spiked in 2021-2022 as supply chain issues and rapid demand recovery outstripped supply. Some argued that policies over-shot, citing monetarist warnings about too much money chasing too few goods. Others noted that without the big response, economies could have spiraled downward. We are effectively watching another test: can central banks withdraw excess stimulus and tame inflation without causing a new recession? The outcome will inform the debate between those who prioritize aggressive stabilization and those who emphasize caution and long-run neutrality. Already, the surge in inflation has reminded everyone that even decades of stable prices do not mean the problem of inflation is permanently solved – vigilance is required, echoing Friedman’s point that inflation can reignite if policy loses focus.</p></li>
+</ul>
+<p>In terms of <strong>case studies</strong>: countries that followed more rigid rules versus those that used discretion provide comparisons. For instance, Germany has historically been very inflation-averse (a monetarist ethos) and also implements strong fiscal rules. This has kept its inflation low but perhaps at the cost of slower demand growth at times. On the other hand, countries like the US and UK were quicker to use unorthodox policies in the crises, arguably recovering faster, but now facing higher inflation that needs wrangling. Emerging markets often learned the hard way that failing to anchor expectations (through credible policies) leads to currency crashes and high inflation – many adopted inflation targeting and improved fiscal discipline in the 2000s, which helped them weather shocks better. However, emerging economies also illustrate incomplete markets externally – they accumulate reserves as self-insurance (precautionary saving at a national level), which ties into global imbalances affecting interest rates.</p>
+<p>Empirical evaluations of specific policies show mixed results: for example, the fiscal multipliers (effect of government spending on output) tend to be larger when liquidity constraints are binding (like in a recession or at the zero lower bound), confirming the heterogeneous-agent/New Keynesian synergy view. Similarly, studies find that <em>unconventional</em> monetary policies like QE have diminishing returns and potential risks if used for too long – aligning with the idea that you can’t permanently stimulate real activity with monetary expansion (sooner or later, it’s neutral and just affects prices or financial stability).</p>
+<p>One critique of policy based on these models is that models can be “gamed” to justify almost any policy if one is not careful – i.e., results can be sensitive to assumptions. For example, one could fine-tune an incomplete markets model to show a very large benefit to a certain tax policy, while another calibration might not. This is why empirical validation is key. Policymakers rely on teams of economists to confront models with data: how much did consumers actually spend out of the stimulus? Did inequality actually rise after that rate cut? These questions can be answered with data, lending confidence to or raising doubts about theoretical prescriptions.</p>
+<p>In conclusion, empirical experience broadly supports a few robust lessons: 1. <strong>Stable and credible monetary policy</strong> (low, predictable inflation) provides the foundation for economic growth – losing that stability (as seen in various inflationary episodes) leads to hardship and requires painful corrections. 2. <strong>Market imperfections are real and matter</strong> – ignoring them can lead to blind spots. The 2008 crisis was in part due to ignoring financial fragility; the slow recoveries when relying only on monetary policy show the limits of representative-agent models; the successful use of fiscal transfers in 2020 demonstrated the power of targeting liquidity-constrained households. 3. <strong>Wealth and income distribution influence macro outcomes.</strong> Extreme inequality can dampen demand and fuel financial imbalances. While central banks can’t solve inequality, their actions can exacerbate or alleviate it at the margins. Coordination with fiscal policy (which can directly redistribute or invest in broad-based gains) is important to achieve inclusive growth. 4. <strong>Expectations and communication are key.</strong> Miscommunication or unpredictable shifts cause real economic costs (taper tantrums, etc.), validating the rational expectations focus on clear guidance.</p>
+<p>The case studies reinforce that a balanced approach – taking into account both neoclassical discipline (fiscal/monetary restraint when needed) and Keynesian activism (stimulus when needed) – tends to perform best. Countries with strong institutions that can do both (stimulate in busts, constrain in booms) have generally done better over the long haul. And finally, flexibility and learning are crucial: policymakers must be willing to update their strategies as new information and research become available, much as our theoretical understanding has evolved over time.unding public insurance) effectively substitutes for some private precautionary saving, leading the economy to operate with slightly less capital but potentially higher overall utility. This runs counter to the policy of zero capital taxation that emerges from some complete-market models (per the Atkinson-Stiglitz or Chamley-Judd results), showing how market imperfections alter policy prescriptions. For monetary policy, the Aiyagari model reinforces the idea that <strong>policy has distributional effects</strong> that should not be ignored. Persistently low interest rates, for instance, help borrowers (often younger or less wealthy participants who may start businesses or buy homes) but hurt savers (often retirees or wealthy rentiers). This can contribute to wealth inequality if rising asset prices (stocks, real estate) accompany the low rates, benefiting asset owners. Policymakers might need to monitor such side effects; while the central bank’s primary goals are inflation and employment, awareness of how its actions impact wealth distribution is growing. Some central banks now openly discuss inequality in their reports, even if they lack a formal mandate to address it. In terms of coordination, Aiyagari’s work suggests <strong>monetary and fiscal policy should be coordinated</strong> in the long run. For example, if monetary policy is keeping rates very low to stimulate demand (perhaps because inequality and precautionary savings are depressing demand), fiscal policy could step in either by redistributing income (to boost demand directly) or by borrowing for public investment (utilizing the high savings available). In short, the model implies that <strong>macroeconomic stabilization might require a mix of tools</strong> – interest rate adjustments alone won’t solve problems rooted in incomplete markets.</p>
+<ul>
+<li><strong>Harrison &amp; Kreps Speculative Markets Model:</strong> The primary policy implications here concern <strong>financial market regulation and transparency</strong>. To prevent asset price bubbles driven by speculative dynamics, policymakers can consider easing short-sale constraints or providing alternative means for pessimistic views to be expressed (such as futures markets or other derivatives). If, for instance, there had been more instruments for investors to bet on a decline in housing prices in the mid-2000s, the housing bubble in some countries might not have grown as large (or it might have at least signaled trouble sooner). Of course, the growth of mortgage-backed securities and derivatives also contributed to the financial crisis – the issue was they were misused and misunderstood. So the lesson is nuanced: it’s not simply “allow all short selling,” but rather <strong>create well-regulated avenues for dissenting opinions in markets</strong>, which can mitigate one-sided optimism. Additionally, policy can aim to reduce extreme heterogeneity of beliefs through better information. Requiring higher standards of disclosure for firms and financial products can make it more likely that investors have similar assessments of value, rather than wildly diverging estimates. During episodes of obvious speculative fervor, authorities face a tough choice: intervene (prick the bubble) or stand aside. Harrison &amp; Kreps would say that in a purely rational bubble, everyone knows it’s a bubble but is riding it – this might be popped by a policy signal that changes collective expectations (for example, a central bank hinting that asset prices are overvalued, or using macroprudential tools to curtail excessive borrowing for speculation). Indeed, central banks and regulators increasingly use <em>jawboning</em> and targeted measures to address pockets of exuberance. The model also suggests a need for caution in monetary policy: if low interest rates are contributing to a speculative boom, a central bank might consider that in its decision-making (the so-called “leaning against the wind” approach, which is debated). While targeting asset prices directly is not the primary job of monetary policy, the fallout of a burst bubble often does become the central bank’s problem (as in 2008). Therefore, <strong>integrating financial stability concerns with monetary policy</strong> is an important implication. This has led to more collaboration between central banks and regulatory bodies, and the use of countercyclical capital buffers for banks, limits on loan-to-value ratios for mortgages in hot housing markets, etc., to dampen speculation.</li>
+</ul>
+<p>In sum, each model teaches that policy cannot be one-dimensional. A steadfast commitment to low and stable inflation (from Friedman’s legacy) remains crucial – history shows that losing control of inflation can be very costly to fix. But equally, ignoring market imperfections can lead to other problems: incomplete markets call for insurance and redistribution mechanisms; heterogeneous agent effects call for coordination of monetary and fiscal responses; and speculative dynamics call for prudential regulation. A comprehensive policy framework in the real world needs to blend these lessons. As a concrete example, consider the aftermath of the 2008 financial crisis and the 2020 pandemic shock: central banks not only cut rates and did quantitative easing (monetary tools), but governments also enacted large fiscal packages (insurance and redistribution), and regulators adjusted rules to keep credit flowing (financial stability measures). That multifaceted approach reflects, at least in spirit, the insights from the range of models above.</p>
+</section>
+<section id="bridging-the-gap-between-theory-and-reality" class="level2">
+<h2 class="anchored" data-anchor-id="bridging-the-gap-between-theory-and-reality">Bridging the Gap Between Theory and Reality</h2>
+<p>Models must inform rather than dictate policy. Policymakers should integrate insights from multiple models (complete markets, incomplete markets, and speculative bubbles) and adapt strategies based on empirical data and practical considerations (such as political constraints, credibility, and expectations management).</p>
+<p>Bridging theory and reality involves recognizing the limitations of each model and combining their strengths.</p>
+<p>Firstly, <strong>no single model captures all aspects of the economy</strong>. Friedman’s consumption model assumes away heterogeneity and price stickiness; Bewley and Aiyagari models abstract from nominal frictions and often from aggregate demand fluctuations (they typically focus on steady states or perfect foresight transitions); Harrison-Kreps focuses on asset trading, holding other macro factors constant. Actual economies have all these features <em>simultaneously</em>: heterogeneous agents <em>and</em> sticky prices <em>and</em> speculative financial markets, all interacting. In reality, a recession is often caused by a mix of factors – e.g., a financial bubble burst (à la Harrison-Kreps) that leads to a drop in demand, which is then amplified by liquidity-constrained consumers (à la Bewley) cutting spending, and firms facing sticky prices that can’t adjust quickly (à la New Keynesian models). Policymakers need to understand the <strong>big picture</strong>: each model is like a partial lens, and together they form a more complete view. Modern macroeconomic research is moving toward integrating these elements (for instance, Heterogeneous Agent New Keynesian models attempt to combine incomplete markets with price stickiness, and some models incorporate belief heterogeneity in a macro context). The practical upshot is that central banks and finance ministries should employ a suite of models and empirical analyses, not just a single paradigm, when assessing policy.</p>
+<p>Secondly, there are factors like <strong>expectations formation</strong> and <strong>behavioral biases</strong> that the neoclassical models often assume away with rational expectations. In reality, people may not be fully rational or may use heuristics; expectations can become unanchored if policy lacks credibility. For example, Friedman assumes people eventually adjust to inflation correctly, but if a central bank suddenly pursues a radically different regime (say, to finance a war or large deficit), expectations might overshoot or become chaotic. Similarly, the Harrison-Kreps model assumes rational agents, but real speculative bubbles might involve some herd behavior or extrapolative expectations (people thinking “prices have always risen, so they will keep rising”). Incorporating these could either exacerbate the model’s implications (bubbles get even bigger if some investors are over-optimistic in a biased way) or introduce new dynamics (crashes triggered by panic, etc.). Policymakers thus should also pay attention to <strong>market sentiment indicators, surveys of expectations</strong>, and so forth, rather than assuming everyone is calculating expected present values with perfect logic. Sometimes, taking pre-emptive action or communication to shape expectations is as important as the policy action itself – a lesson well understood in modern central bank forward guidance strategy.</p>
+<p>Another practical consideration is <strong>political economy and credibility</strong>. The models often assume policies can be set optimally by benevolent planners. In reality, central banks and governments are institutions that need to maintain trust. The monetarist advice for rules-based policy partly arises from this: a rule guards against the temptation of short-termism or political interference. Discretionary fiscal policy might be optimal in a model (e.g., send checks to liquidity-constrained households in a recession), but implementing that in time and in the right amount can be challenging politically. There’s often a delay (recognition lag, legislative lag) and sometimes mis-targeting of stimulus due to political compromises. This means that while theory might say “in a downturn, do X,” the reality might be that X arrives late or in diluted form. Policymakers thus also think about <strong>robustness</strong> – policies that will do reasonably well even if the ideal policy isn’t feasible. For instance, an inflation-targeting central bank provides a stable nominal anchor (robust against many shocks) even if it doesn’t address every problem; a strong automatic stabilizer (like unemployment insurance) kicks in during recessions without needing new legislation each time, providing timely support aligned with Bewley/Aiyagari insights.</p>
+<p>The <strong>limitations of the models in real-world application</strong> include calibration issues (what numbers to plug in), and sometimes they omit important sectors (like the banking sector, which was conspicuously absent in many models before the 2008 crisis). The financial system can amplify or dampen policy effectiveness. The 2008 crisis taught that having banks in distress undermines monetary transmission – no matter how low the Fed set interest rates, if banks wouldn’t lend, businesses and consumers couldn’t borrow. That led to a surge of interest in models that include banks and credit constraints at a macro level. Similarly, international factors (exchange rates, capital flows) are abstracted from in a closed-economy model; in reality, a country’s monetary policy can be affected by global capital markets (the “global savings glut” possibly contributing to low interest rates, for example). So policymakers also must consider the <strong>global context</strong> – something a domestic model might miss.</p>
+<p>How can policymakers apply theoretical insights to improve outcomes? One approach is <strong>stress-testing policies against multiple models</strong>. If a proposed policy (say, a new tool like negative interest rates or helicopter money) is run through a standard DSGE model, a heterogeneous agent model, and a financial model, and it appears beneficial in all, that builds confidence in its robustness. If one model shows a potential problem (e.g., helicopter money could unanchor inflation expectations in the monetarist view), the policy can be tweaked (commit to doing it only in a controlled manner). Central banks now regularly use projections that incorporate both rep-agent DSGE results and judgments informed by heterogeneous agent data analysis.</p>
+<p>Another approach is <strong>pilot programs and data-driven adjustments</strong>. For instance, if the government considers a new type of fiscal transfer to boost consumption, it can look at microdata to estimate MPCs (taking a page from incomplete-market theory) and design the program accordingly – perhaps targeting those with low incomes or little wealth for maximum impact. Then, as the program is rolled out, they collect data and see if consumption responds as expected. In essence, treat policy like an experiment informed by theory.</p>
+<p>A concrete example of bridging theory and practice is how central banks responded to the COVID-19 pandemic in 2020. The shock was unique, but policymakers drew on multiple theoretical insights: they knew from Keynesian models that a massive demand shock needed a strong response; from monetarist logic that keeping credit flowing would prevent a deflationary spiral; from heterogeneous agent models that direct payments to households and lending to small businesses would be critical (since those were most constrained and likely to spend quickly); and from financial models that ensuring markets didn’t freeze (through liquidity facilities, asset purchases) would prevent a speculative fire-sale spiral in asset prices. The result was an all-out, multi-pronged policy response – essentially applying “whatever it takes” in various dimensions. This kind of response arguably prevented a far worse downturn and is a testament to learning from past theoretical and empirical work.</p>
+<p>In summary, bridging theory and reality means <strong>using theory as a guide, not a straitjacket</strong>. Policymakers benefit from understanding the mechanisms highlighted by models – for example, the importance of expectations (Friedman), the impact of liquidity constraints (Bewley/Aiyagari), the role of speculation (Harrison-Kreps), and the significance of price rigidities (New Keynesian). But they must also weigh real-world considerations like implementation delays, political constraints, and unforeseen shocks. The best outcomes likely arise when theory-informed intuition is combined with flexibility and empirical feedback. As one economist quipped, “models are to be used, not believed.” The aim is to ensure that when making decisions, policymakers are aware of pitfalls like time inconsistency, distributional effects, or financial instability, and have contingency plans informed by a broad understanding of how the economy functions in various states.</p>
+</section>
+<section id="empirical-review-evaluating-policy-recommendations-in-practice" class="level2">
+<h2 class="anchored" data-anchor-id="empirical-review-evaluating-policy-recommendations-in-practice">Empirical Review: Evaluating Policy Recommendations in Practice</h2>
+<p>History provides a testing ground for the theories discussed, and the record reveals both successes and challenges for various policy approaches. We review a few notable episodes and empirical findings to see how the theoretical predictions held up and what lessons were learned:</p>
+<ul>
+<li><p><strong>The Great Depression and its aftermath:</strong> Monetarists, led by Friedman and Schwartz, famously argued that the Federal Reserve’s failure to prevent a sharp contraction of the money supply was the primary cause of the Great Depression in the 1930s. They documented how bank failures and Fed inaction led to deflation and collapsing output. This case strongly validated the importance of stabilizing the money supply (or more broadly, aggregate demand) – a point on which Keynesians and monetarists eventually agreed, even if their recommended methods differed. The Depression also underscored the dangers of debt-deflation (Irving Fisher’s theory): once prices fell, the real burden of debt skyrocketed, squeezing borrowers (a scenario an incomplete-markets model with many bankruptcies would show vividly). The policy response in the 1930s was mixed – initially, very little was done by monetary authorities; later, fiscal New Deal programs provided relief and the abandonment of the gold standard allowed some monetary expansion. The eventual massive fiscal stimulus of World War II finally ended the Depression. In theoretical retrospect, the Great Depression illustrates that when monetary policy is constrained (or mismanaged), fiscal policy and other interventions become crucial to restore confidence and demand. It also led to institutional changes: deposit insurance was introduced (addressing a Bewley-model type issue of self-insurance by preventing bank runs), and central banks became more attuned to their role as <em>lenders of last resort</em>.</p></li>
+<li><p><strong>Post-WWII Keynesian vs Monetarist debates:</strong> In the postwar decades, Keynesian demand management (using fiscal deficits or surpluses to smooth the business cycle) was in vogue. This worked with moderate success in the 1950s and 60s when economies were often below full capacity and inflation was low. However, the late 1960s and 1970s brought <strong>stagflation</strong> – high inflation and high unemployment – which was a rude awakening that simple Keynesian policies had limits. Friedman’s prediction of the natural rate of unemployment (and the breakdown of the Phillips Curve trade-off) was confirmed when governments trying to push unemployment too low ended up with accelerating inflation but no further gains in employment. Monetarists advocated focusing on inflation and letting unemployment find its natural level. This led to the famous <strong>Volcker disinflation</strong> in the early 1980s: the Fed (and other central banks) raised interest rates dramatically, inducing recessions that tamed inflation expectations. The cost was high in terms of lost output in the short run, but the benefit was decades of more stable prices thereafter. The success of this strategy gave credibility to rule-like behavior (Volcker essentially followed a monetarist playbook initially, targeting money growth, then later switching to direct inflation targeting). It also vindicated the rational expectations view to some extent – once the policy regime changed credibly, inflation fell faster than old models predicted, as people adjusted expectations. However, there was also learning that <strong>pure monetarist targeting of monetary aggregates proved difficult</strong> in practice (the relationship between money supply measures and the economy broke down in the 1980s), so central banks shifted to interest rate targets and broad-based judgment. The empirical lesson: controlling inflation is crucial and possible, but requires willingness to endure short-term pain, and policy must adapt to structural changes (financial innovation changed money demand, for example).</p></li>
+<li><p><strong>Rise of New Keynesian Consensus (1990s–2000s):</strong> By the 1990s, a synthesis emerged: a baseline New Keynesian model (which is essentially an RBC core with price-stickiness and a monetary policy rule) became the standard for many central banks. This model, often featuring a representative agent, did well for normal business cycle fluctuations and was validated by the period of the Great Moderation (mid-1980s to 2007) when inflation and output volatility were relatively low. Central banks fine-tuned interest rates in response to output gaps and inflation deviations (Taylor rule behavior) and generally succeeded in keeping economies stable. However, this era also saw <strong>growing inequality</strong> in many countries (due to globalization, technological change, and possibly financial asset booms). Mainstream macro models largely ignored inequality, assuming it didn’t affect aggregate outcomes. Empirically though, questions arose: was the glut of global savings partly a result of rising wealth concentration and emerging-market reserve accumulation (an incomplete-market global effect)? Were low interest rates fueling a series of asset bubbles (tech stocks in the 90s, housing in the 2000s) that could have devastating effects when they burst? These questions became painfully acute with the <strong>2008 Global Financial Crisis</strong>. The crisis was triggered by a combination of factors aligned with multiple models: a Harrison-Kreps style speculative bubble in housing and complex financial products, a huge build-up of debt by households (many of whom turned out to be liquidity-constrained and defaulted when house prices fell), and a banking sector that was under-capitalized and had assumed house prices could only go up. When the bubble burst, it led to a cascade of failures (incomplete markets suddenly very incomplete as credit froze). Central banks cut rates to zero and beyond (some did QE), and governments provided fiscal stimulus and bailouts. The recovery was slow, and in some places inequality worsened as those with assets recovered faster (stocks rebounded) than those without. The aftermath spawned a rethinking: macro models now incorporate financial frictions and heterogeneity much more.</p>
+<p>Empirical studies on quantitative easing (QE) found that it did boost asset prices (bond purchases raised bond prices and lowered yields, and likely spilled over to equities and real estate). This helped stabilize the financial system and likely prevented an even worse downturn. But it also had a side effect: by making assets more expensive, <strong>QE disproportionately benefited wealthy asset holders</strong>, contributing to wealth inequality. Central bankers like Janet Yellen and Mario Draghi acknowledged these effects, though they argued that doing nothing would have hurt the poor even more via higher unemployment. This nuanced outcome is very much in line with Aiyagari-type reasoning – there are distributional consequences, but one must weigh them against macro stabilization gains. Research generally shows that while monetary policy can temporarily widen income and wealth gaps (for example, a surprise rate cut tends to increase asset values), the <strong>long-term distributional effects are smaller</strong> compared to other forces. Still, the perception of unequal gains can erode public support for central banks, a reality policymakers must manage via communication and, ideally, coordination with fiscal policy (e.g., fiscal tools can redistribute some of the gains more broadly).</p></li>
+<li><p><strong>Pandemic response (2020) and current outlook:</strong> The COVID-19 shock led to an even more aggressive policy response than 2008, in part because lessons were learned. Governments globally unleashed fiscal stimulus of unprecedented scale, much of it directed at households and businesses in need (basically applying the Keynesian and incomplete-markets playbook to support incomes). Central banks slashed rates and bought assets again, but this time fiscal policy did the heavy lifting in sustaining demand. The result was a surprisingly fast recovery, but also some side effects: inflation spiked in 2021-2022 as supply chain issues and rapid demand recovery outstripped supply. Some argued that policies over-shot, citing monetarist warnings about too much money chasing too few goods. Others noted that without the big response, economies could have spiraled downward. We are effectively watching another test: can central banks withdraw excess stimulus and tame inflation without causing a new recession? The outcome will inform the debate between those who prioritize aggressive stabilization and those who emphasize caution and long-run neutrality. Already, the surge in inflation has reminded everyone that even decades of stable prices do not mean the problem of inflation is permanently solved – vigilance is required, echoing Friedman’s point that inflation can reignite if policy loses focus.</p></li>
+</ul>
+<p>In terms of <strong>case studies</strong>: countries that followed more rigid rules versus those that used discretion provide comparisons. For instance, Germany has historically been very inflation-averse (a monetarist ethos) and also implements strong fiscal rules. This has kept its inflation low but perhaps at the cost of slower demand growth at times. On the other hand, countries like the US and UK were quicker to use unorthodox policies in the crises, arguably recovering faster, but now facing higher inflation that needs wrangling. Emerging markets often learned the hard way that failing to anchor expectations (through credible policies) leads to currency crashes and high inflation – many adopted inflation targeting and improved fiscal discipline in the 2000s, which helped them weather shocks better. However, emerging economies also illustrate incomplete markets externally – they accumulate reserves as self-insurance (precautionary saving at a national level), which ties into global imbalances affecting interest rates.</p>
+<p>Empirical evaluations of specific policies show mixed results: for example, the fiscal multipliers (effect of government spending on output) tend to be larger when liquidity constraints are binding (like in a recession or at the zero lower bound), confirming the heterogeneous-agent/New Keynesian synergy view. Similarly, studies find that <em>unconventional</em> monetary policies like QE have diminishing returns and potential risks if used for too long – aligning with the idea that you can’t permanently stimulate real activity with monetary expansion (sooner or later, it’s neutral and just affects prices or financial stability).</p>
+<p>One critique of policy based on these models is that models can be “gamed” to justify almost any policy if one is not careful – i.e., results can be sensitive to assumptions. For example, one could fine-tune an incomplete markets model to show a very large benefit to a certain tax policy, while another calibration might not. This is why empirical validation is key. Policymakers rely on teams of economists to confront models with data: how much did consumers actually spend out of the stimulus? Did inequality actually rise after that rate cut? These questions can be answered with data, lending confidence to or raising doubts about theoretical prescriptions.</p>
+<p>In conclusion, empirical experience broadly supports a few robust lessons: 1. <strong>Stable and credible monetary policy</strong> (low, predictable inflation) provides the foundation for economic growth – losing that stability (as seen in various inflationary episodes) leads to hardship and requires painful corrections. 2. <strong>Market imperfections are real and matter</strong> – ignoring them can lead to blind spots. The 2008 crisis was in part due to ignoring financial fragility; the slow recoveries when relying only on monetary policy show the limits of representative-agent models; the successful use of fiscal transfers in 2020 demonstrated the power of targeting liquidity-constrained households. 3. <strong>Wealth and income distribution influence macro outcomes.</strong> Extreme inequality can dampen demand and fuel financial imbalances. While central banks can’t solve inequality, their actions can exacerbate or alleviate it at the margins. Coordination with fiscal policy (which can directly redistribute or invest in broad-based gains) is important to achieve inclusive growth. 4. <strong>Expectations and communication are key.</strong> Miscommunication or unpredictable shifts cause real economic costs (taper tantrums, etc.), validating the rational expectations focus on clear guidance.</p>
+<p>The case studies reinforce that a balanced approach – taking into account both neoclassical discipline (fiscal/monetary restraint when needed) and Keynesian activism (stimulus when needed) – tends to perform best. Countries with strong institutions that can do both (stimulate in busts, constrain in booms) have generally done better over the long haul. And finally, flexibility and learning are crucial: policymakers must be willing to update their strategies as new information and research become available, much as our theoretical understanding has evolved over time.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>Effective monetary policy balances credibility and long-run neutrality (neoclassical insights) with short-run interventions recognizing market imperfections and heterogeneous agents. Policymakers should implement coordinated monetary, fiscal, and regulatory policies to foster inclusive, stable growth.</p>
+<p>The analysis presented in this paper highlights that effective monetary policy requires a nuanced understanding of economic foundations as well as market imperfections. From the neoclassical and monetarist perspective, we learned the importance of credibility, rules, and the long-run view: money is ultimately neutral, and attempting to exploit short-run effects through discretionary surprises can backfire, leading to inflation or distorted markets. This calls for <strong>commitment to low and stable inflation</strong> and avoidance of policies that generate uncertainty or arbitrary redistributions of wealth (such as surprise inflations which hurt savers and help debtors). A clear framework – whether a constant money growth rule or an inflation-targeting regime – helps anchor expectations and fosters an environment conducive to investment and growth.</p>
+<p>At the same time, integrating insights from models of incomplete markets and heterogeneous agents leads to several recommendations for mitigating wealth inequality and market inefficiencies. One key recommendation is for policymakers to <strong>address liquidity constraints and lack of insurance in the economy</strong>, through complementary fiscal and regulatory policies. For example, strengthening unemployment insurance, facilitating access to healthcare and credit, or even implementing automatic stabilizers that kick in during downturns can prevent the kind of spiraling cutbacks in spending that deepen recessions. By doing so, the economy operates more like the complete-market ideal where consumption doesn’t collapse for those hit by shocks. This not only protects vulnerable households (reducing inequality in bad times), but also stabilizes aggregate demand which makes it easier for monetary policy to do its job.</p>
+<p>Another recommendation is to <strong>incorporate distributional analysis into policy decisions</strong>. Central banks could monitor how their interest rate changes affect different income and wealth groups – for instance, via internal research on heterogeneity (many central banks have set up departments to study inequality and finance). While the mandate may remain focused on inflation and employment, if a policy path is likely to create much larger inequality with only marginal benefit for aggregate outcomes, policymakers might seek alternative tools or coordinate with fiscal authorities to offset the impact. For example, if quantitative easing is boosting asset prices significantly, a government could consider fiscal measures (like temporary wealth taxes or increased social spending funded by the gains from higher asset prices) to redistribute some of the benefits. Such coordination can ensure that <strong>economic stabilization does not come at the cost of a more divided society</strong>, because a widespread loss of social cohesion can also undermine long-term growth and complicate future policy (public opposition can limit what central banks can do).</p>
+<p>Financial market imperfections, as underscored by the Harrison &amp; Kreps model, imply that <strong>regulatory vigilance is needed to maintain efficient and stable markets</strong>. Policy recommendations here include maintaining prudent loan-to-value ratios, margin requirements, and ensuring transparency in financial products. Rather than using blunt monetary tightening to pop an asset bubble (which can harm the whole economy), targeted macroprudential measures can be more efficient. However, if a dangerous bubble is inflating and macroprudential measures are insufficient, central banks should not entirely shy away from “leaning against the wind” – a slight adjustment to account for financial stability could be justified. The main point is that <strong>preventing severe boom-bust cycles will help avoid sudden spikes in inequality and long-term damage</strong> (since crashes often throw many out of work, while some wealthy actors might even profit by buying assets at fire-sale prices, widening disparities). Thus, a stable financial environment is a public good that policy should aim to provide.</p>
+<p>The long-term orientation of neoclassical models also reminds us that <strong>economic growth and efficiency are paramount for raising living standards broadly</strong>. Therefore, policies that enhance productivity – education, infrastructure, innovation – are crucial complements to monetary policy. These are often fiscal or structural policies, but monetary policy contributes by providing a low-inflation, stable backdrop and by avoiding distortions (for instance, preventing capital from being misallocated into unproductive speculative ventures via bubble prevention). If wealth inequality is to be reduced, it is best done by <em>inclusive growth</em> – enabling more people to partake in the economy’s advancement (through skill-building, access to capital, etc.) – rather than by short-sighted inflationary policies that might erode the real value of debts at the cost of overall economic health.</p>
+<p>In practical terms, <strong>policy coordination and clarity in roles</strong> will yield the best results. Monetary authorities should communicate their limits: for example, “We can manage inflation and support employment, but we alone cannot solve structural unemployment or inequality.” This honest communication can prod other branches of government to act where they must (like reforming education or taxation). Conversely, fiscal authorities can design their interventions (tax, spend, regulate) in a way that complements the central bank’s efforts – e.g., using expansionary fiscal policy in a liquidity trap when monetary policy is out of ammunition, or conversely, restraining fiscal excess in boom times to not put the central bank in a bind. When each policy arm respects the insights of the various models, the overall economic management improves.</p>
+<p>To specifically mitigate wealth inequality without sacrificing efficiency, policymakers might consider measures such as: - <strong>Progressive taxation and wealth taxes</strong> used judiciously to fund public goods and transfers (Aiyagari’s work suggests some taxation on capital can be optimal. - <strong>Public investment in education, health, and opportunities for the less wealthy</strong>, enabling broader participation in growth (thus reducing inequality in a generation and boosting human capital). - <strong>Encouraging broad-based asset ownership</strong> (for instance, employee stock ownership plans, or incentives for retirement savings for low-income workers) so that more households benefit from asset price increases rather than just a narrow set of investors. - <strong>Maintaining low inflation</strong> which protects the real incomes of the poor (who have less access to hedges like stocks or real estate) – inflation can act as a regressive tax, so controlling it is pro-poor. - <strong>Avoiding high unemployment</strong> through timely policy action, since job loss can have permanent scarring effects on workers and increases inequality (those who keep jobs vs.&nbsp;those who don’t). This aligns with using all available tools in a severe downturn to hasten recovery, as seen in 2020.</p>
+<p>All these recommendations flow naturally from combining the models’ insights: stable money, attention to heterogeneity, and prudent oversight of markets. None of these is easy to implement – each has political and technical challenges. But the cost of inaction can be high. If policy is mismanaged, as we argued, the consequences can be self-defeating: attempts to overstimulate can lead to runaway inflation that hurts everyone (especially the poor), failure to consider distribution can produce political backlash and social unrest, and neglecting financial stability can lead to crises that wipe out wealth and jobs.</p>
+<p>In closing, the overarching message is one of balance and foresight. Neoclassical economics teaches the value of consistency and respecting long-run constraints; Keynesian and incomplete-market perspectives teach the value of responding to short-run needs and human realities. A policymaker who is informed by both will neither be complacent in good times (ignoring building risks) nor panic in bad times (resorting to unanchored policies). They will strive for <em>inclusive prosperity</em>: economic growth that is stable, broadly shared, and resilient to shocks. By designing monetary and fiscal policies with these principles in mind, we can hope to moderate the boom-bust cycles, temper wealth inequalities, and achieve more stable economic progress. This synthesis of ideas – turning theoretical precision into practical wisdom – is ultimately what leads to sound policy and improved economic outcomes for society as a whole.</p>
+</section>
+<section id="appendix" class="level2">
+<h2 class="anchored" data-anchor-id="appendix">Appendix</h2>
+<p>The appendix provides technical details on the theoretical models referenced. We include outlines of the mathematical formulation of each model and key derivations:</p>
+<ul>
+<li><p><em>Friedman’s Permanent Income Model:</em> We derive the consumption function under the assumption of perfect capital markets and quadratic utility (following Hall (1978)’s rational expectations version). This shows formally that <span class="math inline">\(c_t\)</span> depends on expected lifetime resources and that <span class="math inline">\(c_{t+1}-c_t\)</span> is unpredictable (a martingale) if consumers optimize. We also present a figure illustrating consumption smoothing in response to a one-time income boost (consumption increases only modestly, with most of the boost saved).</p></li>
+<li><p><em>Bewley Model:</em> We set up the infinite-horizon dynamic programming problem for the consumer: <span class="math inline">\(V(a,y)\)</span> with asset level <span class="math inline">\(a\)</span> and income state <span class="math inline">\(y\)</span>. We show the Euler equation with an occasionally binding borrowing constraint and discuss the existence of a stationary wealth distribution. We include calibrated parameter values (e.g., risk aversion, income shock variance) from a standard calibration and report the resulting Gini coefficients for wealth and consumption. This demonstrates how precautionary savings behavior emerges and how borrowing limits cause deviations from the complete markets benchmark (e.g., higher MPC for low <span class="math inline">\(a\)</span> agents).</p></li>
+<li><p><em>Aiyagari Model:</em> Building on the Bewley setup, we add a production function (Cobb-Douglas) and define general equilibrium: the interest rate <span class="math inline">\(r\)</span> and wage <span class="math inline">\(w\)</span> adjust so that the aggregate capital supply (sum of individual assets) equals capital demand by firms, and labor supply equals labor demand. We show the equilibrium conditions and compute the steady-state <span class="math inline">\(r\)</span> which satisfies the market clearing (illustrated by a diagram of the capital supply curve from households and capital demand curve from the firm – the intersection gives <span class="math inline">\(r^*\)</span>). We then compare this <span class="math inline">\(r^*\)</span> to the one in a complete markets Ramsey model with the same technology, confirming <span class="math inline">\(r^*_{incomplete} &lt; r^*_{complete}\)</span> under typical calibrations. We also simulate the model to show the effect of a one-time wealth redistribution on capital and output, illustrating Aiyagari’s point that moderate redistribution can increase aggregate consumption without much loss in output if the economy was over-accumulating capital.</p></li>
+<li><p><em>Harrison &amp; Kreps Model:</em> We outline the example from their paper: two periods, two types of investors with different beliefs about the probability of a high payoff. We illustrate how, with no short selling, the price in the first period reflects the higher valuation (optimist’s valuation plus the option value of resale) and can exceed even the optimist’s expected value of fundamentals. If short-selling is allowed, the pessimist would short at any price above their valuation, which would push the price down closer to fundamental values. We generalize to their infinite-horizon speculative equilibrium concept and provide intuition with a chart showing the pricing function under heterogeneous beliefs. We also note subsequent literature that extended their model (e.g., considering risk aversion or learning, which can either dampen or amplify the speculative premium).</p></li>
+</ul>
+<p><strong>Calibration and Simulation:</strong> The appendix includes tables of parameter values used in simulations (time preference, income shock distribution, production function parameters, etc.) and discusses how these are chosen to match empirical moments (like savings rate, wealth Gini, etc.). We then present simulation results comparing, for example, a scenario of an expansionary monetary policy shock in a representative agent model vs.&nbsp;in a heterogeneous agent model. The latter shows a distribution of consumption responses – with liquidity-constrained agents responding strongly and wealthy agents less so – and a different aggregate outcome. This helps illustrate quantitatively the importance of heterogeneity for policy multipliers.</p>
+<p><strong>Policy Case Studies Analysis:</strong> We provide additional data and charts complementing the empirical review. For instance, a figure showing the U.S. unemployment and inflation in the 1970s and 1980s to visualize the Phillips Curve breakdown and Volcker disinflation; a chart of asset holdings by wealth percentiles to indicate how QE gains might concentrate; and cross-country comparisons of inequality measures before and after major policy regimes (e.g., comparing inequality trends in countries that adopted inflation targeting vs those that had high inflation). These data support the claims made in the main text about policy impacts on inequality and stability.</p>
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-aiyagari1994uninsured" class="csl-entry" role="listitem">
+Aiyagari, S Rao. 1994. <span>“Uninsured Idiosyncratic Risk and Aggregate Saving.”</span> <em>The Quarterly Journal of Economics</em> 109 (3): 659–84.
+</div>
+<div id="ref-bewley1986stationary" class="csl-entry" role="listitem">
+Bewley, Truman. 1986. <span>“Stationary Monetary Equilibrium with a Continuum of Independently Fluctuating Consumers.”</span> <em>Contributions to Mathematical Economics in Honor of Gérard Debreu</em> 79: 210–39.
+</div>
+<div id="ref-friedman1957theory" class="csl-entry" role="listitem">
+Friedman, Milton. 1957. <em>A Theory of the Consumption Function</em>. Princeton University Press.
+</div>
+<div id="ref-friedman1968role" class="csl-entry" role="listitem">
+———. 1968. <span>“The Role of Monetary Policy.”</span> <em>The American Economic Review</em> 58 (1): 1–17.
+</div>
+<div id="ref-hall1978stochastic" class="csl-entry" role="listitem">
+Hall, Robert E. 1978. <span>“Stochastic Implications of the Life Cycle-Permanent Income Hypothesis: Theory and Evidence.”</span> <em>Journal of Political Economy</em> 86 (6): 971–87.
+</div>
+<div id="ref-harrison1978speculative" class="csl-entry" role="listitem">
+Harrison, J Michael, and David M Kreps. 1978. <span>“Speculative Investor Behavior in a Stock Market with Heterogeneous Expectations.”</span> <em>The Quarterly Journal of Economics</em> 92 (2): 323–36.
+</div>
+<div id="ref-lucas1972expectations" class="csl-entry" role="listitem">
+Lucas Jr, Robert E. 1972. <span>“Expectations and the Neutrality of Money.”</span> <em>Journal of Economic Theory</em> 4 (2): 103–24.
+</div>
+<div id="ref-MARCET20072621" class="csl-entry" role="listitem">
+Marcet, Albert, Francesc Obiols-Homs, and Philippe Weil. 2007. <span>“Incomplete Markets, Labor Supply and Capital Accumulation.”</span> <em>Journal of Monetary Economics</em> 54 (8): 2621–35. https://doi.org/<a href="https://doi.org/10.1016/j.jmoneco.2006.12.011">https://doi.org/10.1016/j.jmoneco.2006.12.011</a>.
+</div>
+</div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
