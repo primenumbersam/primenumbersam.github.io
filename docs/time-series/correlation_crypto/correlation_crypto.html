@@ -206,23 +206,34 @@ window.Quarto = {
     <a class="dropdown-item" href="../../projects/asset_puzzle/asset_puzzle.html">
  <span class="dropdown-text">Asset Premium Puzzles</span></a>
   </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-appendix" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Appendix</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-appendix">    
         <li>
-    <a class="dropdown-item" href="../../projects/tfp.html">
- <span class="dropdown-text">Structural Change</span></a>
+    <a class="dropdown-item" href="../../appendix/a_conditions.qmd">
+ <span class="dropdown-text">Free Market Conditions</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../projects/incomplete/incomplete.html">
+    <a class="dropdown-item" href="../../appendix/capm/a_capm.html">
+ <span class="dropdown-text">Revisiting CAPM</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../appendix/incomplete/a_incomplete.html">
  <span class="dropdown-text">Incomplete market</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">한글</span>
+ <span class="menu-text">시계열</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-">    
         <li>
-    <a class="dropdown-item" href="../../projects/correlation_crypto/correlation_crypto.html">
+    <a class="dropdown-item" href="../../time-series/correlation_crypto/correlation_crypto.html">
  <span class="dropdown-text">암호화폐들의 상관관계</span></a>
   </li>  
         <li>
@@ -236,6 +247,10 @@ window.Quarto = {
         <li>
     <a class="dropdown-item" href="../../time-series/indicator_growth.html">
  <span class="dropdown-text">경제성장 지표</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../time-series/tfp.html">
+ <span class="dropdown-text">Structural Change</span></a>
   </li>  
     </ul>
   </li>
@@ -466,7 +481,7 @@ window.Quarto = {
 <li>각 롤링 윈도우 크기(30, 60, 90일)에 대해 <strong>롤링 상관 행렬(rolling correlation matrix)</strong>을 계산.</li>
 <li>평균 상관계수(mean of rolling correlation matrix)를 도출하여 암호화폐 간의 관계를 분석.</li>
 </ul>
-<div id="62efc602" class="cell" data-execution_count="1">
+<div id="7387d5bf" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 분석 결과 (Results)</span></span>
@@ -594,7 +609,7 @@ bitfinex supports: ['BTC/USDT', 'ETH/USDT', 'USDT/USD', 'XRP/USDT', 'SOL/USDT', 
 poloniex supports: ['BTC/USDT', 'ETH/USDT', 'XRP/USDT', 'SOL/USDT', 'LINK/USDT', 'ONDO/USDT', 'ADA/USDT', 'TRX/USDT', 'DOGE/USDT']</code></pre>
 </div>
 </div>
-<div id="862dfddc" class="cell" data-execution_count="2">
+<div id="8bc93624" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -627,16 +642,16 @@ poloniex supports: ['BTC/USDT', 'ETH/USDT', 'XRP/USDT', 'SOL/USDT', 'LINK/USDT',
 <pre><code>
 [Window = 30 days] Mean Correlation Matrix
             BTC/USDT  ETH/USDT  XRP/USDT  SOL/USDT  LINK/USDT  ADA/USDT  TRX/USDT  DOGE/USDT  USDT/USD  ONDO/USDT
-BTC/USDT   1.000000  0.797853  0.567901  0.741178   0.683410  0.704174  0.382560   0.812315  0.450489   0.348316
-ETH/USDT   0.797853  1.000000  0.557317  0.701900   0.736281  0.718366  0.379120   0.745416  0.284255   0.378379
-XRP/USDT   0.567901  0.557317  1.000000  0.551384   0.567765  0.651307  0.316071   0.590108  0.165085   0.228533
-SOL/USDT   0.741178  0.701900  0.551384  1.000000   0.672491  0.683081  0.318680   0.693135  0.252268   0.300719
-LINK/USDT  0.683410  0.736281  0.567765  0.672491   1.000000  0.757954  0.311362   0.667530  0.231903   0.414418
-ADA/USDT   0.704174  0.718366  0.651307  0.683081   0.757954  1.000000  0.414274   0.724381  0.256827   0.326921
-TRX/USDT   0.382560  0.379120  0.316071  0.318680   0.311362  0.414274  1.000000   0.367513  0.183209   0.113358
-DOGE/USDT  0.812315  0.745416  0.590108  0.693135   0.667530  0.724381  0.367513   1.000000  0.313375   0.347004
-USDT/USD   0.450489  0.284255  0.165085  0.252268   0.231903  0.256827  0.183209   0.313375  1.000000   0.239516
-ONDO/USDT  0.348316  0.378379  0.228533  0.300719   0.414418  0.326921  0.113358   0.347004  0.239516   1.000000</code></pre>
+BTC/USDT   1.000000  0.798172  0.568793  0.741562   0.684016  0.704388  0.382560   0.812617  0.451183   0.348414
+ETH/USDT   0.798172  1.000000  0.558232  0.702440   0.736765  0.718560  0.379430   0.745929  0.285172   0.378550
+XRP/USDT   0.568793  0.558232  1.000000  0.552359   0.568689  0.652055  0.316217   0.590962  0.166150   0.229257
+SOL/USDT   0.741562  0.702440  0.552359  1.000000   0.673083  0.683522  0.319013   0.693735  0.253296   0.301020
+LINK/USDT  0.684016  0.736765  0.568689  0.673083   1.000000  0.758006  0.311646   0.668272  0.232860   0.414728
+ADA/USDT   0.704388  0.718560  0.652055  0.683522   0.758006  1.000000  0.414331   0.724537  0.257403   0.326675
+TRX/USDT   0.382560  0.379430  0.316217  0.319013   0.311646  0.414331  1.000000   0.367638  0.183792   0.113525
+DOGE/USDT  0.812617  0.745929  0.590962  0.693735   0.668272  0.724537  0.367638   1.000000  0.314129   0.347365
+USDT/USD   0.451183  0.285172  0.166150  0.253296   0.232860  0.257403  0.183792   0.314129  1.000000   0.239596
+ONDO/USDT  0.348414  0.378550  0.229257  0.301020   0.414728  0.326675  0.113525   0.347365  0.239596   1.000000</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
@@ -649,16 +664,16 @@ ONDO/USDT  0.348316  0.378379  0.228533  0.300719   0.414418  0.326921  0.113358
 <pre><code>
 [Window = 60 days] Mean Correlation Matrix
             BTC/USDT  ETH/USDT  XRP/USDT  SOL/USDT  LINK/USDT  ADA/USDT  TRX/USDT  DOGE/USDT  USDT/USD  ONDO/USDT
-BTC/USDT   1.000000  0.794498  0.515179  0.739420   0.663311  0.687376  0.316873   0.813998  0.441243   0.342865
-ETH/USDT   0.794498  1.000000  0.496347  0.686716   0.709256  0.690778  0.305153   0.725331  0.290226   0.368198
-XRP/USDT   0.515179  0.496347  1.000000  0.501660   0.535516  0.629710  0.269057   0.538342  0.127984   0.201784
-SOL/USDT   0.739420  0.686716  0.501660  1.000000   0.650511  0.666238  0.271099   0.684934  0.235205   0.281327
-LINK/USDT  0.663311  0.709256  0.535516  0.650511   1.000000  0.742314  0.255717   0.638222  0.215398   0.396685
-ADA/USDT   0.687376  0.690778  0.629710  0.666238   0.742314  1.000000  0.367675   0.707740  0.238351   0.308895
-TRX/USDT   0.316873  0.305153  0.269057  0.271099   0.255717  0.367675  1.000000   0.304669  0.153144   0.087188
-DOGE/USDT  0.813998  0.725331  0.538342  0.684934   0.638222  0.707740  0.304669   1.000000  0.310559   0.328833
-USDT/USD   0.441243  0.290226  0.127984  0.235205   0.215398  0.238351  0.153144   0.310559  1.000000   0.239446
-ONDO/USDT  0.342865  0.368198  0.201784  0.281327   0.396685  0.308895  0.087188   0.328833  0.239446   1.000000</code></pre>
+BTC/USDT   1.000000  0.794662  0.516195  0.739696   0.663902  0.687504  0.317111   0.814231  0.441950   0.342878
+ETH/USDT   0.794662  1.000000  0.497307  0.687035   0.709789  0.690926  0.305710   0.725791  0.290861   0.368161
+XRP/USDT   0.516195  0.497307  1.000000  0.502765   0.536458  0.630467  0.269367   0.539359  0.129029   0.202273
+SOL/USDT   0.739696  0.687035  0.502765  1.000000   0.650992  0.666587  0.271513   0.685488  0.236088   0.281512
+LINK/USDT  0.663902  0.709789  0.536458  0.650992   1.000000  0.742267  0.256307   0.639037  0.216507   0.396719
+ADA/USDT   0.687504  0.690926  0.630467  0.666587   0.742267  1.000000  0.367636   0.707792  0.238711   0.308556
+TRX/USDT   0.317111  0.305710  0.269367  0.271513   0.256307  0.367636  1.000000   0.305177  0.153642   0.087286
+DOGE/USDT  0.814231  0.725791  0.539359  0.685488   0.639037  0.707792  0.305177   1.000000  0.311309   0.328908
+USDT/USD   0.441950  0.290861  0.129029  0.236088   0.216507  0.238711  0.153642   0.311309  1.000000   0.239361
+ONDO/USDT  0.342878  0.368161  0.202273  0.281512   0.396719  0.308556  0.087286   0.328908  0.239361   1.000000</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
@@ -671,16 +686,16 @@ ONDO/USDT  0.342865  0.368198  0.201784  0.281327   0.396685  0.308895  0.087188
 <pre><code>
 [Window = 90 days] Mean Correlation Matrix
             BTC/USDT  ETH/USDT  XRP/USDT  SOL/USDT  LINK/USDT  ADA/USDT  TRX/USDT  DOGE/USDT  USDT/USD  ONDO/USDT
-BTC/USDT   1.000000  0.793040  0.472849  0.741665   0.645547  0.678999  0.268774   0.810556  0.427805   0.341223
-ETH/USDT   0.793040  1.000000  0.449375  0.688675   0.695999  0.672065  0.241298   0.707756  0.283341   0.366027
-XRP/USDT   0.472849  0.449375  1.000000  0.455291   0.503218  0.608580  0.231448   0.493808  0.100240   0.190851
-SOL/USDT   0.741665  0.688675  0.455291  1.000000   0.634612  0.653248  0.249192   0.683795  0.235916   0.277557
-LINK/USDT  0.645547  0.695999  0.503218  0.634612   1.000000  0.727158  0.213617   0.610949  0.189271   0.385686
-ADA/USDT   0.678999  0.672065  0.608580  0.653248   0.727158  1.000000  0.329826   0.693551  0.223741   0.299241
-TRX/USDT   0.268774  0.241298  0.231448  0.249192   0.213617  0.329826  1.000000   0.245536  0.126442   0.079692
-DOGE/USDT  0.810556  0.707756  0.493808  0.683795   0.610949  0.693551  0.245536   1.000000  0.298661   0.321071
-USDT/USD   0.427805  0.283341  0.100240  0.235916   0.189271  0.223741  0.126442   0.298661  1.000000   0.242537
-ONDO/USDT  0.341223  0.366027  0.190851  0.277557   0.385686  0.299241  0.079692   0.321071  0.242537   1.000000</code></pre>
+BTC/USDT   1.000000  0.793163  0.473932  0.741763   0.646089  0.679090  0.269482   0.810721  0.428443   0.341143
+ETH/USDT   0.793163  1.000000  0.450434  0.688743   0.696548  0.672273  0.242421   0.708298  0.284106   0.366089
+XRP/USDT   0.473932  0.450434  1.000000  0.456334   0.504173  0.609370  0.232145   0.494873  0.101245   0.191231
+SOL/USDT   0.741763  0.688743  0.456334  1.000000   0.634929  0.653439  0.249769   0.684019  0.236170   0.277555
+LINK/USDT  0.646089  0.696548  0.504173  0.634929   1.000000  0.727106  0.214587   0.611760  0.190358   0.385949
+ADA/USDT   0.679090  0.672273  0.609370  0.653439   0.727106  1.000000  0.330053   0.693620  0.224136   0.298962
+TRX/USDT   0.269482  0.242421  0.232145  0.249769   0.214587  0.330053  1.000000   0.246588  0.127256   0.080028
+DOGE/USDT  0.810721  0.708298  0.494873  0.684019   0.611760  0.693620  0.246588   1.000000  0.299471   0.321205
+USDT/USD   0.428443  0.284106  0.101245  0.236170   0.190358  0.224136  0.127256   0.299471  1.000000   0.242499
+ONDO/USDT  0.341143  0.366089  0.191231  0.277555   0.385949  0.298962  0.080028   0.321205  0.242499   1.000000</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>

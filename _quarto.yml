@@ -20,14 +20,18 @@ website:
           - href: projects/corner_solution/corner_solution.qmd
             text: Heading to Corner Solutions
           - href: projects/asset_puzzle/asset_puzzle.qmd
-            text: Asset Premium Puzzles      
-          - href: projects/tfp.qmd
-            text: Structural Change
-          - href: projects/incomplete/incomplete.qmd
+            text: Asset Premium Puzzles
+      - text: "Appendix"
+        menu:
+          - href: appendix/a_conditions.qmd
+            text: Free Market Conditions
+          - href: appendix/capm/a_capm.qmd
+            text: Revisiting CAPM
+          - href: appendix/incomplete/a_incomplete.qmd
             text: Incomplete market
-      - text: "한글"
+      - text: "시계열"
         menu: 
-          - href: projects/correlation_crypto/correlation_crypto.qmd
+          - href: time-series/correlation_crypto/correlation_crypto.qmd
             text: 암호화폐들의 상관관계
           - href: time-series/yield_curve.qmd
             text: 채권투자와 금리
@@ -35,6 +39,9 @@ website:
             text: 노동 기여와 분배
           - href: time-series/indicator_growth.qmd
             text: 경제성장 지표
+          - href: time-series/tfp.qmd
+            text: Structural Change
+
     tools:
       - icon: house
         href: https://www.gitsam.com

@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="GitSam">
+<meta name="author" content="gitSAM">
 <meta name="dcterms.date" content="2025-03-21">
 
-<title>The New Gilded Age – GitSAM</title>
+<title>Revisiting the CAPM and Diversification – GitSAM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -89,6 +89,35 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -151,7 +180,7 @@ div.csl-indent {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-appendix">    
         <li>
-    <a class="dropdown-item" href="../../appendix/a_conditions.qmd">
+    <a class="dropdown-item" href="../../appendix/a_conditions.html">
  <span class="dropdown-text">Free Market Conditions</span></a>
   </li>  
         <li>
@@ -224,23 +253,8 @@ div.csl-indent {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#wealth-concentration-and-market-distortions" id="toc-wealth-concentration-and-market-distortions" class="nav-link" data-scroll-target="#wealth-concentration-and-market-distortions">Wealth Concentration and Market Distortions</a>
-  <ul class="collapse">
-  <li><a href="#extreme-wealth-concentration-and-economic-disparities" id="toc-extreme-wealth-concentration-and-economic-disparities" class="nav-link" data-scroll-target="#extreme-wealth-concentration-and-economic-disparities">Extreme Wealth Concentration and Economic Disparities</a></li>
-  <li><a href="#financial-market-distortions-due-to-federal-reserve-policies" id="toc-financial-market-distortions-due-to-federal-reserve-policies" class="nav-link" data-scroll-target="#financial-market-distortions-due-to-federal-reserve-policies">Financial Market Distortions Due to Federal Reserve Policies</a></li>
-  </ul></li>
-  <li><a href="#economic-protectionism-and-capital-controls" id="toc-economic-protectionism-and-capital-controls" class="nav-link" data-scroll-target="#economic-protectionism-and-capital-controls">Economic Protectionism and Capital Controls</a>
-  <ul class="collapse">
-  <li><a href="#protectionist-policies-and-global-trade-disruptions" id="toc-protectionist-policies-and-global-trade-disruptions" class="nav-link" data-scroll-target="#protectionist-policies-and-global-trade-disruptions">Protectionist Policies and Global Trade Disruptions</a></li>
-  <li><a href="#capital-controls" id="toc-capital-controls" class="nav-link" data-scroll-target="#capital-controls">Capital Controls</a></li>
-  </ul></li>
-  <li><a href="#military-interventions" id="toc-military-interventions" class="nav-link" data-scroll-target="#military-interventions">Military Interventions</a></li>
-  <li><a href="#political-instability-and-the-future-of-the-u.s.-dollar" id="toc-political-instability-and-the-future-of-the-u.s.-dollar" class="nav-link" data-scroll-target="#political-instability-and-the-future-of-the-u.s.-dollar">Political Instability and the Future of the U.S. Dollar</a>
-  <ul class="collapse">
-  <li><a href="#internal-conflict" id="toc-internal-conflict" class="nav-link" data-scroll-target="#internal-conflict">Internal Conflict</a></li>
-  <li><a href="#u.s.-dollar-as-the-global-reserve-currency" id="toc-u.s.-dollar-as-the-global-reserve-currency" class="nav-link" data-scroll-target="#u.s.-dollar-as-the-global-reserve-currency">U.S. Dollar as the Global Reserve Currency</a></li>
-  </ul></li>
+  <li><a href="#introduction-to-the-capm-and-risk-taxonomy" id="toc-introduction-to-the-capm-and-risk-taxonomy" class="nav-link active" data-scroll-target="#introduction-to-the-capm-and-risk-taxonomy">Introduction to the CAPM and Risk Taxonomy</a></li>
+  <li><a href="#main" id="toc-main" class="nav-link" data-scroll-target="#main">Main</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
@@ -250,8 +264,8 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">The New Gilded Age</h1>
-<p class="subtitle lead">Extreme Partisan Divide in the United States</p>
+<h1 class="title">Revisiting the CAPM and Diversification</h1>
+<p class="subtitle lead">Market Concentration and Its Challenges to the Risk-Return Framework</p>
 </div>
 
 
@@ -261,7 +275,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>GitSam </p>
+             <p>gitSAM </p>
           </div>
   </div>
     
@@ -278,7 +292,7 @@ div.csl-indent {
 <div>
   <div class="abstract">
     <div class="block-title">Abstract</div>
-    The United States is experiencing a period of economic and political polarization reminiscent of the late 19th century Gilded Age. This study explores the potential consequences of extreme political bifurcation, economic concentration, and financial instability, drawing historical parallels between the original Gilded Age (1870s-1929) and the current economic landscape. By analyzing historical precedents such as the Great Depression, the 2008 financial crisis, and recent central bank policies, this paper examines the risks posed by increasing wealth concentration, aggressive monetary expansion, protectionist policies, and potential military interventions. We explore qualitatively how the Federal Reserve’s responses to economic downturns, including extreme quantitative easing (QE) and capital controls, could impact financial stability. Furthermore, we evaluate the global ramifications of a politically divided America where economic and military strategies diverge from traditional allies.
+    This study revisits the Capital Asset Pricing Model (CAPM)** in light of increasing market concentration and its challenges to the risk-return framework. CAPM posits that systematic risk, measured by beta, is the only relevant determinant of expected returns, as unsystematic risk can be diversified away. However, rising market concentration raises concerns about whether diversification remains effective in practice. When a small number of firms dominate market returns, the traditional assumptions of efficient risk-sharing and competitive asset pricing may no longer hold. This study examines how concentration distorts expected returns, potentially leading to risk mispricing and a breakdown of the CAPM equilibrium. The findings suggest that market structure itself has become a non-diversifiable source of risk, necessitating a reassessment of asset pricing models under contemporary market conditions.
   </div>
 </div>
 
@@ -286,104 +300,121 @@ div.csl-indent {
 </header>
 
 
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<p>The term ‘Gilded Age’ was originally coined by Mark Twain in his novel The Gilded Age: A Tale of Today <span class="citation" data-cites="twain1873">(<a href="#ref-twain1873" role="doc-biblioref">Twain and Warner 1873</a>)</span>, describing an era characterized by rapid economic expansion, extreme wealth concentration, and political corruption. A similar dynamic is emerging today, where financial and technological elites dominate economic output while wealth inequality reaches historic highs <span class="citation" data-cites="piketty2014capital">(<a href="#ref-piketty2014capital" role="doc-biblioref">Piketty 2014</a>)</span>. The late 19th century saw industrial monopolies like Standard Oil and U.S. Steel controlling markets; today, tech giants such as Amazon, Apple, and Google exhibit similar dominance <span class="citation" data-cites="zucman2019triumph">(<a href="#ref-zucman2019triumph" role="doc-biblioref">Zucman 2019</a>)</span>.</p>
-<p>Simultaneously, the Federal Reserve’s response to financial instability, particularly through excessive monetary expansion, contrasts with past policy mistakes that led to severe economic contractions due to monetary shrinkage <span class="citation" data-cites="bernanke2000essays">(<a href="#ref-bernanke2000essays" role="doc-biblioref">Bernanke 2000</a>)</span>. If current economic trends persist—marked by the increasing concentration of wealth, hyperinflation risks, and geopolitical tensions—then the U.S. may be heading toward another crisis akin to the 1929 stock market collapse <span class="citation" data-cites="kindleberger1978manias">(<a href="#ref-kindleberger1978manias" role="doc-biblioref">Kindleberger 1978</a>)</span>.</p>
+<section id="introduction-to-the-capm-and-risk-taxonomy" class="level3">
+<h3 class="anchored" data-anchor-id="introduction-to-the-capm-and-risk-taxonomy">Introduction to the CAPM and Risk Taxonomy</h3>
+<p>The <strong>Capital Asset Pricing Model (CAPM)</strong>, developed by <span class="citation" data-cites="sharpe1964capital">Sharpe (<a href="#ref-sharpe1964capital" role="doc-biblioref">1964</a>)</span>, <span class="citation" data-cites="lintner1965valuation">Lintner (<a href="#ref-lintner1965valuation" role="doc-biblioref">1965</a>)</span>, and <span class="citation" data-cites="mossin1966equilibrium">Mossin (<a href="#ref-mossin1966equilibrium" role="doc-biblioref">1966</a>)</span>, remains a cornerstone of modern finance, linking expected returns to risk. It classifies risk into two categories: <strong>systematic risk</strong>, which stems from market-wide factors and cannot be diversified away, and <strong>unsystematic risk</strong>, which is asset-specific and can be mitigated through diversification. The CAPM posits that only systematic risk, measured by beta, justifies a return premium, as investors can eliminate unsystematic risk by holding a diversified portfolio, ideally approximating the market portfolio. This principle aligns with broader linear factor models like the <strong>Arbitrage Pricing Theory (APT)</strong> (<span class="citation" data-cites="ross1976arbitrage">Ross (<a href="#ref-ross1976arbitrage" role="doc-biblioref">1976</a>)</span>), which extends the CAPM by incorporating multiple systematic risk factors while similarly dismissing diversifiable risk under no-arbitrage conditions.</p>
+<p>However, the CAPM’s empirical validity has been contested. <span class="citation" data-cites="banz1981relationship">Banz (<a href="#ref-banz1981relationship" role="doc-biblioref">1981</a>)</span> documented the <strong>size effect</strong>, where small-cap stocks outperform CAPM predictions, while <span class="citation" data-cites="basu1977investment">Basu (<a href="#ref-basu1977investment" role="doc-biblioref">1977</a>)</span> identified the <strong>value effect</strong>, showing excess returns for stocks with high earnings-to-price ratios. These anomalies spurred the development of multifactor models, such as the <strong>Fama-French three-factor model</strong> (<span class="citation" data-cites="fama1993common">Fama and French (<a href="#ref-fama1993common" role="doc-biblioref">1993</a>)</span>), which augment beta with size and value factors. Beyond these, market concentration has emerged as a critical lens for understanding asset pricing deviations. <span class="citation" data-cites="hou2006industry">Hou and Robinson (<a href="#ref-hou2006industry" role="doc-biblioref">2006</a>)</span> found that firms in concentrated industries earn higher returns, attributing this to <strong>economic rents</strong> from market power. <span class="citation" data-cites="edmans2009blockholder">Edmans (<a href="#ref-edmans2009blockholder" role="doc-biblioref">2009</a>)</span> linked ownership concentration to superior performance, while <span class="citation" data-cites="choi2017portfolio">Choi et al. (<a href="#ref-choi2017portfolio" role="doc-biblioref">2017</a>)</span> showed that institutional investors with concentrated portfolios outperform diversified ones. <span class="citation" data-cites="neuhann2024financial">Neuhann and Sockin (<a href="#ref-neuhann2024financial" role="doc-biblioref">2024</a>)</span> explored how financial market concentration distorts capital allocation, and <span class="citation" data-cites="bustamante2017product">Bustamante and Donangelo (<a href="#ref-bustamante2017product" role="doc-biblioref">2017</a>)</span> tied product market concentration to industry returns.</p>
+<p>From a theoretical perspective, <span class="citation" data-cites="magill1996incomplete">Magill and Quinzii (<a href="#ref-magill1996incomplete" role="doc-biblioref">1996</a>)</span> argued that incomplete markets—lacking sufficient contingent claims—prevent full risk hedging, challenging CAPM assumptions. <span class="citation" data-cites="cochrane1996cross">Cochrane (<a href="#ref-cochrane1996cross" role="doc-biblioref">1996</a>)</span> emphasized the role of investment-based pricing, while <span class="citation" data-cites="campbell1992intertemporal">Campbell (<a href="#ref-campbell1992intertemporal" role="doc-biblioref">1992</a>)</span> critiqued volatility as an incomplete risk measure. Socioeconomic analyses, such as <span class="citation" data-cites="saez2016wealth">Saez and Zucman (<a href="#ref-saez2016wealth" role="doc-biblioref">2016</a>)</span>, further connect market concentration to wealth inequality, highlighting broader implications. This rich body of literature suggests that market structure and concentration significantly complicate the CAPM’s risk-return framework, necessitating a deeper examination.</p>
 </section>
-<section id="wealth-concentration-and-market-distortions" class="level1">
-<h1>Wealth Concentration and Market Distortions</h1>
-<section id="extreme-wealth-concentration-and-economic-disparities" class="level2">
-<h2 class="anchored" data-anchor-id="extreme-wealth-concentration-and-economic-disparities">Extreme Wealth Concentration and Economic Disparities</h2>
-<p>In the late 19th century, “Robber Barons” controlled vast industrial empires while working-class Americans suffered under exploitative labor conditions <span class="citation" data-cites="irwin2017clashing">(<a href="#ref-irwin2017clashing" role="doc-biblioref">Irwin 2017</a>)</span>. Today, the economic landscape reflects a similar dynamic: the top 1% of Americans hold over 30% of total U.S. wealth, and financial markets remain dominated by a handful of institutional investors and corporations <span class="citation" data-cites="saez2020striking">(<a href="#ref-saez2020striking" role="doc-biblioref">Saez and Zucman 2020</a>)</span>. If historical trends hold, wealth concentration at this level often precedes financial and political crises.</p>
+<section id="main" class="level3">
+<h3 class="anchored" data-anchor-id="main">Main</h3>
+<section id="empirical-and-mathematical-foundations-of-diversification" class="level4">
+<h4 class="anchored" data-anchor-id="empirical-and-mathematical-foundations-of-diversification">Empirical and Mathematical Foundations of Diversification</h4>
+<p>Diversification’s risk-reducing power is well-established empirically and mathematically. <span class="citation" data-cites="elton1977risk">Elton and Gruber (<a href="#ref-elton1977risk" role="doc-biblioref">1977</a>)</span> analyzed 3,290 securities, demonstrating that a portfolio of just four stocks markedly reduces variance compared to a single stock, underscoring diversification’s practical utility.</p>
+<p>Mathematically, consider an equally weighted portfolio of <span class="math inline">\(n\)</span> securities. The portfolio variance <span class="math inline">\(\sigma_p^2\)</span> is given by:</p>
+<p><span class="math display">\[
+\sigma_p^2 = \frac{1}{n} \bar{\sigma}^2 + \frac{n-1}{n} \bar{\rho} \bar{\sigma}^2
+\]</span></p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(\bar{\sigma}^2\)</span> = average variance of individual securities<br>
+</li>
+<li><span class="math inline">\(\bar{\rho}\)</span> = average correlation between securities</li>
+</ul>
+<p>As <span class="math inline">\(n\)</span> increases, <span class="math inline">\(\sigma_p^2\)</span> converges to <span class="math inline">\(\bar{\rho} \bar{\sigma}^2\)</span>, indicating that covariance, not individual variance, dominates portfolio risk. When <span class="math inline">\(\bar{\rho} &lt; 1\)</span>, diversification lowers volatility, resembling how higher-order terms in Taylor polynomials diminish to smooth a function or how fractal geometry simplifies irregularities with scale.</p>
 </section>
-<section id="financial-market-distortions-due-to-federal-reserve-policies" class="level2">
-<h2 class="anchored" data-anchor-id="financial-market-distortions-due-to-federal-reserve-policies">Financial Market Distortions Due to Federal Reserve Policies</h2>
-<p>Historically, the Federal Reserve’s failure to manage monetary policy effectively has exacerbated financial downturns. During the Great Depression, the Fed allowed the money supply to contract, worsening deflation <span class="citation" data-cites="friedman1993monetary">(<a href="#ref-friedman1993monetary" role="doc-biblioref">Friedman and Schwartz 1993</a>)</span>. Conversely, in the 2008 financial crisis, the Fed implemented massive QE programs to avoid liquidity shortages <span class="citation" data-cites="gopinath2020dollar">(<a href="#ref-gopinath2020dollar" role="doc-biblioref">Gopinath and Gourinchas 2020</a>)</span>. If the Fed continues expanding the money supply unchecked while maintaining low interest rates, it could trigger runaway inflation or asset bubbles <span class="citation" data-cites="reinhart2010growth">(<a href="#ref-reinhart2010growth" role="doc-biblioref">Reinhart and Rogoff 2010</a>)</span>.</p>
+<section id="a-critique-of-risk-as-volatility" class="level4">
+<h4 class="anchored" data-anchor-id="a-critique-of-risk-as-volatility">A Critique of Risk as Volatility</h4>
+<p>The CAPM equates risk with volatility, but this assumption is narrow. Long-term investors may prioritize structural risks—e.g., economic shifts or sector obsolescence—over short-term price swings. A volatile growth stock might be less “risky” to them than a stable but declining asset. <span class="citation" data-cites="campbell1992intertemporal">Campbell (<a href="#ref-campbell1992intertemporal" role="doc-biblioref">1992</a>)</span> supports this critique, arguing that volatility oversimplifies the multifaceted nature of risk, a view echoed by behavioral finance perspectives <span class="citation" data-cites="shiller2003efficient">(<a href="#ref-shiller2003efficient" role="doc-biblioref">Shiller 2003</a>)</span>.</p>
+</section>
+<section id="diversification-and-the-risk-return-trade-off" class="level4">
+<h4 class="anchored" data-anchor-id="diversification-and-the-risk-return-trade-off">Diversification and the Risk-Return Trade-Off</h4>
+<p>The CAPM ties diversification to the risk-return trade-off, suggesting investors can eliminate unsystematic risk while earning returns proportional to systematic risk exposure. In a stochastic setting, diverse agents (e.g., farmers, energy producers) share idiosyncratic risks, enhancing welfare <span class="citation" data-cites="cochrane2009asset">(<a href="#ref-cochrane2009asset" role="doc-biblioref">Cochrane 2009</a>)</span>. Yet, this assumes a broad, competitive market. When the market portfolio—say, the S&amp;P 500—is dominated by a few highly correlated stocks (e.g., tech giants), diversification falters. High <span class="math inline">\(\bar{\rho}\)</span> reduces variance’s sensitivity to <span class="math inline">\(n\)</span>, undermining the CAPM’s benefits <span class="citation" data-cites="grullon2019us">(<a href="#ref-grullon2019us" role="doc-biblioref">Grullon, Larkin, and Michaely 2019</a>)</span>.</p>
+</section>
+<section id="market-concentration-and-the-efficient-frontier" class="level4">
+<h4 class="anchored" data-anchor-id="market-concentration-and-the-efficient-frontier">Market Concentration and the Efficient Frontier</h4>
+<p>The <strong>efficient frontier</strong> assumes assets correlate perfectly with the stochastic discount factor (SDF). In concentrated markets, dominant firms with <strong>economic moats</strong> <span class="citation" data-cites="bustamante2017product">(<a href="#ref-bustamante2017product" role="doc-biblioref">Bustamante and Donangelo 2017</a>)</span> act as principal components, compressing the payoff space. The <strong>Herfindahl-Hirschman Index (HHI)</strong> measures this concentration; a high HHI signals reliance on few assets, limiting diversification. Investors may then seek arbitrage in these stocks, amplifying concentration <span class="citation" data-cites="valta2012competition">(<a href="#ref-valta2012competition" role="doc-biblioref">Valta 2012</a>)</span>.</p>
+</section>
+<section id="implications-for-investors-and-market-stability" class="level4">
+<h4 class="anchored" data-anchor-id="implications-for-investors-and-market-stability">Implications for Investors and Market Stability</h4>
+<p>In concentrated markets, diversification yields to capturing rents from dominant firms. These firms use primary-market capital to reinforce moats, distributing profits rather than fostering competition <span class="citation" data-cites="hou2006industry">(<a href="#ref-hou2006industry" role="doc-biblioref">Hou and Robinson 2006</a>)</span>. Secondary-market trading becomes zero-sum, redistributing wealth without value creation. Early investors in concentrated stocks gain disproportionately, widening inequality <span class="citation" data-cites="saez2016wealth">(<a href="#ref-saez2016wealth" role="doc-biblioref">Saez and Zucman 2016</a>)</span> and challenging the CAPM’s risk-return logic.</p>
+</section>
+<section id="broader-socioeconomic-consequences" class="level4">
+<h4 class="anchored" data-anchor-id="broader-socioeconomic-consequences">Broader Socioeconomic Consequences</h4>
+<p>Concentration reduces contingent claim diversity, impairing hedging capacity <span class="citation" data-cites="magill1996incomplete">(<a href="#ref-magill1996incomplete" role="doc-biblioref">Magill and Quinzii 1996</a>)</span>. A shock to a dominant sector triggers systemic ripples, increasing instability. This homogeneity shifts markets from managing uncertainty to rewarding market power, exacerbating wealth gaps and contradicting the CAPM’s egalitarian risk-sharing ideal.</p>
 </section>
 </section>
-<section id="economic-protectionism-and-capital-controls" class="level1">
-<h1>Economic Protectionism and Capital Controls</h1>
-<section id="protectionist-policies-and-global-trade-disruptions" class="level2">
-<h2 class="anchored" data-anchor-id="protectionist-policies-and-global-trade-disruptions">Protectionist Policies and Global Trade Disruptions</h2>
-<p>In response to financial instability, the U.S. may turn to protectionist measures similar to those seen in the early 20th century, such as the Smoot-Hawley Tariff Act <span class="citation" data-cites="irwin2017clashing">(<a href="#ref-irwin2017clashing" role="doc-biblioref">Irwin 2017</a>)</span>. If the U.S. imposes broad tariffs on allies like Canada, Mexico, and the EU (excluding the UK), retaliatory tariffs could significantly reduce global trade, accelerating economic fragmentation <span class="citation" data-cites="acker2020polarization">(<a href="#ref-acker2020polarization" role="doc-biblioref">Acker 2020</a>)</span>.</p>
-</section>
-<section id="capital-controls" class="level2">
-<h2 class="anchored" data-anchor-id="capital-controls">Capital Controls</h2>
-<p>To prevent capital flight, the U.S. government might implement capital controls, restricting the movement of funds outside the country <span class="citation" data-cites="dornbusch1996capital">(<a href="#ref-dornbusch1996capital" role="doc-biblioref">Dornbusch 1996</a>)</span>. Such policies could initially stabilize domestic financial markets by preventing liquidity outflows, but they would ultimately deter foreign investment and reduce the credibility of the U.S. dollar <span class="citation" data-cites="prasad2021future">(<a href="#ref-prasad2021future" role="doc-biblioref">Prasad 2021</a>)</span>. If capital controls are implemented alongside protectionist trade policies, the global financial system could realign, reducing reliance on the dollar <span class="citation" data-cites="eichengreen2019privilege">(<a href="#ref-eichengreen2019privilege" role="doc-biblioref">Eichengreen 2019</a>)</span>.</p>
-</section>
-</section>
-<section id="military-interventions" class="level1">
-<h1>Military Interventions</h1>
-<p>If economic instability threatens U.S. financial dominance, military interventions could become a tool for securing resource control, as seen in the Iraq War <span class="citation" data-cites="stiglitz2008three">(<a href="#ref-stiglitz2008three" role="doc-biblioref">Stiglitz 2008</a>)</span>. If the U.S. uses force to maintain oil-based dollar hegemony, it risks broader geopolitical conflict, increasing economic uncertainty and reducing investor confidence <span class="citation" data-cites="gopinath2020dollar">(<a href="#ref-gopinath2020dollar" role="doc-biblioref">Gopinath and Gourinchas 2020</a>)</span>.</p>
-</section>
-<section id="political-instability-and-the-future-of-the-u.s.-dollar" class="level1">
-<h1>Political Instability and the Future of the U.S. Dollar</h1>
-<section id="internal-conflict" class="level2">
-<h2 class="anchored" data-anchor-id="internal-conflict">Internal Conflict</h2>
-<p>With increasing partisan division, the U.S. could experience state-led resistance against federal economic policies. Democratic-led states might oppose Republican federal mandates, leading to legal disputes over taxation, social policies, and trade regulations <span class="citation" data-cites="levitsky2018how">(<a href="#ref-levitsky2018how" role="doc-biblioref">Levitsky and Ziblatt 2018</a>)</span>. In extreme cases, states like California could advocate for economic or political autonomy, mirroring secessionist movements of the 19th century, while Texas, despite its strong Republican leanings, might push for greater state sovereignty in response to federal overreach or shifting national policies <span class="citation" data-cites="acker2020polarization">(<a href="#ref-acker2020polarization" role="doc-biblioref">Acker 2020</a>)</span>.</p>
-</section>
-<section id="u.s.-dollar-as-the-global-reserve-currency" class="level2">
-<h2 class="anchored" data-anchor-id="u.s.-dollar-as-the-global-reserve-currency">U.S. Dollar as the Global Reserve Currency</h2>
-<p>The decline of the British pound post-World War II illustrates how global reserve currencies can lose dominance due to internal and external economic shifts <span class="citation" data-cites="eichengreen2019privilege">(<a href="#ref-eichengreen2019privilege" role="doc-biblioref">Eichengreen 2019</a>)</span>. If U.S. political instability continues, central banks worldwide may accelerate diversification away from dollar holdings, increasing reliance on alternative financial networks such as BRICS payment systems, Bitcoin, and other emerging digital currencies. <span class="citation" data-cites="prasad2021future">(<a href="#ref-prasad2021future" role="doc-biblioref">Prasad 2021</a>)</span>.</p>
-</section>
-</section>
-<section id="conclusion" class="level1">
-<h1>Conclusion</h1>
-<p>The parallels between the late 19th century Gilded Age and the modern U.S. economy suggest that wealth concentration, financial market distortions, and political instability could lead to a systemic crisis. The combination of aggressive Federal Reserve monetary expansion, protectionist policies, and potential military interventions may further weaken U.S. financial dominance. If these trends continue unchecked, the global financial system could transition away from U.S. dollar hegemony, and political polarization within the U.S. could escalate into unprecedented state-level disputes. Beyond further research, fostering greater dialogue, mutual understanding, and cooperative governance will be essential to mitigating escalation and ensuring long-term economic and political stability</p>
+<section id="conclusion" class="level3">
+<h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>
+<p>The CAPM’s diversification-driven risk-return framework faces significant challenges from market concentration. As diversification weakens, investors prioritize rents over risk reduction, simplifying markets into systems dominated by a few firms. This shift threatens stability, equity, and hedging capacity, urging a rethinking of the CAPM and policies to enhance market diversity.</p>
 
 
 
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-acker2020polarization" class="csl-entry" role="listitem">
-Acker, James. 2020. <span>“The Effects of Partisan Polarization on State and Federal Relations.”</span> <em>Political Science Review</em> 12 (1): 45–62.
+<div id="ref-banz1981relationship" class="csl-entry" role="listitem">
+Banz, Rolf W. 1981. <span>“The Relationship Between Return and Market Value of Common Stocks.”</span> <em>Journal of Financial Economics</em> 9 (1): 3–18.
 </div>
-<div id="ref-bernanke2000essays" class="csl-entry" role="listitem">
-Bernanke, Ben S. 2000. <em>Essays on the Great Depression</em>. Princeton University Press.
+<div id="ref-basu1977investment" class="csl-entry" role="listitem">
+Basu, Sanjoy. 1977. <span>“Investment Performance of Common Stocks in Relation to Their Price‐earnings Ratios: A Test of the Efficient Market Hypothesis.”</span> <em>The Journal of Finance</em> 32 (3): 663–82.
 </div>
-<div id="ref-dornbusch1996capital" class="csl-entry" role="listitem">
-Dornbusch, Rudiger. 1996. <em>Capital Controls, Exchange Rates, and Monetary Policy in the World Economy</em>. University of Chicago Press.
+<div id="ref-bustamante2017product" class="csl-entry" role="listitem">
+Bustamante, M Cecilia, and Andres Donangelo. 2017. <span>“Product Market Competition and Industry Returns.”</span> <em>The Review of Financial Studies</em> 30 (12): 4216–66.
 </div>
-<div id="ref-eichengreen2019privilege" class="csl-entry" role="listitem">
-Eichengreen, Barry. 2019. <em>The Privilege of Seniorage: How America Became the World’s Reserve Currency</em>. Oxford University Press.
+<div id="ref-campbell1992intertemporal" class="csl-entry" role="listitem">
+Campbell, John Y. 1992. <span>“Intertemporal Asset Pricing Without Consumption Data.”</span> National Bureau of Economic Research Cambridge, Mass., USA.
 </div>
-<div id="ref-friedman1993monetary" class="csl-entry" role="listitem">
-Friedman, Milton, and Anna Schwartz. 1993. <em>A Monetary History of the United States, 1867-1960</em>. Princeton University Press.
+<div id="ref-choi2017portfolio" class="csl-entry" role="listitem">
+Choi, Nicole, Mark Fedenia, Hilla Skiba, and Tatyana Sokolyk. 2017. <span>“Portfolio Concentration and Performance of Institutional Investors Worldwide.”</span> <em>Journal of Financial Economics</em> 123 (1): 189–208.
 </div>
-<div id="ref-gopinath2020dollar" class="csl-entry" role="listitem">
-Gopinath, Gita, and Pierre-Olivier Gourinchas. 2020. <span>“The Future of the Dollar.”</span> <em>Foreign Affairs</em> 99: 10–19.
+<div id="ref-cochrane1996cross" class="csl-entry" role="listitem">
+Cochrane, John H. 1996. <span>“A Cross-Sectional Test of an Investment-Based Asset Pricing Model.”</span> <em>Journal of Political Economy</em> 104 (3): 572–621.
 </div>
-<div id="ref-irwin2017clashing" class="csl-entry" role="listitem">
-Irwin, Douglas A. 2017. <em>Clashing over Commerce: A History of US Trade Policy</em>. University of Chicago Press.
+<div id="ref-cochrane2009asset" class="csl-entry" role="listitem">
+———. 2009. <em>Asset Pricing: Revised Edition</em>. Princeton university press.
 </div>
-<div id="ref-kindleberger1978manias" class="csl-entry" role="listitem">
-Kindleberger, Charles P. 1978. <em>Manias, Panics, and Crashes: A History of Financial Crises</em>. Basic Books.
+<div id="ref-edmans2009blockholder" class="csl-entry" role="listitem">
+Edmans, Alex. 2009. <span>“Blockholder Trading, Market Efficiency, and Managerial Myopia.”</span> <em>The Journal of Finance</em> 64 (6): 2481–2513.
 </div>
-<div id="ref-levitsky2018how" class="csl-entry" role="listitem">
-Levitsky, Steven, and Daniel Ziblatt. 2018. <em>How Democracies Die</em>. Crown Publishing Group.
+<div id="ref-elton1977risk" class="csl-entry" role="listitem">
+Elton, Edwin J, and Martin J Gruber. 1977. <span>“Risk Reduction and Portfolio Size: An Analytical Solution.”</span> <em>The Journal of Business</em> 50 (4): 415–37.
 </div>
-<div id="ref-piketty2014capital" class="csl-entry" role="listitem">
-Piketty, Thomas. 2014. <em>Capital in the Twenty-First Century</em>. Harvard University Press.
+<div id="ref-fama1993common" class="csl-entry" role="listitem">
+Fama, Eugene F, and Kenneth R French. 1993. <span>“Common Risk Factors in the Returns on Stocks and Bonds.”</span> <em>Journal of Financial Economics</em> 33 (1): 3–56.
 </div>
-<div id="ref-prasad2021future" class="csl-entry" role="listitem">
-Prasad, Eswar. 2021. <em>The Future of Money: How the Digital Revolution Is Transforming Currencies and Finance</em>. Harvard University Press.
+<div id="ref-grullon2019us" class="csl-entry" role="listitem">
+Grullon, Gustavo, Yelena Larkin, and Roni Michaely. 2019. <span>“Are US Industries Becoming More Concentrated?”</span> <em>Review of Finance</em> 23 (4): 697–743.
 </div>
-<div id="ref-reinhart2010growth" class="csl-entry" role="listitem">
-Reinhart, Carmen M, and Kenneth S Rogoff. 2010. <span>“Growth in a Time of Debt.”</span> <em>American Economic Review</em> 100 (2): 573–78.
+<div id="ref-hou2006industry" class="csl-entry" role="listitem">
+Hou, Kewei, and David T Robinson. 2006. <span>“Industry Concentration and Average Stock Returns.”</span> <em>The Journal of Finance</em> 61 (4): 1927–56.
 </div>
-<div id="ref-saez2020striking" class="csl-entry" role="listitem">
-Saez, Emmanuel, and Gabriel Zucman. 2020. <span>“Striking It Richer: The Evolution of Top Incomes in the United States.”</span> <em>Quarterly Journal of Economics</em> 135: 1373–1442.
+<div id="ref-lintner1965valuation" class="csl-entry" role="listitem">
+Lintner, John. 1965. <span>“The Valuation of Risk Assets and the Selection of Risky Investments in Stock Portfolios and Capital Budgets.”</span> <em>The Review of Economics and Statistics</em> 47 (1): 13–37.
 </div>
-<div id="ref-stiglitz2008three" class="csl-entry" role="listitem">
-Stiglitz, Joseph. 2008. <em>The Three Trillion Dollar War: The True Cost of the Iraq Conflict</em>. WW Norton &amp; Company.
+<div id="ref-magill1996incomplete" class="csl-entry" role="listitem">
+Magill, Michael, and Martine Quinzii. 1996. <span>“Incomplete Markets over an Infinite Horizon: Long-Lived Securities and Speculative Bubbles.”</span> <em>Journal of Mathematical Economics</em> 26 (1): 133–70.
 </div>
-<div id="ref-twain1873" class="csl-entry" role="listitem">
-Twain, Mark, and Charles Dudley Warner. 1873. <em>The Gilded Age: A Tale of Today</em>. American Publishing Company.
+<div id="ref-mossin1966equilibrium" class="csl-entry" role="listitem">
+Mossin, Jan. 1966. <span>“Equilibrium in a Capital Asset Market.”</span> <em>Econometrica</em> 34 (4): 768–83.
 </div>
-<div id="ref-zucman2019triumph" class="csl-entry" role="listitem">
-Zucman, Gabriel. 2019. <em>The Triumph of Injustice: How the Rich Dodge Taxes and How to Make Them Pay</em>. W. W. Norton &amp; Company.
+<div id="ref-neuhann2024financial" class="csl-entry" role="listitem">
+Neuhann, Daniel, and Michael Sockin. 2024. <span>“Financial Market Concentration and Misallocation.”</span> <em>Journal of Financial Economics</em> 159: 103875.
+</div>
+<div id="ref-ross1976arbitrage" class="csl-entry" role="listitem">
+Ross, Stephen A. 1976. <span>“The Arbitrage Theory of Capital Asset Pricing.”</span> <em>Journal of Economic Theory</em> 13 (3): 341–60.
+</div>
+<div id="ref-saez2016wealth" class="csl-entry" role="listitem">
+Saez, Emmanuel, and Gabriel Zucman. 2016. <span>“Wealth Inequality in the United States Since 1913: Evidence from Capitalized Income Tax Data.”</span> <em>The Quarterly Journal of Economics</em> 131 (2): 519–78.
+</div>
+<div id="ref-sharpe1964capital" class="csl-entry" role="listitem">
+Sharpe, William F. 1964. <span>“Capital Asset Prices: A Theory of Market Equilibrium Under Conditions of Risk.”</span> <em>The Journal of Finance</em> 19 (3): 425–42.
+</div>
+<div id="ref-shiller2003efficient" class="csl-entry" role="listitem">
+Shiller, Robert J. 2003. <span>“From Efficient Markets Theory to Behavioral Finance.”</span> <em>Journal of Economic Perspectives</em> 17 (1): 83–104.
+</div>
+<div id="ref-valta2012competition" class="csl-entry" role="listitem">
+Valta, Philip. 2012. <span>“Competition and the Cost of Debt.”</span> <em>Journal of Financial Economics</em> 105 (3): 661–82.
 </div>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
