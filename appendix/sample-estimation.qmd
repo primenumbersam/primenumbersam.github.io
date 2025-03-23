@@ -1,0 +1,297 @@
+---
+title: GMM and OLS as Geometry of error space
+subtitle: Inner Product Spaces (Linear vs. Curved Structures)
+author: gitSAM
+date: '2025-03-21'
+format:
+  html:
+    code-fold: true
+    toc: true
+jupyter: python3
+---
+
+This short study is designed to explain the structural difference between **Ordinary Least Squares (OLS)** and the **Generalized Method of Moments (GMM)** from a geometric and mathematical standpoint, emphasizing their foundations in inner product spaces, with an analogy to **Einstein's Field Equations** in general relativity. This analogy would be powerful not only for deep mathematical understanding but also for teaching estimation theory with geometric and physical intuition.
+
+> "In economics, GMM reshapes the geometry of estimation just as Einstein’s metric reshapes the geometry of spacetime."
+
+## 1. OLS 
+
+### Orthogonal Projection in Euclidean Space
+
+OLS solves the following problem:
+
+$$
+\hat{\beta}_{OLS} = \arg\min_\beta \| y - X\beta \|_2^2 = (X^\top X)^{-1} X^\top y
+$$
+
+- This corresponds to projecting $y$ orthogonally onto the column space of $X$.
+- The residual $\varepsilon = y - X\hat{\beta}$ satisfies:
+
+$$
+X^\top \varepsilon = 0
+$$
+
+### Inner Product and Geometry
+
+- The $L^2$ norm used in OLS is induced by the **standard Euclidean inner product**:
+
+$$
+\langle u, v \rangle = u^\top v
+$$
+
+- The distance function becomes:
+
+$$
+\| u \|_2 = \sqrt{u^\top u}
+$$
+
+- The set of parameter values yielding equal error defines a level set (isocurve):
+
+$$
+\{ \beta \mid \| y - X\beta \|_2^2 = c \} \Rightarrow \text{spheres in parameter space}
+$$
+
+- This reflects **Pythagorean geometry** — the isocurves are **circles (in 2D), spheres (in 3D), or hyperspheres** in higher dimensions.
+
+## 2. GMM
+
+### Weighted Projection via Positive Definite Kernel
+
+GMM generalizes the idea by allowing estimation over a broader space defined by arbitrary moment conditions:
+
+$$
+\hat{\theta}_{GMM} = \arg\min_\theta \left[ \bar{g}_n(\theta)^\top W \bar{g}_n(\theta) \right]
+$$
+
+where:
+
+- $\bar{g}_n(\theta) = \frac{1}{n} \sum_{i=1}^n g(Z_i, \theta)$
+- $W$ is a **positive definite weighting matrix**, often an estimate of the optimal variance-covariance structure
+
+### Generalized Inner Product and Geometry
+
+- GMM defines a new inner product:
+
+$$
+\langle u, v \rangle_W = u^\top W v \quad \text{with } W \succ 0
+$$
+
+- The corresponding norm is:
+
+$$
+\| u \|_W = \sqrt{u^\top W u}
+$$
+
+- The isocurves of the GMM objective:
+
+$$
+\{ \theta \mid \bar{g}_n(\theta)^\top W \bar{g}_n(\theta) = c \} \Rightarrow \text{ellipsoids in parameter space}
+$$
+
+Thus, unlike OLS, **GMM does not treat all directions equally**; the weighting matrix $W$ skews the geometry so that errors in some directions are penalized more.
+
+## 3. Visual and Geometric Summary
+
+| Concept | OLS | GMM |
+|--------|-----|-----|
+| Inner product | $\langle u, v \rangle$ | $\langle u, v \rangle_W = u^\top W v$ |
+| Norm | Euclidean ($L^2$) | Mahalanobis-like ($W$-norm) |
+| Isocurve shape | Circle / Sphere | Ellipse / Ellipsoid |
+| Geometry | Uniform in all directions | Anisotropic (weighted directions) |
+
+> **OLS minimizes error under the geometry of circles.**  
+> **GMM minimizes error under the geometry of ellipses.**
+
+## 4. Einstein Field Equations and GMM: Structural Analogy
+
+Einstein’s Field Equations (EFE) in general relativity:
+
+$$
+G_{\mu\nu} = R_{\mu\nu} - \frac{1}{2} R g_{\mu\nu} = 8\pi T_{\mu\nu}
+$$
+
+where:
+
+- $T_{\mu\nu}$: Stress-energy tensor, representing energy and matter (matter-energy distribution)
+- $G_{\mu\nu}$: Einstein tensor, encoding the curvature of spacetime (curvature)
+  - $R_{\mu\nu}$: Ricci curvature tensor
+  - $R$: Scalar curvature
+  - $g_{\mu\nu}$: Metric tensor, defining the inner product in spacetime and governing geodesics
+
+### Analogy to Estimation Frameworks
+
+| Feature | OLS | GMM | EFE (Physics) |
+|--------|-----|-----|----------------|
+| Space | Euclidean | Kernel-defined | Curved spacetime |
+| Inner product | $I$ | $W$ (kernel) | $g_{\mu\nu}$ (metric) |
+| Projection | Orthogonal | Weighted / Generalized | Energy-curvature balance |
+| Level sets | Circles | Ellipses | Lightcones / geodesics |
+
+### Additional Explanation
+
+In EFE, the metric tensor $g_{\mu\nu}$ defines how distances and angles are measured — it is the analogue of a positive definite kernel in GMM. The field equations determine how the geometry (curvature) of spacetime reacts to matter and energy. In this sense, **spacetime is optimized or shaped in response to external inputs**, just as GMM shapes its estimation space based on the kernel $W$ and moment functions.
+
+The level sets in general relativity are often visualized as **lightcones** — the surface separating causal influence from spacelike separation. Geometrically, a lightcone can be interpreted as the **degenerate case of a conic section**, where the quadric form
+
+$$
+Q(x) = x^\top g_{\mu\nu} x = 0
+$$
+
+results in a **pair of intersecting lines**: this represents all null (light-like) directions emanating from a point. These are the boundary cases between time-like and space-like intervals, analogous to the way ellipsoids in GMM collapse into degenerate forms under singular kernel matrices.
+
+Thus, in both GMM and EFE, the **shape and degeneracy of level sets** encode deep information about the underlying structure — whether it is a statistical model or the geometry of spacetime.
+
+
+### Analogy to Estimation Frameworks
+
+| Feature | OLS | GMM | EFE (Physics) |
+|--------|-----|-----|----------------|
+| Space | Euclidean | Kernel-defined | Curved spacetime |
+| Inner product | $I$ | $W$ (kernel) | $g_{\mu\nu}$ (metric) |
+| Projection | Orthogonal | Weighted / Generalized | Energy-curvature balance |
+| Level sets | Circles | Ellipses | Lightcones / geodesics |
+
+In all three cases, the key structure-defining object ($I$, $W$, or $g_{\mu\nu}$) defines **how vectors are compared**, **how error or curvature is measured**, and **how optimization or balance occurs**.
+
+## 5. Conclusion
+
+- OLS and GMM are not just estimation techniques, but **geometric procedures** grounded in inner product space theory.
+- OLS relies on **Euclidean projection**, yielding circular/spherical symmetry.
+- GMM generalizes the space through a **positive definite kernel**, yielding elliptical contours and emphasizing certain directions.
+- This parallels how general relativity defines geometry via the metric tensor, adapting the very notion of measurement to the structure of the system.
+
+
+## Visuals
+
+### OLS vs GMM : 동일한 선형 회귀 구조에서도 서로 다른 projection
+
+설정 요약:
+
+- **데이터 생성**:  
+  - $y = \beta_0 + \beta_1 x + \varepsilon$
+  - 잡음 $\varepsilon$는 $x$의 값이 커질수록 **분산이 커지는 이질적(heteroskedastic)** 형태로 생성
+- **OLS**:  
+  - 모든 관측값을 동일한 중요도로 간주하여 잔차 제곱합을 최소화. 즉, **평균적인 방향**으로 선을 맞춤.
+  - OLS는 전체 데이터를 **균등하게 반영**하며, 잡음이 큰 부분에서도 기울기가 영향을 받음.
+- **GMM**:  
+  - 잔차의 분산(또는 신뢰도)에 따라 가중치 **positive definite weighting**를 달리 부여. 이 경우 분산의 역수를 사용하여 노이즈가 적은 관측값을 더 신뢰하도록 추정.
+  - GMM은 **잡음이 작은 구간(왼쪽)**의 패턴에 더 많은 가중치를 부여하여 기울기가 더 가파르게 추정
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Simulate data with heteroskedastic noise (to favor GMM adjustment)
+np.random.seed(0)
+n = 100
+x = np.linspace(0, 10, n)
+X = np.vstack([np.ones(n), x]).T
+
+# True model
+beta_true = np.array([1, 2])
+# Heteroskedastic noise: variance increases with x
+noise_std = 0.5 + 1.5 * (x / x.max())  # ranges from 0.5 to 2.0
+y = X @ beta_true + np.random.normal(0, noise_std)
+
+# OLS estimation
+beta_ols = np.linalg.inv(X.T @ X) @ X.T @ y
+y_hat_ols = X @ beta_ols
+
+# GMM weighting: inverse of variance (precision weighting)
+W = np.diag(1 / noise_std**2)
+
+# GMM estimation (optimal weighting under heteroskedasticity)
+XTWX = X.T @ W @ X
+XTWy = X.T @ W @ y
+beta_gmm = np.linalg.inv(XTWX) @ XTWy
+y_hat_gmm = X @ beta_gmm
+
+# Plot with aspect ratio 1:1
+plt.figure(figsize=(8, 8))
+plt.scatter(x, y, color='lightgray', label='Observed data')
+plt.plot(x, y_hat_ols, label='OLS projection', color='blue', linewidth=2)
+plt.plot(x, y_hat_gmm, label='GMM projection (precision-weighted)', color='red', linestyle='--', linewidth=2)
+plt.title("OLS vs GMM Projection with Heteroskedastic Data")
+plt.xlabel("x")
+plt.ylabel("y")
+plt.axis('equal')  # Set equal aspect ratio
+plt.legend()
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+```
+
+### objective function (quadratic form)의 level set
+
+참고: GMM의 목적함수는 원래부터 정규화(normalized)되어 있는 반면, OLS의 목적함수는 정규화 없이 나타나는 일반적 2차형식이므로, 두 방법을 엄밀히 비교하려면 OLS도 동일한 형태로 정규화해 주어야 함.
+
+| 방법 | 목적함수 형태 | 거리해석 | Level set 형태 |
+|------|----------------------|----------------------|----------------|
+| OLS (일반형) | $(y - X\beta)^\top (y - X\beta)$ | Euclidean norm | 타원 (elliptical) |
+| OLS (정규화형) | $(\beta - \hat{\beta})^\top (X^\top X)^{-1} (\beta - \hat{\beta})$ | Mahalanobis norm | **구형 (spherical)** |
+| GMM | $\bar{g}(\theta)^\top W \bar{g}(\theta)$ | Mahalanobis norm | 타원 또는 구형 |
+
+```{python}
+
+# Z-score normalization of x to improve XtX condition
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
+x_normalized = scaler.fit_transform(x.reshape(-1, 1)).flatten()
+X_normalized = np.vstack([np.ones(n), x_normalized]).T
+
+# Recalculate OLS and GMM using normalized X
+beta_ols_norm = np.linalg.inv(X_normalized.T @ X_normalized) @ X_normalized.T @ y
+y_hat_ols_norm = X_normalized @ beta_ols_norm
+
+# GMM estimation with same W
+XTWX_norm = X_normalized.T @ W @ X_normalized
+XTWy_norm = X_normalized.T @ W @ y
+beta_gmm_norm = np.linalg.inv(XTWX_norm) @ XTWy_norm
+y_hat_gmm_norm = X_normalized @ beta_gmm_norm
+
+# New grid around beta_ols_norm
+b0_vals = np.linspace(beta_ols_norm[0] - 1, beta_ols_norm[0] + 1, 100)
+b1_vals = np.linspace(beta_ols_norm[1] - 1, beta_ols_norm[1] + 1, 100)
+B0, B1 = np.meshgrid(b0_vals, b1_vals)
+B_flat = np.vstack([B0.ravel(), B1.ravel()])
+
+# Normalized OLS objective (Mahalanobis)
+XtX_inv_norm = np.linalg.inv(X_normalized.T @ X_normalized)
+delta_norm = B_flat - beta_ols_norm[:, None]
+J_ols_normalized = np.einsum('ji,jk,ki->i', delta_norm, XtX_inv_norm, delta_norm).reshape(B0.shape)
+
+# GMM objective with normalized X
+J_gmm_norm = []
+for i in range(B_flat.shape[1]):
+    r = y - X_normalized @ B_flat[:, i]
+    obj = r.T @ W @ r
+    J_gmm_norm.append(obj)
+J_gmm_norm = np.array(J_gmm_norm).reshape(B0.shape)
+
+# Plotting
+fig, axs = plt.subplots(1, 2, figsize=(14, 6))
+
+# Normalized OLS (should be spherical)
+cs1 = axs[0].contour(B0, B1, J_ols_normalized, levels=20, cmap='Blues')
+axs[0].plot(beta_ols_norm[0], beta_ols_norm[1], 'bo', label='OLS solution')
+axs[0].set_title("OLS (Normalized X): Spherical Level Sets")
+axs[0].set_xlabel(r"$\beta_0$")
+axs[0].set_ylabel(r"$\beta_1$")
+axs[0].axis('equal')
+axs[0].legend()
+axs[0].grid(True)
+
+# GMM with normalized X
+cs2 = axs[1].contour(B0, B1, J_gmm_norm, levels=20, cmap='Reds')
+axs[1].plot(beta_gmm_norm[0], beta_gmm_norm[1], 'ro', label='GMM solution')
+axs[1].set_title("GMM (Normalized X): Ellipsoidal Level Sets")
+axs[1].set_xlabel(r"$\beta_0$")
+axs[1].set_ylabel(r"$\beta_1$")
+axs[1].axis('equal')
+axs[1].legend()
+axs[1].grid(True)
+
+plt.tight_layout()
+plt.show()
+```

@@ -25,10 +25,14 @@ website:
         menu:
           - href: appendix/a_conditions.qmd
             text: Free Market Conditions
-          - href: appendix/capm/a_capm.qmd
-            text: Revisiting CAPM
           - href: appendix/incomplete/a_incomplete.qmd
             text: Incomplete market
+          - href: appendix/capm/a_capm.qmd
+            text: Revisiting CAPM
+          - href: appendix/a_industry_capm.qmd
+            text: Revisiting CAPM
+          - href: appendix/sample-estimation.qmd
+            text: Geometry in Regressions
       - text: "시계열"
         menu: 
           - href: time-series/correlation_crypto/correlation_crypto.qmd
