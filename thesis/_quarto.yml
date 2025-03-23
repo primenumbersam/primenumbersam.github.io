@@ -3,13 +3,13 @@ project:
   output-dir: ../docs/thesis
 
 website:
-  title: GitSAM
+  title: "[GitSAM](../index.html)"
   navbar:
     left:
       - text: 교육
-        href: ../guides/index.qmd
+        href: ../guides/index.html
       - text: 연구
-        href: ../projects/index.qmd
+        href: ../projects/index.html
       - text: TBTF
         href: index.qmd
         

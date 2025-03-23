@@ -3,7 +3,7 @@ title: Data
 ---
 
 
-```{python}
+<!--
 import pandas as pd
 import sqlite3
 
@@ -27,7 +27,7 @@ crsp_monthly = pd.read_sql_query(
 #cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
 #print(cursor.fetchall())
 
-```
+-->
 
 # Data
 
