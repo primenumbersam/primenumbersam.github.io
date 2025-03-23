@@ -9,7 +9,7 @@
 <meta name="author" content="gitSAM">
 <meta name="dcterms.date" content="2025-03-21">
 
-<title>GMM and OLS as Geometry of error space – GitSAM</title>
+<title>Geometry of error space – GitSAM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -154,10 +154,6 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../about.html"> 
-<span class="menu-text">About</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="../guides/index.html"> 
 <span class="menu-text">교육</span></a>
   </li>  
@@ -233,8 +229,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">GMM and OLS as Geometry of error space</h1>
-<p class="subtitle lead">Inner Product Spaces (Linear vs.&nbsp;Curved Structures)</p>
+<h1 class="title">Geometry of error space</h1>
+<p class="subtitle lead">GMM and OLS as Inner Product Spaces (Linear vs.&nbsp;Curved Structures)</p>
 </div>
 
 
@@ -537,7 +533,7 @@ Q(x) = x^\top g_{\mu\nu} x = 0
 <li>GMM은 <strong>잡음이 작은 구간(왼쪽)</strong>의 패턴에 더 많은 가중치를 부여하여 기울기가 더 가파르게 추정</li>
 </ul></li>
 </ul>
-<div id="3a549894" class="cell" data-execution_count="1">
+<div id="e84b018f" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -630,7 +626,7 @@ Q(x) = x^\top g_{\mu\nu} x = 0
 </tr>
 </tbody>
 </table>
-<div id="4b6e1d63" class="cell" data-execution_count="2">
+<div id="3f9a17b6" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Z-score normalization of x to improve XtX condition</span></span>

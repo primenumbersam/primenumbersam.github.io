@@ -1,6 +1,6 @@
 ---
-title: GMM and OLS as Geometry of error space
-subtitle: Inner Product Spaces (Linear vs. Curved Structures)
+title: Geometry of error space
+subtitle: GMM and OLS as Inner Product Spaces (Linear vs. Curved Structures)
 author: gitSAM
 date: '2025-03-21'
 format:

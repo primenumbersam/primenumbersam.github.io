@@ -6,7 +6,6 @@ website:
   title: "[GitSAM](../index.qmd)"
   navbar:
     left:
-      - ../about.qmd
       - text: 교육
         href: ../guides/index.qmd
       - text: 연구
@@ -32,23 +31,23 @@ website:
       - index.qmd
       - section: "분열"
         contents:
-          - gilded_age.qmd
-          - pricing_equal.qmd
-          - dichotomy.qmd
-          - corner_solution.qmd
-          - market_conditions.qmd
-          - market_incomplete.qmd
+        - gilded_age.qmd
+        - pricing_equal.qmd
+        - dichotomy.qmd
+        - corner_solution.qmd
+        - market_conditions.qmd
+        - market_incomplete.qmd
       - section: "설명? 예측?"
         contents:
-          - capm.qmd
-          - capm_industry.qmd
-          - structure_cointegration.qmd
-          - structure_tfp.qmd
+        - capm.qmd
+        - capm_industry.qmd
+        - structure_cointegration.qmd
+        - structure_tfp.qmd
       - sections: "논문"
         contents:
-          - 01_intro.qmd
-          - 02_lit_review.qmd
-          - 03_data.qmd
+        - 01_intro.qmd
+        - 02_lit_review.qmd
+        - 03_data.qmd
 
 author: gitSAM
 

@@ -1,6 +1,6 @@
 ---
-title: "Monetary Policy and Market Imperfections"
-subtitle: 재량적 통화정책?
+title: "Incomplete Markets"
+subtitle: "재량적 통화정책? Monetary Policy and Market Imperfections"
 author: "GitSAM"
 date: "2025-03-19"
 abstract: This paper explains monetary policy effects using neoclassical economics and monetarism perspectives, contrasting them with New Keynesian views. Through theoretical models (Friedman, Aiyagari, Bewley, Harrison & Kreps), it shows that incomplete markets and heterogeneous agents can cause monetary policy to unintentionally worsen inequality and distort markets. Policymakers should thus carefully consider these market imperfections to promote long-term stability and mitigate distributional distortions.

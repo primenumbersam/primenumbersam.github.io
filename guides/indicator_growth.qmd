@@ -1,5 +1,5 @@
 ---
-title: "경제 성장을 대표하는 지표?"
+title: "경제성장 대표지표?"
 author: "GitSAM"
 date: 03/18/2025
 keywords: 경제성장, 자연성장률, 실질 GDP, 중위임금

@@ -7,7 +7,6 @@ website:
   navbar:
     search: true
     left:
-      - about.qmd
       - text: "교육"
         href: guides/index.qmd
       - text: "연구"

@@ -6,7 +6,6 @@ website:
   title: GitSAM
   navbar:
     left:
-      - ../about.qmd
       - text: 교육
         href: ../guides/index.qmd
       - text: 연구
@@ -29,11 +28,11 @@ website:
   sidebar:
     style: floating
     contents:
-        - index.qmd
-        - 01_intro.qmd
-        - 02_lit_review.qmd
-        - 03_data.qmd
-        - 04_model.qmd
+      - index.qmd
+      - 01_intro.qmd
+      - 02_lit_review.qmd
+      - 03_data.qmd
+      - 04_model.qmd
 
 author: gitSAM
 date: '2025-03-23'

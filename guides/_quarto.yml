@@ -6,7 +6,6 @@ website:
   title: "[GitSAM](../index.qmd)"
   navbar:
     left:
-      - ../about.qmd
       - text: 교육
         href: index.qmd
       - text: 연구
@@ -32,17 +31,17 @@ website:
       - index.qmd
       - section: "경제"
         contents:
-          - indicator_growth.qmd
-          - labor_decoupling.qmd
+        - indicator_growth.qmd
+        - labor_decoupling.qmd
       - section: "금융"
         contents: 
-          - yield_curve.qmd
-          - correlation_crypto.qmd
-          - finance_asset_puzzle.qmd
+        - yield_curve.qmd
+        - correlation_crypto.qmd
+        - finance_asset_puzzle.qmd
       - section: "수학"
         contents: 
-          - pareto_index.qmd
-          - regressions.qmd
+        - pareto_index.qmd
+        - regressions.qmd
 
 author: gitSAM
 

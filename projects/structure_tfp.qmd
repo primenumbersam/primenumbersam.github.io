@@ -1,5 +1,6 @@
 ---
-title: "TFP Growth, Stationarity, and Structural Change"
+title: "Time-varying TFP"
+subtitle: "Stationarity and Structural Change"
 author: "GitSAM"
 date: 03/15/2025
 format:

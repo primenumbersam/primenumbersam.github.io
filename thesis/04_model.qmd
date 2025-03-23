@@ -1,13 +1,6 @@
 ---
-title: Too Big to Fail?
-author: gitSAM
+title: Model
 date: '2025-03-23'
-bibliography: references.bib
-format:
-  html:
-    code-fold: true
-    toc: true
-    number-sections: true
 ---
 
 

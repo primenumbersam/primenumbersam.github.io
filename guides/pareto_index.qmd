@@ -1,5 +1,5 @@
 ---
-title: Approximating Wealth Distribution
+title: Modeling Wealth Distribution
 subtitle: Pareto Distribution, Lorenz Curve, Gini Coefficient, and CRRA Utility
 author: gitSAM
 date: '2025-03-10'

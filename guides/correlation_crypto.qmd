@@ -1,5 +1,5 @@
 ---
-title: Correlation within Crypto-currencies
+title: Correlation in Cryptos
 subtitle: 주요 암호화폐 수익률들의 선형 상관계수 분석
 author: gitSAM
 date: '2025-03-08'
