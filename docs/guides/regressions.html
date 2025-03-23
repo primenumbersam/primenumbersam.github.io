@@ -309,9 +309,8 @@ window.Quarto = {
   <li><a href="#visual-and-geometric-summary" id="toc-visual-and-geometric-summary" class="nav-link" data-scroll-target="#visual-and-geometric-summary">3. Visual and Geometric Summary</a></li>
   <li><a href="#einstein-field-equations-and-gmm-structural-analogy" id="toc-einstein-field-equations-and-gmm-structural-analogy" class="nav-link" data-scroll-target="#einstein-field-equations-and-gmm-structural-analogy">4. Einstein Field Equations and GMM: Structural Analogy</a>
   <ul class="collapse">
-  <li><a href="#analogy-to-estimation-frameworks" id="toc-analogy-to-estimation-frameworks" class="nav-link" data-scroll-target="#analogy-to-estimation-frameworks">Analogy to Estimation Frameworks</a></li>
   <li><a href="#additional-explanation" id="toc-additional-explanation" class="nav-link" data-scroll-target="#additional-explanation">Additional Explanation</a></li>
-  <li><a href="#analogy-to-estimation-frameworks-1" id="toc-analogy-to-estimation-frameworks-1" class="nav-link" data-scroll-target="#analogy-to-estimation-frameworks-1">Analogy to Estimation Frameworks</a></li>
+  <li><a href="#analogy-to-estimation-frameworks" id="toc-analogy-to-estimation-frameworks" class="nav-link" data-scroll-target="#analogy-to-estimation-frameworks">Analogy to Estimation Frameworks</a></li>
   </ul></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">5. Conclusion</a></li>
   <li><a href="#visuals" id="toc-visuals" class="nav-link" data-scroll-target="#visuals">Visuals</a>
@@ -328,7 +327,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./pareto_index.html">수학</a></li><li class="breadcrumb-item"><a href="./regressions.html">Geometry of error space</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Geometry of error space</h1>
-<p class="subtitle lead">GMM and OLS as Inner Product Spaces (Linear vs.&nbsp;Curved Structures)</p>
+<p class="subtitle lead">OLS and GMM as Inner Product Spaces</p>
 </div>
 
 
@@ -498,51 +497,6 @@ G_{\mu\nu} = R_{\mu\nu} - \frac{1}{2} R g_{\mu\nu} = 8\pi T_{\mu\nu}
 <li><span class="math inline">\(g_{\mu\nu}\)</span>: Metric tensor, defining the inner product in spacetime and governing geodesics</li>
 </ul></li>
 </ul>
-<section id="analogy-to-estimation-frameworks" class="level3">
-<h3 class="anchored" data-anchor-id="analogy-to-estimation-frameworks">Analogy to Estimation Frameworks</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 23%">
-<col style="width: 14%">
-<col style="width: 14%">
-<col style="width: 47%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Feature</th>
-<th>OLS</th>
-<th>GMM</th>
-<th>EFE (Physics)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Space</td>
-<td>Euclidean</td>
-<td>Kernel-defined</td>
-<td>Curved spacetime</td>
-</tr>
-<tr class="even">
-<td>Inner product</td>
-<td><span class="math inline">\(I\)</span></td>
-<td><span class="math inline">\(W\)</span> (kernel)</td>
-<td><span class="math inline">\(g_{\mu\nu}\)</span> (metric)</td>
-</tr>
-<tr class="odd">
-<td>Projection</td>
-<td>Orthogonal</td>
-<td>Weighted / Generalized</td>
-<td>Energy-curvature balance</td>
-</tr>
-<tr class="even">
-<td>Level sets</td>
-<td>Circles</td>
-<td>Ellipses</td>
-<td>Lightcones / geodesics</td>
-</tr>
-</tbody>
-</table>
-</section>
 <section id="additional-explanation" class="level3">
 <h3 class="anchored" data-anchor-id="additional-explanation">Additional Explanation</h3>
 <p>In EFE, the metric tensor <span class="math inline">\(g_{\mu\nu}\)</span> defines how distances and angles are measured — it is the analogue of a positive definite kernel in GMM. The field equations determine how the geometry (curvature) of spacetime reacts to matter and energy. In this sense, <strong>spacetime is optimized or shaped in response to external inputs</strong>, just as GMM shapes its estimation space based on the kernel <span class="math inline">\(W\)</span> and moment functions.</p>
@@ -553,8 +507,8 @@ Q(x) = x^\top g_{\mu\nu} x = 0
 <p>results in a <strong>pair of intersecting lines</strong>: this represents all null (light-like) directions emanating from a point. These are the boundary cases between time-like and space-like intervals, analogous to the way ellipsoids in GMM collapse into degenerate forms under singular kernel matrices.</p>
 <p>Thus, in both GMM and EFE, the <strong>shape and degeneracy of level sets</strong> encode deep information about the underlying structure — whether it is a statistical model or the geometry of spacetime.</p>
 </section>
-<section id="analogy-to-estimation-frameworks-1" class="level3">
-<h3 class="anchored" data-anchor-id="analogy-to-estimation-frameworks-1">Analogy to Estimation Frameworks</h3>
+<section id="analogy-to-estimation-frameworks" class="level3">
+<h3 class="anchored" data-anchor-id="analogy-to-estimation-frameworks">Analogy to Estimation Frameworks</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 23%">
@@ -631,7 +585,7 @@ Q(x) = x^\top g_{\mu\nu} x = 0
 <li>GMM은 <strong>잡음이 작은 구간(왼쪽)</strong>의 패턴에 더 많은 가중치를 부여하여 기울기가 더 가파르게 추정</li>
 </ul></li>
 </ul>
-<div id="d4554a92" class="cell" data-execution_count="1">
+<div id="f1d41462" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -724,7 +678,7 @@ Q(x) = x^\top g_{\mu\nu} x = 0
 </tr>
 </tbody>
 </table>
-<div id="39f03e32" class="cell" data-execution_count="2">
+<div id="59c33aaf" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Z-score normalization of x to improve XtX condition</span></span>

@@ -1,6 +1,6 @@
 ---
 title: Geometry of error space
-subtitle: GMM and OLS as Inner Product Spaces (Linear vs. Curved Structures)
+subtitle: OLS and GMM as Inner Product Spaces
 author: gitSAM
 date: '2025-03-21'
 format:
@@ -117,15 +117,6 @@ where:
   - $R_{\mu\nu}$: Ricci curvature tensor
   - $R$: Scalar curvature
   - $g_{\mu\nu}$: Metric tensor, defining the inner product in spacetime and governing geodesics
-
-### Analogy to Estimation Frameworks
-
-| Feature | OLS | GMM | EFE (Physics) |
-|--------|-----|-----|----------------|
-| Space | Euclidean | Kernel-defined | Curved spacetime |
-| Inner product | $I$ | $W$ (kernel) | $g_{\mu\nu}$ (metric) |
-| Projection | Orthogonal | Weighted / Generalized | Energy-curvature balance |
-| Level sets | Circles | Ellipses | Lightcones / geodesics |
 
 ### Additional Explanation
 
