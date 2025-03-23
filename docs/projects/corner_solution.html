@@ -10,7 +10,7 @@
 <meta name="dcterms.date" content="2025-03-23">
 <meta name="keywords" content="corner solution, optimization, convex, non-convex">
 
-<title>Corner Solutions in Optimization Model – GitSAM</title>
+<title>Corner Solutions – GitSAM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -150,20 +150,16 @@ div.csl-indent {
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../thesis/index.html"> 
-<span class="menu-text">TBTF</span></a>
+    <a class="nav-link" href="../guides/index.html"> 
+<span class="menu-text">교육</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../projects/index.html"> 
-<span class="menu-text">Projects</span></a>
+<span class="menu-text">연구</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../drafts/index.html"> 
-<span class="menu-text">Drafts</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../guides/index.html"> 
-<span class="menu-text">Guides</span></a>
+    <a class="nav-link" href="../thesis/index.html"> 
+<span class="menu-text">TBTF</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -198,14 +194,14 @@ div.csl-indent {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">1. Introduction</a></li>
-  <li><a href="#convexity-in-economic-theory" id="toc-convexity-in-economic-theory" class="nav-link" data-scroll-target="#convexity-in-economic-theory">2. Convexity in Economic Theory</a></li>
-  <li><a href="#non-convexities-in-reality" id="toc-non-convexities-in-reality" class="nav-link" data-scroll-target="#non-convexities-in-reality">3. Non-Convexities in Reality</a></li>
-  <li><a href="#government-interventions" id="toc-government-interventions" class="nav-link" data-scroll-target="#government-interventions">4. Government Interventions</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">5. Conclusion</a></li>
-  <li><a href="#appendix-utilitarian-objective-function" id="toc-appendix-utilitarian-objective-function" class="nav-link" data-scroll-target="#appendix-utilitarian-objective-function">Appendix: Utilitarian Objective function</a></li>
-  <li><a href="#appendix-homogeneous-function-of-degree-1" id="toc-appendix-homogeneous-function-of-degree-1" class="nav-link" data-scroll-target="#appendix-homogeneous-function-of-degree-1">Appendix: Homogeneous function of degree 1</a></li>
-  <li><a href="#appendix-sigmoid-utility-function" id="toc-appendix-sigmoid-utility-function" class="nav-link" data-scroll-target="#appendix-sigmoid-utility-function">Appendix: Sigmoid utility function</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">0.1</span> 1. Introduction</a></li>
+  <li><a href="#convexity-in-economic-theory" id="toc-convexity-in-economic-theory" class="nav-link" data-scroll-target="#convexity-in-economic-theory"><span class="header-section-number">0.2</span> 2. Convexity in Economic Theory</a></li>
+  <li><a href="#non-convexities-in-reality" id="toc-non-convexities-in-reality" class="nav-link" data-scroll-target="#non-convexities-in-reality"><span class="header-section-number">0.3</span> 3. Non-Convexities in Reality</a></li>
+  <li><a href="#government-interventions" id="toc-government-interventions" class="nav-link" data-scroll-target="#government-interventions"><span class="header-section-number">0.4</span> 4. Government Interventions</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">0.5</span> 5. Conclusion</a></li>
+  <li><a href="#appendix-utilitarian-objective-function" id="toc-appendix-utilitarian-objective-function" class="nav-link" data-scroll-target="#appendix-utilitarian-objective-function"><span class="header-section-number">0.6</span> Appendix: Utilitarian Objective function</a></li>
+  <li><a href="#appendix-homogeneous-function-of-degree-1" id="toc-appendix-homogeneous-function-of-degree-1" class="nav-link" data-scroll-target="#appendix-homogeneous-function-of-degree-1"><span class="header-section-number">0.7</span> Appendix: Homogeneous function of degree 1</a></li>
+  <li><a href="#appendix-sigmoid-utility-function" id="toc-appendix-sigmoid-utility-function" class="nav-link" data-scroll-target="#appendix-sigmoid-utility-function"><span class="header-section-number">0.8</span> Appendix: Sigmoid utility function</a></li>
   </ul>
 </nav>
     </div>
@@ -214,8 +210,8 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Corner Solutions in Optimization Model</h1>
-<p class="subtitle lead">Convex in Theory, but Non-Convex in Reality</p>
+<h1 class="title">Corner Solutions</h1>
+<p class="subtitle lead">Convex in Optimization Model, but Non-Convex in Reality</p>
 </div>
 
 
@@ -256,12 +252,12 @@ div.csl-indent {
 </header>
 
 
-<section id="introduction" class="level3">
-<h3 class="anchored" data-anchor-id="introduction">1. Introduction</h3>
+<section id="introduction" class="level3" data-number="0.1">
+<h3 data-number="0.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">0.1</span> 1. Introduction</h3>
 <p>In standard economic theory, both consumer preferences and production sets are generally assumed to exhibit <strong>convexity</strong> <span class="citation" data-cites="ArrowDebreu1954 Debreu1959">(<a href="#ref-ArrowDebreu1954" role="doc-biblioref">Arrow and Debreu 1954</a>; <a href="#ref-Debreu1959" role="doc-biblioref">Debreu 1959</a>)</span>. This assumption supports foundational results, including the existence and uniqueness of equilibrium and the efficiency of market allocations. In practice, however, features such as <strong>network externalities</strong> <span class="citation" data-cites="KatzShapiro1985 RochetTirole2003">(<a href="#ref-KatzShapiro1985" role="doc-biblioref">Katz and Shapiro 1985</a>; <a href="#ref-RochetTirole2003" role="doc-biblioref">Rochet and Tirole 2003</a>)</span>, <strong>rent-seeking</strong> <span class="citation" data-cites="ShleiferVishny1993">(<a href="#ref-ShleiferVishny1993" role="doc-biblioref">Shleifer and Vishny 1993</a>)</span>, and <strong>multiple equilibria</strong>—often culminating in pronounced market dominance—can produce outcomes resembling <strong>non-convex preferences</strong> <span class="citation" data-cites="Arthur1994">(<a href="#ref-Arthur1994" role="doc-biblioref">Arthur 1994</a>)</span>. In many cases, corner solutions and path-dependent equilibria emerge from winner-takes-all dynamics, concentrated economic power, and barriers to entry.</p>
 </section>
-<section id="convexity-in-economic-theory" class="level3">
-<h3 class="anchored" data-anchor-id="convexity-in-economic-theory">2. Convexity in Economic Theory</h3>
+<section id="convexity-in-economic-theory" class="level3" data-number="0.2">
+<h3 data-number="0.2" class="anchored" data-anchor-id="convexity-in-economic-theory"><span class="header-section-number">0.2</span> 2. Convexity in Economic Theory</h3>
 <p><strong>2.1 Convex Preferences and Production Sets</strong></p>
 <ul>
 <li>Consumer preferences are typically modeled with quasi-concave utility functions, yielding convex (or “bowl-shaped”) indifference curves. This setup implies a preference for <strong>diversity</strong> in consumption, rather than extreme or corner solutions <span class="citation" data-cites="Debreu1959">(<a href="#ref-Debreu1959" role="doc-biblioref">Debreu 1959</a>)</span>.</li>
@@ -278,8 +274,8 @@ div.csl-indent {
 <li>Consequently, government interventions usually aim to correct externalities, public goods issues, or information asymmetries within a broader context of largely convex preferences and production sets.</li>
 </ul>
 </section>
-<section id="non-convexities-in-reality" class="level3">
-<h3 class="anchored" data-anchor-id="non-convexities-in-reality">3. Non-Convexities in Reality</h3>
+<section id="non-convexities-in-reality" class="level3" data-number="0.3">
+<h3 data-number="0.3" class="anchored" data-anchor-id="non-convexities-in-reality"><span class="header-section-number">0.3</span> 3. Non-Convexities in Reality</h3>
 <p><strong>3.1 Network Externalities and Increasing Returns to Scale</strong></p>
 <ul>
 <li>In contrast to diminishing returns, many digital or platform-based markets exhibit <strong>network externalities</strong>, or increasing returns to scale <span class="citation" data-cites="KatzShapiro1985 RochetTirole2003">(<a href="#ref-KatzShapiro1985" role="doc-biblioref">Katz and Shapiro 1985</a>; <a href="#ref-RochetTirole2003" role="doc-biblioref">Rochet and Tirole 2003</a>)</span>. As additional users join a platform, its value to each user grows, often driving <strong>corner solutions</strong> in both production and consumption.</li>
@@ -301,8 +297,8 @@ div.csl-indent {
 <li><strong>Rent-seeking</strong> intensifies the misallocation of resources, as efforts are diverted to defending or reinforcing incumbents’ power, often via barriers to entry, reduced competition, and growing inequalities.</li>
 </ul>
 </section>
-<section id="government-interventions" class="level3">
-<h3 class="anchored" data-anchor-id="government-interventions">4. Government Interventions</h3>
+<section id="government-interventions" class="level3" data-number="0.4">
+<h3 data-number="0.4" class="anchored" data-anchor-id="government-interventions"><span class="header-section-number">0.4</span> 4. Government Interventions</h3>
 <p><strong>4.1 Theoretical View: Correcting Market Imperfections</strong></p>
 <ul>
 <li>Traditionally, policy interventions focus on addressing market failures, assuming that preferences and technologies remain fundamentally convex and that interventions are limited and transparent.</li>
@@ -318,13 +314,13 @@ div.csl-indent {
 <li>Consequently, once a market tips toward a specific firm, region, or product, effective competition may prove infeasible without sweeping policy reforms or disruptive innovation.</li>
 </ul>
 </section>
-<section id="conclusion" class="level3">
-<h3 class="anchored" data-anchor-id="conclusion">5. Conclusion</h3>
+<section id="conclusion" class="level3" data-number="0.5">
+<h3 data-number="0.5" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">0.5</span> 5. Conclusion</h3>
 <p>Although classical economic models lean on <strong>convex</strong> preferences and technologies to assert the existence of unique, efficient equilibria, real-world dynamics often revolve around <strong>non-convex</strong> phenomena. Network externalities, coordination failures, and rent-seeking can drive <strong>corner solutions</strong>, multiple equilibria, and <strong>lock-in</strong> that preserve incumbent advantages. Far from mitigating these issues, government policies sometimes exacerbate them through preferential treatment of dominant actors. Recognizing these <strong>non-convex realities</strong> is crucial for crafting policy frameworks that transcend purely theoretical assumptions of convexity and address the path-dependent complexity characterizing modern markets.</p>
 </section>
-<section id="appendix-utilitarian-objective-function" class="level3">
-<h3 class="anchored" data-anchor-id="appendix-utilitarian-objective-function">Appendix: Utilitarian Objective function</h3>
-<div id="b4dfcaa9" class="cell" data-execution_count="1">
+<section id="appendix-utilitarian-objective-function" class="level3" data-number="0.6">
+<h3 data-number="0.6" class="anchored" data-anchor-id="appendix-utilitarian-objective-function"><span class="header-section-number">0.6</span> Appendix: Utilitarian Objective function</h3>
+<div id="91d58a17" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title Utilitarian objective function</span></span>
@@ -443,9 +439,9 @@ Extreme Point Type: Saddle</code></pre>
 </div>
 </div>
 </section>
-<section id="appendix-homogeneous-function-of-degree-1" class="level3">
-<h3 class="anchored" data-anchor-id="appendix-homogeneous-function-of-degree-1">Appendix: Homogeneous function of degree 1</h3>
-<div id="776a9d5e" class="cell" data-execution_count="2">
+<section id="appendix-homogeneous-function-of-degree-1" class="level3" data-number="0.7">
+<h3 data-number="0.7" class="anchored" data-anchor-id="appendix-homogeneous-function-of-degree-1"><span class="header-section-number">0.7</span> Appendix: Homogeneous function of degree 1</h3>
+<div id="1157b805" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a return to scale</span></span>
@@ -561,9 +557,9 @@ Extreme Point Type: Saddle</code></pre>
 </div>
 </div>
 </section>
-<section id="appendix-sigmoid-utility-function" class="level3">
-<h3 class="anchored" data-anchor-id="appendix-sigmoid-utility-function">Appendix: Sigmoid utility function</h3>
-<div id="76f469f9" class="cell" data-execution_count="3">
+<section id="appendix-sigmoid-utility-function" class="level3" data-number="0.8">
+<h3 data-number="0.8" class="anchored" data-anchor-id="appendix-sigmoid-utility-function"><span class="header-section-number">0.8</span> Appendix: Sigmoid utility function</h3>
+<div id="f723550c" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>

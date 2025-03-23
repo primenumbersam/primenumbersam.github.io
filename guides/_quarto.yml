@@ -1,0 +1,61 @@
+project:
+  type: website
+  output-dir: ../docs/guides
+
+website:
+  title: "[GitSAM](../index.qmd)"
+  navbar:
+    left:
+      - ../about.qmd
+      - text: 교육
+        href: index.qmd
+      - text: 연구
+        href: ../projects/index.qmd
+      - text: TBTF
+        href: ../thesis/index.qmd
+
+    tools:
+      - icon: house
+        href: https://www.gitsam.com
+      - icon: youtube
+        href: https://www.youtube.com/@primenumbersam
+      - icon: github
+        menu:
+          - text: Source Code
+            href: https://github.com/primenumbersam/primenumbersam.github.io
+          - text: Report a Bug
+            href: mailto:primenumbersam@gmail.com
+
+  sidebar:
+    style: "floating"
+    contents:
+      - index.qmd
+      - section: "경제"
+        contents:
+          - indicator_growth.qmd
+          - labor_decoupling.qmd
+      - section: "금융"
+        contents: 
+          - yield_curve.qmd
+          - correlation_crypto.qmd
+          - finance_asset_puzzle.qmd
+      - section: "수학"
+        contents: 
+          - pareto_index.qmd
+          - regressions.qmd
+
+author: gitSAM
+
+format:
+  html:
+    theme: cosmo
+    css: ../styles.css
+    toc: true
+    number-sections: false
+    code-fold: true
+
+execute:
+  engine: jupyter
+  freeze: auto
+
+jupyter: python3

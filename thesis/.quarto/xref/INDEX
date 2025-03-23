@@ -1,0 +1,20 @@
+{
+  "01_intro.md": {
+    "01_intro.html": "f598b864"
+  },
+  "02_lit_review.qmd": {
+    "02_lit_review.html": "e75d60f4"
+  },
+  "03_data.qmd": {
+    "03_data.html": "b55db67b"
+  },
+  "04_model.qmd": {
+    "04_model.html": "7f88631d"
+  },
+  "index.qmd": {
+    "index.html": "8a4701ab"
+  },
+  "01_intro.qmd": {
+    "01_intro.html": "105c79ba"
+  }
+}

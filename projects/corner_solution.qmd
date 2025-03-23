@@ -1,6 +1,6 @@
 ---
-title: Corner Solutions in Optimization Model
-subtitle: Convex in Theory, but Non-Convex in Reality
+title: Corner Solutions
+subtitle: Convex in Optimization Model, but Non-Convex in Reality
 author: GitSAM
 date: today
 abstract: This notebook explores the corner solution problem in optimization theory, where theoretical convexity contrasts with real-world non-convexities. Through insightful examples, it demonstrates how economic and mathematical assumptions can diverge in practice.

@@ -1,14 +1,5 @@
 ---
-title: Too Big to Fail?
-subtitle: A Reassessment of Linear Models
-author: gitSAM
-date: '2025-03-23'
-bibliography: references.bib
-format:
-  html:
-    code-fold: true
-    toc: true
-    number-sections: true
+title: "linear models"
 ---
 
 Linear Models for Asset Management

@@ -1,19 +1,5 @@
 ---
-title: "Guides"
-sidebar:
-  style: "floating"
-  contents:
-    - section: "Basic Topics"
-      contents:
-        - indicator_growth.qmd
-        - labor_decoupling.qmd
-        - yield_curve.qmd
-        - correlation_crypto.qmd
-        - pareto_index.qmd
-        - regressions.qmd
-        - finance_asset_puzzle.qmd
+title: "교육용"
 ---
 
-# Educational Guides
-
-This section provides basic tutorials and conceptual guides in economics, finance, and data analysis.
+- 교육용 컨텐츠 

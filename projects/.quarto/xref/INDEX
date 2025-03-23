@@ -1,0 +1,35 @@
+{
+  "index.qmd": {
+    "index.html": "cbf05acb"
+  },
+  "corner_solution.qmd": {
+    "corner_solution.html": "c6b88934"
+  },
+  "dichotomy.qmd": {
+    "dichotomy.html": "5077f253"
+  },
+  "gilded_age.qmd": {
+    "gilded_age.html": "dc98b7a7"
+  },
+  "pricing_equal.qmd": {
+    "pricing_equal.html": "3bfc02df"
+  },
+  "capm.qmd": {
+    "capm.html": "edee29d7"
+  },
+  "capm_industry.qmd": {
+    "capm_industry.html": "bc382b81"
+  },
+  "market_conditions.qmd": {
+    "market_conditions.html": "843c7f3c"
+  },
+  "market_incomplete.qmd": {
+    "market_incomplete.html": "375c979b"
+  },
+  "structure_cointegration.qmd": {
+    "structure_cointegration.html": "1cab63c7"
+  },
+  "structure_tfp.qmd": {
+    "structure_tfp.html": "59fbb9e0"
+  }
+}

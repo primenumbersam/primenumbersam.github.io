@@ -1,16 +1,5 @@
 ---
 title: "Projects"
-sidebar:
-  style: "floating"
-  contents:
-    - section: "Research"
-      contents:
-        - gilded_age.qmd
-        - pricing_equal.qmd
-        - dichotomy.qmd
-        - corner_solution.qmd
 ---
 
-# Research Projects
-
-This section collects active research inquiries under development...
+- 연구 컨텐츠

@@ -1,0 +1,26 @@
+{
+  "index.qmd": {
+    "index.html": "734cd5ff"
+  },
+  "correlation_crypto.qmd": {
+    "correlation_crypto.html": "205a3785"
+  },
+  "finance_asset_puzzle.qmd": {
+    "finance_asset_puzzle.html": "b6499107"
+  },
+  "indicator_growth.qmd": {
+    "indicator_growth.html": "cdc6d811"
+  },
+  "labor_decoupling.qmd": {
+    "labor_decoupling.html": "073899d8"
+  },
+  "pareto_index.qmd": {
+    "pareto_index.html": "4853fe9e"
+  },
+  "regressions.qmd": {
+    "regressions.html": "b24d0cda"
+  },
+  "yield_curve.qmd": {
+    "yield_curve.html": "cd9656f5"
+  }
+}

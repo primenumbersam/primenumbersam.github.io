@@ -1,0 +1,54 @@
+project:
+  type: website
+  output-dir: ../docs/thesis
+
+website:
+  title: GitSAM
+  navbar:
+    left:
+      - ../about.qmd
+      - text: 교육
+        href: ../guides/index.qmd
+      - text: 연구
+        href: ../projects/index.qmd
+      - text: TBTF
+        href: index.qmd
+        
+    tools:
+      - icon: house
+        href: https://www.gitsam.com
+      - icon: youtube
+        href: https://www.youtube.com/@primenumbersam
+      - icon: github
+        menu:
+          - text: Source Code
+            href: https://github.com/primenumbersam/primenumbersam.github.io
+          - text: Report a Bug
+            href: mailto:primenumbersam@gmail.com
+
+  sidebar:
+    style: floating
+    contents:
+        - index.qmd
+        - 01_intro.qmd
+        - 02_lit_review.qmd
+        - 03_data.qmd
+        - 04_model.qmd
+
+author: gitSAM
+date: '2025-03-23'
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+    css: ../styles.css
+    toc: true
+    number-sections: true
+    code-fold: true
+
+execute:
+  engine: jupyter
+  freeze: auto
+
+jupyter: python3

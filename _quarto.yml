@@ -2,25 +2,18 @@ project:
   type: website
   output-dir: docs
 
-execute:
-  engine: jupyter
-  freeze: auto
-
-jupyter: python3
-
 website:
   title: "GitSAM"
   navbar:
+    search: true
     left:
       - about.qmd
+      - text: "교육"
+        href: guides/index.qmd
+      - text: "연구"
+        href: projects/index.qmd
       - text: "TBTF"
         href: thesis/index.qmd
-      - text: "Projects"
-        href: projects/index.qmd
-      - text: "Drafts"
-        href: drafts/index.qmd
-      - text: "Guides"
-        href: guides/index.qmd
     tools:
       - icon: house
         href: https://www.gitsam.com
@@ -32,8 +25,17 @@ website:
             href: https://github.com/primenumbersam/primenumbersam.github.io
           - text: Report a Bug
             href: mailto:primenumbersam@gmail.com
+
 format:
   html:
     theme: cosmo
     css: styles.css
     toc: true
+    number-sections: true
+    code-fold: true
+
+execute:
+  engine: jupyter
+  freeze: auto
+
+jupyter: python3

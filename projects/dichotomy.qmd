@@ -1,5 +1,5 @@
 ---
-title: Identifying the Most Significant Dichotomy
+title: Identifying Significant Dichotomy
 subtitle: A Zero-Sum Perspective on Capital Accumulation
 author: gitSAM
 date: '2025-03-10'
