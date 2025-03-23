@@ -4,6 +4,8 @@ subtitle: Market Distortions, Wealth Concentration, and the Sadly Optimal Portfo
 abstract: This study examines how post-2008 QE policies, ETF dominance, and market concentration have distorted free-market competition, leading to more asymmetric stock return distributions that resemble a mixture of heterogeneous assets under arbitrage limits rather than a no-arbitrage framework. At the center of this shift is the "Too Big to Fail" (TBTF) portfolio strategy, which selects the top 10 largest market-cap stocks and has consistently outperformed traditional benchmarks in the post-2010 period. However, its success appears driven not by superior fundamentals but by policy distortions, passive capital flows, and technological monopolization, reinforcing wealth concentration and systemic inefficiencies. This study highlights a paradox - the TBTF strategy remains "sadly optimal"—profitable under inefficiencies, yet signaling market corrections if it fails. Its persistence raises concerns about the future of financial markets in an era of intervention and asymmetric capital allocation.
 ---
 
+어려운 세상
+
 **Key highlights**
 
 - Market Distortions and Asymmetric Returns: This study provides empirical evidence that post-2008 QE policies, ETF-driven passive flows, and market concentration have contributed to more asymmetric stock return distributions, challenging the conventional no-arbitrage principle in asset pricing.

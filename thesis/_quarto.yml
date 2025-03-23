@@ -48,6 +48,6 @@ format:
 
 execute:
   engine: jupyter
-  freeze: false
+  freeze: auto
 
 jupyter: python3
