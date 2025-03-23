@@ -6,6 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="gitSAM">
+<meta name="dcterms.date" content="2025-03-23">
 
 <title>Data – GitSAM</title>
 <style>
@@ -20,25 +22,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-ddd961a2510921635943dfbbd19534c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-ddd961a2510921635943dfbbd19534c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,14 +107,14 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="./index.html">
     <span class="navbar-title">GitSAM</span>
     </a>
   </div>
@@ -89,15 +125,15 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../guides/index.html"> 
+    <a class="nav-link" href="./../guides/index.qmd"> 
 <span class="menu-text">교육</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../projects/index.html"> 
+    <a class="nav-link" href="./../projects/index.qmd"> 
 <span class="menu-text">연구</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../thesis/index.html"> 
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
 <span class="menu-text">TBTF</span></a>
   </li>  
 </ul>
@@ -123,25 +159,72 @@ ul.task-list li input[type="checkbox"] {
 </div>
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03_data.html">Data</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Too Big to Fail?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02_lit_review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Literature Review</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_data.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04_model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Model</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#data" id="toc-data" class="nav-link active" data-scroll-target="#data"><span class="header-section-number">1</span> Data</a>
+  <li><a href="#data" id="toc-data" class="nav-link active" data-scroll-target="#data">Data</a>
   <ul class="collapse">
-  <li><a href="#appendix-top-10-permno-시트-샘플" id="toc-appendix-top-10-permno-시트-샘플" class="nav-link" data-scroll-target="#appendix-top-10-permno-시트-샘플"><span class="header-section-number">1.1</span> Appendix: Top 10 permno (시트-샘플)</a>
+  <li><a href="#appendix-top-10-permno-시트-샘플" id="toc-appendix-top-10-permno-시트-샘플" class="nav-link" data-scroll-target="#appendix-top-10-permno-시트-샘플">Appendix: Top 10 permno (시트-샘플)</a>
   <ul class="collapse">
-  <li><a href="#footnote-crsp-monthly-data의-date를-월말-날짜로-변환" id="toc-footnote-crsp-monthly-data의-date를-월말-날짜로-변환" class="nav-link" data-scroll-target="#footnote-crsp-monthly-data의-date를-월말-날짜로-변환"><span class="header-section-number">1.1.1</span> Footnote : CRSP monthly data의 ’date’를 월말 날짜로 변환</a></li>
-  <li><a href="#fama-french-smb-구성-규칙" id="toc-fama-french-smb-구성-규칙" class="nav-link" data-scroll-target="#fama-french-smb-구성-규칙"><span class="header-section-number">1.1.2</span> Fama-French SMB 구성 규칙:</a></li>
-  <li><a href="#as-the-split-point" id="toc-as-the-split-point" class="nav-link" data-scroll-target="#as-the-split-point"><span class="header-section-number">1.1.3</span> 2010-01-01 as the Split Point</a></li>
+  <li><a href="#footnote-crsp-monthly-data의-date를-월말-날짜로-변환" id="toc-footnote-crsp-monthly-data의-date를-월말-날짜로-변환" class="nav-link" data-scroll-target="#footnote-crsp-monthly-data의-date를-월말-날짜로-변환">Footnote : CRSP monthly data의 ’date’를 월말 날짜로 변환</a></li>
+  <li><a href="#fama-french-smb-구성-규칙" id="toc-fama-french-smb-구성-규칙" class="nav-link" data-scroll-target="#fama-french-smb-구성-규칙">Fama-French SMB 구성 규칙:</a></li>
+  <li><a href="#as-the-split-point" id="toc-as-the-split-point" class="nav-link" data-scroll-target="#as-the-split-point">2010-01-01 as the Split Point</a></li>
   </ul></li>
-  <li><a href="#appendix-key-events-in-each-period" id="toc-appendix-key-events-in-each-period" class="nav-link" data-scroll-target="#appendix-key-events-in-each-period"><span class="header-section-number">1.2</span> Appendix: Key Events in Each Period</a></li>
+  <li><a href="#appendix-key-events-in-each-period" id="toc-appendix-key-events-in-each-period" class="nav-link" data-scroll-target="#appendix-key-events-in-each-period">Appendix: Key Events in Each Period</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -158,7 +241,19 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>gitSAM </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 23, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -168,8 +263,35 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="data" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Data</h1>
+<div id="e8c2b52f" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>tidy_finance <span class="op">=</span> sqlite3.<span class="ex">connect</span>(database<span class="op">=</span><span class="st">"../../colab/tidy_finance_python.sqlite"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>factors_ff3_monthly <span class="op">=</span> pd.read_sql_query(</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  sql<span class="op">=</span><span class="st">"SELECT month, mkt_excess, rf FROM factors_ff3_monthly"</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  con<span class="op">=</span>tidy_finance,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  parse_dates<span class="op">=</span>{<span class="st">"month"</span>}</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 1994-01-01 indicates mktcap at 1994-01-31 which is the start date</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># the first return is calculated</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>crsp_monthly <span class="op">=</span> pd.read_sql_query(</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  sql<span class="op">=</span><span class="st">"SELECT permno, month, ret, ret_excess, mktcap, mktcap_lag, siccd, industry, exchange FROM crsp_monthly"</span>,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  con<span class="op">=</span>tidy_finance,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  parse_dates<span class="op">=</span>{<span class="st">"month"</span>}</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co">#cursor = tidy_finance.cursor()</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co">#cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co">#print(cursor.fetchall())</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<section id="data" class="level1">
+<h1>Data</h1>
 <ul>
 <li><p>Pooled Panel data</p></li>
 <li><p>Panel data</p></li>
@@ -178,16 +300,16 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Fama-French data library</p></li>
 <li><p>FRED database</p></li>
 </ul>
-<section id="appendix-top-10-permno-시트-샘플" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="appendix-top-10-permno-시트-샘플"><span class="header-section-number">1.1</span> Appendix: Top 10 permno (시트-샘플)</h2>
-<section id="footnote-crsp-monthly-data의-date를-월말-날짜로-변환" class="level3" data-number="1.1.1">
-<h3 data-number="1.1.1" class="anchored" data-anchor-id="footnote-crsp-monthly-data의-date를-월말-날짜로-변환"><span class="header-section-number">1.1.1</span> Footnote : CRSP monthly data의 ’date’를 월말 날짜로 변환</h3>
+<section id="appendix-top-10-permno-시트-샘플" class="level2">
+<h2 class="anchored" data-anchor-id="appendix-top-10-permno-시트-샘플">Appendix: Top 10 permno (시트-샘플)</h2>
+<section id="footnote-crsp-monthly-data의-date를-월말-날짜로-변환" class="level3">
+<h3 class="anchored" data-anchor-id="footnote-crsp-monthly-data의-date를-월말-날짜로-변환">Footnote : CRSP monthly data의 ’date’를 월말 날짜로 변환</h3>
 <p>In CRSP monthly stock data, dates like “2010-04-01” typically represent the end-of-month data, such as the market price on 2010-04-30, not the start of the month.</p>
 <p>Adjust CRSP dates (e.g., 2020-01-01) to month-end (e.g., 2020-01-31) to match regular (e.g.&nbsp;Yahoo Finance) resampled dates.</p>
 <p>df[‘date’] = pd.to_datetime(df[‘date’])+ pd.offsets.MonthEnd(0)</p>
 </section>
-<section id="fama-french-smb-구성-규칙" class="level3" data-number="1.1.2">
-<h3 data-number="1.1.2" class="anchored" data-anchor-id="fama-french-smb-구성-규칙"><span class="header-section-number">1.1.2</span> Fama-French SMB 구성 규칙:</h3>
+<section id="fama-french-smb-구성-규칙" class="level3">
+<h3 class="anchored" data-anchor-id="fama-french-smb-구성-규칙">Fama-French SMB 구성 규칙:</h3>
 <p>이전 해 12월 말(예: 2000년 12월) 시점에서 NYSE의 median 시가총액을 기준으로 Small과 Big의 경계선이 결정. 실제로 포트폴리오를 구성하는 시점은 그 다음 해 6월 말 (예: 2001년 6월 말).</p>
 <ul>
 <li>6개월의 시간 차이를 둔 것은 실무적으로 연말 결산 데이터와 회계자료(book equity 등)의 발표와 확인, 데이터베이스화 과정이 약 4~6개월 정도 소요되기 때문.</li>
@@ -200,27 +322,27 @@ ul.task-list li input[type="checkbox"] {
 <li>실제로 포트폴리오에 편입될 때는 Small 그룹으로 분류됩니다.</li>
 </ul>
 </section>
-<section id="as-the-split-point" class="level3" data-number="1.1.3">
-<h3 data-number="1.1.3" class="anchored" data-anchor-id="as-the-split-point"><span class="header-section-number">1.1.3</span> 2010-01-01 as the Split Point</h3>
+<section id="as-the-split-point" class="level3">
+<h3 class="anchored" data-anchor-id="as-the-split-point">2010-01-01 as the Split Point</h3>
 <p>The segmentation of financial time-series data at <strong>2010-01-01</strong> enables a clear distinction between two fundamentally different economic regimes. The <strong>pre-2010 period</strong> is characterized by financial deregulation, crises, and heightened volatility, while the <strong>post-2010 period</strong> reflects policy-driven recovery, evolving geopolitical risks, technological transformations, and the <strong>popularization of Exchange-Traded Funds (ETFs)</strong>. This division enhances the robustness of empirical analysis, allowing for a <strong>comparative assessment of portfolio performance across distinct macroeconomic environments</strong>.</p>
-<section id="segmentation-of-time-series-data" class="level4" data-number="1.1.3.1">
-<h4 data-number="1.1.3.1" class="anchored" data-anchor-id="segmentation-of-time-series-data"><span class="header-section-number">1.1.3.1</span> Segmentation of Time-Series Data</h4>
+<section id="segmentation-of-time-series-data" class="level4">
+<h4 class="anchored" data-anchor-id="segmentation-of-time-series-data">Segmentation of Time-Series Data</h4>
 <p>The dataset analyzed in this study spans <strong>1996-01-01 to 2023-12-31</strong> with a <strong>monthly frequency</strong>. To assess portfolio performance across different economic conditions, the time series is divided at <strong>2010-01-01</strong>, creating two equal sub-periods: - <strong>1996-01-01 to 2009-12-31</strong> (14 years) - <strong>2010-01-01 to 2023-12-31</strong> (14 years)</p>
 <p>This segmentation aligns with major financial and macroeconomic shifts, particularly the <strong>aftermath of the 2008-2009 Global Financial Crisis</strong>, which ushered in a new era of monetary policy and market behavior, as well as the <strong>rise in popularity and widespread adoption of ETFs</strong>.</p>
 </section>
-<section id="rationale-for-selecting-2010-01-01" class="level4" data-number="1.1.3.2">
-<h4 data-number="1.1.3.2" class="anchored" data-anchor-id="rationale-for-selecting-2010-01-01"><span class="header-section-number">1.1.3.2</span> Rationale for Selecting 2010-01-01</h4>
+<section id="rationale-for-selecting-2010-01-01" class="level4">
+<h4 class="anchored" data-anchor-id="rationale-for-selecting-2010-01-01">Rationale for Selecting 2010-01-01</h4>
 <p>The <strong>pre-2010 period</strong> was marked by high financial volatility, including the <strong>Asian Financial Crisis (1997)</strong>, <strong>Dot-com Bubble (2000-2001)</strong>, <strong>9/11 attacks (2001)</strong>, and <strong>Global Financial Crisis (2008-2009)</strong>. These events significantly influenced market structures and investment dynamics.</p>
 <p>Conversely, the <strong>post-2010 period</strong> saw a <strong>shift towards policy-driven markets</strong>, with extensive <strong>Quantitative Easing (QE)</strong> programs, <strong>U.S.-China trade tensions (2018)</strong>, the <strong>COVID-19 pandemic (2020)</strong>, the <strong>rise of AI-driven market trends (2023-present)</strong>, and the <strong>proliferation of ETFs as a mainstream investment vehicle</strong>. This transition underscores the fundamental differences between the two periods in terms of risk exposure, liquidity conditions, technological advancements, and investment strategies.</p>
 <p>By segmenting the data at <strong>2010-01-01</strong>, this study enables a structured analysis of how portfolio performance responds to <strong>structurally distinct economic environments</strong>, enhancing the robustness of financial research.</p>
 </section>
 </section>
 </section>
-<section id="appendix-key-events-in-each-period" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="appendix-key-events-in-each-period"><span class="header-section-number">1.2</span> Appendix: Key Events in Each Period</h2>
+<section id="appendix-key-events-in-each-period" class="level2">
+<h2 class="anchored" data-anchor-id="appendix-key-events-in-each-period">Appendix: Key Events in Each Period</h2>
 <p>The following table outlines <strong>major macroeconomic and financial events</strong> that influenced global markets during each period. The <strong>relative importance</strong> of each event is indicated in parentheses (e.g., <em>Very High</em>, <em>High</em>).</p>
-<section id="pre-2010-period-1996-01-01-to-2009-12-31" class="level4" data-number="1.2.0.1">
-<h4 data-number="1.2.0.1" class="anchored" data-anchor-id="pre-2010-period-1996-01-01-to-2009-12-31"><span class="header-section-number">1.2.0.1</span> pre-2010 period (1996-01-01 to 2009-12-31)</h4>
+<section id="pre-2010-period-1996-01-01-to-2009-12-31" class="level4">
+<h4 class="anchored" data-anchor-id="pre-2010-period-1996-01-01-to-2009-12-31">pre-2010 period (1996-01-01 to 2009-12-31)</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 8%">
@@ -283,8 +405,8 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 </section>
-<section id="post-2010-period-2010-01-01-to-2023-12-31" class="level4" data-number="1.2.0.2">
-<h4 data-number="1.2.0.2" class="anchored" data-anchor-id="post-2010-period-2010-01-01-to-2023-12-31"><span class="header-section-number">1.2.0.2</span> post-2010 period (2010-01-01 to 2023-12-31)</h4>
+<section id="post-2010-period-2010-01-01-to-2023-12-31" class="level4">
+<h4 class="anchored" data-anchor-id="post-2010-period-2010-01-01-to-2023-12-31">post-2010 period (2010-01-01 to 2023-12-31)</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 8%">

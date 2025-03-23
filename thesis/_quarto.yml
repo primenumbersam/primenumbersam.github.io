@@ -43,11 +43,11 @@ format:
     theme: cosmo
     css: ../styles.css
     toc: true
-    number-sections: true
+    number-sections: false
     code-fold: true
 
 execute:
   engine: jupyter
-  freeze: auto
+  freeze: false
 
 jupyter: python3

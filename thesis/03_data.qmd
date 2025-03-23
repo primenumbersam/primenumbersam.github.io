@@ -2,6 +2,33 @@
 title: Data
 ---
 
+
+```{python}
+import pandas as pd
+import sqlite3
+
+tidy_finance = sqlite3.connect(database="../../colab/tidy_finance_python.sqlite")
+
+factors_ff3_monthly = pd.read_sql_query(
+  sql="SELECT month, mkt_excess, rf FROM factors_ff3_monthly",
+  con=tidy_finance,
+  parse_dates={"month"}
+)
+
+# 1994-01-01 indicates mktcap at 1994-01-31 which is the start date
+# the first return is calculated
+crsp_monthly = pd.read_sql_query(
+  sql="SELECT permno, month, ret, ret_excess, mktcap, mktcap_lag, siccd, industry, exchange FROM crsp_monthly",
+  con=tidy_finance,
+  parse_dates={"month"}
+)
+
+#cursor = tidy_finance.cursor()
+#cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+#print(cursor.fetchall())
+
+```
+
 # Data
 
 - Pooled Panel data
