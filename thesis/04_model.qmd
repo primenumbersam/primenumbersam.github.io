@@ -1,0 +1,141 @@
+---
+title: Too Big to Fail?
+author: gitSAM
+date: '2025-03-23'
+bibliography: references.bib
+format:
+  html:
+    code-fold: true
+    toc: true
+    number-sections: true
+---
+
+
+
+# Empirical Study
+
+- **The TBTF Strategy**  
+  - **Large vs. Small Stocks**: Analyze return distribution asymmetry and volatility differences over time.  
+  - **Top 10 Stocks**: List membership (e.g., permno) and stability, dominated by high-tech (Nasdaq chips/software).  
+  - **Top 10 Transition Analysis**: Transition matrix and stationary distribution (three states: top, mid, out).  
+  - **TBTF Performance**: Compare risk-adjusted returns (Sharpe, Sortino, Omega) to market indices/ETFs.  
+
+
+
+패널 데이터 상의 개인별 **소득의 로그 (log-income)** 가 AR(1) 과정을 따르며, 이 과정이 시간이 지남에 따라 **두 개의 상태(regime)** 간 전환되는 **Markov-switching AR(1)** 구조라고 가정하면, **상태 전이 행렬 (transition matrix)** 를 포함한 
+
+모형 파라미터를 추정 방법
+- **Expectation-Maximization (EM) 알고리즘**
+- **Hamilton 필터**와 같은 **비선형 시계열 필터링 기법**
+
+아래에서는 2-state Markov-switching AR(1) 모형을 panel data 상황에 맞춰 수식화하고, **상태 전이 행렬 추정 절차**를 설명합니다.
+
+## Data
+
+
+## 1. 모형 구조 (개인 $i$의 로그 소득)
+
+패널 데이터에서 개인 $i$의 시점 $t$의 로그 소득 $y_{it} = \log(\text{income}_{it})$가 다음과 같은 구조를 따른다고 가정합니다:
+
+$$
+y_{it} = \mu_{s_{it}} + \phi_{s_{it}} y_{i,t-1} + \epsilon_{it}, \quad \epsilon_{it} \sim \mathcal{N}(0, \sigma_{s_{it}}^2)
+$$
+
+여기서:
+- $s_{it} \in \{1, 2\}$: 시점 $t$에서 개인 $i$의 **은닉 상태 (hidden state)** (예: "저성장 상태", "고성장 상태")
+- 각 상태는 상태별 AR(1) 계수와 평균, 분산을 가짐
+
+---
+
+## 2. 상태 전이 행렬 (공통 가정)
+
+개별 개인마다 상태가 전이되지만, **상태 전이 확률은 전체적으로 공통적**이라고 가정:
+
+$$
+P = 
+\begin{bmatrix}
+p_{11} & p_{12} \\
+p_{21} & p_{22}
+\end{bmatrix}, \quad \text{where } p_{jk} = \mathbb{P}(s_{it} = k \mid s_{i,t-1} = j)
+$$
+
+예:  
+- $p_{11}$ = 상태 1 (저성장)이 지속될 확률  
+- $p_{12}$ = 상태 1에서 2로 전이될 확률  
+- ...
+
+---
+
+## 3. 추정 방법: EM 알고리즘 (Baum–Welch 계열)
+
+**EM 알고리즘**을 적용하여 다음을 추정:
+- 상태 전이 확률 $P$
+- 상태별 AR(1) 파라미터 $\mu_1, \mu_2, \phi_1, \phi_2, \sigma_1^2, \sigma_2^2$
+- 각 시점의 상태 posterior 확률 $\mathbb{P}(s_{it} = k \mid \text{observed data})$
+
+### (1) 초기화
+- 초기 상태 전이행렬 $P^{(0)}$
+- 초기 파라미터 $(\mu_k^{(0)}, \phi_k^{(0)}, \sigma_k^{(0)})$ for $k=1,2$
+
+### (2) E-step: 상태 확률 계산
+Hamilton filter 또는 Forward-Backward algorithm을 통해 다음을 계산:
+
+- $\gamma_{it}^{(k)} = \mathbb{P}(s_{it} = k \mid \text{data})$: 상태 k에 있을 posterior 확률
+- $\xi_{it}^{(j,k)} = \mathbb{P}(s_{i,t-1} = j, s_{it} = k \mid \text{data})$: 상태 전이 joint posterior
+
+### (3) M-step: 파라미터 업데이트
+
+#### 상태 전이 확률 추정:
+
+$$
+p_{jk} = \frac{\sum_{i,t} \xi_{it}^{(j,k)}}{\sum_{i,t} \sum_{k'} \xi_{it}^{(j,k')}}
+$$
+
+즉, 상태 $j \to k$로의 전이가 얼마나 자주 발생했는지를 전체 joint posterior 기반으로 집계하여 전이 확률로 추정합니다.
+
+#### AR(1) 파라미터는 weighted OLS로 추정:
+
+예를 들어 상태 $k$에 대해서:
+
+- $\phi_k, \mu_k$: $\gamma_{it}^{(k)}$를 가중치로 사용한 weighted regression
+- $\sigma_k^2$: weighted residual variance
+
+### (4) 수렴할 때까지 반복
+
+---
+
+## 4. 실용적인 가정 및 제약
+
+- **공통 전이행렬**: 모든 개인에 대해 상태 전이 확률은 동일하다고 가정 ($P$는 공통)
+- **개인별 상이한 초기 분포**: $\mathbb{P}(s_{i1})$은 개인별로 추정하거나 공통으로 가정
+- 데이터가 충분히 길지 않은 경우, 시간 단위($T$)는 상태 추정을 어렵게 만들 수 있어 **개인 간 정보 풀링**이 중요
+
+---
+
+## 5. 간단한 예시
+
+예를 들어 다음과 같은 전이행렬이 있다고 가정:
+
+$$
+P = \begin{bmatrix}
+0.95 & 0.05 \\
+0.10 & 0.90
+\end{bmatrix}
+$$
+
+이 경우:
+- 상태 1 (저성장)은 매우 안정적으로 지속됨 (95%)
+- 상태 2 (고성장)은 상대적으로 덜 안정적이며, 10% 확률로 저성장으로 전이
+
+이 전이확률은 위 EM 알고리즘 M-step에서 $\xi_{it}^{(j,k)}$를 평균하여 추정됩니다.
+
+---
+
+## 6. Python 추정 예제 제공 가능
+
+패널 데이터를 대상으로 이 모형을 추정하려면 다음과 같은 라이브러리를 활용할 수 있습니다:
+
+- `statsmodels.tsa.regime_switching.MarkovRegression` (단일 시계열에 한정)
+- `pyhsmm` 또는 `hmmlearn`: HMM 기반 EM 추정
+- `linearmodels.panel` + custom EM 알고리즘: 패널 구조에 맞춘 추정
+

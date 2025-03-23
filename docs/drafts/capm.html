@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="gitSAM">
+<meta name="dcterms.date" content="2025-03-21">
+
+<title>Revisiting the CAPM and Diversification – GitSAM</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-ddd961a2510921635943dfbbd19534c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">GitSAM</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../thesis/index.html"> 
+<span class="menu-text">TBTF</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../projects/index.html"> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../drafts/index.html"> 
+<span class="menu-text">Drafts</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../guides/index.html"> 
+<span class="menu-text">Guides</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools tools-wide">
+    <a href="https://www.gitsam.com" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-house"></i></a>
+    <a href="https://www.youtube.com/@primenumbersam" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-youtube"></i></a>
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/primenumbersam/primenumbersam.github.io">
+            Source Code
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="mailto:primenumbersam@gmail.com">
+            Report a Bug
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#main" id="toc-main" class="nav-link" data-scroll-target="#main">Main</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Revisiting the CAPM and Diversification</h1>
+<p class="subtitle lead">Market Concentration and Its Challenges to the Risk-Return Framework</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>gitSAM </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 21, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+<div>
+  <div class="abstract">
+    <div class="block-title">Abstract</div>
+    This study revisits the Capital Asset Pricing Model (CAPM)** in light of increasing market concentration and its challenges to the risk-return framework. CAPM posits that systematic risk, measured by beta, is the only relevant determinant of expected returns, as unsystematic risk can be diversified away. However, rising market concentration raises concerns about whether diversification remains effective in practice. When a small number of firms dominate market returns, the traditional assumptions of efficient risk-sharing and competitive asset pricing may no longer hold. This study examines how concentration distorts expected returns, potentially leading to risk mispricing and a breakdown of the CAPM equilibrium. The findings suggest that market structure itself has become a non-diversifiable source of risk, necessitating a reassessment of traditional asset pricing models under contemporary market conditions.
+  </div>
+</div>
+
+
+</header>
+
+
+<section id="introduction" class="level3">
+<h3 class="anchored" data-anchor-id="introduction">Introduction</h3>
+<p>The <strong>Capital Asset Pricing Model (CAPM)</strong>, developed by <span class="citation" data-cites="sharpe1964capital">Sharpe (<a href="#ref-sharpe1964capital" role="doc-biblioref">1964</a>)</span>, <span class="citation" data-cites="lintner1965valuation">Lintner (<a href="#ref-lintner1965valuation" role="doc-biblioref">1965</a>)</span>, and <span class="citation" data-cites="mossin1966equilibrium">Mossin (<a href="#ref-mossin1966equilibrium" role="doc-biblioref">1966</a>)</span>, remains a cornerstone of modern finance, linking expected returns to risk. It classifies risk into two categories: <strong>systematic risk</strong>, which stems from market-wide factors and cannot be diversified away, and <strong>unsystematic risk</strong>, which is asset-specific and can be mitigated through diversification. The CAPM posits that only systematic risk, measured by beta, justifies a return premium, as investors can eliminate unsystematic risk by holding a diversified portfolio, ideally approximating the market portfolio. This principle aligns with broader linear factor models like the <strong>Arbitrage Pricing Theory (APT)</strong> <span class="citation" data-cites="ross1976arbitrage">(<a href="#ref-ross1976arbitrage" role="doc-biblioref">Ross 1976</a>)</span>, which extends the CAPM by incorporating multiple systematic risk factors while similarly dismissing diversifiable risk under no-arbitrage conditions.</p>
+<p>However, the CAPM’s empirical validity has been contested. <span class="citation" data-cites="banz1981relationship">Banz (<a href="#ref-banz1981relationship" role="doc-biblioref">1981</a>)</span> documented the <strong>size effect</strong>, where small-cap stocks outperform CAPM predictions, while <span class="citation" data-cites="basu1977investment">Basu (<a href="#ref-basu1977investment" role="doc-biblioref">1977</a>)</span> identified the <strong>value effect</strong>, showing excess returns for stocks with high earnings-to-price ratios. These anomalies spurred the development of multifactor models, such as the <strong>Fama-French three-factor model</strong> <span class="citation" data-cites="fama1993common">(<a href="#ref-fama1993common" role="doc-biblioref">Fama and French 1993</a>)</span>, which augment beta with size and value factors. Beyond these, market concentration has emerged as a critical lens for understanding asset pricing deviations. <span class="citation" data-cites="hou2006industry">Hou and Robinson (<a href="#ref-hou2006industry" role="doc-biblioref">2006</a>)</span> found that firms in concentrated industries earn higher returns, attributing this to <strong>economic rents</strong> from market power. <span class="citation" data-cites="edmans2009blockholder">Edmans (<a href="#ref-edmans2009blockholder" role="doc-biblioref">2009</a>)</span> linked ownership concentration to superior performance, while <span class="citation" data-cites="choi2017portfolio">Choi et al. (<a href="#ref-choi2017portfolio" role="doc-biblioref">2017</a>)</span> showed that institutional investors with concentrated portfolios outperform diversified ones. <span class="citation" data-cites="neuhann2024financial">Neuhann and Sockin (<a href="#ref-neuhann2024financial" role="doc-biblioref">2024</a>)</span> explored how financial market concentration distorts capital allocation, and <span class="citation" data-cites="bustamante2017product">Bustamante and Donangelo (<a href="#ref-bustamante2017product" role="doc-biblioref">2017</a>)</span> tied product market concentration to industry returns.</p>
+<p>From a theoretical perspective, <span class="citation" data-cites="magill1996incomplete">Magill and Quinzii (<a href="#ref-magill1996incomplete" role="doc-biblioref">1996</a>)</span> argued that incomplete markets—lacking sufficient contingent claims—prevent full risk hedging, challenging CAPM assumptions. <span class="citation" data-cites="cochrane1996cross">Cochrane (<a href="#ref-cochrane1996cross" role="doc-biblioref">1996</a>)</span> emphasized the role of investment-based pricing, while <span class="citation" data-cites="campbell1992intertemporal">Campbell (<a href="#ref-campbell1992intertemporal" role="doc-biblioref">1992</a>)</span> critiqued volatility as an incomplete risk measure. Socioeconomic analyses, such as <span class="citation" data-cites="saez2016wealth">Saez and Zucman (<a href="#ref-saez2016wealth" role="doc-biblioref">2016</a>)</span>, further connect market concentration to wealth inequality, highlighting broader implications. This rich body of literature suggests that market structure and concentration significantly complicate the CAPM’s risk-return framework, necessitating a deeper examination.</p>
+</section>
+<section id="main" class="level3">
+<h3 class="anchored" data-anchor-id="main">Main</h3>
+<section id="empirical-and-mathematical-foundations-of-diversification" class="level4">
+<h4 class="anchored" data-anchor-id="empirical-and-mathematical-foundations-of-diversification">Empirical and Mathematical Foundations of Diversification</h4>
+<p>Diversification’s risk-reducing power is well-established empirically and mathematically. <span class="citation" data-cites="elton1977risk">Elton and Gruber (<a href="#ref-elton1977risk" role="doc-biblioref">1977</a>)</span> analyzed 3,290 securities, demonstrating that a portfolio of just four stocks markedly reduces variance compared to a single stock, underscoring diversification’s practical utility.</p>
+<p>Mathematically, consider an equally weighted portfolio of <span class="math inline">\(n\)</span> securities. The portfolio variance <span class="math inline">\(\sigma_p^2\)</span> is given by:</p>
+<p><span class="math display">\[
+\sigma_p^2 = \frac{1}{n} \bar{\sigma}^2 + \frac{n-1}{n} \bar{\rho} \bar{\sigma}^2
+\]</span></p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(\bar{\sigma}^2\)</span> = average variance of individual securities<br>
+</li>
+<li><span class="math inline">\(\bar{\rho}\)</span> = average correlation between securities</li>
+</ul>
+<p>As <span class="math inline">\(n\)</span> increases, <span class="math inline">\(\sigma_p^2\)</span> converges to <span class="math inline">\(\bar{\rho} \bar{\sigma}^2\)</span>, indicating that covariance, not individual variance, dominates portfolio risk. When <span class="math inline">\(\bar{\rho} &lt; 1\)</span>, diversification lowers volatility, resembling how higher-order terms in Taylor polynomials diminish to smooth a function or how fractal geometry simplifies irregularities with scale.</p>
+</section>
+<section id="a-critique-of-risk-as-volatility" class="level4">
+<h4 class="anchored" data-anchor-id="a-critique-of-risk-as-volatility">A Critique of Risk as Volatility</h4>
+<p>The CAPM equates risk with volatility, but this assumption is narrow. Long-term investors may prioritize structural risks—e.g., economic shifts or sector obsolescence—over short-term price swings. A volatile growth stock might be less “risky” to them than a stable but declining asset. <span class="citation" data-cites="campbell1992intertemporal">Campbell (<a href="#ref-campbell1992intertemporal" role="doc-biblioref">1992</a>)</span> supports this critique, arguing that volatility oversimplifies the multifaceted nature of risk, a view echoed by behavioral finance perspectives <span class="citation" data-cites="shiller2003efficient">(<a href="#ref-shiller2003efficient" role="doc-biblioref">Shiller 2003</a>)</span>.</p>
+</section>
+<section id="diversification-and-the-risk-return-trade-off" class="level4">
+<h4 class="anchored" data-anchor-id="diversification-and-the-risk-return-trade-off">Diversification and the Risk-Return Trade-Off</h4>
+<p>The CAPM ties diversification to the risk-return trade-off, suggesting investors can eliminate unsystematic risk while earning returns proportional to systematic risk exposure. In a stochastic setting, diverse agents (e.g., farmers, energy producers) share idiosyncratic risks, enhancing welfare <span class="citation" data-cites="cochrane2009asset">(<a href="#ref-cochrane2009asset" role="doc-biblioref">Cochrane 2009</a>)</span>. Yet, this assumes a broad, competitive market. When the market portfolio—say, the S&amp;P 500—is dominated by a few highly correlated stocks (e.g., tech giants), diversification falters. High <span class="math inline">\(\bar{\rho}\)</span> reduces variance’s sensitivity to <span class="math inline">\(n\)</span>, undermining the CAPM’s benefits <span class="citation" data-cites="grullon2019us">(<a href="#ref-grullon2019us" role="doc-biblioref">Grullon, Larkin, and Michaely 2019</a>)</span>.</p>
+</section>
+<section id="market-concentration-and-the-upper-frontier" class="level4">
+<h4 class="anchored" data-anchor-id="market-concentration-and-the-upper-frontier">Market Concentration and the Upper Frontier</h4>
+<p>In the <a href="https://python-advanced.quantecon.org/asset_pricing_lph.html#mathematical-structure-of-frontier">standard arbitrage-free asset pricing framework</a>, the upper mean-variance frontier assets correlate perfectly (negatively) with the stochastic discount factor (SDF). In concentrated markets, dominant firms with <strong>economic moats</strong> <span class="citation" data-cites="bustamante2017product">(<a href="#ref-bustamante2017product" role="doc-biblioref">Bustamante and Donangelo 2017</a>)</span> act as principal components, compressing the payoff space. For example, if the <strong>Herfindahl-Hirschman Index (HHI)</strong> measures this dominance or concentration, then a high HHI signals reliance on few assets, limiting diversification. Investors may then seek arbitrage in these stocks, amplifying concentration <span class="citation" data-cites="valta2012competition">(<a href="#ref-valta2012competition" role="doc-biblioref">Valta 2012</a>)</span>.</p>
+</section>
+<section id="implications-for-investors-and-market-stability" class="level4">
+<h4 class="anchored" data-anchor-id="implications-for-investors-and-market-stability">Implications for Investors and Market Stability</h4>
+<p>In concentrated markets, diversification yields to capturing rents from dominant firms. These firms use primary-market capital to reinforce moats, distributing profits rather than fostering competition <span class="citation" data-cites="hou2006industry">(<a href="#ref-hou2006industry" role="doc-biblioref">Hou and Robinson 2006</a>)</span>. Secondary-market trading becomes zero-sum, redistributing wealth without value creation. Early investors in concentrated stocks gain disproportionately, widening inequality <span class="citation" data-cites="saez2016wealth">(<a href="#ref-saez2016wealth" role="doc-biblioref">Saez and Zucman 2016</a>)</span> and challenging the CAPM’s traditional data-driven risk-return logic.</p>
+</section>
+<section id="broader-socioeconomic-consequences" class="level4">
+<h4 class="anchored" data-anchor-id="broader-socioeconomic-consequences">Broader Socioeconomic Consequences</h4>
+<p>Concentration reduces contingent claim diversity, impairing hedging capacity <span class="citation" data-cites="magill1996incomplete">(<a href="#ref-magill1996incomplete" role="doc-biblioref">Magill and Quinzii 1996</a>)</span>. A shock to a dominant sector triggers systemic ripples, increasing instability. This homogeneity shifts markets from managing uncertainty to rewarding market power, exacerbating wealth gaps and contradicting the CAPM’s egalitarian risk-sharing ideal.</p>
+</section>
+</section>
+<section id="conclusion" class="level3">
+<h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>
+<p>The CAPM’s diversification-driven risk-return framework faces significant challenges from market concentration. As diversification weakens, investors prioritize rents over risk reduction, simplifying markets into systems dominated by a few firms. This shift threatens stability, equity, and hedging capacity, urging a rethinking of the CAPM and policies to enhance market diversity.</p>
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-banz1981relationship" class="csl-entry" role="listitem">
+Banz, Rolf W. 1981. <span>“The Relationship Between Return and Market Value of Common Stocks.”</span> <em>Journal of Financial Economics</em> 9 (1): 3–18.
+</div>
+<div id="ref-basu1977investment" class="csl-entry" role="listitem">
+Basu, Sanjoy. 1977. <span>“Investment Performance of Common Stocks in Relation to Their Price‐earnings Ratios: A Test of the Efficient Market Hypothesis.”</span> <em>The Journal of Finance</em> 32 (3): 663–82.
+</div>
+<div id="ref-bustamante2017product" class="csl-entry" role="listitem">
+Bustamante, M Cecilia, and Andres Donangelo. 2017. <span>“Product Market Competition and Industry Returns.”</span> <em>The Review of Financial Studies</em> 30 (12): 4216–66.
+</div>
+<div id="ref-campbell1992intertemporal" class="csl-entry" role="listitem">
+Campbell, John Y. 1992. <span>“Intertemporal Asset Pricing Without Consumption Data.”</span> National Bureau of Economic Research Cambridge, Mass., USA.
+</div>
+<div id="ref-choi2017portfolio" class="csl-entry" role="listitem">
+Choi, Nicole, Mark Fedenia, Hilla Skiba, and Tatyana Sokolyk. 2017. <span>“Portfolio Concentration and Performance of Institutional Investors Worldwide.”</span> <em>Journal of Financial Economics</em> 123 (1): 189–208.
+</div>
+<div id="ref-cochrane1996cross" class="csl-entry" role="listitem">
+Cochrane, John H. 1996. <span>“A Cross-Sectional Test of an Investment-Based Asset Pricing Model.”</span> <em>Journal of Political Economy</em> 104 (3): 572–621.
+</div>
+<div id="ref-cochrane2009asset" class="csl-entry" role="listitem">
+———. 2009. <em>Asset Pricing: Revised Edition</em>. Princeton university press.
+</div>
+<div id="ref-edmans2009blockholder" class="csl-entry" role="listitem">
+Edmans, Alex. 2009. <span>“Blockholder Trading, Market Efficiency, and Managerial Myopia.”</span> <em>The Journal of Finance</em> 64 (6): 2481–2513.
+</div>
+<div id="ref-elton1977risk" class="csl-entry" role="listitem">
+Elton, Edwin J, and Martin J Gruber. 1977. <span>“Risk Reduction and Portfolio Size: An Analytical Solution.”</span> <em>The Journal of Business</em> 50 (4): 415–37.
+</div>
+<div id="ref-fama1993common" class="csl-entry" role="listitem">
+Fama, Eugene F, and Kenneth R French. 1993. <span>“Common Risk Factors in the Returns on Stocks and Bonds.”</span> <em>Journal of Financial Economics</em> 33 (1): 3–56.
+</div>
+<div id="ref-grullon2019us" class="csl-entry" role="listitem">
+Grullon, Gustavo, Yelena Larkin, and Roni Michaely. 2019. <span>“Are US Industries Becoming More Concentrated?”</span> <em>Review of Finance</em> 23 (4): 697–743.
+</div>
+<div id="ref-hou2006industry" class="csl-entry" role="listitem">
+Hou, Kewei, and David T Robinson. 2006. <span>“Industry Concentration and Average Stock Returns.”</span> <em>The Journal of Finance</em> 61 (4): 1927–56.
+</div>
+<div id="ref-lintner1965valuation" class="csl-entry" role="listitem">
+Lintner, John. 1965. <span>“The Valuation of Risk Assets and the Selection of Risky Investments in Stock Portfolios and Capital Budgets.”</span> <em>The Review of Economics and Statistics</em> 47 (1): 13–37.
+</div>
+<div id="ref-magill1996incomplete" class="csl-entry" role="listitem">
+Magill, Michael, and Martine Quinzii. 1996. <span>“Incomplete Markets over an Infinite Horizon: Long-Lived Securities and Speculative Bubbles.”</span> <em>Journal of Mathematical Economics</em> 26 (1): 133–70.
+</div>
+<div id="ref-mossin1966equilibrium" class="csl-entry" role="listitem">
+Mossin, Jan. 1966. <span>“Equilibrium in a Capital Asset Market.”</span> <em>Econometrica</em> 34 (4): 768–83.
+</div>
+<div id="ref-neuhann2024financial" class="csl-entry" role="listitem">
+Neuhann, Daniel, and Michael Sockin. 2024. <span>“Financial Market Concentration and Misallocation.”</span> <em>Journal of Financial Economics</em> 159: 103875.
+</div>
+<div id="ref-ross1976arbitrage" class="csl-entry" role="listitem">
+Ross, Stephen A. 1976. <span>“The Arbitrage Theory of Capital Asset Pricing.”</span> <em>Journal of Economic Theory</em> 13 (3): 341–60.
+</div>
+<div id="ref-saez2016wealth" class="csl-entry" role="listitem">
+Saez, Emmanuel, and Gabriel Zucman. 2016. <span>“Wealth Inequality in the United States Since 1913: Evidence from Capitalized Income Tax Data.”</span> <em>The Quarterly Journal of Economics</em> 131 (2): 519–78.
+</div>
+<div id="ref-sharpe1964capital" class="csl-entry" role="listitem">
+Sharpe, William F. 1964. <span>“Capital Asset Prices: A Theory of Market Equilibrium Under Conditions of Risk.”</span> <em>The Journal of Finance</em> 19 (3): 425–42.
+</div>
+<div id="ref-shiller2003efficient" class="csl-entry" role="listitem">
+Shiller, Robert J. 2003. <span>“From Efficient Markets Theory to Behavioral Finance.”</span> <em>Journal of Economic Perspectives</em> 17 (1): 83–104.
+</div>
+<div id="ref-valta2012competition" class="csl-entry" role="listitem">
+Valta, Philip. 2012. <span>“Competition and the Cost of Debt.”</span> <em>Journal of Financial Economics</em> 105 (3): 661–82.
+</div>
+</div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

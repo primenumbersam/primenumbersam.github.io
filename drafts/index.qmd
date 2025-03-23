@@ -1,0 +1,18 @@
+---
+title: "Drafts"
+sidebar:
+  style: "floating"
+  contents:
+    - section: "Explorations"
+      contents:
+        - capm.qmd
+        - capm_industry.qmd
+        - structure_cointegration.qmd
+        - structure_tfp.qmd
+        - market_conditions.qmd
+        - market_incomplete.qmd
+---
+
+# Working Drafts
+
+These are conceptual and exploratory pieces that may evolve into papers or teaching materials.

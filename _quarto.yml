@@ -2,50 +2,25 @@ project:
   type: website
   output-dir: docs
 
+execute:
+  engine: jupyter
+  freeze: auto
+
+jupyter: python3
+
 website:
   title: "GitSAM"
   navbar:
     left:
       - about.qmd
+      - text: "TBTF"
+        href: thesis/index.qmd
       - text: "Projects"
-        menu: 
-          - href: projects/gilded_age/gilded_age.qmd
-            text: The New Gilded Age
-          - href: projects/pricing_equal/pricing_equal.qmd
-            text: Pricing Equal Opportunity
-          - href: projects/dichotomy/dichotomy.qmd
-            text: Distinct Dichotomy
-          - href: projects/pareto_index/pareto_index.qmd
-            text: Estimating Pareto Index
-          - href: projects/corner_solution/corner_solution.qmd
-            text: Heading to Corner Solutions
-          - href: projects/asset_puzzle/asset_puzzle.qmd
-            text: Asset Premium Puzzles
-      - text: "Appendix"
-        menu:
-          - href: appendix/a_conditions.qmd
-            text: Free Market Conditions
-          - href: appendix/incomplete/a_incomplete.qmd
-            text: Incomplete market
-          - href: appendix/capm/a_capm.qmd
-            text: Revisiting CAPM
-          - href: appendix/a_industry_capm.qmd
-            text: Revisiting CAPM
-          - href: appendix/sample-estimation.qmd
-            text: Geometry in Regressions
-      - text: "시계열"
-        menu: 
-          - href: time-series/correlation_crypto/correlation_crypto.qmd
-            text: 암호화폐들의 상관관계
-          - href: time-series/yield_curve.qmd
-            text: 채권투자와 금리
-          - href: time-series/labor_decoupling.qmd
-            text: 노동 기여와 분배
-          - href: time-series/indicator_growth.qmd
-            text: 경제성장 지표
-          - href: time-series/tfp.qmd
-            text: Structural Change
-
+        href: projects/index.qmd
+      - text: "Drafts"
+        href: drafts/index.qmd
+      - text: "Guides"
+        href: guides/index.qmd
     tools:
       - icon: house
         href: https://www.gitsam.com

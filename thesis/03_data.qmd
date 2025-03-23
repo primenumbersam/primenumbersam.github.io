@@ -1,0 +1,97 @@
+---
+title: Too Big to Fail?
+author: gitSAM
+date: '2025-03-23'
+bibliography: references.bib
+format:
+  html:
+    code-fold: true
+    toc: true
+    number-sections: true
+---
+
+# Data
+
+- Pooled Panel data
+- Panel data
+
+- CRSP from WRDS
+- price data from Yahoo Finance
+- Fama-French data library
+- FRED database
+
+## Appendix: Top 10 permno (시트-샘플)
+
+
+### Footnote : CRSP monthly data의 'date'를 월말 날짜로 변환
+In CRSP monthly stock data, dates like "2010-04-01" typically represent the end-of-month data, such as the market price on 2010-04-30, not the start of the month.
+
+Adjust CRSP dates (e.g., 2020-01-01) to month-end (e.g., 2020-01-31) to match regular (e.g. Yahoo Finance) resampled dates.
+
+df['date'] = pd.to_datetime(df['date'])+ pd.offsets.MonthEnd(0)
+
+### Fama-French SMB 구성 규칙: 
+
+이전 해 12월 말(예: 2000년 12월) 시점에서 NYSE의 median 시가총액을 기준으로 Small과 Big의 경계선이 결정. 실제로 포트폴리오를 구성하는 시점은 그 다음 해 6월 말 (예: 2001년 6월 말). 
+
+- 6개월의 시간 차이를 둔 것은 실무적으로 연말 결산 데이터와 회계자료(book equity 등)의 발표와 확인, 데이터베이스화 과정이 약 4~6개월 정도 소요되기 때문.
+- Fama-French의 초기 연구(1992, 1993, 1996년 등)에 따르면, 시가총액(market equity) 기준의 기업 순위(percentile rank)는 대체로 상당히 지속적(persistent)이며, 6개월 이내에 급격하게 변동하는 기업은 상대적으로 적었다고 함.
+
+예시:
+
+- 이전 해 12월 말에 10 percentile 이상이었고 (당시 큰 편에 속했지만),
+- 그 다음 해 6월 말에 측정된 시가총액이 NYSE median market equity보다 작다면(즉 50 percentile 이하라면),
+- 실제로 포트폴리오에 편입될 때는 Small 그룹으로 분류됩니다.
+
+### 2010-01-01 as the Split Point
+
+The segmentation of financial time-series data at **2010-01-01** enables a clear distinction between two fundamentally different economic regimes. The **pre-2010 period** is characterized by financial deregulation, crises, and heightened volatility, while the **post-2010 period** reflects policy-driven recovery, evolving geopolitical risks, technological transformations, and the **popularization of Exchange-Traded Funds (ETFs)**. This division enhances the robustness of empirical analysis, allowing for a **comparative assessment of portfolio performance across distinct macroeconomic environments**.
+
+#### Segmentation of Time-Series Data
+
+The dataset analyzed in this study spans **1996-01-01 to 2023-12-31** with a **monthly frequency**. To assess portfolio performance across different economic conditions, the time series is divided at **2010-01-01**, creating two equal sub-periods:
+- **1996-01-01 to 2009-12-31** (14 years)
+- **2010-01-01 to 2023-12-31** (14 years)
+
+This segmentation aligns with major financial and macroeconomic shifts, particularly the **aftermath of the 2008-2009 Global Financial Crisis**, which ushered in a new era of monetary policy and market behavior, as well as the **rise in popularity and widespread adoption of ETFs**.
+
+#### Rationale for Selecting 2010-01-01
+
+The **pre-2010 period** was marked by high financial volatility, including the **Asian Financial Crisis (1997)**, **Dot-com Bubble (2000-2001)**, **9/11 attacks (2001)**, and **Global Financial Crisis (2008-2009)**. These events significantly influenced market structures and investment dynamics.
+
+Conversely, the **post-2010 period** saw a **shift towards policy-driven markets**, with extensive **Quantitative Easing (QE)** programs, **U.S.-China trade tensions (2018)**, the **COVID-19 pandemic (2020)**, the **rise of AI-driven market trends (2023-present)**, and the **proliferation of ETFs as a mainstream investment vehicle**. This transition underscores the fundamental differences between the two periods in terms of risk exposure, liquidity conditions, technological advancements, and investment strategies.
+
+By segmenting the data at **2010-01-01**, this study enables a structured analysis of how portfolio performance responds to **structurally distinct economic environments**, enhancing the robustness of financial research.
+
+## Appendix: Key Events in Each Period
+
+The following table outlines **major macroeconomic and financial events** that influenced global markets during each period. The **relative importance** of each event is indicated in parentheses (e.g., *Very High*, *High*).
+
+#### pre-2010 period (1996-01-01 to 2009-12-31)
+
+| Date               | Event & Description                                                                                                                                         | Importance    |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
+| **1997-07-02**     | *Asian Financial Crisis begins*: The collapse of the Thai baht triggered widespread currency devaluations and IMF interventions.                             | **Very High** |
+| **1999-01-01**     | *Introduction of the Euro*: The launch of the euro as a unified currency, reshaping global trade and financial markets.                                      | **High**      |
+| **1999-11-12**     | *Gramm-Leach-Bliley Act*: Repeal of the Glass-Steagall Act, increasing risk-taking in banking, later contributing to the 2008 financial crisis.              | **High**      |
+| **2000-03-10**     | *Dot-com Bubble Peak*: The NASDAQ index reaches its highest point before the bubble bursts.                                                                  | **Very High** |
+| **2000-04 ~ 2001-Q1** | *Dot-com Crash*: Market correction results in widespread collapse of internet-based companies.                                                                | **Very High** |
+| **2001-09-11**     | *9/11 Terrorist Attacks*: Immediate shock to financial markets, heightened global uncertainty.                                                               | **Very High** |
+| **2008-09-15**     | *Lehman Brothers Collapse*: Key event marking the onset of the Global Financial Crisis.                                                                      | **Very High** |
+| **2008-10-03**     | *TARP Bailout Program*: U.S. government enacts a $700 billion rescue package to stabilize financial institutions.                                            | **Very High** |
+| **2009-Q2**        | *End of the Great Recession*: The NBER officially marks the end of the economic downturn.                                                                    | **High**      |
+
+#### post-2010 period (2010-01-01 to 2023-12-31)
+
+| Date               | Event & Description                                                                                                                                         | Importance    |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|
+| **2009-Q3 ~ 2010** | *Post-crisis economic recovery*: The Federal Reserve initiates QE programs, boosting liquidity and asset prices.                                            | **High**      |
+| **2012-09-13**     | *QE3 Announcement*: The Fed announces an open-ended bond-buying program.                                                                                    | **High**      |
+| **2013-12-18**     | *Tapering Policy Begins*: The Fed begins scaling back QE measures, causing increased market volatility.                                                     | **High**      |
+| **2015-10-28**     | *End of QE3*: The Fed concludes its final round of quantitative easing, signaling policy normalization.                                                     | **High**      |
+| **2018-01-01**     | *U.S.-China Trade War Escalates*: Tariff impositions disrupt global trade, affecting equity and commodity markets.                                          | **Very High** |
+| **2020-03-11**     | *COVID-19 Pandemic Declared*: The stock market crashes, prompting historic monetary and fiscal stimulus measures.                                            | **Very High** |
+| **2023-Present**   | *Rise of AI in Financial Markets*: The mainstream adoption of AI technologies, such as ChatGPT, influences market sentiment and productivity outlook.        | **High**      |
+| **2000s-Present**  | *Proliferation of ETFs*: ETFs have grown significantly, offering investors diversified, low-cost investment options, transforming investment strategies.     | **High**      |
+
+*Note: The **Proliferation of ETFs** spans both periods but has been particularly impactful in the **post-2010 period**, reflecting their integration into mainstream investment strategies.*

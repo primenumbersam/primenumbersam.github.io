@@ -1,0 +1,83 @@
+---
+title: "노동: 기여한 만큼 분배가 되었나?"
+author: "GitSAM"
+date: 03/16/2025
+keywords: 노동생산성, 노동분배율, 공정, decoupling
+bibliography: labor_decoupling.bib
+format:
+  html:
+    code-fold: true
+    toc: true
+---
+## 서론
+Neoclassical Growth Model(신고전적 성장 모형)은 경제성장의 핵심 지표로 총생산량(Gross Domestic Product, GDP)을 중시한다. 이 모형에서는 생산의 핵심 요소를 다음과 같이 세 가지로 구분한다 [@solow1956contribution].  
+
+- 총 노동량(Labor Input, $L$)  
+- 총 자본량(Capital Input, $K$)  
+- 노동증강기술(Labor-Augmenting Technology, $A$)  
+
+그러나 자본량($K$)은 직접적으로 측정하기 어려우며, 일반적으로 **Perpetual Inventory Method(영속적 재고법)**과 같은 방식을 활용하여 추정한다 [@hall1999why]. 이에 더하여, 노동증강기술($A$)은 더욱 측정이 어려운 정성적 요소이기 때문에, 많은 연구에서는 **Constant Returns to Scale(규모에 대한 수익 불변)**을 가정한 Cobb-Douglas 생산함수를 이용하고, 추정 과정에서 발생하는 오차항(Error Term)을 기술진보($A$)로 대체하기도 한다 [@barro1991economic]. 이러한 방식이 현실을 얼마나 정확하게 반영하는지는 논란의 여지가 크다.  
+
+모형(Model)은 본질적으로 이론적 가설이며, 경제성장에 대한 다양한 견해를 반영할 수 있는 도구이기 때문에, 각자의 가설과 주장을 펼치는 것은 학문적으로 허용될 수 있다. 그러나 문제의 본질은 해당 모형이 현실을 얼마나 정확하게 설명하고 예측할 수 있는지에 있다. 현실을 반영하지 못하고, 지속적으로 예측에 실패하는 경제성장 모형은 실질적으로 활용 가치가 떨어질 수밖에 없다 [@stiglitz2017macro].  
+
+경제성장과 관련하여 실용적인 측면에서 가장 중요한 변수는 총 노동량($L$)이라고 볼 수 있다. 이는 비교적 객관적인 측정이 가능하며, 경제의 실질적 변화를 분석하는 데 유용하다. 이러한 맥락에서 노동 생산성(Productivity)과 노동 분배(Labor Compensation)라는 두 가지 핵심 개념을 살펴볼 필요가 있다.  
+
+## 본론
+
+### 1. 노동생산성(Labor Productivity)의 변화  
+
+노동생산성은 단위 노동량당 산출량을 의미하며, 다음과 같이 정의할 수 있다 [@acemoglu2014labor].  
+
+$$
+\text{노동생산성} = \frac{Y_t}{L_t}
+$$  
+
+여기서 $Y_t$는 총생산량(GDP)의 대표적 대리 변수(proxy)이며, $L_t$는 총 노동량을 나타낸다. 각각의 변수는 다음과 같이 측정하였다.  
+
+- **총생산량 Proxy ($Y_t$)**: [Real Gross Domestic Product per Capita](https://fred.stlouisfed.org/series/A939RX0Q048SBEA)  
+  - 장기적으로 볼 때, 총생산량은 시간에 따라 증가하는 추세를 보였다.  
+
+- **총노동량 Proxy ($L_t$)**: [Hours Worked by Full-Time and Part-Time Employees](https://fred.stlouisfed.org/series/B4701C0A222NBEA)  
+  - 이 역시 시간에 따라 증가하는 경향을 보였다.  
+
+이로부터 계산한 노동생산성($Y_t/L_t$) 역시 시간에 따라 증가하는 함수임을 확인할 수 있다. 즉, 경제가 성장함에 따라 노동자 1인당 산출하는 생산량은 꾸준히 증가해 왔다.
+
+### 2. 노동분배량(Labor Compensation)의 변화  
+
+노동생산성이 증가하면, 일반적으로 노동자에게 돌아가는 보상 역시 증가해야 한다는 것이 경제적 정의(economic fairness)와 균형적 성장(balanced growth)의 핵심 원칙이다 [@piketty2014capital]. 그렇다면 노동 분배(Labor Compensation) 역시 시간에 따라 증가하였을까?  
+
+이를 확인하기 위해, 노동자의 평균 실질 소득을 대리 변수로 활용하였다.  
+
+- **노동에 분배된 총량 Proxy ($X_t$)**: [Employed Full-Time: Median Usual Weekly Real Earnings](https://fred.stlouisfed.org/series/LES1252881600Q)  
+  - 장기적으로 증가하는 경향을 보였으나, 변동성이 존재하였다.  
+
+- **노동분배량 ($\frac{X_t}{L_t}$)**  
+  - 노동생산성이 증가하는 것과는 대조적으로, 노동자에게 분배된 소득의 비율($X_t/L_t$)은 오히려 시간에 따라 감소하는 경향을 보였다.  
+
+이를 시각적으로 명확히 비교하기 위해, 노동분배량을 $\frac{X_t}{L_t} \times 100$으로 스케일링하여 그래프로 나타냈다.  
+
+[**FRED Graph (1980년 이후 노동생산성과 노동분배량 비교)**](https://fred.stlouisfed.org/graph/?g=1EBUJ)  
+
+그래프를 살펴보면, 1980년대 이후 노동생산성과 노동분배량 사이의 격차가 점점 더 커지고 있음을 확인할 수 있다. 이는 무엇을 의미하는가? 노동생산성이 증가함에도 불구하고, 노동자에게 돌아가는 보상의 증가 속도가 이에 미치지 못하고 있다는 점을 시사한다. 다시 말해, **"노동생산성과 노동자 보상의 분리 현상(decoupling)"**이 지속적으로 심화되고 있음을 보여준다 [@stansbury2020declining]. 이러한 현상은 장기적으로 경제적 불평등(economic inequality)을 악화시키는 주요 원인 중 하나로 작용할 수 있다 [@stiglitz2012price].  
+
+### 3. 노동 소득 분배율 감소의 원인  
+
+노동소득 분배율(Labor Share)의 감소에 대한 경제학적 분석은 다양한 요인을 고려해야 하지만, 주요한 원인으로 다음 두 가지를 지적할 수 있다.  
+
+1. **기술 진보(Technological Progress)**  
+   - OECD의 분석에 따르면, 인공지능(AI)과 같은 첨단 기술의 발전은 특정 고숙련 노동자(high-skilled workers)에게는 유리하게 작용하지만, 그렇지 않은 노동자들에게는 불리한 영향을 미칠 수 있다 [@oecd2018employment]. 이는 노동시장 내 임금 불평등(wage inequality)을 심화시키는 요인으로 작용한다.  
+
+2. **세계화(Globalization)**  
+   - 생산 공정의 해외 이전(offshoring)과 국제 무역의 확대는 저임금 노동력을 활용한 생산 방식을 증가시켜, 선진국 내 노동자의 소득 증가율을 둔화시키는 결과를 초래할 수 있다 [@autor2013trade].  
+
+### 4. 노동참여율(Labor Force Participation Rate)의 변화  
+
+또한, 노동소득 분배율 감소와 노동시장 변화를 분석하기 위해, 노동참여율(Labor Force Participation Rate)을 함께 고려할 필요가 있다. 이를 위해 [**Current Population Survey (CPS)에서 조사한 Labor Force Participation Rate**](https://fred.stlouisfed.org/series/CIVPART)를 분석하였다.  
+
+- COVID-19 팬데믹이 발생한 2020년에는 노동참여율이 일시적으로 급락했으나, 이후 빠르게 정상 수준으로 회복되었다 [@coibion2020labor].  
+- 장기적으로는 완만한 하락세를 보이고 있으며, 이는 인구 고령화(demographic aging) 등의 요인과도 관련이 있을 것으로 추정된다 [@krueger2017where].  
+
+## 결론  
+
+노동생산성과 노동자 보상의 분리 현상(decoupling)은 실증적 데이터에 의해 명확히 확인된다. 노동생산성이 지속적으로 증가함에도 불구하고, 노동자에게 분배되는 소득의 비율은 점진적으로 감소해 왔다 [@karabarbounis2014global]. 이러한 현상의 주요 원인으로 기술 진보와 세계화가 지목되며, 장기적으로는 노동시장 내 불평등 심화 및 경제적 불안정성을 초래할 가능성이 크다 [@milanovic2016global]. 향후 연구에서는 정책적 대응 방안과 노동소득 분배율 회복을 위한 제도적 개선책을 추가적으로 검토할 필요가 있다.  
+
