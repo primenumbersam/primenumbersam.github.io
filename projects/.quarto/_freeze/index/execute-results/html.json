@@ -1,0 +1,12 @@
+{
+  "hash": "1d82ca5ed2894be46b10f253b119950f",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: \"Projects\"\nbibliography: references.bib\nformat:\n  html:\n    code-fold: true\n    toc: true\n    number-sections: true\njupyter: python3\n---\n\n\n\n\n관심있는 것들...왜? [^1].\n\n[^1]: 그냥요.\n\n\n### 책들의 요점 \n- **@pascal1670pensees**: *\"Human nature is full of contradictions; reason alone cannot guide us—faith and intuition must complement our understanding.\"*  \n- **@voltaire1759candide**: *\"Unconditional optimism is dangerous; do not fall into the trap of blind optimism, but instead cultivate your own reality.\"*  \n- **@twain1881prince**: *\"Social status is arbitrary; true worth is not determined by birth but by one's character and actions.\"*  \n- **@friedman1980free**: *\"Economic freedom is essential for political freedom; individuals should have the power to make their own choices in the marketplace.\"*\n\n### 그림 그리기\nSee [My Streamlit Cloud](https://primenumbersam-altair.streamlit.app/)\n\nSee @tbl-letters.\n\nSee @def-euler.\n\nSee @eq-pythagorean.\n\n![image-web 대한민국 인구분포 변화](https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/South_korea_population_pyramid_1960-2020.gif/645px-South_korea_population_pyramid_1960-2020.gif)\n\n\n| Default | Left | Right | Center |\n|---------|:-----|------:|:------:|\n| 12      | 12   |    12 |   12   |\n| 123     | 123  |   123 |  123   |\n| 1       | 1    |     1 |   1    |\n\n: My Caption {#tbl-letters}\n\n\n:::{#def-euler}\n## Euler Identity\n$$\ne^{\\pi i} = -1\n$$\n:::\n\nFor a right triangle in the Euclidean space,\n\n$$\na^2+b^2=c^2\n$${#eq-pythagorean}\n\n::: {#cell-fig-polar .cell execution_count=1}\n``` {.python .cell-code}\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr = np.arange(0, 2, 0.01)\ntheta = 2 * np.pi * r\nfig, ax = plt.subplots(\n  subplot_kw = {'projection': 'polar'} \n)\nax.plot(theta, r)\nax.set_rticks([0.5, 1, 1.5, 2])\nax.grid(True)\nplt.show()\n```\n\n::: {.cell-output .cell-output-display}\n![A line plot on a polar axis](index_files/figure-html/fig-polar-output-1.png){#fig-polar}\n:::\n:::\n\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}
