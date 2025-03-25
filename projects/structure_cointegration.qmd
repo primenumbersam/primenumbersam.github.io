@@ -9,7 +9,6 @@ format:
   html:
     code-fold: true
     toc: true
-jupyter: python3
 ---
 
 ## 1. Research Overview

@@ -2,14 +2,13 @@
 title: The New Gilded Age
 subtitle: Extreme Partisan Divide in the United States
 author: GitSam
-date: today
+date: '2025-03-08'
 abstract: The United States is experiencing a period of economic and political polarization reminiscent of the late 19th century Gilded Age. This study explores the potential consequences of extreme political bifurcation, economic concentration, and financial instability, drawing historical parallels between the original Gilded Age (1870s-1929) and the current economic landscape. By analyzing historical precedents such as the Great Depression, the 2008 financial crisis, and recent central bank policies, this paper examines the risks posed by increasing wealth concentration, aggressive monetary expansion, protectionist policies, and potential military interventions. We explore qualitatively how the Federal Reserve's responses to economic downturns, including extreme quantitative easing (QE) and capital controls, could impact financial stability. Furthermore, we evaluate the global ramifications of a politically divided America where economic and military strategies diverge from traditional allies.
 bibliography: gilded_age.bib
 format:
   html:
     code-fold: true
     toc: true
-jupyter: python3
 ---
 
 

@@ -209,7 +209,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">교육용 컨텐츠</span></a>
+ <span class="menu-text">GitSAM 교육자료</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -389,7 +389,7 @@ P = \sum_{t=1}^{T} \frac{C}{(1 + r)^t} + \frac{F}{(1 + r)^T}
 <li>만기: 3년</li>
 <li>현재 시장 금리: 5% → 2% (3% 하락)</li>
 </ul>
-<p>인플레이션 때문에 기준금리가 내려가서 시장 금리가 하락하면,</p>
+<p>경기불황 때문에 기준금리가 내려가서 시장 금리가 하락하면,</p>
 <p>새로 발행되는 2% 금리의 채권보다 기존 5%의 쿠폰을 지급하는 채권이 더 매력적으로 보이므로,</p>
 <p>기존 채권의 가격이 상승한다.</p>
 </section>
@@ -398,8 +398,8 @@ P = \sum_{t=1}^{T} \frac{C}{(1 + r)^t} + \frac{F}{(1 + r)^T}
 <p>채권 금리는 단순히 하나의 고정된 값이 아니라, <strong>만기</strong>에 따라 다르게 형성됨.</p>
 <ul>
 <li><strong>단기 채권(Short-term bonds, 1년 이하)</strong>: 단기 금리는 중앙은행의 정책금리(예: 연준의 FFR, 한국은행의 기준금리)와 직접적으로 연결됨.</li>
-<li><strong>중기 채권(Mid-term bonds, 2~10년)</strong>: 경제 성장률, 인플레이션 기대치, 신용 위험 등에 영향을 받음.</li>
-<li><strong>장기 채권(Long-term bonds, 10년 이상)</strong>: 장기 인플레이션 기대, 국가 신용, 경기 사이클 등에 따라 수익률이 결정됨.</li>
+<li><strong>중기 채권(Mid-term bonds, 2~10년)</strong>: 경제 성장률, 기대 인플레이션, 신용 위험 등에 영향을 받음.</li>
+<li><strong>장기 채권(Long-term bonds, 10년 이상)</strong>: 장기 기대 인플레이션, 국가 신용, 경기 사이클 등에 따라 수익률이 결정됨.</li>
 </ul>
 </section>
 <section id="duration-채권-듀레이션" class="level3">
@@ -429,11 +429,11 @@ P = \sum_{t=1}^{T} \frac{C}{(1 + r)^t} + \frac{F}{(1 + r)^T}
 <li><strong>역전된 형태(Inverted Yield Curve)</strong>: 장기 금리가 단기 금리보다 낮음 → 경기 침체 신호</li>
 <li><strong>평평한 형태(Flat Yield Curve)</strong>: 단기와 장기 금리 차이가 거의 없음 → 경기 전환기</li>
 </ul>
-<p>이렇게 다양한 형태가 나타나는 이유를 설명하는 이론들에는, <strong>금리 기대이론(Expectations Hypothesis), 유동성 프리미엄 이론(Liquidity Premium Theory), 시장 분할 이론(Market Segmentation Theory)</strong> 등이 있음.</p>
+<p>이렇게 다양한 형태가 나타나는 이유를 설명하는 이론들에는, 금리 기대이론(Expectations Hypothesis), 유동성 프리미엄 이론(Liquidity Premium Theory), 시장 분할 이론(Market Segmentation Theory) 등이 있음.</p>
 <p><strong>Yield Curve(수익률 곡선)</strong>는 본질적으로 <span class="math inline">\((\text{만기}, \text{yield})\)</span> 쌍에 대한 <strong>Conditional Expectation Model</strong>을 적용한 결과라고 볼 수 있다.</p>
 <p>채권 시장에서 다양한 만기의 국채(예: 1년, 2년, 5년, 10년, 30년 등)의 수익률 데이터를 수집하면, 기본적으로 (만기, yield) 쌍의 산점도(scatter plot)를 얻을 수 있다.</p>
 <p>이후, Yield Curve는 이러한 데이터를 조건부 기대값 모형 (Conditional Expectation model)을 사용하여 스무딩(Smoothing)하거나 추정(Fitting)한 것이라고 볼 수 있다.</p>
-<p>수익률 곡선을 추정하는 대표적인 방법으로 다음과 같은 모델들이 있습니다.</p>
+<p>수익률 곡선을 추정하는 대표적인 방법으로 다음과 같은 모델들이 있다.</p>
 <section id="polynomial-regression" class="level3">
 <h3 class="anchored" data-anchor-id="polynomial-regression">Polynomial Regression</h3>
 <ul>
@@ -478,7 +478,7 @@ Y(T) = \beta_0 + \beta_1 \frac{1 - e^{-T/\tau}}{T/\tau} + \beta_2 \left(\frac{1 
 <section id="code-scatter-plot-yield-curve" class="level2">
 <h2 class="anchored" data-anchor-id="code-scatter-plot-yield-curve">Code: Scatter Plot + Yield Curve</h2>
 <p><strong>(만기, 수익률)</strong> 데이터 산점도를 그린 후, <strong>스무딩된 Yield Curve</strong>를 적용.</p>
-<div id="5524df90" class="cell" data-execution_count="1">
+<div id="6db07cc7" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Yield Curve(수익률 곡선)**는 본질적으로 (term,yield) 쌍에 대한 Conditional Expectation Model을 적용한 결과</span></span>
