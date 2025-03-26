@@ -1,0 +1,86 @@
+---
+title: "History"
+format: html
+---
+
+# Recent Structural Shifts in the Financial Market
+
+## 1. 2010 as a Structural Break
+
+This study defines **January 1, 2010** as a structural break in the evolution of U.S. financial markets. This point marks a transition from a period of crisis-driven volatility and deregulation to an era characterized by **policy-dominated asset inflation, ETF proliferation, and asymmetric capital flows**. By segmenting the data at this breakpoint, we aim to assess how financial market performance and capital concentration evolved across two distinct regimes.
+
+The dataset spans **January 1996 to December 2023**, with a monthly frequency. It is segmented as follows:
+
+- **Pre-2010**: 1996–2009  
+- **Post-2010**: 2010–2023
+
+The segmentation provides a clean empirical framework to evaluate the impact of structural policy interventions and evolving capital dynamics.
+
+## 2. Historical Context of Each Period
+
+### Pre-2010: Volatility, Deregulation, and Crisis
+
+The pre-2010 period includes several global shocks and deregulation episodes:
+
+- **1997 Asian Financial Crisis**
+- **Dot-com Bubble and Crash (2000–2001)**
+- **9/11 Terror Attacks (2001)**
+- **Repeal of Glass-Steagall (1999)**, which contributed to systemic risk buildup
+- **Global Financial Crisis (2008–2009)**, culminating in the collapse of Lehman Brothers and the implementation of TARP
+
+This was an era of market discontinuity, high volatility, and risk repricing, where asset allocation was still driven largely by fundamentals and discretionary investing.
+
+### Post-2010: QE Regime and Capital Lock-In
+
+In contrast, the post-2010 era reflects a **policy-driven financial environment**, where capital markets were shaped by:
+
+- **Quantitative Easing (QE1, QE2, QE3)**
+- **Passive flows via ETF proliferation**
+- **Technological monopolization**
+- **COVID-19 pandemic and unprecedented stimulus**
+- **AI-fueled equity valuations post-2023**
+
+These changes have amplified top-heavy capital concentration and reinforced inertia in market leadership. Importantly, they enabled the survival of inefficient firms at the lower end (zombie firms), distorting the small-cap return distribution.
+
+## 3. US Top 10 Stability: Empirical Snapshot
+
+An empirical motivation for the TBTF strategy lies in the historical persistence of top-cap firms. From 2012 to 2023, only **27 unique PERMNOs** appeared in the top 10 by market cap. These include:
+
+- **AAPL**, **MSFT**, **AMZN**, **GOOG**, **META**, **NVDA**, **TSLA**
+- Traditional blue chips like **XOM**, **JNJ**, **WMT**, **JPM**, **BAC**
+- Healthcare and consumer giants like **UNH**, **LLY**, **PG**, **KO**
+- Financials and telcos like **BRK**, **MA**, **V**, **T**, **VZ**
+
+This concentration implies that capital has become locked into a narrow subset of firms, with little room for new entrants—an observation with profound implications for allocative efficiency and market competition.
+
+## 4. Global Top 10 Market-Cap Stocks
+- U.S. equities constitute nearly half of global equity market capitalization. 
+- The dominance of U.S. firms in global equity rankings
+
+
+---
+
+## Appendix {.appendix}
+
+### A. Key Financial and Policy Events by Period
+
+#### Pre-2010 (1996–2009)
+
+| Date         | Event & Description                                     | Importance    |
+|--------------|----------------------------------------------------------|---------------|
+| 1997-07-02   | Asian Financial Crisis                                   | **Very High** |
+| 1999-01-01   | Euro launched                                            | High          |
+| 1999-11-12   | Repeal of Glass-Steagall                                 | High          |
+| 2000–2001    | Dot-com Bubble & Crash                                   | **Very High** |
+| 2001-09-11   | 9/11 Attacks                                             | **Very High** |
+| 2008-09-15   | Lehman Brothers Collapse                                 | **Very High** |
+| 2008-10-03   | TARP ($700B bailout)                                     | **Very High** |
+
+#### Post-2010 (2010–2023)
+
+| Date         | Event & Description                                     | Importance    |
+|--------------|----------------------------------------------------------|---------------|
+| 2010–2015    | QE1, QE2, QE3 Implementation & Taper                     | High          |
+| 2018-01-01   | U.S.–China Trade Tensions                                | **Very High** |
+| 2020-03-11   | COVID-19 Declared (Policy + Liquidity Response)         | **Very High** |
+| 2023–Present | Rise of AI in Markets (NLP, LLMs)                        | High          |

@@ -2,42 +2,79 @@
 title: "Introduction"
 ---
 
-현실: CAPM과 MPT는 대표성과 대체성, 유동성을 전제했으나 현실은 다름
-- 시장이 systematic risk pricing → structural rent allocation으로 변화
-- 시장은 위험 기반 수익률이 아니라 구조적 rent에 대해 보상 중
-미래 연구: 구조적 비효율성을 반영한 새로운 자산 가격 모형 설계
+# Introduction
 
-- Stylized Facts (실증 패턴 요약)
-- Mixture Structure of Market Returns, Return Distribution Decomposition
-  - time-varying mixture of returns
-  - Percentile Transition Marix and Stationary Structure
-    - Mobility Inequality
-    - Entropy / Gini index on stationary distribution
-    - Quantile persistence score, upward/downward mobility imbalance
-- From Risk-Based to Rent-Based Pricing
-  - Welfare Implications and Capital Allocation
-- The Sadly Optimal TBTF Strategy
-  - TBTF 포트폴리오: 상위 10개 시총 종목 동일 비중 또는 내부 경쟁 가중치
-  - 수익률, 변동성, 샤프비율, Sortino, Omega 비교
-  - "Win if persists, optimal if fails" – 사회 전체로는 전략의 붕괴가 바람직하나 개인에겐 최적
+## 1. Structural Shifts in Capital Markets
 
-Appendix
-- Key Events in Each Period
-- Market concentration
-- Regular Big vs. Small
-- Top 10 membership and their average rank, Membership Transition
-- Stationary distribution within the membership
+Over the past two decades, U.S. financial markets have undergone a series of profound structural transformations. These changes—accelerated by post-2008 Federal Reserve interventions, the rise of passive investing, and the dominance of a few mega-cap firms—have gradually undermined the foundational assumptions of neoclassical asset pricing models. Most notably, the classical assumptions of global convexity, representative agents, and arbitrage-free pricing appear increasingly misaligned with empirical realities.
 
-percentile 기준. 순위 기반 (order-statistics 기반) 
-- capital concentration on extreme (not middle)
-  - level concentration: 
-- mobility lock-in: 계층 이동성 감소. upward mobility가 단절 (구조적 원인: education, labor market, inheritance 등)
-- capital polarization: 계층 간 격차 확대 = + divergence
-  - level polarization: 자본주의에서 자본량의 증가비율이 현재 자본량에 비례한다면, 자본량은 기하급수적으로 증가하는 게 당연. (geometrically series, y'=y given y(0)) 
-  - share polarization: 총자본량의 증가비율이 현재 총자본량에 비례하여 증가한다고 가정. 각 계층별 capital share가 일정하지 않고 한 곳으로 몰린다면, 몰린 계층의 자본본 
+Contemporary market dynamics no longer conform to the canonical vision of systematic risk being priced efficiently. Instead, capital appears to flow disproportionately toward a small set of dominant firms, driven not by marginal productivity or risk-adjusted returns, but by **network effects, ETF-driven capital flows, and central bank distortions**. These flows exhibit characteristics more consistent with **structural rent allocation** than with traditional risk-based compensation.
 
-Within a Market
+## 2. From Risk Pricing to Rent Extraction
 
-Across Markets
+This paper challenges the notion that financial markets primarily reward investors for bearing systematic risk. Instead, it proposes that post-crisis capital markets have evolved into a system of **rent-based pricing**, in which certain firms absorb a growing share of capital inflows due to structural advantage rather than economic fundamentals. This environment favors firms that are **“too big to fail” (TBTF)**—not because they are intrinsically more productive or efficient, but because the market structure allows them to persist at the top through passive flows and low volatility.
 
+The study investigates whether stock return distributions in the U.S. stock market now resemble a **time-varying mixture of heterogeneous assets under arbitrage-limited dynamics**, as opposed to a homogeneous no-arbitrage equilibrium. The market appears to be governed less by efficient risk sharing and more by **path-dependent capital accumulation**, leading to a form of **structural capital lock-in and asymmetric mobility** across capital ranks.
 
+## 3. Stylized Facts and Hypotheses
+
+The study is guided by a set of empirical regularities and theoretical conjectures:
+
+- **Return Distributions** have become increasingly asymmetric and exhibit fat tails concentrated in top-cap stocks.
+- **Capital Concentration** is not only extreme in level but persistent in share and rank.
+- **Transition Dynamics** across size ranks show decreasing upward mobility and increasing lock-in duration for top-cap stocks.
+- **Market Efficiency** is being eroded by capital polarization, in which capital increasingly accumulates at the top while the rest of the distribution remains stagnant.
+- **ETFs and QE Policies** act as reinforcing mechanisms, feeding capital into already dominant firms, thereby reducing entropy and distorting allocative efficiency.
+
+## 4. The Dual Distortion of Market Efficiency
+
+Importantly, the distortion of allocative efficiency is not limited to the top end of the market. At the lower end of the capitalization spectrum, another structural problem emerges: the survival and persistence of **zombie firms**—unproductive small-cap companies that continue to operate despite being economically non-viable.
+
+Fueled by prolonged low interest rates, government credit guarantees, and liquidity injections, these firms are shielded from market discipline and allowed to persist. As a result, the **small-cap group no longer reflects a competitive set of risky but high-upside firms**; rather, it includes a disproportionate share of structurally inefficient entities whose survival biases the return distribution downward and increases tail risk.
+
+This zombification effect is **likely to depress the average excess return and Sharpe ratio of the small-cap segment**, while simultaneously increasing the variance and skewness of returns. Though this paper does not directly model zombie firm identification, the empirical pattern—lower mean, higher volatility, greater downside asymmetry in small-cap returns—is consistent with this interpretation.
+
+Thus, the **efficiency erosion in capital markets is dual-channel**:  
+- **Top-heavy concentration** reinforces structural dominance and allocative inertia.  
+- **Bottom-heavy zombification** distorts the return-generating process and weakens the innovation–destruction cycle.
+
+## 5. The TBTF Strategy and Its Paradox
+
+Within this environment, the study evaluates a simple yet powerful investment strategy: the **TBTF portfolio**, which selects the 10 largest U.S. stocks by market capitalization from the full CRSP universe (NYSE, Nasdaq, AMEX), applies a quadratic weighting scheme based on rank, and rebalances at fixed intervals (e.g., monthly).
+
+Empirical results show that this strategy has delivered **exceptional risk-adjusted performance**, particularly after 2010. The strategy outperforms major indices and alternative benchmarks across multiple metrics, including Sharpe ratio, Sortino ratio, Omega ratio, and maximum drawdown—while maintaining low turnover.
+
+Yet the strategy’s success raises a paradox. It is **“sadly optimal”**:  
+- If the strategy **continues to succeed**, it signals a persistent mispricing and a further decline in market efficiency.  
+- If the strategy **fails**, it suggests a return to competitive capital allocation and improved economic welfare.  
+In either case, it remains optimal from an individual investor’s standpoint, but potentially damaging from a societal perspective.
+
+## 6. Capital Mobility, Lock-In, and Polarization
+
+A key innovation in this study is the use of **percentile-based Markov transition matrices** and **stationary capital share distributions** to analyze capital mobility. The findings indicate that:
+
+- Top decile firms exhibit extremely high persistence, acting as near-absorbing states.
+- Lower decile firms display high volatility and minimal upward transition probability.
+- The stationary distribution of capital shares shows **growing convexity** over time, resembling a structural Lorenz curve.
+- Mobility inequality, measured via entropy and upward/downward transition asymmetry, is worsening.
+
+These features mirror **social stratification**, where economic agents (firms, in this case) become locked into hierarchical capital classes, resulting in reduced dynamism and allocative efficiency.
+
+## 7. Implications and Research Agenda
+
+The findings challenge the mainstream view that **abnormal returns are primarily risk-based**. Instead, they suggest that persistent outperformance may be due to **capital concentration, structural inertia, policy distortions**, and the survival of inefficient entities. This calls for the development of new asset pricing models that incorporate:
+
+- **Structural inefficiency** and non-ergodic dynamics  
+- **Rank-based capital dynamics**  
+- **Rent-based valuation in place of marginal utility or productivity**
+
+Such models could offer more realistic frameworks for understanding how capital markets operate in the presence of central bank intervention, passive investing dominance, and technological monopolization.
+
+## 8. Structure of the Paper
+
+The remainder of the paper is organized as follows:
+
+- **Chapter 2 (Literature Review)** situates this study within the broader asset pricing and inequality literature, covering theories of mobility, structural returns, and ETF-induced distortions.
+- **Chapter 3 (Historical Context)** summarizes the evolution of market structure post-2008, including the effects of QE and ETF proliferation.
+- **Chapter 4 (Empirical Model)** presents the core empirical study in seven modules: research overview, data, benchmark comparison, structural analysis, portfolio strategy, performance evaluation, and robustness checks.
+- **Chapter 5 (Conclusion)** reflects on the broader implications of the findings for asset pricing theory, policy intervention, and the future of financial capitalism.

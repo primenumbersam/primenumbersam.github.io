@@ -16,5 +16,11 @@
   },
   "01_intro.qmd": {
     "01_intro.html": "105c79ba"
+  },
+  "03_history.qmd": {
+    "03_history.html": "71b26ec8"
+  },
+  "05_conclusion.qmd": {
+    "05_conclusion.html": "a2b0f5f5"
   }
 }

@@ -1,0 +1,24 @@
+---
+title: Dual Approaches to Asset Management
+author: gitSAM
+date: '2025-03-26'
+format:
+  html:
+    code-fold: true
+    toc: true
+---
+
+In economics, a limited resource allocation involves relative price vectors ($P$) and quantity vectors ($Q$), often constrained by a structural inner product:
+
+$$P \cdot Q = \text{constant}$$
+
+With a convex or concave scalar function of $P$ or $Q$ which are complete and compact Euclidean spaces, this structure enables convex optimization tools. Duality in convex optimization posits that solving for $Q$ given $P$ (primal problem) or $P$ given $Q$ (dual problem) yields equivalent results under linear constraints, reflecting the Hahn-Banach theorem’s guarantee of consistent linear functionals.
+
+1. **Asset Weight Optimization**:
+   - **Goal**: Given $P$ (joint distribution of returns), find $Q$ (asset weights) to optimize an objective (e.g., maximize Sharpe ratio).
+   - **Critique**: Modern Portfolio Theory (MPT) assumes elliptical distributions and time-separable utility (e.g., CRRA), which are unrealistic. Non-stationary or fat-tailed distributions (e.g., Cauchy) render moment estimates unreliable, and utility may not reflect diminishing marginal returns for future wealth.
+
+2. **Asset Pricing Optimization**:
+   - **Goal**: Given $Q$ (future cash flows), find $P$ (state prices) to satisfy no-arbitrage conditions via the Euler equation.
+   - **Critique**: If risk-return tradeoffs break down (as with mega-caps), linear factor models derived from local approximations fail, undermining theoretical predictions.
+

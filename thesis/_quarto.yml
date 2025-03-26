@@ -31,8 +31,9 @@ website:
       - index.qmd
       - 01_intro.qmd
       - 02_lit_review.qmd
-      - 03_data.qmd
+      - 03_history.qmd
       - 04_model.qmd
+      - 05_conclusion.qmd
 
 author: gitSAM
 date: '2025-03-23'

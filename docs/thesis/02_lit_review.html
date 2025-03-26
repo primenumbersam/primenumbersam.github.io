@@ -22,7 +22,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -69,35 +89,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -191,14 +182,20 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Data</span></a>
+  <a href="./03_history.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">History</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04_model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Model</span></a>
+ <span class="menu-text">Empirical Analysis of the TBTF Portfolio</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_conclusion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conclusion</span></a>
   </div>
 </li>
     </ul>
@@ -211,23 +208,19 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#linear-models-for-asset-management" id="toc-linear-models-for-asset-management" class="nav-link" data-scroll-target="#linear-models-for-asset-management">Linear Models for Asset Management</a>
+  <li><a href="#literature-review" id="toc-literature-review" class="nav-link active" data-scroll-target="#literature-review">Literature Review</a>
   <ul class="collapse">
-  <li><a href="#dual-approaches-to-asset-management" id="toc-dual-approaches-to-asset-management" class="nav-link" data-scroll-target="#dual-approaches-to-asset-management">Dual Approaches to Asset Management</a></li>
-  <li><a href="#limitations-of-linear-asset-pricing-models" id="toc-limitations-of-linear-asset-pricing-models" class="nav-link" data-scroll-target="#limitations-of-linear-asset-pricing-models">Limitations of Linear Asset Pricing Models</a>
+  <li><a href="#classical-theories-of-risk-based-asset-pricing" id="toc-classical-theories-of-risk-based-asset-pricing" class="nav-link" data-scroll-target="#classical-theories-of-risk-based-asset-pricing">1. Classical Theories of Risk-Based Asset Pricing</a></li>
+  <li><a href="#empirical-challenges-to-risk-based-models" id="toc-empirical-challenges-to-risk-based-models" class="nav-link" data-scroll-target="#empirical-challenges-to-risk-based-models">2. Empirical Challenges to Risk-Based Models</a>
   <ul class="collapse">
-  <li><a href="#statistical-limitations" id="toc-statistical-limitations" class="nav-link" data-scroll-target="#statistical-limitations">Statistical Limitations</a></li>
-  <li><a href="#the-inverse-relationship-between-risk-and-return-for-dominant-firms" id="toc-the-inverse-relationship-between-risk-and-return-for-dominant-firms" class="nav-link" data-scroll-target="#the-inverse-relationship-between-risk-and-return-for-dominant-firms">The Inverse Relationship Between Risk and Return for Dominant Firms</a></li>
-  <li><a href="#market-efficiency-and-structural-advantages" id="toc-market-efficiency-and-structural-advantages" class="nav-link" data-scroll-target="#market-efficiency-and-structural-advantages">Market Efficiency and Structural Advantages</a></li>
+  <li><a href="#industry-level-capm-failure" id="toc-industry-level-capm-failure" class="nav-link" data-scroll-target="#industry-level-capm-failure">2.1 Industry-Level CAPM Failure</a></li>
+  <li><a href="#linear-factor-models-and-multicollinearity" id="toc-linear-factor-models-and-multicollinearity" class="nav-link" data-scroll-target="#linear-factor-models-and-multicollinearity">2.2 Linear Factor Models and Multicollinearity</a></li>
+  <li><a href="#betting-against-beta-and-sharpe-ratio-symmetry" id="toc-betting-against-beta-and-sharpe-ratio-symmetry" class="nav-link" data-scroll-target="#betting-against-beta-and-sharpe-ratio-symmetry">2.3 Betting Against Beta and Sharpe Ratio Symmetry</a></li>
+  <li><a href="#practical-failures-of-mean-variance-optimization" id="toc-practical-failures-of-mean-variance-optimization" class="nav-link" data-scroll-target="#practical-failures-of-mean-variance-optimization">2.4 Practical Failures of Mean-Variance Optimization</a></li>
+  <li><a href="#limitations-of-bayesian-optimization-and-tilting" id="toc-limitations-of-bayesian-optimization-and-tilting" class="nav-link" data-scroll-target="#limitations-of-bayesian-optimization-and-tilting">2.5 Limitations of Bayesian Optimization and Tilting</a></li>
   </ul></li>
-  <li><a href="#practical-asset-management" id="toc-practical-asset-management" class="nav-link" data-scroll-target="#practical-asset-management">Practical Asset Management</a>
-  <ul class="collapse">
-  <li><a href="#implications-of-model-failure-for-asset-management" id="toc-implications-of-model-failure-for-asset-management" class="nav-link" data-scroll-target="#implications-of-model-failure-for-asset-management">Implications of Model Failure for Asset Management</a></li>
-  <li><a href="#a-data-driven-alternative-stochastic-dominance" id="toc-a-data-driven-alternative-stochastic-dominance" class="nav-link" data-scroll-target="#a-data-driven-alternative-stochastic-dominance">A Data-Driven Alternative: Stochastic Dominance</a></li>
-  <li><a href="#complementary-tools" id="toc-complementary-tools" class="nav-link" data-scroll-target="#complementary-tools">Complementary Tools</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
-  </ul></li>
+  <li><a href="#structural-interpretation-and-motivation-for-tbtf" id="toc-structural-interpretation-and-motivation-for-tbtf" class="nav-link" data-scroll-target="#structural-interpretation-and-motivation-for-tbtf">3. Structural Interpretation and Motivation for TBTF</a></li>
+  <li><a href="#contributions-to-the-literature" id="toc-contributions-to-the-literature" class="nav-link" data-scroll-target="#contributions-to-the-literature">4. Contributions to the Literature</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -266,201 +259,142 @@ window.Quarto = {
 </header>
 
 
-<p>Linear Models for Asset Management - <strong>Dual Approaches to Asset Management</strong><br>
-- <strong>Limitations of Linear asset pricing Models</strong><br>
-- <strong>Practical Asset Management</strong></p>
-<p>Testing Linear Models - <strong>Data and Descriptive Statistics</strong><br>
-- <strong>Time-Series Split: 2010-01-01</strong>: Rationale for choosing this date as a structural break (QE onset, ETF growth).<br>
-- <strong>Data Sources</strong>: CRSP (stocks), Fama-French (industry classifications), Yahoo Finance (indices/ETFs).<br>
-- <strong>Appendix</strong>: Timeline of key events (e.g., QE phases, ETF milestones). - <strong>Industry Market-Cap Concentration Trends</strong>: Time-series analysis using SIC (10) and FF (10, 49) classifications.<br>
-- <strong>Industry Beta Dynamics</strong>: Evolution of systematic risk by industry (CRSP data).<br>
-- <strong>High-Tech Sector Dominance</strong>: Focus on chips and software industries (FF 10 classification).<br>
-- <strong>Challenging Industry CAPM</strong><br>
-- <strong>Single-Factor Model</strong>: Fama-MacBeth results show significant unexplained alpha (CRSP, SIC 10).<br>
-- <strong>Two-Factor Model</strong>: Market premium insignificant, reverse size effect significant (FF 49).<br>
-- <strong>Challenging Linear Factor Models</strong><br>
-- <strong>Factor Selection</strong>: Highlight multicollinearity (mkt_excess, macro_bm) and limited explanatory power.<br>
-- <strong>Lasso Regression</strong>: Apply regularization to select predictors for FF 10 industry portfolio excess returns.<br>
-- <strong>Challenging Betting Against Beta</strong><br>
-- <strong>Out-of-Sample Performance</strong>: Optimal assets have betas near 1, not high or low (SIC 10 portfolios).<br>
-- <strong>Challenging the traditional Mean-Variance weight Optimization</strong><br>
-- <strong>Extreme Weights</strong>: Unconstrained MV yields impractical results; constraints (e.g., no short sales) added.<br>
-- <strong>Passive vs.&nbsp;Active</strong>: Passive value-weighted portfolios outperform MV with lower costs.<br>
-- <strong>Challenging the Parametric Mean-Variance Weight Optimization</strong><br>
-- <strong>Bayesian update</strong> : Black and Litterman (1992) - <strong>Momentum and Size Tilting</strong>: Brandt et al.&nbsp;(2009) approach underperforms passive benchmarks.</p>
-<hr>
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<p>The failure to rationally explain the excess returns for dominant firms reflects not merely model misspecification but a systematic failure to capture the fundamental nature of contemporary capitalism, where returns increasingly flow not as compensation for risk-bearing but as rents extracted through structural market advantages. This insight challenges the core assumptions of traditional asset management, which relies heavily on models like the Capital Asset Pricing Model (CAPM) or multi-factor frameworks to guide investment decisions. In an post-2008 era of quantitative easing (QE), ETF dominance, and mega-cap firms leveraging network effects, regulatory capture, and institutional protection to secure outsized profits, these models lead to suboptimal portfolio allocations. This study delves into the implications of this disconnect, critiques the limitations of conventional approaches, and proposes a data-driven alternative using stochastic dominance to better align asset management with the realities of modern markets.</p>
-<p><strong>Research Questions</strong>:</p>
+<section id="literature-review" class="level1">
+<h1>Literature Review</h1>
+<section id="classical-theories-of-risk-based-asset-pricing" class="level2">
+<h2 class="anchored" data-anchor-id="classical-theories-of-risk-based-asset-pricing">1. Classical Theories of Risk-Based Asset Pricing</h2>
+<p>Traditional financial economics posits that expected returns serve as compensation for bearing systematic risk. This principle underpins several foundational models: - The Capital Asset Pricing Model (CAPM) asserts that expected excess returns are proportional to market beta <span class="citation" data-cites="FamaMacBeth1973">(<a href="#ref-FamaMacBeth1973" role="doc-biblioref">Fama and MacBeth 1973</a>)</span>. - The Fama-French Three- and Five-Factor Models extend CAPM by incorporating size, value, profitability, and investment factors <span class="citation" data-cites="FamaFrench1993 FamaFrench2015">(<a href="#ref-FamaFrench1993" role="doc-biblioref">Fama and French 1993</a>; - <a href="#ref-FamaFrench2015" role="doc-biblioref">Fama and French 2015</a>)</span>. - The Betting Against Beta (BAB) framework suggests that low-beta assets outperform on a risk-adjusted basis <span class="citation" data-cites="FrazziniPedersen2014">(<a href="#ref-FrazziniPedersen2014" role="doc-biblioref">Frazzini and Pedersen 2014</a>)</span>. - Mean-Variance Optimization, introduced by Markowitz (1952), assumes that returns are normally distributed and fully explained by their mean and covariance structure <span class="citation" data-cites="Markowitz1952">(<a href="#ref-Markowitz1952" role="doc-biblioref">Markowitz 1952</a>)</span>.</p>
+<p>These models rest on assumptions of frictionless markets, convex opportunity sets, homogeneous beliefs, and the absence of arbitrage opportunities.</p>
+</section>
+<section id="empirical-challenges-to-risk-based-models" class="level2">
+<h2 class="anchored" data-anchor-id="empirical-challenges-to-risk-based-models">2. Empirical Challenges to Risk-Based Models</h2>
+<p>Utilizing CRSP monthly data, Fama-French industry portfolios, and ETF benchmarks across pre- and post-2010 periods, this study revisits and challenges these foundational models.</p>
+<section id="industry-level-capm-failure" class="level3">
+<h3 class="anchored" data-anchor-id="industry-level-capm-failure">2.1 Industry-Level CAPM Failure</h3>
 <ul>
-<li>Are stock return distributions increasingly asymmetric and heterogeneous?<br>
-</li>
-<li>How market distortions (e.g.&nbsp;wealth concentration and polarization) affect allocative efficiency?<br>
-</li>
-<li>What drives the TBTF strategy’s success and its implications?</li>
-</ul>
-<p>The evolution of portfolio optimization and asset pricing reflects a tension between theory and empirics:</p>
-<ul>
-<li><strong>Markowitz (1952)</strong>: Introduced mean-variance optimization, assuming normal returns and quadratic utility—elegant but empirically fragile.</li>
-<li><strong>CAPM (1964)</strong>: Linked returns to market risk, but anomalies (e.g., size, value) prompted multi-factor models.</li>
-<li><strong>Fama-French (1992)</strong>: Added factors, yet struggled with momentum and low-volatility effects.</li>
-<li><strong>Behavioral Finance</strong>: Addressed inefficiencies but lacked a cohesive framework.</li>
+<li>Single-Factor CAPM (Fama-MacBeth Regression): When applied to industry portfolios (SIC 10), it reveals large, persistent unexplained alphas <span class="citation" data-cites="FamaFrench1997">(<a href="#ref-FamaFrench1997" role="doc-biblioref">Fama and French 1997</a>)</span>. Even in high-tech sectors, beta fails to fully account for cross-sectional return variation.</li>
+<li>Two-Factor Model (MKT + SMB): Using FF 49 industry portfolios, the market risk premium becomes statistically insignificant post-2010. The size effect appears reversed, with small-cap underperformance contradicting theoretical expectations. However, Asness et al. <span class="citation" data-cites="asness2018size">(<a href="#ref-asness2018size" role="doc-biblioref">Asness et al. 2018</a>)</span> argue that the size premium persists when controlling for quality factors, suggesting the reversal may stem from low-quality small-cap stocks. Additionally, Hou et al. <span class="citation" data-cites="hou2020replicating">(<a href="#ref-hou2020replicating" role="doc-biblioref">Hou, Xue, and Zhang 2020</a>)</span> find that many documented anomalies, including size-related ones, do not hold up under rigorous testing, particularly when mitigating microcap stocks and using value-weighted returns.</li>
 </ul>
 </section>
-<section id="linear-models-for-asset-management" class="level1">
-<h1>Linear Models for Asset Management</h1>
-<section id="dual-approaches-to-asset-management" class="level2">
-<h2 class="anchored" data-anchor-id="dual-approaches-to-asset-management">Dual Approaches to Asset Management</h2>
-<p>In economics, a limited resource allocation involves relative price vectors (<span class="math inline">\(P\)</span>) and quantity vectors (<span class="math inline">\(Q\)</span>), often constrained by a structural inner product:</p>
-<p><span class="math display">\[P \cdot Q = \text{constant}\]</span></p>
-<p>With a convex or concave scalar function of <span class="math inline">\(P\)</span> or <span class="math inline">\(Q\)</span> which are complete and compact Euclidean spaces, this structure enables convex optimization tools. Duality in convex optimization posits that solving for <span class="math inline">\(Q\)</span> given <span class="math inline">\(P\)</span> (primal problem) or <span class="math inline">\(P\)</span> given <span class="math inline">\(Q\)</span> (dual problem) yields equivalent results under linear constraints, reflecting the Hahn-Banach theorem’s guarantee of consistent linear functionals.</p>
-<ol type="1">
-<li><strong>Asset Weight Optimization</strong>:
+<section id="linear-factor-models-and-multicollinearity" class="level3">
+<h3 class="anchored" data-anchor-id="linear-factor-models-and-multicollinearity">2.2 Linear Factor Models and Multicollinearity</h3>
 <ul>
-<li><strong>Goal</strong>: Given <span class="math inline">\(P\)</span> (joint distribution of returns), find <span class="math inline">\(Q\)</span> (asset weights) to optimize an objective (e.g., maximize Sharpe ratio).</li>
-<li><strong>Critique</strong>: Modern Portfolio Theory (MPT) assumes elliptical distributions and time-separable utility (e.g., CRRA), which are unrealistic. Non-stationary or fat-tailed distributions (e.g., Cauchy) render moment estimates unreliable, and utility may not reflect diminishing marginal returns for future wealth.</li>
-</ul></li>
-<li><strong>Asset Pricing Optimization</strong>:
-<ul>
-<li><strong>Goal</strong>: Given <span class="math inline">\(Q\)</span> (future cash flows), find <span class="math inline">\(P\)</span> (state prices) to satisfy no-arbitrage conditions via the Euler equation.</li>
-<li><strong>Critique</strong>: If risk-return tradeoffs break down (as with mega-caps), linear factor models derived from local approximations fail, undermining theoretical predictions.</li>
-</ul></li>
-</ol>
-</section>
-<section id="limitations-of-linear-asset-pricing-models" class="level2">
-<h2 class="anchored" data-anchor-id="limitations-of-linear-asset-pricing-models">Limitations of Linear Asset Pricing Models</h2>
-<p>Traditional asset pricing theories operate on the fundamental premise that expected returns directly compensate for systematic risk exposure. However, the empirical reality of top-performing mega-cap stocks presents a profound contradiction: these entities often display disproportionate returns relative to their risk profiles. Consider Apple, which despite having relatively high beta compared to other mega-caps, has generated returns that consistently exceed what would be predicted by its systematic risk exposure alone.</p>
-<section id="statistical-limitations" class="level3">
-<h3 class="anchored" data-anchor-id="statistical-limitations">Statistical Limitations</h3>
-<p>The conventional approach to addressing anomalies involves extending traditional asset pricing models by incorporating additional factors. These extensions represent a fundamentally inadequate methodology as they merely perpetuate the linear structure of existing frameworks while appending explanatory variables. The standard multi-factor model takes the form:</p>
-<p><span class="math display">\[E(R_i) = R_f + \beta_{i,1}F_1 + \beta_{i,2}F_2 + ... + \beta_{i,n}F_n + \alpha_i\]</span></p>
-<p>Where <span class="math inline">\(E(R_i)\)</span> represents expected returns, <span class="math inline">\(R_f\)</span> is the risk-free rate, <span class="math inline">\(\beta_{i,j}\)</span> are factor loadings, and <span class="math inline">\(F_j\)</span> are risk factors. The proposed extensions for capturing phenomena such as network effects, winner-take-all dynamics, and regulatory capture simply add terms to this equation.</p>
-<p>This approach has several critical flaws related to both model specification and parameter estimation.</p>
-<p>Linear additive models inherently assume factor orthogonality, normal distribution of returns, and stable risk premiums—assumptions violated by the complex, non-linear relationships between institutional protection, market power, and returns. These models rely on the core statistical assumptions:</p>
-<ol type="1">
-<li><span class="math inline">\(E(\varepsilon_i) = 0\)</span> (zero-mean residuals)</li>
-<li><span class="math inline">\(Cov(F_j, \varepsilon_i) = 0\)</span> (factors uncorrelated with residuals)</li>
-<li><span class="math inline">\(Cov(F_j, F_k) = 0\)</span> for <span class="math inline">\(j \neq k\)</span> (orthogonal factors)</li>
-<li><span class="math inline">\(\varepsilon_i \sim N(0, \sigma^2)\)</span> (normally distributed residuals)</li>
-</ol>
-<p>Yet empirical tests would consistently reject these assumptions for mega-cap returns. A particularly problematic issue is multicollinearity between factors. When adding variables such as institutional protection, regulatory capture, and network effects to explain mega-cap performance, these factors often exhibit high correlation amongst themselves. This multicollinearity leads to unstable coefficient estimates, inflated standard errors, and ultimately, unreliable inference. For instance, a firm’s market power is often highly correlated with its regulatory influence, making it difficult to disentangle their individual effects.</p>
-<p>Moreover, adding qualitative variables like “network effects” to statistical models is particularly vulnerable to p-hacking, as these constructs can be operationalized in numerous ways. The improvement in in-sample fitting (<span class="math inline">\(R^2\)</span>) often comes at the expense of out-of-sample prediction accuracy—a fundamental manifestation of the bias-variance tradeoff in mean squared error:</p>
-<p><span class="math display">\[MSE(prediction) = Bias^2 + Variance + Irreducible\_Error\]</span></p>
-<p>Adding complex factors to capture mega-cap outperformance typically increases model complexity, which may reduce in-sample bias but simultaneously increases estimation variance. This increased variance occurs because more complex models with additional parameters require more data for stable estimation and are more prone to overfitting noise rather than signal. This relationship is particularly problematic for stock returns, which violate ergodicity assumptions necessary for consistent parameter estimation.</p>
-<p>Furthermore, traditional frameworks remain epistemologically constrained by their reliance on backward-looking statistical relationships. Consider the standard time-series approach to estimating factor models:</p>
-<p><span class="math display">\[R_{it} = \alpha_i + \beta_{i,MKT}R_{mt} + \beta_{i,SMB}SMB_t + \beta_{i,HML}HML_t + \varepsilon_{it}\]</span></p>
-<p>This specification assumes parameter stability over time (<span class="math inline">\(\beta_{i,j,t} = \beta_{i,j,t+1}\)</span>), an assumption violated when institutional dynamics create structural breaks. Microsoft’s evolving regulatory landscape demonstrates this challenge—its systematic risk profile has fundamentally changed as its market and political power have increased, rendering historical beta estimates increasingly irrelevant for forward-looking predictions.</p>
-</section>
-<section id="the-inverse-relationship-between-risk-and-return-for-dominant-firms" class="level3">
-<h3 class="anchored" data-anchor-id="the-inverse-relationship-between-risk-and-return-for-dominant-firms">The Inverse Relationship Between Risk and Return for Dominant Firms</h3>
-<p>The conventional understanding of systematic risk requires fundamental reconceptualization. The Capital Asset Pricing Model posits:</p>
-<p><span class="math display">\[E(R_i) = R_f + \beta_i(E(R_m) - R_f)\]</span></p>
-<p>Where <span class="math inline">\(\beta_i = \frac{Cov(R_i, R_m)}{Var(R_m)} = \rho_{i,m}\frac{\sigma_i}{\sigma_m}\)</span> measures systematic risk exposure. This can be decomposed into correlation (<span class="math inline">\(\rho_{i,m}\)</span>) and relative volatility components (<span class="math inline">\(\frac{\sigma_i}{\sigma_m}\)</span>).</p>
-<p>An empirical analysis of market data reveals a critical paradox for mega-cap stocks versus non-mega-cap stocks. Both categories typically exhibit similar correlation coefficients with the market (<span class="math inline">\(\rho_{i,m} \approx 1\)</span>), indicating strong co-movement with overall market trends. Similarly, their expected returns (<span class="math inline">\(E(R_i)\)</span>) are often comparable or even favor mega-caps. However, the crucial distinction emerges in their volatility profiles: mega-cap stocks consistently demonstrate lower idiosyncratic volatility (<span class="math inline">\(\sigma_i^{mega} &lt; \sigma_i^{non-mega}\)</span>) due to their institutional protection, diversified revenue streams, and market power.</p>
-<p>This creates a fundamental contradiction in the risk-return paradigm. When calculating the Sharpe ratio or other risk-adjusted return metrics:</p>
-<p><span class="math display">\[Sharpe_i = \frac{E(R_i) - R_f}{\sigma_i}\]</span></p>
-<p>Mega-cap stocks consistently outperform on a risk-adjusted basis. This superior risk-adjusted performance cannot be reconciled with traditional asset pricing theory, which predicts that lower risk should be associated with lower returns. <a href="#a-big-small">The empirical reality</a> suggests the opposite for market dominant stocks:</p>
-<p><span class="math display">\[\frac{E(R_i^{mega}) - R_f}{\sigma_i^{mega}} &gt; \frac{E(R_i^{non-mega}) - R_f}{\sigma_i^{non-mega}}\]</span></p>
-<p>Despite comparable raw returns and market correlations, the risk-adjusted outperformance of mega-cap stocks directly contradicts the foundational risk-return trade-off of asset pricing theory. Amazon exemplifies this phenomenon—its volatility has decreased relative to smaller competitors as its market dominance has increased, yet its returns have remained exceptional, generating superior risk-adjusted performance that cannot be explained by traditional models.</p>
-</section>
-<section id="market-efficiency-and-structural-advantages" class="level3">
-<h3 class="anchored" data-anchor-id="market-efficiency-and-structural-advantages">Market Efficiency and Structural Advantages</h3>
-<p>Market efficiency assumptions underlying traditional models presuppose:</p>
-<p><span class="math display">\[E[R_{i,t+1} | \Omega_t] := E_t[R_{i,t+1}]\]</span></p>
-<p>Where <span class="math inline">\(\Omega_t\)</span> represents the information set available at time <span class="math inline">\(t\)</span>, and <span class="math inline">\(E_t[\cdot]\)</span> denotes expectation conditional on information at time <span class="math inline">\(t\)</span>. However, the persistence of abnormal returns for dominant firms suggests either:</p>
-<ol type="1">
-<li>Information about institutional advantages is not fully incorporated in prices</li>
-<li>These advantages create structural market inefficiencies that cannot be arbitraged away</li>
-</ol>
-<p>Google’s digital advertising dominance illustrates these dynamics. Its network effects create increasing returns to scale that can be modeled as:</p>
-<p><span class="math display">\[Profit_t = f(MarketShare_{t-1})^{\gamma}\]</span></p>
-<p>Where <span class="math inline">\(\gamma &gt; 1\)</span> indicates increasing returns to scale. Traditional asset pricing models assume competitive markets where <span class="math inline">\(\gamma \leq 1\)</span>, making them structurally incapable of capturing the valuation implications of dominant market positions.</p>
-<p>The fundamental inadequacy of traditional models becomes evident when examining their predictive accuracy for top market-cap stocks. A comparison of realized returns versus CAPM-predicted returns for top 10 stocks from 2010-2020 shows systematic underestimation:</p>
-<p><span class="math display">\[\alpha_i:= E(R_i) - [R_f + \beta_i(R_m - R_f)] &gt; 0 \text{ for top 10 stocks}\]</span></p>
-<p>This persistent alpha cannot be explained as compensation for omitted risk factors, as these firms typically enjoy reduced risk through institutional protection and market dominance.</p>
-<p>This theoretical crisis demands not incremental additions to existing models but a comprehensive reconceptualization of capital market dynamics. The failure to accurately predict returns for dominant firms reflects not merely model misspecification but a systematic failure to capture the fundamental nature of contemporary capitalism, where returns increasingly flow not as compensation for risk-bearing but as rents extracted through structural market advantages.</p>
-<p>A more appropriate specification might acknowledge the non-linear relationship between institutional position and returns:</p>
-<p><span class="math display">\[E(R_i) = R_f + \beta_i(R_m - R_f) + g(MarketPower_i, InstitutionalProtection_i)\]</span></p>
-<p>Where <span class="math inline">\(g(\cdot)\)</span> is a non-linear function capturing the complex relationship between market power, institutional protection, and returns—a relationship that fundamentally contradicts the risk-return paradigm underlying traditional asset pricing theory.</p>
-</section>
-</section>
-<section id="practical-asset-management" class="level2">
-<h2 class="anchored" data-anchor-id="practical-asset-management">Practical Asset Management</h2>
-<section id="implications-of-model-failure-for-asset-management" class="level3">
-<h3 class="anchored" data-anchor-id="implications-of-model-failure-for-asset-management">Implications of Model Failure for Asset Management</h3>
-<p>Asset management involves making investment decisions to achieve financial objectives, such as maximizing returns or minimizing risk, typically by constructing portfolios based on expected returns and risk estimates derived from asset pricing models. However, the inadequacy of traditional models when applied to dominant firms—those “superstar” companies that capture disproportionate market value—creates significant practical challenges:</p>
-<ol type="1">
-<li><p><strong>Breakdown of Market Efficiency Assumptions</strong><br>
-Traditional models assume markets are efficient, with asset prices reflecting all available information. Yet, dominant firms consistently generate abnormal returns that persist over time, suggesting inefficiencies tied to structural advantages—like brand loyalty or data monopolies—that markets fail to fully price in. For asset managers, this means traditional models underestimate the value of these firms, leading to underweighting in portfolios.</p></li>
-<li><p><strong>Inverse Risk-Return Dynamics</strong><br>
-Models like the CAPM posit a linear relationship where higher risk (measured as beta) yields higher expected returns. For dominant firms, however, the opposite often holds: their entrenched positions reduce idiosyncratic risk—through diversified revenue streams or regulatory buffers—while delivering superior returns. This inversion misleads asset managers into overestimating the risk of mega-cap stocks and underestimating their return potential, skewing portfolio optimization.</p></li>
-<li><p><strong>Factor Instability and Omission</strong><br>
-Multi-factor models, such as those based on Fama-French factors, depend on stable relationships between risk factors (e.g., size, value) and returns. Yet, the market power of dominant firms evolves dynamically—through technological innovation or policy shifts—causing factor loadings to fluctuate. Moreover, these models lack factors that explicitly capture rents from structural advantages, leaving asset managers with incomplete tools to assess true risk-adjusted performance.</p></li>
-<li><p><strong>Inability to Model Non-Linear Effects</strong><br>
-The linear structure of traditional models cannot accommodate the non-linear dynamics of contemporary capitalism, such as increasing returns to scale or tipping points in market dominance. For example, a firm like Amazon benefits from self-reinforcing network effects that amplify its returns beyond what risk-based models predict, rendering traditional allocations ineffective.</p></li>
-</ol>
-<p>These shortcomings result in portfolios that miss out on the concentrated returns of dominant firms, which increasingly drive market performance. Asset managers relying on outdated frameworks risk underperformance in a landscape where structural advantages, not risk exposure, dictate success.</p>
-</section>
-<section id="a-data-driven-alternative-stochastic-dominance" class="level3">
-<h3 class="anchored" data-anchor-id="a-data-driven-alternative-stochastic-dominance">A Data-Driven Alternative: Stochastic Dominance</h3>
-<p>To address these challenges, asset management must shift toward empirical, data-driven approaches that eschew the restrictive assumptions of traditional models. One such method is <strong>stochastic dominance</strong>, which evaluates assets by comparing their entire return distributions rather than relying on summary statistics like mean and variance. This approach offers a practical way to identify investments that align with the empirical realities of contemporary markets.</p>
-<ul>
-<li><strong>How It Works</strong>
-<ul>
-<li><strong>First-Order Stochastic Dominance (FSD)</strong>: Asset A dominates Asset B if its cumulative distribution function (CDF) lies below B’s for all return levels, meaning A offers higher returns across all outcomes.<br>
+<li>Excess returns of FF 10 industry portfolios are regressed on macro and financial factors, revealing multicollinearity among predictors like market excess returns, value spreads, and volatility indicators, leading to unstable coefficients and weak out-of-sample explanatory power.<br>
 </li>
-<li><strong>Second-Order Stochastic Dominance (SSD)</strong>: For risk-averse investors, A dominates B if the area under A’s CDF (its integral) is less than B’s up to any point, indicating a better risk-return tradeoff.</li>
-</ul></li>
-<li><strong>Advantages</strong>
-<ul>
-<li><strong>Robustness</strong>: Unlike mean-variance optimization, stochastic dominance requires no assumptions about return distributions (e.g., normality), making it suitable for markets with fat tails or skewness—common in mega-cap stock performance.<br>
-</li>
-<li><strong>Empirical Focus</strong>: By analyzing historical return distributions, it captures the real-world impact of structural advantages, such as the persistent outperformance of firms like Apple or Microsoft.<br>
-</li>
-<li><strong>Flexibility</strong>: It accommodates diverse investor risk preferences without specifying a utility function, broadening its applicability.</li>
-</ul></li>
-<li><strong>Practical Implementation</strong><br>
-Asset managers can apply stochastic dominance by:
-<ul>
-<li><strong>Historical Simulations</strong>: Using past return data to estimate CDFs and calculate the likelihood of one asset dominating another.<br>
-</li>
-<li><strong>Resampling</strong>: Employing techniques like bootstrapping to test dominance under varying market conditions, enhancing robustness.</li>
-</ul></li>
-<li><strong>Challenges</strong>
-<ul>
-<li><strong>Data Requirements</strong>: Accurate CDF estimation demands extensive historical data, which may be scarce for newer firms or asset classes.<br>
-</li>
-<li><strong>Non-Stationarity</strong>: Return distributions shift over time—due to regulatory changes or competitive disruptions—limiting the reliability of historical dominance.<br>
-</li>
-<li><strong>Portfolio Complexity</strong>: Extending stochastic dominance to multi-asset portfolios is computationally intensive, often requiring simplifications or heuristic rules.</li>
-</ul></li>
+<li>Lasso regularization confirms model sparsity, with only a few predictors consistently selected, often exhibiting inconsistent signs <span class="citation" data-cites="Kozak2020">(<a href="#ref-Kozak2020" role="doc-biblioref">Kozak, Nagel, and Santosh 2020</a>)</span>.</li>
 </ul>
-<p>Despite these hurdles, stochastic dominance provides a rigorous framework that sidesteps the theoretical pitfalls of traditional models. It allows asset managers to focus on observable performance, directly addressing the rent extraction that defines dominant firms.</p>
 </section>
-<section id="complementary-tools" class="level3">
-<h3 class="anchored" data-anchor-id="complementary-tools">Complementary Tools</h3>
-<p>While stochastic dominance serves as a strong foundation, asset managers can bolster their strategies with additional tools to capture the nuances of contemporary markets:</p>
+<section id="betting-against-beta-and-sharpe-ratio-symmetry" class="level3">
+<h3 class="anchored" data-anchor-id="betting-against-beta-and-sharpe-ratio-symmetry">2.3 Betting Against Beta and Sharpe Ratio Symmetry</h3>
 <ul>
-<li><p><strong>Fundamental Analysis</strong><br>
-Detailed assessments of a firm’s financials, competitive moat (e.g., patents, scale), and industry trends can reveal structural advantages missed by quantitative models. For instance, analyzing Tesla’s innovation pipeline or Alphabet’s data ecosystem offers insights into their sustained dominance.</p></li>
-<li><p><strong>Machine Learning</strong><br>
-Advanced algorithms can detect non-linear patterns in returns or predict shifts in market power, though they require careful tuning to avoid overfitting and ensure interpretability.</p></li>
-<li><p><strong>Liquidity Considerations</strong><br>
-Mega-cap stocks typically offer high liquidity, reducing transaction costs and making them practical choices for large portfolios—a factor stochastic dominance alone might not prioritize.</p></li>
+<li>The BAB Strategy posits that high-beta assets underperform on a risk-adjusted basis <span class="citation" data-cites="FrazziniPedersen2014">(<a href="#ref-FrazziniPedersen2014" role="doc-biblioref">Frazzini and Pedersen 2014</a>)</span>.</li>
+<li>Empirical tests using SIC 10 portfolios reveal that optimal Sharpe ratios are achieved by portfolios with betas close to 1, rather than low or high values. The relationship between beta and performance is either flat or non-monotonic, suggesting that risk exposure is not systematically mispriced but structurally inert.</li>
 </ul>
-<p>Moreover, the concentration of returns in a few dominant firms suggests that a focused investment strategy—overweighting current mega-caps or scouting emerging leaders—may outperform broad diversification. However, identifying future dominants demands foresight into technological, regulatory, and economic trends, adding complexity to the process.</p>
 </section>
-<section id="conclusion" class="level3">
-<h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>
-<p>In a world where returns stem from structural market advantages rather than risk-bearing, traditional asset pricing models fail to guide effective asset management. Their inability to predict the performance of dominant firms—rooted in flawed assumptions about efficiency, risk, and linearity—leads to misallocated portfolios that undervalue mega-cap opportunities. A data-driven approach using stochastic dominance offers a compelling alternative, leveraging empirical return distributions to identify superior investments without theoretical baggage. While challenges like data demands and non-stationarity persist, combining this method with fundamental analysis and modern tools equips asset managers to navigate contemporary capitalism. By embracing flexibility and empiricism, asset management can better capture the rents that define today’s markets, delivering superior outcomes in an era of concentrated dominance.</p>
+<section id="practical-failures-of-mean-variance-optimization" class="level3">
+<h3 class="anchored" data-anchor-id="practical-failures-of-mean-variance-optimization">2.4 Practical Failures of Mean-Variance Optimization</h3>
+<ul>
+<li>Unconstrained Mean-Variance (MV) Optimization yields extreme and highly unstable weights, leading to high turnover and poor out-of-sample performance <span class="citation" data-cites="DeMiguel2009">(<a href="#ref-DeMiguel2009" role="doc-biblioref">DeMiguel, Garlappi, and Uppal 2009</a>)</span>.</li>
+<li>Imposing constraints (e.g., no short-selling) enhances stability but reduces performance below passive benchmarks. Passive value-weighted portfolios consistently outperform MV portfolios, even when optimized using historical data.</li>
+</ul>
+</section>
+<section id="limitations-of-bayesian-optimization-and-tilting" class="level3">
+<h3 class="anchored" data-anchor-id="limitations-of-bayesian-optimization-and-tilting">2.5 Limitations of Bayesian Optimization and Tilting</h3>
+<ul>
+<li><span class="citation" data-cites="black1992global">Black and Litterman (<a href="#ref-black1992global" role="doc-biblioref">1992</a>)</span> combines CAPM equilibrium with investor views via Bayesian updating.<br>
+</li>
+<li><span class="citation" data-cites="brandt2009parametric">Brandt, Santa-Clara, and Valkanov (<a href="#ref-brandt2009parametric" role="doc-biblioref">2009</a>)</span> incorporate momentum and size signals into dynamic allocation, but empirical tests reveal no consistent outperformance over ETF benchmarks post-2010, suffering from estimation error and overfitting in regimes characterized by unstable return distributions.</li>
+</ul>
+</section>
+</section>
+<section id="structural-interpretation-and-motivation-for-tbtf" class="level2">
+<h2 class="anchored" data-anchor-id="structural-interpretation-and-motivation-for-tbtf">3. Structural Interpretation and Motivation for TBTF</h2>
+<p>The underperformance of theoretically sound but empirically fragile strategies suggests capital markets reward position within a segmented system rather than risk.</p>
+<ul>
+<li>Large-cap firms are insulated from downward transitions, mirroring the ‘superstar’ effect where small quality differences yield large market outcomes, as described by Rosen <span class="citation" data-cites="rosen1981economics">(<a href="#ref-rosen1981economics" role="doc-biblioref">Rosen 1981</a>)</span>. In banking, Gandhi and Lustig <span class="citation" data-cites="gandhi2015size">(<a href="#ref-gandhi2015size" role="doc-biblioref">Gandhi and Lustig 2015</a>)</span> find large banks have lower risk-adjusted returns, indicative of implicit government guarantees in adverse scenarios.<br>
+</li>
+<li>Small-cap firms increasingly comprise structurally inefficient “zombie” entities sustained by liquidity support <span class="citation" data-cites="Acharya2024">(<a href="#ref-Acharya2024" role="doc-biblioref">Acharya et al. 2024</a>)</span>.</li>
+<li>Return distributions no longer reflect efficient risk pricing but are shaped by arbitrage-limited capital flows, ETF-induced inflows, and policy distortions <span class="citation" data-cites="Glosten2021 ShleiferVishny1997">(<a href="#ref-Glosten2021" role="doc-biblioref">Glosten, Li, and Zhang 2021</a>; <a href="#ref-ShleiferVishny1997" role="doc-biblioref">Shleifer and Vishny 1997</a>)</span>.</li>
+<li>Return distributions reflect arbitrage-limited capital flows, ETF-induced inflows, and policy distortions, with Jiang, Vayanos, and Zheng <span class="citation" data-cites="jiang2020passive">(<a href="#ref-jiang2020passive" role="doc-biblioref">Jiang, Vayanos, and Zheng 2020</a>)</span> showing passive investing disproportionately benefits large firms, exacerbating concentration. This aligns with Autor et al. <span class="citation" data-cites="autor2020fall">(<a href="#ref-autor2020fall" role="doc-biblioref">Autor et al. 2020</a>)</span>, linking market power concentration to declining labor share, highlighting structural market dynamics.</li>
+</ul>
+<p>These findings motivate rank-based strategies like TBTF, capitalizing on structural capital dynamics rather than informational edges.</p>
+</section>
+<section id="contributions-to-the-literature" class="level2">
+<h2 class="anchored" data-anchor-id="contributions-to-the-literature">4. Contributions to the Literature</h2>
+<p>This study extends literature on asset pricing anomalies, building on Hou et al.&nbsp;regarding anomaly robustness. It introduces Markov-based transition models for capital lock-in, aligning with rising concentration insights from Autor et al.&nbsp;and Jiang et al.&nbsp;. It offers low-turnover, high-performance portfolio strategies and critiques ETF-driven distortions and post-QE concentration, reflecting real-world finance breakdowns under structural stress.</p>
+<p>This study builds upon and extends several strands of the literature:</p>
+<ul>
+<li>Asset Pricing Anomalies: It demonstrates new forms of structural deviation not explained by established factors <span class="citation" data-cites="hou2020replicating">(<a href="#ref-hou2020replicating" role="doc-biblioref">Hou, Xue, and Zhang 2020</a>)</span></li>
+<li>Market Structure and Capital Mobility: It introduces Markov-based transition models to analyze capital lock-in .</li>
+<li>Portfolio Strategy Design: It offers a low-turnover, high-performance alternative to optimization-based approaches.</li>
+<li>Market Efficiency Critique: It provides empirical support for critiques of ETF-driven distortions and post-QE market concentration <span class="citation" data-cites="autor2020fall jiang2020passive">(<a href="#ref-autor2020fall" role="doc-biblioref">Autor et al. 2020</a>; <a href="#ref-jiang2020passive" role="doc-biblioref">Jiang, Vayanos, and Zheng 2020</a>)</span>.</li>
+</ul>
+<p>The TBTF strategy does not reject modern finance but reflects its real-world breakdown under structural stress. Its continued success raises fundamental questions about what financial markets price and for whose benefit.</p>
+
 
 
 </section>
 </section>
-</section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Acharya2024" class="csl-entry" role="listitem">
+Acharya, Viral V., Matteo Crosignani, Tim Eisert, and Christian Eufinger. 2024. <span>“Zombie Credit and (Dis-)inflation: Evidence from Europe.”</span> <em>Journal of Finance</em> 79 (1): 81–126. <a href="https://doi.org/10.1111/jofi.13333">https://doi.org/10.1111/jofi.13333</a>.
+</div>
+<div id="ref-asness2018size" class="csl-entry" role="listitem">
+Asness, Clifford, Andrea Frazzini, Ronen Israel, Tobias J Moskowitz, and Lasse H Pedersen. 2018. <span>“Size Matters, If You Control Your Junk.”</span> <em>Journal of Financial Economics</em> 129 (3): 479–509.
+</div>
+<div id="ref-autor2020fall" class="csl-entry" role="listitem">
+Autor, David, David Dorn, Lawrence F Katz, Christina Patterson, and John Van Reenen. 2020. <span>“The Fall of the Labor Share and the Rise of Superstar Firms.”</span> <em>The Quarterly Journal of Economics</em> 135 (2): 645–709.
+</div>
+<div id="ref-black1992global" class="csl-entry" role="listitem">
+Black, Fischer, and Robert Litterman. 1992. <span>“Global Portfolio Optimization.”</span> <em>Financial Analysts Journal</em> 48 (5): 28–43.
+</div>
+<div id="ref-brandt2009parametric" class="csl-entry" role="listitem">
+Brandt, Michael W, Pedro Santa-Clara, and Rossen Valkanov. 2009. <span>“Parametric Portfolio Policies: Exploiting Characteristics in the Cross-Section of Equity Returns.”</span> <em>The Review of Financial Studies</em> 22 (9): 3411–47.
+</div>
+<div id="ref-DeMiguel2009" class="csl-entry" role="listitem">
+DeMiguel, Victor, Lorenzo Garlappi, and Raman Uppal. 2009. <span>“Optimal Versus Naive Diversification: How Inefficient Is the 1/n Portfolio Strategy?”</span> <em>Review of Financial Studies</em> 22 (5): 1915–53. <a href="https://doi.org/10.1093/rfs/hhm075">https://doi.org/10.1093/rfs/hhm075</a>.
+</div>
+<div id="ref-FamaFrench1993" class="csl-entry" role="listitem">
+Fama, Eugene F., and Kenneth R. French. 1993. <span>“Common Risk Factors in the Returns on Stocks and Bonds.”</span> <em>Journal of Financial Economics</em> 33 (1): 3–56. <a href="https://doi.org/10.1016/0304-405X(93)90023-5">https://doi.org/10.1016/0304-405X(93)90023-5</a>.
+</div>
+<div id="ref-FamaFrench1997" class="csl-entry" role="listitem">
+———. 1997. <span>“Industry Costs of Equity.”</span> <em>Journal of Financial Economics</em> 43 (2): 153–93. <a href="https://doi.org/10.1016/S0304-405X(96)00846-3">https://doi.org/10.1016/S0304-405X(96)00846-3</a>.
+</div>
+<div id="ref-FamaFrench2015" class="csl-entry" role="listitem">
+———. 2015. <span>“A Five-Factor Asset Pricing Model.”</span> <em>Journal of Financial Economics</em> 116 (1): 1–22. <a href="https://doi.org/10.1016/j.jfineco.2014.10.010">https://doi.org/10.1016/j.jfineco.2014.10.010</a>.
+</div>
+<div id="ref-FamaMacBeth1973" class="csl-entry" role="listitem">
+Fama, Eugene F., and James D. MacBeth. 1973. <span>“Risk, Return, and Equilibrium: Empirical Tests.”</span> <em>Journal of Political Economy</em> 81 (3): 607–36. <a href="https://doi.org/10.1086/260062">https://doi.org/10.1086/260062</a>.
+</div>
+<div id="ref-FrazziniPedersen2014" class="csl-entry" role="listitem">
+Frazzini, Andrea, and Lasse Heje Pedersen. 2014. <span>“Betting Against Beta.”</span> <em>Journal of Financial Economics</em> 111 (1): 1–25. <a href="https://doi.org/10.1016/j.jfineco.2013.10.005">https://doi.org/10.1016/j.jfineco.2013.10.005</a>.
+</div>
+<div id="ref-gandhi2015size" class="csl-entry" role="listitem">
+Gandhi, Priyank, and Hanno Lustig. 2015. <span>“Size Anomalies in US Bank Stock Returns.”</span> <em>The Journal of Finance</em> 70 (2): 733–68.
+</div>
+<div id="ref-Glosten2021" class="csl-entry" role="listitem">
+Glosten, Lawrence R., Sichen Li, and James J. Zhang. 2021. <span>“ETF Activity and Informational Efficiency of Underlying Securities.”</span> <em>Journal of Financial Economics</em> 141 (2): 567–92. <a href="https://doi.org/10.1016/j.jfineco.2021.02.003">https://doi.org/10.1016/j.jfineco.2021.02.003</a>.
+</div>
+<div id="ref-hou2020replicating" class="csl-entry" role="listitem">
+Hou, Kewei, Chen Xue, and Lu Zhang. 2020. <span>“Replicating Anomalies.”</span> <em>The Review of Financial Studies</em> 33 (5): 2019–2133.
+</div>
+<div id="ref-jiang2020passive" class="csl-entry" role="listitem">
+Jiang, Hao, Dimitri Vayanos, and Lu Zheng. 2020. <span>“Passive Investing and the Rise of Mega-Firms.”</span> National Bureau of Economic Research.
+</div>
+<div id="ref-Kozak2020" class="csl-entry" role="listitem">
+Kozak, Serhiy, Stefan Nagel, and Shrihari Santosh. 2020. <span>“Shrinking the Cross-Section.”</span> <em>Journal of Financial Economics</em> 135 (2): 271–92. <a href="https://doi.org/10.1016/j.jfineco.2019.06.008">https://doi.org/10.1016/j.jfineco.2019.06.008</a>.
+</div>
+<div id="ref-Markowitz1952" class="csl-entry" role="listitem">
+Markowitz, Harry. 1952. <span>“Portfolio Selection.”</span> <em>Journal of Finance</em> 7 (1): 77–91. <a href="https://doi.org/10.1111/j.1540-6261.1952.tb01525.x">https://doi.org/10.1111/j.1540-6261.1952.tb01525.x</a>.
+</div>
+<div id="ref-rosen1981economics" class="csl-entry" role="listitem">
+Rosen, Sherwin. 1981. <span>“The Economics of Superstars.”</span> <em>The American Economic Review</em> 71 (5): 845–58.
+</div>
+<div id="ref-ShleiferVishny1997" class="csl-entry" role="listitem">
+Shleifer, Andrei, and Robert W. Vishny. 1997. <span>“The Limits of Arbitrage.”</span> <em>Journal of Finance</em> 52 (1): 35–55. <a href="https://doi.org/10.1111/j.1540-6261.1997.tb03807.x">https://doi.org/10.1111/j.1540-6261.1997.tb03807.x</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
