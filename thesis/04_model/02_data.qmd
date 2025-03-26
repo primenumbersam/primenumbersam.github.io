@@ -1,0 +1,80 @@
+---
+title: 02 Data
+date: 2025-03-26
+---
+
+# Data Source and Construction
+
+This section describes the data used to construct and evaluate the TBTF portfolio strategy. We utilize multiple sources to enable a comprehensive analysis of market structure, return distributions, and benchmark comparisons. The primary dataset is drawn from CRSP, with supplemental reference portfolios and index returns from Fama-French and Yahoo Finance, respectively.
+
+## 1. Primary Data: CRSP Monthly Stock File
+
+We use the Center for Research in Security Prices (CRSP) monthly stock files, covering the period from January 1996 to December 2023. The CRSP universe includes all listed common stocks on the NYSE, Nasdaq, and AMEX exchanges. The following variables are extracted:
+
+- **PERMNO**: Unique stock identifier  
+- **Date**: Monthly observation date  
+- **Market Capitalization**: Calculated using shares outstanding × price  
+- **Return (RET)**: Monthly total return including dividends  
+- **Delisting Return (DLRET)**: Final return for stocks removed from CRSP  
+- **SIC Code**: Used for optional industry classification
+
+We restrict the sample to **ordinary common shares** (share codes 10 and 11) to exclude ADRs, REITs, and other non-standard securities.
+
+### Bias Adjustment Strategy
+
+To ensure robustness against common data biases, we employ the following correction methods:
+
+- **Survivorship Bias**: We retain all stocks, including those delisted during the sample period, to avoid overestimating returns from survivor-only data.
+- **Delisting Bias**: The total return for delisted stocks is calculated as:
+
+  $$
+  R_{\text{net}} = (1 + \text{RET}) \cdot (1 + \text{DLRET}) - 1
+  $$
+
+  If `RET` is missing but `DLRET` is available, we use `DLRET` as the return for the final month.
+
+- **State-Based Exit Classification**:  
+  For the purpose of transition matrix modeling in Section 4, we define an 11th state representing "exit":
+  - Stocks that are delisted move into this absorbing state.
+  - IPOs are considered to enter from this external state and are assigned to decile groups starting from their first month of listing.
+
+## 2. Secondary Data Sources
+
+### Fama-French Research Portfolios
+
+From the [Ken French Data Library](https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html), we collect the following datasets:
+
+- **ME10 Decile Portfolios**: Used to compare return characteristics between small-cap (`s_10`) and large-cap (`b_10`) portfolios.
+- **ME × PRIOR Portfolios**: Cross-sorted on size (ME) and prior 12-month return momentum. We focus on:
+  - `ME5 PRIOR4`: Large size, high momentum
+  - `ME4 PRIOR3`: Mid size, moderate momentum
+
+These portfolios are value-weighted, rebalanced annually using NYSE breakpoints, and provided as monthly returns.
+
+### Index and ETF Benchmarks
+
+To compare TBTF performance with market-traded investment vehicles, we incorporate the following index and ETF data:
+
+- **Pre-2010 Indices** (from Yahoo Finance):
+  - **DJIA** (Dow Jones Industrial Average)
+  - **NDX** (Nasdaq 100 Index)
+
+- **Post-2010 ETFs**:
+  - **DIA**: SPDR Dow Jones Industrial Average ETF (inception: 1998)
+  - **QQQ**: Invesco Nasdaq-100 ETF (inception: 1999)
+  - **SPY**: SPDR S&P 500 ETF (inception: 1993)
+  - **VTI**: Vanguard Total Stock Market ETF (inception: 2001)
+
+The inclusion of these instruments enables direct comparison with passive investment strategies commonly available to retail and institutional investors.
+
+## Appendix {.appendix}
+
+### Data Availability and Frequency
+
+| Dataset                         | Frequency | Period Covered       | Source                         |
+|--------------------------------|-----------|----------------------|--------------------------------|
+| CRSP Monthly Stock File        | Monthly   | 1996–2023            | WRDS/CRSP                      |
+| Fama-French ME Decile          | Monthly   | 1963–2023            | Ken French Data Library        |
+| Fama-French ME × PRIOR         | Monthly   | 1963–2023            | Ken French Data Library        |
+| DJIA, NDX (Price Indices)      | Monthly   | 1996–2023            | Yahoo Finance                  |
+| DIA, QQQ, SPY, VTI (ETFs)      | Monthly   | 1999–2023 (varies)   | Yahoo Finance                  |

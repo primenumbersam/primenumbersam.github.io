@@ -1,16 +1,22 @@
 ---
-title: Empirical Analysis of the TBTF Portfolio
-format: html
-number-sections: true
+title: Model and Empirical Study
+format:
+  html:
+    code-fold: true
+    toc: true
+    number-sections: true
 ---
 
-# Empirical Chapter: TBTF Portfolio Structure and Results
+# Model and Empirical Study
 
-This chapter presents the empirical foundation of the TBTF strategy using a sequence of modular analyses.
+This chapter presents the **structure and results of the TBTF strategy** using a sequence of modular analyses.
 
-<!--
+
 ```{include: contents}
 - 04_model/01_overview.qmd
+```
+
+<!--
 - 04_model/02_data.qmd
 - 04_model/03_ff_compare.qmd
 - 04_model/04_structure.qmd
