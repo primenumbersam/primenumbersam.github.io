@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="gitSAM">
-<meta name="dcterms.date" content="2025-03-23">
+<meta name="dcterms.date" content="2025-03-26">
 
-<title>Model and Empirical Study – GitSAM</title>
+<title>03 ff Compare – GitSAM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -69,6 +69,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -130,7 +159,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04_model.html">Model and Empirical Study</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04_model.html">03 ff Compare</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -163,13 +192,13 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03_history.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">History</span></a>
+ <span class="menu-text">Recent History</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./04_model.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Model and Empirical Study</span></a>
+ <span class="menu-text">03 ff Compare</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -188,7 +217,36 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#model-and-empirical-study" id="toc-model-and-empirical-study" class="nav-link active" data-scroll-target="#model-and-empirical-study"><span class="header-section-number">1</span> Model and Empirical Study</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">1</span> Overview</a>
+  <ul class="collapse">
+  <li><a href="#main-hypotheses" id="toc-main-hypotheses" class="nav-link" data-scroll-target="#main-hypotheses"><span class="header-section-number">1.1</span> Main Hypotheses</a></li>
+  
+  </ul></li>
+  <li><a href="#data-source-and-construction" id="toc-data-source-and-construction" class="nav-link" data-scroll-target="#data-source-and-construction"><span class="header-section-number">2</span> Data Source and Construction</a>
+  <ul class="collapse">
+  <li><a href="#primary-data-crsp-monthly-stock-file" id="toc-primary-data-crsp-monthly-stock-file" class="nav-link" data-scroll-target="#primary-data-crsp-monthly-stock-file"><span class="header-section-number">2.1</span> 1. Primary Data: CRSP Monthly Stock File</a>
+  <ul class="collapse">
+  <li><a href="#bias-adjustment-strategy" id="toc-bias-adjustment-strategy" class="nav-link" data-scroll-target="#bias-adjustment-strategy"><span class="header-section-number">2.1.1</span> Bias Adjustment Strategy</a></li>
+  </ul></li>
+  <li><a href="#secondary-data-sources" id="toc-secondary-data-sources" class="nav-link" data-scroll-target="#secondary-data-sources"><span class="header-section-number">2.2</span> 2. Secondary Data Sources</a>
+  <ul class="collapse">
+  <li><a href="#fama-french-research-portfolios" id="toc-fama-french-research-portfolios" class="nav-link" data-scroll-target="#fama-french-research-portfolios"><span class="header-section-number">2.2.1</span> Fama-French Research Portfolios</a></li>
+  <li><a href="#index-and-etf-benchmarks" id="toc-index-and-etf-benchmarks" class="nav-link" data-scroll-target="#index-and-etf-benchmarks"><span class="header-section-number">2.2.2</span> Index and ETF Benchmarks</a></li>
+  </ul></li>
+  
+  </ul></li>
+  <li><a href="#size-momentum-benchmark-size-sorted-portfolios" id="toc-size-momentum-benchmark-size-sorted-portfolios" class="nav-link" data-scroll-target="#size-momentum-benchmark-size-sorted-portfolios"><span class="header-section-number">3</span> Size-Momentum Benchmark: Size-Sorted Portfolios</a>
+  <ul class="collapse">
+  <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation"><span class="header-section-number">3.1</span> Motivation</a></li>
+  <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology"><span class="header-section-number">3.2</span> Methodology</a></li>
+  <li><a href="#key-findings" id="toc-key-findings" class="nav-link" data-scroll-target="#key-findings"><span class="header-section-number">3.3</span> Key Findings</a></li>
+  <li><a href="#sharpe-ratio-dynamics" id="toc-sharpe-ratio-dynamics" class="nav-link" data-scroll-target="#sharpe-ratio-dynamics"><span class="header-section-number">3.4</span> Sharpe Ratio Dynamics</a>
+  <ul class="collapse">
+  <li><a href="#key-results" id="toc-key-results" class="nav-link" data-scroll-target="#key-results"><span class="header-section-number">3.4.1</span> Key Results</a></li>
+  </ul></li>
+  <li><a href="#contribution" id="toc-contribution" class="nav-link" data-scroll-target="#contribution"><span class="header-section-number">3.5</span> Contribution</a></li>
+  
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -197,7 +255,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Model and Empirical Study</h1>
+<h1 class="title">03 ff Compare</h1>
+<p class="subtitle lead">Overview, motivation, and hypothesis of the TBTF strategy.</p>
 </div>
 
 
@@ -214,7 +273,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 23, 2025</p>
+      <p class="date">2025-03-26</p>
     </div>
   </div>
   
@@ -226,24 +285,578 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="model-and-empirical-study" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Model and Empirical Study</h1>
 <p>This chapter presents the <strong>structure and results of the TBTF strategy</strong> using a sequence of modular analyses.</p>
-<pre class="{include: contents}"><code>- 04_model/01_overview.qmd</code></pre>
+<section id="overview" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Overview</h1>
+<p>This study investigates the structural properties and empirical performance of a “Too Big To Fail” (TBTF) portfolio strategy, defined as a portfolio composed of the largest market capitalization stocks in the U.S. equity market. Using monthly stock-level data from the CRSP universe (NYSE, Nasdaq, AMEX), we examine whether top-ranked stocks—selected purely by market capitalization—consistently outperform others in terms of risk-adjusted returns.</p>
+<p>Our empirical design centers around the hypothesis that structural asymmetries in capital allocation, exacerbated by post-2008 monetary policies and market concentration, result in persistent distortions in return distributions. The TBTF strategy, though simple in construction, appears to capture these structural features with surprising consistency.</p>
+<p>We treat the year 2010 as a potential structural break, dividing the full sample into two equal-length periods:</p>
+<ul>
+<li><strong>Pre-2010</strong>: January 1996 to December 2009</li>
+<li><strong>Post-2010</strong>: January 2010 to December 2023</li>
+</ul>
+<p>This periodization allows us to analyze both long-term stability and post-crisis distortions in the equity return distribution.</p>
+<section id="main-hypotheses" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="main-hypotheses"><span class="header-section-number">1.1</span> Main Hypotheses</h2>
+<ol type="1">
+<li><p><strong>Return Superiority</strong>: The return distributions of top market-cap stocks are structurally superior to those of mid- and small-cap stocks in terms of risk-adjusted performance (e.g., Sharpe, Sortino, Omega ratios).</p></li>
+<li><p><strong>Persistence and Absorption</strong>: Stocks that reach the top decile of market capitalization exhibit high persistence and low turnover, potentially distorting market competitiveness and reducing allocative efficiency.</p></li>
+<li><p><strong>Convex Capital Concentration</strong>: The cross-sectional distribution of capital shares among top-ranked stocks is increasingly convex, suggesting long-term structural lock-in effects analogous to wealth inequality (e.g., Lorenz curve analogy).</p></li>
+</ol>
+</section>
+
+</section>
+<section id="data-source-and-construction" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Data Source and Construction</h1>
+<p>This section describes the data used to construct and evaluate the TBTF portfolio strategy. We utilize multiple sources to enable a comprehensive analysis of market structure, return distributions, and benchmark comparisons. The primary dataset is drawn from CRSP, with supplemental reference portfolios and index returns from Fama-French and Yahoo Finance, respectively.</p>
+<section id="primary-data-crsp-monthly-stock-file" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="primary-data-crsp-monthly-stock-file"><span class="header-section-number">2.1</span> 1. Primary Data: CRSP Monthly Stock File</h2>
+<p>We use the Center for Research in Security Prices (CRSP) monthly stock files, covering the period from January 1996 to December 2023. The CRSP universe includes all listed common stocks on the NYSE, Nasdaq, and AMEX exchanges. The following variables are extracted:</p>
+<ul>
+<li><strong>PERMNO</strong>: Unique stock identifier<br>
+</li>
+<li><strong>Date</strong>: Monthly observation date<br>
+</li>
+<li><strong>Market Capitalization</strong>: Calculated using shares outstanding × price<br>
+</li>
+<li><strong>Return (RET)</strong>: Monthly total return including dividends<br>
+</li>
+<li><strong>Delisting Return (DLRET)</strong>: Final return for stocks removed from CRSP<br>
+</li>
+<li><strong>SIC Code</strong>: Used for optional industry classification</li>
+</ul>
+<p>We restrict the sample to <strong>ordinary common shares</strong> (share codes 10 and 11) to exclude ADRs, REITs, and other non-standard securities.</p>
+<section id="bias-adjustment-strategy" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="bias-adjustment-strategy"><span class="header-section-number">2.1.1</span> Bias Adjustment Strategy</h3>
+<p>To ensure robustness against common data biases, we employ the following correction methods:</p>
+<ul>
+<li><p><strong>Survivorship Bias</strong>: We retain all stocks, including those delisted during the sample period, to avoid overestimating returns from survivor-only data.</p></li>
+<li><p><strong>Delisting Bias</strong>: The total return for delisted stocks is calculated as:</p>
+<p><span class="math display">\[
+R_{\text{net}} = (1 + \text{RET}) \cdot (1 + \text{DLRET}) - 1
+\]</span></p>
+<p>If <code>RET</code> is missing but <code>DLRET</code> is available, we use <code>DLRET</code> as the return for the final month.</p></li>
+<li><p><strong>State-Based Exit Classification</strong>:<br>
+For the purpose of transition matrix modeling in Section 4, we define an 11th state representing “exit”:</p>
+<ul>
+<li>Stocks that are delisted move into this absorbing state.</li>
+<li>IPOs are considered to enter from this external state and are assigned to decile groups starting from their first month of listing.</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="secondary-data-sources" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="secondary-data-sources"><span class="header-section-number">2.2</span> 2. Secondary Data Sources</h2>
+<section id="fama-french-research-portfolios" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="fama-french-research-portfolios"><span class="header-section-number">2.2.1</span> Fama-French Research Portfolios</h3>
+<p>From the <a href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html">Ken French Data Library</a>, we collect the following datasets:</p>
+<ul>
+<li><strong>ME10 Decile Portfolios</strong>: Used to compare return characteristics between small-cap (<code>s_10</code>) and large-cap (<code>b_10</code>) portfolios.</li>
+<li><strong>ME × PRIOR Portfolios</strong>: Cross-sorted on size (ME) and prior 12-month return momentum. We focus on:
+<ul>
+<li><code>ME5 PRIOR4</code>: Large size, high momentum</li>
+<li><code>ME4 PRIOR3</code>: Mid size, moderate momentum</li>
+</ul></li>
+</ul>
+<p>These portfolios are value-weighted, rebalanced annually using NYSE breakpoints, and provided as monthly returns.</p>
+</section>
+<section id="index-and-etf-benchmarks" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="index-and-etf-benchmarks"><span class="header-section-number">2.2.2</span> Index and ETF Benchmarks</h3>
+<p>To compare TBTF performance with market-traded investment vehicles, we incorporate the following index and ETF data:</p>
+<ul>
+<li><strong>Pre-2010 Indices</strong> (from Yahoo Finance):
+<ul>
+<li><strong>DJIA</strong> (Dow Jones Industrial Average)</li>
+<li><strong>NDX</strong> (Nasdaq 100 Index)</li>
+</ul></li>
+<li><strong>Post-2010 ETFs</strong>:
+<ul>
+<li><strong>DIA</strong>: SPDR Dow Jones Industrial Average ETF (inception: 1998)</li>
+<li><strong>QQQ</strong>: Invesco Nasdaq-100 ETF (inception: 1999)</li>
+<li><strong>SPY</strong>: SPDR S&amp;P 500 ETF (inception: 1993)</li>
+<li><strong>VTI</strong>: Vanguard Total Stock Market ETF (inception: 2001)</li>
+</ul></li>
+</ul>
+<p>The inclusion of these instruments enables direct comparison with passive investment strategies commonly available to retail and institutional investors.</p>
+</section>
+</section>
+
+</section>
+<section id="size-momentum-benchmark-size-sorted-portfolios" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Size-Momentum Benchmark: Size-Sorted Portfolios</h1>
+<p>To establish a structural benchmark for the TBTF strategy, we begin by examining the historical performance of size-sorted portfolios constructed by Fama and French. In particular, we compare the top and bottom deciles of market capitalization—commonly denoted as <code>b_10</code> (large-cap) and <code>s_10</code> (small-cap)—using monthly return data spanning from July 1963 to June 2023.</p>
+<p>The data originate from the “Portfolios Formed on Size (ME)” dataset provided by the Ken French Data Library. These portfolios, covering NYSE, Nasdaq, and AMEX stocks, are rebalanced annually using NYSE breakpoints and report monthly <strong>value-weighted excess returns</strong>—i.e., returns net of the one-month Treasury bill rate (risk-free return).</p>
+<p>For additional robustness, we construct aggregates (e.g., <code>s_70</code>, <code>s_90</code>) to represent broader small-cap behavior.</p>
+<section id="motivation" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="motivation"><span class="header-section-number">3.1</span> Motivation</h2>
+<p>This section evaluates whether large-cap portfolios exhibit systematically superior <strong>risk-adjusted performance</strong> relative to small-cap portfolios. Such a result would support the hypothesis that TBTF-style strategies derive their advantage not from tactical optimization, but from structural features of the cross-sectional return distribution.</p>
+</section>
+<section id="methodology" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="methodology"><span class="header-section-number">3.2</span> Methodology</h2>
+<p>We compare the <code>s_10</code> and <code>b_10</code> portfolios in three dimensions:</p>
+<ul>
+<li><strong>Distributional Shape</strong>: via QQ-plots and skewness asymmetry<br>
+</li>
+<li><strong>Volatility Profile</strong>: through standard deviation comparisons<br>
+</li>
+<li><strong>Sharpe Ratio Dynamics</strong>: using time-varying rolling Sharpe ratio curves and volatility–mean coordinate plots</li>
+</ul>
+<p>Unlike most academic studies that summarize portfolio performance using static points in mean–volatility space, we propose a dynamic framework in which Sharpe ratios are evaluated as time-series objects. This allows us to capture persistent structural asymmetries.</p>
+</section>
+<section id="key-findings" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="key-findings"><span class="header-section-number">3.3</span> Key Findings</h2>
+<ol type="1">
+<li>The <code>b_10</code> portfolio exhibits consistently lower volatility than <code>s_10</code>, across the full 60-year period.</li>
+<li>Dynamic Sharpe ratio visualization reveals that the performance advantage of <code>b_10</code> is persistent over time, not a byproduct of a particular decade or business cycle.</li>
+<li>QQ-plots show that <code>b_10</code> excess returns are closer to Gaussian, while <code>s_10</code> returns display tail asymmetry—characterized by positive skewness and negative tail risk.</li>
+</ol>
+<p>These results suggest that large-cap portfolios, especially those at the very top of the capitalization spectrum, provide more stable and efficient <strong>excess return profiles</strong>. This supports the structural validity of selecting top-ranked assets by market capitalization in TBTF portfolio construction.</p>
+</section>
+<section id="sharpe-ratio-dynamics" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="sharpe-ratio-dynamics"><span class="header-section-number">3.4</span> Sharpe Ratio Dynamics</h2>
+<p>While static comparisons of mean and volatility offer useful summary insights, they can be misleading in the presence of temporal instability. To capture the <strong>time-varying performance profile</strong> of small- and large-cap portfolios, we construct <strong>rolling Sharpe ratios</strong> using annualized excess returns.</p>
+<p>Let <span class="math inline">\(\mu_t\)</span> and <span class="math inline">\(\sigma_t\)</span> denote the rolling annualized <strong>excess return mean</strong> and <strong>volatility</strong> of a portfolio over a 36-month window. Then, the rolling Sharpe ratio at time <span class="math inline">\(t\)</span> is computed as:</p>
+<p><span class="math display">\[
+\text{Sharpe}_t = \frac{\mu_t}{\sigma_t}
+\]</span></p>
+<p>We focus on the bottom and top size deciles: <code>s_10</code> (small-cap) and <code>b_10</code> (large-cap).</p>
+<section id="key-results" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="key-results"><span class="header-section-number">3.4.1</span> Key Results</h3>
+<ul>
+<li>Over the 60-year period, the <strong>unconditional average annual Sharpe ratio</strong> of <code>b_10</code> was <strong>0.99</strong>, compared to <strong>0.74</strong> for <code>s_10</code>.</li>
+<li>The time-series of rolling Sharpe ratios reveals that <code>b_10</code> <strong>dominates structurally</strong>, not just in isolated windows.</li>
+<li>During periods of macroeconomic stress, <code>s_10</code> portfolios experience sharper volatility spikes, reducing their Sharpe ratios significantly.</li>
+</ul>
+<p><img src="figs/sharpe_curve_s10_b10.png" class="img-fluid"> <em>Time-series of 36-month rolling Sharpe ratios for <code>s_10</code> and <code>b_10</code>. Dashed lines represent the unconditional average for each.</em></p>
+<p>To further visualize the structural difference, we compare the time-series difference in annualized excess returns and standard deviations:</p>
+<p><img src="figs/annual_mean_diff_s10_b10.png" class="img-fluid"> <em>Annual excess return difference: <code>s_10 – b_10</code>. The red horizontal line marks the long-run average (~3.0% annually).</em></p>
+<p><img src="figs/annual_std_diff_s10_b10.png" class="img-fluid"> <em>Annual volatility difference: <code>s_10 – b_10</code>. Large-cap volatility is consistently lower.</em></p>
+<p>We also construct a bivariate distribution of annual mean and standard deviation using kernel density estimates:</p>
+<p><img src="figs/sharpe_plane_s10_b10.png" class="img-fluid"> <em>Kernel density estimate of annual excess return vs.&nbsp;annual volatility for <code>s_10</code> and <code>b_10</code>. The separation in volatility–mean space reflects the underlying Sharpe ratio asymmetry.</em></p>
+<p>These dynamic plots provide a richer understanding of the <strong>persistent performance asymmetry</strong> between the smallest and largest decile portfolios—supporting the broader structural thesis underlying TBTF.</p>
+</section>
+</section>
+<section id="contribution" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="contribution"><span class="header-section-number">3.5</span> Contribution</h2>
+<ul>
+<li>Introduces a time-dynamic framework—<strong>Sharpe ratio level curves</strong>—to visualize and quantify structural performance asymmetries between size portfolios.</li>
+<li>Establishes a long-term empirical benchmark against which TBTF performance can be evaluated.</li>
+<li>Provides theoretical and empirical justification for focusing on top-market-cap stocks, beyond simple momentum or value signals.</li>
+</ul>
+</section>
+
+</section>
+
+<div id="quarto-appendix" class="default"><section id="appendix" class="level2 appendix" data-number="1.2"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">1.2</span> Appendix</h2><div class="quarto-appendix-contents">
+
+<section id="summary-of-analytical-components-in-the-tbtf-strategy" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="summary-of-analytical-components-in-the-tbtf-strategy"><span class="header-section-number">1.2.1</span> Summary of Analytical Components in the TBTF Strategy</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 72%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Large vs.&nbsp;Small Stocks</td>
+<td>Compare return distributions and volatility structures</td>
+</tr>
+<tr class="even">
+<td>Top 10 Stocks</td>
+<td>Analyze list stability and industry composition (high-tech dominance)</td>
+</tr>
+<tr class="odd">
+<td>Transition Analysis</td>
+<td>Estimate transition probabilities and stationary distributions</td>
+</tr>
+<tr class="even">
+<td>Risk-Adjusted Performance</td>
+<td>Compare Sharpe, Sortino, Omega ratios against benchmarks (ETFs, indices)</td>
+</tr>
+</tbody>
+</table>
+</section>
+</div></section><section id="appendix-1" class="level2 appendix" data-number="2.3"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">2.3</span> Appendix</h2><div class="quarto-appendix-contents">
+
+<section id="data-availability-and-frequency" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="data-availability-and-frequency"><span class="header-section-number">2.3.1</span> Data Availability and Frequency</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 32%">
+<col style="width: 11%">
+<col style="width: 22%">
+<col style="width: 32%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Dataset</th>
+<th>Frequency</th>
+<th>Period Covered</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CRSP Monthly Stock File</td>
+<td>Monthly</td>
+<td>1996–2023</td>
+<td>WRDS/CRSP</td>
+</tr>
+<tr class="even">
+<td>Fama-French ME Decile</td>
+<td>Monthly</td>
+<td>1963–2023</td>
+<td>Ken French Data Library</td>
+</tr>
+<tr class="odd">
+<td>Fama-French ME × PRIOR</td>
+<td>Monthly</td>
+<td>1963–2023</td>
+<td>Ken French Data Library</td>
+</tr>
+<tr class="even">
+<td>DJIA, NDX (Price Indices)</td>
+<td>Monthly</td>
+<td>1996–2023</td>
+<td>Yahoo Finance</td>
+</tr>
+<tr class="odd">
+<td>DIA, QQQ, SPY, VTI (ETFs)</td>
+<td>Monthly</td>
+<td>1999–2023 (varies)</td>
+<td>Yahoo Finance</td>
+</tr>
+</tbody>
+</table>
+</section>
+</div></section><section id="appendix-2" class="level2 appendix" data-number="3.6"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">3.6</span> Appendix</h2><div class="quarto-appendix-contents">
+
+<section id="figure-a1-qq-plot-s_10-vs.-b_10" class="level3" data-number="3.6.1">
+<h3 data-number="3.6.1" class="anchored" data-anchor-id="figure-a1-qq-plot-s_10-vs.-b_10"><span class="header-section-number">3.6.1</span> Figure A1: QQ Plot – <code>s_10</code> vs.&nbsp;<code>b_10</code></h3>
+<p><img src="figs/qqplot_s10_b10.png" class="img-fluid"></p>
+<p><em>QQ plots comparing sample quantiles of <code>s_10</code> (left) and <code>b_10</code> (right) returns to a standard normal distribution. The flatter slope and tighter fit of <code>b_10</code> indicate lower volatility and greater normality, while <code>s_10</code> exhibits positive skewness and negative tail risk.</em></p>
+</section>
+<section id="table-a1-summary-statistics-19632023" class="level3" data-number="3.6.2">
+<h3 data-number="3.6.2" class="anchored" data-anchor-id="table-a1-summary-statistics-19632023"><span class="header-section-number">3.6.2</span> Table A1: Summary Statistics (1963–2023)</h3>
+<table class="dataframe table table-sm table-striped small">
+<caption>
+<b>Annualized Summary Statistics for Fama-French Size-Decile Portfolios</b><br> Monthly value-weighted excess returns for size-sorted portfolios from July 1963 to June 2023. Excess returns are defined as raw portfolio returns net of the one-month Treasury bill rate.
+</caption>
+<thead>
+<tr>
+<th>
+Statistic
+</th>
+<th>
+s_10
+</th>
+<th>
+b_10
+</th>
+<th>
+s_20
+</th>
+<th>
+b_20
+</th>
+<th>
+s_30
+</th>
+<th>
+b_30
+</th>
+<th>
+s_70
+</th>
+<th>
+s_80
+</th>
+<th>
+s_90
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>
+Count
+</th>
+<td>
+360
+</td>
+<td>
+360
+</td>
+<td>
+360
+</td>
+<td>
+360
+</td>
+<td>
+360
+</td>
+<td>
+360
+</td>
+<td>
+360
+</td>
+<td>
+360
+</td>
+<td>
+360
+</td>
+</tr>
+<tr>
+<th>
+Mean
+</th>
+<td>
+0.96
+</td>
+<td>
+0.91
+</td>
+<td>
+1.00
+</td>
+<td>
+0.92
+</td>
+<td>
+1.01
+</td>
+<td>
+0.92
+</td>
+<td>
+1.00
+</td>
+<td>
+0.99
+</td>
+<td>
+0.99
+</td>
+</tr>
+<tr>
+<th>
+Std. Dev
+</th>
+<td>
+6.32
+</td>
+<td>
+4.38
+</td>
+<td>
+6.46
+</td>
+<td>
+4.38
+</td>
+<td>
+6.31
+</td>
+<td>
+4.40
+</td>
+<td>
+5.81
+</td>
+<td>
+5.67
+</td>
+<td>
+5.54
+</td>
+</tr>
+<tr>
+<th>
+Min
+</th>
+<td>
+-22.21
+</td>
+<td>
+-14.78
+</td>
+<td>
+-23.06
+</td>
+<td>
+-15.91
+</td>
+<td>
+-23.56
+</td>
+<td>
+-16.29
+</td>
+<td>
+-22.58
+</td>
+<td>
+-21.69
+</td>
+<td>
+-21.23
+</td>
+</tr>
+<tr>
+<th>
+25%
+</th>
+<td>
+-2.54
+</td>
+<td>
+-1.62
+</td>
+<td>
+-2.73
+</td>
+<td>
+-1.64
+</td>
+<td>
+-2.89
+</td>
+<td>
+-1.67
+</td>
+<td>
+-2.35
+</td>
+<td>
+-2.40
+</td>
+<td>
+-2.35
+</td>
+</tr>
+<tr>
+<th>
+Median
+</th>
+<td>
+1.25
+</td>
+<td>
+1.35
+</td>
+<td>
+1.36
+</td>
+<td>
+1.32
+</td>
+<td>
+1.29
+</td>
+<td>
+1.32
+</td>
+<td>
+1.35
+</td>
+<td>
+1.40
+</td>
+<td>
+1.33
+</td>
+</tr>
+<tr>
+<th>
+75%
+</th>
+<td>
+4.64
+</td>
+<td>
+3.51
+</td>
+<td>
+5.20
+</td>
+<td>
+3.65
+</td>
+<td>
+4.88
+</td>
+<td>
+3.73
+</td>
+<td>
+4.71
+</td>
+<td>
+4.66
+</td>
+<td>
+4.58
+</td>
+</tr>
+<tr>
+<th>
+Max
+</th>
+<td>
+29.50
+</td>
+<td>
+13.10
+</td>
+<td>
+27.54
+</td>
+<td>
+13.25
+</td>
+<td>
+24.01
+</td>
+<td>
+13.34
+</td>
+<td>
+19.42
+</td>
+<td>
+18.64
+</td>
+<td>
+18.26
+</td>
+</tr>
+</tbody>
+</table>
 <!--
+- 
 - 04_model/02_data.qmd
 - 04_model/03_ff_compare.qmd
+- 
 - 04_model/04_structure.qmd
 - 04_model/05_strategy.qmd
 - 04_model/06_performance.qmd
 - 04_model/07_robustness.qmd
+- 
 - 04_model/08_implementation.qmd
 -->
 
 
 </section>
-
-</main> <!-- /main -->
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

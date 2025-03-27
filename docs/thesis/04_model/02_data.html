@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="gitSAM">
-<meta name="dcterms.date" content="2025-03-23">
+<meta name="dcterms.date" content="2025-03-26">
 
-<title>Conclusion – GitSAM</title>
+<title>02 Data – GitSAM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,22 +25,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-ddd961a2510921635943dfbbd19534c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-ddd961a2510921635943dfbbd19534c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,8 +69,37 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="../styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-sidebar floating nav-fixed">
@@ -80,7 +109,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title"><a href="../index.html">GitSAM</a></span>
     </a>
   </div>
@@ -91,15 +120,15 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./../guides/index.html"> 
+    <a class="nav-link" href="../../guides/index.html"> 
 <span class="menu-text">교육</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./../projects/index.html"> 
+    <a class="nav-link" href="../../projects/index.html"> 
 <span class="menu-text">연구</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link active" href="../index.html" aria-current="page"> 
 <span class="menu-text">TBTF</span></a>
   </li>  
 </ul>
@@ -130,7 +159,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05_conclusion.html">Conclusion</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">02 Data</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -144,37 +173,37 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Too Big to Fail?</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../01_intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_lit_review.html" class="sidebar-item-text sidebar-link">
+  <a href="../02_lit_review.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Literature Review</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_history.html" class="sidebar-item-text sidebar-link">
+  <a href="../03_history.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Recent History</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_model.html" class="sidebar-item-text sidebar-link">
+  <a href="../04_model.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">03 ff Compare</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_conclusion.html" class="sidebar-item-text sidebar-link active">
+  <a href="../05_conclusion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Conclusion</span></a>
   </div>
 </li>
@@ -188,7 +217,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link active" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#data-source-and-construction" id="toc-data-source-and-construction" class="nav-link active" data-scroll-target="#data-source-and-construction">Data Source and Construction</a>
+  <ul class="collapse">
+  <li><a href="#primary-data-crsp-monthly-stock-file" id="toc-primary-data-crsp-monthly-stock-file" class="nav-link" data-scroll-target="#primary-data-crsp-monthly-stock-file">1. Primary Data: CRSP Monthly Stock File</a>
+  <ul class="collapse">
+  <li><a href="#bias-adjustment-strategy" id="toc-bias-adjustment-strategy" class="nav-link" data-scroll-target="#bias-adjustment-strategy">Bias Adjustment Strategy</a></li>
+  </ul></li>
+  <li><a href="#secondary-data-sources" id="toc-secondary-data-sources" class="nav-link" data-scroll-target="#secondary-data-sources">2. Secondary Data Sources</a>
+  <ul class="collapse">
+  <li><a href="#fama-french-research-portfolios" id="toc-fama-french-research-portfolios" class="nav-link" data-scroll-target="#fama-french-research-portfolios">Fama-French Research Portfolios</a></li>
+  <li><a href="#index-and-etf-benchmarks" id="toc-index-and-etf-benchmarks" class="nav-link" data-scroll-target="#index-and-etf-benchmarks">Index and ETF Benchmarks</a></li>
+  </ul></li>
+  
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -197,7 +238,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Conclusion</h1>
+<h1 class="title">02 Data</h1>
 </div>
 
 
@@ -214,7 +255,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 23, 2025</p>
+      <p class="date">March 26, 2025</p>
     </div>
   </div>
   
@@ -226,21 +267,139 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="conclusion" class="level1">
-<h1>Conclusion</h1>
-<p>This study provides empirical evidence that U.S. capital markets have diverged significantly from classical equilibrium assumptions, especially in the aftermath of post-2008 monetary interventions and the rise of passive investment vehicles. Return distributions are no longer symmetric or homogeneous. Instead, they increasingly resemble a <strong>mixture of structurally persistent, rank-locked capital flows</strong>—a departure from the no-arbitrage paradigm central to traditional asset pricing theory.</p>
-<p>At the heart of this shift is the <strong>“Too Big to Fail” (TBTF)</strong> strategy. Despite its simplicity—selecting the top 10 firms by market capitalization and applying a convex weighting scheme—it delivers consistently superior performance in the post-2010 period. This outperformance is not driven by better fundamentals, but rather by <strong>capital lock-in</strong>, ETF-induced inertia, and policy-enabled distortions. Ironically, the more distorted the market becomes, the more effective the TBTF strategy proves to be.</p>
-<p>Yet, this success reveals a deeper problem. The TBTF strategy is <strong>“sadly optimal”</strong>:<br>
-- If it works, it profits from an increasingly inefficient market.<br>
-- If it fails, it may signal the restoration of competitive capital allocation.</p>
-<p>Either outcome reflects a paradox: individual rationality is rewarded within a system that may be collectively irrational or unsustainable.</p>
-<p>More broadly, this paper contributes to the growing literature on <strong>non-ergodic capital markets</strong>, <strong>rank-based valuation</strong>, and <strong>the erosion of allocative efficiency</strong> under interventionist policy regimes. It suggests that future asset pricing research must move beyond risk-based compensation models and instead incorporate persistent asymmetries, transitional mobility, and structural sources of rent extraction.</p>
-<p>Ultimately, if markets are to fulfill their allocative role in a capitalist economy, a rethinking of capital dynamics, index construction, and the role of passive investment is not optional—it is essential.</p>
-
+<section id="data-source-and-construction" class="level1">
+<h1>Data Source and Construction</h1>
+<p>This section describes the data used to construct and evaluate the TBTF portfolio strategy. We utilize multiple sources to enable a comprehensive analysis of market structure, return distributions, and benchmark comparisons. The primary dataset is drawn from CRSP, with supplemental reference portfolios and index returns from Fama-French and Yahoo Finance, respectively.</p>
+<section id="primary-data-crsp-monthly-stock-file" class="level2">
+<h2 class="anchored" data-anchor-id="primary-data-crsp-monthly-stock-file">1. Primary Data: CRSP Monthly Stock File</h2>
+<p>We use the Center for Research in Security Prices (CRSP) monthly stock files, covering the period from January 1996 to December 2023. The CRSP universe includes all listed common stocks on the NYSE, Nasdaq, and AMEX exchanges. The following variables are extracted:</p>
+<ul>
+<li><strong>PERMNO</strong>: Unique stock identifier<br>
+</li>
+<li><strong>Date</strong>: Monthly observation date<br>
+</li>
+<li><strong>Market Capitalization</strong>: Calculated using shares outstanding × price<br>
+</li>
+<li><strong>Return (RET)</strong>: Monthly total return including dividends<br>
+</li>
+<li><strong>Delisting Return (DLRET)</strong>: Final return for stocks removed from CRSP<br>
+</li>
+<li><strong>SIC Code</strong>: Used for optional industry classification</li>
+</ul>
+<p>We restrict the sample to <strong>ordinary common shares</strong> (share codes 10 and 11) to exclude ADRs, REITs, and other non-standard securities.</p>
+<section id="bias-adjustment-strategy" class="level3">
+<h3 class="anchored" data-anchor-id="bias-adjustment-strategy">Bias Adjustment Strategy</h3>
+<p>To ensure robustness against common data biases, we employ the following correction methods:</p>
+<ul>
+<li><p><strong>Survivorship Bias</strong>: We retain all stocks, including those delisted during the sample period, to avoid overestimating returns from survivor-only data.</p></li>
+<li><p><strong>Delisting Bias</strong>: The total return for delisted stocks is calculated as:</p>
+<p><span class="math display">\[
+R_{\text{net}} = (1 + \text{RET}) \cdot (1 + \text{DLRET}) - 1
+\]</span></p>
+<p>If <code>RET</code> is missing but <code>DLRET</code> is available, we use <code>DLRET</code> as the return for the final month.</p></li>
+<li><p><strong>State-Based Exit Classification</strong>:<br>
+For the purpose of transition matrix modeling in Section 4, we define an 11th state representing “exit”:</p>
+<ul>
+<li>Stocks that are delisted move into this absorbing state.</li>
+<li>IPOs are considered to enter from this external state and are assigned to decile groups starting from their first month of listing.</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="secondary-data-sources" class="level2">
+<h2 class="anchored" data-anchor-id="secondary-data-sources">2. Secondary Data Sources</h2>
+<section id="fama-french-research-portfolios" class="level3">
+<h3 class="anchored" data-anchor-id="fama-french-research-portfolios">Fama-French Research Portfolios</h3>
+<p>From the <a href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html">Ken French Data Library</a>, we collect the following datasets:</p>
+<ul>
+<li><strong>ME10 Decile Portfolios</strong>: Used to compare return characteristics between small-cap (<code>s_10</code>) and large-cap (<code>b_10</code>) portfolios.</li>
+<li><strong>ME × PRIOR Portfolios</strong>: Cross-sorted on size (ME) and prior 12-month return momentum. We focus on:
+<ul>
+<li><code>ME5 PRIOR4</code>: Large size, high momentum</li>
+<li><code>ME4 PRIOR3</code>: Mid size, moderate momentum</li>
+</ul></li>
+</ul>
+<p>These portfolios are value-weighted, rebalanced annually using NYSE breakpoints, and provided as monthly returns.</p>
+</section>
+<section id="index-and-etf-benchmarks" class="level3">
+<h3 class="anchored" data-anchor-id="index-and-etf-benchmarks">Index and ETF Benchmarks</h3>
+<p>To compare TBTF performance with market-traded investment vehicles, we incorporate the following index and ETF data:</p>
+<ul>
+<li><strong>Pre-2010 Indices</strong> (from Yahoo Finance):
+<ul>
+<li><strong>DJIA</strong> (Dow Jones Industrial Average)</li>
+<li><strong>NDX</strong> (Nasdaq 100 Index)</li>
+</ul></li>
+<li><strong>Post-2010 ETFs</strong>:
+<ul>
+<li><strong>DIA</strong>: SPDR Dow Jones Industrial Average ETF (inception: 1998)</li>
+<li><strong>QQQ</strong>: Invesco Nasdaq-100 ETF (inception: 1999)</li>
+<li><strong>SPY</strong>: SPDR S&amp;P 500 ETF (inception: 1993)</li>
+<li><strong>VTI</strong>: Vanguard Total Stock Market ETF (inception: 2001)</li>
+</ul></li>
+</ul>
+<p>The inclusion of these instruments enables direct comparison with passive investment strategies commonly available to retail and institutional investors.</p>
+</section>
+</section>
 
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section id="appendix" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Appendix</h2><div class="quarto-appendix-contents">
+
+<section id="data-availability-and-frequency" class="level3">
+<h3 class="anchored" data-anchor-id="data-availability-and-frequency">Data Availability and Frequency</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 32%">
+<col style="width: 11%">
+<col style="width: 22%">
+<col style="width: 32%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Dataset</th>
+<th>Frequency</th>
+<th>Period Covered</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CRSP Monthly Stock File</td>
+<td>Monthly</td>
+<td>1996–2023</td>
+<td>WRDS/CRSP</td>
+</tr>
+<tr class="even">
+<td>Fama-French ME Decile</td>
+<td>Monthly</td>
+<td>1963–2023</td>
+<td>Ken French Data Library</td>
+</tr>
+<tr class="odd">
+<td>Fama-French ME × PRIOR</td>
+<td>Monthly</td>
+<td>1963–2023</td>
+<td>Ken French Data Library</td>
+</tr>
+<tr class="even">
+<td>DJIA, NDX (Price Indices)</td>
+<td>Monthly</td>
+<td>1996–2023</td>
+<td>Yahoo Finance</td>
+</tr>
+<tr class="odd">
+<td>DIA, QQQ, SPY, VTI (ETFs)</td>
+<td>Monthly</td>
+<td>1999–2023 (varies)</td>
+<td>Yahoo Finance</td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

@@ -7,21 +7,24 @@ format:
     number-sections: true
 ---
 
-# Model and Empirical Study
-
 This chapter presents the **structure and results of the TBTF strategy** using a sequence of modular analyses.
 
 
-```{include: contents}
-- 04_model/01_overview.qmd
-```
+{{< include 04_model/01_overview.qmd >}}
+
+{{< include 04_model/02_data.qmd >}}
+
+{{< include 04_model/03_ff_compare.qmd >}}
 
 <!--
+- 
 - 04_model/02_data.qmd
 - 04_model/03_ff_compare.qmd
+- 
 - 04_model/04_structure.qmd
 - 04_model/05_strategy.qmd
 - 04_model/06_performance.qmd
 - 04_model/07_robustness.qmd
+- 
 - 04_model/08_implementation.qmd
 -->

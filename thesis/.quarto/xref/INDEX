@@ -25,5 +25,14 @@
   },
   "04_model/01_overview.qmd": {
     "01_overview.html": "38640402"
+  },
+  "04_model/02_data.qmd": {
+    "02_data.html": "1bf9c7b0"
+  },
+  "04_model/03_ff_compare.qmd": {
+    "03_ff_compare.html": "16b746b7"
+  },
+  "04_model/08_implementation.qmd": {
+    "08_implementation.html": "20df92d5"
   }
 }

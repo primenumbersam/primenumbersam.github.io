@@ -44,7 +44,7 @@ The underperformance of theoretically sound but empirically fragile strategies s
 These findings motivate rank-based strategies like TBTF, capitalizing on structural capital dynamics rather than informational edges.
 
 ## 4. Contributions to the Literature  
-This study extends literature on asset pricing anomalies, building on @hou2020replicating.  regarding anomaly robustness. It introduces Markov-based transition models for capital lock-in, aligning with rising concentration insights from @autor2020fall and @jiang2020passive. It offers low-turnover, high-performance portfolio strategies and critiques ETF-driven distortions and post-QE concentration, reflecting real-world finance breakdowns under structural stress.
+This study extends literature on asset pricing anomalies, building on @hou2020replicating.  regarding anomaly robustness. It introduces Markov-based transition models for capital lock-in, aligning with rising concentration insights from @autor2020fall. It offers low-turnover, high-performance portfolio strategies and critiques ETF-driven distortions and post-QE concentration, reflecting real-world finance breakdowns under structural stress.
 
 This study builds upon and extends several strands of the literature:
 

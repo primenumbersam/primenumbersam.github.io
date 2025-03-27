@@ -24,78 +24,258 @@
   {
     "objectID": "04_model.html",
     "href": "04_model.html",
-    "title": "Model and Empirical Study",
+    "title": "03 ff Compare",
     "section": "",
-    "text": "1 Model and Empirical Study\nThis chapter presents the structure and results of the TBTF strategy using a sequence of modular analyses.\n- 04_model/01_overview.qmd",
+    "text": "This chapter presents the structure and results of the TBTF strategy using a sequence of modular analyses.",
     "crumbs": [
       "교육",
-      "Model and Empirical Study"
+      "03 ff Compare"
     ]
   },
   {
-    "objectID": "03_history.html",
-    "href": "03_history.html",
-    "title": "History",
-    "section": "",
-    "text": "This study defines January 1, 2010 as a structural break in the evolution of U.S. financial markets. This point marks a transition from a period of crisis-driven volatility and deregulation to an era characterized by policy-dominated asset inflation, ETF proliferation, and asymmetric capital flows. By segmenting the data at this breakpoint, we aim to assess how financial market performance and capital concentration evolved across two distinct regimes.\nThe dataset spans January 1996 to December 2023, with a monthly frequency. It is segmented as follows:\n\nPre-2010: 1996–2009\n\nPost-2010: 2010–2023\n\nThe segmentation provides a clean empirical framework to evaluate the impact of structural policy interventions and evolving capital dynamics.\n\n\n\n\n\nThe pre-2010 period includes several global shocks and deregulation episodes:\n\n1997 Asian Financial Crisis\nDot-com Bubble and Crash (2000–2001)\n9/11 Terror Attacks (2001)\nRepeal of Glass-Steagall (1999), which contributed to systemic risk buildup\nGlobal Financial Crisis (2008–2009), culminating in the collapse of Lehman Brothers and the implementation of TARP\n\nThis was an era of market discontinuity, high volatility, and risk repricing, where asset allocation was still driven largely by fundamentals and discretionary investing.\n\n\n\nIn contrast, the post-2010 era reflects a policy-driven financial environment, where capital markets were shaped by:\n\nQuantitative Easing (QE1, QE2, QE3)\nPassive flows via ETF proliferation\nTechnological monopolization\nCOVID-19 pandemic and unprecedented stimulus\nAI-fueled equity valuations post-2023\n\nThese changes have amplified top-heavy capital concentration and reinforced inertia in market leadership. Importantly, they enabled the survival of inefficient firms at the lower end (zombie firms), distorting the small-cap return distribution.\n\n\n\n\nAn empirical motivation for the TBTF strategy lies in the historical persistence of top-cap firms. From 2012 to 2023, only 27 unique PERMNOs appeared in the top 10 by market cap. These include:\n\nAAPL, MSFT, AMZN, GOOG, META, NVDA, TSLA\nTraditional blue chips like XOM, JNJ, WMT, JPM, BAC\nHealthcare and consumer giants like UNH, LLY, PG, KO\nFinancials and telcos like BRK, MA, V, T, VZ\n\nThis concentration implies that capital has become locked into a narrow subset of firms, with little room for new entrants—an observation with profound implications for allocative efficiency and market competition.\n\n\n\n\nU.S. equities constitute nearly half of global equity market capitalization.\nThe dominance of U.S. firms in global equity rankings",
+    "objectID": "04_model.html#main-hypotheses",
+    "href": "04_model.html#main-hypotheses",
+    "title": "03 ff Compare",
+    "section": "1.1 Main Hypotheses",
+    "text": "1.1 Main Hypotheses\n\nReturn Superiority: The return distributions of top market-cap stocks are structurally superior to those of mid- and small-cap stocks in terms of risk-adjusted performance (e.g., Sharpe, Sortino, Omega ratios).\nPersistence and Absorption: Stocks that reach the top decile of market capitalization exhibit high persistence and low turnover, potentially distorting market competitiveness and reducing allocative efficiency.\nConvex Capital Concentration: The cross-sectional distribution of capital shares among top-ranked stocks is increasingly convex, suggesting long-term structural lock-in effects analogous to wealth inequality (e.g., Lorenz curve analogy).",
     "crumbs": [
       "교육",
-      "History"
+      "03 ff Compare"
     ]
   },
   {
-    "objectID": "03_history.html#as-a-structural-break",
-    "href": "03_history.html#as-a-structural-break",
-    "title": "History",
-    "section": "",
-    "text": "This study defines January 1, 2010 as a structural break in the evolution of U.S. financial markets. This point marks a transition from a period of crisis-driven volatility and deregulation to an era characterized by policy-dominated asset inflation, ETF proliferation, and asymmetric capital flows. By segmenting the data at this breakpoint, we aim to assess how financial market performance and capital concentration evolved across two distinct regimes.\nThe dataset spans January 1996 to December 2023, with a monthly frequency. It is segmented as follows:\n\nPre-2010: 1996–2009\n\nPost-2010: 2010–2023\n\nThe segmentation provides a clean empirical framework to evaluate the impact of structural policy interventions and evolving capital dynamics.",
+    "objectID": "04_model.html#primary-data-crsp-monthly-stock-file",
+    "href": "04_model.html#primary-data-crsp-monthly-stock-file",
+    "title": "03 ff Compare",
+    "section": "2.1 1. Primary Data: CRSP Monthly Stock File",
+    "text": "2.1 1. Primary Data: CRSP Monthly Stock File\nWe use the Center for Research in Security Prices (CRSP) monthly stock files, covering the period from January 1996 to December 2023. The CRSP universe includes all listed common stocks on the NYSE, Nasdaq, and AMEX exchanges. The following variables are extracted:\n\nPERMNO: Unique stock identifier\n\nDate: Monthly observation date\n\nMarket Capitalization: Calculated using shares outstanding × price\n\nReturn (RET): Monthly total return including dividends\n\nDelisting Return (DLRET): Final return for stocks removed from CRSP\n\nSIC Code: Used for optional industry classification\n\nWe restrict the sample to ordinary common shares (share codes 10 and 11) to exclude ADRs, REITs, and other non-standard securities.\n\n2.1.1 Bias Adjustment Strategy\nTo ensure robustness against common data biases, we employ the following correction methods:\n\nSurvivorship Bias: We retain all stocks, including those delisted during the sample period, to avoid overestimating returns from survivor-only data.\nDelisting Bias: The total return for delisted stocks is calculated as:\n\\[\nR_{\\text{net}} = (1 + \\text{RET}) \\cdot (1 + \\text{DLRET}) - 1\n\\]\nIf RET is missing but DLRET is available, we use DLRET as the return for the final month.\nState-Based Exit Classification:\nFor the purpose of transition matrix modeling in Section 4, we define an 11th state representing “exit”:\n\nStocks that are delisted move into this absorbing state.\nIPOs are considered to enter from this external state and are assigned to decile groups starting from their first month of listing.",
     "crumbs": [
       "교육",
-      "History"
+      "03 ff Compare"
     ]
   },
   {
-    "objectID": "03_history.html#historical-context-of-each-period",
-    "href": "03_history.html#historical-context-of-each-period",
-    "title": "History",
-    "section": "",
-    "text": "The pre-2010 period includes several global shocks and deregulation episodes:\n\n1997 Asian Financial Crisis\nDot-com Bubble and Crash (2000–2001)\n9/11 Terror Attacks (2001)\nRepeal of Glass-Steagall (1999), which contributed to systemic risk buildup\nGlobal Financial Crisis (2008–2009), culminating in the collapse of Lehman Brothers and the implementation of TARP\n\nThis was an era of market discontinuity, high volatility, and risk repricing, where asset allocation was still driven largely by fundamentals and discretionary investing.\n\n\n\nIn contrast, the post-2010 era reflects a policy-driven financial environment, where capital markets were shaped by:\n\nQuantitative Easing (QE1, QE2, QE3)\nPassive flows via ETF proliferation\nTechnological monopolization\nCOVID-19 pandemic and unprecedented stimulus\nAI-fueled equity valuations post-2023\n\nThese changes have amplified top-heavy capital concentration and reinforced inertia in market leadership. Importantly, they enabled the survival of inefficient firms at the lower end (zombie firms), distorting the small-cap return distribution.",
+    "objectID": "04_model.html#secondary-data-sources",
+    "href": "04_model.html#secondary-data-sources",
+    "title": "03 ff Compare",
+    "section": "2.2 2. Secondary Data Sources",
+    "text": "2.2 2. Secondary Data Sources\n\n2.2.1 Fama-French Research Portfolios\nFrom the Ken French Data Library, we collect the following datasets:\n\nME10 Decile Portfolios: Used to compare return characteristics between small-cap (s_10) and large-cap (b_10) portfolios.\nME × PRIOR Portfolios: Cross-sorted on size (ME) and prior 12-month return momentum. We focus on:\n\nME5 PRIOR4: Large size, high momentum\nME4 PRIOR3: Mid size, moderate momentum\n\n\nThese portfolios are value-weighted, rebalanced annually using NYSE breakpoints, and provided as monthly returns.\n\n\n2.2.2 Index and ETF Benchmarks\nTo compare TBTF performance with market-traded investment vehicles, we incorporate the following index and ETF data:\n\nPre-2010 Indices (from Yahoo Finance):\n\nDJIA (Dow Jones Industrial Average)\nNDX (Nasdaq 100 Index)\n\nPost-2010 ETFs:\n\nDIA: SPDR Dow Jones Industrial Average ETF (inception: 1998)\nQQQ: Invesco Nasdaq-100 ETF (inception: 1999)\nSPY: SPDR S&P 500 ETF (inception: 1993)\nVTI: Vanguard Total Stock Market ETF (inception: 2001)\n\n\nThe inclusion of these instruments enables direct comparison with passive investment strategies commonly available to retail and institutional investors.",
     "crumbs": [
       "교육",
-      "History"
+      "03 ff Compare"
     ]
   },
   {
-    "objectID": "03_history.html#us-top-10-stability-empirical-snapshot",
-    "href": "03_history.html#us-top-10-stability-empirical-snapshot",
-    "title": "History",
-    "section": "",
-    "text": "An empirical motivation for the TBTF strategy lies in the historical persistence of top-cap firms. From 2012 to 2023, only 27 unique PERMNOs appeared in the top 10 by market cap. These include:\n\nAAPL, MSFT, AMZN, GOOG, META, NVDA, TSLA\nTraditional blue chips like XOM, JNJ, WMT, JPM, BAC\nHealthcare and consumer giants like UNH, LLY, PG, KO\nFinancials and telcos like BRK, MA, V, T, VZ\n\nThis concentration implies that capital has become locked into a narrow subset of firms, with little room for new entrants—an observation with profound implications for allocative efficiency and market competition.",
+    "objectID": "04_model.html#motivation",
+    "href": "04_model.html#motivation",
+    "title": "03 ff Compare",
+    "section": "3.1 Motivation",
+    "text": "3.1 Motivation\nThis section evaluates whether large-cap portfolios exhibit systematically superior risk-adjusted performance relative to small-cap portfolios. Such a result would support the hypothesis that TBTF-style strategies derive their advantage not from tactical optimization, but from structural features of the cross-sectional return distribution.",
     "crumbs": [
       "교육",
-      "History"
+      "03 ff Compare"
     ]
   },
   {
-    "objectID": "03_history.html#global-top-10-market-cap-stocks",
-    "href": "03_history.html#global-top-10-market-cap-stocks",
-    "title": "History",
-    "section": "",
-    "text": "U.S. equities constitute nearly half of global equity market capitalization.\nThe dominance of U.S. firms in global equity rankings",
+    "objectID": "04_model.html#methodology",
+    "href": "04_model.html#methodology",
+    "title": "03 ff Compare",
+    "section": "3.2 Methodology",
+    "text": "3.2 Methodology\nWe compare the s_10 and b_10 portfolios in three dimensions:\n\nDistributional Shape: via QQ-plots and skewness asymmetry\n\nVolatility Profile: through standard deviation comparisons\n\nSharpe Ratio Dynamics: using time-varying rolling Sharpe ratio curves and volatility–mean coordinate plots\n\nUnlike most academic studies that summarize portfolio performance using static points in mean–volatility space, we propose a dynamic framework in which Sharpe ratios are evaluated as time-series objects. This allows us to capture persistent structural asymmetries.",
     "crumbs": [
       "교육",
-      "History"
+      "03 ff Compare"
     ]
   },
   {
-    "objectID": "03_history.html#appendix",
-    "href": "03_history.html#appendix",
-    "title": "History",
+    "objectID": "04_model.html#key-findings",
+    "href": "04_model.html#key-findings",
+    "title": "03 ff Compare",
+    "section": "3.3 Key Findings",
+    "text": "3.3 Key Findings\n\nThe b_10 portfolio exhibits consistently lower volatility than s_10, across the full 60-year period.\nDynamic Sharpe ratio visualization reveals that the performance advantage of b_10 is persistent over time, not a byproduct of a particular decade or business cycle.\nQQ-plots show that b_10 excess returns are closer to Gaussian, while s_10 returns display tail asymmetry—characterized by positive skewness and negative tail risk.\n\nThese results suggest that large-cap portfolios, especially those at the very top of the capitalization spectrum, provide more stable and efficient excess return profiles. This supports the structural validity of selecting top-ranked assets by market capitalization in TBTF portfolio construction.",
+    "crumbs": [
+      "교육",
+      "03 ff Compare"
+    ]
+  },
+  {
+    "objectID": "04_model.html#sharpe-ratio-dynamics",
+    "href": "04_model.html#sharpe-ratio-dynamics",
+    "title": "03 ff Compare",
+    "section": "3.4 Sharpe Ratio Dynamics",
+    "text": "3.4 Sharpe Ratio Dynamics\nWhile static comparisons of mean and volatility offer useful summary insights, they can be misleading in the presence of temporal instability. To capture the time-varying performance profile of small- and large-cap portfolios, we construct rolling Sharpe ratios using annualized excess returns.\nLet \\(\\mu_t\\) and \\(\\sigma_t\\) denote the rolling annualized excess return mean and volatility of a portfolio over a 36-month window. Then, the rolling Sharpe ratio at time \\(t\\) is computed as:\n\\[\n\\text{Sharpe}_t = \\frac{\\mu_t}{\\sigma_t}\n\\]\nWe focus on the bottom and top size deciles: s_10 (small-cap) and b_10 (large-cap).\n\n3.4.1 Key Results\n\nOver the 60-year period, the unconditional average annual Sharpe ratio of b_10 was 0.99, compared to 0.74 for s_10.\nThe time-series of rolling Sharpe ratios reveals that b_10 dominates structurally, not just in isolated windows.\nDuring periods of macroeconomic stress, s_10 portfolios experience sharper volatility spikes, reducing their Sharpe ratios significantly.\n\n Time-series of 36-month rolling Sharpe ratios for s_10 and b_10. Dashed lines represent the unconditional average for each.\nTo further visualize the structural difference, we compare the time-series difference in annualized excess returns and standard deviations:\n Annual excess return difference: s_10 – b_10. The red horizontal line marks the long-run average (~3.0% annually).\n Annual volatility difference: s_10 – b_10. Large-cap volatility is consistently lower.\nWe also construct a bivariate distribution of annual mean and standard deviation using kernel density estimates:\n Kernel density estimate of annual excess return vs. annual volatility for s_10 and b_10. The separation in volatility–mean space reflects the underlying Sharpe ratio asymmetry.\nThese dynamic plots provide a richer understanding of the persistent performance asymmetry between the smallest and largest decile portfolios—supporting the broader structural thesis underlying TBTF.",
+    "crumbs": [
+      "교육",
+      "03 ff Compare"
+    ]
+  },
+  {
+    "objectID": "04_model.html#contribution",
+    "href": "04_model.html#contribution",
+    "title": "03 ff Compare",
+    "section": "3.5 Contribution",
+    "text": "3.5 Contribution\n\nIntroduces a time-dynamic framework—Sharpe ratio level curves—to visualize and quantify structural performance asymmetries between size portfolios.\nEstablishes a long-term empirical benchmark against which TBTF performance can be evaluated.\nProvides theoretical and empirical justification for focusing on top-market-cap stocks, beyond simple momentum or value signals.",
+    "crumbs": [
+      "교육",
+      "03 ff Compare"
+    ]
+  },
+  {
+    "objectID": "04_model.html#appendix",
+    "href": "04_model.html#appendix",
+    "title": "03 ff Compare",
+    "section": "1.2 Appendix",
+    "text": "1.2 Appendix\n\n\n1.2.1 Summary of Analytical Components in the TBTF Strategy\n\n\n\n\n\n\n\nComponent\nDescription\n\n\n\n\nLarge vs. Small Stocks\nCompare return distributions and volatility structures\n\n\nTop 10 Stocks\nAnalyze list stability and industry composition (high-tech dominance)\n\n\nTransition Analysis\nEstimate transition probabilities and stationary distributions\n\n\nRisk-Adjusted Performance\nCompare Sharpe, Sortino, Omega ratios against benchmarks (ETFs, indices)",
+    "crumbs": [
+      "교육",
+      "03 ff Compare"
+    ]
+  },
+  {
+    "objectID": "04_model.html#appendix-1",
+    "href": "04_model.html#appendix-1",
+    "title": "03 ff Compare",
+    "section": "2.3 Appendix",
+    "text": "2.3 Appendix\n\n\n2.3.1 Data Availability and Frequency\n\n\n\n\n\n\n\n\n\nDataset\nFrequency\nPeriod Covered\nSource\n\n\n\n\nCRSP Monthly Stock File\nMonthly\n1996–2023\nWRDS/CRSP\n\n\nFama-French ME Decile\nMonthly\n1963–2023\nKen French Data Library\n\n\nFama-French ME × PRIOR\nMonthly\n1963–2023\nKen French Data Library\n\n\nDJIA, NDX (Price Indices)\nMonthly\n1996–2023\nYahoo Finance\n\n\nDIA, QQQ, SPY, VTI (ETFs)\nMonthly\n1999–2023 (varies)\nYahoo Finance",
+    "crumbs": [
+      "교육",
+      "03 ff Compare"
+    ]
+  },
+  {
+    "objectID": "04_model.html#appendix-2",
+    "href": "04_model.html#appendix-2",
+    "title": "03 ff Compare",
+    "section": "3.6 Appendix",
+    "text": "3.6 Appendix\n\n\n3.6.1 Figure A1: QQ Plot – s_10 vs. b_10\n\nQQ plots comparing sample quantiles of s_10 (left) and b_10 (right) returns to a standard normal distribution. The flatter slope and tighter fit of b_10 indicate lower volatility and greater normality, while s_10 exhibits positive skewness and negative tail risk.\n\n\n3.6.2 Table A1: Summary Statistics (1963–2023)\n\n\nAnnualized Summary Statistics for Fama-French Size-Decile Portfolios Monthly value-weighted excess returns for size-sorted portfolios from July 1963 to June 2023. Excess returns are defined as raw portfolio returns net of the one-month Treasury bill rate.\n\n\n\n\nStatistic\n\n\ns_10\n\n\nb_10\n\n\ns_20\n\n\nb_20\n\n\ns_30\n\n\nb_30\n\n\ns_70\n\n\ns_80\n\n\ns_90\n\n\n\n\n\n\nCount\n\n\n360\n\n\n360\n\n\n360\n\n\n360\n\n\n360\n\n\n360\n\n\n360\n\n\n360\n\n\n360\n\n\n\n\nMean\n\n\n0.96\n\n\n0.91\n\n\n1.00\n\n\n0.92\n\n\n1.01\n\n\n0.92\n\n\n1.00\n\n\n0.99\n\n\n0.99\n\n\n\n\nStd. Dev\n\n\n6.32\n\n\n4.38\n\n\n6.46\n\n\n4.38\n\n\n6.31\n\n\n4.40\n\n\n5.81\n\n\n5.67\n\n\n5.54\n\n\n\n\nMin\n\n\n-22.21\n\n\n-14.78\n\n\n-23.06\n\n\n-15.91\n\n\n-23.56\n\n\n-16.29\n\n\n-22.58\n\n\n-21.69\n\n\n-21.23\n\n\n\n\n25%\n\n\n-2.54\n\n\n-1.62\n\n\n-2.73\n\n\n-1.64\n\n\n-2.89\n\n\n-1.67\n\n\n-2.35\n\n\n-2.40\n\n\n-2.35\n\n\n\n\nMedian\n\n\n1.25\n\n\n1.35\n\n\n1.36\n\n\n1.32\n\n\n1.29\n\n\n1.32\n\n\n1.35\n\n\n1.40\n\n\n1.33\n\n\n\n\n75%\n\n\n4.64\n\n\n3.51\n\n\n5.20\n\n\n3.65\n\n\n4.88\n\n\n3.73\n\n\n4.71\n\n\n4.66\n\n\n4.58\n\n\n\n\nMax\n\n\n29.50\n\n\n13.10\n\n\n27.54\n\n\n13.25\n\n\n24.01\n\n\n13.34\n\n\n19.42\n\n\n18.64\n\n\n18.26",
+    "crumbs": [
+      "교육",
+      "03 ff Compare"
+    ]
+  },
+  {
+    "objectID": "04_model/03_ff_compare.html",
+    "href": "04_model/03_ff_compare.html",
+    "title": "03 ff Compare",
+    "section": "",
+    "text": "To establish a structural benchmark for the TBTF strategy, we begin by examining the historical performance of size-sorted portfolios constructed by Fama and French. In particular, we compare the top and bottom deciles of market capitalization—commonly denoted as b_10 (large-cap) and s_10 (small-cap)—using monthly return data spanning from July 1963 to June 2023.\nThe data originate from the “Portfolios Formed on Size (ME)” dataset provided by the Ken French Data Library. These portfolios, covering NYSE, Nasdaq, and AMEX stocks, are rebalanced annually using NYSE breakpoints and report monthly value-weighted excess returns—i.e., returns net of the one-month Treasury bill rate (risk-free return).\nFor additional robustness, we construct aggregates (e.g., s_70, s_90) to represent broader small-cap behavior.\n\n\nThis section evaluates whether large-cap portfolios exhibit systematically superior risk-adjusted performance relative to small-cap portfolios. Such a result would support the hypothesis that TBTF-style strategies derive their advantage not from tactical optimization, but from structural features of the cross-sectional return distribution.\n\n\n\nWe compare the s_10 and b_10 portfolios in three dimensions:\n\nDistributional Shape: via QQ-plots and skewness asymmetry\n\nVolatility Profile: through standard deviation comparisons\n\nSharpe Ratio Dynamics: using time-varying rolling Sharpe ratio curves and volatility–mean coordinate plots\n\nUnlike most academic studies that summarize portfolio performance using static points in mean–volatility space, we propose a dynamic framework in which Sharpe ratios are evaluated as time-series objects. This allows us to capture persistent structural asymmetries.\n\n\n\n\nThe b_10 portfolio exhibits consistently lower volatility than s_10, across the full 60-year period.\nDynamic Sharpe ratio visualization reveals that the performance advantage of b_10 is persistent over time, not a byproduct of a particular decade or business cycle.\nQQ-plots show that b_10 excess returns are closer to Gaussian, while s_10 returns display tail asymmetry—characterized by positive skewness and negative tail risk.\n\nThese results suggest that large-cap portfolios, especially those at the very top of the capitalization spectrum, provide more stable and efficient excess return profiles. This supports the structural validity of selecting top-ranked assets by market capitalization in TBTF portfolio construction.\n\n\n\nWhile static comparisons of mean and volatility offer useful summary insights, they can be misleading in the presence of temporal instability. To capture the time-varying performance profile of small- and large-cap portfolios, we construct rolling Sharpe ratios using annualized excess returns.\nLet \\(\\mu_t\\) and \\(\\sigma_t\\) denote the rolling annualized excess return mean and volatility of a portfolio over a 36-month window. Then, the rolling Sharpe ratio at time \\(t\\) is computed as:\n\\[\n\\text{Sharpe}_t = \\frac{\\mu_t}{\\sigma_t}\n\\]\nWe focus on the bottom and top size deciles: s_10 (small-cap) and b_10 (large-cap).\n\n\n\nOver the 60-year period, the unconditional average annual Sharpe ratio of b_10 was 0.99, compared to 0.74 for s_10.\nThe time-series of rolling Sharpe ratios reveals that b_10 dominates structurally, not just in isolated windows.\nDuring periods of macroeconomic stress, s_10 portfolios experience sharper volatility spikes, reducing their Sharpe ratios significantly.\n\n Time-series of 36-month rolling Sharpe ratios for s_10 and b_10. Dashed lines represent the unconditional average for each.\nTo further visualize the structural difference, we compare the time-series difference in annualized excess returns and standard deviations:\n Annual excess return difference: s_10 – b_10. The red horizontal line marks the long-run average (~3.0% annually).\n Annual volatility difference: s_10 – b_10. Large-cap volatility is consistently lower.\nWe also construct a bivariate distribution of annual mean and standard deviation using kernel density estimates:\n Kernel density estimate of annual excess return vs. annual volatility for s_10 and b_10. The separation in volatility–mean space reflects the underlying Sharpe ratio asymmetry.\nThese dynamic plots provide a richer understanding of the persistent performance asymmetry between the smallest and largest decile portfolios—supporting the broader structural thesis underlying TBTF.\n\n\n\n\n\nIntroduces a time-dynamic framework—Sharpe ratio level curves—to visualize and quantify structural performance asymmetries between size portfolios.\nEstablishes a long-term empirical benchmark against which TBTF performance can be evaluated.\nProvides theoretical and empirical justification for focusing on top-market-cap stocks, beyond simple momentum or value signals."
+  },
+  {
+    "objectID": "04_model/03_ff_compare.html#motivation",
+    "href": "04_model/03_ff_compare.html#motivation",
+    "title": "03 ff Compare",
+    "section": "",
+    "text": "This section evaluates whether large-cap portfolios exhibit systematically superior risk-adjusted performance relative to small-cap portfolios. Such a result would support the hypothesis that TBTF-style strategies derive their advantage not from tactical optimization, but from structural features of the cross-sectional return distribution."
+  },
+  {
+    "objectID": "04_model/03_ff_compare.html#methodology",
+    "href": "04_model/03_ff_compare.html#methodology",
+    "title": "03 ff Compare",
+    "section": "",
+    "text": "We compare the s_10 and b_10 portfolios in three dimensions:\n\nDistributional Shape: via QQ-plots and skewness asymmetry\n\nVolatility Profile: through standard deviation comparisons\n\nSharpe Ratio Dynamics: using time-varying rolling Sharpe ratio curves and volatility–mean coordinate plots\n\nUnlike most academic studies that summarize portfolio performance using static points in mean–volatility space, we propose a dynamic framework in which Sharpe ratios are evaluated as time-series objects. This allows us to capture persistent structural asymmetries."
+  },
+  {
+    "objectID": "04_model/03_ff_compare.html#key-findings",
+    "href": "04_model/03_ff_compare.html#key-findings",
+    "title": "03 ff Compare",
+    "section": "",
+    "text": "The b_10 portfolio exhibits consistently lower volatility than s_10, across the full 60-year period.\nDynamic Sharpe ratio visualization reveals that the performance advantage of b_10 is persistent over time, not a byproduct of a particular decade or business cycle.\nQQ-plots show that b_10 excess returns are closer to Gaussian, while s_10 returns display tail asymmetry—characterized by positive skewness and negative tail risk.\n\nThese results suggest that large-cap portfolios, especially those at the very top of the capitalization spectrum, provide more stable and efficient excess return profiles. This supports the structural validity of selecting top-ranked assets by market capitalization in TBTF portfolio construction."
+  },
+  {
+    "objectID": "04_model/03_ff_compare.html#sharpe-ratio-dynamics",
+    "href": "04_model/03_ff_compare.html#sharpe-ratio-dynamics",
+    "title": "03 ff Compare",
+    "section": "",
+    "text": "While static comparisons of mean and volatility offer useful summary insights, they can be misleading in the presence of temporal instability. To capture the time-varying performance profile of small- and large-cap portfolios, we construct rolling Sharpe ratios using annualized excess returns.\nLet \\(\\mu_t\\) and \\(\\sigma_t\\) denote the rolling annualized excess return mean and volatility of a portfolio over a 36-month window. Then, the rolling Sharpe ratio at time \\(t\\) is computed as:\n\\[\n\\text{Sharpe}_t = \\frac{\\mu_t}{\\sigma_t}\n\\]\nWe focus on the bottom and top size deciles: s_10 (small-cap) and b_10 (large-cap).\n\n\n\nOver the 60-year period, the unconditional average annual Sharpe ratio of b_10 was 0.99, compared to 0.74 for s_10.\nThe time-series of rolling Sharpe ratios reveals that b_10 dominates structurally, not just in isolated windows.\nDuring periods of macroeconomic stress, s_10 portfolios experience sharper volatility spikes, reducing their Sharpe ratios significantly.\n\n Time-series of 36-month rolling Sharpe ratios for s_10 and b_10. Dashed lines represent the unconditional average for each.\nTo further visualize the structural difference, we compare the time-series difference in annualized excess returns and standard deviations:\n Annual excess return difference: s_10 – b_10. The red horizontal line marks the long-run average (~3.0% annually).\n Annual volatility difference: s_10 – b_10. Large-cap volatility is consistently lower.\nWe also construct a bivariate distribution of annual mean and standard deviation using kernel density estimates:\n Kernel density estimate of annual excess return vs. annual volatility for s_10 and b_10. The separation in volatility–mean space reflects the underlying Sharpe ratio asymmetry.\nThese dynamic plots provide a richer understanding of the persistent performance asymmetry between the smallest and largest decile portfolios—supporting the broader structural thesis underlying TBTF."
+  },
+  {
+    "objectID": "04_model/03_ff_compare.html#contribution",
+    "href": "04_model/03_ff_compare.html#contribution",
+    "title": "03 ff Compare",
+    "section": "",
+    "text": "Introduces a time-dynamic framework—Sharpe ratio level curves—to visualize and quantify structural performance asymmetries between size portfolios.\nEstablishes a long-term empirical benchmark against which TBTF performance can be evaluated.\nProvides theoretical and empirical justification for focusing on top-market-cap stocks, beyond simple momentum or value signals."
+  },
+  {
+    "objectID": "04_model/03_ff_compare.html#appendix",
+    "href": "04_model/03_ff_compare.html#appendix",
+    "title": "03 ff Compare",
     "section": "Appendix",
-    "text": "Appendix\n\n\nA. Key Financial and Policy Events by Period\n\nPre-2010 (1996–2009)\n\n\n\n\n\n\n\n\nDate\nEvent & Description\nImportance\n\n\n\n\n1997-07-02\nAsian Financial Crisis\nVery High\n\n\n1999-01-01\nEuro launched\nHigh\n\n\n1999-11-12\nRepeal of Glass-Steagall\nHigh\n\n\n2000–2001\nDot-com Bubble & Crash\nVery High\n\n\n2001-09-11\n9/11 Attacks\nVery High\n\n\n2008-09-15\nLehman Brothers Collapse\nVery High\n\n\n2008-10-03\nTARP ($700B bailout)\nVery High\n\n\n\n\n\nPost-2010 (2010–2023)\n\n\n\n\n\n\n\n\nDate\nEvent & Description\nImportance\n\n\n\n\n2010–2015\nQE1, QE2, QE3 Implementation & Taper\nHigh\n\n\n2018-01-01\nU.S.–China Trade Tensions\nVery High\n\n\n2020-03-11\nCOVID-19 Declared (Policy + Liquidity Response)\nVery High\n\n\n2023–Present\nRise of AI in Markets (NLP, LLMs)\nHigh",
+    "text": "Appendix\n\n\nFigure A1: QQ Plot – s_10 vs. b_10\n\nQQ plots comparing sample quantiles of s_10 (left) and b_10 (right) returns to a standard normal distribution. The flatter slope and tighter fit of b_10 indicate lower volatility and greater normality, while s_10 exhibits positive skewness and negative tail risk.\n\n\nTable A1: Summary Statistics (1963–2023)\n\n\nAnnualized Summary Statistics for Fama-French Size-Decile Portfolios Monthly value-weighted excess returns for size-sorted portfolios from July 1963 to June 2023. Excess returns are defined as raw portfolio returns net of the one-month Treasury bill rate.\n\n\n\n\nStatistic\n\n\ns_10\n\n\nb_10\n\n\ns_20\n\n\nb_20\n\n\ns_30\n\n\nb_30\n\n\ns_70\n\n\ns_80\n\n\ns_90\n\n\n\n\n\n\nCount\n\n\n360\n\n\n360\n\n\n360\n\n\n360\n\n\n360\n\n\n360\n\n\n360\n\n\n360\n\n\n360\n\n\n\n\nMean\n\n\n0.96\n\n\n0.91\n\n\n1.00\n\n\n0.92\n\n\n1.01\n\n\n0.92\n\n\n1.00\n\n\n0.99\n\n\n0.99\n\n\n\n\nStd. Dev\n\n\n6.32\n\n\n4.38\n\n\n6.46\n\n\n4.38\n\n\n6.31\n\n\n4.40\n\n\n5.81\n\n\n5.67\n\n\n5.54\n\n\n\n\nMin\n\n\n-22.21\n\n\n-14.78\n\n\n-23.06\n\n\n-15.91\n\n\n-23.56\n\n\n-16.29\n\n\n-22.58\n\n\n-21.69\n\n\n-21.23\n\n\n\n\n25%\n\n\n-2.54\n\n\n-1.62\n\n\n-2.73\n\n\n-1.64\n\n\n-2.89\n\n\n-1.67\n\n\n-2.35\n\n\n-2.40\n\n\n-2.35\n\n\n\n\nMedian\n\n\n1.25\n\n\n1.35\n\n\n1.36\n\n\n1.32\n\n\n1.29\n\n\n1.32\n\n\n1.35\n\n\n1.40\n\n\n1.33\n\n\n\n\n75%\n\n\n4.64\n\n\n3.51\n\n\n5.20\n\n\n3.65\n\n\n4.88\n\n\n3.73\n\n\n4.71\n\n\n4.66\n\n\n4.58\n\n\n\n\nMax\n\n\n29.50\n\n\n13.10\n\n\n27.54\n\n\n13.25\n\n\n24.01\n\n\n13.34\n\n\n19.42\n\n\n18.64\n\n\n18.26"
+  },
+  {
+    "objectID": "04_model/01_overview.html",
+    "href": "04_model/01_overview.html",
+    "title": "01 Overview",
+    "section": "",
+    "text": "This study investigates the structural properties and empirical performance of a “Too Big To Fail” (TBTF) portfolio strategy, defined as a portfolio composed of the largest market capitalization stocks in the U.S. equity market. Using monthly stock-level data from the CRSP universe (NYSE, Nasdaq, AMEX), we examine whether top-ranked stocks—selected purely by market capitalization—consistently outperform others in terms of risk-adjusted returns.\nOur empirical design centers around the hypothesis that structural asymmetries in capital allocation, exacerbated by post-2008 monetary policies and market concentration, result in persistent distortions in return distributions. The TBTF strategy, though simple in construction, appears to capture these structural features with surprising consistency.\nWe treat the year 2010 as a potential structural break, dividing the full sample into two equal-length periods:\n\nPre-2010: January 1996 to December 2009\nPost-2010: January 2010 to December 2023\n\nThis periodization allows us to analyze both long-term stability and post-crisis distortions in the equity return distribution.\n\n\n\nReturn Superiority: The return distributions of top market-cap stocks are structurally superior to those of mid- and small-cap stocks in terms of risk-adjusted performance (e.g., Sharpe, Sortino, Omega ratios).\nPersistence and Absorption: Stocks that reach the top decile of market capitalization exhibit high persistence and low turnover, potentially distorting market competitiveness and reducing allocative efficiency.\nConvex Capital Concentration: The cross-sectional distribution of capital shares among top-ranked stocks is increasingly convex, suggesting long-term structural lock-in effects analogous to wealth inequality (e.g., Lorenz curve analogy)."
+  },
+  {
+    "objectID": "04_model/01_overview.html#main-hypotheses",
+    "href": "04_model/01_overview.html#main-hypotheses",
+    "title": "01 Overview",
+    "section": "",
+    "text": "Return Superiority: The return distributions of top market-cap stocks are structurally superior to those of mid- and small-cap stocks in terms of risk-adjusted performance (e.g., Sharpe, Sortino, Omega ratios).\nPersistence and Absorption: Stocks that reach the top decile of market capitalization exhibit high persistence and low turnover, potentially distorting market competitiveness and reducing allocative efficiency.\nConvex Capital Concentration: The cross-sectional distribution of capital shares among top-ranked stocks is increasingly convex, suggesting long-term structural lock-in effects analogous to wealth inequality (e.g., Lorenz curve analogy)."
+  },
+  {
+    "objectID": "04_model/01_overview.html#appendix",
+    "href": "04_model/01_overview.html#appendix",
+    "title": "01 Overview",
+    "section": "Appendix",
+    "text": "Appendix\n\n\nSummary of Analytical Components in the TBTF Strategy\n\n\n\n\n\n\n\nComponent\nDescription\n\n\n\n\nLarge vs. Small Stocks\nCompare return distributions and volatility structures\n\n\nTop 10 Stocks\nAnalyze list stability and industry composition (high-tech dominance)\n\n\nTransition Analysis\nEstimate transition probabilities and stationary distributions\n\n\nRisk-Adjusted Performance\nCompare Sharpe, Sortino, Omega ratios against benchmarks (ETFs, indices)"
+  },
+  {
+    "objectID": "02_lit_review.html",
+    "href": "02_lit_review.html",
+    "title": "Literature Review",
+    "section": "",
+    "text": "Traditional financial economics posits that expected returns serve as compensation for bearing systematic risk. This principle underpins several foundational models: - The Capital Asset Pricing Model (CAPM) asserts that expected excess returns are proportional to market beta. - The Fama-French Three- and Five-Factor Models extend CAPM by incorporating size, value, profitability, and investment factors (Fama and French 1993; - Fama and French 2015). - The Betting Against Beta (BAB) framework suggests that low-beta assets may outperform on a risk-adjusted basis (Frazzini and Pedersen 2014). - Mean-Variance Optimization, introduced by Markowitz (1952), assumes that returns are normally distributed and fully explained by their mean and covariance structure.\nThese models rest on assumptions of frictionless markets, convex opportunity sets, homogeneous beliefs, and the absence of arbitrage opportunities.\n\n\n\nUtilizing CRSP monthly data, Fama-French industry portfolios, and ETF benchmarks across pre- and post-2010 periods, this study revisits and challenges these foundational models.\n\n\n\nMulti-Factor Model with Fama-MacBeth Regression (Fama and MacBeth 1973): When applied to industry portfolios, it reveals large, persistent unexplained alphas (Fama and French 1997) while the market risk premium becomes statistically insignificant. Asness et al. (2018) argue that the size premium persists when controlling for quality factors, suggesting the reversal may stem from low-quality small-cap stocks. Additionally, Hou, Xue, and Zhang (2020) find that many documented anomalies, including size-related ones, do not hold up under rigorous testing, while mitigated if carefully controlling microcap stocks and using value-weighted returns. For example, excess returns of FF industry portfolios are regressed on macro and financial factors, revealing multicollinearity among predictors like market excess returns, value spreads, and volatility indicators, leading to unstable coefficients and weak out-of-sample explanatory power.\n\nLasso regularization confirms model sparsity, with only a few predictors consistently selected, often exhibiting inconsistent signs (Kozak, Nagel, and Santosh 2020).\n\n\n\n\n\nThe BAB Strategy posits that high-beta assets underperform on a risk-adjusted basis (Frazzini and Pedersen 2014).\nEmpirical tests using SIC 10 portfolios reveal that optimal Sharpe ratios are achieved by portfolios with betas close to 1, rather than low or high values. The relationship between beta and performance is either flat or non-monotonic, suggesting that risk exposure is not systematically mispriced but structurally inert.\n\n\n\n\n\nUnconstrained Mean-Variance (MV) Optimization yields extreme and highly unstable weights, leading to high turnover and poor out-of-sample performance (DeMiguel, Garlappi, and Uppal 2009).\nImposing constraints (e.g., no short-selling) enhances stability but reduces performance below passive benchmarks. Passive value-weighted portfolios consistently outperform MV portfolios, even when optimized using historical data.\n\n\n\n\n\nBlack and Litterman (1992) combines CAPM equilibrium with investor views via Bayesian updating.\n\nBrandt, Santa-Clara, and Valkanov (2009) incorporate momentum and size signals into dynamic allocation, but our empirical tests reveal no consistent outperformance over ETF benchmarks post-2010, suffering from estimation error and overfitting in regimes characterized by unstable return distributions.\n\n\n\n\n\nThe underperformance of theoretically sound but empirically fragile strategies suggests capital markets reward position within a segmented system rather than risk.\n\nLarge-cap firms are insulated from downward transitions, mirroring the ‘superstar’ effect where small quality differences yield large market outcomes, as described by Rosen (Rosen 1981). In banking, Gandhi and Lustig (2015) find large banks have lower risk-adjusted returns, indicative of implicit government guarantees in adverse scenarios.\n\nSmall-cap firms increasingly comprise structurally inefficient “zombie” entities sustained by liquidity support (Acharya et al. 2024).\nReturn distributions no longer reflect efficient risk pricing but are shaped by arbitrage-limited capital flows, ETF-induced inflows, and policy distortions (Glosten, Li, and Zhang 2021; Shleifer and Vishny 1997).\nReturn distributions reflect arbitrage-limited capital flows, ETF-induced inflows, and policy distortions, with Jiang, Vayanos, and Zheng (2020) showing passive investing disproportionately benefits large firms, exacerbating concentration. This aligns with Autor et al. (2020), linking market power concentration to declining labor share, highlighting structural market dynamics.\n\nThese findings motivate rank-based strategies like TBTF, capitalizing on structural capital dynamics rather than informational edges.\n\n\n\nThis study extends literature on asset pricing anomalies, building on Hou, Xue, and Zhang (2020). regarding anomaly robustness. It introduces Markov-based transition models for capital lock-in, aligning with rising concentration insights from Autor et al. (2020). It offers low-turnover, high-performance portfolio strategies and critiques ETF-driven distortions and post-QE concentration, reflecting real-world finance breakdowns under structural stress.\nThis study builds upon and extends several strands of the literature:\n\nAsset Pricing Anomalies: It demonstrates new forms of structural deviation not explained by established factors (Hou, Xue, and Zhang 2020)\nMarket Structure and Capital Mobility: It introduces Markov-based transition models to analyze capital lock-in .\nPortfolio Strategy Design: It offers a low-turnover, high-performance alternative to optimization-based approaches.\nMarket Efficiency Critique: It provides empirical support for critiques of ETF-driven distortions and post-QE market concentration (Autor et al. 2020; Jiang, Vayanos, and Zheng 2020).\n\nThe TBTF strategy does not reject modern finance but reflects its real-world breakdown under structural stress. Its continued success raises fundamental questions about what financial markets price and for whose benefit.",
     "crumbs": [
       "교육",
-      "History"
+      "Literature Review"
+    ]
+  },
+  {
+    "objectID": "02_lit_review.html#classical-theories-of-risk-based-asset-pricing",
+    "href": "02_lit_review.html#classical-theories-of-risk-based-asset-pricing",
+    "title": "Literature Review",
+    "section": "",
+    "text": "Traditional financial economics posits that expected returns serve as compensation for bearing systematic risk. This principle underpins several foundational models: - The Capital Asset Pricing Model (CAPM) asserts that expected excess returns are proportional to market beta. - The Fama-French Three- and Five-Factor Models extend CAPM by incorporating size, value, profitability, and investment factors (Fama and French 1993; - Fama and French 2015). - The Betting Against Beta (BAB) framework suggests that low-beta assets may outperform on a risk-adjusted basis (Frazzini and Pedersen 2014). - Mean-Variance Optimization, introduced by Markowitz (1952), assumes that returns are normally distributed and fully explained by their mean and covariance structure.\nThese models rest on assumptions of frictionless markets, convex opportunity sets, homogeneous beliefs, and the absence of arbitrage opportunities.",
+    "crumbs": [
+      "교육",
+      "Literature Review"
+    ]
+  },
+  {
+    "objectID": "02_lit_review.html#empirical-challenges-to-risk-based-models",
+    "href": "02_lit_review.html#empirical-challenges-to-risk-based-models",
+    "title": "Literature Review",
+    "section": "",
+    "text": "Utilizing CRSP monthly data, Fama-French industry portfolios, and ETF benchmarks across pre- and post-2010 periods, this study revisits and challenges these foundational models.\n\n\n\nMulti-Factor Model with Fama-MacBeth Regression (Fama and MacBeth 1973): When applied to industry portfolios, it reveals large, persistent unexplained alphas (Fama and French 1997) while the market risk premium becomes statistically insignificant. Asness et al. (2018) argue that the size premium persists when controlling for quality factors, suggesting the reversal may stem from low-quality small-cap stocks. Additionally, Hou, Xue, and Zhang (2020) find that many documented anomalies, including size-related ones, do not hold up under rigorous testing, while mitigated if carefully controlling microcap stocks and using value-weighted returns. For example, excess returns of FF industry portfolios are regressed on macro and financial factors, revealing multicollinearity among predictors like market excess returns, value spreads, and volatility indicators, leading to unstable coefficients and weak out-of-sample explanatory power.\n\nLasso regularization confirms model sparsity, with only a few predictors consistently selected, often exhibiting inconsistent signs (Kozak, Nagel, and Santosh 2020).\n\n\n\n\n\nThe BAB Strategy posits that high-beta assets underperform on a risk-adjusted basis (Frazzini and Pedersen 2014).\nEmpirical tests using SIC 10 portfolios reveal that optimal Sharpe ratios are achieved by portfolios with betas close to 1, rather than low or high values. The relationship between beta and performance is either flat or non-monotonic, suggesting that risk exposure is not systematically mispriced but structurally inert.\n\n\n\n\n\nUnconstrained Mean-Variance (MV) Optimization yields extreme and highly unstable weights, leading to high turnover and poor out-of-sample performance (DeMiguel, Garlappi, and Uppal 2009).\nImposing constraints (e.g., no short-selling) enhances stability but reduces performance below passive benchmarks. Passive value-weighted portfolios consistently outperform MV portfolios, even when optimized using historical data.\n\n\n\n\n\nBlack and Litterman (1992) combines CAPM equilibrium with investor views via Bayesian updating.\n\nBrandt, Santa-Clara, and Valkanov (2009) incorporate momentum and size signals into dynamic allocation, but our empirical tests reveal no consistent outperformance over ETF benchmarks post-2010, suffering from estimation error and overfitting in regimes characterized by unstable return distributions.",
+    "crumbs": [
+      "교육",
+      "Literature Review"
+    ]
+  },
+  {
+    "objectID": "02_lit_review.html#structural-interpretation-and-motivation-for-tbtf",
+    "href": "02_lit_review.html#structural-interpretation-and-motivation-for-tbtf",
+    "title": "Literature Review",
+    "section": "",
+    "text": "The underperformance of theoretically sound but empirically fragile strategies suggests capital markets reward position within a segmented system rather than risk.\n\nLarge-cap firms are insulated from downward transitions, mirroring the ‘superstar’ effect where small quality differences yield large market outcomes, as described by Rosen (Rosen 1981). In banking, Gandhi and Lustig (2015) find large banks have lower risk-adjusted returns, indicative of implicit government guarantees in adverse scenarios.\n\nSmall-cap firms increasingly comprise structurally inefficient “zombie” entities sustained by liquidity support (Acharya et al. 2024).\nReturn distributions no longer reflect efficient risk pricing but are shaped by arbitrage-limited capital flows, ETF-induced inflows, and policy distortions (Glosten, Li, and Zhang 2021; Shleifer and Vishny 1997).\nReturn distributions reflect arbitrage-limited capital flows, ETF-induced inflows, and policy distortions, with Jiang, Vayanos, and Zheng (2020) showing passive investing disproportionately benefits large firms, exacerbating concentration. This aligns with Autor et al. (2020), linking market power concentration to declining labor share, highlighting structural market dynamics.\n\nThese findings motivate rank-based strategies like TBTF, capitalizing on structural capital dynamics rather than informational edges.",
+    "crumbs": [
+      "교육",
+      "Literature Review"
+    ]
+  },
+  {
+    "objectID": "02_lit_review.html#contributions-to-the-literature",
+    "href": "02_lit_review.html#contributions-to-the-literature",
+    "title": "Literature Review",
+    "section": "",
+    "text": "This study extends literature on asset pricing anomalies, building on Hou, Xue, and Zhang (2020). regarding anomaly robustness. It introduces Markov-based transition models for capital lock-in, aligning with rising concentration insights from Autor et al. (2020). It offers low-turnover, high-performance portfolio strategies and critiques ETF-driven distortions and post-QE concentration, reflecting real-world finance breakdowns under structural stress.\nThis study builds upon and extends several strands of the literature:\n\nAsset Pricing Anomalies: It demonstrates new forms of structural deviation not explained by established factors (Hou, Xue, and Zhang 2020)\nMarket Structure and Capital Mobility: It introduces Markov-based transition models to analyze capital lock-in .\nPortfolio Strategy Design: It offers a low-turnover, high-performance alternative to optimization-based approaches.\nMarket Efficiency Critique: It provides empirical support for critiques of ETF-driven distortions and post-QE market concentration (Autor et al. 2020; Jiang, Vayanos, and Zheng 2020).\n\nThe TBTF strategy does not reject modern finance but reflects its real-world breakdown under structural stress. Its continued success raises fundamental questions about what financial markets price and for whose benefit.",
+    "crumbs": [
+      "교육",
+      "Literature Review"
     ]
   },
   {
@@ -198,80 +378,140 @@
     ]
   },
   {
-    "objectID": "02_lit_review.html",
-    "href": "02_lit_review.html",
-    "title": "Literature Review",
+    "objectID": "03_history.html",
+    "href": "03_history.html",
+    "title": "Recent History",
     "section": "",
-    "text": "Traditional financial economics posits that expected returns serve as compensation for bearing systematic risk. This principle underpins several foundational models: - The Capital Asset Pricing Model (CAPM) asserts that expected excess returns are proportional to market beta. - The Fama-French Three- and Five-Factor Models extend CAPM by incorporating size, value, profitability, and investment factors (Fama and French 1993; - Fama and French 2015). - The Betting Against Beta (BAB) framework suggests that low-beta assets may outperform on a risk-adjusted basis (Frazzini and Pedersen 2014). - Mean-Variance Optimization, introduced by Markowitz (1952), assumes that returns are normally distributed and fully explained by their mean and covariance structure.\nThese models rest on assumptions of frictionless markets, convex opportunity sets, homogeneous beliefs, and the absence of arbitrage opportunities.\n\n\n\nUtilizing CRSP monthly data, Fama-French industry portfolios, and ETF benchmarks across pre- and post-2010 periods, this study revisits and challenges these foundational models.\n\n\n\nMulti-Factor Model with Fama-MacBeth Regression (Fama and MacBeth 1973): When applied to industry portfolios, it reveals large, persistent unexplained alphas (Fama and French 1997) while the market risk premium becomes statistically insignificant. Asness et al. (2018) argue that the size premium persists when controlling for quality factors, suggesting the reversal may stem from low-quality small-cap stocks. Additionally, Hou, Xue, and Zhang (2020) find that many documented anomalies, including size-related ones, do not hold up under rigorous testing, while mitigated if carefully controlling microcap stocks and using value-weighted returns. For example, excess returns of FF industry portfolios are regressed on macro and financial factors, revealing multicollinearity among predictors like market excess returns, value spreads, and volatility indicators, leading to unstable coefficients and weak out-of-sample explanatory power.\n\nLasso regularization confirms model sparsity, with only a few predictors consistently selected, often exhibiting inconsistent signs (Kozak, Nagel, and Santosh 2020).\n\n\n\n\n\nThe BAB Strategy posits that high-beta assets underperform on a risk-adjusted basis (Frazzini and Pedersen 2014).\nEmpirical tests using SIC 10 portfolios reveal that optimal Sharpe ratios are achieved by portfolios with betas close to 1, rather than low or high values. The relationship between beta and performance is either flat or non-monotonic, suggesting that risk exposure is not systematically mispriced but structurally inert.\n\n\n\n\n\nUnconstrained Mean-Variance (MV) Optimization yields extreme and highly unstable weights, leading to high turnover and poor out-of-sample performance (DeMiguel, Garlappi, and Uppal 2009).\nImposing constraints (e.g., no short-selling) enhances stability but reduces performance below passive benchmarks. Passive value-weighted portfolios consistently outperform MV portfolios, even when optimized using historical data.\n\n\n\n\n\nBlack and Litterman (1992) combines CAPM equilibrium with investor views via Bayesian updating.\n\nBrandt, Santa-Clara, and Valkanov (2009) incorporate momentum and size signals into dynamic allocation, but our empirical tests reveal no consistent outperformance over ETF benchmarks post-2010, suffering from estimation error and overfitting in regimes characterized by unstable return distributions.\n\n\n\n\n\nThe underperformance of theoretically sound but empirically fragile strategies suggests capital markets reward position within a segmented system rather than risk.\n\nLarge-cap firms are insulated from downward transitions, mirroring the ‘superstar’ effect where small quality differences yield large market outcomes, as described by Rosen (Rosen 1981). In banking, Gandhi and Lustig (2015) find large banks have lower risk-adjusted returns, indicative of implicit government guarantees in adverse scenarios.\n\nSmall-cap firms increasingly comprise structurally inefficient “zombie” entities sustained by liquidity support (Acharya et al. 2024).\nReturn distributions no longer reflect efficient risk pricing but are shaped by arbitrage-limited capital flows, ETF-induced inflows, and policy distortions (Glosten, Li, and Zhang 2021; Shleifer and Vishny 1997).\nReturn distributions reflect arbitrage-limited capital flows, ETF-induced inflows, and policy distortions, with Jiang, Vayanos, and Zheng (2020) showing passive investing disproportionately benefits large firms, exacerbating concentration. This aligns with Autor et al. (2020), linking market power concentration to declining labor share, highlighting structural market dynamics.\n\nThese findings motivate rank-based strategies like TBTF, capitalizing on structural capital dynamics rather than informational edges.\n\n\n\nThis study extends literature on asset pricing anomalies, building on Hou, Xue, and Zhang (2020). regarding anomaly robustness. It introduces Markov-based transition models for capital lock-in, aligning with rising concentration insights from Autor et al. (2020) and Jiang, Vayanos, and Zheng (2020). It offers low-turnover, high-performance portfolio strategies and critiques ETF-driven distortions and post-QE concentration, reflecting real-world finance breakdowns under structural stress.\nThis study builds upon and extends several strands of the literature:\n\nAsset Pricing Anomalies: It demonstrates new forms of structural deviation not explained by established factors (Hou, Xue, and Zhang 2020)\nMarket Structure and Capital Mobility: It introduces Markov-based transition models to analyze capital lock-in .\nPortfolio Strategy Design: It offers a low-turnover, high-performance alternative to optimization-based approaches.\nMarket Efficiency Critique: It provides empirical support for critiques of ETF-driven distortions and post-QE market concentration (Autor et al. 2020; Jiang, Vayanos, and Zheng 2020).\n\nThe TBTF strategy does not reject modern finance but reflects its real-world breakdown under structural stress. Its continued success raises fundamental questions about what financial markets price and for whose benefit.",
+    "text": "This study defines January 1, 2010 as a structural break in the evolution of U.S. financial markets. This point marks a transition from a period of crisis-driven volatility and deregulation to an era characterized by policy-dominated asset inflation, ETF proliferation, and asymmetric capital flows. By segmenting the data at this breakpoint, we aim to assess how financial market performance and capital concentration evolved across two distinct regimes.\nThe dataset spans January 1996 to December 2023, with a monthly frequency. It is segmented as follows:\n\nPre-2010: 1996–2009\n\nPost-2010: 2010–2023\n\nThe segmentation provides a clean empirical framework to evaluate the impact of structural policy interventions and evolving capital dynamics.\n\n\n\n\n\nThe pre-2010 period includes several global shocks and deregulation episodes:\n\n1997 Asian Financial Crisis\nDot-com Bubble and Crash (2000–2001)\n9/11 Terror Attacks (2001)\nRepeal of Glass-Steagall (1999), which contributed to systemic risk buildup\nGlobal Financial Crisis (2008–2009), culminating in the collapse of Lehman Brothers and the implementation of TARP\n\nThis was an era of market discontinuity, high volatility, and risk repricing, where asset allocation was still driven largely by fundamentals and discretionary investing.\n\n\n\nIn contrast, the post-2010 era reflects a policy-driven financial environment, where capital markets were shaped by:\n\nQuantitative Easing (QE1, QE2, QE3)\nPassive flows via ETF proliferation\nTechnological monopolization\nCOVID-19 pandemic and unprecedented stimulus\nAI-fueled equity valuations post-2023\n\nThese changes have amplified top-heavy capital concentration and reinforced inertia in market leadership. Importantly, they enabled the survival of inefficient firms at the lower end (zombie firms), distorting the small-cap return distribution.\n\n\n\n\nAn empirical motivation for the TBTF strategy lies in the historical persistence of top-cap firms. From 2012 to 2023, only 27 unique PERMNOs appeared in the top 10 by market cap. These include:\n\nAAPL, MSFT, AMZN, GOOG, META, NVDA, TSLA\nTraditional blue chips like XOM, JNJ, WMT, JPM, BAC\nHealthcare and consumer giants like UNH, LLY, PG, KO\nFinancials and telcos like BRK, MA, V, T, VZ\n\nThis concentration implies that capital has become locked into a narrow subset of firms, with little room for new entrants—an observation with profound implications for allocative efficiency and market competition.\n\n\n\n\nU.S. equities constitute nearly half of global equity market capitalization.\nThe dominance of U.S. firms in global equity rankings",
     "crumbs": [
       "교육",
-      "Literature Review"
+      "Recent History"
     ]
   },
   {
-    "objectID": "02_lit_review.html#classical-theories-of-risk-based-asset-pricing",
-    "href": "02_lit_review.html#classical-theories-of-risk-based-asset-pricing",
-    "title": "Literature Review",
+    "objectID": "03_history.html#as-a-structural-break",
+    "href": "03_history.html#as-a-structural-break",
+    "title": "Recent History",
     "section": "",
-    "text": "Traditional financial economics posits that expected returns serve as compensation for bearing systematic risk. This principle underpins several foundational models: - The Capital Asset Pricing Model (CAPM) asserts that expected excess returns are proportional to market beta. - The Fama-French Three- and Five-Factor Models extend CAPM by incorporating size, value, profitability, and investment factors (Fama and French 1993; - Fama and French 2015). - The Betting Against Beta (BAB) framework suggests that low-beta assets may outperform on a risk-adjusted basis (Frazzini and Pedersen 2014). - Mean-Variance Optimization, introduced by Markowitz (1952), assumes that returns are normally distributed and fully explained by their mean and covariance structure.\nThese models rest on assumptions of frictionless markets, convex opportunity sets, homogeneous beliefs, and the absence of arbitrage opportunities.",
+    "text": "This study defines January 1, 2010 as a structural break in the evolution of U.S. financial markets. This point marks a transition from a period of crisis-driven volatility and deregulation to an era characterized by policy-dominated asset inflation, ETF proliferation, and asymmetric capital flows. By segmenting the data at this breakpoint, we aim to assess how financial market performance and capital concentration evolved across two distinct regimes.\nThe dataset spans January 1996 to December 2023, with a monthly frequency. It is segmented as follows:\n\nPre-2010: 1996–2009\n\nPost-2010: 2010–2023\n\nThe segmentation provides a clean empirical framework to evaluate the impact of structural policy interventions and evolving capital dynamics.",
     "crumbs": [
       "교육",
-      "Literature Review"
+      "Recent History"
     ]
   },
   {
-    "objectID": "02_lit_review.html#empirical-challenges-to-risk-based-models",
-    "href": "02_lit_review.html#empirical-challenges-to-risk-based-models",
-    "title": "Literature Review",
+    "objectID": "03_history.html#historical-context-of-each-period",
+    "href": "03_history.html#historical-context-of-each-period",
+    "title": "Recent History",
     "section": "",
-    "text": "Utilizing CRSP monthly data, Fama-French industry portfolios, and ETF benchmarks across pre- and post-2010 periods, this study revisits and challenges these foundational models.\n\n\n\nMulti-Factor Model with Fama-MacBeth Regression (Fama and MacBeth 1973): When applied to industry portfolios, it reveals large, persistent unexplained alphas (Fama and French 1997) while the market risk premium becomes statistically insignificant. Asness et al. (2018) argue that the size premium persists when controlling for quality factors, suggesting the reversal may stem from low-quality small-cap stocks. Additionally, Hou, Xue, and Zhang (2020) find that many documented anomalies, including size-related ones, do not hold up under rigorous testing, while mitigated if carefully controlling microcap stocks and using value-weighted returns. For example, excess returns of FF industry portfolios are regressed on macro and financial factors, revealing multicollinearity among predictors like market excess returns, value spreads, and volatility indicators, leading to unstable coefficients and weak out-of-sample explanatory power.\n\nLasso regularization confirms model sparsity, with only a few predictors consistently selected, often exhibiting inconsistent signs (Kozak, Nagel, and Santosh 2020).\n\n\n\n\n\nThe BAB Strategy posits that high-beta assets underperform on a risk-adjusted basis (Frazzini and Pedersen 2014).\nEmpirical tests using SIC 10 portfolios reveal that optimal Sharpe ratios are achieved by portfolios with betas close to 1, rather than low or high values. The relationship between beta and performance is either flat or non-monotonic, suggesting that risk exposure is not systematically mispriced but structurally inert.\n\n\n\n\n\nUnconstrained Mean-Variance (MV) Optimization yields extreme and highly unstable weights, leading to high turnover and poor out-of-sample performance (DeMiguel, Garlappi, and Uppal 2009).\nImposing constraints (e.g., no short-selling) enhances stability but reduces performance below passive benchmarks. Passive value-weighted portfolios consistently outperform MV portfolios, even when optimized using historical data.\n\n\n\n\n\nBlack and Litterman (1992) combines CAPM equilibrium with investor views via Bayesian updating.\n\nBrandt, Santa-Clara, and Valkanov (2009) incorporate momentum and size signals into dynamic allocation, but our empirical tests reveal no consistent outperformance over ETF benchmarks post-2010, suffering from estimation error and overfitting in regimes characterized by unstable return distributions.",
+    "text": "The pre-2010 period includes several global shocks and deregulation episodes:\n\n1997 Asian Financial Crisis\nDot-com Bubble and Crash (2000–2001)\n9/11 Terror Attacks (2001)\nRepeal of Glass-Steagall (1999), which contributed to systemic risk buildup\nGlobal Financial Crisis (2008–2009), culminating in the collapse of Lehman Brothers and the implementation of TARP\n\nThis was an era of market discontinuity, high volatility, and risk repricing, where asset allocation was still driven largely by fundamentals and discretionary investing.\n\n\n\nIn contrast, the post-2010 era reflects a policy-driven financial environment, where capital markets were shaped by:\n\nQuantitative Easing (QE1, QE2, QE3)\nPassive flows via ETF proliferation\nTechnological monopolization\nCOVID-19 pandemic and unprecedented stimulus\nAI-fueled equity valuations post-2023\n\nThese changes have amplified top-heavy capital concentration and reinforced inertia in market leadership. Importantly, they enabled the survival of inefficient firms at the lower end (zombie firms), distorting the small-cap return distribution.",
     "crumbs": [
       "교육",
-      "Literature Review"
+      "Recent History"
     ]
   },
   {
-    "objectID": "02_lit_review.html#structural-interpretation-and-motivation-for-tbtf",
-    "href": "02_lit_review.html#structural-interpretation-and-motivation-for-tbtf",
-    "title": "Literature Review",
+    "objectID": "03_history.html#us-top-10-stability-empirical-snapshot",
+    "href": "03_history.html#us-top-10-stability-empirical-snapshot",
+    "title": "Recent History",
     "section": "",
-    "text": "The underperformance of theoretically sound but empirically fragile strategies suggests capital markets reward position within a segmented system rather than risk.\n\nLarge-cap firms are insulated from downward transitions, mirroring the ‘superstar’ effect where small quality differences yield large market outcomes, as described by Rosen (Rosen 1981). In banking, Gandhi and Lustig (2015) find large banks have lower risk-adjusted returns, indicative of implicit government guarantees in adverse scenarios.\n\nSmall-cap firms increasingly comprise structurally inefficient “zombie” entities sustained by liquidity support (Acharya et al. 2024).\nReturn distributions no longer reflect efficient risk pricing but are shaped by arbitrage-limited capital flows, ETF-induced inflows, and policy distortions (Glosten, Li, and Zhang 2021; Shleifer and Vishny 1997).\nReturn distributions reflect arbitrage-limited capital flows, ETF-induced inflows, and policy distortions, with Jiang, Vayanos, and Zheng (2020) showing passive investing disproportionately benefits large firms, exacerbating concentration. This aligns with Autor et al. (2020), linking market power concentration to declining labor share, highlighting structural market dynamics.\n\nThese findings motivate rank-based strategies like TBTF, capitalizing on structural capital dynamics rather than informational edges.",
+    "text": "An empirical motivation for the TBTF strategy lies in the historical persistence of top-cap firms. From 2012 to 2023, only 27 unique PERMNOs appeared in the top 10 by market cap. These include:\n\nAAPL, MSFT, AMZN, GOOG, META, NVDA, TSLA\nTraditional blue chips like XOM, JNJ, WMT, JPM, BAC\nHealthcare and consumer giants like UNH, LLY, PG, KO\nFinancials and telcos like BRK, MA, V, T, VZ\n\nThis concentration implies that capital has become locked into a narrow subset of firms, with little room for new entrants—an observation with profound implications for allocative efficiency and market competition.",
     "crumbs": [
       "교육",
-      "Literature Review"
+      "Recent History"
     ]
   },
   {
-    "objectID": "02_lit_review.html#contributions-to-the-literature",
-    "href": "02_lit_review.html#contributions-to-the-literature",
-    "title": "Literature Review",
+    "objectID": "03_history.html#global-top-10-market-cap-stocks",
+    "href": "03_history.html#global-top-10-market-cap-stocks",
+    "title": "Recent History",
     "section": "",
-    "text": "This study extends literature on asset pricing anomalies, building on Hou, Xue, and Zhang (2020). regarding anomaly robustness. It introduces Markov-based transition models for capital lock-in, aligning with rising concentration insights from Autor et al. (2020) and Jiang, Vayanos, and Zheng (2020). It offers low-turnover, high-performance portfolio strategies and critiques ETF-driven distortions and post-QE concentration, reflecting real-world finance breakdowns under structural stress.\nThis study builds upon and extends several strands of the literature:\n\nAsset Pricing Anomalies: It demonstrates new forms of structural deviation not explained by established factors (Hou, Xue, and Zhang 2020)\nMarket Structure and Capital Mobility: It introduces Markov-based transition models to analyze capital lock-in .\nPortfolio Strategy Design: It offers a low-turnover, high-performance alternative to optimization-based approaches.\nMarket Efficiency Critique: It provides empirical support for critiques of ETF-driven distortions and post-QE market concentration (Autor et al. 2020; Jiang, Vayanos, and Zheng 2020).\n\nThe TBTF strategy does not reject modern finance but reflects its real-world breakdown under structural stress. Its continued success raises fundamental questions about what financial markets price and for whose benefit.",
+    "text": "U.S. equities constitute nearly half of global equity market capitalization.\nThe dominance of U.S. firms in global equity rankings",
     "crumbs": [
       "교육",
-      "Literature Review"
+      "Recent History"
     ]
   },
   {
-    "objectID": "04_model/01_overview.html",
-    "href": "04_model/01_overview.html",
-    "title": "01 Overview",
-    "section": "",
-    "text": "This study investigates the structural properties and empirical performance of a “Too Big To Fail” (TBTF) portfolio strategy, defined as a portfolio composed of the largest market capitalization stocks in the U.S. equity market. Using monthly stock-level data from the CRSP universe (NYSE, Nasdaq, AMEX), we examine whether top-ranked stocks—selected purely by market capitalization—consistently outperform others in terms of risk-adjusted returns.\nOur empirical design centers around the hypothesis that structural asymmetries in capital allocation, exacerbated by post-2008 monetary policies and market concentration, result in persistent distortions in return distributions. The TBTF strategy, though simple in construction, appears to capture these structural features with surprising consistency.\nWe treat the year 2010 as a potential structural break, dividing the full sample into two equal-length periods:\n\nPre-2010: January 1996 to December 2009\nPost-2010: January 2010 to December 2023\n\nThis periodization allows us to analyze both long-term stability and post-crisis distortions in the equity return distribution.\n\n\n\nReturn Superiority: The return distributions of top market-cap stocks are structurally superior to those of mid- and small-cap stocks in terms of risk-adjusted performance (e.g., Sharpe, Sortino, Omega ratios).\nPersistence and Absorption: Stocks that reach the top decile of market capitalization exhibit high persistence and low turnover, potentially distorting market competitiveness and reducing allocative efficiency.\nConvex Capital Concentration: The cross-sectional distribution of capital shares among top-ranked stocks is increasingly convex, suggesting long-term structural lock-in effects analogous to wealth inequality (e.g., Lorenz curve analogy)."
-  },
-  {
-    "objectID": "04_model/01_overview.html#main-hypotheses",
-    "href": "04_model/01_overview.html#main-hypotheses",
-    "title": "01 Overview",
-    "section": "",
-    "text": "Return Superiority: The return distributions of top market-cap stocks are structurally superior to those of mid- and small-cap stocks in terms of risk-adjusted performance (e.g., Sharpe, Sortino, Omega ratios).\nPersistence and Absorption: Stocks that reach the top decile of market capitalization exhibit high persistence and low turnover, potentially distorting market competitiveness and reducing allocative efficiency.\nConvex Capital Concentration: The cross-sectional distribution of capital shares among top-ranked stocks is increasingly convex, suggesting long-term structural lock-in effects analogous to wealth inequality (e.g., Lorenz curve analogy)."
-  },
-  {
-    "objectID": "04_model/01_overview.html#appendix",
-    "href": "04_model/01_overview.html#appendix",
-    "title": "01 Overview",
+    "objectID": "03_history.html#appendix",
+    "href": "03_history.html#appendix",
+    "title": "Recent History",
     "section": "Appendix",
-    "text": "Appendix\n\n\nSummary of Analytical Components in the TBTF Strategy\n\n\n\n\n\n\n\nComponent\nDescription\n\n\n\n\nLarge vs. Small Stocks\nCompare return distributions and volatility structures\n\n\nTop 10 Stocks\nAnalyze list stability and industry composition (high-tech dominance)\n\n\nTransition Analysis\nEstimate transition probabilities and stationary distributions\n\n\nRisk-Adjusted Performance\nCompare Sharpe, Sortino, Omega ratios against benchmarks (ETFs, indices)"
+    "text": "Appendix\n\n\nA. Key Financial and Policy Events by Period\n\nPre-2010 (1996–2009)\n\n\n\n\n\n\n\n\nDate\nEvent & Description\nImportance\n\n\n\n\n1997-07-02\nAsian Financial Crisis\nVery High\n\n\n1999-01-01\nEuro launched\nHigh\n\n\n1999-11-12\nRepeal of Glass-Steagall\nHigh\n\n\n2000–2001\nDot-com Bubble & Crash\nVery High\n\n\n2001-09-11\n9/11 Attacks\nVery High\n\n\n2008-09-15\nLehman Brothers Collapse\nVery High\n\n\n2008-10-03\nTARP ($700B bailout)\nVery High\n\n\n\n\n\nPost-2010 (2010–2023)\n\n\n\n\n\n\n\n\nDate\nEvent & Description\nImportance\n\n\n\n\n2010–2015\nQE1, QE2, QE3 Implementation & Taper\nHigh\n\n\n2018-01-01\nU.S.–China Trade Tensions\nVery High\n\n\n2020-03-11\nCOVID-19 Declared (Policy + Liquidity Response)\nVery High\n\n\n2023–Present\nRise of AI in Markets (NLP, LLMs)\nHigh",
+    "crumbs": [
+      "교육",
+      "Recent History"
+    ]
+  },
+  {
+    "objectID": "04_model/02_data.html",
+    "href": "04_model/02_data.html",
+    "title": "02 Data",
+    "section": "",
+    "text": "This section describes the data used to construct and evaluate the TBTF portfolio strategy. We utilize multiple sources to enable a comprehensive analysis of market structure, return distributions, and benchmark comparisons. The primary dataset is drawn from CRSP, with supplemental reference portfolios and index returns from Fama-French and Yahoo Finance, respectively.\n\n\nWe use the Center for Research in Security Prices (CRSP) monthly stock files, covering the period from January 1996 to December 2023. The CRSP universe includes all listed common stocks on the NYSE, Nasdaq, and AMEX exchanges. The following variables are extracted:\n\nPERMNO: Unique stock identifier\n\nDate: Monthly observation date\n\nMarket Capitalization: Calculated using shares outstanding × price\n\nReturn (RET): Monthly total return including dividends\n\nDelisting Return (DLRET): Final return for stocks removed from CRSP\n\nSIC Code: Used for optional industry classification\n\nWe restrict the sample to ordinary common shares (share codes 10 and 11) to exclude ADRs, REITs, and other non-standard securities.\n\n\nTo ensure robustness against common data biases, we employ the following correction methods:\n\nSurvivorship Bias: We retain all stocks, including those delisted during the sample period, to avoid overestimating returns from survivor-only data.\nDelisting Bias: The total return for delisted stocks is calculated as:\n\\[\nR_{\\text{net}} = (1 + \\text{RET}) \\cdot (1 + \\text{DLRET}) - 1\n\\]\nIf RET is missing but DLRET is available, we use DLRET as the return for the final month.\nState-Based Exit Classification:\nFor the purpose of transition matrix modeling in Section 4, we define an 11th state representing “exit”:\n\nStocks that are delisted move into this absorbing state.\nIPOs are considered to enter from this external state and are assigned to decile groups starting from their first month of listing.\n\n\n\n\n\n\n\n\nFrom the Ken French Data Library, we collect the following datasets:\n\nME10 Decile Portfolios: Used to compare return characteristics between small-cap (s_10) and large-cap (b_10) portfolios.\nME × PRIOR Portfolios: Cross-sorted on size (ME) and prior 12-month return momentum. We focus on:\n\nME5 PRIOR4: Large size, high momentum\nME4 PRIOR3: Mid size, moderate momentum\n\n\nThese portfolios are value-weighted, rebalanced annually using NYSE breakpoints, and provided as monthly returns.\n\n\n\nTo compare TBTF performance with market-traded investment vehicles, we incorporate the following index and ETF data:\n\nPre-2010 Indices (from Yahoo Finance):\n\nDJIA (Dow Jones Industrial Average)\nNDX (Nasdaq 100 Index)\n\nPost-2010 ETFs:\n\nDIA: SPDR Dow Jones Industrial Average ETF (inception: 1998)\nQQQ: Invesco Nasdaq-100 ETF (inception: 1999)\nSPY: SPDR S&P 500 ETF (inception: 1993)\nVTI: Vanguard Total Stock Market ETF (inception: 2001)\n\n\nThe inclusion of these instruments enables direct comparison with passive investment strategies commonly available to retail and institutional investors."
+  },
+  {
+    "objectID": "04_model/02_data.html#primary-data-crsp-monthly-stock-file",
+    "href": "04_model/02_data.html#primary-data-crsp-monthly-stock-file",
+    "title": "02 Data",
+    "section": "",
+    "text": "We use the Center for Research in Security Prices (CRSP) monthly stock files, covering the period from January 1996 to December 2023. The CRSP universe includes all listed common stocks on the NYSE, Nasdaq, and AMEX exchanges. The following variables are extracted:\n\nPERMNO: Unique stock identifier\n\nDate: Monthly observation date\n\nMarket Capitalization: Calculated using shares outstanding × price\n\nReturn (RET): Monthly total return including dividends\n\nDelisting Return (DLRET): Final return for stocks removed from CRSP\n\nSIC Code: Used for optional industry classification\n\nWe restrict the sample to ordinary common shares (share codes 10 and 11) to exclude ADRs, REITs, and other non-standard securities.\n\n\nTo ensure robustness against common data biases, we employ the following correction methods:\n\nSurvivorship Bias: We retain all stocks, including those delisted during the sample period, to avoid overestimating returns from survivor-only data.\nDelisting Bias: The total return for delisted stocks is calculated as:\n\\[\nR_{\\text{net}} = (1 + \\text{RET}) \\cdot (1 + \\text{DLRET}) - 1\n\\]\nIf RET is missing but DLRET is available, we use DLRET as the return for the final month.\nState-Based Exit Classification:\nFor the purpose of transition matrix modeling in Section 4, we define an 11th state representing “exit”:\n\nStocks that are delisted move into this absorbing state.\nIPOs are considered to enter from this external state and are assigned to decile groups starting from their first month of listing."
+  },
+  {
+    "objectID": "04_model/02_data.html#secondary-data-sources",
+    "href": "04_model/02_data.html#secondary-data-sources",
+    "title": "02 Data",
+    "section": "",
+    "text": "From the Ken French Data Library, we collect the following datasets:\n\nME10 Decile Portfolios: Used to compare return characteristics between small-cap (s_10) and large-cap (b_10) portfolios.\nME × PRIOR Portfolios: Cross-sorted on size (ME) and prior 12-month return momentum. We focus on:\n\nME5 PRIOR4: Large size, high momentum\nME4 PRIOR3: Mid size, moderate momentum\n\n\nThese portfolios are value-weighted, rebalanced annually using NYSE breakpoints, and provided as monthly returns.\n\n\n\nTo compare TBTF performance with market-traded investment vehicles, we incorporate the following index and ETF data:\n\nPre-2010 Indices (from Yahoo Finance):\n\nDJIA (Dow Jones Industrial Average)\nNDX (Nasdaq 100 Index)\n\nPost-2010 ETFs:\n\nDIA: SPDR Dow Jones Industrial Average ETF (inception: 1998)\nQQQ: Invesco Nasdaq-100 ETF (inception: 1999)\nSPY: SPDR S&P 500 ETF (inception: 1993)\nVTI: Vanguard Total Stock Market ETF (inception: 2001)\n\n\nThe inclusion of these instruments enables direct comparison with passive investment strategies commonly available to retail and institutional investors."
+  },
+  {
+    "objectID": "04_model/02_data.html#appendix",
+    "href": "04_model/02_data.html#appendix",
+    "title": "02 Data",
+    "section": "Appendix",
+    "text": "Appendix\n\n\nData Availability and Frequency\n\n\n\n\n\n\n\n\n\nDataset\nFrequency\nPeriod Covered\nSource\n\n\n\n\nCRSP Monthly Stock File\nMonthly\n1996–2023\nWRDS/CRSP\n\n\nFama-French ME Decile\nMonthly\n1963–2023\nKen French Data Library\n\n\nFama-French ME × PRIOR\nMonthly\n1963–2023\nKen French Data Library\n\n\nDJIA, NDX (Price Indices)\nMonthly\n1996–2023\nYahoo Finance\n\n\nDIA, QQQ, SPY, VTI (ETFs)\nMonthly\n1999–2023 (varies)\nYahoo Finance"
+  },
+  {
+    "objectID": "04_model/08_implementation.html",
+    "href": "04_model/08_implementation.html",
+    "title": "08 Implementation",
+    "section": "",
+    "text": "전체 실증 연구의 재현 가능성(reproducibility)과 코드–논문 간 연결성(mapping)을 보장"
+  },
+  {
+    "objectID": "04_model/08_implementation.html#programming-environment",
+    "href": "04_model/08_implementation.html#programming-environment",
+    "title": "08 Implementation",
+    "section": "1. Programming Environment",
+    "text": "1. Programming Environment\nAll analyses were conducted in Python 3. The core packages used are:\n\nData Processing: pandas, numpy\nStatistical Modeling: statsmodels, scipy, sklearn\nVisualization: matplotlib, seaborn, plotly\n\nAdditional tools include quarto for documentation integration and joblib/multiprocessing for parallel computation in robustness tests."
+  },
+  {
+    "objectID": "04_model/08_implementation.html#notebook-structure",
+    "href": "04_model/08_implementation.html#notebook-structure",
+    "title": "08 Implementation",
+    "section": "2. Notebook Structure",
+    "text": "2. Notebook Structure\nThe analysis was modularized into separate notebooks, each corresponding to a core component of the empirical strategy. The mapping between notebooks and sections of the paper is as follows:\n\n\n\n\n\n\n\n\nNotebook File\nDescription\nRelated Section\n\n\n\n\n02_data.ipynb\nLoad and clean CRSP & FF data, handle delisting and NaNs\nSection 2 – Data\n\n\n03_ff_compare.ipynb\nAnalyze FF size deciles: distribution, Sharpe dynamics\nSection 3 – FF Benchmark\n\n\n04_structure.ipynb\nCapital convexity, mixture modeling, and Markov transitions\nSection 4 – Structural\n\n\n05_strategy.ipynb\nImplement TBTF What–How–When logic, portfolio generator\nSection 5 – Strategy\n\n\n06_performance.ipynb\nRisk-adjusted performance vs. indices and ETFs\nSection 6 – Performance\n\n\n07_robustness.ipynb\nVarying n, frequency, sample splits, alternative weights\nSection 7 – Robustness\n\n\n\nEach notebook contains reusable functions for loading, constructing, and evaluating portfolios, making the workflow easily reproducible."
+  },
+  {
+    "objectID": "04_model/08_implementation.html#output-artifacts",
+    "href": "04_model/08_implementation.html#output-artifacts",
+    "title": "08 Implementation",
+    "section": "3. Output Artifacts",
+    "text": "3. Output Artifacts\nAll result files—figures and tables—are stored in the following structure:\n\nfigs/: All figures (e.g., PNG/HTML for Quarto embedding)\ntables/: Summary statistics and transition matrices (CSV/HTML)\nFile naming convention:\n\nsharpe_curve_s10_b10.png, mixture_tbtf_post2010.png\n\ntransition_matrix_tbtf.csv, summary_stats_tbtf.html\n\n\nThese are linked in the corresponding .qmd sections using relative paths for seamless integration."
+  },
+  {
+    "objectID": "04_model/08_implementation.html#reproducibility",
+    "href": "04_model/08_implementation.html#reproducibility",
+    "title": "08 Implementation",
+    "section": "4. Reproducibility",
+    "text": "4. Reproducibility\nTo replicate the analysis:\n\nClone the repository and install dependencies (via pip install -r requirements.txt)\nDownload CRSP/Compustat data from WRDS (with appropriate credentials)\nRun notebooks in the order shown above or use batch rendering via papermill or quarto\nRender full manuscript via:\n\nquarto render\nOptional scripts for batch portfolio construction and robustness testing (e.g., multiprocessing-based grid search) are located in /scripts."
+  },
+  {
+    "objectID": "04_model/08_implementation.html#appendix",
+    "href": "04_model/08_implementation.html#appendix",
+    "title": "08 Implementation",
+    "section": "Appendix",
+    "text": "Appendix\n\n\nrequirements.txt\npandas&gt;=1.5\nnumpy&gt;=1.22\nscikit-learn&gt;=1.3\nmatplotlib&gt;=3.6\nseaborn&gt;=0.12\nstatsmodels&gt;=0.13\nscipy&gt;=1.10\nplotly&gt;=5.10\nquarto&gt;=1.3"
   },
   {
     "objectID": "05_conclusion.html",
