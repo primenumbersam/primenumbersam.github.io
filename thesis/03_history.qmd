@@ -3,7 +3,7 @@ title: "Recent History"
 format: html
 ---
 
-# Recent Structural Shifts in the Financial Market
+# Structural Shifts in the Financial Market
 
 ## 1. 2010 as a Structural Break
 
@@ -80,7 +80,7 @@ This concentration implies that capital has become locked into a narrow subset o
 
 | Date         | Event & Description                                     | Importance    |
 |--------------|----------------------------------------------------------|---------------|
-| 2010–2015    | QE1, QE2, QE3 Implementation & Taper                     | High          |
-| 2018-01-01   | U.S.–China Trade Tensions                                | **Very High** |
-| 2020-03-11   | COVID-19 Declared (Policy + Liquidity Response)         | **Very High** |
+| 2010–2015    | QE1, QE2, QE3 Implementation & Taper                     | **Very High** |
+| 2018-01-01   | U.S.–China Trade Tensions                                | High |
+| 2020-03-11   | COVID-19 Declared (Policy + Liquidity Response)          | **Very High** |
 | 2023–Present | Rise of AI in Markets (NLP, LLMs)                        | High          |
