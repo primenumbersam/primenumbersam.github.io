@@ -1,5 +1,6 @@
 ---
-title: 08 Implementation
+title: Empirical Model
+subtitle: 08 Implementation
 ---
 
 전체 실증 연구의 **재현 가능성(reproducibility)**과 **코드–논문 간 연결성(mapping)**을 보장

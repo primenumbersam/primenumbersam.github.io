@@ -7,7 +7,7 @@ date: 2025-03-26
 
 This section describes the data used to construct and evaluate the TBTF portfolio strategy. We utilize multiple sources to enable a comprehensive analysis of market structure, return distributions, and benchmark comparisons. The primary dataset is drawn from CRSP, with supplemental reference portfolios and index returns from Fama-French and Yahoo Finance, respectively.
 
-## 1. Primary Data: CRSP Monthly Stock File
+## Primary Data: CRSP Monthly Stock File
 
 We use the Center for Research in Security Prices (CRSP) monthly stock files, covering the period from January 1996 to December 2023. The CRSP universe includes all listed common stocks on the NYSE, Nasdaq, and AMEX exchanges. The following variables are extracted:
 
@@ -38,7 +38,7 @@ To ensure robustness against common data biases, we employ the following correct
   - Stocks that are delisted move into this absorbing state.
   - IPOs are considered to enter from this external state and are assigned to decile groups starting from their first month of listing.
 
-## 2. Secondary Data Sources
+## Secondary Data Sources
 
 ### Fama-French Research Portfolios
 

@@ -47,8 +47,8 @@
     "objectID": "04_model.html#primary-data-crsp-monthly-stock-file",
     "href": "04_model.html#primary-data-crsp-monthly-stock-file",
     "title": "03 ff Compare",
-    "section": "2.1 1. Primary Data: CRSP Monthly Stock File",
-    "text": "2.1 1. Primary Data: CRSP Monthly Stock File\nWe use the Center for Research in Security Prices (CRSP) monthly stock files, covering the period from January 1996 to December 2023. The CRSP universe includes all listed common stocks on the NYSE, Nasdaq, and AMEX exchanges. The following variables are extracted:\n\nPERMNO: Unique stock identifier\n\nDate: Monthly observation date\n\nMarket Capitalization: Calculated using shares outstanding × price\n\nReturn (RET): Monthly total return including dividends\n\nDelisting Return (DLRET): Final return for stocks removed from CRSP\n\nSIC Code: Used for optional industry classification\n\nWe restrict the sample to ordinary common shares (share codes 10 and 11) to exclude ADRs, REITs, and other non-standard securities.\n\n2.1.1 Bias Adjustment Strategy\nTo ensure robustness against common data biases, we employ the following correction methods:\n\nSurvivorship Bias: We retain all stocks, including those delisted during the sample period, to avoid overestimating returns from survivor-only data.\nDelisting Bias: The total return for delisted stocks is calculated as:\n\\[\nR_{\\text{net}} = (1 + \\text{RET}) \\cdot (1 + \\text{DLRET}) - 1\n\\]\nIf RET is missing but DLRET is available, we use DLRET as the return for the final month.\nState-Based Exit Classification:\nFor the purpose of transition matrix modeling in Section 4, we define an 11th state representing “exit”:\n\nStocks that are delisted move into this absorbing state.\nIPOs are considered to enter from this external state and are assigned to decile groups starting from their first month of listing.",
+    "section": "2.1 Primary Data: CRSP Monthly Stock File",
+    "text": "2.1 Primary Data: CRSP Monthly Stock File\nWe use the Center for Research in Security Prices (CRSP) monthly stock files, covering the period from January 1996 to December 2023. The CRSP universe includes all listed common stocks on the NYSE, Nasdaq, and AMEX exchanges. The following variables are extracted:\n\nPERMNO: Unique stock identifier\n\nDate: Monthly observation date\n\nMarket Capitalization: Calculated using shares outstanding × price\n\nReturn (RET): Monthly total return including dividends\n\nDelisting Return (DLRET): Final return for stocks removed from CRSP\n\nSIC Code: Used for optional industry classification\n\nWe restrict the sample to ordinary common shares (share codes 10 and 11) to exclude ADRs, REITs, and other non-standard securities.\n\n2.1.1 Bias Adjustment Strategy\nTo ensure robustness against common data biases, we employ the following correction methods:\n\nSurvivorship Bias: We retain all stocks, including those delisted during the sample period, to avoid overestimating returns from survivor-only data.\nDelisting Bias: The total return for delisted stocks is calculated as:\n\\[\nR_{\\text{net}} = (1 + \\text{RET}) \\cdot (1 + \\text{DLRET}) - 1\n\\]\nIf RET is missing but DLRET is available, we use DLRET as the return for the final month.\nState-Based Exit Classification:\nFor the purpose of transition matrix modeling in Section 4, we define an 11th state representing “exit”:\n\nStocks that are delisted move into this absorbing state.\nIPOs are considered to enter from this external state and are assigned to decile groups starting from their first month of listing.",
     "crumbs": [
       "교육",
       "03 ff Compare"
@@ -58,8 +58,8 @@
     "objectID": "04_model.html#secondary-data-sources",
     "href": "04_model.html#secondary-data-sources",
     "title": "03 ff Compare",
-    "section": "2.2 2. Secondary Data Sources",
-    "text": "2.2 2. Secondary Data Sources\n\n2.2.1 Fama-French Research Portfolios\nFrom the Ken French Data Library, we collect the following datasets:\n\nME10 Decile Portfolios: Used to compare return characteristics between small-cap (s_10) and large-cap (b_10) portfolios.\nME × PRIOR Portfolios: Cross-sorted on size (ME) and prior 12-month return momentum. We focus on:\n\nME5 PRIOR4: Large size, high momentum\nME4 PRIOR3: Mid size, moderate momentum\n\n\nThese portfolios are value-weighted, rebalanced annually using NYSE breakpoints, and provided as monthly returns.\n\n\n2.2.2 Index and ETF Benchmarks\nTo compare TBTF performance with market-traded investment vehicles, we incorporate the following index and ETF data:\n\nPre-2010 Indices (from Yahoo Finance):\n\nDJIA (Dow Jones Industrial Average)\nNDX (Nasdaq 100 Index)\n\nPost-2010 ETFs:\n\nDIA: SPDR Dow Jones Industrial Average ETF (inception: 1998)\nQQQ: Invesco Nasdaq-100 ETF (inception: 1999)\nSPY: SPDR S&P 500 ETF (inception: 1993)\nVTI: Vanguard Total Stock Market ETF (inception: 2001)\n\n\nThe inclusion of these instruments enables direct comparison with passive investment strategies commonly available to retail and institutional investors.",
+    "section": "2.2 Secondary Data Sources",
+    "text": "2.2 Secondary Data Sources\n\n2.2.1 Fama-French Research Portfolios\nFrom the Ken French Data Library, we collect the following datasets:\n\nME10 Decile Portfolios: Used to compare return characteristics between small-cap (s_10) and large-cap (b_10) portfolios.\nME × PRIOR Portfolios: Cross-sorted on size (ME) and prior 12-month return momentum. We focus on:\n\nME5 PRIOR4: Large size, high momentum\nME4 PRIOR3: Mid size, moderate momentum\n\n\nThese portfolios are value-weighted, rebalanced annually using NYSE breakpoints, and provided as monthly returns.\n\n\n2.2.2 Index and ETF Benchmarks\nTo compare TBTF performance with market-traded investment vehicles, we incorporate the following index and ETF data:\n\nPre-2010 Indices (from Yahoo Finance):\n\nDJIA (Dow Jones Industrial Average)\nNDX (Nasdaq 100 Index)\n\nPost-2010 ETFs:\n\nDIA: SPDR Dow Jones Industrial Average ETF (inception: 1998)\nQQQ: Invesco Nasdaq-100 ETF (inception: 1999)\nSPY: SPDR S&P 500 ETF (inception: 1993)\nVTI: Vanguard Total Stock Market ETF (inception: 2001)\n\n\nThe inclusion of these instruments enables direct comparison with passive investment strategies commonly available to retail and institutional investors.",
     "crumbs": [
       "교육",
       "03 ff Compare"
@@ -147,7 +147,18 @@
     "href": "04_model.html#appendix-2",
     "title": "03 ff Compare",
     "section": "3.6 Appendix",
-    "text": "3.6 Appendix\n\n\n3.6.1 Figure A1: QQ Plot – s_10 vs. b_10\n\nQQ plots comparing sample quantiles of s_10 (left) and b_10 (right) returns to a standard normal distribution. The flatter slope and tighter fit of b_10 indicate lower volatility and greater normality, while s_10 exhibits positive skewness and negative tail risk.\n\n\n3.6.2 Table A1: Summary Statistics (1963–2023)\n\n\nAnnualized Summary Statistics for Fama-French Size-Decile Portfolios Monthly value-weighted excess returns for size-sorted portfolios from July 1963 to June 2023. Excess returns are defined as raw portfolio returns net of the one-month Treasury bill rate.\n\n\n\n\nStatistic\n\n\ns_10\n\n\nb_10\n\n\ns_20\n\n\nb_20\n\n\ns_30\n\n\nb_30\n\n\ns_70\n\n\ns_80\n\n\ns_90\n\n\n\n\n\n\nCount\n\n\n360\n\n\n360\n\n\n360\n\n\n360\n\n\n360\n\n\n360\n\n\n360\n\n\n360\n\n\n360\n\n\n\n\nMean\n\n\n0.96\n\n\n0.91\n\n\n1.00\n\n\n0.92\n\n\n1.01\n\n\n0.92\n\n\n1.00\n\n\n0.99\n\n\n0.99\n\n\n\n\nStd. Dev\n\n\n6.32\n\n\n4.38\n\n\n6.46\n\n\n4.38\n\n\n6.31\n\n\n4.40\n\n\n5.81\n\n\n5.67\n\n\n5.54\n\n\n\n\nMin\n\n\n-22.21\n\n\n-14.78\n\n\n-23.06\n\n\n-15.91\n\n\n-23.56\n\n\n-16.29\n\n\n-22.58\n\n\n-21.69\n\n\n-21.23\n\n\n\n\n25%\n\n\n-2.54\n\n\n-1.62\n\n\n-2.73\n\n\n-1.64\n\n\n-2.89\n\n\n-1.67\n\n\n-2.35\n\n\n-2.40\n\n\n-2.35\n\n\n\n\nMedian\n\n\n1.25\n\n\n1.35\n\n\n1.36\n\n\n1.32\n\n\n1.29\n\n\n1.32\n\n\n1.35\n\n\n1.40\n\n\n1.33\n\n\n\n\n75%\n\n\n4.64\n\n\n3.51\n\n\n5.20\n\n\n3.65\n\n\n4.88\n\n\n3.73\n\n\n4.71\n\n\n4.66\n\n\n4.58\n\n\n\n\nMax\n\n\n29.50\n\n\n13.10\n\n\n27.54\n\n\n13.25\n\n\n24.01\n\n\n13.34\n\n\n19.42\n\n\n18.64\n\n\n18.26",
+    "text": "3.6 Appendix\n\n\n3.6.1 Figure A1: QQ Plot – s_10 vs. b_10\n\nQQ plots comparing sample quantiles of s_10 (left) and b_10 (right) returns to a standard normal distribution. The flatter slope and tighter fit of b_10 indicate lower volatility and greater normality, while s_10 exhibits positive skewness and negative tail risk.\n\n\n3.6.2 Table A1: Summary Statistics (1963–2023)\n\nAnnualized Summary Statistics for Fama-French Size-Decile Portfolios\nMonthly value-weighted excess returns for size-sorted portfolios from July 1963 to June 2023. Excess returns are defined as raw portfolio returns net of the one-month Treasury bill rate.\n\n\nStatistic\ns_10\nb_10\ns_20\nb_20\ns_30\nb_30\ns_70\ns_80\ns_90\n\n\n\n\nCount\n360\n360\n360\n360\n360\n360\n360\n360\n360\n\n\nMean\n0.96\n0.91\n1.00\n0.92\n1.01\n0.92\n1.00\n0.99\n0.99\n\n\nStd. Dev\n6.32\n4.38\n6.46\n4.38\n6.31\n4.40\n5.81\n5.67\n5.54\n\n\nMin\n-22.21\n-14.78\n-23.06\n-15.91\n-23.56\n-16.29\n-22.58\n-21.69\n-21.23\n\n\n25%\n-2.54\n-1.62\n-2.73\n-1.64\n-2.89\n-1.67\n-2.35\n-2.40\n-2.35\n\n\nMedian\n1.25\n1.35\n1.36\n1.32\n1.29\n1.32\n1.35\n1.40\n1.33\n\n\n75%\n4.64\n3.51\n5.20\n3.65\n4.88\n3.73\n4.71\n4.66\n4.58\n\n\nMax\n29.50\n13.10\n27.54\n13.25\n24.01\n13.34\n19.42\n18.64\n18.26\n\n\n\n\n\n\n---\ntitle: Empirical Model\nsubtitle: 08 Implementation\n---\n\n전체 실증 연구의 **재현 가능성(reproducibility)**과 **코드–논문 간 연결성(mapping)**을 보장\n\n1. 전체 워크플로우 요약 (Workflow Overview)  \n2. 사용한 언어 및 라이브러리 목록 (Environment & Packages)  \n3. 주요 Jupyter Notebook 목록 및 각 분석 파트와의 매핑 (Notebook Structure)  \n4. 그래프, 테이블 파일 저장 구조 안내 (Output Artifacts)  \n5. 재현을 위한 실행 방식 안내 (Reproducibility)\n\n# Implementation Notes\n\nThis section summarizes the technical details of the implementation, including programming environment, data processing tools, and notebook structure. The entire empirical workflow was executed using Python and organized into modular Jupyter notebooks.\n\n## 1. Programming Environment\n\nAll analyses were conducted in Python 3. The core packages used are:\n\n- **Data Processing**: `pandas`, `numpy`\n- **Statistical Modeling**: `statsmodels`, `scipy`, `sklearn`\n- **Visualization**: `matplotlib`, `seaborn`, `plotly`\n\nAdditional tools include `quarto` for documentation integration and `joblib`/`multiprocessing` for parallel computation in robustness tests.\n\n## 2. Notebook Structure\n\nThe analysis was modularized into separate notebooks, each corresponding to a core component of the empirical strategy. The mapping between notebooks and sections of the paper is as follows:\n\n| Notebook File              | Description                                                       | Related Section             |\n|---------------------------|-------------------------------------------------------------------|-----------------------------|\n| `02_data.ipynb`           | Load and clean CRSP & FF data, handle delisting and NaNs         | Section 2 – Data            |\n| `03_ff_compare.ipynb`     | Analyze FF size deciles: distribution, Sharpe dynamics           | Section 3 – FF Benchmark    |\n| `04_structure.ipynb`      | Capital convexity, mixture modeling, and Markov transitions      | Section 4 – Structural      |\n| `05_strategy.ipynb`       | Implement TBTF What–How–When logic, portfolio generator          | Section 5 – Strategy        |\n| `06_performance.ipynb`    | Risk-adjusted performance vs. indices and ETFs                   | Section 6 – Performance     |\n| `07_robustness.ipynb`     | Varying n, frequency, sample splits, alternative weights         | Section 7 – Robustness      |\n\nEach notebook contains reusable functions for loading, constructing, and evaluating portfolios, making the workflow easily reproducible.\n\n## 3. Output Artifacts\n\nAll result files—figures and tables—are stored in the following structure:\n\n- `figs/`: All figures (e.g., PNG/HTML for Quarto embedding)\n- `tables/`: Summary statistics and transition matrices (CSV/HTML)\n- File naming convention:  \n  - `sharpe_curve_s10_b10.png`, `mixture_tbtf_post2010.png`  \n  - `transition_matrix_tbtf.csv`, `summary_stats_tbtf.html`\n\nThese are linked in the corresponding `.qmd` sections using relative paths for seamless integration.\n\n## 4. Reproducibility\n\nTo replicate the analysis:\n\n1. Clone the repository and install dependencies (via `pip install -r requirements.txt`)\n2. Download CRSP/Compustat data from WRDS (with appropriate credentials)\n3. Run notebooks in the order shown above or use batch rendering via `papermill` or `quarto`\n4. Render full manuscript via:\n\n```bash\nquarto render\nOptional scripts for batch portfolio construction and robustness testing (e.g., multiprocessing-based grid search) are located in /scripts.",
+    "crumbs": [
+      "교육",
+      "03 ff Compare"
+    ]
+  },
+  {
+    "objectID": "04_model.html#appendix-3",
+    "href": "04_model.html#appendix-3",
+    "title": "03 ff Compare",
+    "section": "3.7 Appendix",
+    "text": "3.7 Appendix\n\n\n3.7.1 requirements.txt\npandas&gt;=1.5\nnumpy&gt;=1.22\nscikit-learn&gt;=1.3\nmatplotlib&gt;=3.6\nseaborn&gt;=0.12\nstatsmodels&gt;=0.13\nscipy&gt;=1.10\nplotly&gt;=5.10\nquarto&gt;=1.3",
     "crumbs": [
       "교육",
       "03 ff Compare"
@@ -226,122 +237,122 @@
   {
     "objectID": "03_history.html",
     "href": "03_history.html",
-    "title": "Market Capitalization Concentration in the NYSE",
+    "title": "Recent History",
     "section": "",
     "text": "This study defines January 1, 2010 as a structural break in the evolution of U.S. financial markets. This point marks a transition from a period of crisis-driven volatility and deregulation to an era characterized by policy-dominated asset inflation, ETF proliferation, and asymmetric capital flows. By segmenting the data at this breakpoint, we aim to assess how financial market performance and capital concentration evolved across two distinct regimes.\nThe dataset spans January 1996 to December 2023, with a monthly frequency. It is segmented as follows:\n\nPre-2010: 1996–2009\n\nPost-2010: 2010–2023\n\nThe segmentation provides a clean empirical framework to evaluate the impact of structural policy interventions and evolving capital dynamics.\n\n\n\n\n\nThe pre-2010 period includes several global shocks and deregulation episodes:\n\n1997 Asian Financial Crisis\nDot-com Bubble and Crash (2000–2001)\n9/11 Terror Attacks (2001)\nRepeal of Glass-Steagall (1999), which contributed to systemic risk buildup\nGlobal Financial Crisis (2008–2009), culminating in the collapse of Lehman Brothers and the implementation of TARP\n\nThis was an era of market discontinuity, high volatility, and risk repricing, where asset allocation was still driven largely by fundamentals and discretionary investing.\n\n\n\nIn contrast, the post-2010 era reflects a policy-driven financial environment, where capital markets were shaped by:\n\nQuantitative Easing (QE1, QE2, QE3)\nPassive flows via ETF proliferation\nTechnological monopolization\nCOVID-19 pandemic and unprecedented stimulus\nAI-fueled equity valuations post-2023\n\nThese changes have amplified top-heavy capital concentration and reinforced inertia in market leadership. Importantly, they enabled the survival of inefficient firms at the lower end (zombie firms), distorting the small-cap return distribution.\n\n\n\n\nAn empirical motivation for the TBTF strategy lies in the historical persistence of top-cap firms. From 2012 to 2023, only 27 unique PERMNOs appeared in the top 10 by market cap. These include:\n\nAAPL, MSFT, AMZN, GOOG, META, NVDA, TSLA\nTraditional blue chips like XOM, JNJ, WMT, JPM, BAC\nHealthcare and consumer giants like UNH, LLY, PG, KO\nFinancials and telcos like BRK, MA, V, T, VZ\n\nThis concentration implies that capital has become locked into a narrow subset of firms, with little room for new entrants—an observation with profound implications for allocative efficiency and market competition.\n\n\n\n\nU.S. equities constitute nearly half of global equity market capitalization.\nThe dominance of U.S. firms in global equity rankings\n\n\n\n\n\n\nThe Fama-French dataset ME_Breakpoints provides monthly percentile breakpoints for market equity (ME), computed only from NYSE stocks. These breakpoints span from the 5th to the 100th percentile and are calculated based on market capitalization (price times shares outstanding, in millions of USD) at month-end. Importantly, closed-end funds and REITs are excluded, and only firms with CRSP share codes 10 or 11 and valid price/share data are included.\nThis file investigates the evolution of market concentration in the NYSE based on these ME breakpoints, emphasizing the dynamics in the upper tail of the distribution, particularly the top 5% of firms.\n\n\n\nWe plot the NYSE ME breakpoints divided by the number of firms each month (“per firm”) from 1996 to 2024. The results reveal two distinct phases:\n\nPre-2010: A cyclical pattern dominates, consistent with broader economic expansions and contractions. For instance, the 2000–2001 tech bubble and the 2008 global financial crisis exhibit clear signals of expansion and collapse.\nPost-2010: A structural break is visible. Especially since 2016, the average ME per firm in the top percentile (100%) exhibits a sharp and persistent upward trend.\n\nThis long-term trend implies a sustained capital lock-in within a small number of mega-cap firms, increasingly distanced from the rest of the NYSE universe.\n\n\n\nNYSE Breakpoints per Firm (1996-2024)\n\n\n\n\n\nTo better understand the shape of the right tail, we visualize the percentile distribution at the most recent observation (2024-12). The result is striking: while the ME per firm grows gradually between percentiles 5 to 95, a dramatic jump occurs at the 100th percentile.\nThis highlights that the concentration of market value within the top 5% is extreme, and the very last percentile alone contains firms with ME per firm often an order of magnitude greater than those in the 95th percentile.\n\n\n\nTail Breakpoints (2024-12)\n\n\n\n\n\nTo quantify tail concentration dynamics over time, we construct a monthly time series of the ME per firm ratio between the 100th and 95th percentiles. This ratio serves as a tail index for how dominant the very largest firms are, even among the elite.\nThe time series reveals the following:\n\n1996–2001: Rapid escalation during the dot-com boom, with the ratio peaking above 20.\n2003–2008: Stabilization around ~13.\n2009: A brief post-crisis surge back above 18.\n2010–2016: A sharp decline and plateau near 7, indicating relative equality among top-tier firms.\nPost-2016: A gradual resurgence in the ratio, reflecting renewed concentration at the very top.\n\n\n\n\nME Ratio: 100th / 95th Percentile\n\n\n\n\n\nIt is critical to underscore that Fama-French breakpoints are calculated using only NYSE stocks. Despite the rise of Nasdaq dominance in recent decades, the NYSE remains the foundation for constructing breakpoints in academic asset pricing.\nThe breakpoints for:\n\nMarket Equity (ME): monthly, based on NYSE stocks with viable price and share data.\nBook-to-Market (BE/ME): annually, using BE from t-1 and ME from December of t-1.\nPrior 2–12 month Return: monthly, requiring CRSP price and return data.\n\nThese indicators, especially in the upper tail, are overwhelmingly driven by the top 5% of NYSE firms — roughly 60–70 firms. These companies exert outsized influence on asset pricing, portfolio construction, and market dynamics.",
     "crumbs": [
       "교육",
-      "Market Capitalization Concentration in the NYSE"
+      "Recent History"
     ]
   },
   {
     "objectID": "03_history.html#as-a-structural-break",
     "href": "03_history.html#as-a-structural-break",
-    "title": "Market Capitalization Concentration in the NYSE",
+    "title": "Recent History",
     "section": "",
     "text": "This study defines January 1, 2010 as a structural break in the evolution of U.S. financial markets. This point marks a transition from a period of crisis-driven volatility and deregulation to an era characterized by policy-dominated asset inflation, ETF proliferation, and asymmetric capital flows. By segmenting the data at this breakpoint, we aim to assess how financial market performance and capital concentration evolved across two distinct regimes.\nThe dataset spans January 1996 to December 2023, with a monthly frequency. It is segmented as follows:\n\nPre-2010: 1996–2009\n\nPost-2010: 2010–2023\n\nThe segmentation provides a clean empirical framework to evaluate the impact of structural policy interventions and evolving capital dynamics.",
     "crumbs": [
       "교육",
-      "Market Capitalization Concentration in the NYSE"
+      "Recent History"
     ]
   },
   {
     "objectID": "03_history.html#historical-context-of-each-period",
     "href": "03_history.html#historical-context-of-each-period",
-    "title": "Market Capitalization Concentration in the NYSE",
+    "title": "Recent History",
     "section": "",
     "text": "The pre-2010 period includes several global shocks and deregulation episodes:\n\n1997 Asian Financial Crisis\nDot-com Bubble and Crash (2000–2001)\n9/11 Terror Attacks (2001)\nRepeal of Glass-Steagall (1999), which contributed to systemic risk buildup\nGlobal Financial Crisis (2008–2009), culminating in the collapse of Lehman Brothers and the implementation of TARP\n\nThis was an era of market discontinuity, high volatility, and risk repricing, where asset allocation was still driven largely by fundamentals and discretionary investing.\n\n\n\nIn contrast, the post-2010 era reflects a policy-driven financial environment, where capital markets were shaped by:\n\nQuantitative Easing (QE1, QE2, QE3)\nPassive flows via ETF proliferation\nTechnological monopolization\nCOVID-19 pandemic and unprecedented stimulus\nAI-fueled equity valuations post-2023\n\nThese changes have amplified top-heavy capital concentration and reinforced inertia in market leadership. Importantly, they enabled the survival of inefficient firms at the lower end (zombie firms), distorting the small-cap return distribution.",
     "crumbs": [
       "교육",
-      "Market Capitalization Concentration in the NYSE"
+      "Recent History"
     ]
   },
   {
     "objectID": "03_history.html#us-top-10-stability-empirical-snapshot",
     "href": "03_history.html#us-top-10-stability-empirical-snapshot",
-    "title": "Market Capitalization Concentration in the NYSE",
+    "title": "Recent History",
     "section": "",
     "text": "An empirical motivation for the TBTF strategy lies in the historical persistence of top-cap firms. From 2012 to 2023, only 27 unique PERMNOs appeared in the top 10 by market cap. These include:\n\nAAPL, MSFT, AMZN, GOOG, META, NVDA, TSLA\nTraditional blue chips like XOM, JNJ, WMT, JPM, BAC\nHealthcare and consumer giants like UNH, LLY, PG, KO\nFinancials and telcos like BRK, MA, V, T, VZ\n\nThis concentration implies that capital has become locked into a narrow subset of firms, with little room for new entrants—an observation with profound implications for allocative efficiency and market competition.",
     "crumbs": [
       "교육",
-      "Market Capitalization Concentration in the NYSE"
+      "Recent History"
     ]
   },
   {
     "objectID": "03_history.html#global-top-10-market-cap-stocks",
     "href": "03_history.html#global-top-10-market-cap-stocks",
-    "title": "Market Capitalization Concentration in the NYSE",
+    "title": "Recent History",
     "section": "",
     "text": "U.S. equities constitute nearly half of global equity market capitalization.\nThe dominance of U.S. firms in global equity rankings",
     "crumbs": [
       "교육",
-      "Market Capitalization Concentration in the NYSE"
+      "Recent History"
     ]
   },
   {
     "objectID": "03_history.html#nyse-market-equity-breakpoints-long-term-dynamics",
     "href": "03_history.html#nyse-market-equity-breakpoints-long-term-dynamics",
-    "title": "Market Capitalization Concentration in the NYSE",
+    "title": "Recent History",
     "section": "",
     "text": "The Fama-French dataset ME_Breakpoints provides monthly percentile breakpoints for market equity (ME), computed only from NYSE stocks. These breakpoints span from the 5th to the 100th percentile and are calculated based on market capitalization (price times shares outstanding, in millions of USD) at month-end. Importantly, closed-end funds and REITs are excluded, and only firms with CRSP share codes 10 or 11 and valid price/share data are included.\nThis file investigates the evolution of market concentration in the NYSE based on these ME breakpoints, emphasizing the dynamics in the upper tail of the distribution, particularly the top 5% of firms.",
     "crumbs": [
       "교육",
-      "Market Capitalization Concentration in the NYSE"
+      "Recent History"
     ]
   },
   {
     "objectID": "03_history.html#breakpoint-time-series-per-firm-19962024",
     "href": "03_history.html#breakpoint-time-series-per-firm-19962024",
-    "title": "Market Capitalization Concentration in the NYSE",
+    "title": "Recent History",
     "section": "",
     "text": "We plot the NYSE ME breakpoints divided by the number of firms each month (“per firm”) from 1996 to 2024. The results reveal two distinct phases:\n\nPre-2010: A cyclical pattern dominates, consistent with broader economic expansions and contractions. For instance, the 2000–2001 tech bubble and the 2008 global financial crisis exhibit clear signals of expansion and collapse.\nPost-2010: A structural break is visible. Especially since 2016, the average ME per firm in the top percentile (100%) exhibits a sharp and persistent upward trend.\n\nThis long-term trend implies a sustained capital lock-in within a small number of mega-cap firms, increasingly distanced from the rest of the NYSE universe.\n\n\n\nNYSE Breakpoints per Firm (1996-2024)",
     "crumbs": [
       "교육",
-      "Market Capitalization Concentration in the NYSE"
+      "Recent History"
     ]
   },
   {
     "objectID": "03_history.html#cross-sectional-concentration-at-the-tail",
     "href": "03_history.html#cross-sectional-concentration-at-the-tail",
-    "title": "Market Capitalization Concentration in the NYSE",
+    "title": "Recent History",
     "section": "",
     "text": "To better understand the shape of the right tail, we visualize the percentile distribution at the most recent observation (2024-12). The result is striking: while the ME per firm grows gradually between percentiles 5 to 95, a dramatic jump occurs at the 100th percentile.\nThis highlights that the concentration of market value within the top 5% is extreme, and the very last percentile alone contains firms with ME per firm often an order of magnitude greater than those in the 95th percentile.\n\n\n\nTail Breakpoints (2024-12)",
     "crumbs": [
       "교육",
-      "Market Capitalization Concentration in the NYSE"
+      "Recent History"
     ]
   },
   {
     "objectID": "03_history.html#time-series-of-the-tail-ratio-100th-95th-percentile",
     "href": "03_history.html#time-series-of-the-tail-ratio-100th-95th-percentile",
-    "title": "Market Capitalization Concentration in the NYSE",
+    "title": "Recent History",
     "section": "",
     "text": "To quantify tail concentration dynamics over time, we construct a monthly time series of the ME per firm ratio between the 100th and 95th percentiles. This ratio serves as a tail index for how dominant the very largest firms are, even among the elite.\nThe time series reveals the following:\n\n1996–2001: Rapid escalation during the dot-com boom, with the ratio peaking above 20.\n2003–2008: Stabilization around ~13.\n2009: A brief post-crisis surge back above 18.\n2010–2016: A sharp decline and plateau near 7, indicating relative equality among top-tier firms.\nPost-2016: A gradual resurgence in the ratio, reflecting renewed concentration at the very top.\n\n\n\n\nME Ratio: 100th / 95th Percentile",
     "crumbs": [
       "교육",
-      "Market Capitalization Concentration in the NYSE"
+      "Recent History"
     ]
   },
   {
     "objectID": "03_history.html#broader-context-nyse-and-the-top-5",
     "href": "03_history.html#broader-context-nyse-and-the-top-5",
-    "title": "Market Capitalization Concentration in the NYSE",
+    "title": "Recent History",
     "section": "",
     "text": "It is critical to underscore that Fama-French breakpoints are calculated using only NYSE stocks. Despite the rise of Nasdaq dominance in recent decades, the NYSE remains the foundation for constructing breakpoints in academic asset pricing.\nThe breakpoints for:\n\nMarket Equity (ME): monthly, based on NYSE stocks with viable price and share data.\nBook-to-Market (BE/ME): annually, using BE from t-1 and ME from December of t-1.\nPrior 2–12 month Return: monthly, requiring CRSP price and return data.\n\nThese indicators, especially in the upper tail, are overwhelmingly driven by the top 5% of NYSE firms — roughly 60–70 firms. These companies exert outsized influence on asset pricing, portfolio construction, and market dynamics.",
     "crumbs": [
       "교육",
-      "Market Capitalization Concentration in the NYSE"
+      "Recent History"
     ]
   },
   {
     "objectID": "03_history.html#appendix",
     "href": "03_history.html#appendix",
-    "title": "Market Capitalization Concentration in the NYSE",
+    "title": "Recent History",
     "section": "Appendix",
     "text": "Appendix\n\n\nA. Key Financial and Policy Events by Period\n\nPre-2010 (1996–2009)\n\n\n\n\n\n\n\n\nDate\nEvent & Description\nImportance\n\n\n\n\n1997-07-02\nAsian Financial Crisis\nVery High\n\n\n1999-01-01\nEuro launched\nHigh\n\n\n1999-11-12\nRepeal of Glass-Steagall\nHigh\n\n\n2000–2001\nDot-com Bubble & Crash\nVery High\n\n\n2001-09-11\n9/11 Attacks\nVery High\n\n\n2008-09-15\nLehman Brothers Collapse\nVery High\n\n\n2008-10-03\nTARP ($700B bailout)\nVery High\n\n\n\n\n\nPost-2010 (2010–2023)\n\n\n\n\n\n\n\n\nDate\nEvent & Description\nImportance\n\n\n\n\n2010–2015\nQE1, QE2, QE3 Implementation & Taper\nVery High\n\n\n2018-01-01\nU.S.–China Trade Tensions\nHigh\n\n\n2020-03-11\nCOVID-19 Declared (Policy + Liquidity Response)\nVery High\n\n\n2023–Present\nRise of AI in Markets (NLP, LLMs)\nHigh\n\n\n\n\nThe NYSE continues to exhibit substantial market capitalization concentration. Since 2010 — and more sharply since 2016 — the very largest firms have distanced themselves even from the rest of the top 5%, highlighting the structural importance of tail dynamics in financial markets. Any realistic asset pricing model must account for this persistent and extreme upper-tail asymmetry.",
     "crumbs": [
       "교육",
-      "Market Capitalization Concentration in the NYSE"
+      "Recent History"
     ]
   },
   {
@@ -501,42 +512,42 @@
   {
     "objectID": "03_history_nyse.html",
     "href": "03_history_nyse.html",
-    "title": "Market Capitalization Concentration in the NYSE",
+    "title": "Recent History",
     "section": "",
     "text": "The NYSE continues to exhibit substantial market capitalization concentration. Since 2010 — and more sharply since 2016 — the very largest firms have distanced themselves even from the rest of the top 5%, highlighting the structural importance of tail dynamics in financial markets. Any realistic asset pricing model must account for this persistent and extreme upper-tail asymmetry."
   },
   {
     "objectID": "03_history_nyse.html#nyse-market-equity-breakpoints-long-term-dynamics",
     "href": "03_history_nyse.html#nyse-market-equity-breakpoints-long-term-dynamics",
-    "title": "Market Capitalization Concentration in the NYSE",
+    "title": "Recent History",
     "section": "NYSE Market Equity Breakpoints: Long-Term Dynamics",
     "text": "NYSE Market Equity Breakpoints: Long-Term Dynamics\nThe Fama-French dataset ME_Breakpoints provides monthly percentile breakpoints for market equity (ME), computed only from NYSE stocks. These breakpoints span from the 5th to the 100th percentile and are calculated based on market capitalization (price times shares outstanding, in millions of USD) at month-end. Importantly, closed-end funds and REITs are excluded, and only firms with CRSP share codes 10 or 11 and valid price/share data are included.\nThis file investigates the evolution of market concentration in the NYSE based on these ME breakpoints, emphasizing the dynamics in the upper tail of the distribution, particularly the top 5% of firms."
   },
   {
     "objectID": "03_history_nyse.html#breakpoint-time-series-per-firm-19962024",
     "href": "03_history_nyse.html#breakpoint-time-series-per-firm-19962024",
-    "title": "Market Capitalization Concentration in the NYSE",
+    "title": "Recent History",
     "section": "Breakpoint Time Series per Firm (1996–2024)",
     "text": "Breakpoint Time Series per Firm (1996–2024)\nWe plot the NYSE ME breakpoints divided by the number of firms each month (“per firm”) from 1996 to 2024. The results reveal two distinct phases:\n\nPre-2010: A cyclical pattern dominates, consistent with broader economic expansions and contractions. For instance, the 2000–2001 tech bubble and the 2008 global financial crisis exhibit clear signals of expansion and collapse.\nPost-2010: A structural break is visible. Especially since 2016, the average ME per firm in the top percentile (100%) exhibits a sharp and persistent upward trend.\n\nThis long-term trend implies a sustained capital lock-in within a small number of mega-cap firms, increasingly distanced from the rest of the NYSE universe.\n\n\n\nNYSE Breakpoints per Firm (1996-2024)"
   },
   {
     "objectID": "03_history_nyse.html#cross-sectional-concentration-at-the-tail",
     "href": "03_history_nyse.html#cross-sectional-concentration-at-the-tail",
-    "title": "Market Capitalization Concentration in the NYSE",
+    "title": "Recent History",
     "section": "Cross-Sectional Concentration at the Tail",
     "text": "Cross-Sectional Concentration at the Tail\nTo better understand the shape of the right tail, we visualize the percentile distribution at the most recent observation (2024-12). The result is striking: while the ME per firm grows gradually between percentiles 5 to 95, a dramatic jump occurs at the 100th percentile.\nThis highlights that the concentration of market value within the top 5% is extreme, and the very last percentile alone contains firms with ME per firm often an order of magnitude greater than those in the 95th percentile.\n\n\n\nTail Breakpoints (2024-12)"
   },
   {
     "objectID": "03_history_nyse.html#time-series-of-the-tail-ratio-100th-95th-percentile",
     "href": "03_history_nyse.html#time-series-of-the-tail-ratio-100th-95th-percentile",
-    "title": "Market Capitalization Concentration in the NYSE",
+    "title": "Recent History",
     "section": "Time Series of the Tail Ratio: 100th / 95th Percentile",
     "text": "Time Series of the Tail Ratio: 100th / 95th Percentile\nTo quantify tail concentration dynamics over time, we construct a monthly time series of the ME per firm ratio between the 100th and 95th percentiles. This ratio serves as a tail index for how dominant the very largest firms are, even among the elite.\nThe time series reveals the following:\n\n1996–2001: Rapid escalation during the dot-com boom, with the ratio peaking above 20.\n2003–2008: Stabilization around ~13.\n2009: A brief post-crisis surge back above 18.\n2010–2016: A sharp decline and plateau near 7, indicating relative equality among top-tier firms.\nPost-2016: A gradual resurgence in the ratio, reflecting renewed concentration at the very top.\n\n\n\n\nME Ratio: 100th / 95th Percentile"
   },
   {
     "objectID": "03_history_nyse.html#broader-context-nyse-and-the-top-5",
     "href": "03_history_nyse.html#broader-context-nyse-and-the-top-5",
-    "title": "Market Capitalization Concentration in the NYSE",
+    "title": "Recent History",
     "section": "Broader Context: NYSE and the Top 5%",
     "text": "Broader Context: NYSE and the Top 5%\nIt is critical to underscore that Fama-French breakpoints are calculated using only NYSE stocks. Despite the rise of Nasdaq dominance in recent decades, the NYSE remains the foundation for constructing breakpoints in academic asset pricing.\nThe breakpoints for:\n\nMarket Equity (ME): monthly, based on NYSE stocks with viable price and share data.\nBook-to-Market (BE/ME): annually, using BE from t-1 and ME from December of t-1.\nPrior 2–12 month Return: monthly, requiring CRSP price and return data.\n\nThese indicators, especially in the upper tail, are overwhelmingly driven by the top 5% of NYSE firms — roughly 60–70 firms. These companies exert outsized influence on asset pricing, portfolio construction, and market dynamics."
   },
@@ -571,42 +582,42 @@
   {
     "objectID": "04_model/08_implementation.html",
     "href": "04_model/08_implementation.html",
-    "title": "08 Implementation",
+    "title": "Empirical Model",
     "section": "",
     "text": "전체 실증 연구의 재현 가능성(reproducibility)과 코드–논문 간 연결성(mapping)을 보장"
   },
   {
     "objectID": "04_model/08_implementation.html#programming-environment",
     "href": "04_model/08_implementation.html#programming-environment",
-    "title": "08 Implementation",
+    "title": "Empirical Model",
     "section": "1. Programming Environment",
     "text": "1. Programming Environment\nAll analyses were conducted in Python 3. The core packages used are:\n\nData Processing: pandas, numpy\nStatistical Modeling: statsmodels, scipy, sklearn\nVisualization: matplotlib, seaborn, plotly\n\nAdditional tools include quarto for documentation integration and joblib/multiprocessing for parallel computation in robustness tests."
   },
   {
     "objectID": "04_model/08_implementation.html#notebook-structure",
     "href": "04_model/08_implementation.html#notebook-structure",
-    "title": "08 Implementation",
+    "title": "Empirical Model",
     "section": "2. Notebook Structure",
     "text": "2. Notebook Structure\nThe analysis was modularized into separate notebooks, each corresponding to a core component of the empirical strategy. The mapping between notebooks and sections of the paper is as follows:\n\n\n\n\n\n\n\n\nNotebook File\nDescription\nRelated Section\n\n\n\n\n02_data.ipynb\nLoad and clean CRSP & FF data, handle delisting and NaNs\nSection 2 – Data\n\n\n03_ff_compare.ipynb\nAnalyze FF size deciles: distribution, Sharpe dynamics\nSection 3 – FF Benchmark\n\n\n04_structure.ipynb\nCapital convexity, mixture modeling, and Markov transitions\nSection 4 – Structural\n\n\n05_strategy.ipynb\nImplement TBTF What–How–When logic, portfolio generator\nSection 5 – Strategy\n\n\n06_performance.ipynb\nRisk-adjusted performance vs. indices and ETFs\nSection 6 – Performance\n\n\n07_robustness.ipynb\nVarying n, frequency, sample splits, alternative weights\nSection 7 – Robustness\n\n\n\nEach notebook contains reusable functions for loading, constructing, and evaluating portfolios, making the workflow easily reproducible."
   },
   {
     "objectID": "04_model/08_implementation.html#output-artifacts",
     "href": "04_model/08_implementation.html#output-artifacts",
-    "title": "08 Implementation",
+    "title": "Empirical Model",
     "section": "3. Output Artifacts",
     "text": "3. Output Artifacts\nAll result files—figures and tables—are stored in the following structure:\n\nfigs/: All figures (e.g., PNG/HTML for Quarto embedding)\ntables/: Summary statistics and transition matrices (CSV/HTML)\nFile naming convention:\n\nsharpe_curve_s10_b10.png, mixture_tbtf_post2010.png\n\ntransition_matrix_tbtf.csv, summary_stats_tbtf.html\n\n\nThese are linked in the corresponding .qmd sections using relative paths for seamless integration."
   },
   {
     "objectID": "04_model/08_implementation.html#reproducibility",
     "href": "04_model/08_implementation.html#reproducibility",
-    "title": "08 Implementation",
+    "title": "Empirical Model",
     "section": "4. Reproducibility",
     "text": "4. Reproducibility\nTo replicate the analysis:\n\nClone the repository and install dependencies (via pip install -r requirements.txt)\nDownload CRSP/Compustat data from WRDS (with appropriate credentials)\nRun notebooks in the order shown above or use batch rendering via papermill or quarto\nRender full manuscript via:\n\nquarto render\nOptional scripts for batch portfolio construction and robustness testing (e.g., multiprocessing-based grid search) are located in /scripts."
   },
   {
     "objectID": "04_model/08_implementation.html#appendix",
     "href": "04_model/08_implementation.html#appendix",
-    "title": "08 Implementation",
+    "title": "Empirical Model",
     "section": "Appendix",
     "text": "Appendix\n\n\nrequirements.txt\npandas&gt;=1.5\nnumpy&gt;=1.22\nscikit-learn&gt;=1.3\nmatplotlib&gt;=3.6\nseaborn&gt;=0.12\nstatsmodels&gt;=0.13\nscipy&gt;=1.10\nplotly&gt;=5.10\nquarto&gt;=1.3"
   },
