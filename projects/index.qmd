@@ -1,5 +1,6 @@
 ---
 title: "Projects"
+subtitle: "Why I like Pascal, Voltaire, Twain, and Friedman"
 bibliography: references.bib
 format:
   html:
@@ -12,6 +13,57 @@ jupyter: python3
 관심있는 것들...왜? [^1].
 
 [^1]: 그냥요.
+
+
+### Justice and Power: The Dual Foundations of Freedom
+
+@pascal1670pensees famously wrote, “Justice without power is inefficient; power without justice is tyranny.” Centuries later, @friedman1980free asserted, “Economic freedom is essential for political freedom; individuals should have the power to make their own choices in the marketplace.”
+
+Even earlier, @voltaire1759candide warned: "Unconditional optimism is dangerous; do not fall into the trap of blind optimism, but instead cultivate your own reality." And Mark Twain, in *The Gilded Age* (1873), portrayed an America full of opportunity, corruption, inequality, and performative democracy—a society gilded, not golden.
+
+Although these statements emerged from distinct historical contexts—Pascal’s Christian moralism, Voltaire’s skeptical humanism, Twain’s satirical realism, and Friedman’s classical liberal economics—they converge on a central insight: power without a just foundation leads not to flourishing but to systemic dysfunction. In this short essay I will try to unify their ideas and shows how modern capitalist democracies might fail when justice is disempowered and power is left unjustified. **Unequal** capital redistribution, I argue, is not merely a moral preference but a structural imperative.
+
+Justice is not merely a legal norm; it is the **internal** compass of action. Power, in contrast, is the **external** capacity to act. Justice gives purpose; power enables that purpose to manifest.
+
+Pascal's formulation remains as relevant today: justice without the means to enforce or embody it results in futility; power without **ethical direction** leads to exploitation. Efficiency, then, is not simply about optimal resource use but the moral alignment of intent and capacity. Only when both are present can human systems function with legitimacy.
+
+
+### The Economic Freedom
+
+Friedman anchors power in the economy. He contends that **economic** freedom—the ability to choose where to work, what to buy, and how to invest—is the foundation of meaningful **political** freedom. Political rights without economic power are ceremonial.
+
+In his view, economic power must not be monopolized. Broad distribution of economic agency allows individuals to actualize their moral intentions in the marketplace. If wealth becomes too concentrated, democracy becomes formal but hollow. Here, Pascal and Friedman align: without justice, economic power fuels exclusion and control rather than autonomy and participation.
+
+### The Seesaw of Justice
+
+Imagine a seesaw. The pivot point represents justice. Those historically deprived of economic opportunity sit close to the fulcrum and rise little, even as they strive. Those positioned far from it, endowed with capital and legacy, rise effortlessly.
+
+Nature teaches that balance in systems often requires asymmetry. In physics, mechanical leverage works through inverse proportionality. Likewise, in society, fairness often demands unequal compensation to restore functional balance.
+
+Modern capitalism has fixed the pivot unfairly, amplifying the advantages of the already-advantaged. Rebalancing the seesaw by repositioning the pivot is not artificial or utopian; it is a natural act of justice. Redistribution is thus not charity but structural correction.
+
+Justice is not neutral. It is inherently corrective. Treating unequals fairly sustains inequality. True justice restructures economic power to enable **all** individuals to exercise freedom meaningfully.
+
+### the Myth of Meritocracy
+
+Today’s democracies too often wear the mask of equality while tolerating extreme inequality in capital ownership. Since markets allocate resources based on capital, those with more capital inherently wield more power—economic and political.
+
+This gives rise to plutocratic freedom: a distorted system where only the wealthy enjoy actual choice. The ideal of freedom becomes a cover for entrenched hierarchy. The seesaw is tilted, the pivot artificially fixed, and justice reduced to ornamental language.
+
+History does not show that capital-concentrated growth naturally leads to widespread development. What it reveals, time and again, is regression—that trickle-down systems fail not through accident but by structural design. Blind optimism in such mechanisms is dangerous, as Voltaire cautioned.
+
+
+### Toward a Just Democracy
+
+What is needed is not utopian equality, but uneven yet fair redistribution. The point is not to flatten all outcomes but to raise the floor. Redistribution repositions the pivot on the seesaw to empower those structurally disadvantaged.
+
+If freedom requires both justice and power, and if power today flows through capital, then capital redistribution becomes necessary for the moral function of democracy. Without it, freedom becomes a privilege of the few, and society drifts into gilded tyranny.
+
+Justice without power is impotent. Power without justice is violent. To preserve democratic integrity, power must be distributed as broadly as the moral will to act.
+
+Pascal, Voltaire, Twain, and Friedman each warned, in their own language, against systems that confuse appearance with substance, and privilege with freedom. Their lessons remain urgent.
+
+Justice must be empowered, and power must be justified. Without both, **efficiency** collapses into inequality, and **freedom** decays into performance. The democratic project does not fail from misaligned ideology but from misaligned **structure**. And sometimes, all it takes to begin restoring balance is the **courage** to move the pivot.
 
 
 ### 책들의 요점 

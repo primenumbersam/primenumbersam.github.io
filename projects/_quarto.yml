@@ -39,15 +39,11 @@ website:
         - market_incomplete.qmd
       - section: "설명? 예측?"
         contents:
+        - modern_matthew.qmd
         - capm.qmd
         - capm_industry.qmd
         - structure_cointegration.qmd
         - structure_tfp.qmd
-      - sections: "논문"
-        contents:
-        - 01_intro.qmd
-        - 02_lit_review.qmd
-        - 03_data.qmd
 
 author: gitSAM
 
