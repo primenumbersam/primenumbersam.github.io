@@ -16,7 +16,6 @@ This chapter presents the **structure and results of the TBTF strategy** using a
 
 {{< include 04_model/03_ff_compare.qmd >}}
 
-{{< include 04_model/08_implementation.qmd >}}
 
 <!--
 - 

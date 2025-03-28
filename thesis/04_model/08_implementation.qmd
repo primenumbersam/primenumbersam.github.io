@@ -1,5 +1,5 @@
 ---
-title: Empirical Model
+title: Empirical Study
 subtitle: 08 Implementation
 ---
 

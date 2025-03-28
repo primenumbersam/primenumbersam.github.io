@@ -7,38 +7,76 @@ date: 2025-03-26
 
 This section describes the data used to construct and evaluate the TBTF portfolio strategy. We utilize multiple sources to enable a comprehensive analysis of market structure, return distributions, and benchmark comparisons. The primary dataset is drawn from CRSP, with supplemental reference portfolios and index returns from Fama-French and Yahoo Finance, respectively.
 
-## Primary Data: CRSP Monthly Stock File
+## 1. Primary Data: CRSP Monthly Stock File
 
-We use the Center for Research in Security Prices (CRSP) monthly stock files, covering the period from January 1996 to December 2023. The CRSP universe includes all listed common stocks on the NYSE, Nasdaq, and AMEX exchanges. The following variables are extracted:
+We use the Center for Research in Security Prices (CRSP) monthly stock files from January 1996 to December 2023. The CRSP universe includes all listed common stocks on the NYSE, Nasdaq, and AMEX exchanges. Key variables include:
 
 - **PERMNO**: Unique stock identifier  
 - **Date**: Monthly observation date  
-- **Market Capitalization**: Calculated using shares outstanding × price  
-- **Return (RET)**: Monthly total return including dividends  
-- **Delisting Return (DLRET)**: Final return for stocks removed from CRSP  
-- **SIC Code**: Used for optional industry classification
+- **Market Capitalization**: Shares outstanding × price  
+- **primaryexch** : primary exchange
+- **SIC Code**: Optional industry classification  
 
-We restrict the sample to **ordinary common shares** (share codes 10 and 11) to exclude ADRs, REITs, and other non-standard securities.
+### Market-Cap Based Valuation Perspective
 
-### Bias Adjustment Strategy
+Unlike fixed-income instruments, public equities derive their economic value primarily from their **tradeability**. While dividends contribute to realized returns, they are secondary to a stock’s **market capitalization path**, which reflects its ability to attract and retain capital under uncertainty.
 
-To ensure robustness against common data biases, we employ the following correction methods:
+We therefore adopt a **market cap–based valuation approach**, using capitalization time series as the core proxy for equity value and flow dynamics.
 
-- **Survivorship Bias**: We retain all stocks, including those delisted during the sample period, to avoid overestimating returns from survivor-only data.
-- **Delisting Bias**: The total return for delisted stocks is calculated as:
+### Delisting Treatment: Terminal Value = Zero
 
-  $$
-  R_{\text{net}} = (1 + \text{RET}) \cdot (1 + \text{DLRET}) - 1
-  $$
+When a stock is delisted:
 
-  If `RET` is missing but `DLRET` is available, we use `DLRET` as the return for the final month.
+- Its market capitalization becomes zero, and its final **gross return is set to 0**, implying **net return of –1**.
 
-- **State-Based Exit Classification**:  
-  For the purpose of transition matrix modeling in Section 4, we define an 11th state representing "exit":
-  - Stocks that are delisted move into this absorbing state.
-  - IPOs are considered to enter from this external state and are assigned to decile groups starting from their first month of listing.
+$$ R_{\text{gross}} = 0, \quad R_{\text{net}} = -1 $$
 
-## Secondary Data Sources
+This reflects the reality that delisted equities become practically untradeable and lose all resale value for investors. In contrast to fixed-income instruments, equities have no residual recovery claim.
+
+### IPO Treatment: External Entry State
+
+- Newly listed stocks (IPOs) are initially placed in an **external state** (state 0).
+- From their first full month after IPO:
+  - Their market capitalization is ranked within the universe.
+  - They are assigned to a decile group (state 1–10) based on **market cap percentile**.
+
+### Survivorship Bias Adjustment
+
+To avoid survivorship bias:
+
+- We **retain all stocks**, including those that were delisted during the sample period.
+- This prevents the **overestimation of returns** and misrepresentation of capital mobility that arises from survivor-only datasets.
+
+### State Classification Framework
+
+For transition matrix estimation and mixture modeling (Section 4), we define the following **percentile-based state mapping**:
+
+| State | Market Cap Percentile Range | Description |
+|--------|------------------------------|-------------|
+| 10     | 90%–100%                     | Top 10% (largest-cap stocks) |
+| 9      | 80%–90%                      |               |
+| ...    | ...                          |               |
+| 1      | 0%–10%                       | Bottom 10% (smallest-cap stocks) |
+| 0      | External                     | Delisted stocks (absorbing state) or IPOs before full inclusion |
+
+This unconventional but analytically convenient mapping allows for intuitive modeling of:
+
+- **Upward mobility** as a transition to higher state numbers
+- **Capital lock-in** at the top (persistence in State 10)
+- **Exit fragility** for lower states (transition to State 0)
+
+### Structural Implication
+
+This mapping enables a **semi-absorbing, non-reversible Markov transition model**, where:
+
+- Delisted stocks enter the **absorbing state (0)** permanently.
+- Stocks that remain listed transition among **states 1–10**, based on their market cap percentile ranks at each time $t$.
+- New entrants (IPOs) begin in state 0 and join the ranked universe from their second month onward.
+
+This design forms the empirical backbone for **transition matrix analysis, mixture decomposition**, and **long-run mobility asymmetry** in Section 4.
+
+
+## 2. Secondary Data Sources
 
 ### Fama-French Research Portfolios
 
@@ -56,14 +94,15 @@ These portfolios are value-weighted, rebalanced annually using NYSE breakpoints,
 To compare TBTF performance with market-traded investment vehicles, we incorporate the following index and ETF data:
 
 - **Pre-2010 Indices** (from Yahoo Finance):
-  - **DJIA** (Dow Jones Industrial Average)
-  - **NDX** (Nasdaq 100 Index)
+  - **^NDX** (Nasdaq 100 Index)
+  - **^DJI** (Dow Jones Industrial Average)
 
 - **Post-2010 ETFs**:
-  - **DIA**: SPDR Dow Jones Industrial Average ETF (inception: 1998)
-  - **QQQ**: Invesco Nasdaq-100 ETF (inception: 1999)
-  - **SPY**: SPDR S&P 500 ETF (inception: 1993)
   - **VTI**: Vanguard Total Stock Market ETF (inception: 2001)
+  - **SPY**: SPDR S&P 500 ETF (inception: 1993)
+  - **QQQ**: Invesco Nasdaq-100 ETF (inception: 1999)
+  - **DIA**: SPDR Dow Jones Industrial Average ETF (inception: 1998)
+
 
 The inclusion of these instruments enables direct comparison with passive investment strategies commonly available to retail and institutional investors.
 
@@ -71,10 +110,11 @@ The inclusion of these instruments enables direct comparison with passive invest
 
 ### Data Availability and Frequency
 
-| Dataset                         | Frequency | Period Covered       | Source                         |
+| Dataset                         | Raw data Frequency | Period Covered       | Source                         |
 |--------------------------------|-----------|----------------------|--------------------------------|
-| CRSP Monthly Stock File        | Monthly   | 1996–2023            | WRDS/CRSP                      |
 | Fama-French ME Decile          | Monthly   | 1963–2023            | Ken French Data Library        |
-| Fama-French ME × PRIOR         | Monthly   | 1963–2023            | Ken French Data Library        |
-| DJIA, NDX (Price Indices)      | Monthly   | 1996–2023            | Yahoo Finance                  |
-| DIA, QQQ, SPY, VTI (ETFs)      | Monthly   | 1999–2023 (varies)   | Yahoo Finance                  |
+| CRSP Monthly Stock File        | Daily   | 1996–2023            | WRDS/CRSP                      |
+| Fama-French ME × PRIOR         | Monthly   | 2010–2023            | Ken French Data Library        |
+| DIA, QQQ, SPY, VTI (ETFs)      | Daily   | 2010–2023    | Yahoo Finance                  |
+| DJIA, NDX (Price Indices)      | Daily   | 1996–2009            | Yahoo Finance                  |
+

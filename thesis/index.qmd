@@ -6,6 +6,8 @@ abstract: This paper investigates how post-2008 Federal Reserve policies, ETF pr
 
 ## Key Highlights
 
+> Too big to fail? More like too big to be good, too big for justice, and too big to not exploit.
+
 - **Structural Market Distortions and Return Asymmetry**  
   Post-2008 policies have induced persistent capital flows toward dominant firms while allowing unproductive small-cap firms to survive via liquidity support, resulting in asymmetric return distributions and distorted risk–return profiles.
 

@@ -16,7 +16,7 @@ jupyter: python3
 
 ## Introduction
 
-This report extends our empirical findings from the ME5 PRIOR portfolios into a broader philosophical and socioeconomic interpretation. We draw connections between large-cap momentum dynamics in capital markets and foundational ideas from ethics, social choice theory, and political philosophy.
+This report extends my empirical findings from the ME5 PRIOR research portfolios (of Fama and French) into a broader philosophical and socioeconomic interpretation. I draw connections between large-cap momentum dynamics in capital markets and foundational ideas from ethics, social choice theory, and political philosophy.
 
 The core phenomenon observed—**persistent outperformance among firms that are already the largest and most successful**—bears striking resemblance to the biblical and sociological concept of the **Matthew Effect**:
 
@@ -25,26 +25,26 @@ The core phenomenon observed—**persistent outperformance among firms that are 
 In financial markets, this is not merely a parable—it is measurable, structural, and persistent. It reveals that what appears to be a free, fair, and competitive economy may in fact be **a self-reinforcing regime of privilege**, cloaked under the language of **freedom, equality, fairness, and consent**—the founding pillars of liberal democracy.
 
 
-## From Empirical Momentum to Structural Inequality
+## Structural Inequality at the Firm level
 
-Our analysis of the ME5 PRIOR portfolios revealed the following:
+My analysis of the ME5 PRIOR portfolios revealed the following:
 
 - Even within the top 20% of firms by market capitalization (ME5), those that performed best in the prior 11 months (PRIOR5) tend to continue outperforming in the subsequent period.
 - This effect is particularly strong **post-2010**, aligning with macroeconomic changes such as quantitative easing, the rise of passive investing, and capital concentration.
-- This implies a **reinforcing feedback loop**: prior success draws more capital, more capital enables further success, and performance becomes increasingly decoupled from fundamentals.
+- This implies a **reinforcing feedback loop**: prior success draws more capital, more capital enables further success, and performance becomes increasingly **decoupled** from diversification.
 
-The analogy to social mobility is immediate: those who have, get more—not just relatively, but **absolutely and increasingly**.
+The analogy to **social mobility** is immediate: those who have, get more—not just relatively, but **absolutely and increasingly**.
 
 
-## Implication Beyond Firms: The Matthew Effect at the Household Level
+## The Matthew Effect at the Household Level
 
 If capital lock-in dynamics operate not only at the firm level but also across households—a plausible and empirically supported assumption—the implications are far-reaching:
 
 - Wealthy households benefit disproportionately from capital gains and passive income
 - Lower- and middle-income households rely predominantly on labor income, with limited upside
-- The result is a declining probability of **upward mobility**, and increasing **wealth stratification**
+- The result is a declining probability of upward mobility, and increasing wealth stratification
 
-This structure undermines the ideal of a **meritocratic liberal democracy** where opportunity is equitably distributed and fairness is institutionalized. In reality, the capital system begins to resemble a **rigged equilibrium**, where the initial balance is illusionary—**a symbolic counterweight with no real effect.**
+This structure undermines the ideal of a meritocratic liberal democracy where opportunity is equitably distributed and fairness is institutionalized. In reality, the capital system begins to resemble a **rigged equilibrium**, where the initial balance is illusionary—**a symbolic counterweight with no real effect.**
 
 
 ## The Philosophical Lens: Arrow, Spinoza, and Pascal
@@ -76,13 +76,13 @@ Thus, our empirical findings do more than guide portfolio construction. They cha
 The capital markets amplify this dynamic, and unless counterbalanced by social, policy, or philosophical intervention, it threatens not only equity, but long-term stability and collective welfare.
 
 
-## Appendix: Empirical Evidence from ME5 PRIOR Portfolios
+## Appendix: ME5 PRIOR Portfolios
 
-In this report, we examine the persistence of momentum within the top market-cap group (ME5) using the Fama-French 25 Portfolios sorted by size and prior return. Specifically, we analyze how the performance of five portfolios (PRIOR1 to PRIOR5), sorted by prior 11-month returns within the ME5 group, has evolved between two distinct market regimes: pre-2010 and post-2010.
+In this report, I examined the persistence of momentum **within the top market-cap group (ME5)** using the Fama-French 25 Portfolios sorted by size and prior return. Specifically, I analyzed how the performance of five portfolios (PRIOR1 to PRIOR5), sorted by prior 11-month returns within the ME5 group, has evolved between two distinct market regimes: pre-2010 and post-2010.
 
 The results are striking.
 
-> Even among the richest, largest companies (top 20% by market cap), those that performed best over the prior year continued to outperform in the next month—especially in the post-2010 market regime.
+> Even among the largest companies (top 20% by market cap), those that performed best over the prior year continued to outperform in the next month—both in the pre and post-2010 market regime.
 
 What initially seemed like a behavioral or statistical curiosity turns out to reflect a deeper transformation of the market's internal structure—a transformation where **capital flows, visibility, and narrative dominance** now reinforce past winners among the already-rich. In this setting, the language of **freedom, fairness, and opportunity**—so essential to liberal democracy—becomes less about equal access and more about locked-in advantage. The market becomes a mirror, not of fair competition, but of **Matthew Effect dynamics**, where “to those who have, more shall be given.”
 
@@ -116,7 +116,7 @@ All returns are monthly and expressed as decimals (net of compounding). Metrics 
 - **Post-2010**:  
   - Momentum dominance intensifies  
   - **PRIOR5** exhibits top raw returns (13.7%), Sortino (1.41), and CRRA utility  
-  - **PRIOR3** shows best Sharpe (0.91) and lowest volatility (15%)  
+  - **PRIOR3** shows best Sharpe (0.91) and second lowest volatility (15%)  
   - Both dominate the risk-return landscape with resilience and predictability
 
 The market is no longer cyclical, but **directional**; no longer egalitarian, but **reinforcing**. Passive capital flows, QE-induced yield suppression, and index-based exposure collectively sustain a regime where "winners win more, losers lag longer." If the ideal of equal opportunity was once the balancing pendulum of a free market society, the modern financial system now swings in only one direction.
@@ -234,7 +234,7 @@ result_post.round(4)
 
 ```
 
-Risk-adjusted metrics highlight structural momentum persistence after 2010.
+Risk-adjusted metrics highlight structural momentum persistence.
 
 
 #### Performance comparison of ME5 PRIOR portfolios
@@ -270,4 +270,4 @@ plot_metric('Annualized Return', result_pre, result_post)
 plot_metric('Sharpe Ratio', result_pre, result_post)
 plot_metric('Expected CRRA', result_pre, result_post)
 ```
-Annualized return, Sharpe ratio (r_f=0), and Expected CRRA (eta=3) show stronger momentum post-2010.
+Annualized return, Sharpe ratio (r_f=0), and Expected CRRA (eta=3) show consistent momentum even among the top 20% in size.

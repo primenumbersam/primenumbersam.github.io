@@ -219,11 +219,16 @@ window.Quarto = {
   <ul>
   <li><a href="#data-source-and-construction" id="toc-data-source-and-construction" class="nav-link active" data-scroll-target="#data-source-and-construction">Data Source and Construction</a>
   <ul class="collapse">
-  <li><a href="#primary-data-crsp-monthly-stock-file" id="toc-primary-data-crsp-monthly-stock-file" class="nav-link" data-scroll-target="#primary-data-crsp-monthly-stock-file">Primary Data: CRSP Monthly Stock File</a>
+  <li><a href="#primary-data-crsp-monthly-stock-file" id="toc-primary-data-crsp-monthly-stock-file" class="nav-link" data-scroll-target="#primary-data-crsp-monthly-stock-file">1. Primary Data: CRSP Monthly Stock File</a>
   <ul class="collapse">
-  <li><a href="#bias-adjustment-strategy" id="toc-bias-adjustment-strategy" class="nav-link" data-scroll-target="#bias-adjustment-strategy">Bias Adjustment Strategy</a></li>
+  <li><a href="#market-cap-based-valuation-perspective" id="toc-market-cap-based-valuation-perspective" class="nav-link" data-scroll-target="#market-cap-based-valuation-perspective">Market-Cap Based Valuation Perspective</a></li>
+  <li><a href="#delisting-treatment-terminal-value-zero" id="toc-delisting-treatment-terminal-value-zero" class="nav-link" data-scroll-target="#delisting-treatment-terminal-value-zero">Delisting Treatment: Terminal Value = Zero</a></li>
+  <li><a href="#ipo-treatment-external-entry-state" id="toc-ipo-treatment-external-entry-state" class="nav-link" data-scroll-target="#ipo-treatment-external-entry-state">IPO Treatment: External Entry State</a></li>
+  <li><a href="#survivorship-bias-adjustment" id="toc-survivorship-bias-adjustment" class="nav-link" data-scroll-target="#survivorship-bias-adjustment">Survivorship Bias Adjustment</a></li>
+  <li><a href="#state-classification-framework" id="toc-state-classification-framework" class="nav-link" data-scroll-target="#state-classification-framework">State Classification Framework</a></li>
+  <li><a href="#structural-implication" id="toc-structural-implication" class="nav-link" data-scroll-target="#structural-implication">Structural Implication</a></li>
   </ul></li>
-  <li><a href="#secondary-data-sources" id="toc-secondary-data-sources" class="nav-link" data-scroll-target="#secondary-data-sources">Secondary Data Sources</a>
+  <li><a href="#secondary-data-sources" id="toc-secondary-data-sources" class="nav-link" data-scroll-target="#secondary-data-sources">2. Secondary Data Sources</a>
   <ul class="collapse">
   <li><a href="#fama-french-research-portfolios" id="toc-fama-french-research-portfolios" class="nav-link" data-scroll-target="#fama-french-research-portfolios">Fama-French Research Portfolios</a></li>
   <li><a href="#index-and-etf-benchmarks" id="toc-index-and-etf-benchmarks" class="nav-link" data-scroll-target="#index-and-etf-benchmarks">Index and ETF Benchmarks</a></li>
@@ -271,43 +276,115 @@ window.Quarto = {
 <h1>Data Source and Construction</h1>
 <p>This section describes the data used to construct and evaluate the TBTF portfolio strategy. We utilize multiple sources to enable a comprehensive analysis of market structure, return distributions, and benchmark comparisons. The primary dataset is drawn from CRSP, with supplemental reference portfolios and index returns from Fama-French and Yahoo Finance, respectively.</p>
 <section id="primary-data-crsp-monthly-stock-file" class="level2">
-<h2 class="anchored" data-anchor-id="primary-data-crsp-monthly-stock-file">Primary Data: CRSP Monthly Stock File</h2>
-<p>We use the Center for Research in Security Prices (CRSP) monthly stock files, covering the period from January 1996 to December 2023. The CRSP universe includes all listed common stocks on the NYSE, Nasdaq, and AMEX exchanges. The following variables are extracted:</p>
+<h2 class="anchored" data-anchor-id="primary-data-crsp-monthly-stock-file">1. Primary Data: CRSP Monthly Stock File</h2>
+<p>We use the Center for Research in Security Prices (CRSP) monthly stock files from January 1996 to December 2023. The CRSP universe includes all listed common stocks on the NYSE, Nasdaq, and AMEX exchanges. Key variables include:</p>
 <ul>
 <li><strong>PERMNO</strong>: Unique stock identifier<br>
 </li>
 <li><strong>Date</strong>: Monthly observation date<br>
 </li>
-<li><strong>Market Capitalization</strong>: Calculated using shares outstanding × price<br>
+<li><strong>Market Capitalization</strong>: Shares outstanding × price<br>
 </li>
-<li><strong>Return (RET)</strong>: Monthly total return including dividends<br>
-</li>
-<li><strong>Delisting Return (DLRET)</strong>: Final return for stocks removed from CRSP<br>
-</li>
-<li><strong>SIC Code</strong>: Used for optional industry classification</li>
+<li><strong>primaryexch</strong> : primary exchange</li>
+<li><strong>SIC Code</strong>: Optional industry classification</li>
 </ul>
-<p>We restrict the sample to <strong>ordinary common shares</strong> (share codes 10 and 11) to exclude ADRs, REITs, and other non-standard securities.</p>
-<section id="bias-adjustment-strategy" class="level3">
-<h3 class="anchored" data-anchor-id="bias-adjustment-strategy">Bias Adjustment Strategy</h3>
-<p>To ensure robustness against common data biases, we employ the following correction methods:</p>
+<section id="market-cap-based-valuation-perspective" class="level3">
+<h3 class="anchored" data-anchor-id="market-cap-based-valuation-perspective">Market-Cap Based Valuation Perspective</h3>
+<p>Unlike fixed-income instruments, public equities derive their economic value primarily from their <strong>tradeability</strong>. While dividends contribute to realized returns, they are secondary to a stock’s <strong>market capitalization path</strong>, which reflects its ability to attract and retain capital under uncertainty.</p>
+<p>We therefore adopt a <strong>market cap–based valuation approach</strong>, using capitalization time series as the core proxy for equity value and flow dynamics.</p>
+</section>
+<section id="delisting-treatment-terminal-value-zero" class="level3">
+<h3 class="anchored" data-anchor-id="delisting-treatment-terminal-value-zero">Delisting Treatment: Terminal Value = Zero</h3>
+<p>When a stock is delisted:</p>
 <ul>
-<li><p><strong>Survivorship Bias</strong>: We retain all stocks, including those delisted during the sample period, to avoid overestimating returns from survivor-only data.</p></li>
-<li><p><strong>Delisting Bias</strong>: The total return for delisted stocks is calculated as:</p>
-<p><span class="math display">\[
-R_{\text{net}} = (1 + \text{RET}) \cdot (1 + \text{DLRET}) - 1
-\]</span></p>
-<p>If <code>RET</code> is missing but <code>DLRET</code> is available, we use <code>DLRET</code> as the return for the final month.</p></li>
-<li><p><strong>State-Based Exit Classification</strong>:<br>
-For the purpose of transition matrix modeling in Section 4, we define an 11th state representing “exit”:</p>
+<li>Its market capitalization becomes zero, and its final <strong>gross return is set to 0</strong>, implying <strong>net return of –1</strong>.</li>
+</ul>
+<p><span class="math display">\[ R_{\text{gross}} = 0, \quad R_{\text{net}} = -1 \]</span></p>
+<p>This reflects the reality that delisted equities become practically untradeable and lose all resale value for investors. In contrast to fixed-income instruments, equities have no residual recovery claim.</p>
+</section>
+<section id="ipo-treatment-external-entry-state" class="level3">
+<h3 class="anchored" data-anchor-id="ipo-treatment-external-entry-state">IPO Treatment: External Entry State</h3>
 <ul>
-<li>Stocks that are delisted move into this absorbing state.</li>
-<li>IPOs are considered to enter from this external state and are assigned to decile groups starting from their first month of listing.</li>
+<li>Newly listed stocks (IPOs) are initially placed in an <strong>external state</strong> (state 0).</li>
+<li>From their first full month after IPO:
+<ul>
+<li>Their market capitalization is ranked within the universe.</li>
+<li>They are assigned to a decile group (state 1–10) based on <strong>market cap percentile</strong>.</li>
 </ul></li>
 </ul>
 </section>
+<section id="survivorship-bias-adjustment" class="level3">
+<h3 class="anchored" data-anchor-id="survivorship-bias-adjustment">Survivorship Bias Adjustment</h3>
+<p>To avoid survivorship bias:</p>
+<ul>
+<li>We <strong>retain all stocks</strong>, including those that were delisted during the sample period.</li>
+<li>This prevents the <strong>overestimation of returns</strong> and misrepresentation of capital mobility that arises from survivor-only datasets.</li>
+</ul>
+</section>
+<section id="state-classification-framework" class="level3">
+<h3 class="anchored" data-anchor-id="state-classification-framework">State Classification Framework</h3>
+<p>For transition matrix estimation and mixture modeling (Section 4), we define the following <strong>percentile-based state mapping</strong>:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 58%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>State</th>
+<th>Market Cap Percentile Range</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>10</td>
+<td>90%–100%</td>
+<td>Top 10% (largest-cap stocks)</td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td>80%–90%</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>…</td>
+<td>…</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>0%–10%</td>
+<td>Bottom 10% (smallest-cap stocks)</td>
+</tr>
+<tr class="odd">
+<td>0</td>
+<td>External</td>
+<td>Delisted stocks (absorbing state) or IPOs before full inclusion</td>
+</tr>
+</tbody>
+</table>
+<p>This unconventional but analytically convenient mapping allows for intuitive modeling of:</p>
+<ul>
+<li><strong>Upward mobility</strong> as a transition to higher state numbers</li>
+<li><strong>Capital lock-in</strong> at the top (persistence in State 10)</li>
+<li><strong>Exit fragility</strong> for lower states (transition to State 0)</li>
+</ul>
+</section>
+<section id="structural-implication" class="level3">
+<h3 class="anchored" data-anchor-id="structural-implication">Structural Implication</h3>
+<p>This mapping enables a <strong>semi-absorbing, non-reversible Markov transition model</strong>, where:</p>
+<ul>
+<li>Delisted stocks enter the <strong>absorbing state (0)</strong> permanently.</li>
+<li>Stocks that remain listed transition among <strong>states 1–10</strong>, based on their market cap percentile ranks at each time <span class="math inline">\(t\)</span>.</li>
+<li>New entrants (IPOs) begin in state 0 and join the ranked universe from their second month onward.</li>
+</ul>
+<p>This design forms the empirical backbone for <strong>transition matrix analysis, mixture decomposition</strong>, and <strong>long-run mobility asymmetry</strong> in Section 4.</p>
+</section>
 </section>
 <section id="secondary-data-sources" class="level2">
-<h2 class="anchored" data-anchor-id="secondary-data-sources">Secondary Data Sources</h2>
+<h2 class="anchored" data-anchor-id="secondary-data-sources">2. Secondary Data Sources</h2>
 <section id="fama-french-research-portfolios" class="level3">
 <h3 class="anchored" data-anchor-id="fama-french-research-portfolios">Fama-French Research Portfolios</h3>
 <p>From the <a href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html">Ken French Data Library</a>, we collect the following datasets:</p>
@@ -327,15 +404,15 @@ For the purpose of transition matrix modeling in Section 4, we define an 11th st
 <ul>
 <li><strong>Pre-2010 Indices</strong> (from Yahoo Finance):
 <ul>
-<li><strong>DJIA</strong> (Dow Jones Industrial Average)</li>
-<li><strong>NDX</strong> (Nasdaq 100 Index)</li>
+<li><strong>^NDX</strong> (Nasdaq 100 Index)</li>
+<li><strong>^DJI</strong> (Dow Jones Industrial Average)</li>
 </ul></li>
 <li><strong>Post-2010 ETFs</strong>:
 <ul>
-<li><strong>DIA</strong>: SPDR Dow Jones Industrial Average ETF (inception: 1998)</li>
-<li><strong>QQQ</strong>: Invesco Nasdaq-100 ETF (inception: 1999)</li>
-<li><strong>SPY</strong>: SPDR S&amp;P 500 ETF (inception: 1993)</li>
 <li><strong>VTI</strong>: Vanguard Total Stock Market ETF (inception: 2001)</li>
+<li><strong>SPY</strong>: SPDR S&amp;P 500 ETF (inception: 1993)</li>
+<li><strong>QQQ</strong>: Invesco Nasdaq-100 ETF (inception: 1999)</li>
+<li><strong>DIA</strong>: SPDR Dow Jones Industrial Average ETF (inception: 1998)</li>
 </ul></li>
 </ul>
 <p>The inclusion of these instruments enables direct comparison with passive investment strategies commonly available to retail and institutional investors.</p>
@@ -358,40 +435,40 @@ For the purpose of transition matrix modeling in Section 4, we define an 11th st
 <thead>
 <tr class="header">
 <th>Dataset</th>
-<th>Frequency</th>
+<th>Raw data Frequency</th>
 <th>Period Covered</th>
 <th>Source</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>CRSP Monthly Stock File</td>
-<td>Monthly</td>
-<td>1996–2023</td>
-<td>WRDS/CRSP</td>
-</tr>
-<tr class="even">
 <td>Fama-French ME Decile</td>
 <td>Monthly</td>
 <td>1963–2023</td>
 <td>Ken French Data Library</td>
 </tr>
+<tr class="even">
+<td>CRSP Monthly Stock File</td>
+<td>Daily</td>
+<td>1996–2023</td>
+<td>WRDS/CRSP</td>
+</tr>
 <tr class="odd">
 <td>Fama-French ME × PRIOR</td>
 <td>Monthly</td>
-<td>1963–2023</td>
+<td>2010–2023</td>
 <td>Ken French Data Library</td>
 </tr>
 <tr class="even">
-<td>DJIA, NDX (Price Indices)</td>
-<td>Monthly</td>
-<td>1996–2023</td>
+<td>DIA, QQQ, SPY, VTI (ETFs)</td>
+<td>Daily</td>
+<td>2010–2023</td>
 <td>Yahoo Finance</td>
 </tr>
 <tr class="odd">
-<td>DIA, QQQ, SPY, VTI (ETFs)</td>
-<td>Monthly</td>
-<td>1999–2023 (varies)</td>
+<td>DJIA, NDX (Price Indices)</td>
+<td>Daily</td>
+<td>1996–2009</td>
 <td>Yahoo Finance</td>
 </tr>
 </tbody>
