@@ -1,23 +1,23 @@
 ---
 title: "Projects"
 subtitle: "Why I like Pascal, Voltaire, Twain, and Friedman"
+abstract: 불공정 분배의 원흉인 성장 담론의 위선
 bibliography: references.bib
 format:
   html:
     code-fold: true
     toc: true
-    number-sections: true
+    number-sections: false
 jupyter: python3
 ---
 
-관심있는 것들...왜? [^1].
+성장과 분배의 균형? [^1].
 
-[^1]: 그냥요.
+[^1]: 균형 좋아하시네. 낙수효과? 참을 만큼 참았습니다. 이제는 명확히 말해야 할 때입니다. 성장은 면죄부가 아닙니다. 오히려 지난 수십 년간의 자본집중적 성장은 분배의 실패를 구조화했고, 경제적 자유를 극소수의 특권으로 전락시켰습니다. 정의(Justice) 없는 권력(Power)은 폭정이고, 권력 없는 정의는 무능입니다. 지금 필요한 것은 ‘모두를 위한 성장’ 같은 착한 구호가 아니라, 기울어진 시소의 중심축을 강제로라도 옮기는 구조적 재분배입니다. 지금 이 사회에 필요한 건 성장이 아니라, 정의로운 힘의 재구성입니다.
 
+### The Dual Foundations of Freedom
 
-### Justice and Power: The Dual Foundations of Freedom
-
-@pascal1670pensees famously wrote, “Justice without power is inefficient; power without justice is tyranny.” Centuries later, @friedman1980free asserted, “Economic freedom is essential for political freedom; individuals should have the power to make their own choices in the marketplace.”
+@pascal1670pensees famously wrote, “**Justice** without power is inefficient; **power** without justice is tyranny.” Centuries later, @friedman1980free asserted, “Economic freedom is essential for political freedom; individuals should have the power to make their own choices in the marketplace.”
 
 Even earlier, @voltaire1759candide warned: "Unconditional optimism is dangerous; do not fall into the trap of blind optimism, but instead cultivate your own reality." And Mark Twain, in *The Gilded Age* (1873), portrayed an America full of opportunity, corruption, inequality, and performative democracy—a society gilded, not golden.
 
@@ -42,9 +42,9 @@ Nature teaches that balance in systems often requires asymmetry. In physics, mec
 
 Modern capitalism has fixed the pivot unfairly, amplifying the advantages of the already-advantaged. Rebalancing the seesaw by repositioning the pivot is not artificial or utopian; it is a natural act of justice. Redistribution is thus not charity but structural correction.
 
-Justice is not neutral. It is inherently corrective. Treating unequals fairly sustains inequality. True justice restructures economic power to enable **all** individuals to exercise freedom meaningfully.
+Justice is not neutral. It is inherently corrective. Treating unequals more unequally sustains more inequality. True justice restructures economic power to enable **all** individuals to exercise freedom meaningfully.
 
-### the Myth of Meritocracy
+### The Myth of Meritocracy
 
 Today’s democracies too often wear the mask of equality while tolerating extreme inequality in capital ownership. Since markets allocate resources based on capital, those with more capital inherently wield more power—economic and political.
 

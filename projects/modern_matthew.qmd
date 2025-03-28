@@ -1,13 +1,16 @@
 ---
 title: The Modern Matthew Effect
-subtitle: Capital Lock-In, Declining Mobility, and Social Welfare
+subtitle: Capital Lock-In, Declining Mobility and Social Welfare
 author: gitSAM
 date: '2025-03-28'
+abstract: 돈도 많은 애들 중에서도, 작년에 돈 제일 많이 벌었던 애들이 다음 달에 또 벌 확률이 높았다 (2010년 이후에는 더욱더)
 format:
   html:
     code-fold: true
     toc: true
-    number-sections: true
+    number-sections: false
+    tbl-cap-location: bottom
+    fig-cap-location: bottom
 jupyter: python3
 ---
 
@@ -75,27 +78,196 @@ The capital markets amplify this dynamic, and unless counterbalanced by social, 
 
 ## Appendix: Empirical Evidence from ME5 PRIOR Portfolios
 
-### Pre-2010 vs. Post-2010 Performance Comparison
+In this report, we examine the persistence of momentum within the top market-cap group (ME5) using the Fama-French 25 Portfolios sorted by size and prior return. Specifically, we analyze how the performance of five portfolios (PRIOR1 to PRIOR5), sorted by prior 11-month returns within the ME5 group, has evolved between two distinct market regimes: pre-2010 and post-2010.
+
+The results are striking.
+
+> Even among the richest, largest companies (top 20% by market cap), those that performed best over the prior year continued to outperform in the next month—especially in the post-2010 market regime.
+
+What initially seemed like a behavioral or statistical curiosity turns out to reflect a deeper transformation of the market's internal structure—a transformation where **capital flows, visibility, and narrative dominance** now reinforce past winners among the already-rich. In this setting, the language of **freedom, fairness, and opportunity**—so essential to liberal democracy—becomes less about equal access and more about locked-in advantage. The market becomes a mirror, not of fair competition, but of **Matthew Effect dynamics**, where “to those who have, more shall be given.”
+
+For risk-aware investors engaged in short-term, monthly rebalancing, the implications are concrete:
+
+- **PRIOR3** offers exceptional consistency with lower volatility and downside exposure
+- **PRIOR5** delivers superior absolute return with tolerable risk
+- Both are based on **highly liquid, mega-cap stocks**, making them operationally feasible and institutionally scalable
+
+> In short: **Even among the richest firms, past winners tend to keep winning.**  
+> Momentum is no longer a temporary anomaly. It is part of the architecture.
+
+This realization challenges equilibrium-based pricing models and calls into question our normative assumptions about economic fairness. If capital accumulates in a non-reverting way among the already-powerful, **mobility collapses**—and with it, the utilitarian social welfare that undergirds Arrow's idealized world of dynamic fairness. What remains is a hollow pendulum: a financial system that swings, but never truly balances.
+
+### Methodology
+
+We compute a comprehensive set of performance metrics (e.g., annualized return, Sharpe, Sortino, Calmar, Omega, expected CRRA utility) for each ME5 PRIOR portfolio across two structural periods:
+
+- **Pre-2010**: January 1996 to December 2009
+- **Post-2010**: January 2010 to December 2023
+
+All returns are monthly and expressed as decimals (net of compounding). Metrics are calculated for value-weighted portfolios of NYSE-listed firms within ME5, using prior 11-month cumulative returns (excluding the most recent month) to define momentum quintiles.
+
+### Empirical Summary and Interpretation
+
+- **Pre-2010**:  
+  - **PRIOR4 (moderate momentum)** was most effective for risk-adjusted returns (Sharpe 0.66, Sortino 0.94)  
+  - **PRIOR5** had higher return, but more volatility and negative skew  
+  - **PRIOR1** severely underperformed (negative average return, deep drawdowns)
+
+- **Post-2010**:  
+  - Momentum dominance intensifies  
+  - **PRIOR5** exhibits top raw returns (13.7%), Sortino (1.41), and CRRA utility  
+  - **PRIOR3** shows best Sharpe (0.91) and lowest volatility (15%)  
+  - Both dominate the risk-return landscape with resilience and predictability
+
+The market is no longer cyclical, but **directional**; no longer egalitarian, but **reinforcing**. Passive capital flows, QE-induced yield suppression, and index-based exposure collectively sustain a regime where "winners win more, losers lag longer." If the ideal of equal opportunity was once the balancing pendulum of a free market society, the modern financial system now swings in only one direction.
+
+### ME5 PRIOR Performance Comparison
 
 ```{python}
-#| label: "fig:me5_prior_momentum"
-#| fig-cap: "Performance comparison of ME5 PRIOR portfolios before and after 2010"
-#| fig-subcap: "Annualized return, Sharpe, and Calmar ratios show stronger momentum post-2010."
-#| layout-ncol: 2
+import pandas as pd
+import pandas_datareader.data as pdr
+import numpy as np
+from scipy.stats import skew, kurtosis
+
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning) # FutureWarning 제거
+pd.set_option('display.width', None)
+pd.set_option('display.max_columns', 15)
+
+# (1) Load Fama-French data
+start_date = '1996-01-01'
+end_date = '2023-12-31'
+
+# Define evaluation functions
+p = 0.005 # 0.5% 월간 수익률 threshold
+eta = 3 # CRRA risk-aversion parameter
+
+ff = pdr.DataReader("25_Portfolios_ME_Prior_12_2", "famafrench", start_date, end_date)
+ff_df = ff[0]
+# print(ff[0].columns.tolist())
+
+# (2) Extract ME5 PRIOR portfolios and convert to net return
+me5_prior = pd.DataFrame({
+    'PRIOR1': ff_df['BIG LoPRIOR'],
+    'PRIOR2': ff_df['ME5 PRIOR2'],
+    'PRIOR3': ff_df['ME5 PRIOR3'],
+    'PRIOR4': ff_df['ME5 PRIOR4'],
+    'PRIOR5': ff_df['BIG HiPRIOR'],
+}) / 100  # convert % to net return
+
+me5_prior.index = me5_prior.index.to_timestamp()
+
+# (3) Split: pre-2010 vs post-2010
+split_date = pd.to_datetime("2010-01-01")
+me5_prior_pre = me5_prior[me5_prior.index < split_date]
+me5_prior_post = me5_prior[me5_prior.index >= split_date]
+
+# (4) Metric definitions
+def annualized_return(r): return (1 + r).prod()**(12 / len(r)) - 1
+def annualized_volatility(r): return r.std() * np.sqrt(12)
+def sharpe_ratio(r): return (r.mean() / r.std()) * np.sqrt(12)
+def sortino_ratio(r): return (r.mean() / r[r < 0].std()) * np.sqrt(12)
+def omega_ratio(r, threshold=p):
+    gains = r[r > threshold] - threshold
+    losses = threshold - r[r < threshold]
+    return gains.sum() / losses.sum() if losses.sum() > 0 else np.nan
+def max_drawdown(r):
+    cum = (1 + r).cumprod()
+    peak = cum.cummax()
+    dd = (cum - peak) / peak
+    return dd.min()
+def calmar_ratio(r):
+    ar = annualized_return(r)
+    mdd = max_drawdown(r)
+    return ar / abs(mdd) if mdd < 0 else np.nan
+def expected_crra(r, eta=eta):
+    x = 1 + r
+    util = (x**(1 - eta) - 1) / (1 - eta)
+    return util.mean()
+def fisher_skewness(r): return skew(r, bias=False)
+def excess_kurtosis(r): return kurtosis(r, fisher=True, bias=False)
+
+metrics = {
+    "Annualized Return": annualized_return,
+    "Annualized Volatility": annualized_volatility,
+    "Sharpe Ratio": sharpe_ratio,
+    "Sortino Ratio": sortino_ratio,
+    "Omega Ratio": omega_ratio,
+    "Calmar Ratio": calmar_ratio,
+    "Expected CRRA": expected_crra,
+    "Fisher Skewness": fisher_skewness,
+    "Excess Kurtosis": excess_kurtosis
+}
+
+# (5) Evaluate for each period
+def evaluate_metrics(df):
+    return pd.DataFrame({
+        port: {name: func(df[port]) for name, func in metrics.items()}
+        for port in df.columns
+    }).T
+
+result_pre = evaluate_metrics(me5_prior_pre)
+result_post = evaluate_metrics(me5_prior_post)
+
+```
+
+#### Performance Metrics for ME5 PRIOR Portfolios
+
+
+```{python}
+#| label: tab_me5_prior_pre
+#| tbl-cap: "Performance Metrics (Pre-2010)"
+#| tbl-cap-location: bottom 
+#| echo: false
+
+result_pre.round(4)
+
+```
+
+```{python}
+#| label: tab_me5_prior_post
+#| tbl-cap: "Performance Metrics (Post-2010)"
+#| tbl-cap-location: bottom 
+#| echo: false
+
+result_post.round(4)
+
+```
+
+Risk-adjusted metrics highlight structural momentum persistence after 2010.
+
+
+#### Performance comparison of ME5 PRIOR portfolios
+
+```{python}
+#| label: fig_me5_prior
+#| fig-subcap: 
+#|   - "Annualized Return"
+#|   - "Sharpe Ratio (r_f = 0)"
+#|   - "Expected CRRA (η = 3)"
+#| layout-ncol: 3
 #| fig-align: center
 #| echo: false
 
-# me5_prior_momentum_plot  # <- Placeholder for comparative plot
+import matplotlib.pyplot as plt
+
+# Define plotting function
+def plot_metric(metric_name, result_pre, result_post):
+    fig, ax = plt.subplots(figsize=(5, 4))
+    ax.bar(result_pre.index, result_pre[metric_name], width=0.35, label='Pre-2010', align='center', alpha=0.7, color='#1f77b4')
+    ax.bar(result_post.index, result_post[metric_name], width=0.35, label='Post-2010', align='edge', alpha=0.7, color='#ff7f0e')
+    ax.set_xticks(range(len(result_pre.index)))
+    ax.set_xticklabels(result_pre.index, rotation=45)
+    ax.set_title(metric_name)
+    ax.grid(True)
+    if metric_name == 'Annualized Return':
+        ax.legend(loc='upper left')
+    plt.tight_layout()
+    plt.show()
+
+# Plot each metric separately so Quarto recognizes subcaptions
+plot_metric('Annualized Return', result_pre, result_post)
+plot_metric('Sharpe Ratio', result_pre, result_post)
+plot_metric('Expected CRRA', result_pre, result_post)
 ```
-
-### Summary Performance Table
-
-```{python}
-#| label: "tab:me5_prior_performance"
-#| tbl-cap: "Performance Metrics for ME5 PRIOR Portfolios (Pre- vs. Post-2010)"
-#| tbl-subcap: "Risk-adjusted metrics highlight structural momentum persistence after 2010."
-#| echo: false
-
-#me5_prior_split_table  # <- Placeholder for comparative performance DataFrame
-```
-
+Annualized return, Sharpe ratio (r_f=0), and Expected CRRA (eta=3) show stronger momentum post-2010.

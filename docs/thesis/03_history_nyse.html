@@ -9,7 +9,7 @@
 <meta name="author" content="gitSAM">
 <meta name="dcterms.date" content="2025-03-23">
 
-<title>Introduction – GitSAM</title>
+<title>Market Capitalization Concentration in the NYSE – GitSAM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -130,7 +130,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_intro.html">Introduction</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Market Capitalization Concentration in the NYSE</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -150,7 +150,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_intro.html" class="sidebar-item-text sidebar-link active">
+  <a href="./01_intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction</span></a>
   </div>
 </li>
@@ -188,17 +188,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
-  <ul class="collapse">
-  <li><a href="#structural-shifts-in-capital-markets" id="toc-structural-shifts-in-capital-markets" class="nav-link" data-scroll-target="#structural-shifts-in-capital-markets">1. Structural Shifts in Capital Markets</a></li>
-  <li><a href="#from-risk-pricing-to-rent-extraction" id="toc-from-risk-pricing-to-rent-extraction" class="nav-link" data-scroll-target="#from-risk-pricing-to-rent-extraction">2. From Risk Pricing to Rent Extraction</a></li>
-  <li><a href="#stylized-facts-and-hypotheses" id="toc-stylized-facts-and-hypotheses" class="nav-link" data-scroll-target="#stylized-facts-and-hypotheses">3. Stylized Facts and Hypotheses</a></li>
-  <li><a href="#the-dual-distortion-of-market-efficiency" id="toc-the-dual-distortion-of-market-efficiency" class="nav-link" data-scroll-target="#the-dual-distortion-of-market-efficiency">4. The Dual Distortion of Market Efficiency</a></li>
-  <li><a href="#the-tbtf-strategy-and-its-paradox" id="toc-the-tbtf-strategy-and-its-paradox" class="nav-link" data-scroll-target="#the-tbtf-strategy-and-its-paradox">5. The TBTF Strategy and Its Paradox</a></li>
-  <li><a href="#capital-mobility-lock-in-and-polarization" id="toc-capital-mobility-lock-in-and-polarization" class="nav-link" data-scroll-target="#capital-mobility-lock-in-and-polarization">6. Capital Mobility, Lock-In, and Polarization</a></li>
-  <li><a href="#implications-and-research-agenda" id="toc-implications-and-research-agenda" class="nav-link" data-scroll-target="#implications-and-research-agenda">7. Implications and Research Agenda</a></li>
-  <li><a href="#structure-of-the-paper" id="toc-structure-of-the-paper" class="nav-link" data-scroll-target="#structure-of-the-paper">8. Structure of the Paper</a></li>
-  </ul></li>
+  <li><a href="#nyse-market-equity-breakpoints-long-term-dynamics" id="toc-nyse-market-equity-breakpoints-long-term-dynamics" class="nav-link active" data-scroll-target="#nyse-market-equity-breakpoints-long-term-dynamics">NYSE Market Equity Breakpoints: Long-Term Dynamics</a></li>
+  <li><a href="#breakpoint-time-series-per-firm-19962024" id="toc-breakpoint-time-series-per-firm-19962024" class="nav-link" data-scroll-target="#breakpoint-time-series-per-firm-19962024">Breakpoint Time Series per Firm (1996–2024)</a></li>
+  <li><a href="#cross-sectional-concentration-at-the-tail" id="toc-cross-sectional-concentration-at-the-tail" class="nav-link" data-scroll-target="#cross-sectional-concentration-at-the-tail">Cross-Sectional Concentration at the Tail</a></li>
+  <li><a href="#time-series-of-the-tail-ratio-100th-95th-percentile" id="toc-time-series-of-the-tail-ratio-100th-95th-percentile" class="nav-link" data-scroll-target="#time-series-of-the-tail-ratio-100th-95th-percentile">Time Series of the Tail Ratio: 100th / 95th Percentile</a></li>
+  <li><a href="#broader-context-nyse-and-the-top-5" id="toc-broader-context-nyse-and-the-top-5" class="nav-link" data-scroll-target="#broader-context-nyse-and-the-top-5">Broader Context: NYSE and the Top 5%</a></li>
   </ul>
 </nav>
     </div>
@@ -207,7 +201,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introduction</h1>
+<h1 class="title">Market Capitalization Concentration in the NYSE</h1>
 </div>
 
 
@@ -236,82 +230,68 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<section id="structural-shifts-in-capital-markets" class="level2">
-<h2 class="anchored" data-anchor-id="structural-shifts-in-capital-markets">1. Structural Shifts in Capital Markets</h2>
-<p>Over the past two decades, U.S. financial markets have undergone a series of profound structural transformations. These changes—accelerated by post-2008 Federal Reserve interventions, the rise of passive investing, and the dominance of a few mega-cap firms—have gradually undermined the foundational assumptions of neoclassical asset pricing models. Most notably, the classical assumptions of global convexity, representative agents, and arbitrage-free pricing appear increasingly misaligned with empirical realities.</p>
-<p>Contemporary market dynamics no longer conform to the canonical vision of systematic risk being priced efficiently. Instead, capital appears to flow disproportionately toward a small set of dominant firms, driven not by marginal productivity or risk-adjusted returns, but by <strong>network effects, ETF-driven capital flows, and central bank distortions</strong>. These flows exhibit characteristics more consistent with <strong>structural rent allocation</strong> than with traditional risk-based compensation.</p>
+<p>The NYSE continues to exhibit substantial market capitalization concentration. Since 2010 — and more sharply since 2016 — the very largest firms have distanced themselves even from the rest of the top 5%, highlighting the structural importance of tail dynamics in financial markets. Any realistic asset pricing model must account for this persistent and extreme upper-tail asymmetry.</p>
+<section id="nyse-market-equity-breakpoints-long-term-dynamics" class="level2">
+<h2 class="anchored" data-anchor-id="nyse-market-equity-breakpoints-long-term-dynamics">NYSE Market Equity Breakpoints: Long-Term Dynamics</h2>
+<p>The Fama-French dataset <code>ME_Breakpoints</code> provides monthly percentile breakpoints for market equity (ME), computed only from NYSE stocks. These breakpoints span from the 5th to the 100th percentile and are calculated based on market capitalization (price times shares outstanding, in millions of USD) at month-end. Importantly, closed-end funds and REITs are excluded, and only firms with CRSP share codes 10 or 11 and valid price/share data are included.</p>
+<p>This file investigates the evolution of market concentration in the NYSE based on these ME breakpoints, emphasizing the dynamics in the upper tail of the distribution, particularly the top 5% of firms.</p>
 </section>
-<section id="from-risk-pricing-to-rent-extraction" class="level2">
-<h2 class="anchored" data-anchor-id="from-risk-pricing-to-rent-extraction">2. From Risk Pricing to Rent Extraction</h2>
-<p>This paper challenges the notion that financial markets primarily reward investors for bearing systematic risk. Instead, it proposes that post-crisis capital markets have evolved into a system of <strong>rent-based pricing</strong>, in which certain firms absorb a growing share of capital inflows due to structural advantage rather than economic fundamentals. This environment favors firms that are <strong>“too big to fail” (TBTF)</strong>—not because they are intrinsically more productive or efficient, but because the market structure allows them to persist at the top through passive flows and low volatility.</p>
-<p>The study investigates whether stock return distributions in the U.S. stock market now resemble a <strong>time-varying mixture of heterogeneous assets under arbitrage-limited dynamics</strong>, as opposed to a homogeneous no-arbitrage equilibrium. The market appears to be governed less by efficient risk sharing and more by <strong>path-dependent capital accumulation</strong>, leading to a form of <strong>structural capital lock-in and asymmetric mobility</strong> across capital ranks.</p>
-</section>
-<section id="stylized-facts-and-hypotheses" class="level2">
-<h2 class="anchored" data-anchor-id="stylized-facts-and-hypotheses">3. Stylized Facts and Hypotheses</h2>
-<p>The study is guided by a set of empirical regularities and theoretical conjectures:</p>
+<section id="breakpoint-time-series-per-firm-19962024" class="level2">
+<h2 class="anchored" data-anchor-id="breakpoint-time-series-per-firm-19962024">Breakpoint Time Series per Firm (1996–2024)</h2>
+<p>We plot the NYSE ME breakpoints divided by the number of firms each month (“per firm”) from 1996 to 2024. The results reveal two distinct phases:</p>
 <ul>
-<li><strong>Return Distributions</strong> have become increasingly asymmetric and exhibit fat tails concentrated in top-cap stocks.</li>
-<li><strong>Capital Concentration</strong> is not only extreme in level but persistent in share and rank.</li>
-<li><strong>Transition Dynamics</strong> across size ranks show decreasing upward mobility and increasing lock-in duration for top-cap stocks.</li>
-<li><strong>Market Efficiency</strong> is being eroded by capital polarization, in which capital increasingly accumulates at the top while the rest of the distribution remains stagnant.</li>
-<li><strong>ETFs and QE Policies</strong> act as reinforcing mechanisms, feeding capital into already dominant firms, thereby reducing entropy and distorting allocative efficiency.</li>
+<li><strong>Pre-2010:</strong> A cyclical pattern dominates, consistent with broader economic expansions and contractions. For instance, the 2000–2001 tech bubble and the 2008 global financial crisis exhibit clear signals of expansion and collapse.</li>
+<li><strong>Post-2010:</strong> A structural break is visible. Especially since 2016, the average ME per firm in the top percentile (100%) exhibits a sharp and persistent upward trend.</li>
 </ul>
+<p>This long-term trend implies a sustained capital lock-in within a small number of mega-cap firms, increasingly distanced from the rest of the NYSE universe.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig_nyse_breakpoints_per_firm.png" class="img-fluid figure-img"></p>
+<figcaption>NYSE Breakpoints per Firm (1996-2024)</figcaption>
+</figure>
+</div>
 </section>
-<section id="the-dual-distortion-of-market-efficiency" class="level2">
-<h2 class="anchored" data-anchor-id="the-dual-distortion-of-market-efficiency">4. The Dual Distortion of Market Efficiency</h2>
-<p>Importantly, the distortion of allocative efficiency is not limited to the top end of the market. At the lower end of the capitalization spectrum, another structural problem emerges: the survival and persistence of <strong>zombie firms</strong>—unproductive small-cap companies that continue to operate despite being economically non-viable.</p>
-<p>Fueled by prolonged low interest rates, government credit guarantees, and liquidity injections, these firms are shielded from market discipline and allowed to persist. As a result, the <strong>small-cap group no longer reflects a competitive set of risky but high-upside firms</strong>; rather, it includes a disproportionate share of structurally inefficient entities whose survival biases the return distribution downward and increases tail risk.</p>
-<p>This zombification effect is <strong>likely to depress the average excess return and Sharpe ratio of the small-cap segment</strong>, while simultaneously increasing the variance and skewness of returns. Though this paper does not directly model zombie firm identification, the empirical pattern—lower mean, higher volatility, greater downside asymmetry in small-cap returns—is consistent with this interpretation.</p>
-<p>Thus, the <strong>efficiency erosion in capital markets is dual-channel</strong>:<br>
-- <strong>Top-heavy concentration</strong> reinforces structural dominance and allocative inertia.<br>
-- <strong>Bottom-heavy zombification</strong> distorts the return-generating process and weakens the innovation–destruction cycle.</p>
+<section id="cross-sectional-concentration-at-the-tail" class="level2">
+<h2 class="anchored" data-anchor-id="cross-sectional-concentration-at-the-tail">Cross-Sectional Concentration at the Tail</h2>
+<p>To better understand the shape of the right tail, we visualize the percentile distribution at the most recent observation (2024-12). The result is striking: while the ME per firm grows gradually between percentiles 5 to 95, a dramatic jump occurs at the 100th percentile.</p>
+<p>This highlights that <strong>the concentration of market value within the top 5% is extreme</strong>, and the very last percentile alone contains firms with ME per firm often an order of magnitude greater than those in the 95th percentile.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig_tail_breakpoints_2024.png" class="img-fluid figure-img"></p>
+<figcaption>Tail Breakpoints (2024-12)</figcaption>
+</figure>
+</div>
 </section>
-<section id="the-tbtf-strategy-and-its-paradox" class="level2">
-<h2 class="anchored" data-anchor-id="the-tbtf-strategy-and-its-paradox">5. The TBTF Strategy and Its Paradox</h2>
-<p>Within this environment, the study evaluates a simple yet powerful investment strategy: the <strong>TBTF portfolio</strong>, which selects the 10 largest U.S. stocks by market capitalization from the full CRSP universe (NYSE, Nasdaq, AMEX), applies a quadratic weighting scheme based on rank, and rebalances at fixed intervals (e.g., monthly).</p>
-<p>Empirical results show that this strategy has delivered <strong>exceptional risk-adjusted performance</strong>, particularly after 2010. The strategy outperforms major indices and alternative benchmarks across multiple metrics, including Sharpe ratio, Sortino ratio, Omega ratio, and maximum drawdown—while maintaining low turnover.</p>
-<p>Yet the strategy’s success raises a paradox. It is <strong>“sadly optimal”</strong>:<br>
-- If the strategy <strong>continues to succeed</strong>, it signals a persistent mispricing and a further decline in market efficiency.<br>
-- If the strategy <strong>fails</strong>, it suggests a return to competitive capital allocation and improved economic welfare.<br>
-In either case, it remains optimal from an individual investor’s standpoint, but potentially damaging from a societal perspective.</p>
-</section>
-<section id="capital-mobility-lock-in-and-polarization" class="level2">
-<h2 class="anchored" data-anchor-id="capital-mobility-lock-in-and-polarization">6. Capital Mobility, Lock-In, and Polarization</h2>
-<p>A key innovation in this study is the use of <strong>percentile-based Markov transition matrices</strong> and <strong>stationary capital share distributions</strong> to analyze capital mobility. The findings indicate that:</p>
+<section id="time-series-of-the-tail-ratio-100th-95th-percentile" class="level2">
+<h2 class="anchored" data-anchor-id="time-series-of-the-tail-ratio-100th-95th-percentile">Time Series of the Tail Ratio: 100th / 95th Percentile</h2>
+<p>To quantify tail concentration dynamics over time, we construct a monthly time series of the ME per firm ratio between the 100th and 95th percentiles. This ratio serves as a tail index for how dominant the very largest firms are, even among the elite.</p>
+<p>The time series reveals the following:</p>
 <ul>
-<li>Top decile firms exhibit extremely high persistence, acting as near-absorbing states.</li>
-<li>Lower decile firms display high volatility and minimal upward transition probability.</li>
-<li>The stationary distribution of capital shares shows <strong>growing convexity</strong> over time, resembling a structural Lorenz curve.</li>
-<li>Mobility inequality, measured via entropy and upward/downward transition asymmetry, is worsening.</li>
+<li><strong>1996–2001:</strong> Rapid escalation during the dot-com boom, with the ratio peaking above 20.</li>
+<li><strong>2003–2008:</strong> Stabilization around ~13.</li>
+<li><strong>2009:</strong> A brief post-crisis surge back above 18.</li>
+<li><strong>2010–2016:</strong> A sharp decline and plateau near 7, indicating relative equality among top-tier firms.</li>
+<li><strong>Post-2016:</strong> A gradual resurgence in the ratio, reflecting renewed concentration at the very top.</li>
 </ul>
-<p>These features mirror <strong>social stratification</strong>, where economic agents (firms, in this case) become locked into hierarchical capital classes, resulting in reduced dynamism and allocative efficiency.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fig_me_ratio_100_95.png" class="img-fluid figure-img"></p>
+<figcaption>ME Ratio: 100th / 95th Percentile</figcaption>
+</figure>
+</div>
 </section>
-<section id="implications-and-research-agenda" class="level2">
-<h2 class="anchored" data-anchor-id="implications-and-research-agenda">7. Implications and Research Agenda</h2>
-<p>The findings challenge the mainstream view that <strong>abnormal returns are primarily risk-based</strong>. Instead, they suggest that persistent outperformance may be due to <strong>capital concentration, structural inertia, policy distortions</strong>, and the survival of inefficient entities. This calls for the development of new asset pricing models that incorporate:</p>
+<section id="broader-context-nyse-and-the-top-5" class="level2">
+<h2 class="anchored" data-anchor-id="broader-context-nyse-and-the-top-5">Broader Context: NYSE and the Top 5%</h2>
+<p>It is critical to underscore that Fama-French breakpoints are calculated <strong>using only NYSE stocks</strong>. Despite the rise of Nasdaq dominance in recent decades, the NYSE remains the foundation for constructing breakpoints in academic asset pricing.</p>
+<p>The breakpoints for:</p>
 <ul>
-<li><strong>Structural inefficiency</strong> and non-ergodic dynamics<br>
-</li>
-<li><strong>Rank-based capital dynamics</strong><br>
-</li>
-<li><strong>Rent-based valuation in place of marginal utility or productivity</strong></li>
+<li><strong>Market Equity (ME):</strong> monthly, based on NYSE stocks with viable price and share data.</li>
+<li><strong>Book-to-Market (BE/ME):</strong> annually, using BE from t-1 and ME from December of t-1.</li>
+<li><strong>Prior 2–12 month Return:</strong> monthly, requiring CRSP price and return data.</li>
 </ul>
-<p>Such models could offer more realistic frameworks for understanding how capital markets operate in the presence of central bank intervention, passive investing dominance, and technological monopolization.</p>
-</section>
-<section id="structure-of-the-paper" class="level2">
-<h2 class="anchored" data-anchor-id="structure-of-the-paper">8. Structure of the Paper</h2>
-<p>The remainder of the paper is organized as follows:</p>
-<ul>
-<li><strong>Chapter 2 (Literature Review)</strong> situates this study within the broader asset pricing and inequality literature, covering theories of mobility, structural returns, and ETF-induced distortions.</li>
-<li><strong>Chapter 3 (Historical Context)</strong> summarizes the evolution of market structure post-2008, including the effects of QE and ETF proliferation.</li>
-<li><strong>Chapter 4 (Empirical Model)</strong> presents the core empirical study in seven modules: research overview, data, benchmark comparison, structural analysis, portfolio strategy, performance evaluation, and robustness checks.</li>
-<li><strong>Chapter 5 (Conclusion)</strong> reflects on the broader implications of the findings for asset pricing theory, policy intervention, and the future of financial capitalism.</li>
-</ul>
+<p>These indicators, especially in the upper tail, are overwhelmingly driven by the top 5% of NYSE firms — roughly 60–70 firms. These companies exert outsized influence on asset pricing, portfolio construction, and market dynamics.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
