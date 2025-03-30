@@ -1,5 +1,5 @@
 ---
-title: Recent History
+title: History of NYSE ME
 subtitle: "Market Capitalization Concentration in the NYSE"
 ---
 
@@ -9,6 +9,8 @@ The NYSE continues to exhibit substantial market capitalization concentration. S
 
 import pandas as pd
 import pandas_datareader.data as pdr
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning) # FutureWarning 제거
 
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates

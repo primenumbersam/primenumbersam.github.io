@@ -1,5 +1,5 @@
 ---
-title: Linear Models for Asset Management
+title: Linear Models of Finance
 subtitle: Wrong and Bad
 author: gitSAM
 date: '2025-03-10'

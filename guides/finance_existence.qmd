@@ -2,14 +2,12 @@
 title: Rethinking Asset Existence
 subtitle: From Risk Compensation to Capital Dominance
 date: '2025-03-29'
+abstract: 주식거래시장에 주식들은 무엇을 위해 존재하는가?
 format:
   html:
     toc: true
     number-sections: true
 ---
-
-핵심질문
-> 주식시장에 주식들은 무엇을 위해 존재하는가? 
 
 ### Conventional View: Financial Assets as Risk-Reward Instruments
 
