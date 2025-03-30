@@ -9,7 +9,7 @@
 <meta name="author" content="gitSAM">
 <meta name="dcterms.date" content="2025-03-31">
 
-<title>Too Big to Fail? – GitSAM</title>
+<title>07 Robustness – GitSAM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -69,6 +103,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -130,7 +193,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Too Big to Fail?</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./4_1_overview.html">Model</a></li><li class="breadcrumb-item"><a href="./4_7_robustness.html">07 Robustness</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -144,7 +207,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Too Big to Fail?</span></a>
   </div>
 </li>
@@ -230,7 +293,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./4_7_robustness.html" class="sidebar-item-text sidebar-link">
+  <a href="./4_7_robustness.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">07 Robustness</span></a>
   </div>
 </li>
@@ -255,17 +318,21 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#key-highlights" id="toc-key-highlights" class="nav-link active" data-scroll-target="#key-highlights">Key Highlights</a></li>
+  <li><a href="#robustness-tests" id="toc-robustness-tests" class="nav-link active" data-scroll-target="#robustness-tests"><span class="header-section-number">1</span> Robustness Tests</a></li>
+  <li><a href="#sensitivity-to-asset-selection-size-n" id="toc-sensitivity-to-asset-selection-size-n" class="nav-link" data-scroll-target="#sensitivity-to-asset-selection-size-n"><span class="header-section-number">2</span> Sensitivity to Asset Selection Size (<span class="math inline">\(n\)</span>)</a></li>
+  <li><a href="#rebalancing-frequency" id="toc-rebalancing-frequency" class="nav-link" data-scroll-target="#rebalancing-frequency"><span class="header-section-number">3</span> Rebalancing Frequency</a></li>
+  <li><a href="#sample-period-stability" id="toc-sample-period-stability" class="nav-link" data-scroll-target="#sample-period-stability"><span class="header-section-number">4</span> Sample Period Stability</a></li>
+  <li><a href="#alternative-weighting-schemes" id="toc-alternative-weighting-schemes" class="nav-link" data-scroll-target="#alternative-weighting-schemes"><span class="header-section-number">5</span> Alternative Weighting Schemes</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">6</span> Summary</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./4_1_overview.html">Model</a></li><li class="breadcrumb-item"><a href="./4_7_robustness.html">07 Robustness</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Too Big to Fail?</h1>
-<p class="subtitle lead">The Sadly Optimal Portfolio Strategy</p>
+<h1 class="title">07 Robustness</h1>
 </div>
 
 
@@ -289,32 +356,90 @@ ul.task-list li input[type="checkbox"] {
     
   </div>
   
-<div>
-  <div class="abstract">
-    <div class="block-title">Abstract</div>
-    This paper investigates how post-2008 Federal Reserve policies, ETF proliferation, and passive capital flows have fundamentally altered the structure of U.S. financial markets. Empirical evidence reveals that stock return distributions have become increasingly asymmetric and persistent, resembling a mixture of heterogeneous assets under arbitrage limits—challenging the assumptions of efficient markets and no-arbitrage pricing. At the center of this shift lies the “Too Big to Fail” (TBTF) portfolio strategy, which selects the ten largest market-cap stocks and applies a convex internal weighting scheme. Since 2010, this simple strategy has delivered superior risk-adjusted performance relative to standard benchmarks. However, its success appears to stem not from superior fundamentals, but from structural inefficiencies, capital lock-in, and policy-induced concentration. The study highlights a paradox — the TBTF strategy is “sadly optimal” — profitable when inefficiencies persist, but socially desirable only when it fails. The findings raise broader concerns about the erosion of market competition, allocative efficiency, and the long-term consequences of intervention-driven financial capitalism.
-  </div>
-</div>
 
 
 </header>
 
 
-<section id="key-highlights" class="level2">
-<h2 class="anchored" data-anchor-id="key-highlights">Key Highlights</h2>
-<blockquote class="blockquote">
-<p>Too big to fail? More like too big to be good, too big for justice, and too big to not exploit.</p>
-</blockquote>
+<section id="robustness-tests" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="robustness-tests"><span class="header-section-number">1</span> Robustness Tests</h2>
+<p>While the previous section focused on the performance outcomes of the TBTF strategy, this section evaluates the <strong>stability of those outcomes</strong> under variation in core implementation parameters. We test whether the superior performance persists under changes in portfolio size, rebalancing frequency, sample splits, and weighting schemes.</p>
+<p>Rather than relying on a single optimized configuration, the TBTF strategy demonstrates structural robustness across plausible alternatives. This not only reinforces the credibility of the results but also supports the practical adaptability of the approach for different institutional contexts.</p>
+</section>
+<section id="sensitivity-to-asset-selection-size-n" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="sensitivity-to-asset-selection-size-n"><span class="header-section-number">2</span> Sensitivity to Asset Selection Size (<span class="math inline">\(n\)</span>)</h2>
+<p>We test the strategy for varying values of <span class="math inline">\(n\)</span>, the number of top-ranked stocks selected by market capitalization. Specifically, we compare results for:</p>
+<p><span class="math display">\[
+n \in \{5, 10, 20, 30, 50\}
+\]</span></p>
+<p>This allows us to examine the marginal contribution of expanding the portfolio beyond the top decile. We evaluate how portfolio volatility, Sharpe ratio, and tail risk change with diversification.</p>
+<div id="5107454a" class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>plot_sharpe_vs_n()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="rebalancing-frequency" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="rebalancing-frequency"><span class="header-section-number">3</span> Rebalancing Frequency</h2>
+<p>To test the effect of trading frequency, we implement the strategy with fixed rebalancing intervals:</p>
 <ul>
-<li><p><strong>Structural Market Distortions and Return Asymmetry</strong><br>
-Post-2008 policies have induced persistent capital flows toward dominant firms while allowing unproductive small-cap firms to survive via liquidity support, resulting in asymmetric return distributions and distorted risk–return profiles.</p></li>
-<li><p><strong>The TBTF Strategy as a Diagnostic Tool</strong><br>
-A simple portfolio of the top 10 market-cap stocks outperforms traditional benchmarks across multiple performance metrics. However, its success reflects structural capital lock-in and systemic inefficiencies rather than superior risk pricing or fundamentals.</p></li>
-<li><p><strong>A Paradox of Optimality and Inefficiency</strong><br>
-The TBTF strategy remains optimal as long as inefficiencies persist. If it fails, it may signal a return to efficient markets. Thus, investors profit from distortions that are socially and economically suboptimal.</p></li>
-<li><p><strong>Implications for Asset Pricing and Market Design</strong><br>
-The findings call for new asset pricing models that incorporate rank-based capital dynamics, asymmetric transition probabilities, and non-ergodic behavior—moving beyond equilibrium-based risk-return tradeoffs.</p></li>
+<li>Monthly (1M)</li>
+<li>Quarterly (3M)</li>
+<li>Semiannual (6M)</li>
+<li>Annual (12M)</li>
 </ul>
+<p>Lower-frequency rebalancing is often preferred by institutional investors due to lower transaction costs. The robustness of TBTF performance under less frequent rebalancing reinforces its practicality.</p>
+<div id="a2123428" class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>plot_return_by_rebalance_frequency()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="sample-period-stability" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="sample-period-stability"><span class="header-section-number">4</span> Sample Period Stability</h2>
+<p>To avoid look-ahead bias and ensure time-consistent performance, we conduct split-sample out-of-sample tests:</p>
+<ul>
+<li><strong>Pre-2010 setting</strong>:
+<ul>
+<li>In-sample: 1996–1999</li>
+<li>Out-of-sample: 2000–2009</li>
+</ul></li>
+<li><strong>Post-2010 setting</strong>:
+<ul>
+<li>In-sample: 2010–2013</li>
+<li>Out-of-sample: 2014–2023</li>
+</ul></li>
+</ul>
+<p>We also explore alternative splits using 6-year and 8-year in-sample windows. All evaluations are based on risk-adjusted metrics such as the Sharpe ratio, maximum drawdown, tail risk, and turnover.</p>
+<div id="4ea29ebd" class="cell" data-tbl-cap="Out-of-Sample Performance Metrics (Split by Regime)">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>generate_oos_performance_table()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="alternative-weighting-schemes" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="alternative-weighting-schemes"><span class="header-section-number">5</span> Alternative Weighting Schemes</h2>
+<p>To evaluate the contribution of the proposed convex weighting methods, we compare performance across:</p>
+<ul>
+<li><strong>Equal weighting</strong> (EQ): naive benchmark</li>
+<li><strong>Market cap weighting</strong> (VW): proportional to firm size</li>
+<li><strong>Quadratic weighting</strong> (TBTF): based on in-sample capital share convexity</li>
+<li><strong>Optional</strong>: Inverse volatility weighting</li>
+</ul>
+<p>These variations test whether TBTF’s performance is driven primarily by stock selection or by the shape of the weighting function.</p>
+<div id="a215de22" class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>plot_weighting_comparison()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="summary" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="summary"><span class="header-section-number">6</span> Summary</h2>
+<p>Across all specification dimensions—portfolio size, rebalancing frequency, sample period, and weighting approach—the TBTF strategy retains a consistent structural edge. The empirical robustness supports our hypothesis that performance is not merely the result of favorable parameter tuning, but instead reflects a persistent asymmetry in capital concentration and market structure.</p>
 
 
 </section>

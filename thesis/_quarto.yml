@@ -29,15 +29,26 @@ website:
     style: floating
     contents:
       - index.qmd
-      - 01_intro.qmd
-      - 02_lit_review.qmd
-      - 03_history.qmd
-      - 03_history_nyse.qmd
-      - 04_model.qmd
+      - 1_intro.qmd
+      - 2_lit_review.qmd
+      - section: "History"
+        contents:
+        - 3_1_history.qmd
+        - 3_2_history_nyse.qmd
+      - section: "Model"
+        contents:
+        - 4_1_overview.qmd
+        - 4_2_data.qmd
+        - 4_3_ff_compare.qmd
+        - 4_4_structure.qmd
+        - 4_5_strategy.qmd
+        - 4_6_performance.qmd
+        - 4_7_robustness.qmd
+        - 4_8_implementation.qmd
       - 05_conclusion.qmd
 
 author: gitSAM
-date: '2025-03-23'
+date: '2025-03-31'
 bibliography: references.bib
 
 format:

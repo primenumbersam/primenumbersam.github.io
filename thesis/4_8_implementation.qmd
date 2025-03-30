@@ -1,0 +1,84 @@
+---
+title: 08 Implementation
+subtitle: 재현 가능성 (reproducibility)
+execute:
+  enabled: false
+---
+
+## Implementation Notes
+
+This section summarizes the technical implementation details of the TBTF strategy, including programming environment, file structure, and reproducibility instructions. The entire empirical workflow is based on [Quarto](https://quarto.org/) and organized into modular `.qmd` documents with embedded Python code blocks. This ensures seamless rendering of figures and tables alongside text, and supports reproducible research.
+
+## Programming Environment
+
+All analysis was conducted using Python 3.x. Core packages used include:
+
+- **Data Processing**: `pandas`, `numpy`
+- **Statistical Modeling**: `statsmodels`, `scipy`, `sklearn`
+- **Visualization**: `matplotlib`, `seaborn`, `plotly`
+- **Rendering**: `quarto`, `jupyter`, `ipykernel`
+
+Additional utilities like `joblib` and `multiprocessing` were used for robustness tests and performance acceleration.
+
+## Document Structure
+
+The analysis is broken into modular `.qmd` files, each corresponding to a specific stage of the empirical framework. These files are rendered either as part of the full manuscript or as standalone reports.
+
+| QMD File              | Description                                                       | Related Section         |
+|-----------------------|-------------------------------------------------------------------|--------------------------|
+| `02_data.qmd`         | Load and clean CRSP & FF data, construct derived variables         | Section 2 – Data         |
+| `03_ff_compare.qmd`   | FF size decile analysis, Sharpe dynamics comparison               | Section 3 – FF Benchmark |
+| `04_structure.qmd`    | Capital convexity, mixture modeling, Markov transition structure   | Section 4 – Structure    |
+| `05_strategy.qmd`     | TBTF logic: What–How–When framework, weight estimation             | Section 5 – Strategy     |
+| `06_performance.qmd`  | Performance comparison: distribution, price level, metrics         | Section 6 – Performance  |
+| `07_robustness.qmd`   | Robustness checks: size, frequency, weights, sample splits        | Section 7 – Robustness   |
+
+All figures and tables are embedded directly within these `.qmd` documents using Quarto-native `fig-cap` and `tbl-cap` options.
+
+## Output Artifacts
+
+The results are organized in structured folders and linked automatically to each section:
+
+- `figs/`: Figures (e.g., PNG/HTML via matplotlib or plotly)
+- `tables/`: Summary tables and evaluation metrics (CSV or HTML)
+
+Each artifact is generated at render time and versioned with appropriate suffixes. Example:
+
+- `sharpe_curve_s10_b10.png`, `return_dist_tbtf_post2010.png`
+- `performance_summary_pre2010.csv`, `weight_table_exp_fit.html`
+
+## Reproducibility
+
+To reproduce the full pipeline:
+
+1. Clone the project repository and install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+2. Download CRSP/Compustat data via WRDS (institutional access required)
+3. Edit configuration or `.qmd` arguments if needed
+4. Render the full manuscript or individual parts:
+
+```bash
+quarto render
+```
+
+Optional automation scripts using `make`, `snakemake`, or `papermill` are available for batch processing.
+
+## Appendix {.appendix}
+
+### requirements.txt
+
+```txt
+pandas>=1.5
+numpy>=1.22
+scikit-learn>=1.3
+matplotlib>=3.6
+seaborn>=0.12
+statsmodels>=0.13
+scipy>=1.10
+plotly>=5.10
+quarto>=1.3
+```

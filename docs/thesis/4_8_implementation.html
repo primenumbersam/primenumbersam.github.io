@@ -9,7 +9,7 @@
 <meta name="author" content="gitSAM">
 <meta name="dcterms.date" content="2025-03-31">
 
-<title>Too Big to Fail? – GitSAM</title>
+<title>08 Implementation – GitSAM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -130,7 +164,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Too Big to Fail?</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./4_1_overview.html">Model</a></li><li class="breadcrumb-item"><a href="./4_8_implementation.html">08 Implementation</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -144,7 +178,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Too Big to Fail?</span></a>
   </div>
 </li>
@@ -236,7 +270,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./4_8_implementation.html" class="sidebar-item-text sidebar-link">
+  <a href="./4_8_implementation.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">08 Implementation</span></a>
   </div>
 </li>
@@ -255,17 +289,22 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#key-highlights" id="toc-key-highlights" class="nav-link active" data-scroll-target="#key-highlights">Key Highlights</a></li>
+  <li><a href="#implementation-notes" id="toc-implementation-notes" class="nav-link active" data-scroll-target="#implementation-notes">Implementation Notes</a></li>
+  <li><a href="#programming-environment" id="toc-programming-environment" class="nav-link" data-scroll-target="#programming-environment">Programming Environment</a></li>
+  <li><a href="#document-structure" id="toc-document-structure" class="nav-link" data-scroll-target="#document-structure">Document Structure</a></li>
+  <li><a href="#output-artifacts" id="toc-output-artifacts" class="nav-link" data-scroll-target="#output-artifacts">Output Artifacts</a></li>
+  <li><a href="#reproducibility" id="toc-reproducibility" class="nav-link" data-scroll-target="#reproducibility">Reproducibility</a></li>
+  
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./4_1_overview.html">Model</a></li><li class="breadcrumb-item"><a href="./4_8_implementation.html">08 Implementation</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Too Big to Fail?</h1>
-<p class="subtitle lead">The Sadly Optimal Portfolio Strategy</p>
+<h1 class="title">08 Implementation</h1>
+<p class="subtitle lead">재현 가능성 (reproducibility)</p>
 </div>
 
 
@@ -289,37 +328,124 @@ ul.task-list li input[type="checkbox"] {
     
   </div>
   
-<div>
-  <div class="abstract">
-    <div class="block-title">Abstract</div>
-    This paper investigates how post-2008 Federal Reserve policies, ETF proliferation, and passive capital flows have fundamentally altered the structure of U.S. financial markets. Empirical evidence reveals that stock return distributions have become increasingly asymmetric and persistent, resembling a mixture of heterogeneous assets under arbitrage limits—challenging the assumptions of efficient markets and no-arbitrage pricing. At the center of this shift lies the “Too Big to Fail” (TBTF) portfolio strategy, which selects the ten largest market-cap stocks and applies a convex internal weighting scheme. Since 2010, this simple strategy has delivered superior risk-adjusted performance relative to standard benchmarks. However, its success appears to stem not from superior fundamentals, but from structural inefficiencies, capital lock-in, and policy-induced concentration. The study highlights a paradox — the TBTF strategy is “sadly optimal” — profitable when inefficiencies persist, but socially desirable only when it fails. The findings raise broader concerns about the erosion of market competition, allocative efficiency, and the long-term consequences of intervention-driven financial capitalism.
-  </div>
-</div>
 
 
 </header>
 
 
-<section id="key-highlights" class="level2">
-<h2 class="anchored" data-anchor-id="key-highlights">Key Highlights</h2>
-<blockquote class="blockquote">
-<p>Too big to fail? More like too big to be good, too big for justice, and too big to not exploit.</p>
-</blockquote>
+<section id="implementation-notes" class="level2">
+<h2 class="anchored" data-anchor-id="implementation-notes">Implementation Notes</h2>
+<p>This section summarizes the technical implementation details of the TBTF strategy, including programming environment, file structure, and reproducibility instructions. The entire empirical workflow is based on <a href="https://quarto.org/">Quarto</a> and organized into modular <code>.qmd</code> documents with embedded Python code blocks. This ensures seamless rendering of figures and tables alongside text, and supports reproducible research.</p>
+</section>
+<section id="programming-environment" class="level2">
+<h2 class="anchored" data-anchor-id="programming-environment">Programming Environment</h2>
+<p>All analysis was conducted using Python 3.x. Core packages used include:</p>
 <ul>
-<li><p><strong>Structural Market Distortions and Return Asymmetry</strong><br>
-Post-2008 policies have induced persistent capital flows toward dominant firms while allowing unproductive small-cap firms to survive via liquidity support, resulting in asymmetric return distributions and distorted risk–return profiles.</p></li>
-<li><p><strong>The TBTF Strategy as a Diagnostic Tool</strong><br>
-A simple portfolio of the top 10 market-cap stocks outperforms traditional benchmarks across multiple performance metrics. However, its success reflects structural capital lock-in and systemic inefficiencies rather than superior risk pricing or fundamentals.</p></li>
-<li><p><strong>A Paradox of Optimality and Inefficiency</strong><br>
-The TBTF strategy remains optimal as long as inefficiencies persist. If it fails, it may signal a return to efficient markets. Thus, investors profit from distortions that are socially and economically suboptimal.</p></li>
-<li><p><strong>Implications for Asset Pricing and Market Design</strong><br>
-The findings call for new asset pricing models that incorporate rank-based capital dynamics, asymmetric transition probabilities, and non-ergodic behavior—moving beyond equilibrium-based risk-return tradeoffs.</p></li>
+<li><strong>Data Processing</strong>: <code>pandas</code>, <code>numpy</code></li>
+<li><strong>Statistical Modeling</strong>: <code>statsmodels</code>, <code>scipy</code>, <code>sklearn</code></li>
+<li><strong>Visualization</strong>: <code>matplotlib</code>, <code>seaborn</code>, <code>plotly</code></li>
+<li><strong>Rendering</strong>: <code>quarto</code>, <code>jupyter</code>, <code>ipykernel</code></li>
 </ul>
+<p>Additional utilities like <code>joblib</code> and <code>multiprocessing</code> were used for robustness tests and performance acceleration.</p>
+</section>
+<section id="document-structure" class="level2">
+<h2 class="anchored" data-anchor-id="document-structure">Document Structure</h2>
+<p>The analysis is broken into modular <code>.qmd</code> files, each corresponding to a specific stage of the empirical framework. These files are rendered either as part of the full manuscript or as standalone reports.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 57%">
+<col style="width: 22%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>QMD File</th>
+<th>Description</th>
+<th>Related Section</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>02_data.qmd</code></td>
+<td>Load and clean CRSP &amp; FF data, construct derived variables</td>
+<td>Section 2 – Data</td>
+</tr>
+<tr class="even">
+<td><code>03_ff_compare.qmd</code></td>
+<td>FF size decile analysis, Sharpe dynamics comparison</td>
+<td>Section 3 – FF Benchmark</td>
+</tr>
+<tr class="odd">
+<td><code>04_structure.qmd</code></td>
+<td>Capital convexity, mixture modeling, Markov transition structure</td>
+<td>Section 4 – Structure</td>
+</tr>
+<tr class="even">
+<td><code>05_strategy.qmd</code></td>
+<td>TBTF logic: What–How–When framework, weight estimation</td>
+<td>Section 5 – Strategy</td>
+</tr>
+<tr class="odd">
+<td><code>06_performance.qmd</code></td>
+<td>Performance comparison: distribution, price level, metrics</td>
+<td>Section 6 – Performance</td>
+</tr>
+<tr class="even">
+<td><code>07_robustness.qmd</code></td>
+<td>Robustness checks: size, frequency, weights, sample splits</td>
+<td>Section 7 – Robustness</td>
+</tr>
+</tbody>
+</table>
+<p>All figures and tables are embedded directly within these <code>.qmd</code> documents using Quarto-native <code>fig-cap</code> and <code>tbl-cap</code> options.</p>
+</section>
+<section id="output-artifacts" class="level2">
+<h2 class="anchored" data-anchor-id="output-artifacts">Output Artifacts</h2>
+<p>The results are organized in structured folders and linked automatically to each section:</p>
+<ul>
+<li><code>figs/</code>: Figures (e.g., PNG/HTML via matplotlib or plotly)</li>
+<li><code>tables/</code>: Summary tables and evaluation metrics (CSV or HTML)</li>
+</ul>
+<p>Each artifact is generated at render time and versioned with appropriate suffixes. Example:</p>
+<ul>
+<li><code>sharpe_curve_s10_b10.png</code>, <code>return_dist_tbtf_post2010.png</code></li>
+<li><code>performance_summary_pre2010.csv</code>, <code>weight_table_exp_fit.html</code></li>
+</ul>
+</section>
+<section id="reproducibility" class="level2">
+<h2 class="anchored" data-anchor-id="reproducibility">Reproducibility</h2>
+<p>To reproduce the full pipeline:</p>
+<ol type="1">
+<li>Clone the project repository and install dependencies:</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li>Download CRSP/Compustat data via WRDS (institutional access required)</li>
+<li>Edit configuration or <code>.qmd</code> arguments if needed</li>
+<li>Render the full manuscript or individual parts:</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Optional automation scripts using <code>make</code>, <code>snakemake</code>, or <code>papermill</code> are available for batch processing.</p>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="appendix" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Appendix</h2><div class="quarto-appendix-contents">
+
+<section id="requirements.txt" class="level3">
+<h3 class="anchored" data-anchor-id="requirements.txt">requirements.txt</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pandas&gt;=1.5</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>numpy&gt;=1.22</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>scikit-learn&gt;=1.3</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>matplotlib&gt;=3.6</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>seaborn&gt;=0.12</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>statsmodels&gt;=0.13</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>scipy&gt;=1.10</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>plotly&gt;=5.10</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>quarto&gt;=1.3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>
-
-</main> <!-- /main -->
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

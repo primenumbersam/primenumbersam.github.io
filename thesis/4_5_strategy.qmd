@@ -1,0 +1,622 @@
+---
+title: 05 Strategy
+format:
+  html:
+    code-fold: true
+    toc: true
+    number-sections: true
+execute:
+  enabled: false
+---
+
+## Strategy: Design, Assumptions, and Market Philosophy
+
+### Motivation and Theoretical Background
+
+Traditional asset pricing frameworks rest on no-arbitrage principles and risk-return tradeoffs, assuming that all assets exist to offer compensation for exposure to priced risks. Under such models, individual asset returns are interpreted as linear functions of sensitivities to systematic risk factors.
+
+In contrast, the TBTF (Too Big To Fail) strategy is motivated by a fundamentally different view of financial markets under late-stage capitalism. We argue that the secondary stock market reflects persistent dominance by a small subset of firms whose market power is self-reinforcing. These firms attract new capital not due to risk-efficiency, but due to narrative-driven legitimacy and path-dependent concentration of initial endowment.
+
+This motivates a strategy grounded not in diversification or risk exposure, but in capital persistence, market lock-in, and capital hierarchy.
+
+
+### Portfolio Selection Rule
+
+The TBTF strategy is constructed under When-What–How framework:
+
+- **When**: look-back window (in-sample estimation) & look-forward window (rebalancing frequency)
+- **What**: asset universe (e.g. all US-listed stocks) & selection rule (e.g. top-n market cap)
+- **How**: asset weighting scheme (e.g. convex capital concentration fit)
+
+#### Asset Universe
+
+Our strategy operates on the full set of U.S. listed common stocks traded on NYSE, NASDAQ, and AMEX. Stocks with non-positive market capitalization are excluded to avoid bankrupt or illiquid firms.
+
+```{python}
+import pandas as pd
+import numpy as np
+import statsmodels.api as sm
+from scipy.stats import skew, kurtosis
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+import sqlite3
+tbtf = sqlite3.connect(database="../../tbtf.sqlite")
+
+crsp = pd.read_sql_query(
+  sql="SELECT * FROM crsp",
+  con=tbtf,
+  parse_dates={"date"}
+)
+```
+
+#### Ranking and State Formation
+
+Each month, firms are ranked by market capitalization. These rankings define discrete capital states (percentile bins). We focus on the top-decile (state = 10), selecting the top-$n$ firms at time $t$ based on market-cap rank. The baseline is $n=10$, with robustness checks for $n \in \{5, 20, 30, 50\}$.
+
+A Markovian state transition framework is imposed to capture the temporal dynamics of capital flow between ranked states. The top state exhibits persistent and asymmetric capital retention, supporting the capital lock-in hypothesis.
+
+### Asset Weighting Schemes
+
+We evaluate three portfolio weighting methods:
+
+- **TBTF (Convex Structural Weighting)**:  
+  Capital weights are determined by in-sample estimates of the convex relationship between market-cap rank and capital share. Two specifications are considered:
+
+  - *Quadratic Form*: $w_i \propto \alpha + \beta r_i + \gamma r_i^2$
+  - *Exponential Form*: $w_i \propto \alpha e^{\beta r_i}$
+  
+  The exponential form better fits observed capital share concentration and ensures structural monotonicity.
+
+- **Value-Weighted (VW)**:  
+  Proportional to each firm’s market capitalization.
+
+- **Equal-Weighted (EQ)**:  
+  Uniform allocation across all selected assets.
+
+```{python}
+def estimate_exponential_weights(df_in_sample, n=10, state=10):
+    """
+    Exponential model 기반으로 특정 state 내 상위 n개 종목의 rank → capshare 관계를 추정.
+    
+    Parameters:
+    - df_in_sample: in-sample CRSP 데이터프레임
+    - n: 각 시점에서 선택할 상위 종목 수
+    - state: 분석 대상 percentile state (e.g., 10 = top 10%)
+
+    Returns:
+    - model_params: {'alpha': α, 'beta': β}
+    - r_squared: 회귀 적합도
+    """
+    all_obs = []
+
+    for date, group in df_in_sample[df_in_sample['state'] == state].groupby('date'):
+        group = group.sort_values('mktcap_lag', ascending=False).head(n).copy()
+        if len(group) < n:
+            continue
+
+        group = group.sort_values('mktcap_lag')  # 작은 순으로 정렬
+        group['rank'] = np.arange(1, len(group) + 1)
+        total_cap = group['mktcap_lag'].sum()
+        group['capshare'] = group['mktcap_lag'] / total_cap
+        group['log_capshare'] = np.log(group['capshare'])
+
+        all_obs.append(group[['rank', 'log_capshare']])
+
+    if not all_obs:
+        raise ValueError("No valid observations for exponential regression.")
+
+    df_all = pd.concat(all_obs, ignore_index=True)
+    X = sm.add_constant(df_all['rank'])
+    y = df_all['log_capshare']
+
+    model = sm.OLS(y, X).fit()
+    ln_alpha, beta = model.params
+    alpha = np.exp(ln_alpha)
+
+    return {'alpha': alpha, 'beta': beta}, model.rsquared
+
+def estimate_quadratic_weights(df_in_sample, n=10, state=10):
+    """
+    Rolling in-sample 기간에 대해 top-n 종목에 대한 평균적인 
+    (rank, capshare) 관계를 추정하여 quadratic weight 모델 생성
+    """
+    df = df_in_sample[df_in_sample['state'] == state].copy()
+
+    # 각 날짜별로 상위 n개 선택
+    top_n_list = []
+    for date, group in df.groupby('date'):
+        group = group.sort_values('mktcap_lag', ascending=False).head(n)
+        if len(group) < n:
+            continue
+        group = group.sort_values('mktcap_lag')
+        group['rank'] = np.arange(1, len(group) + 1)
+        group['capshare'] = group['mktcap_lag'] / group['mktcap_lag'].sum()
+        top_n_list.append(group[['permno', 'rank', 'capshare']])
+    
+    if not top_n_list:
+        return None, None
+
+    df_all = pd.concat(top_n_list)
+
+    # 회귀 변수 생성
+    df_all['rank_sq'] = df_all['rank'] ** 2
+    X = sm.add_constant(df_all[['rank', 'rank_sq']])
+    y = df_all['capshare']
+
+    # 회귀 수행
+    model = sm.OLS(y, X).fit()
+    
+    return model.params, model.rsquared
+```
+
+```{python}
+
+def plot_quadratic_fit(df_in_sample, n=10, state=10, ax=None):
+    """
+    특정 in-sample에서 주어진 state, top-n 종목에 대한
+    (rank, capshare) 산점도와 quadratic regression fitted line 시각화
+    """
+    all_obs = []
+
+    for date, group in df_in_sample[df_in_sample['state'] == state].groupby('date'):
+        group = group.sort_values('mktcap_lag', ascending=False).head(n).copy()
+        if len(group) < n:
+            continue
+
+        group = group.sort_values('mktcap_lag')  # rank: 1 = smallest
+        group['rank'] = np.arange(1, len(group) + 1)
+        total_cap = group['mktcap_lag'].sum()
+        group['capshare'] = group['mktcap_lag'] / total_cap
+
+        all_obs.append(group[['rank', 'capshare']])
+
+    if not all_obs:
+        raise ValueError("No valid observations for fitting.")
+
+    df_all = pd.concat(all_obs, ignore_index=True)
+    df_all['rank_sq'] = df_all['rank'] ** 2
+
+    # 회귀
+    X = sm.add_constant(df_all[['rank', 'rank_sq']])
+    y = df_all['capshare']
+    model = sm.OLS(y, X).fit()
+
+    # 추정 계수
+    alpha, beta, gamma = model.params
+
+    # Fitted curve
+    rank_grid = np.linspace(df_all['rank'].min(), df_all['rank'].max(), 100)
+    fitted_curve = alpha + beta * rank_grid + gamma * rank_grid**2
+
+    # 시각화
+    if ax is None:
+        fig, ax = plt.subplots(figsize=(8, 5))
+    ax.scatter(df_all['rank'], df_all['capshare'], alpha=0.4, label='Observed', color='steelblue')
+    ax.plot(rank_grid, fitted_curve, color='darkgreen', linewidth=2.5, label='Quadratic Fit')
+    ax.set_title(f"Quadratic Fit (state={state}, n={n})")
+    ax.set_xlabel("Rank")
+    ax.set_ylabel("Capital Share")
+    ax.legend()
+    ax.grid(True)
+
+    return 
+
+def plot_exponential_fit(df_in_sample, n=10, state=10, ax=None):
+    """
+    특정 in-sample에서 주어진 state, top-n 종목에 대한
+    (rank, capshare) 산점도와 exponential regression fitted line 시각화
+    """
+
+    all_obs = []
+
+    for date, group in df_in_sample[df_in_sample['state'] == state].groupby('date'):
+        group = group.sort_values('mktcap_lag', ascending=False).head(n).copy()
+        if len(group) < n:
+            continue
+
+        group = group.sort_values('mktcap_lag')  # 작은 순서대로 재정렬
+        group['rank'] = np.arange(1, len(group) + 1)
+        total_cap = group['mktcap_lag'].sum()
+        group['capshare'] = group['mktcap_lag'] / total_cap
+
+        all_obs.append(group[['rank', 'capshare']])
+
+    if not all_obs:
+        raise ValueError("No valid observations for fitting.")
+
+    df_all = pd.concat(all_obs, ignore_index=True)
+    df_all['log_capshare'] = np.log(df_all['capshare'])
+
+    # 회귀
+    X = sm.add_constant(df_all['rank'])
+    y = df_all['log_capshare']
+    model = sm.OLS(y, X).fit()
+
+    # 추정 계수
+    ln_alpha, beta = model.params
+    alpha = np.exp(ln_alpha)
+
+    # Fitted curve
+    rank_grid = np.linspace(df_all['rank'].min(), df_all['rank'].max(), 100)
+    fitted_curve = alpha * np.exp(beta * rank_grid)
+
+    # 시각화
+    if ax is None:
+        fig, ax = plt.subplots(figsize=(8, 5))
+    ax.scatter(df_all['rank'], df_all['capshare'], alpha=0.4, label='Observed', color='steelblue')
+    ax.plot(rank_grid, fitted_curve, color='darkred', linewidth=2.5, label='Exponential Fit')
+    ax.set_title(f"Exponential Fit (state={state}, n={n})")
+    ax.set_xlabel("Rank")
+    ax.set_ylabel("Capital Share")
+    ax.legend()
+    ax.grid(True)
+
+    return 
+```
+
+#### Empirical Fit of Capital Share Functions
+
+To empirically validate the structural weighting functions, we fit both quadratic and exponential models to the in-sample relationship between rank and capital share. The following plots show the cross-sectional fitting results based on a representative rebalance date.
+
+
+```{python}
+def split_in_out_sample(df, in_end, in_sample_months=36, out_end=None):
+    """
+    주어진 in_end와 in_sample_months, 그리고 선택적으로 out_end를 이용해 
+    in-sample과 out-of-sample 데이터를 분할합니다.
+    
+    Parameters:
+      - df: 전체 데이터프레임 (반드시 'date' 컬럼이 있어야 함)
+      - in_end: in-sample 종료일 (string 또는 datetime)
+      - in_sample_months: in-sample 기간 (월 단위, default 36)
+      - out_end: out-of-sample 종료일 (string 또는 datetime). None인 경우 in_end 이후 전체가 out-of-sample.
+    
+    Returns:
+      - in_sample: [in_end - in_sample_months, in_end] 기간의 데이터프레임
+      - out_sample: (in_end, out_end] 또는 in_end 이후 전체 데이터프레임
+    """
+    df = df.copy()
+    df['date'] = pd.to_datetime(df['date'])
+    in_end = pd.to_datetime(in_end)
+    
+    # in-sample 기간 계산
+    in_start = in_end - pd.DateOffset(months=in_sample_months)
+    in_sample = df[(df['date'] >= in_start) & (df['date'] <= in_end)].copy()
+    
+    # out-of-sample 기간 계산
+    if out_end is not None:
+        out_end = pd.to_datetime(out_end)
+        out_sample = df[(df['date'] > in_end) & (df['date'] <= out_end)].copy()
+    else:
+        out_sample = df[df['date'] > in_end].copy()
+    
+    return in_sample, out_sample
+```
+
+```{python}
+in_end = '2009-12-31'
+in_sample_months = 48
+
+print('Snapshot at:', in_end)
+print('Look-back period:', in_sample_months, 'months')
+
+df_in_sample, _ = split_in_out_sample(crsp, in_end, in_sample_months)
+```
+
+```{python}
+#| fig-cap: "Quadratic vs. Exponential Fit at 2009-12-31"
+fig, axes = plt.subplots(1, 2, figsize=(12, 5))
+
+plot_quadratic_fit(df_in_sample, n=10, state=10, ax=axes[0])
+plot_exponential_fit(df_in_sample, n=10, state=10, ax=axes[1])
+
+fig.suptitle(f"Fitted Capital Share Functions at {in_end}")
+plt.tight_layout()
+```
+
+```{python}
+in_end = '2023-12-31'
+in_sample_months = 48
+
+print('Snapshot at:', in_end)
+print('Look-back period:', in_sample_months, 'months')
+
+df_in_sample, _ = split_in_out_sample(crsp, in_end, in_sample_months)
+```
+
+```{python}
+#| fig-cap: "Quadratic vs. Exponential Fit at 2023-12-31"
+fig, axes = plt.subplots(1, 2, figsize=(12, 5))
+
+plot_quadratic_fit(df_in_sample, n=10, state=10, ax=axes[0])
+plot_exponential_fit(df_in_sample, n=10, state=10, ax=axes[1])
+
+fig.suptitle(f"Fitted Capital Share Functions at {in_end}")
+plt.tight_layout()
+```
+
+These cross-sectional plots confirm the superiority of the exponential fit in capturing the accelerating concentration of capital among top-ranked firms. The difference is especially pronounced in the post-2010 sample, reflecting a structural shift in capital dynamics during the QE era.
+
+The exponential fit exhibits stronger monotonicity and structural convexity, particularly in the top-ranked firms, supporting its use in the TBTF weighting scheme.
+
+
+### Rebalancing Frequency
+
+We test fixed-interval rebalancing schemes:
+
+- Monthly (default)
+- Quarterly
+- Semiannual
+- Annual
+
+Rebalancing frequency directly affects turnover and transaction cost implications. Monthly rebalancing is selected as the baseline to balance responsiveness with frictions.
+
+
+### Benchmark Portfolios
+
+For external comparison, we use:
+
+- **Pre-2010 Index Benchmarks**: Dow Jones Industrial Average (^DJI), Nasdaq-100 (^NDX)
+- **Post-2010 Index ETFs**: 
+  - DIA (ETF version of DJIA, State Street Corporation ETF. Fund inception: 1998/01/14), 
+  - QQQ (ETF version of NDX. Nasdaq-100 ticker. the Invesco QQQ Trust. Fund inception: 1999/03/10), 
+  - SPY (The SPDR S&P 500 ETF, Fund inception: 1993/01/22), 
+  - VTI (Vanguard Total Stock Market ETF, Fund inception: 2001년 5월 24일), 
+- **Post-2010 Style Portfolios**: Fama-French ME5 × PRIOR1/3/5, constructed with rolling monthly value- or equal-weighting
+
+
+### Strategic Rationale
+
+The TBTF strategy is not merely a rule-based selection method. It reflects a structural argument that allocative efficiency in modern markets is compromised by persistent capital concentration. Instead of diversifying away idiosyncratic risk, markets are increasingly dominated by capital lock-in, hierarchy reinforcement, and narrative legitimacy.
+
+This framework reconceptualizes the role of financial assets from carriers of risk to vehicles of structural dominance, and evaluates portfolio construction in light of this altered paradigm.
+
+
+## Appendix: TBTF Strategy Pipeline {.appendix}
+
+This section outlines the modular structure of the TBTF portfolio strategy, from input specification to out-of-sample return generation and performance evaluation. The pipeline is designed to be flexible across different weighting schemes, rebalance frequencies, and strategy parameters.
+
+### Inputs (Arguments)
+
+| Argument | Description |
+|----------|-------------|
+| `df` | Main input DataFrame (`crsp`) including fields such as `date`, `permno`, `mktcap`, `ret`, `state`, `mktcap_lag`, etc. |
+| `state_level` | Target capital state to define the asset universe, typically the top decile (e.g., `10`). |
+| `top_n` | Number of assets to be selected at each rebalance point (e.g., `n ∈ {5, 10, 20, 30, 50}`). |
+| `rebalance_freq` | Rebalancing interval (e.g., `'1M'`, `'3M'`, `'6M'`, `'12M'`). |
+| `weighting_method` | One of `'equal'`, `'value'`, `'quadratic'`, or `'exponential'`. |
+| `in_sample_period` | Estimation window for in-sample weight calibration (e.g., `'2010-01-01'` to `'2013-12-31'`). |
+| `out_sample_period` | Evaluation window for out-of-sample backtesting (e.g., `'2014-01-01'` to `'2023-12-31'`). |
+| `eta`, `p` | Parameters for CRRA utility (`eta`) and Omega ratio threshold (`p`). |
+
+
+### Strategy Pipeline (Pseudo-code Logic)
+
+#### Step 1: Data Partitioning & Filtering
+
+```python
+in_sample = df[(df['date'] >= in_sample_start) & (df['date'] <= in_sample_end)]
+out_sample = df[(df['date'] > in_sample_end) & (df['date'] <= out_sample_end)]
+universe = df[df['state'] == state_level]
+```
+
+- Restrict selection universe to target capital state (e.g., top decile).
+
+
+#### Step 2: In-sample Weight Estimation
+
+If `weighting_method` is `'quadratic'` or `'exponential'`:
+
+- Estimate the relationship between within-state rank and capital share using in-sample data:
+  - Quadratic:  
+    $$\text{CapShare}_i = \alpha + \beta \cdot \text{Rank}_i + \gamma \cdot \text{Rank}_i^2$$
+  - Exponential:  
+    $$\text{CapShare}_i = \alpha \cdot e^{\beta \cdot \text{Rank}_i}$$
+- Save estimated coefficients:
+  ```python
+  coefficients = {'alpha': ..., 'beta': ..., 'gamma': ...}
+  ```
+
+#### Step 3: Out-of-sample Portfolio Construction
+
+For each rebalance date in the out-sample period:
+
+1. Filter to target state (`state == state_level`)
+2. Rank by market cap, select top `n`
+3. Assign weights:
+   - Equal: $w_i = 1/n$
+   - Value: $w_i = \text{mktcap}_i / \sum \text{mktcap}$
+   - Quadratic: apply $\hat{\alpha}, \hat{\beta}, \hat{\gamma}$ to rank
+   - Exponential: apply $\hat{\alpha}, \hat{\beta}$ to rank
+4. Store `[date, permno, weight]` for forward return application
+
+
+#### Step 4: Portfolio Return Computation
+
+At each evaluation date after rebalance:
+
+- Merge forward returns of selected assets
+- Compute portfolio return:
+  $$R_t^{\text{portfolio}} = \sum_i w_{i,t} \cdot r_{i,t}$$
+- Construct time series of out-of-sample portfolio returns
+
+
+#### Step 5: Turnover Calculation
+
+For each rebalance window:
+
+- Calculate:
+  $$\text{Turnover}_t = \sum_i |w_{i,t} - w_{i,t-1}|$$
+- Useful for assessing transaction costs and liquidity requirements
+
+
+#### Step 6: Performance Evaluation
+
+Using out-of-sample return series, compute:
+
+- **Risk-Adjusted Metrics**:
+  - Sharpe ratio, Sortino ratio
+  - Omega ratio (threshold = `p`)
+  - Calmar ratio, maximum drawdown (MDD)
+  - CRRA utility with risk aversion parameter `eta`
+
+- Return summary as dictionary:
+  ```python
+  metrics_dict = {
+      'Sharpe': ...,
+      'Sortino': ...,
+      'Omega': ...,
+      'CRRA': ...,
+      'CAGR': ...,
+      'MDD': ...
+  }
+  ```
+
+
+### Outputs
+
+| Output | Description |
+|--------|-------------|
+| `returns_df` | Time series of out-of-sample portfolio returns |
+| `weights_df` | Portfolio composition (weights per date and permno) |
+| `turnover_df` | Time series of turnover at each rebalance point |
+| `metrics_dict` | Dictionary of strategy performance metrics |
+
+### Module Lits
+
+```python
+#| label: TBTF Strategy Full Module
+#| warning: false
+#| message: false
+
+import pandas as pd
+import numpy as np
+import statsmodels.api as sm
+from scipy.stats import skew, kurtosis
+
+# ----------------------------
+# 1. Data Partitioning
+# ----------------------------
+def split_in_out_sample(df, in_end, in_sample_months=36, out_end=None):
+    in_sample = df[(df['date'] <= in_end)].copy()
+    if out_end:
+        out_sample = df[(df['date'] > in_end) & (df['date'] <= out_end)].copy()
+    else:
+        out_sample = df[(df['date'] > in_end)].copy()
+    return in_sample, out_sample
+
+# ----------------------------
+# 2. Weight Estimation
+# ----------------------------
+def estimate_exponential_weights(df_in_sample, n=10, state=10):
+    df = df_in_sample[df_in_sample['state'] == state].copy()
+    df['rank'] = df.groupby('date')['mktcap'].rank(ascending=True, method='first')
+    df = df[df['rank'] <= n]
+    df['log_capshare'] = np.log(df['mktcap'] / df.groupby('date')['mktcap'].transform('sum'))
+    X = df[['rank']]
+    X = sm.add_constant(X)
+    y = df['log_capshare']
+    model = sm.OLS(y, X).fit()
+    return {'alpha': np.exp(model.params['const']), 'beta': model.params['rank']}
+
+def estimate_quadratic_weights(df_in_sample, n=10, state=10):
+    df = df_in_sample[df_in_sample['state'] == state].copy()
+    df['rank'] = df.groupby('date')['mktcap'].rank(ascending=True, method='first')
+    df = df[df['rank'] <= n]
+    df['capshare'] = df['mktcap'] / df.groupby('date')['mktcap'].transform('sum')
+    df['rank_sq'] = df['rank'] ** 2
+    X = df[['rank', 'rank_sq']]
+    X = sm.add_constant(X)
+    y = df['capshare']
+    model = sm.OLS(y, X).fit()
+    return {'alpha': model.params['const'], 'beta': model.params['rank'], 'gamma': model.params['rank_sq']}
+
+# ----------------------------
+# 3. Portfolio Construction
+# ----------------------------
+def construct_tbtf_exponential(crsp_df, target_state, top_n, params):
+    df = crsp_df[crsp_df['state'] == target_state].copy()
+    df['rank'] = df.groupby('date')['mktcap'].rank(ascending=True, method='first')
+    df = df[df['rank'] <= top_n]
+    df['weight'] = params['alpha'] * np.exp(params['beta'] * df['rank'])
+    df['weight'] = df['weight'] / df.groupby('date')['weight'].transform('sum')
+    return df[['date', 'permno', 'weight']]
+
+def construct_tbtf_quadratic(crsp_df, target_state, top_n, params):
+    df = crsp_df[crsp_df['state'] == target_state].copy()
+    df['rank'] = df.groupby('date')['mktcap'].rank(ascending=True, method='first')
+    df = df[df['rank'] <= top_n]
+    df['rank_sq'] = df['rank'] ** 2
+    df['weight'] = params['alpha'] + params['beta'] * df['rank'] + params['gamma'] * df['rank_sq']
+    df['weight'] = df['weight'] / df.groupby('date')['weight'].transform('sum')
+    return df[['date', 'permno', 'weight']]
+
+# ----------------------------
+# 4. Return and Turnover Calculation
+# ----------------------------
+def compute_return_tbtf(crsp, rebalance_dates, weighting_method='exponential', top_n=10, state=10, in_sample_months=36):
+    # Placeholder for full implementation
+    pass
+
+def compute_return_pfo(crsp, rebalance_dates, weighting_method='vw', top_n=10):
+    # Placeholder for traditional VW or EW method
+    pass
+
+def compute_turnover(weights_df, rebalance_dates):
+    turnover_list = []
+    prev_weights = None
+    for date in rebalance_dates:
+        w = weights_df[weights_df['date'] == date].set_index('permno')['weight']
+        if prev_weights is not None:
+            turnover = (w - prev_weights).abs().sum()
+            turnover_list.append({'date': date, 'turnover': turnover})
+        prev_weights = w
+    return pd.DataFrame(turnover_list)
+
+# ----------------------------
+# 5. Performance Evaluation
+# ----------------------------
+def evaluate_performance(returns, eta=3, p=0.01, periods_per_year=12):
+    mu = returns.mean() * periods_per_year
+    sigma = returns.std() * np.sqrt(periods_per_year)
+    sharpe = mu / sigma if sigma != 0 else np.nan
+    sortino = mu / returns[returns < 0].std() if returns[returns < 0].std() != 0 else np.nan
+    omega = (returns[returns > p] - p).sum() / abs((returns[returns <= p] - p).sum())
+    crra_utility = (1 / (1 - eta)) * (1 + returns).apply(lambda x: x**(1 - eta) - 1).mean() if eta != 1 else np.log(1 + returns).mean()
+    return {
+        'Sharpe': sharpe,
+        'Sortino': sortino,
+        'Omega': omega,
+        'CRRA': crra_utility,
+        'Mean': mu,
+        'Volatility': sigma
+    }
+
+# ----------------------------
+# 6. Rebalance Date Utility
+# ----------------------------
+def get_rebalance_offset(rebalance_freq):
+    offset_map = {'1M': 1, '3M': 3, '6M': 6, '12M': 12}
+    return offset_map.get(rebalance_freq, 1)
+
+# ----------------------------
+# 7. Backtest Pipeline
+# ----------------------------
+def backtest_pipeline(crsp, in_end, out_end, in_sample_months, rebalance_freq, weighting_method, top_n, state, eta, p):
+    # Placeholder for full backtest execution logic
+    pass
+
+# ----------------------------
+# 8. Visualization (optional)
+# ----------------------------
+def plot_quadratic_fit(df_in_sample, n=10, state=10):
+    # Placeholder for plot generation
+    pass
+
+def plot_exponential_fit(df_in_sample, n=10, state=10):
+    # Placeholder for plot generation
+    pass
+
+```
+

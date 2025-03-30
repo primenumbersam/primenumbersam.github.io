@@ -1,0 +1,577 @@
+---
+title: 04 Structure
+date: 2025-03-28
+format:
+  html:
+    code-fold: true
+execute:
+  enabled: false
+---
+
+# Structural Analysis
+
+This section decomposes the structural mechanisms underlying the TBTF strategy across two economic regimes—pre-2010 and post-2010. By comparing these periods, we identify changes in distributional composition, capital concentration, and rank mobility that reflect broader shifts in financial market dynamics following systemic interventions and structural innovation—each of which challenges conventional assumptions in asset pricing and market efficiency.
+
+```{python}
+# CRSP dataframe import
+import pandas as pd
+import sqlite3
+tbtf = sqlite3.connect(database="../../tbtf.sqlite")
+
+#cursor = tbtf.cursor()
+#cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+#print(cursor.fetchall())
+
+crsp = pd.read_sql_query(
+  sql="SELECT * FROM crsp",
+  con=tbtf,
+  parse_dates={"date"}
+)
+crsp.head()
+```
+
+## Mixture Distribution Decomposition
+
+### Core Question:
+> Is the market portfolio return better explained as a mixture of **distinct structural groups**, such as top decile vs. the rest, and how have their mixture weights changed across regimes?
+
+### Framework & Method:
+- We define two return-generating groups:
+  - **Group A**: Top 10% stocks by market cap (state = 10)
+  - **Group B**: All other listed stocks (states < 10)
+- At each month $t$, compute value-weighted returns:
+
+  $$
+  R_t^{\text{market}} = w_t \cdot R_t^{(10)} + (1 - w_t) \cdot R_t^{(<10)}
+  $$
+
+  where $w_t$ is the capital share of Group A—i.e., the mixture weight.
+
+### Interpretation
+
+The empirical results from the mixture decomposition provide compelling evidence of a **structural shift** in how market returns are generated and distributed. Unlike traditional interpretations that focus on regime switching (e.g., bull vs. bear), our analysis reveals a **persistent cross-sectional asymmetry**—notably between the **top decile** and the **remaining 90%** of firms by market capitalization.
+
+```{python}
+# df_mix
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+# 1. Value-Weighted Return 계산 함수 정의
+def value_weighted_return(df, value_col='mktcap_lag', return_col='ret'):
+    weighted = df[return_col] * df[value_col]
+    total_weight = df[value_col].sum()
+    return weighted.sum() / total_weight if total_weight > 0 else np.nan
+
+# 2. Group별 수익률 계산 및 mixture 분해
+# 결과 저장용 리스트
+results = []
+
+# 월별 반복
+for date, group in crsp.groupby('date'):
+    top_group = group[group['state'] == 10]
+    rest_group = group[(group['state'] < 10) & (group['state'] > 0)]
+
+    if len(top_group) == 0 or len(rest_group) == 0:
+        continue
+
+    # 개별 그룹의 value-weighted return 계산
+    r_top = value_weighted_return(top_group)
+    r_rest = value_weighted_return(rest_group)
+    
+    # 전체 시장 포트폴리오 value-weighted return 계산
+    r_total = value_weighted_return(group[group['state'] > 0])
+
+    # mixture weight (자본 비중)
+    w_top = top_group['mktcap_lag'].sum() / group[group['state'] > 0]['mktcap_lag'].sum()
+
+    results.append({
+        'date': date,
+        'r_top': r_top,
+        'r_rest': r_rest,
+        'r_total': r_total,
+        'w_top': w_top,
+        'w_rest': 1 - w_top,
+        'r_predicted': w_top * r_top + (1 - w_top) * r_rest
+    })
+
+df_mix = pd.DataFrame(results).sort_values('date')
+
+df_mix.head()
+```
+
+#### Capital Lock-In and Mixture Weight Dynamics
+
+```{python}
+# Time-series Capital Weight of Top 10% (State = 10)
+plt.plot(df_mix['date'], df_mix['w_top'])
+plt.title('Time-series Capital Weight of Top 10% (State = 10)')
+plt.xlabel('Date')
+plt.ylabel('Top 10% Capital Weight')
+plt.show()
+
+```
+
+The time-series evolution of $w_t$—the **value-weighted capital share of the top 10% stocks**—offers compelling evidence of persistent and intensifying capital lock-in.
+
+- Between **1996 and 2001**, $w_t$ rose **rapidly** from below 0.75 to a peak of approximately **0.88**, reflecting the early stages of mega-cap dominance during the dot-com boom.
+- After peaking, it **declined gradually**, reaching just below **0.80** by 2006, indicating a temporary rebalancing of capital across ranks.
+- From **2006 to 2009**, $w_t$ climbed again, stabilizing around **0.83** during the financial crisis—a period marked by concentrated flight to safety and the early impact of Federal Reserve interventions.
+- A modest decline occurred post-crisis, with $w_t$ dipping to around **0.78** in 2011.
+- Since then, however, the capital share of the top 10% has exhibited **near-monotonic increases with remarkably low volatility**, except for a brief interruption during the **COVID-19 shock in 2020**.
+- By the end of 2023, $w_t$ had reached levels exceeding **0.85**, with **persistent upward momentum and minimal fluctuations**.
+
+This structural pattern indicates not merely high concentration but **capital inertia**—a state where **capital ceases to reallocate dynamically** and instead becomes entrenched within a quasi-permanent elite. Capital flows no longer reflect dynamic responses to fundamentals or risk signals, but instead conform to **structural entrenchment** supported by indexation, ETF flows, and policy-driven yield compression. Capital lock-in is not only persistent but **self-reinforcing**, reflecting a transition from competitive allocation to **institutionalized dominance**.
+
+c.f. Compared to Fama-French’s traditional use of **NYSE-only breakpoints**, our percentile-based method—spanning **NYSE + Nasdaq + AMEX**—captures the **true cross-sectional concentration of market power**, including modern platform firms (e.g., AAPL, MSFT, NVDA) that disproportionately shape returns in the post-crisis era.
+
+
+#### Unconditional Return Distributions: Top vs. Rest
+```{python}
+# Unconditional Return Distribution: Actual vs. Estimated Mixture
+# GMM의 간소화 버전" 또는 "semi-parametric mixture modeling
+
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.stats import norm
+
+# 샘플 수
+obs = len(df_mix)
+
+# 각 그룹의 수익률 평균 및 표준편차
+r_top_mean = df_mix['r_top'].mean()
+r_top_std = df_mix['r_top'].std()
+r_rest_mean = df_mix['r_rest'].mean()
+r_rest_std = df_mix['r_rest'].std()
+w_top_mean = df_mix['w_top'].mean()
+
+# 실제 및 mixture 수익률
+r_total = df_mix['r_total']
+r_predicted = df_mix['r_predicted']
+
+# 히스토그램과 PDF x축 범위
+xmin = min(r_total.min(), r_predicted.min())
+xmax = max(r_total.max(), r_predicted.max())
+x = np.linspace(xmin, xmax, 1000)
+
+# PDF 계산
+pdf_top = norm.pdf(x, loc=r_top_mean, scale=r_top_std)
+pdf_rest = norm.pdf(x, loc=r_rest_mean, scale=r_rest_std)
+pdf_mix = w_top_mean * pdf_top + (1 - w_top_mean) * pdf_rest
+
+# Plot
+plt.figure(figsize=(10, 6))
+bins = np.linspace(xmin, xmax, 50)
+
+# 실제 수익률 히스토그램
+plt.hist(r_total, bins=bins, alpha=0.3, label='Actual Total Return', color='steelblue', density=True)
+
+# 각 컴포넌트 PDF
+plt.plot(x, pdf_top, linestyle='-', color='red', label='Top 10% Estimated PDF')
+plt.plot(x, pdf_rest, linestyle='-', color='blue', label='Bottom 90% Estimated PDF')
+
+# 혼합 정규 분포 PDF
+plt.plot(x, pdf_mix, linestyle='--', color='black', linewidth=2, label='Mixture PDF (Estimated)')
+
+plt.title("Unconditional Return Distribution: Actual vs. Estimated Mixture")
+plt.xlabel("Monthly Return")
+plt.ylabel("Density")
+plt.legend()
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+
+```
+
+```{python}
+# Unconditional Return Distribution by Period and Capital Rank Group
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# 요약 통계 (Pre-2010 vs Post-2010 비교 등)
+df_mix['period'] = np.where(df_mix['date'] < '2010-01-01', 'Pre-2010', 'Post-2010')
+
+# 데이터 재구조화: long format
+df_long = pd.melt(
+    df_mix,
+    id_vars=['date', 'period'],
+    value_vars=['r_top', 'r_rest'],
+    var_name='Group',
+    value_name='Monthly Return'
+)
+
+# Group 이름 정리
+df_long['Group'] = df_long['Group'].replace({
+    'r_top': 'Top 10%',
+    'r_rest': 'Bottom 90%'
+})
+
+# Boxplot
+plt.figure(figsize=(10, 6))
+sns.boxplot(
+    data=df_long,
+    x='period',
+    y='Monthly Return',
+    hue='Group',
+    palette='Set2'
+)
+plt.title('Unconditional Return Distribution by Period and Capital Rank Group')
+plt.axhline(0, color='gray', linestyle='--', linewidth=1)
+plt.ylabel('Monthly Return')
+plt.xlabel('Period')
+plt.legend(title='Group', loc='lower left')
+plt.tight_layout()
+plt.show()
+
+```
+
+- **Boxplot visualizations** reveal that in the post-2010 regime:
+  - The top decile (`r_top`) has **higher median returns** and a **narrower interquartile range** than the bottom 90% (`r_rest`).
+  - **Outliers on the downside virtually disappear** for `r_top`, while they persist—especially on both tails—for `r_rest`.
+  - The return distribution of `r_top` becomes increasingly **compact, upward-shifted, and volatility-suppressed**, resembling **a managed financial product** rather than a random equity basket.
+- These patterns imply that **risk-adjusted return asymmetry** is not just about mean differences, but about **structural volatility suppression** and downside risk elimination at the top.
+
+#### Gaussian Mixture Results: Two-Component Fit
+```{python}
+# GMM (k=2) for Top 10% and for Remining 90% 
+import os
+os.environ['LOKY_MAX_CPU_COUNT'] = '4'  # 사용하려는 코어 수를 직접 지정
+
+from sklearn.mixture import GaussianMixture
+import seaborn as sns
+
+# 각 그룹의 return 시리즈
+top_returns = df_mix['r_top'].dropna().values.reshape(-1, 1)
+rest_returns = df_mix['r_rest'].dropna().values.reshape(-1, 1)
+
+# GMM 적합 함수
+def fit_gmm(data, n_components=2):
+    gmm = GaussianMixture(n_components=n_components, random_state=42)
+    gmm.fit(data)
+    return gmm
+
+gmm_top = fit_gmm(top_returns, n_components=2)
+gmm_rest = fit_gmm(rest_returns, n_components=2)
+
+def print_gmm_summary(gmm, label):
+    print(f"\nGMM summary for {label}")
+    for i, (w, mu, var) in enumerate(zip(gmm.weights_, gmm.means_, gmm.covariances_)):
+        print(f" Component {i+1}: weight={w:.3f}, mean={mu[0]:.4f}, std={np.sqrt(var[0][0]):.4f}")
+
+print_gmm_summary(gmm_top, 'Top 10%')
+print_gmm_summary(gmm_rest, 'Remaining 90%')
+```
+
+The Gaussian Mixture Models (GMMs) estimated separately on `r_top` and `r_rest` uncover two key structural regimes:
+
+- Both groups exhibit **bimodal structure**, with one cluster capturing **low-mean, high-volatility returns**, and the other **positive-mean, low-volatility returns**.
+- However, for the **top decile**, the low-return regime has a **lower weight and tighter variance**, suggesting that even when shocks occur, they are **attenuated** within this elite group.
+- In contrast, the bottom 90% remains exposed to **broader volatility regimes**, maintaining a larger spread of possible outcomes.
+
+#### Testing Internal Heterogeneity in Top Decile
+```{python}
+# k Selection by AIC vs. BIC
+from sklearn.mixture import GaussianMixture
+import numpy as np
+
+X = df_mix['r_top'].dropna().values.reshape(-1, 1)
+
+aic_scores = []
+bic_scores = []
+ks = range(1, 21)
+
+for k in ks:
+    gmm = GaussianMixture(n_components=k, random_state=42)
+    gmm.fit(X)
+    aic_scores.append(gmm.aic(X))
+    bic_scores.append(gmm.bic(X))
+
+# Plot AIC vs BIC to visualize optimal k
+plt.plot(ks, aic_scores, label='AIC')
+plt.plot(ks, bic_scores, label='BIC')
+plt.xlabel('Number of Components (k)')
+plt.ylabel('Information Criterion')
+plt.legend()
+plt.title('Model Selection: AIC vs BIC')
+plt.grid(True)
+plt.show()
+
+```
+
+To test whether the top decile itself contains further latent substructures, we estimate GMMs with increasing number of components ($k = 1, 2, ..., 20$). The result is striking:
+
+- Both AIC and BIC **increase monotonically** in $k$, indicating that **no additional latent components** significantly improve model fit.
+- The most parsimonious and interpretable solution is obtained at **$k = 2$ or even $k = 1$**, reinforcing the view that **a single dominant structural cluster** governs return generation at the top.
+
+This suggests that return asymmetry may not stem from overlapping regimes or transitory factors, but rather from the structural dominance of a statistically persistent subgroup of mega-cap firms.
+
+### Summary Interpretation
+
+Together, these results imply that:
+
+- The **top-decile portfolio behaves like a capital sink**—absorbing flows while insulating itself from market volatility.
+- **Market return is no longer the outcome of dispersed competition**, but rather **converges to a structurally locked elite**, supported by policy, passive flows, and indexation mechanics.
+- This undermines the classical view of a dynamic, risk-compensated market and instead points toward **structural rent extraction** by the few.
+
+
+## Capital Share Convexity: Quadratic Regression Evolution
+
+### Core Question:
+> Has capital become more concentrated in the top-ranked firms over time?
+
+### Framework & Method:
+- Cross-sectional regression at each $t$:
+
+  $$
+  \text{CapShare}_{i,t} = \alpha_t + \beta_t \cdot \text{Rank}_i + \gamma_t \cdot \text{Rank}_i^2 + \varepsilon_{i,t}
+  $$
+
+  where $\text{Rank}_i$ is percentile-based with state 1 = bottom 10%, ..., state 10 = top 10%.
+
+- The convexity of capital distribution is captured by $\gamma_t$:
+  - $\gamma_t > 0$ implies **increasing convexity**, or accelerated capital share at the top.
+
+- Time-series $\{\gamma_t\}$ is visualized to show evolution of capital inequality.
+
+### Interpretation
+
+```{python}
+# Time-Series of Capital Share Convexity
+import statsmodels.api as sm
+
+# 1. 각 날짜별로 state별 mktcap 합산 → CapShare_i 생성
+def compute_capshare(df):
+    df = df.copy()
+    cap_by_state = df.groupby('state')['mktcap'].sum()
+    total_cap = cap_by_state.sum()
+    df['cap_share'] = df['state'].map(cap_by_state / total_cap)
+    return df
+
+# 2. cross-sectional regression에서 사용될 state별 요약 데이터 생성
+def compute_quadratic_coefficients(df):
+    results = []
+    for date, group in df.groupby('date'):
+        # 유효한 state만 사용 (state 0은 제외)
+        group = group[group['state'] > 0].copy()
+        cap_by_state = group.groupby('state')['mktcap'].sum()
+        total_cap = cap_by_state.sum()
+        capshare = cap_by_state / total_cap
+
+        # x = state (1~10), y = capshare
+        x = capshare.index.values
+        y = capshare.values
+
+        X = np.column_stack([x, x**2])
+        X = sm.add_constant(X)
+        model = sm.OLS(y, X).fit()
+
+        results.append({
+            'date': date,
+            'alpha': model.params[0],
+            'beta': model.params[1],
+            'gamma': model.params[2],
+            'r_squared': model.rsquared
+        })
+
+    return pd.DataFrame(results)
+
+# 실제 데이터가 존재한다고 가정하고 이후 분석 및 시각화 준비
+# 아래는 시각화 함수만 준비
+def plot_gamma_time_series(gamma_df):
+    plt.figure(figsize=(12, 6))
+    plt.plot(gamma_df['date'], gamma_df['gamma'], label='Gamma (Quadratic Term)', color='darkred')
+
+    # 기준선들
+    plt.axhline(0, color='gray', linestyle='--', linewidth=1)
+    plt.axvline(pd.to_datetime("2010-01-01"), color='black', linestyle='--', linewidth=1.2, label='2010 Breakpoint')
+    plt.title('Time-Series of Capital Share Convexity (γₜ)')
+    plt.xlabel('Date')
+    plt.ylabel('Gamma Coefficient (Convexity)')
+    plt.legend()
+    plt.grid(True)
+    plt.tight_layout()
+    plt.show()
+
+crsp_filtered = crsp[crsp['state'] > 0].copy()
+
+gamma_df = compute_quadratic_coefficients(crsp_filtered)
+
+plot_gamma_time_series(gamma_df)
+```
+The time-series of the capital share convexity coefficient, $\gamma_t$, estimated via cross-sectional quadratic regressions, reveals a striking and persistent structure.
+
+```{python}
+gamma_df.drop('date', axis=1).describe()
+```
+
+Across the full sample period (1996–2023), $\gamma_t$ remains **consistently positive and tightly bounded**, with:
+
+- A mean value of approximately **0.0186**,  
+- A narrow interquartile range: [0.0181, 0.0192],  
+- A low standard deviation of **0.0007**, and  
+- R-squared values averaging **0.67**, indicating robust fit quality across time.
+
+This **remarkable temporal consistency** suggests that the top ranks in the market-cap distribution have maintained a **structurally convex advantage**—absorbing disproportionately higher capital relative to their rank in nearly every month over the past three decades.
+
+A closer examination shows that:
+- Prior to 2010, there was **mild downward drift** in $\gamma_t$, consistent with episodic rebalancing and potential capital redistribution (e.g., during the post-dotcom or pre-GFC phase).
+- However, **post-2010**, $\gamma_t$ exhibits a **slight but stable upward trend**, indicating **reinforced convexity**—a steeper capital concentration curve among the top-ranked firms.
+
+This empirical curvature echoes the shape of a **discrete Lorenz curve**, where $\gamma_t$ can be interpreted as a **"capital inequality curvature index"**. In this framework, increases in $\gamma_t$ correspond to a **more extreme dominance of top ranks**, consistent with both the **capital lock-in** and **transition persistence** mechanisms documented elsewhere in this study.
+
+Importantly, the tight dispersion and monotonic stabilization of $\gamma_t$ provide indirect but compelling support for the **out-of-sample consistency** of capital-weight-based strategies. The fact that the quadratic relationship between rank and capshare is not only convex but also time-invariant implies that **a convex weighting scheme calibrated in-sample may remain optimal (or near-optimal) out-of-sample**.
+
+This further reinforces the central hypothesis of the TBTF framework: **top capital positions are not merely episodic outcomes but persistent structural anchors** in modern financial markets.
+
+
+## Persistence and Lock-In Dynamics
+
+### Core Question:
+> Is capital mobility declining, with firms increasingly **locked in** to top positions?
+
+### Framework & Method:
+- Define states:
+  - **State 10**: Top 10% (≥ 90th percentile)
+  - **States 6–9**: Middle 40% (50–90)
+  - **States 1–5**: Bottom 50%
+  - **State 0**: Delisted or unranked
+
+- From the panel data, estimate empirical first-order transition matrix:
+
+  $$
+  P_{ij} = \Pr(\text{state}_{t+1} = j \mid \text{state}_t = i)
+  $$
+
+- Compute:
+  - **Diagonal elements**: Retention probability (persistence)
+  - **Upward vs. downward transitions**: Asymmetry in mobility
+  - **Stationary distribution**: Long-run capital allocation across states
+
+### Interpretation
+
+The estimated transition matrix and its long-run stationary distribution reveal clear signs of **capital lock-in, irreversibility, and structural mobility collapse** in the U.S. equity market.
+
+```{python}
+# transition_matrix, stationary_series
+
+# Step 1: Ensure 'state' and 'state_lag' are present and valid
+crsp_filtered = crsp[(crsp['state'].notnull()) & (crsp['state_lag'].notnull())].copy()
+
+# Step 2: Compute empirical transition matrix
+transition_counts = (
+    crsp_filtered
+    .groupby(['state_lag', 'state'])
+    .size()
+    .unstack(fill_value=0)
+    .sort_index()
+    .reindex(columns=range(11), fill_value=0)
+)
+
+# Step 3: Convert counts to probabilities
+transition_matrix = transition_counts.div(transition_counts.sum(axis=1), axis=0)
+
+# Step 4: Compute stationary distribution
+# Method: Use eigen decomposition for the transpose of the transition matrix
+eigvals, eigvecs = np.linalg.eig(transition_matrix.T.values)
+stationary = np.real(eigvecs[:, np.isclose(eigvals, 1)])
+stationary = stationary[:, 0]
+stationary_dist = stationary / stationary.sum()
+
+# Prepare final transition matrix and stationary distribution
+transition_matrix.index.name = 'From State'
+transition_matrix.columns.name = 'To State'
+stationary_series = pd.Series(stationary_dist, index=transition_matrix.columns, name="Stationary Dist.")
+
+
+# Markov Transition Matrix Heatmap (States 0–10)
+import seaborn as sns
+
+plt.figure(figsize=(10, 8))
+sns.heatmap(
+    transition_matrix,
+    annot=True,
+    fmt=".2f",
+    cmap="YlGnBu",
+    linewidths=0.5,
+    cbar_kws={'label': 'Transition Probability'},
+    xticklabels=[f"To {i}" for i in transition_matrix.columns],
+    yticklabels=[f"From {i}" for i in transition_matrix.index]
+)
+plt.title("Markov Transition Matrix Heatmap (States 0–10)")
+plt.xlabel("Next Period State")
+plt.ylabel("Current Period State")
+plt.tight_layout()
+plt.show()
+```
+
+First, the **persistence of the top decile group (State = 10)** is striking. The monthly self-transition probability $P_{10,10}$ reaches 0.972, the highest among all states, implying an expected duration of stay exceeding 36 months:
+
+$$
+\mathbb{E}[\text{Duration} \mid \text{State } i] = \frac{1}{1 - P_{ii}}
+$$
+
+This result supports the characterization of the top decile as a **quasi-absorbing state**—once firms enter, they tend to remain for extended periods, creating a long-term **incumbency advantage**.
+
+Conversely, **states 4 and 5** show the **lowest diagonal entries** (both ≈ 0.79), yielding the shortest expected durations. This suggests that firms in these mid-level ranks are most prone to **reclassification**—either moving up, down, or out—indicating **local instability** near the center of the capital distribution.
+
+Despite expectations that **delisting risk** (i.e., transition to State 0) would dominate in the lower ranks, the empirical matrix reveals that **direct exits from States 1–10 are essentially zero**. This implies that delisting or market exit rarely occurs from within the ranked universe. Instead, new listings (from State 0) enter most frequently into **State 3**, resulting in a pronounced **inverted U-shape** in the transition row from State 0.
+
+```{python}
+# Long-Run Stationary Distribution by State (Excl. Exit)
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# State 1부터 10까지의 stationary probability
+stationary_series_nonzero = stationary_series.iloc[1:]
+
+# Plot
+plt.figure(figsize=(8, 5))
+sns.barplot(
+    x=stationary_series_nonzero.index.astype(str),
+    y=stationary_series_nonzero.values,
+    color='steelblue',
+    edgecolor='black'
+)
+
+# Annotate each bar with its value
+for i, val in enumerate(stationary_series_nonzero.values):
+    plt.text(i, val + 0.001, f"{val:.3f}", ha='center', va='bottom', fontsize=10)
+
+# Plot labels and formatting
+plt.title("Long-Run Stationary Distribution by State (Excl. Exit)", fontsize=14)
+plt.xlabel("State (Market Cap Rank)", fontsize=12)
+plt.ylabel("Stationary Probability", fontsize=12)
+plt.xticks(rotation=0)
+plt.ylim(0, stationary_series_nonzero.max() + 0.01)
+plt.tight_layout()
+plt.show()
+
+```
+
+Second, the **stationary distribution**—the long-run probability of occupying each state—exhibits a **Pareto-like decay**. The highest steady-state probability is in **State 1 (≈ 16.6%)**, and declines monotonically through State 10 (≈ 7.9%), forming a shape reminiscent of the **density of a Pareto distribution** or a **discrete inverse-power law**:
+
+- While State 1 represents the largest share of firms at any point in time, this is **not reflective of capital dominance**.
+- Rather, it suggests that **the system structurally regenerates the bottom group**, maintaining a large base of small-cap firms with limited upward mobility.
+
+This result aligns with prior findings in household wealth studies—such as those using FRED data—where the top 1% accumulates disproportionate wealth, but the **modal position** of individuals lies in the **bottom or middle deciles**. Our firm-level Markov model complements this view by adding **monthly transition granularity** and **dynamic persistence structure**, which cannot be captured by static wealth shares alone.
+
+Taken together, the findings indicate that capital mobility is increasingly **non-reversible** and **stratified**, violating assumptions of **ergodicity**, **symmetry**, and **competitive reallocation** often found in representative-agent equilibrium models.
+
+The U.S. equity market, viewed through the lens of Markovian state transitions, behaves less like a competitive allocation engine and more like a **stratified hierarchy**, where entry is rare, exits are asymmetric, and the top functions as a **structural sink** for capital.
+
+
+## Summary Table
+
+| Structural Channel | Mechanism                            | Interpretation                                            |
+|--------------------|--------------------------------------|-----------------------------------------------------------|
+| Mixture            | Return as weighted sum of 2 subgroups | Top decile increasingly **drives aggregate performance**  |
+| Convexity          | Capital share as function of rank     | **Lorenz-type concentration** intensifies over time       |
+| Transition         | Markov dynamics of rank-state mobility | Top and Exit states are **quasi-absorbing**, path-dependent |
+
+
+Integrated Interpretation:
+
+- **Top-decile persistence** reveals a form of **quasi-absorption**, where firms not only rise to the top but stay there disproportionately longer — effectively becoming "**Too Big to Exit**."
+- **Middle-rank volatility** suggests **structural fragility**, with firms unable to stabilize or ascend — reflecting a "**Fragile Middle**" unable to convert mobility into permanence.
+- **Lower-rank saturation** shows **pseudo-stationarity**, where exit is more likely than upward mobility — a symptom of "**regenerative failure**" in the bottom half of the market.
+- The **stationary distribution** over rank states closely resembles a **Pareto-like decay**, echoing wealth inequality in household distributions and reinforcing the idea that **capital mobility in financial markets has collapsed into hierarchical entrenchment**.

@@ -1,0 +1,264 @@
+---
+title: performance
+format:
+  html:
+    code-fold: true
+    toc: true
+    number-sections: true
+execute:
+  enabled: false
+---
+
+## TBTF Interpretation: Market Power, Return, and Volatility
+
+```{python}
+
+from scipy.stats import skew, kurtosis
+import numpy as np
+import pandas as pd
+
+import sqlite3
+tbtf = sqlite3.connect(database="../../tbtf.sqlite")
+
+#cursor = tbtf.cursor()
+#cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+#print(cursor.fetchall())
+
+#crsp = pd.read_sql_query(
+#  sql="SELECT * FROM crsp",
+#  con=tbtf,
+#  parse_dates={"date"}
+#)
+
+ff3 = pd.read_sql_query(
+  sql="SELECT * FROM ff3",
+  con=tbtf,
+  parse_dates={"date"}
+)
+
+pre_index = pd.read_sql_query(
+  sql="SELECT * FROM pre_index",
+  con=tbtf,
+  parse_dates={"date"}
+)
+
+post_index = pd.read_sql_query(
+  sql="SELECT * FROM post_index",
+  con=tbtf,
+  parse_dates={"date"}
+)
+
+post_ff = pd.read_sql_query(
+  sql="SELECT * FROM post_ff",
+  con=tbtf,
+  parse_dates={"date"}
+)
+
+def evaluate_performance(returns, eta=3, p=0.01, periods_per_year=12):
+    """
+    주어진 초과수익률(returns) 시계열에 대해 다양한 성과 지표를 계산합니다.
+    returns는 이미 risk-free rate이 차감된 초과수익률(ret_excess) 시계열이라고 가정합니다.
+    
+    Parameters:
+      - returns: pandas Series 또는 numpy array 형태의 초과수익률
+      - eta: CRRA 계수 (default: 3)
+      - p: Omega ratio 계산 시 기준 수익률 threshold (default: 0.01)
+      - periods_per_year: 연간 관측 기간 수 (예: 월간이면 12, 6M이면 2, 연간이면 1)
+      
+    Returns:
+      - metrics: dict 형태로 각 성과 지표를 반환
+    """
+    def ann_return(r):
+        return (1 + r).prod()**(periods_per_year / len(r)) - 1
+
+    def ann_vol(r):
+        return r.std() * np.sqrt(periods_per_year)
+
+    def sharpe(r):
+        return r.mean() / r.std() * np.sqrt(periods_per_year)
+
+    def sortino(r):
+        downside = r[r < 0]
+        # 만약 downside의 표준편차가 0인 경우, 평균이 양수면 무한대로 처리
+        if downside.std() > 0:
+            return r.mean() / downside.std() * np.sqrt(periods_per_year)
+        else:
+            return np.inf if r.mean() > 0 else 0
+
+    def omega(r):
+        gains = r[r > p] - p
+        losses = p - r[r < p]
+        return gains.sum() / losses.sum() if losses.sum() > 0 else np.nan
+
+    def max_dd(r):
+        cum = (1 + r).cumprod()
+        dd = (cum - cum.cummax()) / cum.cummax()
+        return dd.min()
+
+    def calmar(r):
+        a = ann_return(r)
+        m = max_dd(r)
+        return a / abs(m) if m < 0 else np.nan
+
+    def expected_crra(r):
+        x = 1 + r
+        if eta == 1:
+            return np.log(x).mean()
+        else:
+            return ((x**(1 - eta) - 1) / (1 - eta)).mean()
+
+    def fisher_skew(r):
+        return skew(r, bias=False)
+
+    def pearson_skew(r):
+        mu, med, std = r.mean(), r.median(), r.std()
+        return 3 * (mu - med) / std if std > 0 else np.nan
+
+    def ex_kurt(r):
+        return kurtosis(r, fisher=True, bias=False)
+
+    metrics = {
+        'Annualized Return': ann_return(returns),
+        'Annualized Volatility': ann_vol(returns),
+        'Sharpe Ratio': sharpe(returns),
+        'Sortino Ratio': sortino(returns),
+        'Omega Ratio': omega(returns),
+        'Max Drawdown': max_dd(returns),
+        'Calmar Ratio': calmar(returns),
+        'Expected CRRA': expected_crra(returns),
+        'Fisher Skewness': fisher_skew(returns),
+        'Pearson Skewness': pearson_skew(returns),
+        'Excess Kurtosis': ex_kurt(returns),
+    }
+    return metrics
+
+# 예시 사용:
+# 만약 재조정 주기가 '6M'이면, periods_per_year=2, '12M'이면 1, '1M'이면 12 등을 전달.
+# 예: monthly returns 시, evaluate_performance(returns, periods_per_year=12)
+
+# 벤치마크 포트폴리오 들의 Excess return (i.e. return - r_f) 계산 
+def subtract_rf_from_df(df, ff3, date_col='date'):
+    """
+    df: 날짜와 수익률 데이터를 포함하는 DataFrame. 
+        날짜 컬럼 이름은 기본적으로 'date'로 가정합니다.
+    ff3: ff3 데이터프레임, 'date'와 'r_f' 컬럼을 포함해야 합니다.
+    date_col: 날짜 컬럼의 이름 (기본값 'date').
+    
+    df의 모든 숫자형 수익률 컬럼(날짜 컬럼 제외)에서 ff3의 r_f 값을 해당 날짜에 맞게 차감합니다.
+    """
+    # 날짜 컬럼을 datetime으로 변환
+    df[date_col] = pd.to_datetime(df[date_col])
+    ff3['date'] = pd.to_datetime(ff3['date'])
+    
+    # ff3의 r_f 컬럼만 추출 후, 날짜 기준으로 병합
+    merged = df.merge(ff3[[date_col, 'r_f']], on=date_col, how='left')
+    
+    # 날짜와 r_f를 제외한 모든 숫자형 컬럼에 대해 r_f를 차감
+    numeric_cols = merged.select_dtypes(include='number').columns.tolist()
+    # 만약 날짜 컬럼이 숫자형으로 인식될 경우, 제거
+    if date_col in numeric_cols:
+        numeric_cols.remove(date_col)
+    if 'r_f' in numeric_cols:
+        numeric_cols.remove('r_f')
+        
+    for col in numeric_cols:
+        merged[col] = merged[col] - merged['r_f']
+        
+    # r_f 컬럼은 제거
+    return merged.drop(columns='r_f')
+
+pre_index_excess  = subtract_rf_from_df(pre_index, ff3, date_col='date')
+post_index_excess = subtract_rf_from_df(post_index, ff3, date_col='date')
+post_ff_excess    = subtract_rf_from_df(post_ff, ff3, date_col='date')
+
+```
+
+A core pillar of traditional asset pricing theory posits that investors are compensated for bearing systematic risk. Higher expected returns are assumed to reflect higher exposures to non-diversifiable shocks. This logic extends into the literature linking **market power** to **expected return**: dominant firms with pricing power and barriers to entry may generate higher profit margins, which are viewed as justifying higher long-run returns, albeit at the cost of greater cyclicality or factor sensitivity.
+
+However, the **Too Big to Fail (TBTF)** framework challenges this equilibrium-based view by demonstrating that the structural dominance of mega-cap firms yields not only **comparable or higher average returns**, but also **consistently lower volatility**. Our empirical analysis reveals that:
+
+- The top-ranked firms (e.g., top 10% by market cap) consistently generate **higher median returns** with **narrower return distributions**, virtually eliminating downside outliers post-2010.
+
+
+
+
+
+```{python}
+# 성과 지표 평가
+performance = evaluate_performance(pre_index_excess['^NDX'], eta=3, p=0.01)
+performance
+```
+
+```{python}
+#| fig-cap: "Monthly Return Distribution of TBTF vs. Broader Market (Pre-2010)"
+plot_return_distribution(tbtf_returns, market_returns, period='pre-2010')
+```
+
+```{python}
+#| fig-cap: "Monthly Return Distribution of TBTF vs. Broader Market (Post-2010)"
+plot_return_distribution(tbtf_returns, market_returns, period='post-2010')
+```
+
+```{python}
+#| fig-cap: "Price Level Comparison: TBTF vs. Market (Pre-2010)"
+plot_price_level(tbtf_returns, market_returns, start_date='2000-01-01', end_date='2009-12-31')
+```
+
+```{python}
+#| fig-cap: "Price Level Comparison: TBTF vs. Market (Post-2010)"
+plot_price_level(tbtf_returns, market_returns, start_date='2010-01-01', end_date='2023-12-31')
+```
+
+This figure compares the monthly return distribution of the TBTF portfolio and the market-wide index (e.g., SPY or VTI) during the post-2010 period. TBTF returns are notably less dispersed and exhibit a thicker concentration around the mean.
+
+In this context, we propose a reframed interpretation:
+
+> Market power no longer demands a risk premium—it precludes the risk itself.
+
+To formalize this intuition, we treat:
+- **log(capshare)** as a proxy for forward-looking return potential, reflecting capital markets' implicit confidence in dominant firms,
+- and **percentile-based rank** (e.g., within top-𝑛 assets) as a proxy for structural market power.
+
+The estimated relationship between rank and log(capshare) is **strongly convex**, best approximated by an **exponential function**. This convexity implies that **small changes in rank yield disproportionate shifts in capital allocation**, consistent with a **winner-takes-most** dynamic.
+
+While prior studies (e.g., Hou et al., 2015; Bai et al., 2019) posit that higher expected returns arise as compensation for firm-level productivity or intangible capital risk, our results suggest an alternative mechanism: persistent capital lock-in due to passive flows, platform effects, and institutional mandates.
+
+This reorientation invites a broader philosophical reframing:  
+TBTF stocks do not merely command a premium for bearing risk—they accumulate rents by **removing risk** through their institutional embeddedness.
+
+In contrast to traditional convex pricing models where **market competition disciplines excess returns**, the TBTF structure implies a regime of **quasi-feudal rent extraction**, where **market power ensures return, not through risk, but through insulation**.
+
+
+## Risk-Adjusted Performance Metrics
+
+We evaluate the TBTF strategy against standard benchmarks using several key performance metrics: Sharpe ratio, Sortino ratio, Omega ratio, maximum drawdown, and CRRA utility. All metrics are computed over the out-of-sample post-2010 period.
+
+```{python}
+#| fig-cap: "Monthly Return Distribution of TBTF vs. Broader Market (Pre-2010)"
+plot_return_distribution(tbtf_returns, market_returns, period='pre-2010')
+```
+
+```{python}
+#| fig-cap: "Monthly Return Distribution of TBTF vs. Broader Market (Post-2010)"
+plot_return_distribution(tbtf_returns, market_returns, period='post-2010')
+```
+
+```{python}
+#| fig-cap: "Price Level Comparison: TBTF vs. Market (Pre-2010)"
+plot_price_level(tbtf_returns, market_returns, start_date='2000-01-01', end_date='2009-12-31')
+```
+
+```{python}
+#| fig-cap: "Price Level Comparison: TBTF vs. Market (Post-2010)"
+plot_price_level(tbtf_returns, market_returns, start_date='2010-01-01', end_date='2023-12-31')
+```
+
+
+The TBTF portfolio consistently outperforms across all dimensions, with both higher average returns and lower downside risk exposure. Notably, its Omega ratio remains significantly above 1 for low thresholds, reflecting extremely thin left tails.
+
+
+## Clarification on Distributional Decomposition
+
+Although the intuition behind TBTF's superior return profile is deeply tied to changes in distributional dynamics, we emphasize that the Gaussian Mixture decomposition, transition matrix estimation, and stationary state analysis are fully addressed in [Section 4](04_structure.qmd). Readers seeking formal modeling of return asymmetry, regime persistence, or long-run capital concentration should refer to that section.
+
+In this performance section, we instead emphasize practical backtest results and the empirical coherence of TBTF’s return superiority, without over-relying on latent structure estimation.

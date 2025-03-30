@@ -9,7 +9,7 @@
 <meta name="author" content="gitSAM">
 <meta name="dcterms.date" content="2025-03-31">
 
-<title>Too Big to Fail? – GitSAM</title>
+<title>01 Overview – GitSAM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -130,7 +130,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Too Big to Fail?</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./4_1_overview.html">Model</a></li><li class="breadcrumb-item"><a href="./4_1_overview.html">01 Overview</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -144,7 +144,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Too Big to Fail?</span></a>
   </div>
 </li>
@@ -194,7 +194,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./4_1_overview.html" class="sidebar-item-text sidebar-link">
+  <a href="./4_1_overview.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">01 Overview</span></a>
   </div>
 </li>
@@ -255,17 +255,21 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#key-highlights" id="toc-key-highlights" class="nav-link active" data-scroll-target="#key-highlights">Key Highlights</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a>
+  <ul class="collapse">
+  <li><a href="#main-hypotheses" id="toc-main-hypotheses" class="nav-link" data-scroll-target="#main-hypotheses">Main Hypotheses</a></li>
+  
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./4_1_overview.html">Model</a></li><li class="breadcrumb-item"><a href="./4_1_overview.html">01 Overview</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Too Big to Fail?</h1>
-<p class="subtitle lead">The Sadly Optimal Portfolio Strategy</p>
+<h1 class="title">01 Overview</h1>
+<p class="subtitle lead">Main hypothesis of the TBTF strategy.</p>
 </div>
 
 
@@ -289,37 +293,70 @@ ul.task-list li input[type="checkbox"] {
     
   </div>
   
-<div>
-  <div class="abstract">
-    <div class="block-title">Abstract</div>
-    This paper investigates how post-2008 Federal Reserve policies, ETF proliferation, and passive capital flows have fundamentally altered the structure of U.S. financial markets. Empirical evidence reveals that stock return distributions have become increasingly asymmetric and persistent, resembling a mixture of heterogeneous assets under arbitrage limits—challenging the assumptions of efficient markets and no-arbitrage pricing. At the center of this shift lies the “Too Big to Fail” (TBTF) portfolio strategy, which selects the ten largest market-cap stocks and applies a convex internal weighting scheme. Since 2010, this simple strategy has delivered superior risk-adjusted performance relative to standard benchmarks. However, its success appears to stem not from superior fundamentals, but from structural inefficiencies, capital lock-in, and policy-induced concentration. The study highlights a paradox — the TBTF strategy is “sadly optimal” — profitable when inefficiencies persist, but socially desirable only when it fails. The findings raise broader concerns about the erosion of market competition, allocative efficiency, and the long-term consequences of intervention-driven financial capitalism.
-  </div>
-</div>
 
 
 </header>
 
 
-<section id="key-highlights" class="level2">
-<h2 class="anchored" data-anchor-id="key-highlights">Key Highlights</h2>
-<blockquote class="blockquote">
-<p>Too big to fail? More like too big to be good, too big for justice, and too big to not exploit.</p>
-</blockquote>
+<section id="overview" class="level1">
+<h1>Overview</h1>
+<p>This study investigates the structural properties and empirical performance of a “Too Big To Fail” (TBTF) portfolio strategy, defined as a portfolio composed of the largest market capitalization stocks in the U.S. equity market. Using monthly stock-level data from the CRSP universe (NYSE, Nasdaq, AMEX), we examine whether top-ranked stocks—selected purely by market capitalization—consistently outperform others in terms of risk-adjusted returns.</p>
+<p>Our empirical design centers around the hypothesis that structural asymmetries in capital allocation, exacerbated by post-2008 monetary policies and market concentration, result in persistent distortions in return distributions. The TBTF strategy, though simple in construction, appears to capture these structural features with surprising consistency.</p>
+<p>We treat the year 2010 as a potential structural break, dividing the full sample into two equal-length periods:</p>
 <ul>
-<li><p><strong>Structural Market Distortions and Return Asymmetry</strong><br>
-Post-2008 policies have induced persistent capital flows toward dominant firms while allowing unproductive small-cap firms to survive via liquidity support, resulting in asymmetric return distributions and distorted risk–return profiles.</p></li>
-<li><p><strong>The TBTF Strategy as a Diagnostic Tool</strong><br>
-A simple portfolio of the top 10 market-cap stocks outperforms traditional benchmarks across multiple performance metrics. However, its success reflects structural capital lock-in and systemic inefficiencies rather than superior risk pricing or fundamentals.</p></li>
-<li><p><strong>A Paradox of Optimality and Inefficiency</strong><br>
-The TBTF strategy remains optimal as long as inefficiencies persist. If it fails, it may signal a return to efficient markets. Thus, investors profit from distortions that are socially and economically suboptimal.</p></li>
-<li><p><strong>Implications for Asset Pricing and Market Design</strong><br>
-The findings call for new asset pricing models that incorporate rank-based capital dynamics, asymmetric transition probabilities, and non-ergodic behavior—moving beyond equilibrium-based risk-return tradeoffs.</p></li>
+<li><strong>Pre-2010</strong>: January 1996 to December 2009</li>
+<li><strong>Post-2010</strong>: January 2010 to December 2023</li>
 </ul>
-
+<p>This periodization allows us to analyze both long-term stability and post-crisis distortions in the equity return distribution.</p>
+<section id="main-hypotheses" class="level2">
+<h2 class="anchored" data-anchor-id="main-hypotheses">Main Hypotheses</h2>
+<ol type="1">
+<li><p><strong>Return Superiority</strong>: The return distributions of top market-cap stocks are structurally superior to those of mid- and small-cap stocks in terms of risk-adjusted performance (e.g., Sharpe, Sortino, Omega ratios).</p></li>
+<li><p><strong>Persistence and Absorption</strong>: Stocks that reach the top decile of market capitalization exhibit high persistence and low turnover, potentially distorting market competitiveness and reducing allocative efficiency.</p></li>
+<li><p><strong>Convex Capital Concentration</strong>: The cross-sectional distribution of capital shares among top-ranked stocks is increasingly convex, suggesting long-term structural lock-in effects analogous to wealth inequality (e.g., Lorenz curve analogy).</p></li>
+</ol>
+</section>
 
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section id="appendix" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Appendix</h2><div class="quarto-appendix-contents">
+
+<section id="summary-of-analytical-components-in-the-tbtf-strategy" class="level3">
+<h3 class="anchored" data-anchor-id="summary-of-analytical-components-in-the-tbtf-strategy">Summary of Analytical Components in the TBTF Strategy</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 27%">
+<col style="width: 72%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Component</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Large vs.&nbsp;Small Stocks</td>
+<td>Compare return distributions and volatility structures</td>
+</tr>
+<tr class="even">
+<td>Top 10 Stocks</td>
+<td>Analyze list stability and industry composition (high-tech dominance)</td>
+</tr>
+<tr class="odd">
+<td>Transition Analysis</td>
+<td>Estimate transition probabilities and stationary distributions</td>
+</tr>
+<tr class="even">
+<td>Risk-Adjusted Performance</td>
+<td>Compare Sharpe, Sortino, Omega ratios against benchmarks (ETFs, indices)</td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

@@ -1,0 +1,88 @@
+---
+title: 07 Robustness
+format:
+  html:
+    code-fold: true
+    toc: true
+    number-sections: true
+execute:
+  enabled: false
+---
+
+## Robustness Tests
+
+While the previous section focused on the performance outcomes of the TBTF strategy, this section evaluates the **stability of those outcomes** under variation in core implementation parameters. We test whether the superior performance persists under changes in portfolio size, rebalancing frequency, sample splits, and weighting schemes.
+
+Rather than relying on a single optimized configuration, the TBTF strategy demonstrates structural robustness across plausible alternatives. This not only reinforces the credibility of the results but also supports the practical adaptability of the approach for different institutional contexts.
+
+
+## Sensitivity to Asset Selection Size ($n$)
+
+We test the strategy for varying values of $n$, the number of top-ranked stocks selected by market capitalization. Specifically, we compare results for:
+
+$$
+n \in \{5, 10, 20, 30, 50\}
+$$
+
+This allows us to examine the marginal contribution of expanding the portfolio beyond the top decile. We evaluate how portfolio volatility, Sharpe ratio, and tail risk change with diversification.
+
+```{python}
+#| fig-cap: "Sharpe Ratio and Volatility by Number of Selected Assets (n)"
+plot_sharpe_vs_n()
+```
+
+## Rebalancing Frequency
+
+To test the effect of trading frequency, we implement the strategy with fixed rebalancing intervals:
+
+- Monthly (1M)
+- Quarterly (3M)
+- Semiannual (6M)
+- Annual (12M)
+
+Lower-frequency rebalancing is often preferred by institutional investors due to lower transaction costs. The robustness of TBTF performance under less frequent rebalancing reinforces its practicality.
+
+```{python}
+#| fig-cap: "Cumulative Return of TBTF Strategy under Varying Rebalancing Frequencies"
+plot_return_by_rebalance_frequency()
+```
+
+
+## Sample Period Stability
+
+To avoid look-ahead bias and ensure time-consistent performance, we conduct split-sample out-of-sample tests:
+
+- **Pre-2010 setting**:
+  - In-sample: 1996–1999
+  - Out-of-sample: 2000–2009
+- **Post-2010 setting**:
+  - In-sample: 2010–2013
+  - Out-of-sample: 2014–2023
+
+We also explore alternative splits using 6-year and 8-year in-sample windows. All evaluations are based on risk-adjusted metrics such as the Sharpe ratio, maximum drawdown, tail risk, and turnover.
+
+```{python}
+#| tbl-cap: "Out-of-Sample Performance Metrics (Split by Regime)"
+generate_oos_performance_table()
+```
+
+
+## Alternative Weighting Schemes
+
+To evaluate the contribution of the proposed convex weighting methods, we compare performance across:
+
+- **Equal weighting** (EQ): naive benchmark
+- **Market cap weighting** (VW): proportional to firm size
+- **Quadratic weighting** (TBTF): based on in-sample capital share convexity
+- **Optional**: Inverse volatility weighting
+
+These variations test whether TBTF’s performance is driven primarily by stock selection or by the shape of the weighting function.
+
+```{python}
+#| fig-cap: "Risk-Return Tradeoffs across Weighting Schemes"
+plot_weighting_comparison()
+```
+
+## Summary
+
+Across all specification dimensions—portfolio size, rebalancing frequency, sample period, and weighting approach—the TBTF strategy retains a consistent structural edge. The empirical robustness supports our hypothesis that performance is not merely the result of favorable parameter tuning, but instead reflects a persistent asymmetry in capital concentration and market structure.

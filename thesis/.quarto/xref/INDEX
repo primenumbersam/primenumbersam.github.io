@@ -37,5 +37,44 @@
   },
   "03_history_nyse.qmd": {
     "03_history_nyse.html": "6ff2d064"
+  },
+  "1_intro.qmd": {
+    "1_intro.html": "a4692f71"
+  },
+  "2_lit_review.qmd": {
+    "2_lit_review.html": "70cab58e"
+  },
+  "3_1_history.qmd": {
+    "3_1_history.html": "2b35ac1f"
+  },
+  "3_2_history_nyse.qmd": {
+    "3_2_history_nyse.html": "80b13cdb"
+  },
+  "4_1_overview.qmd": {
+    "4_1_overview.html": "b6225773"
+  },
+  "4_2_data.qmd": {
+    "4_2_data.html": "ae70f5fc"
+  },
+  "4_3_ff_compare.qmd": {
+    "4_3_ff_compare.html": "10e4ad95"
+  },
+  "4_4_structure.qmd": {
+    "4_4_structure.html": "7f6fb325"
+  },
+  "4_5_strategy.qmd": {
+    "4_5_strategy.html": "072fe609"
+  },
+  "4_6_performance.qmd": {
+    "4_6_performance.html": "d361185b"
+  },
+  "4_7_robustness.qmd": {
+    "4_7_robustness.html": "187c6eec"
+  },
+  "4_8_implementation.qmd": {
+    "4_8_implementation.html": "67a529fd"
+  },
+  "5_conclusion.qmd": {
+    "5_conclusion.html": "e3de91d8"
   }
 }
