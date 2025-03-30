@@ -334,7 +334,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="tbtf-interpretation-market-power-return-and-volatility" class="level2">
 <h2 class="anchored" data-anchor-id="tbtf-interpretation-market-power-return-and-volatility">TBTF Interpretation: Market Power, Return, and Volatility</h2>
-<div id="c92b5150" class="cell">
+<div id="a933bacb" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> skew, kurtosis</span>
@@ -501,7 +501,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>The top-ranked firms (e.g., top 10% by market cap) consistently generate <strong>higher median returns</strong> with <strong>narrower return distributions</strong>, virtually eliminating downside outliers post-2010.</li>
 </ul>
-<div id="9e0dd6ec" class="cell">
+<div id="91628e78" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 성과 지표 평가</span></span>
@@ -509,25 +509,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>performance</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="bbc59c7d" class="cell">
+<div id="1679ca66" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>plot_return_distribution(tbtf_returns, market_returns, period<span class="op">=</span><span class="st">'pre-2010'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="36a6617e" class="cell">
+<div id="1347e3ee" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>plot_return_distribution(tbtf_returns, market_returns, period<span class="op">=</span><span class="st">'post-2010'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="ad14d856" class="cell">
+<div id="d7914c6f" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>plot_price_level(tbtf_returns, market_returns, start_date<span class="op">=</span><span class="st">'2000-01-01'</span>, end_date<span class="op">=</span><span class="st">'2009-12-31'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="6ab8146e" class="cell">
+<div id="bb1023f6" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>plot_price_level(tbtf_returns, market_returns, start_date<span class="op">=</span><span class="st">'2010-01-01'</span>, end_date<span class="op">=</span><span class="st">'2023-12-31'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -548,25 +548,25 @@ TBTF stocks do not merely command a premium for bearing risk—they accumulate r
 <section id="risk-adjusted-performance-metrics" class="level2">
 <h2 class="anchored" data-anchor-id="risk-adjusted-performance-metrics">Risk-Adjusted Performance Metrics</h2>
 <p>We evaluate the TBTF strategy against standard benchmarks using several key performance metrics: Sharpe ratio, Sortino ratio, Omega ratio, maximum drawdown, and CRRA utility. All metrics are computed over the out-of-sample post-2010 period.</p>
-<div id="f44da157" class="cell">
+<div id="14ba19b1" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>plot_return_distribution(tbtf_returns, market_returns, period<span class="op">=</span><span class="st">'pre-2010'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="32987208" class="cell">
+<div id="7e0e2f9f" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>plot_return_distribution(tbtf_returns, market_returns, period<span class="op">=</span><span class="st">'post-2010'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="6334729f" class="cell">
+<div id="8a737b1a" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>plot_price_level(tbtf_returns, market_returns, start_date<span class="op">=</span><span class="st">'2000-01-01'</span>, end_date<span class="op">=</span><span class="st">'2009-12-31'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="1802194a" class="cell">
+<div id="c10ec7f7" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>plot_price_level(tbtf_returns, market_returns, start_date<span class="op">=</span><span class="st">'2010-01-01'</span>, end_date<span class="op">=</span><span class="st">'2023-12-31'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -576,7 +576,7 @@ TBTF stocks do not merely command a premium for bearing risk—they accumulate r
 </section>
 <section id="clarification-on-distributional-decomposition" class="level2">
 <h2 class="anchored" data-anchor-id="clarification-on-distributional-decomposition">Clarification on Distributional Decomposition</h2>
-<p>Although the intuition behind TBTF’s superior return profile is deeply tied to changes in distributional dynamics, we emphasize that the Gaussian Mixture decomposition, transition matrix estimation, and stationary state analysis are fully addressed in <a href="04_structure.qmd">Section 4</a>. Readers seeking formal modeling of return asymmetry, regime persistence, or long-run capital concentration should refer to that section.</p>
+<p>Although the intuition behind TBTF’s superior return profile is deeply tied to changes in distributional dynamics, we emphasize that the Gaussian Mixture decomposition, transition matrix estimation, and stationary state analysis are fully addressed in <a href="./4_4_structure.html">Section 4</a>. Readers seeking formal modeling of return asymmetry, regime persistence, or long-run capital concentration should refer to that section.</p>
 <p>In this performance section, we instead emphasize practical backtest results and the empirical coherence of TBTF’s return superiority, without over-relying on latent structure estimation.</p>
 
 
