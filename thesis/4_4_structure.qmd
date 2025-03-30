@@ -1,6 +1,5 @@
 ---
 title: 04 Structure
-date: 2025-03-28
 format:
   html:
     code-fold: true

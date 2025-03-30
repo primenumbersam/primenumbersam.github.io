@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="gitSAM">
-<meta name="dcterms.date" content="2025-03-28">
+<meta name="dcterms.date" content="2025-03-31">
 
 <title>04 Structure – GitSAM</title>
 <style>
@@ -270,7 +270,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./4_3_ff_compare.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">03 Size-Sorted Portfolios</span></a>
+ <span class="menu-text">03 Benchmarks</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -288,7 +288,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./4_6_performance.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">performance</span></a>
+ <span class="menu-text">06 Performance</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -306,8 +306,11 @@ window.Quarto = {
       </ul>
   </li>
         <li class="sidebar-item">
- <span class="menu-text">05_conclusion.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./5_conclusion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conclusion</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -366,7 +369,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 28, 2025</p>
+      <p class="date">March 31, 2025</p>
     </div>
   </div>
   
@@ -381,7 +384,7 @@ window.Quarto = {
 <section id="structural-analysis" class="level1">
 <h1>Structural Analysis</h1>
 <p>This section decomposes the structural mechanisms underlying the TBTF strategy across two economic regimes—pre-2010 and post-2010. By comparing these periods, we identify changes in distributional composition, capital concentration, and rank mobility that reflect broader shifts in financial market dynamics following systemic interventions and structural innovation—each of which challenges conventional assumptions in asset pricing and market efficiency.</p>
-<div id="40c93c5c" class="cell">
+<div id="0ab46279" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># CRSP dataframe import</span></span>
@@ -427,7 +430,7 @@ R_t^{\text{market}} = w_t \cdot R_t^{(10)} + (1 - w_t) \cdot R_t^{(&lt;10)}
 <section id="interpretation" class="level3">
 <h3 class="anchored" data-anchor-id="interpretation">Interpretation</h3>
 <p>The empirical results from the mixture decomposition provide compelling evidence of a <strong>structural shift</strong> in how market returns are generated and distributed. Unlike traditional interpretations that focus on regime switching (e.g., bull vs.&nbsp;bear), our analysis reveals a <strong>persistent cross-sectional asymmetry</strong>—notably between the <strong>top decile</strong> and the <strong>remaining 90%</strong> of firms by market capitalization.</p>
-<div id="795dea12" class="cell">
+<div id="8c936959" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># df_mix</span></span>
@@ -480,7 +483,7 @@ R_t^{\text{market}} = w_t \cdot R_t^{(10)} + (1 - w_t) \cdot R_t^{(&lt;10)}
 </div>
 <section id="capital-lock-in-and-mixture-weight-dynamics" class="level4">
 <h4 class="anchored" data-anchor-id="capital-lock-in-and-mixture-weight-dynamics">Capital Lock-In and Mixture Weight Dynamics</h4>
-<div id="b34d4081" class="cell">
+<div id="34b953a4" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Time-series Capital Weight of Top 10% (State = 10)</span></span>
@@ -505,7 +508,7 @@ R_t^{\text{market}} = w_t \cdot R_t^{(10)} + (1 - w_t) \cdot R_t^{(&lt;10)}
 </section>
 <section id="unconditional-return-distributions-top-vs.-rest" class="level4">
 <h4 class="anchored" data-anchor-id="unconditional-return-distributions-top-vs.-rest">Unconditional Return Distributions: Top vs.&nbsp;Rest</h4>
-<div id="5c1e7489" class="cell">
+<div id="234778ee" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Unconditional Return Distribution: Actual vs. Estimated Mixture</span></span>
@@ -562,7 +565,7 @@ R_t^{\text{market}} = w_t \cdot R_t^{(10)} + (1 - w_t) \cdot R_t^{(&lt;10)}
 <span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="81212362" class="cell">
+<div id="86a60dc9" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Unconditional Return Distribution by Period and Capital Rank Group</span></span>
@@ -617,7 +620,7 @@ R_t^{\text{market}} = w_t \cdot R_t^{(10)} + (1 - w_t) \cdot R_t^{(&lt;10)}
 </section>
 <section id="gaussian-mixture-results-two-component-fit" class="level4">
 <h4 class="anchored" data-anchor-id="gaussian-mixture-results-two-component-fit">Gaussian Mixture Results: Two-Component Fit</h4>
-<div id="a5ed4183" class="cell">
+<div id="a92506e2" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># GMM (k=2) for Top 10% and for Remining 90% </span></span>
@@ -658,7 +661,7 @@ R_t^{\text{market}} = w_t \cdot R_t^{(10)} + (1 - w_t) \cdot R_t^{(&lt;10)}
 </section>
 <section id="testing-internal-heterogeneity-in-top-decile" class="level4">
 <h4 class="anchored" data-anchor-id="testing-internal-heterogeneity-in-top-decile">Testing Internal Heterogeneity in Top Decile</h4>
-<div id="0fb28036" class="cell">
+<div id="8b19ca23" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># k Selection by AIC vs. BIC</span></span>
@@ -731,7 +734,7 @@ R_t^{\text{market}} = w_t \cdot R_t^{(10)} + (1 - w_t) \cdot R_t^{(&lt;10)}
 </section>
 <section id="interpretation-1" class="level3">
 <h3 class="anchored" data-anchor-id="interpretation-1">Interpretation</h3>
-<div id="debc92aa" class="cell">
+<div id="5af44245" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Time-Series of Capital Share Convexity</span></span>
@@ -798,7 +801,7 @@ R_t^{\text{market}} = w_t \cdot R_t^{(10)} + (1 - w_t) \cdot R_t^{(&lt;10)}
 </details>
 </div>
 <p>The time-series of the capital share convexity coefficient, <span class="math inline">\(\gamma_t\)</span>, estimated via cross-sectional quadratic regressions, reveals a striking and persistent structure.</p>
-<div id="1e8d601b" class="cell">
+<div id="63a825a8" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>gamma_df.drop(<span class="st">'date'</span>, axis<span class="op">=</span><span class="dv">1</span>).describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -854,7 +857,7 @@ P_{ij} = \Pr(\text{state}_{t+1} = j \mid \text{state}_t = i)
 <section id="interpretation-2" class="level3">
 <h3 class="anchored" data-anchor-id="interpretation-2">Interpretation</h3>
 <p>The estimated transition matrix and its long-run stationary distribution reveal clear signs of <strong>capital lock-in, irreversibility, and structural mobility collapse</strong> in the U.S. equity market.</p>
-<div id="6a89776e" class="cell">
+<div id="0dbe228a" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># transition_matrix, stationary_series</span></span>
@@ -916,7 +919,7 @@ P_{ij} = \Pr(\text{state}_{t+1} = j \mid \text{state}_t = i)
 <p>This result supports the characterization of the top decile as a <strong>quasi-absorbing state</strong>—once firms enter, they tend to remain for extended periods, creating a long-term <strong>incumbency advantage</strong>.</p>
 <p>Conversely, <strong>states 4 and 5</strong> show the <strong>lowest diagonal entries</strong> (both ≈ 0.79), yielding the shortest expected durations. This suggests that firms in these mid-level ranks are most prone to <strong>reclassification</strong>—either moving up, down, or out—indicating <strong>local instability</strong> near the center of the capital distribution.</p>
 <p>Despite expectations that <strong>delisting risk</strong> (i.e., transition to State 0) would dominate in the lower ranks, the empirical matrix reveals that <strong>direct exits from States 1–10 are essentially zero</strong>. This implies that delisting or market exit rarely occurs from within the ranked universe. Instead, new listings (from State 0) enter most frequently into <strong>State 3</strong>, resulting in a pronounced <strong>inverted U-shape</strong> in the transition row from State 0.</p>
-<div id="3c2b12c5" class="cell">
+<div id="4ce933ae" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Long-Run Stationary Distribution by State (Excl. Exit)</span></span>

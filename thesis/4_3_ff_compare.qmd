@@ -1,5 +1,5 @@
 ---
-title: 03 Size-Sorted Portfolios
+title: 03 Benchmarks
 execute:
   enabled: true
 ---
@@ -89,15 +89,7 @@ We compare the `s_10` and `b_10` portfolios in three dimensions:
 
 Unlike most academic studies that summarize portfolio performance using static points in mean–volatility space, we propose a dynamic framework in which Sharpe ratios are evaluated as time-series objects. This allows us to capture persistent structural asymmetries.
 
-## Key Findings
-
-1. The `b_10` portfolio exhibits consistently lower volatility than `s_10`, across the full 60-year period.
-2. Dynamic Sharpe ratio visualization reveals that the performance advantage of `b_10` is persistent over time, not a byproduct of a particular decade or business cycle.
-3. QQ-plots show that `b_10` excess returns are closer to Gaussian, while `s_10` returns display tail asymmetry—characterized by positive skewness and negative tail risk.
-
-These results suggest that large-cap portfolios, especially those at the very top of the capitalization spectrum, provide more stable and efficient **excess return profiles**. This supports the structural validity of selecting top-ranked assets by market capitalization in TBTF portfolio construction.
-
-## Sharpe Ratio Dynamics
+### Sharpe Ratio Dynamics
 
 While static comparisons of mean and volatility offer useful summary insights, they can be misleading in the presence of temporal instability. To capture the **time-varying performance profile** of small- and large-cap portfolios, we construct **rolling Sharpe ratios** using annualized excess returns.
 
@@ -109,7 +101,13 @@ $$
 
 We focus on the bottom and top size deciles: `s_10` (small-cap) and `b_10` (large-cap).
 
-### Key Results
+## Key Findings
+
+1. The `b_10` portfolio exhibits consistently lower volatility than `s_10`, across the full 60-year period.
+2. Dynamic Sharpe ratio visualization reveals that the performance advantage of `b_10` is persistent over time, not a byproduct of a particular decade or business cycle.
+3. QQ-plots show that `b_10` excess returns are closer to Gaussian, while `s_10` returns display tail asymmetry—characterized by positive skewness and negative tail risk.
+
+These results suggest that large-cap portfolios, especially those at the very top of the capitalization spectrum, provide more stable and efficient **excess return profiles**. This supports the structural validity of selecting top-ranked assets by market capitalization in TBTF portfolio construction.
 
 - Over the 60-year period, the **unconditional average annual Sharpe ratio** of `b_10` was **0.99**, compared to **0.74** for `s_10`.
 - The time-series of rolling Sharpe ratios reveals that `b_10` **dominates structurally**, not just in isolated windows.
@@ -118,10 +116,6 @@ We focus on the bottom and top size deciles: `s_10` (small-cap) and `b_10` (larg
 
 ```{python}
 #@title Time-series of s_10 vs. b_10
-# ![](figs/annual_mean_diff_s10_b10.png)
-# ![](figs/annual_std_diff_s10_b10.png)
-# ![](figs/sharpe_curve_s10_b10.png)
-# ![](figs/sharpe_plane_s10_b10.png)
 
 # moving average
 # pfo_size_rolling = pfo_size.rolling(window=12).mean()
@@ -141,6 +135,26 @@ annual_mean = pfo_size.groupby('fiscal_year').mean()*12
 annual_std = pfo_size.groupby('fiscal_year').std() * np.sqrt(12)
 # annual_std.dropna(inplace=True)
 
+#@title Time-series of s_10 vs. b_10
+temp = annual_mean['s_10'] - annual_mean['b_10']
+temp.plot()
+plt.axhline(y= temp.mean(), color='r', linestyle='-')
+plt.xlabel('fiscal year')
+plt.ylabel('annual mean difference')
+plt.title('Time-series of s_10 minus b_10 in annual mean')
+plt.show()
+print('The unconditional mean of the difference is '+str(temp.mean().round(0))+ ' percent, annually')
+print('\n')
+
+temp = annual_std['s_10'] - annual_std['b_10']
+temp.plot()
+plt.axhline(y= temp.mean(), color='r', linestyle='-')
+plt.xlabel('fiscal year')
+plt.ylabel('annual std difference')
+plt.title('Time-series of s_10 minus b_10 in annual volatility')
+plt.show()
+print('The unconditional mean of the difference is '+str(temp.mean().round(0))+ ' percent, annually')
+print('\n')
 
 # annual_mean and annual_std have the same index
 df = pd.DataFrame(index=annual_mean.index)
@@ -157,7 +171,7 @@ plt.ylabel('Sharpe Ratio')
 plt.title('Time-series Sharpe Ratios of s_10 and b_10')
 plt.show()
 print('The unconditional mean Annual Sharpe ratio of s_10 is '+str(df['sr_s_10'].mean().round(2)))
-print('The unconditional mean annual Sharpe ratio of b_10 is '+str(df['sr_b_10'].mean().round(2)))
+print('The unconditional mean Annual Sharpe ratio of b_10 is '+str(df['sr_b_10'].mean().round(2)))
 ```
 
 - *Annual excess return difference: `s_10 – b_10`. The red horizontal line marks the long-run average (~3.0% annually).*
@@ -224,7 +238,7 @@ These dynamic plots provide a richer understanding of the **persistent performan
 
 ## Appendix {.appendix}
 
-### Figure A1: QQ Plot – `s_10` vs. `b_10`
+### QQ Plot – `s_10` vs. `b_10`
 
 
 ```{python}
@@ -313,7 +327,7 @@ To evaluate the return distribution characteristics of small-cap and large-cap p
    This pattern suggests **positive skewness**—i.e., occasional high positive returns but more frequent or severe downside shocks. Such asymmetry is common in small-cap stocks, which may have explosive upside potential but are also subject to default or delisting risk. The departure from symmetry in `s_10` strengthens the case for mixture modeling and asymmetric tail analysis in the TBTF framework.
 
 
-### Table A1: Paired T-test (1963–2023)
+### Paired T-test (1963–2023)
 
 ```{python}
 #@title Dependent t-test (annualized mean. Small sample)

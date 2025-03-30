@@ -9,7 +9,7 @@
 <meta name="author" content="gitSAM">
 <meta name="dcterms.date" content="2025-03-31">
 
-<title>performance – GitSAM</title>
+<title>06 Performance – GitSAM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -164,7 +164,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./4_1_overview.html">Model</a></li><li class="breadcrumb-item"><a href="./4_6_performance.html">performance</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./4_1_overview.html">Model</a></li><li class="breadcrumb-item"><a href="./4_6_performance.html">06 Performance</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -241,7 +241,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./4_3_ff_compare.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">03 Size-Sorted Portfolios</span></a>
+ <span class="menu-text">03 Benchmarks</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -259,7 +259,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./4_6_performance.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">performance</span></a>
+ <span class="menu-text">06 Performance</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -277,8 +277,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </ul>
   </li>
         <li class="sidebar-item">
- <span class="menu-text">05_conclusion.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./5_conclusion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conclusion</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -289,18 +292,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#tbtf-interpretation-market-power-return-and-volatility" id="toc-tbtf-interpretation-market-power-return-and-volatility" class="nav-link active" data-scroll-target="#tbtf-interpretation-market-power-return-and-volatility"><span class="header-section-number">1</span> TBTF Interpretation: Market Power, Return, and Volatility</a></li>
-  <li><a href="#risk-adjusted-performance-metrics" id="toc-risk-adjusted-performance-metrics" class="nav-link" data-scroll-target="#risk-adjusted-performance-metrics"><span class="header-section-number">2</span> Risk-Adjusted Performance Metrics</a></li>
-  <li><a href="#clarification-on-distributional-decomposition" id="toc-clarification-on-distributional-decomposition" class="nav-link" data-scroll-target="#clarification-on-distributional-decomposition"><span class="header-section-number">3</span> Clarification on Distributional Decomposition</a></li>
+  <li><a href="#tbtf-interpretation-market-power-return-and-volatility" id="toc-tbtf-interpretation-market-power-return-and-volatility" class="nav-link active" data-scroll-target="#tbtf-interpretation-market-power-return-and-volatility">TBTF Interpretation: Market Power, Return, and Volatility</a></li>
+  <li><a href="#risk-adjusted-performance-metrics" id="toc-risk-adjusted-performance-metrics" class="nav-link" data-scroll-target="#risk-adjusted-performance-metrics">Risk-Adjusted Performance Metrics</a></li>
+  <li><a href="#clarification-on-distributional-decomposition" id="toc-clarification-on-distributional-decomposition" class="nav-link" data-scroll-target="#clarification-on-distributional-decomposition">Clarification on Distributional Decomposition</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./4_1_overview.html">Model</a></li><li class="breadcrumb-item"><a href="./4_6_performance.html">performance</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./4_1_overview.html">Model</a></li><li class="breadcrumb-item"><a href="./4_6_performance.html">06 Performance</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">performance</h1>
+<h1 class="title">06 Performance</h1>
 </div>
 
 
@@ -329,9 +332,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="tbtf-interpretation-market-power-return-and-volatility" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="tbtf-interpretation-market-power-return-and-volatility"><span class="header-section-number">1</span> TBTF Interpretation: Market Power, Return, and Volatility</h2>
-<div id="8e9a3713" class="cell">
+<section id="tbtf-interpretation-market-power-return-and-volatility" class="level2">
+<h2 class="anchored" data-anchor-id="tbtf-interpretation-market-power-return-and-volatility">TBTF Interpretation: Market Power, Return, and Volatility</h2>
+<div id="c92b5150" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.stats <span class="im">import</span> skew, kurtosis</span>
@@ -498,7 +501,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>The top-ranked firms (e.g., top 10% by market cap) consistently generate <strong>higher median returns</strong> with <strong>narrower return distributions</strong>, virtually eliminating downside outliers post-2010.</li>
 </ul>
-<div id="b3fa0573" class="cell">
+<div id="9e0dd6ec" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 성과 지표 평가</span></span>
@@ -506,25 +509,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>performance</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="277a93c9" class="cell">
+<div id="bbc59c7d" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>plot_return_distribution(tbtf_returns, market_returns, period<span class="op">=</span><span class="st">'pre-2010'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="477efb8a" class="cell">
+<div id="36a6617e" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>plot_return_distribution(tbtf_returns, market_returns, period<span class="op">=</span><span class="st">'post-2010'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="2e1dab35" class="cell">
+<div id="ad14d856" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>plot_price_level(tbtf_returns, market_returns, start_date<span class="op">=</span><span class="st">'2000-01-01'</span>, end_date<span class="op">=</span><span class="st">'2009-12-31'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="fb519d76" class="cell">
+<div id="6ab8146e" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>plot_price_level(tbtf_returns, market_returns, start_date<span class="op">=</span><span class="st">'2010-01-01'</span>, end_date<span class="op">=</span><span class="st">'2023-12-31'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -542,28 +545,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 TBTF stocks do not merely command a premium for bearing risk—they accumulate rents by <strong>removing risk</strong> through their institutional embeddedness.</p>
 <p>In contrast to traditional convex pricing models where <strong>market competition disciplines excess returns</strong>, the TBTF structure implies a regime of <strong>quasi-feudal rent extraction</strong>, where <strong>market power ensures return, not through risk, but through insulation</strong>.</p>
 </section>
-<section id="risk-adjusted-performance-metrics" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="risk-adjusted-performance-metrics"><span class="header-section-number">2</span> Risk-Adjusted Performance Metrics</h2>
+<section id="risk-adjusted-performance-metrics" class="level2">
+<h2 class="anchored" data-anchor-id="risk-adjusted-performance-metrics">Risk-Adjusted Performance Metrics</h2>
 <p>We evaluate the TBTF strategy against standard benchmarks using several key performance metrics: Sharpe ratio, Sortino ratio, Omega ratio, maximum drawdown, and CRRA utility. All metrics are computed over the out-of-sample post-2010 period.</p>
-<div id="afe51861" class="cell">
+<div id="f44da157" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>plot_return_distribution(tbtf_returns, market_returns, period<span class="op">=</span><span class="st">'pre-2010'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="f6a3686e" class="cell">
+<div id="32987208" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>plot_return_distribution(tbtf_returns, market_returns, period<span class="op">=</span><span class="st">'post-2010'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="ca12622c" class="cell">
+<div id="6334729f" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>plot_price_level(tbtf_returns, market_returns, start_date<span class="op">=</span><span class="st">'2000-01-01'</span>, end_date<span class="op">=</span><span class="st">'2009-12-31'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="7a4c22d5" class="cell">
+<div id="1802194a" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>plot_price_level(tbtf_returns, market_returns, start_date<span class="op">=</span><span class="st">'2010-01-01'</span>, end_date<span class="op">=</span><span class="st">'2023-12-31'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -571,8 +574,8 @@ TBTF stocks do not merely command a premium for bearing risk—they accumulate r
 </div>
 <p>The TBTF portfolio consistently outperforms across all dimensions, with both higher average returns and lower downside risk exposure. Notably, its Omega ratio remains significantly above 1 for low thresholds, reflecting extremely thin left tails.</p>
 </section>
-<section id="clarification-on-distributional-decomposition" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="clarification-on-distributional-decomposition"><span class="header-section-number">3</span> Clarification on Distributional Decomposition</h2>
+<section id="clarification-on-distributional-decomposition" class="level2">
+<h2 class="anchored" data-anchor-id="clarification-on-distributional-decomposition">Clarification on Distributional Decomposition</h2>
 <p>Although the intuition behind TBTF’s superior return profile is deeply tied to changes in distributional dynamics, we emphasize that the Gaussian Mixture decomposition, transition matrix estimation, and stationary state analysis are fully addressed in <a href="04_structure.qmd">Section 4</a>. Readers seeking formal modeling of return asymmetry, regime persistence, or long-run capital concentration should refer to that section.</p>
 <p>In this performance section, we instead emphasize practical backtest results and the empirical coherence of TBTF’s return superiority, without over-relying on latent structure estimation.</p>
 

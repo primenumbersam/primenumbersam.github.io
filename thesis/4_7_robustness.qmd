@@ -1,10 +1,5 @@
 ---
 title: 07 Robustness
-format:
-  html:
-    code-fold: true
-    toc: true
-    number-sections: true
 execute:
   enabled: false
 ---

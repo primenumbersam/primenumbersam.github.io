@@ -270,7 +270,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./4_3_ff_compare.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">03 Size-Sorted Portfolios</span></a>
+ <span class="menu-text">03 Benchmarks</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -288,7 +288,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./4_6_performance.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">performance</span></a>
+ <span class="menu-text">06 Performance</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -306,8 +306,11 @@ window.Quarto = {
       </ul>
   </li>
         <li class="sidebar-item">
- <span class="menu-text">05_conclusion.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="./5_conclusion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conclusion</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -318,12 +321,12 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#robustness-tests" id="toc-robustness-tests" class="nav-link active" data-scroll-target="#robustness-tests"><span class="header-section-number">1</span> Robustness Tests</a></li>
-  <li><a href="#sensitivity-to-asset-selection-size-n" id="toc-sensitivity-to-asset-selection-size-n" class="nav-link" data-scroll-target="#sensitivity-to-asset-selection-size-n"><span class="header-section-number">2</span> Sensitivity to Asset Selection Size (<span class="math inline">\(n\)</span>)</a></li>
-  <li><a href="#rebalancing-frequency" id="toc-rebalancing-frequency" class="nav-link" data-scroll-target="#rebalancing-frequency"><span class="header-section-number">3</span> Rebalancing Frequency</a></li>
-  <li><a href="#sample-period-stability" id="toc-sample-period-stability" class="nav-link" data-scroll-target="#sample-period-stability"><span class="header-section-number">4</span> Sample Period Stability</a></li>
-  <li><a href="#alternative-weighting-schemes" id="toc-alternative-weighting-schemes" class="nav-link" data-scroll-target="#alternative-weighting-schemes"><span class="header-section-number">5</span> Alternative Weighting Schemes</a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">6</span> Summary</a></li>
+  <li><a href="#robustness-tests" id="toc-robustness-tests" class="nav-link active" data-scroll-target="#robustness-tests">Robustness Tests</a></li>
+  <li><a href="#sensitivity-to-asset-selection-size-n" id="toc-sensitivity-to-asset-selection-size-n" class="nav-link" data-scroll-target="#sensitivity-to-asset-selection-size-n">Sensitivity to Asset Selection Size (<span class="math inline">\(n\)</span>)</a></li>
+  <li><a href="#rebalancing-frequency" id="toc-rebalancing-frequency" class="nav-link" data-scroll-target="#rebalancing-frequency">Rebalancing Frequency</a></li>
+  <li><a href="#sample-period-stability" id="toc-sample-period-stability" class="nav-link" data-scroll-target="#sample-period-stability">Sample Period Stability</a></li>
+  <li><a href="#alternative-weighting-schemes" id="toc-alternative-weighting-schemes" class="nav-link" data-scroll-target="#alternative-weighting-schemes">Alternative Weighting Schemes</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
   </ul>
 </nav>
     </div>
@@ -361,27 +364,27 @@ window.Quarto = {
 </header>
 
 
-<section id="robustness-tests" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="robustness-tests"><span class="header-section-number">1</span> Robustness Tests</h2>
+<section id="robustness-tests" class="level2">
+<h2 class="anchored" data-anchor-id="robustness-tests">Robustness Tests</h2>
 <p>While the previous section focused on the performance outcomes of the TBTF strategy, this section evaluates the <strong>stability of those outcomes</strong> under variation in core implementation parameters. We test whether the superior performance persists under changes in portfolio size, rebalancing frequency, sample splits, and weighting schemes.</p>
 <p>Rather than relying on a single optimized configuration, the TBTF strategy demonstrates structural robustness across plausible alternatives. This not only reinforces the credibility of the results but also supports the practical adaptability of the approach for different institutional contexts.</p>
 </section>
-<section id="sensitivity-to-asset-selection-size-n" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="sensitivity-to-asset-selection-size-n"><span class="header-section-number">2</span> Sensitivity to Asset Selection Size (<span class="math inline">\(n\)</span>)</h2>
+<section id="sensitivity-to-asset-selection-size-n" class="level2">
+<h2 class="anchored" data-anchor-id="sensitivity-to-asset-selection-size-n">Sensitivity to Asset Selection Size (<span class="math inline">\(n\)</span>)</h2>
 <p>We test the strategy for varying values of <span class="math inline">\(n\)</span>, the number of top-ranked stocks selected by market capitalization. Specifically, we compare results for:</p>
 <p><span class="math display">\[
 n \in \{5, 10, 20, 30, 50\}
 \]</span></p>
 <p>This allows us to examine the marginal contribution of expanding the portfolio beyond the top decile. We evaluate how portfolio volatility, Sharpe ratio, and tail risk change with diversification.</p>
-<div id="5107454a" class="cell">
+<div id="93ccc15b" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>plot_sharpe_vs_n()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
-<section id="rebalancing-frequency" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="rebalancing-frequency"><span class="header-section-number">3</span> Rebalancing Frequency</h2>
+<section id="rebalancing-frequency" class="level2">
+<h2 class="anchored" data-anchor-id="rebalancing-frequency">Rebalancing Frequency</h2>
 <p>To test the effect of trading frequency, we implement the strategy with fixed rebalancing intervals:</p>
 <ul>
 <li>Monthly (1M)</li>
@@ -390,15 +393,15 @@ n \in \{5, 10, 20, 30, 50\}
 <li>Annual (12M)</li>
 </ul>
 <p>Lower-frequency rebalancing is often preferred by institutional investors due to lower transaction costs. The robustness of TBTF performance under less frequent rebalancing reinforces its practicality.</p>
-<div id="a2123428" class="cell">
+<div id="1b24d478" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>plot_return_by_rebalance_frequency()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
-<section id="sample-period-stability" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="sample-period-stability"><span class="header-section-number">4</span> Sample Period Stability</h2>
+<section id="sample-period-stability" class="level2">
+<h2 class="anchored" data-anchor-id="sample-period-stability">Sample Period Stability</h2>
 <p>To avoid look-ahead bias and ensure time-consistent performance, we conduct split-sample out-of-sample tests:</p>
 <ul>
 <li><strong>Pre-2010 setting</strong>:
@@ -413,15 +416,15 @@ n \in \{5, 10, 20, 30, 50\}
 </ul></li>
 </ul>
 <p>We also explore alternative splits using 6-year and 8-year in-sample windows. All evaluations are based on risk-adjusted metrics such as the Sharpe ratio, maximum drawdown, tail risk, and turnover.</p>
-<div id="4ea29ebd" class="cell" data-tbl-cap="Out-of-Sample Performance Metrics (Split by Regime)">
+<div id="8f33b236" class="cell" data-tbl-cap="Out-of-Sample Performance Metrics (Split by Regime)">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>generate_oos_performance_table()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
-<section id="alternative-weighting-schemes" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="alternative-weighting-schemes"><span class="header-section-number">5</span> Alternative Weighting Schemes</h2>
+<section id="alternative-weighting-schemes" class="level2">
+<h2 class="anchored" data-anchor-id="alternative-weighting-schemes">Alternative Weighting Schemes</h2>
 <p>To evaluate the contribution of the proposed convex weighting methods, we compare performance across:</p>
 <ul>
 <li><strong>Equal weighting</strong> (EQ): naive benchmark</li>
@@ -430,15 +433,15 @@ n \in \{5, 10, 20, 30, 50\}
 <li><strong>Optional</strong>: Inverse volatility weighting</li>
 </ul>
 <p>These variations test whether TBTF’s performance is driven primarily by stock selection or by the shape of the weighting function.</p>
-<div id="a215de22" class="cell">
+<div id="27a930c7" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>plot_weighting_comparison()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
-<section id="summary" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="summary"><span class="header-section-number">6</span> Summary</h2>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
 <p>Across all specification dimensions—portfolio size, rebalancing frequency, sample period, and weighting approach—the TBTF strategy retains a consistent structural edge. The empirical robustness supports our hypothesis that performance is not merely the result of favorable parameter tuning, but instead reflects a persistent asymmetry in capital concentration and market structure.</p>
 
 

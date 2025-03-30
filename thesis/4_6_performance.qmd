@@ -1,10 +1,5 @@
 ---
-title: performance
-format:
-  html:
-    code-fold: true
-    toc: true
-    number-sections: true
+title: 06 Performance
 execute:
   enabled: false
 ---
@@ -178,9 +173,6 @@ A core pillar of traditional asset pricing theory posits that investors are comp
 However, the **Too Big to Fail (TBTF)** framework challenges this equilibrium-based view by demonstrating that the structural dominance of mega-cap firms yields not only **comparable or higher average returns**, but also **consistently lower volatility**. Our empirical analysis reveals that:
 
 - The top-ranked firms (e.g., top 10% by market cap) consistently generate **higher median returns** with **narrower return distributions**, virtually eliminating downside outliers post-2010.
-
-
-
 
 
 ```{python}
