@@ -19,3 +19,4 @@ abstract: This paper investigates how post-2008 Federal Reserve policies, ETF pr
 
 - **Implications for Asset Pricing and Market Design**  
   The findings call for new asset pricing models that incorporate rank-based capital dynamics, asymmetric transition probabilities, and non-ergodic behavior—moving beyond equilibrium-based risk-return tradeoffs.
+

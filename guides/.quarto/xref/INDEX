@@ -22,5 +22,11 @@
   },
   "yield_curve.qmd": {
     "yield_curve.html": "cd9656f5"
+  },
+  "finance_existence.qmd": {
+    "finance_existence.html": "fcaab05f"
+  },
+  "finance_linear.qmd": {
+    "finance_linear.html": "b4883bf8"
   }
 }

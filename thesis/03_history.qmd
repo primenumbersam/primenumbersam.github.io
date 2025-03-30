@@ -84,7 +84,3 @@ This concentration implies that capital has become locked into a narrow subset o
 | 2018-01-01   | U.S.–China Trade Tensions                                | High |
 | 2020-03-11   | COVID-19 Declared (Policy + Liquidity Response)          | **Very High** |
 | 2023–Present | Rise of AI in Markets (NLP, LLMs)                        | High          |
-
----
-
-{{< include 03_history_nyse.qmd >}}

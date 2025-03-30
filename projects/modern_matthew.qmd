@@ -1,9 +1,9 @@
 ---
-title: The Modern Matthew Effect
+title: Modern Matthew Effect
 subtitle: Capital Lock-In, Declining Mobility and Social Welfare
 author: gitSAM
 date: '2025-03-28'
-abstract: 돈도 많은 애들 중에서도, 작년에 돈 제일 많이 벌었던 애들이 다음 달에 또 벌 확률이 높았다 (2010년 이후에는 더욱더)
+abstract: 돈도 많은 애들 중에서도, 작년에 돈 제일 많이 벌었던 애들이 다음 달에 또 벌 확률이 높았다
 format:
   html:
     code-fold: true

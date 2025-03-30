@@ -9,6 +9,8 @@ format:
     toc: true
     number-sections: false
 jupyter: python3
+execute:
+  enabled: false
 ---
 
 성장과 분배의 균형? [^1].
@@ -109,6 +111,7 @@ $${#eq-pythagorean}
 ```{python}
 #| label: fig-polar
 #| fig-cap: "A line plot on a polar axis"
+#| fig-alt: "Polar axis plot"
 
 import numpy as np
 import matplotlib.pyplot as plt

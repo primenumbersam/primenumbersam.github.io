@@ -38,6 +38,8 @@ website:
         - yield_curve.qmd
         - correlation_crypto.qmd
         - finance_asset_puzzle.qmd
+        - finance_linear.qmd
+        - finance_existence.qmd
       - section: "수학"
         contents: 
         - pareto_index.qmd

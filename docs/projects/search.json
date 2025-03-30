@@ -86,61 +86,61 @@
   {
     "objectID": "pricing_equal.html",
     "href": "pricing_equal.html",
-    "title": "평등한 교육기회?",
+    "title": "Market Price of Education",
     "section": "",
     "text": "By applying the EMM-based asset pricing approach, this study quantifies the impact of structural inequalities on the valuation of ostensibly equal opportunities. The results emphasize the importance of considering underlying economic disparities when evaluating the fairness and effectiveness of qualification standards in society.",
     "crumbs": [
       "교육",
       "분열",
-      "평등한 교육기회?"
+      "Market Price of Education"
     ]
   },
   {
     "objectID": "pricing_equal.html#conclusion",
     "href": "pricing_equal.html#conclusion",
-    "title": "평등한 교육기회?",
+    "title": "Market Price of Education",
     "section": "",
     "text": "By applying the EMM-based asset pricing approach, this study quantifies the impact of structural inequalities on the valuation of ostensibly equal opportunities. The results emphasize the importance of considering underlying economic disparities when evaluating the fairness and effectiveness of qualification standards in society.",
     "crumbs": [
       "교육",
       "분열",
-      "평등한 교육기회?"
+      "Market Price of Education"
     ]
   },
   {
     "objectID": "pricing_equal.html#main",
     "href": "pricing_equal.html#main",
-    "title": "평등한 교육기회?",
+    "title": "Market Price of Education",
     "section": "Main",
     "text": "Main\n\nModel Scenario\nIn short, we consider a society divided into two distinct classes:\n\nProletariat (P): Individuals with access to general opportunities.\nCapitalist (C): Individuals with access to both general and exclusive special opportunities.\n\nInternally, both classes operate within perfectly competitive markets that adhere to the no-arbitrage principle. However, due to capital constraints, members of the P class cannot access the special opportunities available to the C class, rendering these opportunities unattainable. Consequently, while the absolute value of special opportunities is equal to or greater than that of general opportunities, the P class cannot exploit potential arbitrage opportunities due to these constraints. Both classes have offspring who inherit the economic outcomes of their parents’ investments. To claim these inherited assets, all offspring must meet a minimum qualification standard (e.g., educational credentials), analogous to the strike price (\\(K\\)) in option pricing. Until this qualification is met, the offspring hold a call option on their parents’ assets.\nIn detail, consider two distinct social classes: the proletariat (P), representing working-class individuals, and the capitalist class (C), representing wealthy individuals. These two classes face fundamentally different opportunity sets due to deep-seated structural inequalities. Such societal barriers, from both democratic and utilitarian viewpoints, constitute a significant social inefficiency.\nTo analyze the structural origins of this inefficiency, we apply the concept of Limits to Arbitrage Theory, which suggests markets are not always fully efficient. This inefficiency arises because of various constraints, such as behavioral biases, risk constraints, and notably, capital constraints. Capital constraints imply that significant capital is required to engage in arbitrage, effectively isolating classes economically. We assume, therefore, that the proletariat and capitalist classes are economically segregated due to these capital constraints.\nWithin each class, economic opportunities exist in a perfectly competitive market, satisfying the no-arbitrage condition internally. Members of the proletariat (P) freely select from a common set of general opportunities available to them. Conversely, members of the capitalist class (C) not only share these general opportunities but also exclusively access additional “special opportunities.” From the viewpoint of proletariat class members, these special opportunities represent unattainable benefits (“grapes beyond reach”), carrying higher or equal absolute value compared to general opportunities.\nTheoretically, if members of the capitalist class could short-sell general opportunities and simultaneously long-position special opportunities, they could realize arbitrage profits. However, due to aforementioned capital constraints (“limits to arbitrage”), such arbitrage trading is practically impossible within this model.\nBoth classes have offspring who inherit the economic results (absolute asset values) of their parents’ investment choices. To claim these inherited assets, children from both classes must meet identical minimum qualification standards (e.g., university diplomas, basic educational credentials). Although the qualification standard is identical for both, outcomes differ significantly due to inherited assets. For instance, a business administration graduate from the capitalist class inherits and manages substantial capital (businesses), while an identically qualified individual from the proletariat class works as an employee, earning wages in capitalist-owned enterprises.\nThe minimum qualification standard can be understood as a fixed barrier or strike price (K) of a call option. Until the qualification requirement is fulfilled, the children effectively hold call options on their parents’ assets. This model aims to quantify the absolute value of these call options for each class, reflecting the inherited economic outcomes accessible to the offspring.\n\n\nEMM-based Call Option Valuation Theory\nAssume a simple 1 period setting with only two possible states (e.g. good or bad). Under the Equivalent Martingale Measure (EMM), the fair market value of a call option at time 0, denoted as \\(\\hat{f}_0\\), must satisfy:\n\\[\\hat{f_0}\\cdot R = E^q[f_1]\\] where \\(f_1=max(S_0 \\cdot U-K,0)\\)\n\\[S_0\\cdot R=E^q[S_1]\\] where \\(S_0\\) = the current price of risky underlying asset\nFrom these two equations, we have the EMM or the state price density for good state \\(q\\) as: \\[\nq = \\frac{R - D}{U - D}\n\\]\nThus, the present fair value of the call option is given by:\n\\[\n\\hat{f}_0 = \\frac{1}{R}\\left[ \\frac{R - D}{U - D}(S_0 \\cdot U - K) + \\frac{U - R}{U - D} \\cdot 0 \\right] = \\frac{(R - D)(U - 1)}{R(U - D)}\n\\]\nassuming that\n\nInitial Asset Price (normalized): \\(S_0=1\\)\n\nStrike Price (qualification threshold): \\(K=1\\)\n\nMaturity: 18 years (quarterly steps = 72 periods)\n\nThis formula indicates a clear proportional relationship for estimating current fair values representing inherited qualification-based claims for each class over a 18-year maturity period. While this valuation could be approximated using continuous distributions (e.g., Black-Scholes under symmetric assumptions \\(U \\cdot D=1\\)), our discrete binomial model allows straightforward interpretation without loss of economic intuition.\n\n\nEmpirical Analysis\nWe employ distinct underlying assets for each class. Using the historical dataset (Q1 1982–Q4 2019, 152 quarterly observations), we estimated the parameters and their associated fair values of call options for each class.\nFor Proletariat (P) Class Children:\n\nRisky Asset: US Median usual weekly Real earnings (LES1252881600Q)\n\nRisk-Free Asset: US Real GDP per capita (A939RX0Q048SBEA)\n\nParameters:\n\n\\(U_p\\):= 75th percentile growth of wage (risky asset)\n\n\\(D_p\\):= 25th percentile growth of wage\n\n\\(R_p\\):= Median growth rate of Real GDP per capita\n\n\nFor Capitalist (C) Class Children:\n\nRisky Asset: S&P 500 equity (SPX)\n\nRisk-Free Asset: US 10-Year Treasury Bond\nParameters:\n\n\\(U_c\\):= 75th percentile quarterly growth of the equity index\n\n\\(D_c\\):= 25th percentile quarterly growth of the equity index\n\n\\(R_c\\):= Median of quarterly US 10-Year Treasury Bond Yield (DGS10)\n\n\nEmpirical Results:\n\nFor Proletariat (P) class children, \\(\\hat{P}_0=?\\)\n\nFor Capitalist (C) class children, \\(\\hat{C}_0=?\\)\n\n\n\nCode\nimport yfinance as yf\nimport pandas_datareader.data as web\nimport pandas as pd\nimport numpy as np\n\n# 데이터 기간 설정\nstart_date = '1982-01-01'\nend_date = '2019-12-31'\n\n# S&P 500 데이터 가져오기\nsp500 = yf.download(\"^GSPC\", start=start_date, end=end_date, interval=\"1d\")\nsp500_q = sp500['Close'].resample('QE').last()  # 분기별 종가 데이터\n\n# FRED 데이터 가져오기\nus_median_weekly_earnings = web.DataReader('LES1252881600Q', 'fred', start_date, end_date)\nus_real_gdp_per_capita = web.DataReader('A939RX0Q048SBEA', 'fred', start_date, end_date)\nus_10yr_treasury_yield = web.DataReader('DGS10', 'fred', start_date, end_date)\n\n# 인덱스를 맞추기 위해 분기별로 재샘플링\nus_median_weekly_earnings = us_median_weekly_earnings.resample('QE').last()\nus_real_gdp_per_capita = us_real_gdp_per_capita.resample('QE').last()\nus_10yr_treasury_yield = us_10yr_treasury_yield.resample('QE').last()\n\n# 데이터프레임으로 변환\ndata = pd.DataFrame({\n    'SP500': sp500_q.squeeze(),\n    'Median_Weekly_Earnings': us_median_weekly_earnings['LES1252881600Q'].squeeze(),\n    'Real_GDP_per_Capita': us_real_gdp_per_capita['A939RX0Q048SBEA'].squeeze(),\n    '10yr_Treasury_Yield': us_10yr_treasury_yield['DGS10'].squeeze()\n}, index=sp500_q.index)\n\n# 결측값 제거\ndata.dropna(inplace=True)\n\n# 수익률 계산\ndata['SP500_Return'] = data['SP500'].pct_change()\ndata['Earnings_Growth'] = data['Median_Weekly_Earnings'].pct_change()\ndata['GDP_Growth'] = data['Real_GDP_per_Capita'].pct_change()\n\n# 통계치 계산\nU_p = data['Earnings_Growth'].quantile(0.75)+1\nD_p = data['Earnings_Growth'].quantile(0.25)+1\nR_p = data['GDP_Growth'].median()+1\n\nU_c = data['SP500_Return'].quantile(0.75)+1\nD_c = data['SP500_Return'].quantile(0.25)+1\nR_c = data['10yr_Treasury_Yield'].median()\nR_c = R_c / 100 +1\n\nprint(f\"Proletariat Class Children Parameters:\")\nprint(f\"U_p: {U_p:.2f}\")\nprint(f\"D_p: {D_p:.2f}\")\nprint(f\"R_p: {R_p:.2f}\")\n\nprint(f\"\\nCapitalist Class Children Parameters:\")\nprint(f\"U_c: {U_c:.2f}\")\nprint(f\"D_c: {D_c:.2f}\")\nprint(f\"R_c: {R_c:.2f}\")\n\n\n# Binomial Option Pricing Model\ndef binomial_option_pricing(K, S_0, T, U, D, R, dt):\n    \"\"\"\n    K: Strike price\n    S_0: Initial stock price\n    T: Time to maturity (in years)\n    U: Up factor\n    D: Down factor\n    R: Risk-free rate\n    dt: Number of steps for each year\n    \"\"\"\n    n = T*dt # Number of steps in the binomial tree\n    q = (R - D) / (U - D)\n\n    # Initialize option values at maturity\n    option_values = np.zeros((n + 1, 1))\n    for i in range(n + 1):\n        ST = S_0 * (U ** i) * (D ** (n - i))\n        option_values[i] = max(0, ST - K)\n\n    # Backward recursion for option values\n    for j in range(n - 1, -1, -1):\n        for i in range(j + 1):\n            option_values[i] = (q * option_values[i + 1] + (1 - q) * option_values[i]) / R\n\n    return option_values[0, 0]\n\n\n# Parameters\nK = 1  # Strike price\nS_0 = 1  # Initial stock price\nT = 18  # Time to maturity (18 years)\ndt = 4 # Number of steps for each year\n\n# Calculate option prices\noption_price_proletariat = binomial_option_pricing(K, S_0, T, U_p, D_p, R_p, dt)\noption_price_capitalist = binomial_option_pricing(K, S_0, T, U_c, D_c, R_c, dt)\n\nprint(f\"\\nFair price of Call Option, held by Proletariat Class Children:\\n {option_price_proletariat:.2f}\")\nprint(f\"Fair price of Call Option, held by Capitalist Class Children:\\n {option_price_capitalist:.2f}\")\n\n\nYF.download() has changed argument auto_adjust default to True\n\n\n[*********************100%***********************]  1 of 1 completed\n\n\nProletariat Class Children Parameters:\nU_p: 1.01\nD_p: 1.00\nR_p: 1.01\n\nCapitalist Class Children Parameters:\nU_c: 1.07\nD_c: 0.99\nR_c: 1.05\n\nFair price of Call Option, held by Proletariat Class Children:\n 0.30\nFair price of Call Option, held by Capitalist Class Children:\n 0.97\n\n\n\n\nDiscussion\nThis model clarifies the stark inequality underlying “ostensibly equal” qualification standards. Although formally identical, the call options’ absolute valuations significantly diverge, reflecting distinct economic inheritances accessible to each class. This disparity highlights structural inefficiencies and deep-rooted inequalities, persisting despite nominally identical qualification standards.\nUltimately, this analysis underscores how asset-based class differentiation profoundly impacts the perceived and realized absolute value of educational and economic opportunities, illuminating critical implications for economic policy, educational equity, and social justice frameworks.",
     "crumbs": [
       "교육",
       "분열",
-      "평등한 교육기회?"
+      "Market Price of Education"
     ]
   },
   {
     "objectID": "pricing_equal.html#introduction",
     "href": "pricing_equal.html#introduction",
-    "title": "평등한 교육기회?",
+    "title": "Market Price of Education",
     "section": "Introduction",
     "text": "Introduction\nIn societies characterized by pronounced economic stratification, opportunities presented as equal often yield disparate outcomes across different social strata. This disparity arises from inherent structural inefficiencies that restrict access to certain opportunities based on class. The Limits to Arbitrage Theory posits that market inefficiencies can persist due to various constraints, including capital limitations, preventing rational traders from correcting mispricings (Shleifer and Vishny 1997). This paper explores how such constraints contribute to the unequal valuation of opportunities between the proletariat (P) and capitalist (C) classes.",
     "crumbs": [
       "교육",
       "분열",
-      "평등한 교육기회?"
+      "Market Price of Education"
     ]
   },
   {
     "objectID": "pricing_equal.html#literature-review",
     "href": "pricing_equal.html#literature-review",
-    "title": "평등한 교육기회?",
+    "title": "Market Price of Education",
     "section": "Literature Review",
     "text": "Literature Review\nThe theoretical foundation relies primarily on the limits to arbitrage theory, initially articulated by Shleifer and Vishny (Shleifer and Vishny 1997). Their seminal work shows how market inefficiencies persist due to practical constraints, particularly capital constraints, restricting the ability of arbitrageurs to exploit and correct mispricings. These constraints arise from significant capital requirements that effectively segregate participants into distinct economic spheres, as emphasized by subsequent studies on financially constrained arbitrageurs (Gromb and Vayanos 2002; Xiong 2001).\nGeanakoplos’ research introduces the leverage cycle, which explains how fluctuations in leverage and capital availability perpetuate systemic inequality and financial instability (Geanakoplos 2010). Complementary studies, such as that by Gromb and Vayanos, also demonstrate the welfare implications of constrained arbitrageurs operating under capital limitations, further exacerbating persistent inequality (Gromb and Vayanos 2002). Moreover, Barberis and Thaler’s comprehensive survey on behavioral finance indicates how cognitive and behavioral constraints exacerbate market inefficiencies, reinforcing the structural barriers that differentiate economic outcomes across social strata (Barberis and Thaler 2003).\nExtending beyond purely financial contexts, sociological and economic research provides additional perspectives on structural inequalities and opportunity valuation. Bourdieu’s concept of social reproduction underscores how cultural capital perpetuates socioeconomic inequalities across generations (Bourdieu 1973). Recent empirical evidence by Stansbury (Stansbury 2024) and findings by the Social Mobility Commission (Social Mobility Commission 2023) further demonstrate how economic capital inherited through generations shapes differential outcomes, even when individuals ostensibly possess identical qualifications.\nChetty et al. provide compelling evidence linking parental economic conditions to children’s educational outcomes and future earnings, strongly supporting the relevance of inherited economic positions in determining opportunity valuations (Chetty et al. 2014). Similarly, Piketty’s influential book highlights the crucial role inherited wealth plays in perpetuating structural economic disparities, emphasizing the critical nature of capital inheritance in shaping individuals’ economic trajectories and their access to opportunities (Piketty 2014).\nPolicy implications regarding these structural inequalities and efforts to enhance social mobility have been explored extensively by institutions such as the OECD. Their analyses suggest policy frameworks that might alleviate the persistent inequalities discussed herein (OECD 2018). Reeves’ concept of the “glass floor” further illustrates how affluent socioeconomic backgrounds systematically maintain class advantages despite equal or even lesser merit-based qualifications (Reeves 2017).\nCollectively, these studies underline a coherent narrative: ostensibly equal opportunities often conceal significant disparities rooted in inherited structural inequalities, persistent capital constraints, and behavioral limitations to arbitrage. Our model complements this literature by quantitatively evaluating how these structural factors systematically influence the absolute value of identical qualification standards across distinct socioeconomic groups.",
     "crumbs": [
       "교육",
       "분열",
-      "평등한 교육기회?"
+      "Market Price of Education"
     ]
   },
   {
@@ -456,85 +456,85 @@
   {
     "objectID": "gilded_age.html",
     "href": "gilded_age.html",
-    "title": "The New Gilded Age",
+    "title": "New Gilded Age",
     "section": "",
     "text": "The term ‘Gilded Age’ was originally coined by Mark Twain in his novel The Gilded Age: A Tale of Today (Twain and Warner 1873), describing an era characterized by rapid economic expansion, extreme wealth concentration, and political corruption. A similar dynamic is emerging today, where financial and technological elites dominate economic output while wealth inequality reaches historic highs (Piketty 2014). The late 19th century saw industrial monopolies like Standard Oil and U.S. Steel controlling markets; today, tech giants such as Amazon, Apple, and Google exhibit similar dominance (Zucman 2019).\nSimultaneously, the Federal Reserve’s response to financial instability, particularly through excessive monetary expansion, contrasts with past policy mistakes that led to severe economic contractions due to monetary shrinkage (Bernanke 2000). If current economic trends persist—marked by the increasing concentration of wealth, hyperinflation risks, and geopolitical tensions—then the U.S. may be heading toward another crisis akin to the 1929 stock market collapse (Kindleberger 1978).",
     "crumbs": [
       "교육",
       "분열",
-      "The New Gilded Age"
+      "New Gilded Age"
     ]
   },
   {
     "objectID": "gilded_age.html#extreme-wealth-concentration-and-economic-disparities",
     "href": "gilded_age.html#extreme-wealth-concentration-and-economic-disparities",
-    "title": "The New Gilded Age",
+    "title": "New Gilded Age",
     "section": "Extreme Wealth Concentration and Economic Disparities",
     "text": "Extreme Wealth Concentration and Economic Disparities\nIn the late 19th century, “Robber Barons” controlled vast industrial empires while working-class Americans suffered under exploitative labor conditions (Irwin 2017). Today, the economic landscape reflects a similar dynamic: the top 1% of Americans hold over 30% of total U.S. wealth, and financial markets remain dominated by a handful of institutional investors and corporations (Saez and Zucman 2020). If historical trends hold, wealth concentration at this level often precedes financial and political crises.",
     "crumbs": [
       "교육",
       "분열",
-      "The New Gilded Age"
+      "New Gilded Age"
     ]
   },
   {
     "objectID": "gilded_age.html#financial-market-distortions-due-to-federal-reserve-policies",
     "href": "gilded_age.html#financial-market-distortions-due-to-federal-reserve-policies",
-    "title": "The New Gilded Age",
+    "title": "New Gilded Age",
     "section": "Financial Market Distortions Due to Federal Reserve Policies",
     "text": "Financial Market Distortions Due to Federal Reserve Policies\nHistorically, the Federal Reserve’s failure to manage monetary policy effectively has exacerbated financial downturns. During the Great Depression, the Fed allowed the money supply to contract, worsening deflation (Friedman and Schwartz 1993). Conversely, in the 2008 financial crisis, the Fed implemented massive QE programs to avoid liquidity shortages (Gopinath and Gourinchas 2020). If the Fed continues expanding the money supply unchecked while maintaining low interest rates, it could trigger runaway inflation or asset bubbles (Reinhart and Rogoff 2010).",
     "crumbs": [
       "교육",
       "분열",
-      "The New Gilded Age"
+      "New Gilded Age"
     ]
   },
   {
     "objectID": "gilded_age.html#protectionist-policies-and-global-trade-disruptions",
     "href": "gilded_age.html#protectionist-policies-and-global-trade-disruptions",
-    "title": "The New Gilded Age",
+    "title": "New Gilded Age",
     "section": "Protectionist Policies and Global Trade Disruptions",
     "text": "Protectionist Policies and Global Trade Disruptions\nIn response to financial instability, the U.S. may turn to protectionist measures similar to those seen in the early 20th century, such as the Smoot-Hawley Tariff Act (Irwin 2017). If the U.S. imposes broad tariffs on allies like Canada, Mexico, and the EU (excluding the UK), retaliatory tariffs could significantly reduce global trade, accelerating economic fragmentation (Acker 2020).",
     "crumbs": [
       "교육",
       "분열",
-      "The New Gilded Age"
+      "New Gilded Age"
     ]
   },
   {
     "objectID": "gilded_age.html#capital-controls",
     "href": "gilded_age.html#capital-controls",
-    "title": "The New Gilded Age",
+    "title": "New Gilded Age",
     "section": "Capital Controls",
     "text": "Capital Controls\nTo prevent capital flight, the U.S. government might implement capital controls, restricting the movement of funds outside the country (Dornbusch 1996). Such policies could initially stabilize domestic financial markets by preventing liquidity outflows, but they would ultimately deter foreign investment and reduce the credibility of the U.S. dollar (Prasad 2021). If capital controls are implemented alongside protectionist trade policies, the global financial system could realign, reducing reliance on the dollar (Eichengreen 2019).",
     "crumbs": [
       "교육",
       "분열",
-      "The New Gilded Age"
+      "New Gilded Age"
     ]
   },
   {
     "objectID": "gilded_age.html#internal-conflict",
     "href": "gilded_age.html#internal-conflict",
-    "title": "The New Gilded Age",
+    "title": "New Gilded Age",
     "section": "Internal Conflict",
     "text": "Internal Conflict\nWith increasing partisan division, the U.S. could experience state-led resistance against federal economic policies. Democratic-led states might oppose Republican federal mandates, leading to legal disputes over taxation, social policies, and trade regulations (Levitsky and Ziblatt 2018). In extreme cases, states like California could advocate for economic or political autonomy, mirroring secessionist movements of the 19th century, while Texas, despite its strong Republican leanings, might push for greater state sovereignty in response to federal overreach or shifting national policies (Acker 2020).",
     "crumbs": [
       "교육",
       "분열",
-      "The New Gilded Age"
+      "New Gilded Age"
     ]
   },
   {
     "objectID": "gilded_age.html#u.s.-dollar-as-the-global-reserve-currency",
     "href": "gilded_age.html#u.s.-dollar-as-the-global-reserve-currency",
-    "title": "The New Gilded Age",
+    "title": "New Gilded Age",
     "section": "U.S. Dollar as the Global Reserve Currency",
     "text": "U.S. Dollar as the Global Reserve Currency\nThe decline of the British pound post-World War II illustrates how global reserve currencies can lose dominance due to internal and external economic shifts (Eichengreen 2019). If U.S. political instability continues, central banks worldwide may accelerate diversification away from dollar holdings, increasing reliance on alternative financial networks such as BRICS payment systems, Bitcoin, and other emerging digital currencies. (Prasad 2021).",
     "crumbs": [
       "교육",
       "분열",
-      "The New Gilded Age"
+      "New Gilded Age"
     ]
   },
   {
@@ -552,25 +552,25 @@
   {
     "objectID": "modern_matthew.html",
     "href": "modern_matthew.html",
-    "title": "The Modern Matthew Effect",
+    "title": "Modern Matthew Effect",
     "section": "",
     "text": "This report extends my empirical findings from the ME5 PRIOR research portfolios (of Fama and French) into a broader philosophical and socioeconomic interpretation. I draw connections between large-cap momentum dynamics in capital markets and foundational ideas from ethics, social choice theory, and political philosophy.\nThe core phenomenon observed—persistent outperformance among firms that are already the largest and most successful—bears striking resemblance to the biblical and sociological concept of the Matthew Effect:\n\n“For to every one who has, more will be given…” — Matthew 25:29\n\nIn financial markets, this is not merely a parable—it is measurable, structural, and persistent. It reveals that what appears to be a free, fair, and competitive economy may in fact be a self-reinforcing regime of privilege, cloaked under the language of freedom, equality, fairness, and consent—the founding pillars of liberal democracy.",
     "crumbs": [
       "교육",
       "설명? 예측?",
-      "The Modern Matthew Effect"
+      "Modern Matthew Effect"
     ]
   },
   {
     "objectID": "modern_matthew.html#introduction",
     "href": "modern_matthew.html#introduction",
-    "title": "The Modern Matthew Effect",
+    "title": "Modern Matthew Effect",
     "section": "",
     "text": "This report extends my empirical findings from the ME5 PRIOR research portfolios (of Fama and French) into a broader philosophical and socioeconomic interpretation. I draw connections between large-cap momentum dynamics in capital markets and foundational ideas from ethics, social choice theory, and political philosophy.\nThe core phenomenon observed—persistent outperformance among firms that are already the largest and most successful—bears striking resemblance to the biblical and sociological concept of the Matthew Effect:\n\n“For to every one who has, more will be given…” — Matthew 25:29\n\nIn financial markets, this is not merely a parable—it is measurable, structural, and persistent. It reveals that what appears to be a free, fair, and competitive economy may in fact be a self-reinforcing regime of privilege, cloaked under the language of freedom, equality, fairness, and consent—the founding pillars of liberal democracy.",
     "crumbs": [
       "교육",
       "설명? 예측?",
-      "The Modern Matthew Effect"
+      "Modern Matthew Effect"
     ]
   },
   {
@@ -600,37 +600,37 @@
   {
     "objectID": "modern_matthew.html#the-philosophical-lens-arrow-spinoza-and-pascal",
     "href": "modern_matthew.html#the-philosophical-lens-arrow-spinoza-and-pascal",
-    "title": "The Modern Matthew Effect",
+    "title": "Modern Matthew Effect",
     "section": "The Philosophical Lens: Arrow, Spinoza, and Pascal",
     "text": "The Philosophical Lens: Arrow, Spinoza, and Pascal\nArrow’s utilitarian social welfare framework assumes at least some degree of fairness and fluidity among agents. But in a setting of structural inequality and declining mobility:\n\nThe expected utility of society does not necessarily increase, even if total capital grows\nThe bottom half of society may experience static or declining utility, overwhelmed by the persistent rise of the elite\n\nFrom a Spinozist viewpoint, this is a failure of a rational, self-sustaining society—it lacks balance and cohesion. For Pascal, it raises the existential irony of a system designed for all, yet serving few.\nAnd if we apply Rawls’ difference principle, we see an institutional failure to justify inequality based on benefit to the least advantaged. Liberal democracy, viewed from the perspective of financial capitalism, begins to fracture: the ideals of liberty, fairness, and equality become ceremonial rather than structural.",
     "crumbs": [
       "교육",
       "설명? 예측?",
-      "The Modern Matthew Effect"
+      "Modern Matthew Effect"
     ]
   },
   {
     "objectID": "modern_matthew.html#toward-a-new-interpretation-of-market-performance",
     "href": "modern_matthew.html#toward-a-new-interpretation-of-market-performance",
-    "title": "The Modern Matthew Effect",
+    "title": "Modern Matthew Effect",
     "section": "Toward a New Interpretation of Market Performance",
     "text": "Toward a New Interpretation of Market Performance\nIn light of this, the ME5 PRIOR5 outperformance is no longer just a quantitative anomaly or a smart strategy. It is a signal—a structural symptom of capitalistic reinforcement, not unlike a planetary orbit deepening into a gravity well.\nThus, our empirical findings do more than guide portfolio construction. They challenge how we: - Model efficiency in capital markets - Measure welfare in society - Justify inequality under modern capitalism",
     "crumbs": [
       "교육",
       "설명? 예측?",
-      "The Modern Matthew Effect"
+      "Modern Matthew Effect"
     ]
   },
   {
     "objectID": "modern_matthew.html#conclusion",
     "href": "modern_matthew.html#conclusion",
-    "title": "The Modern Matthew Effect",
+    "title": "Modern Matthew Effect",
     "section": "Conclusion",
     "text": "Conclusion\n\nThe Matthew Effect is not just a biblical principle—it is a lived, structural condition of our financial and social reality.\n\nThe capital markets amplify this dynamic, and unless counterbalanced by social, policy, or philosophical intervention, it threatens not only equity, but long-term stability and collective welfare.",
     "crumbs": [
       "교육",
       "설명? 예측?",
-      "The Modern Matthew Effect"
+      "Modern Matthew Effect"
     ]
   },
   {
@@ -732,37 +732,37 @@
   {
     "objectID": "modern_matthew.html#structural-inequality-at-the-firm-level",
     "href": "modern_matthew.html#structural-inequality-at-the-firm-level",
-    "title": "The Modern Matthew Effect",
+    "title": "Modern Matthew Effect",
     "section": "Structural Inequality at the Firm level",
-    "text": "Structural Inequality at the Firm level\nMy analysis of the ME5 PRIOR portfolios revealed the following:\n\nEven within the top 20% of firms by market capitalization (ME5), those that performed best in the prior 11 months (PRIOR5) tend to continue outperforming in the subsequent period.\nThis effect is particularly strong post-2010, aligning with macroeconomic changes such as quantitative easing, the rise of passive investing, and capital concentration.\nThis implies a reinforcing feedback loop: prior success draws more capital, more capital enables further success, and performance becomes increasingly decoupled from fundamentals.\n\nThe analogy to social mobility is immediate: those who have, get more—not just relatively, but absolutely and increasingly.",
+    "text": "Structural Inequality at the Firm level\nMy analysis of the ME5 PRIOR portfolios revealed the following:\n\nEven within the top 20% of firms by market capitalization (ME5), those that performed best in the prior 11 months (PRIOR5) tend to continue outperforming in the subsequent period.\nThis effect is particularly strong post-2010, aligning with macroeconomic changes such as quantitative easing, the rise of passive investing, and capital concentration.\nThis implies a reinforcing feedback loop: prior success draws more capital, more capital enables further success, and performance becomes increasingly decoupled from diversification.\n\nThe analogy to social mobility is immediate: those who have, get more—not just relatively, but absolutely and increasingly.",
     "crumbs": [
       "교육",
       "설명? 예측?",
-      "The Modern Matthew Effect"
+      "Modern Matthew Effect"
     ]
   },
   {
     "objectID": "modern_matthew.html#the-matthew-effect-at-the-household-level",
     "href": "modern_matthew.html#the-matthew-effect-at-the-household-level",
-    "title": "The Modern Matthew Effect",
+    "title": "Modern Matthew Effect",
     "section": "The Matthew Effect at the Household Level",
     "text": "The Matthew Effect at the Household Level\nIf capital lock-in dynamics operate not only at the firm level but also across households—a plausible and empirically supported assumption—the implications are far-reaching:\n\nWealthy households benefit disproportionately from capital gains and passive income\nLower- and middle-income households rely predominantly on labor income, with limited upside\nThe result is a declining probability of upward mobility, and increasing wealth stratification\n\nThis structure undermines the ideal of a meritocratic liberal democracy where opportunity is equitably distributed and fairness is institutionalized. In reality, the capital system begins to resemble a rigged equilibrium, where the initial balance is illusionary—a symbolic counterweight with no real effect.",
     "crumbs": [
       "교육",
       "설명? 예측?",
-      "The Modern Matthew Effect"
+      "Modern Matthew Effect"
     ]
   },
   {
     "objectID": "modern_matthew.html#appendix-me5-prior-portfolios",
     "href": "modern_matthew.html#appendix-me5-prior-portfolios",
-    "title": "The Modern Matthew Effect",
+    "title": "Modern Matthew Effect",
     "section": "Appendix: ME5 PRIOR Portfolios",
-    "text": "Appendix: ME5 PRIOR Portfolios\nIn this report, I examined the persistence of momentum within the top market-cap group (ME5) using the Fama-French 25 Portfolios sorted by size and prior return. Specifically, I analyzed how the performance of five portfolios (PRIOR1 to PRIOR5), sorted by prior 11-month returns within the ME5 group, has evolved between two distinct market regimes: pre-2010 and post-2010.\nThe results are striking.\n\nEven among the largest companies (top 20% by market cap), those that performed best over the prior year continued to outperform in the next month—especially in the post-2010 market regime.\n\nWhat initially seemed like a behavioral or statistical curiosity turns out to reflect a deeper transformation of the market’s internal structure—a transformation where capital flows, visibility, and narrative dominance now reinforce past winners among the already-rich. In this setting, the language of freedom, fairness, and opportunity—so essential to liberal democracy—becomes less about equal access and more about locked-in advantage. The market becomes a mirror, not of fair competition, but of Matthew Effect dynamics, where “to those who have, more shall be given.”\nFor risk-aware investors engaged in short-term, monthly rebalancing, the implications are concrete:\n\nPRIOR3 offers exceptional consistency with lower volatility and downside exposure\nPRIOR5 delivers superior absolute return with tolerable risk\nBoth are based on highly liquid, mega-cap stocks, making them operationally feasible and institutionally scalable\n\n\nIn short: Even among the richest firms, past winners tend to keep winning.\nMomentum is no longer a temporary anomaly. It is part of the architecture.\n\nThis realization challenges equilibrium-based pricing models and calls into question our normative assumptions about economic fairness. If capital accumulates in a non-reverting way among the already-powerful, mobility collapses—and with it, the utilitarian social welfare that undergirds Arrow’s idealized world of dynamic fairness. What remains is a hollow pendulum: a financial system that swings, but never truly balances.\n\nMethodology\nWe compute a comprehensive set of performance metrics (e.g., annualized return, Sharpe, Sortino, Calmar, Omega, expected CRRA utility) for each ME5 PRIOR portfolio across two structural periods:\n\nPre-2010: January 1996 to December 2009\nPost-2010: January 2010 to December 2023\n\nAll returns are monthly and expressed as decimals (net of compounding). Metrics are calculated for value-weighted portfolios of NYSE-listed firms within ME5, using prior 11-month cumulative returns (excluding the most recent month) to define momentum quintiles.\n\n\nEmpirical Summary and Interpretation\n\nPre-2010:\n\nPRIOR4 (moderate momentum) was most effective for risk-adjusted returns (Sharpe 0.66, Sortino 0.94)\n\nPRIOR5 had higher return, but more volatility and negative skew\n\nPRIOR1 severely underperformed (negative average return, deep drawdowns)\n\nPost-2010:\n\nMomentum dominance intensifies\n\nPRIOR5 exhibits top raw returns (13.7%), Sortino (1.41), and CRRA utility\n\nPRIOR3 shows best Sharpe (0.91) and lowest volatility (15%)\n\nBoth dominate the risk-return landscape with resilience and predictability\n\n\nThe market is no longer cyclical, but directional; no longer egalitarian, but reinforcing. Passive capital flows, QE-induced yield suppression, and index-based exposure collectively sustain a regime where “winners win more, losers lag longer.” If the ideal of equal opportunity was once the balancing pendulum of a free market society, the modern financial system now swings in only one direction.\n\n\nME5 PRIOR Performance Comparison\n\n\nCode\nimport pandas as pd\nimport pandas_datareader.data as pdr\nimport numpy as np\nfrom scipy.stats import skew, kurtosis\n\nimport warnings\nwarnings.simplefilter(action='ignore', category=FutureWarning) # FutureWarning 제거\npd.set_option('display.width', None)\npd.set_option('display.max_columns', 15)\n\n# (1) Load Fama-French data\nstart_date = '1996-01-01'\nend_date = '2023-12-31'\n\n# Define evaluation functions\np = 0.005 # 0.5% 월간 수익률 threshold\neta = 3 # CRRA risk-aversion parameter\n\nff = pdr.DataReader(\"25_Portfolios_ME_Prior_12_2\", \"famafrench\", start_date, end_date)\nff_df = ff[0]\n# print(ff[0].columns.tolist())\n\n# (2) Extract ME5 PRIOR portfolios and convert to net return\nme5_prior = pd.DataFrame({\n    'PRIOR1': ff_df['BIG LoPRIOR'],\n    'PRIOR2': ff_df['ME5 PRIOR2'],\n    'PRIOR3': ff_df['ME5 PRIOR3'],\n    'PRIOR4': ff_df['ME5 PRIOR4'],\n    'PRIOR5': ff_df['BIG HiPRIOR'],\n}) / 100  # convert % to net return\n\nme5_prior.index = me5_prior.index.to_timestamp()\n\n# (3) Split: pre-2010 vs post-2010\nsplit_date = pd.to_datetime(\"2010-01-01\")\nme5_prior_pre = me5_prior[me5_prior.index &lt; split_date]\nme5_prior_post = me5_prior[me5_prior.index &gt;= split_date]\n\n# (4) Metric definitions\ndef annualized_return(r): return (1 + r).prod()**(12 / len(r)) - 1\ndef annualized_volatility(r): return r.std() * np.sqrt(12)\ndef sharpe_ratio(r): return (r.mean() / r.std()) * np.sqrt(12)\ndef sortino_ratio(r): return (r.mean() / r[r &lt; 0].std()) * np.sqrt(12)\ndef omega_ratio(r, threshold=p):\n    gains = r[r &gt; threshold] - threshold\n    losses = threshold - r[r &lt; threshold]\n    return gains.sum() / losses.sum() if losses.sum() &gt; 0 else np.nan\ndef max_drawdown(r):\n    cum = (1 + r).cumprod()\n    peak = cum.cummax()\n    dd = (cum - peak) / peak\n    return dd.min()\ndef calmar_ratio(r):\n    ar = annualized_return(r)\n    mdd = max_drawdown(r)\n    return ar / abs(mdd) if mdd &lt; 0 else np.nan\ndef expected_crra(r, eta=eta):\n    x = 1 + r\n    util = (x**(1 - eta) - 1) / (1 - eta)\n    return util.mean()\ndef fisher_skewness(r): return skew(r, bias=False)\ndef excess_kurtosis(r): return kurtosis(r, fisher=True, bias=False)\n\nmetrics = {\n    \"Annualized Return\": annualized_return,\n    \"Annualized Volatility\": annualized_volatility,\n    \"Sharpe Ratio\": sharpe_ratio,\n    \"Sortino Ratio\": sortino_ratio,\n    \"Omega Ratio\": omega_ratio,\n    \"Calmar Ratio\": calmar_ratio,\n    \"Expected CRRA\": expected_crra,\n    \"Fisher Skewness\": fisher_skewness,\n    \"Excess Kurtosis\": excess_kurtosis\n}\n\n# (5) Evaluate for each period\ndef evaluate_metrics(df):\n    return pd.DataFrame({\n        port: {name: func(df[port]) for name, func in metrics.items()}\n        for port in df.columns\n    }).T\n\nresult_pre = evaluate_metrics(me5_prior_pre)\nresult_post = evaluate_metrics(me5_prior_post)\n\n\n\nPerformance Metrics for ME5 PRIOR Portfolios\n\n\n\n\n\n\nPerformance Metrics (Pre-2010)\n\n\n\nAnnualized Return\nAnnualized Volatility\nSharpe Ratio\nSortino Ratio\nOmega Ratio\nCalmar Ratio\nExpected CRRA\nFisher Skewness\nExcess Kurtosis\n\n\n\n\nPRIOR1\n-0.0138\n0.3050\n0.1064\n0.1498\n0.9271\n-0.0166\n-0.0092\n0.2258\n2.3524\n\n\nPRIOR2\n0.0604\n0.2042\n0.3896\n0.5606\n1.0790\n0.1015\n0.0014\n-0.0223\n2.0126\n\n\nPRIOR3\n0.0598\n0.1584\n0.4472\n0.5899\n1.0570\n0.1265\n0.0027\n-0.3123\n2.4509\n\n\nPRIOR4\n0.0877\n0.1435\n0.6603\n0.9439\n1.1981\n0.2205\n0.0052\n-0.5270\n0.9767\n\n\nPRIOR5\n0.0835\n0.1851\n0.5283\n0.7321\n1.1629\n0.1670\n0.0037\n-0.5999\n0.9929\n\n\n\n\n\n\n\n\n\n\n\n\n\nPerformance Metrics (Post-2010)\n\n\n\nAnnualized Return\nAnnualized Volatility\nSharpe Ratio\nSortino Ratio\nOmega Ratio\nCalmar Ratio\nExpected CRRA\nFisher Skewness\nExcess Kurtosis\n\n\n\n\nPRIOR1\n0.0954\n0.2640\n0.4775\n0.7371\n1.2210\n0.2337\n0.0016\n0.1463\n2.9558\n\n\nPRIOR2\n0.1378\n0.1727\n0.8370\n1.2415\n1.4502\n0.5904\n0.0082\n-0.1295\n1.3204\n\n\nPRIOR3\n0.1342\n0.1512\n0.9129\n1.3653\n1.4582\n0.5231\n0.0085\n-0.3910\n0.4723\n\n\nPRIOR4\n0.1232\n0.1500\n0.8526\n1.3902\n1.4047\n0.5853\n0.0078\n-0.0354\n0.4905\n\n\nPRIOR5\n0.1372\n0.1633\n0.8721\n1.4108\n1.4592\n0.5302\n0.0084\n-0.0665\n0.2892\n\n\n\n\n\n\n\nRisk-adjusted metrics highlight structural momentum persistence after 2010.\n\n\nPerformance comparison of ME5 PRIOR portfolios\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAnnualized return, Sharpe ratio (r_f=0), and Expected CRRA (eta=3) show stronger momentum post-2010.",
+    "text": "Appendix: ME5 PRIOR Portfolios\nIn this report, I examined the persistence of momentum within the top market-cap group (ME5) using the Fama-French 25 Portfolios sorted by size and prior return. Specifically, I analyzed how the performance of five portfolios (PRIOR1 to PRIOR5), sorted by prior 11-month returns within the ME5 group, has evolved between two distinct market regimes: pre-2010 and post-2010.\nThe results are striking.\n\nEven among the largest companies (top 20% by market cap), those that performed best over the prior year continued to outperform in the next month—both in the pre and post-2010 market regime.\n\nWhat initially seemed like a behavioral or statistical curiosity turns out to reflect a deeper transformation of the market’s internal structure—a transformation where capital flows, visibility, and narrative dominance now reinforce past winners among the already-rich. In this setting, the language of freedom, fairness, and opportunity—so essential to liberal democracy—becomes less about equal access and more about locked-in advantage. The market becomes a mirror, not of fair competition, but of Matthew Effect dynamics, where “to those who have, more shall be given.”\nFor risk-aware investors engaged in short-term, monthly rebalancing, the implications are concrete:\n\nPRIOR3 offers exceptional consistency with lower volatility and downside exposure\nPRIOR5 delivers superior absolute return with tolerable risk\nBoth are based on highly liquid, mega-cap stocks, making them operationally feasible and institutionally scalable\n\n\nIn short: Even among the richest firms, past winners tend to keep winning.\nMomentum is no longer a temporary anomaly. It is part of the architecture.\n\nThis realization challenges equilibrium-based pricing models and calls into question our normative assumptions about economic fairness. If capital accumulates in a non-reverting way among the already-powerful, mobility collapses—and with it, the utilitarian social welfare that undergirds Arrow’s idealized world of dynamic fairness. What remains is a hollow pendulum: a financial system that swings, but never truly balances.\n\nMethodology\nWe compute a comprehensive set of performance metrics (e.g., annualized return, Sharpe, Sortino, Calmar, Omega, expected CRRA utility) for each ME5 PRIOR portfolio across two structural periods:\n\nPre-2010: January 1996 to December 2009\nPost-2010: January 2010 to December 2023\n\nAll returns are monthly and expressed as decimals (net of compounding). Metrics are calculated for value-weighted portfolios of NYSE-listed firms within ME5, using prior 11-month cumulative returns (excluding the most recent month) to define momentum quintiles.\n\n\nEmpirical Summary and Interpretation\n\nPre-2010:\n\nPRIOR4 (moderate momentum) was most effective for risk-adjusted returns (Sharpe 0.66, Sortino 0.94)\n\nPRIOR5 had higher return, but more volatility and negative skew\n\nPRIOR1 severely underperformed (negative average return, deep drawdowns)\n\nPost-2010:\n\nMomentum dominance intensifies\n\nPRIOR5 exhibits top raw returns (13.7%), Sortino (1.41), and CRRA utility\n\nPRIOR3 shows best Sharpe (0.91) and second lowest volatility (15%)\n\nBoth dominate the risk-return landscape with resilience and predictability\n\n\nThe market is no longer cyclical, but directional; no longer egalitarian, but reinforcing. Passive capital flows, QE-induced yield suppression, and index-based exposure collectively sustain a regime where “winners win more, losers lag longer.” If the ideal of equal opportunity was once the balancing pendulum of a free market society, the modern financial system now swings in only one direction.\n\n\nME5 PRIOR Performance Comparison\n\n\nCode\nimport pandas as pd\nimport pandas_datareader.data as pdr\nimport numpy as np\nfrom scipy.stats import skew, kurtosis\n\nimport warnings\nwarnings.simplefilter(action='ignore', category=FutureWarning) # FutureWarning 제거\npd.set_option('display.width', None)\npd.set_option('display.max_columns', 15)\n\n# (1) Load Fama-French data\nstart_date = '1996-01-01'\nend_date = '2023-12-31'\n\n# Define evaluation functions\np = 0.005 # 0.5% 월간 수익률 threshold\neta = 3 # CRRA risk-aversion parameter\n\nff = pdr.DataReader(\"25_Portfolios_ME_Prior_12_2\", \"famafrench\", start_date, end_date)\nff_df = ff[0]\n# print(ff[0].columns.tolist())\n\n# (2) Extract ME5 PRIOR portfolios and convert to net return\nme5_prior = pd.DataFrame({\n    'PRIOR1': ff_df['BIG LoPRIOR'],\n    'PRIOR2': ff_df['ME5 PRIOR2'],\n    'PRIOR3': ff_df['ME5 PRIOR3'],\n    'PRIOR4': ff_df['ME5 PRIOR4'],\n    'PRIOR5': ff_df['BIG HiPRIOR'],\n}) / 100  # convert % to net return\n\nme5_prior.index = me5_prior.index.to_timestamp()\n\n# (3) Split: pre-2010 vs post-2010\nsplit_date = pd.to_datetime(\"2010-01-01\")\nme5_prior_pre = me5_prior[me5_prior.index &lt; split_date]\nme5_prior_post = me5_prior[me5_prior.index &gt;= split_date]\n\n# (4) Metric definitions\ndef annualized_return(r): return (1 + r).prod()**(12 / len(r)) - 1\ndef annualized_volatility(r): return r.std() * np.sqrt(12)\ndef sharpe_ratio(r): return (r.mean() / r.std()) * np.sqrt(12)\ndef sortino_ratio(r): return (r.mean() / r[r &lt; 0].std()) * np.sqrt(12)\ndef omega_ratio(r, threshold=p):\n    gains = r[r &gt; threshold] - threshold\n    losses = threshold - r[r &lt; threshold]\n    return gains.sum() / losses.sum() if losses.sum() &gt; 0 else np.nan\ndef max_drawdown(r):\n    cum = (1 + r).cumprod()\n    peak = cum.cummax()\n    dd = (cum - peak) / peak\n    return dd.min()\ndef calmar_ratio(r):\n    ar = annualized_return(r)\n    mdd = max_drawdown(r)\n    return ar / abs(mdd) if mdd &lt; 0 else np.nan\ndef expected_crra(r, eta=eta):\n    x = 1 + r\n    util = (x**(1 - eta) - 1) / (1 - eta)\n    return util.mean()\ndef fisher_skewness(r): return skew(r, bias=False)\ndef excess_kurtosis(r): return kurtosis(r, fisher=True, bias=False)\n\nmetrics = {\n    \"Annualized Return\": annualized_return,\n    \"Annualized Volatility\": annualized_volatility,\n    \"Sharpe Ratio\": sharpe_ratio,\n    \"Sortino Ratio\": sortino_ratio,\n    \"Omega Ratio\": omega_ratio,\n    \"Calmar Ratio\": calmar_ratio,\n    \"Expected CRRA\": expected_crra,\n    \"Fisher Skewness\": fisher_skewness,\n    \"Excess Kurtosis\": excess_kurtosis\n}\n\n# (5) Evaluate for each period\ndef evaluate_metrics(df):\n    return pd.DataFrame({\n        port: {name: func(df[port]) for name, func in metrics.items()}\n        for port in df.columns\n    }).T\n\nresult_pre = evaluate_metrics(me5_prior_pre)\nresult_post = evaluate_metrics(me5_prior_post)\n\n\n\nPerformance Metrics for ME5 PRIOR Portfolios\n\n\n\n\n\n\nPerformance Metrics (Pre-2010)\n\n\n\nAnnualized Return\nAnnualized Volatility\nSharpe Ratio\nSortino Ratio\nOmega Ratio\nCalmar Ratio\nExpected CRRA\nFisher Skewness\nExcess Kurtosis\n\n\n\n\nPRIOR1\n-0.0138\n0.3050\n0.1064\n0.1498\n0.9271\n-0.0166\n-0.0092\n0.2258\n2.3524\n\n\nPRIOR2\n0.0604\n0.2042\n0.3896\n0.5606\n1.0790\n0.1015\n0.0014\n-0.0223\n2.0126\n\n\nPRIOR3\n0.0598\n0.1584\n0.4472\n0.5899\n1.0570\n0.1265\n0.0027\n-0.3123\n2.4509\n\n\nPRIOR4\n0.0877\n0.1435\n0.6603\n0.9439\n1.1981\n0.2205\n0.0052\n-0.5270\n0.9767\n\n\nPRIOR5\n0.0835\n0.1851\n0.5283\n0.7321\n1.1629\n0.1670\n0.0037\n-0.5999\n0.9929\n\n\n\n\n\n\n\n\n\n\n\n\n\nPerformance Metrics (Post-2010)\n\n\n\nAnnualized Return\nAnnualized Volatility\nSharpe Ratio\nSortino Ratio\nOmega Ratio\nCalmar Ratio\nExpected CRRA\nFisher Skewness\nExcess Kurtosis\n\n\n\n\nPRIOR1\n0.0954\n0.2640\n0.4775\n0.7371\n1.2210\n0.2337\n0.0016\n0.1463\n2.9558\n\n\nPRIOR2\n0.1378\n0.1727\n0.8370\n1.2415\n1.4502\n0.5904\n0.0082\n-0.1295\n1.3204\n\n\nPRIOR3\n0.1342\n0.1512\n0.9129\n1.3653\n1.4582\n0.5231\n0.0085\n-0.3910\n0.4723\n\n\nPRIOR4\n0.1232\n0.1500\n0.8526\n1.3902\n1.4047\n0.5853\n0.0078\n-0.0354\n0.4905\n\n\nPRIOR5\n0.1372\n0.1633\n0.8721\n1.4108\n1.4592\n0.5302\n0.0084\n-0.0665\n0.2892\n\n\n\n\n\n\n\nRisk-adjusted metrics highlight structural momentum persistence.\n\n\nPerformance comparison of ME5 PRIOR portfolios\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAnnualized return, Sharpe ratio (r_f=0), and Expected CRRA (eta=3) show consistent momentum even among the top 20% in size.",
     "crumbs": [
       "교육",
       "설명? 예측?",
-      "The Modern Matthew Effect"
+      "Modern Matthew Effect"
     ]
   }
 ]

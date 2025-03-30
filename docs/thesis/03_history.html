@@ -168,8 +168,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./03_history_nyse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Recent History</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./04_model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">03 ff Compare</span></a>
+ <span class="menu-text">01 Overview</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -199,11 +205,6 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#us-top-10-stability-empirical-snapshot" id="toc-us-top-10-stability-empirical-snapshot" class="nav-link" data-scroll-target="#us-top-10-stability-empirical-snapshot">3. US Top 10 Stability: Empirical Snapshot</a></li>
   <li><a href="#global-top-10-market-cap-stocks" id="toc-global-top-10-market-cap-stocks" class="nav-link" data-scroll-target="#global-top-10-market-cap-stocks">4. Global Top 10 Market-Cap Stocks</a></li>
   
-  <li><a href="#nyse-market-equity-breakpoints-long-term-dynamics" id="toc-nyse-market-equity-breakpoints-long-term-dynamics" class="nav-link" data-scroll-target="#nyse-market-equity-breakpoints-long-term-dynamics">NYSE Market Equity Breakpoints: Long-Term Dynamics</a></li>
-  <li><a href="#breakpoint-time-series-per-firm-19962024" id="toc-breakpoint-time-series-per-firm-19962024" class="nav-link" data-scroll-target="#breakpoint-time-series-per-firm-19962024">Breakpoint Time Series per Firm (1996–2024)</a></li>
-  <li><a href="#cross-sectional-concentration-at-the-tail" id="toc-cross-sectional-concentration-at-the-tail" class="nav-link" data-scroll-target="#cross-sectional-concentration-at-the-tail">Cross-Sectional Concentration at the Tail</a></li>
-  <li><a href="#time-series-of-the-tail-ratio-100th-95th-percentile" id="toc-time-series-of-the-tail-ratio-100th-95th-percentile" class="nav-link" data-scroll-target="#time-series-of-the-tail-ratio-100th-95th-percentile">Time Series of the Tail Ratio: 100th / 95th Percentile</a></li>
-  <li><a href="#broader-context-nyse-and-the-top-5" id="toc-broader-context-nyse-and-the-top-5" class="nav-link" data-scroll-target="#broader-context-nyse-and-the-top-5">Broader Context: NYSE and the Top 5%</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -214,7 +215,6 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Recent History</h1>
-<p class="subtitle lead">Market Capitalization Concentration in the NYSE</p>
 </div>
 
 
@@ -303,68 +303,6 @@ ul.task-list li input[type="checkbox"] {
 <hr>
 </section>
 
-<section id="nyse-market-equity-breakpoints-long-term-dynamics" class="level2">
-<h2 class="anchored" data-anchor-id="nyse-market-equity-breakpoints-long-term-dynamics">NYSE Market Equity Breakpoints: Long-Term Dynamics</h2>
-<p>The Fama-French dataset <code>ME_Breakpoints</code> provides monthly percentile breakpoints for market equity (ME), computed only from NYSE stocks. These breakpoints span from the 5th to the 100th percentile and are calculated based on market capitalization (price times shares outstanding, in millions of USD) at month-end. Importantly, closed-end funds and REITs are excluded, and only firms with CRSP share codes 10 or 11 and valid price/share data are included.</p>
-<p>This file investigates the evolution of market concentration in the NYSE based on these ME breakpoints, emphasizing the dynamics in the upper tail of the distribution, particularly the top 5% of firms.</p>
-</section>
-<section id="breakpoint-time-series-per-firm-19962024" class="level2">
-<h2 class="anchored" data-anchor-id="breakpoint-time-series-per-firm-19962024">Breakpoint Time Series per Firm (1996–2024)</h2>
-<p>We plot the NYSE ME breakpoints divided by the number of firms each month (“per firm”) from 1996 to 2024. The results reveal two distinct phases:</p>
-<ul>
-<li><strong>Pre-2010:</strong> A cyclical pattern dominates, consistent with broader economic expansions and contractions. For instance, the 2000–2001 tech bubble and the 2008 global financial crisis exhibit clear signals of expansion and collapse.</li>
-<li><strong>Post-2010:</strong> A structural break is visible. Especially since 2016, the average ME per firm in the top percentile (100%) exhibits a sharp and persistent upward trend.</li>
-</ul>
-<p>This long-term trend implies a sustained capital lock-in within a small number of mega-cap firms, increasingly distanced from the rest of the NYSE universe.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="fig_nyse_breakpoints_per_firm.png" class="img-fluid figure-img"></p>
-<figcaption>NYSE Breakpoints per Firm (1996-2024)</figcaption>
-</figure>
-</div>
-</section>
-<section id="cross-sectional-concentration-at-the-tail" class="level2">
-<h2 class="anchored" data-anchor-id="cross-sectional-concentration-at-the-tail">Cross-Sectional Concentration at the Tail</h2>
-<p>To better understand the shape of the right tail, we visualize the percentile distribution at the most recent observation (2024-12). The result is striking: while the ME per firm grows gradually between percentiles 5 to 95, a dramatic jump occurs at the 100th percentile.</p>
-<p>This highlights that <strong>the concentration of market value within the top 5% is extreme</strong>, and the very last percentile alone contains firms with ME per firm often an order of magnitude greater than those in the 95th percentile.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="fig_tail_breakpoints_2024.png" class="img-fluid figure-img"></p>
-<figcaption>Tail Breakpoints (2024-12)</figcaption>
-</figure>
-</div>
-</section>
-<section id="time-series-of-the-tail-ratio-100th-95th-percentile" class="level2">
-<h2 class="anchored" data-anchor-id="time-series-of-the-tail-ratio-100th-95th-percentile">Time Series of the Tail Ratio: 100th / 95th Percentile</h2>
-<p>To quantify tail concentration dynamics over time, we construct a monthly time series of the ME per firm ratio between the 100th and 95th percentiles. This ratio serves as a tail index for how dominant the very largest firms are, even among the elite.</p>
-<p>The time series reveals the following:</p>
-<ul>
-<li><strong>1996–2001:</strong> Rapid escalation during the dot-com boom, with the ratio peaking above 20.</li>
-<li><strong>2003–2008:</strong> Stabilization around ~13.</li>
-<li><strong>2009:</strong> A brief post-crisis surge back above 18.</li>
-<li><strong>2010–2016:</strong> A sharp decline and plateau near 7, indicating relative equality among top-tier firms.</li>
-<li><strong>Post-2016:</strong> A gradual resurgence in the ratio, reflecting renewed concentration at the very top.</li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="fig_me_ratio_100_95.png" class="img-fluid figure-img"></p>
-<figcaption>ME Ratio: 100th / 95th Percentile</figcaption>
-</figure>
-</div>
-</section>
-<section id="broader-context-nyse-and-the-top-5" class="level2">
-<h2 class="anchored" data-anchor-id="broader-context-nyse-and-the-top-5">Broader Context: NYSE and the Top 5%</h2>
-<p>It is critical to underscore that Fama-French breakpoints are calculated <strong>using only NYSE stocks</strong>. Despite the rise of Nasdaq dominance in recent decades, the NYSE remains the foundation for constructing breakpoints in academic asset pricing.</p>
-<p>The breakpoints for:</p>
-<ul>
-<li><strong>Market Equity (ME):</strong> monthly, based on NYSE stocks with viable price and share data.</li>
-<li><strong>Book-to-Market (BE/ME):</strong> annually, using BE from t-1 and ME from December of t-1.</li>
-<li><strong>Prior 2–12 month Return:</strong> monthly, requiring CRSP price and return data.</li>
-</ul>
-<p>These indicators, especially in the upper tail, are overwhelmingly driven by the top 5% of NYSE firms — roughly 60–70 firms. These companies exert outsized influence on asset pricing, portfolio construction, and market dynamics.</p>
-
-
-</section>
 </section>
 
 <div id="quarto-appendix" class="default"><section id="appendix" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Appendix</h2><div class="quarto-appendix-contents">
@@ -463,8 +401,8 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<hr>
-<p>The NYSE continues to exhibit substantial market capitalization concentration. Since 2010 — and more sharply since 2016 — the very largest firms have distanced themselves even from the rest of the top 5%, highlighting the structural importance of tail dynamics in financial markets. Any realistic asset pricing model must account for this persistent and extreme upper-tail asymmetry.</p>
+
+
 </section>
 </section>
 </div></section></div></main> <!-- /main -->

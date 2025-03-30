@@ -1,5 +1,5 @@
 ---
-title: The New Gilded Age
+title: New Gilded Age
 subtitle: Extreme Partisan Divide in the United States
 author: GitSam
 date: '2025-03-08'

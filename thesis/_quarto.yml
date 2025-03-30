@@ -32,6 +32,7 @@ website:
       - 01_intro.qmd
       - 02_lit_review.qmd
       - 03_history.qmd
+      - 03_history_nyse.qmd
       - 04_model.qmd
       - 05_conclusion.qmd
 
