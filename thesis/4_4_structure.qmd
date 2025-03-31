@@ -4,10 +4,8 @@ format:
   html:
     code-fold: true
 execute:
-  enabled: false
+  enabled: true
 ---
-
-# Structural Analysis
 
 This section decomposes the structural mechanisms underlying the TBTF strategy across two economic regimes—pre-2010 and post-2010. By comparing these periods, we identify changes in distributional composition, capital concentration, and rank mobility that reflect broader shifts in financial market dynamics following systemic interventions and structural innovation—each of which challenges conventional assumptions in asset pricing and market efficiency.
 
