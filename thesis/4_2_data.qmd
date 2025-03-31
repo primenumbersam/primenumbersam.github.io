@@ -1,8 +1,6 @@
 ---
-title: 02 Data
+title: 02 Data Preprocessing
 ---
-
-# Data Source and Construction
 
 This section describes the data used to construct and evaluate the TBTF portfolio strategy. We utilize multiple sources to enable a comprehensive analysis of market structure, return distributions, and benchmark comparisons. The primary dataset is drawn from CRSP, with supplemental reference portfolios and index returns from Fama-French and Yahoo Finance, respectively.
 

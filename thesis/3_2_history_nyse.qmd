@@ -1,6 +1,8 @@
 ---
 title: History of NYSE ME
 subtitle: "Market Capitalization Concentration in the NYSE"
+execute:
+  enabled: false
 ---
 
 The NYSE continues to exhibit substantial market capitalization concentration. Since 2010 — and more sharply since 2016 — the very largest firms have distanced themselves even from the rest of the top 5%, highlighting the structural importance of tail dynamics in financial markets. Any realistic asset pricing model must account for this persistent and extreme upper-tail asymmetry.

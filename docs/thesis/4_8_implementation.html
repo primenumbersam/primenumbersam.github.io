@@ -235,13 +235,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./4_2_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">02 Data</span></a>
+ <span class="menu-text">02 Data Preprocessing</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./4_3_ff_compare.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">03 Benchmarks</span></a>
+ <span class="menu-text">03 Size-Momentum Benchmark</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -292,11 +292,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#implementation-notes" id="toc-implementation-notes" class="nav-link active" data-scroll-target="#implementation-notes">Implementation Notes</a></li>
-  <li><a href="#programming-environment" id="toc-programming-environment" class="nav-link" data-scroll-target="#programming-environment">Programming Environment</a></li>
-  <li><a href="#document-structure" id="toc-document-structure" class="nav-link" data-scroll-target="#document-structure">Document Structure</a></li>
-  <li><a href="#output-artifacts" id="toc-output-artifacts" class="nav-link" data-scroll-target="#output-artifacts">Output Artifacts</a></li>
-  <li><a href="#reproducibility" id="toc-reproducibility" class="nav-link" data-scroll-target="#reproducibility">Reproducibility</a></li>
+  <li><a href="#implementation-notes" id="toc-implementation-notes" class="nav-link active" data-scroll-target="#implementation-notes"><span class="header-section-number">1</span> Implementation Notes</a></li>
+  <li><a href="#programming-environment" id="toc-programming-environment" class="nav-link" data-scroll-target="#programming-environment"><span class="header-section-number">2</span> Programming Environment</a></li>
+  <li><a href="#document-structure" id="toc-document-structure" class="nav-link" data-scroll-target="#document-structure"><span class="header-section-number">3</span> Document Structure</a></li>
+  <li><a href="#output-artifacts" id="toc-output-artifacts" class="nav-link" data-scroll-target="#output-artifacts"><span class="header-section-number">4</span> Output Artifacts</a></li>
+  <li><a href="#reproducibility" id="toc-reproducibility" class="nav-link" data-scroll-target="#reproducibility"><span class="header-section-number">5</span> Reproducibility</a></li>
   
   </ul>
 </nav>
@@ -336,12 +336,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="implementation-notes" class="level2">
-<h2 class="anchored" data-anchor-id="implementation-notes">Implementation Notes</h2>
+<section id="implementation-notes" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="implementation-notes"><span class="header-section-number">1</span> Implementation Notes</h2>
 <p>This section summarizes the technical implementation details of the TBTF strategy, including programming environment, file structure, and reproducibility instructions. The entire empirical workflow is based on <a href="https://quarto.org/">Quarto</a> and organized into modular <code>.qmd</code> documents with embedded Python code blocks. This ensures seamless rendering of figures and tables alongside text, and supports reproducible research.</p>
 </section>
-<section id="programming-environment" class="level2">
-<h2 class="anchored" data-anchor-id="programming-environment">Programming Environment</h2>
+<section id="programming-environment" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="programming-environment"><span class="header-section-number">2</span> Programming Environment</h2>
 <p>All analysis was conducted using Python 3.x. Core packages used include:</p>
 <ul>
 <li><strong>Data Processing</strong>: <code>pandas</code>, <code>numpy</code></li>
@@ -351,8 +351,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>Additional utilities like <code>joblib</code> and <code>multiprocessing</code> were used for robustness tests and performance acceleration.</p>
 </section>
-<section id="document-structure" class="level2">
-<h2 class="anchored" data-anchor-id="document-structure">Document Structure</h2>
+<section id="document-structure" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="document-structure"><span class="header-section-number">3</span> Document Structure</h2>
 <p>The analysis is broken into modular <code>.qmd</code> files, each corresponding to a specific stage of the empirical framework. These files are rendered either as part of the full manuscript or as standalone reports.</p>
 <table class="caption-top table">
 <colgroup>
@@ -402,8 +402,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 <p>All figures and tables are embedded directly within these <code>.qmd</code> documents using Quarto-native <code>fig-cap</code> and <code>tbl-cap</code> options.</p>
 </section>
-<section id="output-artifacts" class="level2">
-<h2 class="anchored" data-anchor-id="output-artifacts">Output Artifacts</h2>
+<section id="output-artifacts" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="output-artifacts"><span class="header-section-number">4</span> Output Artifacts</h2>
 <p>The results are organized in structured folders and linked automatically to each section:</p>
 <ul>
 <li><code>figs/</code>: Figures (e.g., PNG/HTML via matplotlib or plotly)</li>
@@ -415,8 +415,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>performance_summary_pre2010.csv</code>, <code>weight_table_exp_fit.html</code></li>
 </ul>
 </section>
-<section id="reproducibility" class="level2">
-<h2 class="anchored" data-anchor-id="reproducibility">Reproducibility</h2>
+<section id="reproducibility" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="reproducibility"><span class="header-section-number">5</span> Reproducibility</h2>
 <p>To reproduce the full pipeline:</p>
 <ol type="1">
 <li>Clone the project repository and install dependencies:</li>
@@ -432,10 +432,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 
 
-<div id="quarto-appendix" class="default"><section id="appendix" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Appendix</h2><div class="quarto-appendix-contents">
+<div id="quarto-appendix" class="default"><section id="appendix" class="level2 appendix" data-number="6"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">6</span> Appendix</h2><div class="quarto-appendix-contents">
 
-<section id="requirements.txt" class="level3">
-<h3 class="anchored" data-anchor-id="requirements.txt">requirements.txt</h3>
+<section id="requirements.txt" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="requirements.txt"><span class="header-section-number">6.1</span> requirements.txt</h3>
 <div class="sourceCode" id="cb3"><pre class="sourceCode txt code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pandas&gt;=1.5</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>numpy&gt;=1.22</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>scikit-learn&gt;=1.3</span>

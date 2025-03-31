@@ -56,7 +56,7 @@ format:
     theme: cosmo
     css: ../styles.css
     toc: true
-    number-sections: false
+    number-sections: true
     code-fold: true
 
 execute:

@@ -2,55 +2,51 @@
 title: "Literature Review"
 ---
 
-# Literature Review
+## Classical Foundations of Risk-Based Asset Pricing
 
-## 1. Classical Theories of Risk-Based Asset Pricing  
+Modern finance rests on the principle that asset returns compensate for exposure to systematic risk. Foundational models such as the Capital Asset Pricing Model (CAPM), the Fama-French factor models, and the Betting Against Beta (BAB) framework formalize this idea under assumptions of frictionless trading, rational expectations, and arbitrage-free equilibria.
 
-Traditional financial economics posits that expected returns serve as compensation for bearing systematic risk. This principle underpins several foundational models:
-- The Capital Asset Pricing Model (CAPM) asserts that expected excess returns are proportional to market beta.
-- The Fama-French Three- and Five-Factor Models extend CAPM by incorporating size, value, profitability, and investment factors [@FamaFrench1993; - @FamaFrench2015].
-- The Betting Against Beta (BAB) framework suggests that low-beta assets may outperform on a risk-adjusted basis [@FrazziniPedersen2014].
-- Mean-Variance Optimization, introduced by @Markowitz1952, assumes that returns are normally distributed and fully explained by their mean and covariance structure.
+In CAPM, expected returns scale linearly with market beta. The Fama-French Three- and Five-Factor models extend this by incorporating size, value, investment, and profitability factors [@FamaFrench1993; @FamaFrench2015]. Alternative models such as Black–Litterman [@black1992global] or Bayesian tilting [@brandt2009parametric] adjust this equilibrium using investor views. Despite their theoretical elegance, these frameworks rely heavily on *convex market structure*, *homogeneous expectations*, and *efficient capital mobility* — conditions increasingly absent in post-crisis financial markets.
 
-These models rest on assumptions of frictionless markets, convex opportunity sets, homogeneous beliefs, and the absence of arbitrage opportunities.
+## Empirical Challenges and Structural Frictions
 
-## 2. Empirical Challenges to Risk-Based Models  
-Utilizing CRSP monthly data, Fama-French industry portfolios, and ETF benchmarks across pre- and post-2010 periods, this study revisits and challenges these foundational models.
+### Factor Models and Fragility Under Structural Shifts
 
-### 2.1 Industry-Level Linear Factor Models and Multicollinearity  
-- Multi-Factor Model with Fama-MacBeth Regression [@FamaMacBeth1973]: When applied to industry portfolios, it reveals large, persistent unexplained alphas [@FamaFrench1997] while the market risk premium becomes statistically insignificant. @asness2018size argue that the size premium persists when controlling for quality factors, suggesting the reversal may stem from low-quality small-cap stocks. Additionally, @hou2020replicating find that many documented anomalies, including size-related ones, do not hold up under rigorous testing, while **mitigated** if carefully controlling microcap stocks and using value-weighted returns. For example, excess returns of FF industry portfolios are regressed on macro and financial factors, revealing **multicollinearity** among predictors like market excess returns, value spreads, and volatility indicators, leading to unstable coefficients and weak out-of-sample explanatory power.  
-- Lasso regularization confirms model sparsity, with only a few predictors consistently selected, often exhibiting inconsistent signs [@Kozak2020].
+The empirical performance of multi-factor models is often weak out-of-sample. Applying Fama-MacBeth regressions [@FamaMacBeth1973] to industry or quantile portfolios reveals unstable betas, multicollinearity among explanatory variables, and residual alpha persistence [@FamaFrench1997]. Recent replication studies (e.g., @hou2020replicating) show that most anomalies lack robustness, particularly when controlling for micro-cap bias and rebalancing frictions.
 
-### 2.2 Betting Against Beta and Sharpe Ratio Symmetry  
-- The BAB Strategy posits that high-beta assets underperform on a risk-adjusted basis [@FrazziniPedersen2014].
-- Empirical tests using SIC 10 portfolios reveal that optimal Sharpe ratios are achieved by portfolios with betas close to 1, rather than low or high values. The relationship between beta and performance is either flat or non-monotonic, suggesting that risk exposure is not systematically mispriced but structurally inert.
+Even advanced selection methods, such as Lasso or Ridge-regularized regressions [@Kozak2020], identify few stable predictors. These results suggest that the dominant source of return variation may lie outside the domain of classical factor structures.
 
-### 2.3 Practical Failures of Mean-Variance Optimization  
-- Unconstrained Mean-Variance (MV) Optimization yields extreme and highly unstable weights, leading to high turnover and poor out-of-sample performance [@DeMiguel2009].
-- Imposing constraints (e.g., no short-selling) enhances stability but reduces performance below passive benchmarks. Passive value-weighted portfolios consistently outperform MV portfolios, even when optimized using historical data.
+### Nonlinearity and the Failure of Beta as a Pricing Kernel
 
-### 2.4 Limitations of Bayesian Optimization and Tilting  
-- @black1992global combines CAPM equilibrium with investor views via Bayesian updating.  
-- @brandt2009parametric incorporate momentum and size signals into dynamic allocation, but our empirical tests reveal no consistent outperformance over ETF benchmarks post-2010, suffering from estimation error and overfitting in regimes characterized by unstable return distributions.
+The BAB model posits that low-beta portfolios offer higher Sharpe ratios after adjusting for leverage constraints [@FrazziniPedersen2014]. However, empirical tests using SIC-based portfolios reveal a *non-monotonic relationship*: optimal risk-adjusted returns often cluster around beta ≈ 1, contradicting the implication of continuous beta-based mispricing. This points to *risk inertia* rather than reward for bearing volatility.
 
-## 3. Structural Interpretation and Motivation for TBTF  
-The underperformance of theoretically sound but empirically fragile strategies suggests capital markets reward position within a segmented system rather than risk. 
+### Practical Limitations of Optimization-Based Portfolios
 
-- Large-cap firms are insulated from downward transitions, mirroring the 'superstar' effect where small quality differences yield large market outcomes, as described by Rosen [@rosen1981economics]. In banking, @gandhi2015size find large banks have lower risk-adjusted returns, indicative of implicit government guarantees in adverse scenarios.  
-- Small-cap firms increasingly comprise structurally inefficient "zombie" entities sustained by liquidity support [@Acharya2024].
-- Return distributions no longer reflect efficient risk pricing but are shaped by arbitrage-limited capital flows, ETF-induced inflows, and policy distortions [@Glosten2021; @ShleiferVishny1997].
-- Return distributions reflect arbitrage-limited capital flows, ETF-induced inflows, and policy distortions, with @jiang2020passive showing passive investing disproportionately benefits large firms, exacerbating concentration. This aligns with @autor2020fall, linking market power concentration to declining labor share, highlighting structural market dynamics.
+Mean-Variance optimization [@Markowitz1952] and its extensions frequently fail in practice. Portfolio weights are unstable and overfit, leading to high turnover and inferior real-world performance [@DeMiguel2009]. Constrained variants reduce instability but underperform simple passive benchmarks like SPY or QQQ.
 
-These findings motivate rank-based strategies like TBTF, capitalizing on structural capital dynamics rather than informational edges.
+### Post-2010 Failures of Predictive Allocation
 
-## 4. Contributions to the Literature  
-This study extends literature on asset pricing anomalies, building on @hou2020replicating.  regarding anomaly robustness. It introduces Markov-based transition models for capital lock-in, aligning with rising concentration insights from @autor2020fall. It offers low-turnover, high-performance portfolio strategies and critiques ETF-driven distortions and post-QE concentration, reflecting real-world finance breakdowns under structural stress.
+Dynamic asset allocation models using Bayesian tilting or factor timing [@brandt2009parametric] show limited edge post-2010. In regimes dominated by *non-Gaussian returns*, *policy shocks*, and *arbitrage limits*, these models fail to anticipate structural capital movements or benefit from persistent factor exposures.
 
-This study builds upon and extends several strands of the literature:
+## Structural Interpretations: Rent Extraction and Capital Lock-in
 
-- Asset Pricing Anomalies: It demonstrates new forms of structural deviation not explained by established factors [@hou2020replicating]
-- Market Structure and Capital Mobility: It introduces Markov-based transition models to analyze capital lock-in .
-- Portfolio Strategy Design: It offers a low-turnover, high-performance alternative to optimization-based approaches.
-- Market Efficiency Critique: It provides empirical support for critiques of ETF-driven distortions and post-QE market concentration [@autor2020fall ; @jiang2020passive].
+A growing literature interprets return generation as increasingly governed by *non-risk factors* such as *capital scale*, *policy insulation*, and *rank persistence*:
 
-The TBTF strategy does not reject modern finance but reflects its real-world breakdown under structural stress. Its continued success raises fundamental questions about what financial markets price and for whose benefit.
+- Large banks exhibit lower risk-adjusted returns, suggestive of implicit guarantees [@gandhi2015size].
+- Small-cap segments contain a rising share of "zombie" firms — structurally unproductive entities sustained by policy support [@Acharya2024].
+- ETF flows bias price discovery toward large-cap incumbents [@jiang2020passive; @Glosten2021].
+- Concentration of capital and returns parallels macro trends in labor share decline and superstar firm dominance [@autor2020fall].
+
+These findings frame market returns not as compensation for risk, but as *rents accruing to structural position within the capital hierarchy*.
+
+## Positioning TBTF within the Literature
+
+This study contributes to this emerging paradigm by introducing:
+
+- **Rank-based capital lock-in** frameworks via percentile transition matrices, inspired by social mobility models.
+- A **low-turnover, high-performance TBTF strategy**, rooted in capital persistence rather than information efficiency.
+- A **critique of post-QE capital dynamics**, where ETF-driven flows reinforce rank-based inequality in financial markets.
+
+In contrast to conventional pricing models assuming rapid mean-reversion and marginal arbitrage, the TBTF strategy illustrates how **capital stratification can sustain excess returns** through structural mechanisms rather than informational edges.
+
+Its continued success does not reject modern finance—it reflects its breakdown under structural stress, necessitating models that account for capital rigidity, transition asymmetry, and institutional drift.

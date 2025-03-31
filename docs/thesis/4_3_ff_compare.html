@@ -9,7 +9,7 @@
 <meta name="author" content="gitSAM">
 <meta name="dcterms.date" content="2025-03-31">
 
-<title>03 Benchmarks – GitSAM</title>
+<title>03 Size-Momentum Benchmark – GitSAM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -193,7 +193,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./4_1_overview.html">Model</a></li><li class="breadcrumb-item"><a href="./4_3_ff_compare.html">03 Benchmarks</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./4_1_overview.html">Model</a></li><li class="breadcrumb-item"><a href="./4_3_ff_compare.html">03 Size-Momentum Benchmark</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -264,13 +264,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./4_2_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">02 Data</span></a>
+ <span class="menu-text">02 Data Preprocessing</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./4_3_ff_compare.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">03 Benchmarks</span></a>
+ <span class="menu-text">03 Size-Momentum Benchmark</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -321,26 +321,23 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#size-momentum-benchmark" id="toc-size-momentum-benchmark" class="nav-link active" data-scroll-target="#size-momentum-benchmark">Size-Momentum Benchmark</a>
+  <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation"><span class="header-section-number">1</span> Motivation</a></li>
+  <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology"><span class="header-section-number">2</span> Methodology</a>
   <ul class="collapse">
-  <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation">Motivation</a></li>
-  <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology">Methodology</a>
-  <ul class="collapse">
-  <li><a href="#sharpe-ratio-dynamics" id="toc-sharpe-ratio-dynamics" class="nav-link" data-scroll-target="#sharpe-ratio-dynamics">Sharpe Ratio Dynamics</a></li>
+  <li><a href="#sharpe-ratio-dynamics" id="toc-sharpe-ratio-dynamics" class="nav-link" data-scroll-target="#sharpe-ratio-dynamics"><span class="header-section-number">2.1</span> Sharpe Ratio Dynamics</a></li>
   </ul></li>
-  <li><a href="#key-findings" id="toc-key-findings" class="nav-link" data-scroll-target="#key-findings">Key Findings</a></li>
-  <li><a href="#contribution" id="toc-contribution" class="nav-link" data-scroll-target="#contribution">Contribution</a></li>
+  <li><a href="#key-findings" id="toc-key-findings" class="nav-link" data-scroll-target="#key-findings"><span class="header-section-number">3</span> Key Findings</a></li>
+  <li><a href="#contribution" id="toc-contribution" class="nav-link" data-scroll-target="#contribution"><span class="header-section-number">4</span> Contribution</a></li>
   
-  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./4_1_overview.html">Model</a></li><li class="breadcrumb-item"><a href="./4_3_ff_compare.html">03 Benchmarks</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./4_1_overview.html">Model</a></li><li class="breadcrumb-item"><a href="./4_3_ff_compare.html">03 Size-Momentum Benchmark</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">03 Benchmarks</h1>
+<h1 class="title">03 Size-Momentum Benchmark</h1>
 </div>
 
 
@@ -369,9 +366,7 @@ window.Quarto = {
 </header>
 
 
-<section id="size-momentum-benchmark" class="level1">
-<h1>Size-Momentum Benchmark</h1>
-<div id="847c5323" class="cell">
+<div id="0c1668d6" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import Libraries</span></span>
@@ -393,7 +388,7 @@ window.Quarto = {
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"end date:"</span>, end_date)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="3459970d" class="cell">
+<div id="11923ed3" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title Data: Portfolios_Formed_on_ME</span></span>
@@ -440,12 +435,12 @@ window.Quarto = {
 <p>To establish a structural benchmark for the TBTF strategy, we begin by examining the historical performance of size-sorted portfolios constructed by Fama and French. In particular, we compare the top and bottom deciles of market capitalization—commonly denoted as <code>b_10</code> (large-cap) and <code>s_10</code> (small-cap)—using monthly return data spanning from July 1963 to June 2023.</p>
 <p>The data originate from the “Portfolios Formed on Size (ME)” dataset provided by the Ken French Data Library. These portfolios, covering NYSE, Nasdaq, and AMEX stocks, are rebalanced annually using NYSE breakpoints and report monthly <strong>value-weighted excess returns</strong>—i.e., returns net of the one-month Treasury bill rate (risk-free return).</p>
 <p>For additional robustness, we construct aggregates (e.g., <code>s_70</code>, <code>s_90</code>) to represent broader small-cap behavior.</p>
-<section id="motivation" class="level2">
-<h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
+<section id="motivation" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="motivation"><span class="header-section-number">1</span> Motivation</h2>
 <p>This section evaluates whether large-cap portfolios exhibit systematically superior <strong>risk-adjusted performance</strong> relative to small-cap portfolios. Such a result would support the hypothesis that TBTF-style strategies derive their advantage not from tactical optimization, but from structural features of the cross-sectional return distribution.</p>
 </section>
-<section id="methodology" class="level2">
-<h2 class="anchored" data-anchor-id="methodology">Methodology</h2>
+<section id="methodology" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="methodology"><span class="header-section-number">2</span> Methodology</h2>
 <p>We compare the <code>s_10</code> and <code>b_10</code> portfolios in three dimensions:</p>
 <ul>
 <li><strong>Distributional Shape</strong>: via QQ-plots and skewness asymmetry<br>
@@ -455,8 +450,8 @@ window.Quarto = {
 <li><strong>Sharpe Ratio Dynamics</strong>: using time-varying rolling Sharpe ratio curves and volatility–mean coordinate plots</li>
 </ul>
 <p>Unlike most academic studies that summarize portfolio performance using static points in mean–volatility space, we propose a dynamic framework in which Sharpe ratios are evaluated as time-series objects. This allows us to capture persistent structural asymmetries.</p>
-<section id="sharpe-ratio-dynamics" class="level3">
-<h3 class="anchored" data-anchor-id="sharpe-ratio-dynamics">Sharpe Ratio Dynamics</h3>
+<section id="sharpe-ratio-dynamics" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="sharpe-ratio-dynamics"><span class="header-section-number">2.1</span> Sharpe Ratio Dynamics</h3>
 <p>While static comparisons of mean and volatility offer useful summary insights, they can be misleading in the presence of temporal instability. To capture the <strong>time-varying performance profile</strong> of small- and large-cap portfolios, we construct <strong>rolling Sharpe ratios</strong> using annualized excess returns.</p>
 <p>Let <span class="math inline">\(\mu_t\)</span> and <span class="math inline">\(\sigma_t\)</span> denote the rolling annualized <strong>excess return mean</strong> and <strong>volatility</strong> of a portfolio over a 36-month window. Then, the rolling Sharpe ratio at time <span class="math inline">\(t\)</span> is computed as:</p>
 <p><span class="math display">\[
@@ -465,8 +460,8 @@ window.Quarto = {
 <p>We focus on the bottom and top size deciles: <code>s_10</code> (small-cap) and <code>b_10</code> (large-cap).</p>
 </section>
 </section>
-<section id="key-findings" class="level2">
-<h2 class="anchored" data-anchor-id="key-findings">Key Findings</h2>
+<section id="key-findings" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="key-findings"><span class="header-section-number">3</span> Key Findings</h2>
 <ol type="1">
 <li>The <code>b_10</code> portfolio exhibits consistently lower volatility than <code>s_10</code>, across the full 60-year period.</li>
 <li>Dynamic Sharpe ratio visualization reveals that the performance advantage of <code>b_10</code> is persistent over time, not a byproduct of a particular decade or business cycle.</li>
@@ -478,7 +473,7 @@ window.Quarto = {
 <li>The time-series of rolling Sharpe ratios reveals that <code>b_10</code> <strong>dominates structurally</strong>, not just in isolated windows.</li>
 <li>During periods of macroeconomic stress, <code>s_10</code> portfolios experience sharper volatility spikes, reducing their Sharpe ratios significantly.</li>
 </ul>
-<div id="19821bdb" class="cell">
+<div id="1846a4d7" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title Time-series of s_10 vs. b_10</span></span>
@@ -546,7 +541,7 @@ window.Quarto = {
 <li><em>Time-series of 36-month rolling Sharpe ratios for <code>s_10</code> and <code>b_10</code>. Dashed lines represent the unconditional average for each.</em></li>
 </ul>
 <p>We also construct a bivariate distribution of annual mean and standard deviation using kernel density estimates:</p>
-<div id="d45cd250" class="cell">
+<div id="50b90b0b" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title s_10 vs. b_10 in the volatility-mean coordinate</span></span>
@@ -595,8 +590,8 @@ window.Quarto = {
 <p><em>Kernel density estimate of annual excess return vs.&nbsp;annual volatility for <code>s_10</code> and <code>b_10</code>. The separation in volatility–mean space reflects the underlying Sharpe ratio asymmetry.</em></p>
 <p>These dynamic plots provide a richer understanding of the <strong>persistent performance asymmetry</strong> between the smallest and largest decile portfolios—supporting the broader structural thesis underlying TBTF.</p>
 </section>
-<section id="contribution" class="level2">
-<h2 class="anchored" data-anchor-id="contribution">Contribution</h2>
+<section id="contribution" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="contribution"><span class="header-section-number">4</span> Contribution</h2>
 <ul>
 <li>Introduces a time-dynamic framework—<strong>Sharpe ratio level curves</strong>—to visualize and quantify structural performance asymmetries between size portfolios.</li>
 <li>Establishes a long-term empirical benchmark against which TBTF performance can be evaluated.</li>
@@ -604,13 +599,12 @@ window.Quarto = {
 </ul>
 </section>
 
-</section>
 
-<div id="quarto-appendix" class="default"><section id="appendix" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Appendix</h2><div class="quarto-appendix-contents">
+<div id="quarto-appendix" class="default"><section id="appendix" class="level2 appendix" data-number="5"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">5</span> Appendix</h2><div class="quarto-appendix-contents">
 
-<section id="qq-plot-s_10-vs.-b_10" class="level3">
-<h3 class="anchored" data-anchor-id="qq-plot-s_10-vs.-b_10">QQ Plot – <code>s_10</code> vs.&nbsp;<code>b_10</code></h3>
-<div id="57941d8f" class="cell">
+<section id="qq-plot-s_10-vs.-b_10" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="qq-plot-s_10-vs.-b_10"><span class="header-section-number">5.1</span> QQ Plot – <code>s_10</code> vs.&nbsp;<code>b_10</code></h3>
+<div id="c674e5f4" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title QQ-plot (정규분포 검사)</span></span>
@@ -647,7 +641,7 @@ window.Quarto = {
 <span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="60c34608" class="cell">
+<div id="76f0b9eb" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title QQ-plot (annualized)</span></span>
@@ -682,8 +676,8 @@ window.Quarto = {
 </details>
 </div>
 <p><em>QQ plots comparing sample quantiles of <code>s_10</code> (left) and <code>b_10</code> (right) returns to a standard normal distribution. The flatter slope and tighter fit of <code>b_10</code> indicate lower volatility and greater normality, while <code>s_10</code> exhibits positive skewness and negative tail risk.</em></p>
-<section id="qq-plot-interpretation-comparing-small-vs.-big-size-portfolios" class="level4">
-<h4 class="anchored" data-anchor-id="qq-plot-interpretation-comparing-small-vs.-big-size-portfolios">QQ Plot Interpretation: Comparing Small vs.&nbsp;Big Size Portfolios</h4>
+<section id="qq-plot-interpretation-comparing-small-vs.-big-size-portfolios" class="level4" data-number="5.1.1">
+<h4 data-number="5.1.1" class="anchored" data-anchor-id="qq-plot-interpretation-comparing-small-vs.-big-size-portfolios"><span class="header-section-number">5.1.1</span> QQ Plot Interpretation: Comparing Small vs.&nbsp;Big Size Portfolios</h4>
 <p>To evaluate the return distribution characteristics of small-cap and large-cap portfolios, we construct QQ plots of returns for the <code>s_10</code> (smallest decile) and <code>b_10</code> (largest decile) portfolios. The plots juxtapose sample quantiles against theoretical quantiles from a standard normal distribution. Three notable features emerge:</p>
 <ol type="1">
 <li><p><strong>Slope of the Fitted Line (Volatility Indicator)</strong><br>
@@ -698,9 +692,9 @@ This pattern suggests <strong>positive skewness</strong>—i.e., occasional high
 </ol>
 </section>
 </section>
-<section id="paired-t-test-19632023" class="level3">
-<h3 class="anchored" data-anchor-id="paired-t-test-19632023">Paired T-test (1963–2023)</h3>
-<div id="242aaee2" class="cell">
+<section id="paired-t-test-19632023" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="paired-t-test-19632023"><span class="header-section-number">5.2</span> Paired T-test (1963–2023)</h3>
+<div id="76421b80" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title Dependent t-test (annualized mean. Small sample)</span></span>
@@ -726,7 +720,7 @@ This pattern suggests <strong>positive skewness</strong>—i.e., occasional high
 <span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'The dashed line indicates the median of the difference'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="0cdffb0e" class="cell">
+<div id="1528d705" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#@title Dependent t-test (annualized std. Small sample)</span></span>

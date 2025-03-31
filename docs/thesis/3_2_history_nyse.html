@@ -235,13 +235,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./4_2_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">02 Data</span></a>
+ <span class="menu-text">02 Data Preprocessing</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./4_3_ff_compare.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">03 Benchmarks</span></a>
+ <span class="menu-text">03 Size-Momentum Benchmark</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -292,11 +292,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#nyse-market-equity-breakpoints-long-term-dynamics" id="toc-nyse-market-equity-breakpoints-long-term-dynamics" class="nav-link active" data-scroll-target="#nyse-market-equity-breakpoints-long-term-dynamics">NYSE Market Equity Breakpoints: Long-Term Dynamics</a></li>
-  <li><a href="#breakpoint-time-series-per-firm-19962024" id="toc-breakpoint-time-series-per-firm-19962024" class="nav-link" data-scroll-target="#breakpoint-time-series-per-firm-19962024">Breakpoint Time Series per Firm (1996–2024)</a></li>
-  <li><a href="#cross-sectional-concentration-at-the-tail" id="toc-cross-sectional-concentration-at-the-tail" class="nav-link" data-scroll-target="#cross-sectional-concentration-at-the-tail">Cross-Sectional Concentration at the Tail</a></li>
-  <li><a href="#time-series-of-the-tail-ratio-100th-95th-percentile" id="toc-time-series-of-the-tail-ratio-100th-95th-percentile" class="nav-link" data-scroll-target="#time-series-of-the-tail-ratio-100th-95th-percentile">Time Series of the Tail Ratio: 100th / 95th Percentile</a></li>
-  <li><a href="#broader-context-nyse-and-the-top-5" id="toc-broader-context-nyse-and-the-top-5" class="nav-link" data-scroll-target="#broader-context-nyse-and-the-top-5">Broader Context: NYSE and the Top 5%</a></li>
+  <li><a href="#nyse-market-equity-breakpoints-long-term-dynamics" id="toc-nyse-market-equity-breakpoints-long-term-dynamics" class="nav-link active" data-scroll-target="#nyse-market-equity-breakpoints-long-term-dynamics"><span class="header-section-number">1</span> NYSE Market Equity Breakpoints: Long-Term Dynamics</a></li>
+  <li><a href="#breakpoint-time-series-per-firm-19962024" id="toc-breakpoint-time-series-per-firm-19962024" class="nav-link" data-scroll-target="#breakpoint-time-series-per-firm-19962024"><span class="header-section-number">2</span> Breakpoint Time Series per Firm (1996–2024)</a></li>
+  <li><a href="#cross-sectional-concentration-at-the-tail" id="toc-cross-sectional-concentration-at-the-tail" class="nav-link" data-scroll-target="#cross-sectional-concentration-at-the-tail"><span class="header-section-number">3</span> Cross-Sectional Concentration at the Tail</a></li>
+  <li><a href="#time-series-of-the-tail-ratio-100th-95th-percentile" id="toc-time-series-of-the-tail-ratio-100th-95th-percentile" class="nav-link" data-scroll-target="#time-series-of-the-tail-ratio-100th-95th-percentile"><span class="header-section-number">4</span> Time Series of the Tail Ratio: 100th / 95th Percentile</a></li>
+  <li><a href="#broader-context-nyse-and-the-top-5" id="toc-broader-context-nyse-and-the-top-5" class="nav-link" data-scroll-target="#broader-context-nyse-and-the-top-5"><span class="header-section-number">5</span> Broader Context: NYSE and the Top 5%</a></li>
   </ul>
 </nav>
     </div>
@@ -336,7 +336,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>The NYSE continues to exhibit substantial market capitalization concentration. Since 2010 — and more sharply since 2016 — the very largest firms have distanced themselves even from the rest of the top 5%, highlighting the structural importance of tail dynamics in financial markets. Any realistic asset pricing model must account for this persistent and extreme upper-tail asymmetry.</p>
-<div id="3b154347" class="cell" data-execution_count="1">
+<div id="f2455f60" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -383,115 +383,84 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>avg_count <span class="op">=</span> <span class="bu">int</span>(breakpoints[<span class="st">'Count'</span>].mean())</span>
 <span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Average number of NYSE firms from </span><span class="sc">{</span>start_date<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>end_date<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>avg_count<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>Average number of NYSE firms from 1996-01-01 to 2024-12-31: 1386</code></pre>
 </div>
-</div>
-<section id="nyse-market-equity-breakpoints-long-term-dynamics" class="level2">
-<h2 class="anchored" data-anchor-id="nyse-market-equity-breakpoints-long-term-dynamics">NYSE Market Equity Breakpoints: Long-Term Dynamics</h2>
+<section id="nyse-market-equity-breakpoints-long-term-dynamics" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="nyse-market-equity-breakpoints-long-term-dynamics"><span class="header-section-number">1</span> NYSE Market Equity Breakpoints: Long-Term Dynamics</h2>
 <p>The Fama-French dataset <code>ME_Breakpoints</code> provides monthly percentile breakpoints for market equity (ME), computed only from NYSE stocks. These breakpoints span from the 5th to the 100th percentile and are calculated based on market capitalization (price times shares outstanding, in millions of USD) at month-end. Importantly, closed-end funds and REITs are excluded, and only firms with CRSP share codes 10 or 11 and valid price/share data are included.</p>
 <p>This file investigates the evolution of market concentration in the NYSE based on these ME breakpoints, emphasizing the dynamics in the upper tail of the distribution, particularly the top 5% of firms.</p>
 </section>
-<section id="breakpoint-time-series-per-firm-19962024" class="level2">
-<h2 class="anchored" data-anchor-id="breakpoint-time-series-per-firm-19962024">Breakpoint Time Series per Firm (1996–2024)</h2>
+<section id="breakpoint-time-series-per-firm-19962024" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="breakpoint-time-series-per-firm-19962024"><span class="header-section-number">2</span> Breakpoint Time Series per Firm (1996–2024)</h2>
 <p>We plot the NYSE ME breakpoints divided by the number of firms each month (“per firm”) from 1996 to 2024. The results reveal two distinct phases:</p>
 <ul>
 <li><strong>Pre-2010:</strong> A cyclical pattern dominates, consistent with broader economic expansions and contractions. For instance, the 2000–2001 tech bubble and the 2008 global financial crisis exhibit clear signals of expansion and collapse.</li>
 <li><strong>Post-2010:</strong> A structural break is visible. Especially since 2016, the average ME per firm in the top percentile (100%) exhibits a sharp and persistent upward trend.</li>
 </ul>
 <p>This long-term trend implies a sustained capital lock-in within a small number of mega-cap firms, increasingly distanced from the rest of the NYSE universe.</p>
-<div id="baff569f" class="cell" data-execution_count="2">
+<div id="1b0afa86" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot selected percentile breakpoints over time</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>selected_percentiles <span class="op">=</span> [<span class="st">'80'</span>, <span class="st">'85'</span>, <span class="st">'90'</span>, <span class="st">'95'</span>, <span class="st">'100'</span>]</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>breakpoints[selected_percentiles].plot(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Percentile'</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Market Equity (in millions) per firm'</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'NYSE ME Breakpoints (Per Firm Basis)'</span>)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot selected percentile breakpoints over time</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>selected_percentiles <span class="op">=</span> [<span class="st">'80'</span>, <span class="st">'85'</span>, <span class="st">'90'</span>, <span class="st">'95'</span>, <span class="st">'100'</span>]</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>breakpoints[selected_percentiles].plot(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Percentile'</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Market Equity (in millions) per firm'</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'NYSE ME Breakpoints (Per Firm Basis)'</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="3_2_history_nyse_files/figure-html/cell-3-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
 </div>
 </section>
-<section id="cross-sectional-concentration-at-the-tail" class="level2">
-<h2 class="anchored" data-anchor-id="cross-sectional-concentration-at-the-tail">Cross-Sectional Concentration at the Tail</h2>
+<section id="cross-sectional-concentration-at-the-tail" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="cross-sectional-concentration-at-the-tail"><span class="header-section-number">3</span> Cross-Sectional Concentration at the Tail</h2>
 <p>To better understand the shape of the right tail, we visualize the percentile distribution at the most recent observation (2024-12). The result is striking: while the ME per firm grows gradually between percentiles 5 to 95, a dramatic jump occurs at the 100th percentile.</p>
 <p>This highlights that <strong>the concentration of market value within the top 5% is extreme</strong>, and the very last percentile alone contains firms with ME per firm often an order of magnitude greater than those in the 95th percentile.</p>
-<div id="4ede33c5" class="cell" data-execution_count="3">
+<div id="8c1a5ba2" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_breakpoints_at_end(df, count_col<span class="op">=</span><span class="st">'Count'</span>, start_pct<span class="op">=</span><span class="dv">0</span>, end_pct<span class="op">=</span><span class="va">None</span>, title_suffix<span class="op">=</span><span class="st">''</span>):</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Plot breakpoints at the last available date.</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters:</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">        df: DataFrame with percentile columns and 'Count'</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">        count_col: name of the column representing number of firms (default: 'Count')</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">        start_pct: starting index for column slice (e.g., -20 for top 20 percentiles)</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">        end_pct: ending index for column slice (default: None means till the end)</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co">        title_suffix: string appended to plot title</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Select data at last date</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    last_row <span class="op">=</span> df.tail(<span class="dv">1</span>).drop(columns<span class="op">=</span>[count_col])</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Slice desired percentile columns</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    selected_columns <span class="op">=</span> last_row.columns[start_pct:end_pct]</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    y_data <span class="op">=</span> pd.to_numeric(last_row[selected_columns].values.flatten(), errors<span class="op">=</span><span class="st">'coerce'</span>)</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Plot</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">4</span>))</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    plt.plot(selected_columns, y_data, marker<span class="op">=</span><span class="st">'o'</span>)</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>, ha<span class="op">=</span><span class="st">'right'</span>)</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">'Percentile'</span>)</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">'ME Breakpoints (in millions per firm)'</span>)</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="ss">f'NYSE ME Breakpoints at </span><span class="sc">{</span>df<span class="sc">.</span>index[<span class="op">-</span><span class="dv">1</span>]<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>title_suffix<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    plt.tight_layout()</span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    plt.grid(<span class="va">True</span>)</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="co"># 전체 percentile 구간 시각화</span></span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>plot_breakpoints_at_end(breakpoints, start_pct<span class="op">=</span><span class="dv">0</span>, title_suffix<span class="op">=</span><span class="st">'(Full Range)'</span>)</span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="co"># 상위 3개 빼고 시각화 (5~90)</span></span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>plot_breakpoints_at_end(breakpoints, start_pct<span class="op">=-</span><span class="dv">20</span>, end_pct<span class="op">=-</span><span class="dv">2</span>, title_suffix<span class="op">=</span><span class="st">'(upto Top 20 Percentiles)'</span>)</span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a><span class="co"># 가장 극단적인 상위 3개만 (90, 95, 100 만)</span></span>
-<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>plot_breakpoints_at_end(breakpoints, start_pct<span class="op">=-</span><span class="dv">3</span>, title_suffix<span class="op">=</span><span class="st">'(Top 3 Percentiles)'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_breakpoints_at_end(df, count_col<span class="op">=</span><span class="st">'Count'</span>, start_pct<span class="op">=</span><span class="dv">0</span>, end_pct<span class="op">=</span><span class="va">None</span>, title_suffix<span class="op">=</span><span class="st">''</span>):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Plot breakpoints at the last available date.</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters:</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">        df: DataFrame with percentile columns and 'Count'</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">        count_col: name of the column representing number of firms (default: 'Count')</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">        start_pct: starting index for column slice (e.g., -20 for top 20 percentiles)</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">        end_pct: ending index for column slice (default: None means till the end)</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co">        title_suffix: string appended to plot title</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Select data at last date</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    last_row <span class="op">=</span> df.tail(<span class="dv">1</span>).drop(columns<span class="op">=</span>[count_col])</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Slice desired percentile columns</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    selected_columns <span class="op">=</span> last_row.columns[start_pct:end_pct]</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    y_data <span class="op">=</span> pd.to_numeric(last_row[selected_columns].values.flatten(), errors<span class="op">=</span><span class="st">'coerce'</span>)</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Plot</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">4</span>))</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    plt.plot(selected_columns, y_data, marker<span class="op">=</span><span class="st">'o'</span>)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>, ha<span class="op">=</span><span class="st">'right'</span>)</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">'Percentile'</span>)</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">'ME Breakpoints (in millions per firm)'</span>)</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="ss">f'NYSE ME Breakpoints at </span><span class="sc">{</span>df<span class="sc">.</span>index[<span class="op">-</span><span class="dv">1</span>]<span class="sc">}</span><span class="ss"> </span><span class="sc">{</span>title_suffix<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    plt.tight_layout()</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    plt.grid(<span class="va">True</span>)</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="co"># 전체 percentile 구간 시각화</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>plot_breakpoints_at_end(breakpoints, start_pct<span class="op">=</span><span class="dv">0</span>, title_suffix<span class="op">=</span><span class="st">'(Full Range)'</span>)</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="co"># 상위 3개 빼고 시각화 (5~90)</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>plot_breakpoints_at_end(breakpoints, start_pct<span class="op">=-</span><span class="dv">20</span>, end_pct<span class="op">=-</span><span class="dv">2</span>, title_suffix<span class="op">=</span><span class="st">'(upto Top 20 Percentiles)'</span>)</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="co"># 가장 극단적인 상위 3개만 (90, 95, 100 만)</span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>plot_breakpoints_at_end(breakpoints, start_pct<span class="op">=-</span><span class="dv">3</span>, title_suffix<span class="op">=</span><span class="st">'(Top 3 Percentiles)'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="3_2_history_nyse_files/figure-html/cell-4-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="3_2_history_nyse_files/figure-html/cell-4-output-2.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="3_2_history_nyse_files/figure-html/cell-4-output-3.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
 </div>
 </section>
-<section id="time-series-of-the-tail-ratio-100th-95th-percentile" class="level2">
-<h2 class="anchored" data-anchor-id="time-series-of-the-tail-ratio-100th-95th-percentile">Time Series of the Tail Ratio: 100th / 95th Percentile</h2>
+<section id="time-series-of-the-tail-ratio-100th-95th-percentile" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="time-series-of-the-tail-ratio-100th-95th-percentile"><span class="header-section-number">4</span> Time Series of the Tail Ratio: 100th / 95th Percentile</h2>
 <p>To quantify tail concentration dynamics over time, we construct a monthly time series of the ME per firm ratio between the 100th and 95th percentiles. This ratio serves as a tail index for how dominant the very largest firms are, even among the elite.</p>
 <p>The time series reveals the following:</p>
 <ul>
@@ -501,11 +470,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>2010–2016:</strong> A sharp decline and plateau near 7, indicating relative equality among top-tier firms.</li>
 <li><strong>Post-2016:</strong> A gradual resurgence in the ratio, reflecting renewed concentration at the very top.</li>
 </ul>
-<div id="20ab7fbc" class="cell" data-execution_count="4">
+<div id="85eaaeb6" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the ME per firm ratio: 100th / 95th percentile</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ratio_series <span class="op">=</span> breakpoints[<span class="st">'100'</span>] <span class="op">/</span> breakpoints[<span class="st">'95'</span>]</span>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the ME per firm ratio: 100th / 95th percentile</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>ratio_series <span class="op">=</span> breakpoints[<span class="st">'100'</span>] <span class="op">/</span> breakpoints[<span class="st">'95'</span>]</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert PeriodIndex to DatetimeIndex for plotting</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>ratio_series.index <span class="op">=</span> ratio_series.index.to_timestamp()</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot both raw and log-transformed ratio</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">5</span>))</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> plt.gca()</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>ax.xaxis.set_major_locator(mdates.YearLocator(<span class="dv">2</span>))</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>ax.xaxis.set_major_formatter(mdates.DateFormatter(<span class="st">'%Y'</span>))</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>ax.tick_params(axis<span class="op">=</span><span class="st">'x'</span>, rotation<span class="op">=</span><span class="dv">45</span>) <span class="co"># x축 눈금 회전 추가</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Raw ratio</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>plt.plot(ratio_series.index, ratio_series, marker<span class="op">=</span><span class="st">'o'</span>)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'ME per Firm Ratio: 100th / 95th Percentile'</span>)</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Date'</span>)</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Ratio (ME[100] / ME[95])'</span>)</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="877d6ddc" class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the ME per firm ratio: 95th / 50th percentile</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ratio_series <span class="op">=</span> breakpoints[<span class="st">'95'</span>] <span class="op">/</span> breakpoints[<span class="st">'50'</span>]</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert PeriodIndex to DatetimeIndex for plotting</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>ratio_series.index <span class="op">=</span> ratio_series.index.to_timestamp()</span>
@@ -513,62 +510,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot both raw and log-transformed ratio</span></span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">5</span>))</span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> plt.gca()</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>ax.xaxis.set_major_locator(mdates.YearLocator(<span class="dv">2</span>))</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>ax.xaxis.set_major_formatter(mdates.DateFormatter(<span class="st">'%Y'</span>))</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>ax.tick_params(axis<span class="op">=</span><span class="st">'x'</span>, rotation<span class="op">=</span><span class="dv">45</span>) <span class="co"># x축 눈금 회전 추가</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Raw ratio</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>plt.plot(ratio_series.index, ratio_series, marker<span class="op">=</span><span class="st">'o'</span>)</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'ME per Firm Ratio: 100th / 95th Percentile'</span>)</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Date'</span>)</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Ratio (ME[100] / ME[95])'</span>)</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Raw ratio</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>plt.plot(ratio_series.index, ratio_series, marker<span class="op">=</span><span class="st">'o'</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'ME per Firm Ratio: 95th / 50th Percentile'</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Date'</span>)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Ratio (ME[95] / ME[50])'</span>)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="3_2_history_nyse_files/figure-html/cell-5-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<div id="e64b9279" class="cell" data-execution_count="5">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the ME per firm ratio: 95th / 50th percentile</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>ratio_series <span class="op">=</span> breakpoints[<span class="st">'95'</span>] <span class="op">/</span> breakpoints[<span class="st">'50'</span>]</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert PeriodIndex to DatetimeIndex for plotting</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>ratio_series.index <span class="op">=</span> ratio_series.index.to_timestamp()</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot both raw and log-transformed ratio</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">5</span>))</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Raw ratio</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>plt.plot(ratio_series.index, ratio_series, marker<span class="op">=</span><span class="st">'o'</span>)</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'ME per Firm Ratio: 95th / 50th Percentile'</span>)</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Date'</span>)</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Ratio (ME[95] / ME[50])'</span>)</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="3_2_history_nyse_files/figure-html/cell-6-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
 </div>
 </section>
-<section id="broader-context-nyse-and-the-top-5" class="level2">
-<h2 class="anchored" data-anchor-id="broader-context-nyse-and-the-top-5">Broader Context: NYSE and the Top 5%</h2>
+<section id="broader-context-nyse-and-the-top-5" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="broader-context-nyse-and-the-top-5"><span class="header-section-number">5</span> Broader Context: NYSE and the Top 5%</h2>
 <p>It is critical to underscore that Fama-French breakpoints are calculated <strong>using only NYSE stocks</strong>. Despite the rise of Nasdaq dominance in recent decades, the NYSE remains the foundation for constructing breakpoints in academic asset pricing.</p>
 <p>The breakpoints for:</p>
 <ul>

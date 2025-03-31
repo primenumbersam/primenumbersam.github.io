@@ -3,9 +3,7 @@ title: "Recent History"
 format: html
 ---
 
-# Structural Shifts in the Financial Market
-
-## 1. 2010 as a Structural Break
+## 2010 as a Structural Break
 
 This study defines **January 1, 2010** as a structural break in the evolution of U.S. financial markets. This point marks a transition from a period of crisis-driven volatility and deregulation to an era characterized by **policy-dominated asset inflation, ETF proliferation, and asymmetric capital flows**. By segmenting the data at this breakpoint, we aim to assess how financial market performance and capital concentration evolved across two distinct regimes.
 
@@ -16,7 +14,7 @@ The dataset spans **January 1996 to December 2023**, with a monthly frequency. I
 
 The segmentation provides a clean empirical framework to evaluate the impact of structural policy interventions and evolving capital dynamics.
 
-## 2. Historical Context of Each Period
+## Historical Context of Each Period
 
 ### Pre-2010: Volatility, Deregulation, and Crisis
 
@@ -42,7 +40,7 @@ In contrast, the post-2010 era reflects a **policy-driven financial environment*
 
 These changes have amplified top-heavy capital concentration and reinforced inertia in market leadership. Importantly, they enabled the survival of inefficient firms at the lower end (zombie firms), distorting the small-cap return distribution.
 
-## 3. US Top 10 Stability: Empirical Snapshot
+## US Top 10 Stability: Empirical Snapshot
 
 An empirical motivation for the TBTF strategy lies in the historical persistence of top-cap firms. From 2012 to 2023, only **27 unique PERMNOs** appeared in the top 10 by market cap. These include:
 
@@ -53,12 +51,11 @@ An empirical motivation for the TBTF strategy lies in the historical persistence
 
 This concentration implies that capital has become locked into a narrow subset of firms, with little room for new entrants—an observation with profound implications for allocative efficiency and market competition.
 
-## 4. Global Top 10 Market-Cap Stocks
+## Global Top 10 Market-Cap Stocks
 - U.S. equities constitute nearly half of global equity market capitalization. 
 - The dominance of U.S. firms in global equity rankings
 
 
----
 
 ## Appendix {.appendix}
 

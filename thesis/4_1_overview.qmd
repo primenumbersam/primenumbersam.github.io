@@ -3,8 +3,6 @@ title: 01 Overview
 subtitle: Main hypothesis of the TBTF strategy.
 ---
 
-# Overview
-
 This study investigates the structural properties and empirical performance of a "Too Big To Fail" (TBTF) portfolio strategy, defined as a portfolio composed of the largest market capitalization stocks in the U.S. equity market. Using monthly stock-level data from the CRSP universe (NYSE, Nasdaq, AMEX), we examine whether top-ranked stocks—selected purely by market capitalization—consistently outperform others in terms of risk-adjusted returns.
 
 Our empirical design centers around the hypothesis that structural asymmetries in capital allocation, exacerbated by post-2008 monetary policies and market concentration, result in persistent distortions in return distributions. The TBTF strategy, though simple in construction, appears to capture these structural features with surprising consistency.

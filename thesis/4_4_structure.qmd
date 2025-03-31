@@ -12,10 +12,18 @@ execute:
 This section decomposes the structural mechanisms underlying the TBTF strategy across two economic regimes—pre-2010 and post-2010. By comparing these periods, we identify changes in distributional composition, capital concentration, and rank mobility that reflect broader shifts in financial market dynamics following systemic interventions and structural innovation—each of which challenges conventional assumptions in asset pricing and market efficiency.
 
 ```{python}
+import numpy as np
+import statsmodels.api as sm
+from scipy.stats import norm
+from sklearn.mixture import GaussianMixture
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
 # CRSP dataframe import
 import pandas as pd
 import sqlite3
-tbtf = sqlite3.connect(database="../../tbtf.sqlite")
+con = sqlite3.connect(database="../../tbtf.sqlite")
 
 #cursor = tbtf.cursor()
 #cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
@@ -23,7 +31,7 @@ tbtf = sqlite3.connect(database="../../tbtf.sqlite")
 
 crsp = pd.read_sql_query(
   sql="SELECT * FROM crsp",
-  con=tbtf,
+  con=con,
   parse_dates={"date"}
 )
 crsp.head()
@@ -130,10 +138,6 @@ c.f. Compared to Fama-French’s traditional use of **NYSE-only breakpoints**, o
 # Unconditional Return Distribution: Actual vs. Estimated Mixture
 # GMM의 간소화 버전" 또는 "semi-parametric mixture modeling
 
-import matplotlib.pyplot as plt
-import numpy as np
-from scipy.stats import norm
-
 # 샘플 수
 obs = len(df_mix)
 
@@ -184,8 +188,7 @@ plt.show()
 
 ```{python}
 # Unconditional Return Distribution by Period and Capital Rank Group
-import seaborn as sns
-import matplotlib.pyplot as plt
+
 
 # 요약 통계 (Pre-2010 vs Post-2010 비교 등)
 df_mix['period'] = np.where(df_mix['date'] < '2010-01-01', 'Pre-2010', 'Post-2010')
@@ -236,9 +239,6 @@ plt.show()
 import os
 os.environ['LOKY_MAX_CPU_COUNT'] = '4'  # 사용하려는 코어 수를 직접 지정
 
-from sklearn.mixture import GaussianMixture
-import seaborn as sns
-
 # 각 그룹의 return 시리즈
 top_returns = df_mix['r_top'].dropna().values.reshape(-1, 1)
 rest_returns = df_mix['r_rest'].dropna().values.reshape(-1, 1)
@@ -270,8 +270,6 @@ The Gaussian Mixture Models (GMMs) estimated separately on `r_top` and `r_rest` 
 #### Testing Internal Heterogeneity in Top Decile
 ```{python}
 # k Selection by AIC vs. BIC
-from sklearn.mixture import GaussianMixture
-import numpy as np
 
 X = df_mix['r_top'].dropna().values.reshape(-1, 1)
 
@@ -336,7 +334,6 @@ Together, these results imply that:
 
 ```{python}
 # Time-Series of Capital Share Convexity
-import statsmodels.api as sm
 
 # 1. 각 날짜별로 state별 mktcap 합산 → CapShare_i 생성
 def compute_capshare(df):
@@ -517,8 +514,6 @@ Despite expectations that **delisting risk** (i.e., transition to State 0) would
 
 ```{python}
 # Long-Run Stationary Distribution by State (Excl. Exit)
-import matplotlib.pyplot as plt
-import seaborn as sns
 
 # State 1부터 10까지의 stationary probability
 stationary_series_nonzero = stationary_series.iloc[1:]

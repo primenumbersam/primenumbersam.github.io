@@ -59,7 +59,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -102,6 +102,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -264,13 +267,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./4_2_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">02 Data</span></a>
+ <span class="menu-text">02 Data Preprocessing</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./4_3_ff_compare.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">03 Benchmarks</span></a>
+ <span class="menu-text">03 Size-Momentum Benchmark</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -321,12 +324,10 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#robustness-tests" id="toc-robustness-tests" class="nav-link active" data-scroll-target="#robustness-tests">Robustness Tests</a></li>
-  <li><a href="#sensitivity-to-asset-selection-size-n" id="toc-sensitivity-to-asset-selection-size-n" class="nav-link" data-scroll-target="#sensitivity-to-asset-selection-size-n">Sensitivity to Asset Selection Size (<span class="math inline">\(n\)</span>)</a></li>
-  <li><a href="#rebalancing-frequency" id="toc-rebalancing-frequency" class="nav-link" data-scroll-target="#rebalancing-frequency">Rebalancing Frequency</a></li>
-  <li><a href="#sample-period-stability" id="toc-sample-period-stability" class="nav-link" data-scroll-target="#sample-period-stability">Sample Period Stability</a></li>
-  <li><a href="#alternative-weighting-schemes" id="toc-alternative-weighting-schemes" class="nav-link" data-scroll-target="#alternative-weighting-schemes">Alternative Weighting Schemes</a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#performance-by-weighting-method" id="toc-performance-by-weighting-method" class="nav-link active" data-scroll-target="#performance-by-weighting-method"><span class="header-section-number">0.1</span> Performance by Weighting Method</a></li>
+  <li><a href="#sensitivity-to-asset-selection-size-top_n" id="toc-sensitivity-to-asset-selection-size-top_n" class="nav-link" data-scroll-target="#sensitivity-to-asset-selection-size-top_n"><span class="header-section-number">0.2</span> Sensitivity to Asset Selection Size (<code>top_n</code>)</a></li>
+  <li><a href="#rebalancing-frequency-and-turnover-tradeoff" id="toc-rebalancing-frequency-and-turnover-tradeoff" class="nav-link" data-scroll-target="#rebalancing-frequency-and-turnover-tradeoff"><span class="header-section-number">0.3</span> Rebalancing Frequency and Turnover Tradeoff</a></li>
+  <li><a href="#summary-of-robustness-findings" id="toc-summary-of-robustness-findings" class="nav-link" data-scroll-target="#summary-of-robustness-findings"><span class="header-section-number">0.4</span> Summary of Robustness Findings</a></li>
   </ul>
 </nav>
     </div>
@@ -336,6 +337,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./4_1_overview.html">Model</a></li><li class="breadcrumb-item"><a href="./4_7_robustness.html">07 Robustness</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">07 Robustness</h1>
+<p class="subtitle lead">Is TBTF Sadly Optimal by Design?</p>
 </div>
 
 
@@ -364,85 +366,471 @@ window.Quarto = {
 </header>
 
 
-<section id="robustness-tests" class="level2">
-<h2 class="anchored" data-anchor-id="robustness-tests">Robustness Tests</h2>
-<p>While the previous section focused on the performance outcomes of the TBTF strategy, this section evaluates the <strong>stability of those outcomes</strong> under variation in core implementation parameters. We test whether the superior performance persists under changes in portfolio size, rebalancing frequency, sample splits, and weighting schemes.</p>
-<p>Rather than relying on a single optimized configuration, the TBTF strategy demonstrates structural robustness across plausible alternatives. This not only reinforces the credibility of the results but also supports the practical adaptability of the approach for different institutional contexts.</p>
-</section>
-<section id="sensitivity-to-asset-selection-size-n" class="level2">
-<h2 class="anchored" data-anchor-id="sensitivity-to-asset-selection-size-n">Sensitivity to Asset Selection Size (<span class="math inline">\(n\)</span>)</h2>
-<p>We test the strategy for varying values of <span class="math inline">\(n\)</span>, the number of top-ranked stocks selected by market capitalization. Specifically, we compare results for:</p>
-<p><span class="math display">\[
-n \in \{5, 10, 20, 30, 50\}
-\]</span></p>
-<p>This allows us to examine the marginal contribution of expanding the portfolio beyond the top decile. We evaluate how portfolio volatility, Sharpe ratio, and tail risk change with diversification.</p>
-<div id="ce7cc59b" class="cell">
+<p>While the previous section focused on the performance outcomes of the TBTF strategy, this section evaluates the <strong>stability of those outcomes</strong> under variation in core implementation parameters. We test whether the superior performance persists under changes in portfolio size, rebalancing frequency, weighting schemes, and look-back windows.</p>
+<p>Rather than relying on a single optimized configuration, the TBTF strategy demonstrates <strong>structural robustness across plausible alternatives</strong>. This not only reinforces the credibility of the results, but also supports the <strong>practical adaptability</strong> of the approach for different institutional contexts.</p>
+<p>All robustness tests are performed on the post-2010 period, with out-of-sample investment beginning on <strong>2010-01-01</strong>. The portfolio is trained using a 48-month rolling window (<code>in_sample=48M</code>) and evaluated through 2023-12-31.</p>
+<div id="d3b55366" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>plot_sharpe_vs_n()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>cons <span class="op">=</span> sqlite3.<span class="ex">connect</span>(database<span class="op">=</span><span class="st">"../../tbtf.sqlite"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>crsp <span class="op">=</span> pd.read_sql_query(</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  sql<span class="op">=</span><span class="st">"SELECT * FROM crsp"</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  con<span class="op">=</span>cons,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  parse_dates<span class="op">=</span>{<span class="st">"date"</span>}</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
+<div id="6592b75a" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Out-of-sample Investment</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tbtf</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># robust check 대상 파라미터 설정</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>top_ns <span class="op">=</span> [<span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>]</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>rebalance_freqs <span class="op">=</span> [<span class="st">'3M'</span>, <span class="st">'6M'</span>, <span class="st">'12M'</span>]</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>weighting_methods <span class="op">=</span> [<span class="st">'exponential'</span>, <span class="st">'quadratic'</span>, <span class="st">'value'</span>, <span class="st">'equal'</span>]</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 기본 설정 정리</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>in_end <span class="op">=</span> <span class="st">'2009-12-31'</span>         <span class="co"># in-sample 끝</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>out_end <span class="op">=</span> <span class="st">'2023-12-31'</span>        <span class="co"># out-of-sample 끝</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>in_sample_months <span class="op">=</span> <span class="dv">48</span>         <span class="co"># in-sample 기간 (예: 4년)</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>eta <span class="op">=</span> <span class="dv">3</span>                       <span class="co"># CRRA 계수</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="fl">0.01</span>                      <span class="co"># Omega Ratio threshold</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>state <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> joblib <span class="im">import</span> Parallel, delayed</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> run_single_backtest(method, n, freq):</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    result <span class="op">=</span> tbtf.backtest_pipeline(</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>        crsp<span class="op">=</span>crsp,</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>        in_end<span class="op">=</span>in_end,</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>        out_end<span class="op">=</span>out_end,</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>        in_sample_months<span class="op">=</span>in_sample_months,</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>        rebalance_freq<span class="op">=</span>freq,</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>        weighting_method<span class="op">=</span>method,</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>        top_n<span class="op">=</span>n,</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>        state<span class="op">=</span>state,</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>        eta<span class="op">=</span>eta,</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>        p<span class="op">=</span>p</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    perf <span class="op">=</span> result[<span class="st">'performance'</span>]</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    perf.update({<span class="st">'n'</span>: n, <span class="st">'rebalance_freq'</span>: freq, <span class="st">'weighting_method'</span>: method})</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    turnover_df <span class="op">=</span> result[<span class="st">'turnover'</span>]</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>    total_turnover <span class="op">=</span> turnover_df.iloc[:<span class="op">-</span><span class="dv">1</span>][<span class="st">'turnover'</span>].<span class="bu">sum</span>() <span class="cf">if</span> <span class="bu">len</span>(turnover_df) <span class="op">&gt;</span> <span class="dv">1</span> <span class="cf">else</span> np.nan</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> perf, {<span class="st">'n'</span>: n, <span class="st">'rebalance_freq'</span>: freq, <span class="st">'weighting_method'</span>: method, <span class="st">'total_turnover'</span>: total_turnover}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="b524a9fd" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itertools <span class="im">import</span> product</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>param_grid <span class="op">=</span> <span class="bu">list</span>(product(weighting_methods, top_ns, rebalance_freqs))</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 병렬 실행</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> Parallel(n_jobs<span class="op">=-</span><span class="dv">1</span>)(delayed(run_single_backtest)(method, n, freq) <span class="cf">for</span> method, n, freq <span class="kw">in</span> param_grid)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Robustness check 결과 DataFrame 생성</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>performance_df <span class="op">=</span> pd.DataFrame([r[<span class="dv">0</span>] <span class="cf">for</span> r <span class="kw">in</span> results])</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>turnover_summary_df <span class="op">=</span> pd.DataFrame([r[<span class="dv">1</span>] <span class="cf">for</span> r <span class="kw">in</span> results])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<section id="performance-by-weighting-method" class="level3" data-number="0.1">
+<h3 data-number="0.1" class="anchored" data-anchor-id="performance-by-weighting-method"><span class="header-section-number">0.1</span> Performance by Weighting Method</h3>
+<p>We begin by comparing the four weighting schemes: exponential (TBTF baseline), quadratic, value-weighted, and equal-weighted portfolios. The results show that TBTF’s exponential weighting yields consistently superior risk-adjusted performance, particularly in terms of expected CRRA utility and downside-sensitive metrics like the Omega ratio.</p>
+<div class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>metrics <span class="op">=</span> [<span class="st">'Sharpe Ratio'</span>, <span class="st">'Sortino Ratio'</span>, <span class="st">'Expected CRRA'</span>, <span class="st">'Omega Ratio'</span>, <span class="st">'Max Drawdown'</span>]</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>performance_df.groupby(<span class="st">'weighting_method'</span>)[metrics].median().<span class="bu">round</span>(<span class="dv">3</span>).sort_values(by<span class="op">=</span><span class="st">'Expected CRRA'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<caption>Mean Performance Metrics by Weighting Method</caption>
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Sharpe Ratio</th>
+<th data-quarto-table-cell-role="th">Sortino Ratio</th>
+<th data-quarto-table-cell-role="th">Expected CRRA</th>
+<th data-quarto-table-cell-role="th">Omega Ratio</th>
+<th data-quarto-table-cell-role="th">Max Drawdown</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">weighting_method</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">quadratic</td>
+<td>0.773</td>
+<td>1.473</td>
+<td>0.021</td>
+<td>2.231</td>
+<td>-0.132</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">exponential</td>
+<td>0.766</td>
+<td>1.444</td>
+<td>0.020</td>
+<td>2.155</td>
+<td>-0.134</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">value</td>
+<td>0.770</td>
+<td>1.454</td>
+<td>0.020</td>
+<td>2.147</td>
+<td>-0.134</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">equal</td>
+<td>0.727</td>
+<td>1.326</td>
+<td>0.018</td>
+<td>1.967</td>
+<td>-0.135</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>performance_df.groupby(<span class="st">'weighting_method'</span>)[[<span class="st">'Omega Ratio'</span>, <span class="st">'Max Drawdown'</span>]].median().<span class="bu">round</span>(<span class="dv">3</span>).sort_values(by<span class="op">=</span><span class="st">'Omega Ratio'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<caption>Omega Ratio and Max Drawdown by Weighting Method</caption>
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Omega Ratio</th>
+<th data-quarto-table-cell-role="th">Max Drawdown</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">weighting_method</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">quadratic</td>
+<td>2.231</td>
+<td>-0.132</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">exponential</td>
+<td>2.155</td>
+<td>-0.134</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">value</td>
+<td>2.147</td>
+<td>-0.134</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">equal</td>
+<td>1.967</td>
+<td>-0.135</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>These results suggest that nonlinear weighting schemes are critical to capturing the TBTF premium. Among them, the quadratic method slightly outperforms exponential weighting across most performance metrics, including the highest median Omega ratio (2.231) and lowest median drawdown (−13.2%). While exponential weighting reflects market power through CRRA-type concentration, the quadratic scheme appears to provide a more balanced tradeoff between concentration and diversification—delivering the best overall risk-adjusted profile among the tested methods.</p>
 </section>
-<section id="rebalancing-frequency" class="level2">
-<h2 class="anchored" data-anchor-id="rebalancing-frequency">Rebalancing Frequency</h2>
-<p>To test the effect of trading frequency, we implement the strategy with fixed rebalancing intervals:</p>
+<section id="sensitivity-to-asset-selection-size-top_n" class="level3" data-number="0.2">
+<h3 data-number="0.2" class="anchored" data-anchor-id="sensitivity-to-asset-selection-size-top_n"><span class="header-section-number">0.2</span> Sensitivity to Asset Selection Size (<code>top_n</code>)</h3>
+<p>Next, we vary the number of selected stocks, ranging from 5 to 20. The results clearly show that performance declines as top_n increases, confirming that capital concentration—not mere size exposure—is the key driver.</p>
+<div class="cell" data-execution_count="6">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>performance_df.pivot_table(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    values<span class="op">=</span><span class="st">'Sharpe Ratio'</span>,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span><span class="st">'weighting_method'</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span><span class="st">'n'</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    aggfunc<span class="op">=</span><span class="st">'mean'</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<caption>Sharpe Ratio by Weighting Method and Top-n</caption>
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">n</th>
+<th data-quarto-table-cell-role="th">5</th>
+<th data-quarto-table-cell-role="th">7</th>
+<th data-quarto-table-cell-role="th">10</th>
+<th data-quarto-table-cell-role="th">15</th>
+<th data-quarto-table-cell-role="th">20</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">weighting_method</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">equal</td>
+<td>0.608791</td>
+<td>0.627588</td>
+<td>0.605765</td>
+<td>0.584674</td>
+<td>0.585974</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">exponential</td>
+<td>0.636665</td>
+<td>0.648066</td>
+<td>0.622787</td>
+<td>0.604382</td>
+<td>0.602568</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">quadratic</td>
+<td>0.616807</td>
+<td>0.639298</td>
+<td>0.628958</td>
+<td>0.623780</td>
+<td>0.624759</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">value</td>
+<td>0.616514</td>
+<td>0.633672</td>
+<td>0.615023</td>
+<td>0.608970</td>
+<td>0.605151</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="7">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>performance_df.pivot_table(</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    values<span class="op">=</span><span class="st">'Expected CRRA'</span>,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span><span class="st">'weighting_method'</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span><span class="st">'n'</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>).<span class="bu">round</span>(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<caption>Expected CRRA Utility across Weighting Methods and Top-n</caption>
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">n</th>
+<th data-quarto-table-cell-role="th">5</th>
+<th data-quarto-table-cell-role="th">7</th>
+<th data-quarto-table-cell-role="th">10</th>
+<th data-quarto-table-cell-role="th">15</th>
+<th data-quarto-table-cell-role="th">20</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">weighting_method</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">equal</td>
+<td>0.0168</td>
+<td>0.0167</td>
+<td>0.0141</td>
+<td>0.0119</td>
+<td>0.0110</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">exponential</td>
+<td>0.0175</td>
+<td>0.0174</td>
+<td>0.0154</td>
+<td>0.0135</td>
+<td>0.0125</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">quadratic</td>
+<td>0.0169</td>
+<td>0.0170</td>
+<td>0.0155</td>
+<td>0.0144</td>
+<td>0.0139</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">value</td>
+<td>0.0166</td>
+<td>0.0168</td>
+<td>0.0151</td>
+<td>0.0139</td>
+<td>0.0130</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Varying the number of selected stocks from 5 to 20 reveals a consistent pattern: risk-adjusted performance declines as the portfolio expands, regardless of weighting method. This is most clearly visible in the expected CRRA utility, where values decrease monotonically for all methods. For instance, under exponential weighting, median CRRA utility drops from 0.0175 at <span class="math inline">\(n=5\)</span> to 0.0125 at <span class="math inline">\(n=20\)</span>—a 29% reduction. Similarly, the Sharpe ratio decreases from 0.6367 to 0.6026.</p>
+<p>This pattern suggests that the TBTF premium is not a smooth function of size, but rather anchored at the extreme upper tail of the capital distribution. The diminishing returns from including more assets reinforce the structural logic of capital lock-in: only the very top firms consistently benefit from persistent investor flows, narrative insulation, and index-based reinforcement.</p>
+<p>Interestingly, quadratic weighting exhibits the most stable decay, maintaining higher CRRA utility at larger <span class="math inline">\(n\)</span> relative to exponential or value weighting. This may reflect its slightly more diversified nature, balancing concentration with convex adjustment. Equal weighting, by contrast, consistently underperforms across all <span class="math inline">\(n\)</span> values, underscoring the importance of incorporating size asymmetry into portfolio design.</p>
+</section>
+<section id="rebalancing-frequency-and-turnover-tradeoff" class="level3" data-number="0.3">
+<h3 data-number="0.3" class="anchored" data-anchor-id="rebalancing-frequency-and-turnover-tradeoff"><span class="header-section-number">0.3</span> Rebalancing Frequency and Turnover Tradeoff</h3>
+<p>We next examine the impact of rebalancing frequency—specifically, quarterly (<code>3M</code>), semiannual (<code>6M</code>), and annual (<code>12M</code>)—on risk-adjusted performance and underlying portfolio structure. As shown in the heatmap below, quarterly rebalancing tends to produce higher Sharpe ratios across most configurations, especially at smaller <code>n</code>. However, this benefit comes at the cost of substantially higher turnover, as discussed in below.</p>
+<div id="535d24eb" class="cell" data-execution_count="8">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 원하는 순서로 정렬</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>rebalance_order <span class="op">=</span> [<span class="st">'3M'</span>, <span class="st">'6M'</span>, <span class="st">'12M'</span>]</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>n_order <span class="op">=</span> <span class="bu">sorted</span>(performance_df[<span class="st">'n'</span>].unique(), reverse<span class="op">=</span><span class="va">True</span>)  <span class="co"># n=5,7,10,15,20 등 오름차순</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Pivot and reorder</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>pivot_sharpe <span class="op">=</span> (</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    performance_df.pivot_table(</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>        values<span class="op">=</span><span class="st">'Sharpe Ratio'</span>,</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>        index<span class="op">=</span><span class="st">'n'</span>,</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>        columns<span class="op">=</span><span class="st">'rebalance_freq'</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    .loc[n_order, rebalance_order]  <span class="co"># y축 (n), x축 (rebalance_freq) 순서 정렬</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">round</span>(<span class="dv">2</span>)</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">5</span>))</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>sns.heatmap(pivot_sharpe, annot<span class="op">=</span><span class="va">True</span>, cmap<span class="op">=</span><span class="st">"YlGnBu"</span>, cbar_kws<span class="op">=</span>{<span class="st">'label'</span>: <span class="st">'Sharpe Ratio'</span>})</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Sharpe Ratio by Top-n and Rebalancing Frequency"</span>)</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Rebalancing Frequency"</span>)</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Number of Selected Assets (n)"</span>)</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="4_7_robustness_files/figure-html/cell-9-output-1.png" class="img-fluid figure-img"></p>
+<figcaption>Sharpe Ratio Heatmap (Top-n vs Rebalancing Frequency)</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Beyond performance, we investigate <strong>portfolio stability across rebalancing intervals</strong> using the correlation of portfolio weights between consecutive rebalancing periods. The results reveal distinct structural patterns:</p>
 <ul>
-<li>Monthly (1M)</li>
-<li>Quarterly (3M)</li>
-<li>Semiannual (6M)</li>
-<li>Annual (12M)</li>
+<li>Under <strong>quarterly rebalancing (3M)</strong>, the correlation of portfolio weights increases with <code>n</code>, rising from 0.95 at <span class="math inline">\(n=5\)</span> to nearly 1.00 at <span class="math inline">\(n=20\)</span>. This reflects <strong>high persistence</strong> in capital allocation, especially when more firms are included.</li>
+<li>In contrast, <strong>semiannual rebalancing (6M)</strong> exhibits a declining pattern: correlation decreases from 0.79 at <span class="math inline">\(n=5\)</span> to 0.75 at <span class="math inline">\(n=20\)</span>, suggesting <strong>greater portfolio reshuffling</strong> under moderate rebalancing horizons.</li>
+<li>For <strong>annual rebalancing (12M)</strong>, the relationship is <strong>non-monotonic</strong>, forming an inverted U-shape. Correlation peaks at <span class="math inline">\(n=7\)</span> (0.17), but falls off before and after—indicating that at longer rebalancing intervals, <strong>the portfolio may drift</strong>, and small shifts in top-ranked assets lead to more volatile allocations.</li>
 </ul>
-<p>Lower-frequency rebalancing is often preferred by institutional investors due to lower transaction costs. The robustness of TBTF performance under less frequent rebalancing reinforces its practicality.</p>
-<div id="224d29f9" class="cell">
+<p>These findings suggest that <strong>shorter rebalancing intervals better preserve the structural core</strong> of TBTF portfolios. Quarterly updates maintain capital concentration and produce stable weight dynamics, while longer horizons may induce drift and dilute structural persistence—especially at smaller <code>n</code>.</p>
+<div id="96629f9c" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>plot_return_by_rebalance_frequency()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>sns.boxplot(data<span class="op">=</span>turnover_summary_df, x<span class="op">=</span><span class="st">'weighting_method'</span>, y<span class="op">=</span><span class="st">'total_turnover'</span>, hue<span class="op">=</span><span class="st">'rebalance_freq'</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Turnover Distribution by Weighting and Frequency"</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="4_7_robustness_files/figure-html/cell-10-output-1.png" class="img-fluid figure-img"></p>
+<figcaption>Total Turnover across Parameters</figcaption>
+</figure>
 </div>
-</section>
-<section id="sample-period-stability" class="level2">
-<h2 class="anchored" data-anchor-id="sample-period-stability">Sample Period Stability</h2>
-<p>To avoid look-ahead bias and ensure time-consistent performance, we conduct split-sample out-of-sample tests:</p>
-<ul>
-<li><strong>Pre-2010 setting</strong>:
-<ul>
-<li>In-sample: 1996–1999</li>
-<li>Out-of-sample: 2000–2009</li>
-</ul></li>
-<li><strong>Post-2010 setting</strong>:
-<ul>
-<li>In-sample: 2010–2013</li>
-<li>Out-of-sample: 2014–2023</li>
-</ul></li>
-</ul>
-<p>We also explore alternative splits using 6-year and 8-year in-sample windows. All evaluations are based on risk-adjusted metrics such as the Sharpe ratio, maximum drawdown, tail risk, and turnover.</p>
-<div id="7d980424" class="cell" data-tbl-cap="Out-of-Sample Performance Metrics (Split by Regime)">
+</div>
+</div>
+<p>To assess the implementability of the TBTF strategy, we analyze total turnover across all tested configurations. As shown in the boxplot below, turnover varies substantially by weighting method and rebalancing frequency.</p>
+<p>Notably, quadratic weighting exhibits the lowest interquartile range of turnover across all rebalancing frequencies, indicating a high degree of structural stability in its portfolio composition. In contrast, equal weighting shows the widest dispersion, reflecting greater volatility in asset inclusion and reallocation.</p>
+<p>Across all weighting methods, the effect of rebalancing frequency is pronounced. Moving from quarterly to semiannual and annual updates results in roughly a twofold increase in average turnover at each step. This highlights the tradeoff between temporal granularity and stability: longer intervals allow larger portfolio drift, necessitating more aggressive repositioning upon rebalance.</p>
+<p>Together, these findings suggest that quadratic weighting strikes the most consistent balance between return concentration and turnover control, and that quarterly rebalancing offers a pragmatic sweet spot for retaining capital lock-in without incurring excessive trading frictions.</p>
+<p>Finally, we visualize the performance-turnover tradeoff, showing how each strategy balances return and implementation frictions:</p>
+<div id="40ebf76f" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>generate_oos_performance_table()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge performance &amp; turnover</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>merged_df <span class="op">=</span> pd.merge(performance_df, turnover_summary_df,</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>                     on<span class="op">=</span>[<span class="st">'n'</span>, <span class="st">'rebalance_freq'</span>, <span class="st">'weighting_method'</span>])</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">#| fig-cap: "Performance Metric vs. Turnover Tradeoff"</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>merged_df,</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>                x<span class="op">=</span><span class="st">'total_turnover'</span>,</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>                y<span class="op">=</span><span class="st">'Expected CRRA'</span>,</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>                hue<span class="op">=</span><span class="st">'weighting_method'</span>,</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>                style<span class="op">=</span><span class="st">'rebalance_freq'</span>)</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Performance vs. Turnover Tradeoff"</span>)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="4_7_robustness_files/figure-html/cell-11-output-1.png" class="img-fluid figure-img"></p>
+</figure>
 </div>
-</section>
-<section id="alternative-weighting-schemes" class="level2">
-<h2 class="anchored" data-anchor-id="alternative-weighting-schemes">Alternative Weighting Schemes</h2>
-<p>To evaluate the contribution of the proposed convex weighting methods, we compare performance across:</p>
-<ul>
-<li><strong>Equal weighting</strong> (EQ): naive benchmark</li>
-<li><strong>Market cap weighting</strong> (VW): proportional to firm size</li>
-<li><strong>Quadratic weighting</strong> (TBTF): based on in-sample capital share convexity</li>
-<li><strong>Optional</strong>: Inverse volatility weighting</li>
-</ul>
-<p>These variations test whether TBTF’s performance is driven primarily by stock selection or by the shape of the weighting function.</p>
-<div id="19e1be69" class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>plot_weighting_comparison()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
+</div>
+<p>The figure below visualizes the tradeoff between expected CRRA utility and total turnover across all strategy configurations. Each point represents a unique combination of <code>n</code>, <code>rebalance_freq</code>, and <code>weighting_method</code>.</p>
+<p>The resulting plot reveals distinct horizontal clusters by rebalancing frequency, especially under the post-2010 regime. This banding effect is most likely driven by regime-specific shocks—particularly the COVID-19 crash, which had sharply divergent effects depending on the timing of portfolio adjustment.</p>
+<p>To further analyze this, we compute the expected CRRA per unit of turnover (i.e., <span class="math inline">\(\frac{\text{Expected CRRA}}{\text{Total Turnover}}\)</span>) across time subperiods. During non-crisis periods, 6M and 12M configurations yield comparable ratios, with 3M performing slightly lower due to higher turnover. However, during the COVID-19 period, the 6M rebalancing interval dominates, suggesting that it hit a timing sweet spot—being responsive enough to adapt, but not overly reactive like 3M or sluggish like 12M.</p>
+<p>These findings underscore the importance of considering macro-structural shocks in assessing turnover efficiency. While quarterly rebalancing ensures persistence and structural alignment, semiannual updates may offer better resilience under nonlinear market stress, at least in crisis regimes.</p>
 </section>
-<section id="summary" class="level2">
-<h2 class="anchored" data-anchor-id="summary">Summary</h2>
-<p>Across all specification dimensions—portfolio size, rebalancing frequency, sample period, and weighting approach—the TBTF strategy retains a consistent structural edge. The empirical robustness supports our hypothesis that performance is not merely the result of favorable parameter tuning, but instead reflects a persistent asymmetry in capital concentration and market structure.</p>
+<section id="summary-of-robustness-findings" class="level3" data-number="0.4">
+<h3 data-number="0.4" class="anchored" data-anchor-id="summary-of-robustness-findings"><span class="header-section-number">0.4</span> Summary of Robustness Findings</h3>
+<p>Across a wide range of configurations, the TBTF strategy demonstrates a <strong>remarkable degree of structural robustness</strong>. Its performance remains strong under variations in portfolio size, weighting rules, and rebalancing frequency—indicating that its effectiveness is not narrowly dependent on any single implementation detail.</p>
+<p>The <strong>outperformance of nonlinear weighting schemes</strong> (especially exponential and quadratic) confirms that TBTF benefits are not simply a function of size, but of deliberate capital concentration. At the same time, the degradation in performance as <code>top_n</code> increases reveals that the strategy’s strength derives from a small elite of dominant firms—those at the apex of the market’s allocative structure.</p>
+<p>In terms of implementation, <strong>quarterly and semiannual rebalancing strike different tradeoffs</strong>: the former preserves structural lock-in, while the latter appears more resilient during regime shocks, such as the COVID-19 crash. Turnover is manageable across both, especially under quadratic weighting, which delivers consistent stability without sacrificing performance.</p>
+<p>Taken together, these findings highlight that TBTF is not an artifact of overfitting, nor a fragile construction. It is a <strong>structurally grounded strategy</strong> whose persistence reflects underlying economic forces—namely, the institutional, passive, and platform-driven mechanisms that reinforce capital incumbency in modern financial markets.</p>
+<p>In what follows, we step back from empirical validation to consider the broader implications: <strong>What does TBTF reveal about the evolution of market efficiency, wealth concentration, and the social contract embedded in asset pricing itself?</strong></p>
 
 
 </section>

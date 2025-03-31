@@ -221,13 +221,13 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./4_2_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">02 Data</span></a>
+ <span class="menu-text">02 Data Preprocessing</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./4_3_ff_compare.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">03 Benchmarks</span></a>
+ <span class="menu-text">03 Size-Momentum Benchmark</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -278,19 +278,16 @@ div.csl-indent {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#literature-review" id="toc-literature-review" class="nav-link active" data-scroll-target="#literature-review">Literature Review</a>
+  <li><a href="#classical-foundations-of-risk-based-asset-pricing" id="toc-classical-foundations-of-risk-based-asset-pricing" class="nav-link active" data-scroll-target="#classical-foundations-of-risk-based-asset-pricing"><span class="header-section-number">1</span> Classical Foundations of Risk-Based Asset Pricing</a></li>
+  <li><a href="#empirical-challenges-and-structural-frictions" id="toc-empirical-challenges-and-structural-frictions" class="nav-link" data-scroll-target="#empirical-challenges-and-structural-frictions"><span class="header-section-number">2</span> Empirical Challenges and Structural Frictions</a>
   <ul class="collapse">
-  <li><a href="#classical-theories-of-risk-based-asset-pricing" id="toc-classical-theories-of-risk-based-asset-pricing" class="nav-link" data-scroll-target="#classical-theories-of-risk-based-asset-pricing">1. Classical Theories of Risk-Based Asset Pricing</a></li>
-  <li><a href="#empirical-challenges-to-risk-based-models" id="toc-empirical-challenges-to-risk-based-models" class="nav-link" data-scroll-target="#empirical-challenges-to-risk-based-models">2. Empirical Challenges to Risk-Based Models</a>
-  <ul class="collapse">
-  <li><a href="#industry-level-linear-factor-models-and-multicollinearity" id="toc-industry-level-linear-factor-models-and-multicollinearity" class="nav-link" data-scroll-target="#industry-level-linear-factor-models-and-multicollinearity">2.1 Industry-Level Linear Factor Models and Multicollinearity</a></li>
-  <li><a href="#betting-against-beta-and-sharpe-ratio-symmetry" id="toc-betting-against-beta-and-sharpe-ratio-symmetry" class="nav-link" data-scroll-target="#betting-against-beta-and-sharpe-ratio-symmetry">2.2 Betting Against Beta and Sharpe Ratio Symmetry</a></li>
-  <li><a href="#practical-failures-of-mean-variance-optimization" id="toc-practical-failures-of-mean-variance-optimization" class="nav-link" data-scroll-target="#practical-failures-of-mean-variance-optimization">2.3 Practical Failures of Mean-Variance Optimization</a></li>
-  <li><a href="#limitations-of-bayesian-optimization-and-tilting" id="toc-limitations-of-bayesian-optimization-and-tilting" class="nav-link" data-scroll-target="#limitations-of-bayesian-optimization-and-tilting">2.4 Limitations of Bayesian Optimization and Tilting</a></li>
+  <li><a href="#factor-models-and-fragility-under-structural-shifts" id="toc-factor-models-and-fragility-under-structural-shifts" class="nav-link" data-scroll-target="#factor-models-and-fragility-under-structural-shifts"><span class="header-section-number">2.1</span> Factor Models and Fragility Under Structural Shifts</a></li>
+  <li><a href="#nonlinearity-and-the-failure-of-beta-as-a-pricing-kernel" id="toc-nonlinearity-and-the-failure-of-beta-as-a-pricing-kernel" class="nav-link" data-scroll-target="#nonlinearity-and-the-failure-of-beta-as-a-pricing-kernel"><span class="header-section-number">2.2</span> Nonlinearity and the Failure of Beta as a Pricing Kernel</a></li>
+  <li><a href="#practical-limitations-of-optimization-based-portfolios" id="toc-practical-limitations-of-optimization-based-portfolios" class="nav-link" data-scroll-target="#practical-limitations-of-optimization-based-portfolios"><span class="header-section-number">2.3</span> Practical Limitations of Optimization-Based Portfolios</a></li>
+  <li><a href="#post-2010-failures-of-predictive-allocation" id="toc-post-2010-failures-of-predictive-allocation" class="nav-link" data-scroll-target="#post-2010-failures-of-predictive-allocation"><span class="header-section-number">2.4</span> Post-2010 Failures of Predictive Allocation</a></li>
   </ul></li>
-  <li><a href="#structural-interpretation-and-motivation-for-tbtf" id="toc-structural-interpretation-and-motivation-for-tbtf" class="nav-link" data-scroll-target="#structural-interpretation-and-motivation-for-tbtf">3. Structural Interpretation and Motivation for TBTF</a></li>
-  <li><a href="#contributions-to-the-literature" id="toc-contributions-to-the-literature" class="nav-link" data-scroll-target="#contributions-to-the-literature">4. Contributions to the Literature</a></li>
-  </ul></li>
+  <li><a href="#structural-interpretations-rent-extraction-and-capital-lock-in" id="toc-structural-interpretations-rent-extraction-and-capital-lock-in" class="nav-link" data-scroll-target="#structural-interpretations-rent-extraction-and-capital-lock-in"><span class="header-section-number">3</span> Structural Interpretations: Rent Extraction and Capital Lock-in</a></li>
+  <li><a href="#positioning-tbtf-within-the-literature" id="toc-positioning-tbtf-within-the-literature" class="nav-link" data-scroll-target="#positioning-tbtf-within-the-literature"><span class="header-section-number">4</span> Positioning TBTF within the Literature</a></li>
   </ul>
 </nav>
     </div>
@@ -328,82 +325,60 @@ div.csl-indent {
 </header>
 
 
-<section id="literature-review" class="level1">
-<h1>Literature Review</h1>
-<section id="classical-theories-of-risk-based-asset-pricing" class="level2">
-<h2 class="anchored" data-anchor-id="classical-theories-of-risk-based-asset-pricing">1. Classical Theories of Risk-Based Asset Pricing</h2>
-<p>Traditional financial economics posits that expected returns serve as compensation for bearing systematic risk. This principle underpins several foundational models: - The Capital Asset Pricing Model (CAPM) asserts that expected excess returns are proportional to market beta. - The Fama-French Three- and Five-Factor Models extend CAPM by incorporating size, value, profitability, and investment factors <span class="citation" data-cites="FamaFrench1993 FamaFrench2015">(<a href="#ref-FamaFrench1993" role="doc-biblioref">Fama and French 1993</a>; - <a href="#ref-FamaFrench2015" role="doc-biblioref">Fama and French 2015</a>)</span>. - The Betting Against Beta (BAB) framework suggests that low-beta assets may outperform on a risk-adjusted basis <span class="citation" data-cites="FrazziniPedersen2014">(<a href="#ref-FrazziniPedersen2014" role="doc-biblioref">Frazzini and Pedersen 2014</a>)</span>. - Mean-Variance Optimization, introduced by <span class="citation" data-cites="Markowitz1952">Markowitz (<a href="#ref-Markowitz1952" role="doc-biblioref">1952</a>)</span>, assumes that returns are normally distributed and fully explained by their mean and covariance structure.</p>
-<p>These models rest on assumptions of frictionless markets, convex opportunity sets, homogeneous beliefs, and the absence of arbitrage opportunities.</p>
+<section id="classical-foundations-of-risk-based-asset-pricing" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="classical-foundations-of-risk-based-asset-pricing"><span class="header-section-number">1</span> Classical Foundations of Risk-Based Asset Pricing</h2>
+<p>Modern finance rests on the principle that asset returns compensate for exposure to systematic risk. Foundational models such as the Capital Asset Pricing Model (CAPM), the Fama-French factor models, and the Betting Against Beta (BAB) framework formalize this idea under assumptions of frictionless trading, rational expectations, and arbitrage-free equilibria.</p>
+<p>In CAPM, expected returns scale linearly with market beta. The Fama-French Three- and Five-Factor models extend this by incorporating size, value, investment, and profitability factors <span class="citation" data-cites="FamaFrench1993 FamaFrench2015">(<a href="#ref-FamaFrench1993" role="doc-biblioref">Fama and French 1993</a>, <a href="#ref-FamaFrench2015" role="doc-biblioref">2015</a>)</span>. Alternative models such as Black–Litterman <span class="citation" data-cites="black1992global">(<a href="#ref-black1992global" role="doc-biblioref">Black and Litterman 1992</a>)</span> or Bayesian tilting <span class="citation" data-cites="brandt2009parametric">(<a href="#ref-brandt2009parametric" role="doc-biblioref">Brandt, Santa-Clara, and Valkanov 2009</a>)</span> adjust this equilibrium using investor views. Despite their theoretical elegance, these frameworks rely heavily on <em>convex market structure</em>, <em>homogeneous expectations</em>, and <em>efficient capital mobility</em> — conditions increasingly absent in post-crisis financial markets.</p>
 </section>
-<section id="empirical-challenges-to-risk-based-models" class="level2">
-<h2 class="anchored" data-anchor-id="empirical-challenges-to-risk-based-models">2. Empirical Challenges to Risk-Based Models</h2>
-<p>Utilizing CRSP monthly data, Fama-French industry portfolios, and ETF benchmarks across pre- and post-2010 periods, this study revisits and challenges these foundational models.</p>
-<section id="industry-level-linear-factor-models-and-multicollinearity" class="level3">
-<h3 class="anchored" data-anchor-id="industry-level-linear-factor-models-and-multicollinearity">2.1 Industry-Level Linear Factor Models and Multicollinearity</h3>
+<section id="empirical-challenges-and-structural-frictions" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="empirical-challenges-and-structural-frictions"><span class="header-section-number">2</span> Empirical Challenges and Structural Frictions</h2>
+<section id="factor-models-and-fragility-under-structural-shifts" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="factor-models-and-fragility-under-structural-shifts"><span class="header-section-number">2.1</span> Factor Models and Fragility Under Structural Shifts</h3>
+<p>The empirical performance of multi-factor models is often weak out-of-sample. Applying Fama-MacBeth regressions <span class="citation" data-cites="FamaMacBeth1973">(<a href="#ref-FamaMacBeth1973" role="doc-biblioref">Fama and MacBeth 1973</a>)</span> to industry or quantile portfolios reveals unstable betas, multicollinearity among explanatory variables, and residual alpha persistence <span class="citation" data-cites="FamaFrench1997">(<a href="#ref-FamaFrench1997" role="doc-biblioref">Fama and French 1997</a>)</span>. Recent replication studies (e.g., <span class="citation" data-cites="hou2020replicating">Hou, Xue, and Zhang (<a href="#ref-hou2020replicating" role="doc-biblioref">2020</a>)</span>) show that most anomalies lack robustness, particularly when controlling for micro-cap bias and rebalancing frictions.</p>
+<p>Even advanced selection methods, such as Lasso or Ridge-regularized regressions <span class="citation" data-cites="Kozak2020">(<a href="#ref-Kozak2020" role="doc-biblioref">Kozak, Nagel, and Santosh 2020</a>)</span>, identify few stable predictors. These results suggest that the dominant source of return variation may lie outside the domain of classical factor structures.</p>
+</section>
+<section id="nonlinearity-and-the-failure-of-beta-as-a-pricing-kernel" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="nonlinearity-and-the-failure-of-beta-as-a-pricing-kernel"><span class="header-section-number">2.2</span> Nonlinearity and the Failure of Beta as a Pricing Kernel</h3>
+<p>The BAB model posits that low-beta portfolios offer higher Sharpe ratios after adjusting for leverage constraints <span class="citation" data-cites="FrazziniPedersen2014">(<a href="#ref-FrazziniPedersen2014" role="doc-biblioref">Frazzini and Pedersen 2014</a>)</span>. However, empirical tests using SIC-based portfolios reveal a <em>non-monotonic relationship</em>: optimal risk-adjusted returns often cluster around beta ≈ 1, contradicting the implication of continuous beta-based mispricing. This points to <em>risk inertia</em> rather than reward for bearing volatility.</p>
+</section>
+<section id="practical-limitations-of-optimization-based-portfolios" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="practical-limitations-of-optimization-based-portfolios"><span class="header-section-number">2.3</span> Practical Limitations of Optimization-Based Portfolios</h3>
+<p>Mean-Variance optimization <span class="citation" data-cites="Markowitz1952">(<a href="#ref-Markowitz1952" role="doc-biblioref">Markowitz 1952</a>)</span> and its extensions frequently fail in practice. Portfolio weights are unstable and overfit, leading to high turnover and inferior real-world performance <span class="citation" data-cites="DeMiguel2009">(<a href="#ref-DeMiguel2009" role="doc-biblioref">DeMiguel, Garlappi, and Uppal 2009</a>)</span>. Constrained variants reduce instability but underperform simple passive benchmarks like SPY or QQQ.</p>
+</section>
+<section id="post-2010-failures-of-predictive-allocation" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="post-2010-failures-of-predictive-allocation"><span class="header-section-number">2.4</span> Post-2010 Failures of Predictive Allocation</h3>
+<p>Dynamic asset allocation models using Bayesian tilting or factor timing <span class="citation" data-cites="brandt2009parametric">(<a href="#ref-brandt2009parametric" role="doc-biblioref">Brandt, Santa-Clara, and Valkanov 2009</a>)</span> show limited edge post-2010. In regimes dominated by <em>non-Gaussian returns</em>, <em>policy shocks</em>, and <em>arbitrage limits</em>, these models fail to anticipate structural capital movements or benefit from persistent factor exposures.</p>
+</section>
+</section>
+<section id="structural-interpretations-rent-extraction-and-capital-lock-in" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="structural-interpretations-rent-extraction-and-capital-lock-in"><span class="header-section-number">3</span> Structural Interpretations: Rent Extraction and Capital Lock-in</h2>
+<p>A growing literature interprets return generation as increasingly governed by <em>non-risk factors</em> such as <em>capital scale</em>, <em>policy insulation</em>, and <em>rank persistence</em>:</p>
 <ul>
-<li>Multi-Factor Model with Fama-MacBeth Regression <span class="citation" data-cites="FamaMacBeth1973">(<a href="#ref-FamaMacBeth1973" role="doc-biblioref">Fama and MacBeth 1973</a>)</span>: When applied to industry portfolios, it reveals large, persistent unexplained alphas <span class="citation" data-cites="FamaFrench1997">(<a href="#ref-FamaFrench1997" role="doc-biblioref">Fama and French 1997</a>)</span> while the market risk premium becomes statistically insignificant. <span class="citation" data-cites="asness2018size">Asness et al. (<a href="#ref-asness2018size" role="doc-biblioref">2018</a>)</span> argue that the size premium persists when controlling for quality factors, suggesting the reversal may stem from low-quality small-cap stocks. Additionally, <span class="citation" data-cites="hou2020replicating">Hou, Xue, and Zhang (<a href="#ref-hou2020replicating" role="doc-biblioref">2020</a>)</span> find that many documented anomalies, including size-related ones, do not hold up under rigorous testing, while <strong>mitigated</strong> if carefully controlling microcap stocks and using value-weighted returns. For example, excess returns of FF industry portfolios are regressed on macro and financial factors, revealing <strong>multicollinearity</strong> among predictors like market excess returns, value spreads, and volatility indicators, leading to unstable coefficients and weak out-of-sample explanatory power.<br>
-</li>
-<li>Lasso regularization confirms model sparsity, with only a few predictors consistently selected, often exhibiting inconsistent signs <span class="citation" data-cites="Kozak2020">(<a href="#ref-Kozak2020" role="doc-biblioref">Kozak, Nagel, and Santosh 2020</a>)</span>.</li>
+<li>Large banks exhibit lower risk-adjusted returns, suggestive of implicit guarantees <span class="citation" data-cites="gandhi2015size">(<a href="#ref-gandhi2015size" role="doc-biblioref">Gandhi and Lustig 2015</a>)</span>.</li>
+<li>Small-cap segments contain a rising share of “zombie” firms — structurally unproductive entities sustained by policy support <span class="citation" data-cites="Acharya2024">(<a href="#ref-Acharya2024" role="doc-biblioref">Acharya et al. 2024</a>)</span>.</li>
+<li>ETF flows bias price discovery toward large-cap incumbents <span class="citation" data-cites="jiang2020passive Glosten2021">(<a href="#ref-jiang2020passive" role="doc-biblioref">Jiang, Vayanos, and Zheng 2020</a>; <a href="#ref-Glosten2021" role="doc-biblioref">Glosten, Li, and Zhang 2021</a>)</span>.</li>
+<li>Concentration of capital and returns parallels macro trends in labor share decline and superstar firm dominance <span class="citation" data-cites="autor2020fall">(<a href="#ref-autor2020fall" role="doc-biblioref">Autor et al. 2020</a>)</span>.</li>
 </ul>
+<p>These findings frame market returns not as compensation for risk, but as <em>rents accruing to structural position within the capital hierarchy</em>.</p>
 </section>
-<section id="betting-against-beta-and-sharpe-ratio-symmetry" class="level3">
-<h3 class="anchored" data-anchor-id="betting-against-beta-and-sharpe-ratio-symmetry">2.2 Betting Against Beta and Sharpe Ratio Symmetry</h3>
+<section id="positioning-tbtf-within-the-literature" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="positioning-tbtf-within-the-literature"><span class="header-section-number">4</span> Positioning TBTF within the Literature</h2>
+<p>This study contributes to this emerging paradigm by introducing:</p>
 <ul>
-<li>The BAB Strategy posits that high-beta assets underperform on a risk-adjusted basis <span class="citation" data-cites="FrazziniPedersen2014">(<a href="#ref-FrazziniPedersen2014" role="doc-biblioref">Frazzini and Pedersen 2014</a>)</span>.</li>
-<li>Empirical tests using SIC 10 portfolios reveal that optimal Sharpe ratios are achieved by portfolios with betas close to 1, rather than low or high values. The relationship between beta and performance is either flat or non-monotonic, suggesting that risk exposure is not systematically mispriced but structurally inert.</li>
+<li><strong>Rank-based capital lock-in</strong> frameworks via percentile transition matrices, inspired by social mobility models.</li>
+<li>A <strong>low-turnover, high-performance TBTF strategy</strong>, rooted in capital persistence rather than information efficiency.</li>
+<li>A <strong>critique of post-QE capital dynamics</strong>, where ETF-driven flows reinforce rank-based inequality in financial markets.</li>
 </ul>
-</section>
-<section id="practical-failures-of-mean-variance-optimization" class="level3">
-<h3 class="anchored" data-anchor-id="practical-failures-of-mean-variance-optimization">2.3 Practical Failures of Mean-Variance Optimization</h3>
-<ul>
-<li>Unconstrained Mean-Variance (MV) Optimization yields extreme and highly unstable weights, leading to high turnover and poor out-of-sample performance <span class="citation" data-cites="DeMiguel2009">(<a href="#ref-DeMiguel2009" role="doc-biblioref">DeMiguel, Garlappi, and Uppal 2009</a>)</span>.</li>
-<li>Imposing constraints (e.g., no short-selling) enhances stability but reduces performance below passive benchmarks. Passive value-weighted portfolios consistently outperform MV portfolios, even when optimized using historical data.</li>
-</ul>
-</section>
-<section id="limitations-of-bayesian-optimization-and-tilting" class="level3">
-<h3 class="anchored" data-anchor-id="limitations-of-bayesian-optimization-and-tilting">2.4 Limitations of Bayesian Optimization and Tilting</h3>
-<ul>
-<li><span class="citation" data-cites="black1992global">Black and Litterman (<a href="#ref-black1992global" role="doc-biblioref">1992</a>)</span> combines CAPM equilibrium with investor views via Bayesian updating.<br>
-</li>
-<li><span class="citation" data-cites="brandt2009parametric">Brandt, Santa-Clara, and Valkanov (<a href="#ref-brandt2009parametric" role="doc-biblioref">2009</a>)</span> incorporate momentum and size signals into dynamic allocation, but our empirical tests reveal no consistent outperformance over ETF benchmarks post-2010, suffering from estimation error and overfitting in regimes characterized by unstable return distributions.</li>
-</ul>
-</section>
-</section>
-<section id="structural-interpretation-and-motivation-for-tbtf" class="level2">
-<h2 class="anchored" data-anchor-id="structural-interpretation-and-motivation-for-tbtf">3. Structural Interpretation and Motivation for TBTF</h2>
-<p>The underperformance of theoretically sound but empirically fragile strategies suggests capital markets reward position within a segmented system rather than risk.</p>
-<ul>
-<li>Large-cap firms are insulated from downward transitions, mirroring the ‘superstar’ effect where small quality differences yield large market outcomes, as described by Rosen <span class="citation" data-cites="rosen1981economics">(<a href="#ref-rosen1981economics" role="doc-biblioref">Rosen 1981</a>)</span>. In banking, <span class="citation" data-cites="gandhi2015size">Gandhi and Lustig (<a href="#ref-gandhi2015size" role="doc-biblioref">2015</a>)</span> find large banks have lower risk-adjusted returns, indicative of implicit government guarantees in adverse scenarios.<br>
-</li>
-<li>Small-cap firms increasingly comprise structurally inefficient “zombie” entities sustained by liquidity support <span class="citation" data-cites="Acharya2024">(<a href="#ref-Acharya2024" role="doc-biblioref">Acharya et al. 2024</a>)</span>.</li>
-<li>Return distributions no longer reflect efficient risk pricing but are shaped by arbitrage-limited capital flows, ETF-induced inflows, and policy distortions <span class="citation" data-cites="Glosten2021 ShleiferVishny1997">(<a href="#ref-Glosten2021" role="doc-biblioref">Glosten, Li, and Zhang 2021</a>; <a href="#ref-ShleiferVishny1997" role="doc-biblioref">Shleifer and Vishny 1997</a>)</span>.</li>
-<li>Return distributions reflect arbitrage-limited capital flows, ETF-induced inflows, and policy distortions, with <span class="citation" data-cites="jiang2020passive">Jiang, Vayanos, and Zheng (<a href="#ref-jiang2020passive" role="doc-biblioref">2020</a>)</span> showing passive investing disproportionately benefits large firms, exacerbating concentration. This aligns with <span class="citation" data-cites="autor2020fall">Autor et al. (<a href="#ref-autor2020fall" role="doc-biblioref">2020</a>)</span>, linking market power concentration to declining labor share, highlighting structural market dynamics.</li>
-</ul>
-<p>These findings motivate rank-based strategies like TBTF, capitalizing on structural capital dynamics rather than informational edges.</p>
-</section>
-<section id="contributions-to-the-literature" class="level2">
-<h2 class="anchored" data-anchor-id="contributions-to-the-literature">4. Contributions to the Literature</h2>
-<p>This study extends literature on asset pricing anomalies, building on <span class="citation" data-cites="hou2020replicating">Hou, Xue, and Zhang (<a href="#ref-hou2020replicating" role="doc-biblioref">2020</a>)</span>. regarding anomaly robustness. It introduces Markov-based transition models for capital lock-in, aligning with rising concentration insights from <span class="citation" data-cites="autor2020fall">Autor et al. (<a href="#ref-autor2020fall" role="doc-biblioref">2020</a>)</span>. It offers low-turnover, high-performance portfolio strategies and critiques ETF-driven distortions and post-QE concentration, reflecting real-world finance breakdowns under structural stress.</p>
-<p>This study builds upon and extends several strands of the literature:</p>
-<ul>
-<li>Asset Pricing Anomalies: It demonstrates new forms of structural deviation not explained by established factors <span class="citation" data-cites="hou2020replicating">(<a href="#ref-hou2020replicating" role="doc-biblioref">Hou, Xue, and Zhang 2020</a>)</span></li>
-<li>Market Structure and Capital Mobility: It introduces Markov-based transition models to analyze capital lock-in .</li>
-<li>Portfolio Strategy Design: It offers a low-turnover, high-performance alternative to optimization-based approaches.</li>
-<li>Market Efficiency Critique: It provides empirical support for critiques of ETF-driven distortions and post-QE market concentration <span class="citation" data-cites="autor2020fall jiang2020passive">(<a href="#ref-autor2020fall" role="doc-biblioref">Autor et al. 2020</a>; <a href="#ref-jiang2020passive" role="doc-biblioref">Jiang, Vayanos, and Zheng 2020</a>)</span>.</li>
-</ul>
-<p>The TBTF strategy does not reject modern finance but reflects its real-world breakdown under structural stress. Its continued success raises fundamental questions about what financial markets price and for whose benefit.</p>
+<p>In contrast to conventional pricing models assuming rapid mean-reversion and marginal arbitrage, the TBTF strategy illustrates how <strong>capital stratification can sustain excess returns</strong> through structural mechanisms rather than informational edges.</p>
+<p>Its continued success does not reject modern finance—it reflects its breakdown under structural stress, necessitating models that account for capital rigidity, transition asymmetry, and institutional drift.</p>
 
 
 
-</section>
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-Acharya2024" class="csl-entry" role="listitem">
 Acharya, Viral V., Matteo Crosignani, Tim Eisert, and Christian Eufinger. 2024. <span>“Zombie Credit and (Dis-)inflation: Evidence from Europe.”</span> <em>Journal of Finance</em> 79 (1): 81–126.
-</div>
-<div id="ref-asness2018size" class="csl-entry" role="listitem">
-Asness, Clifford, Andrea Frazzini, Ronen Israel, Tobias J Moskowitz, and Lasse H Pedersen. 2018. <span>“Size Matters, If You Control Your Junk.”</span> <em>Journal of Financial Economics</em> 129 (3): 479–509.
 </div>
 <div id="ref-autor2020fall" class="csl-entry" role="listitem">
 Autor, David, David Dorn, Lawrence F Katz, Christina Patterson, and John Van Reenen. 2020. <span>“The Fall of the Labor Share and the Rise of Superstar Firms.”</span> <em>The Quarterly Journal of Economics</em> 135 (2): 645–709.
@@ -449,12 +424,6 @@ Kozak, Serhiy, Stefan Nagel, and Shrihari Santosh. 2020. <span>“Shrinking the 
 </div>
 <div id="ref-Markowitz1952" class="csl-entry" role="listitem">
 Markowitz, Harry. 1952. <span>“Portfolio Selection.”</span> <em>Journal of Finance</em> 7 (1): 77–91.
-</div>
-<div id="ref-rosen1981economics" class="csl-entry" role="listitem">
-Rosen, Sherwin. 1981. <span>“The Economics of Superstars.”</span> <em>The American Economic Review</em> 71 (5): 845–58.
-</div>
-<div id="ref-ShleiferVishny1997" class="csl-entry" role="listitem">
-Shleifer, Andrei, and Robert W. Vishny. 1997. <span>“The Limits of Arbitrage.”</span> <em>Journal of Finance</em> 52 (1): 35–55.
 </div>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

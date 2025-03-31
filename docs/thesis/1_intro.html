@@ -201,13 +201,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./4_2_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">02 Data</span></a>
+ <span class="menu-text">02 Data Preprocessing</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./4_3_ff_compare.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">03 Benchmarks</span></a>
+ <span class="menu-text">03 Size-Momentum Benchmark</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -258,17 +258,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
-  <ul class="collapse">
-  <li><a href="#structural-shifts-in-capital-markets" id="toc-structural-shifts-in-capital-markets" class="nav-link" data-scroll-target="#structural-shifts-in-capital-markets">1. Structural Shifts in Capital Markets</a></li>
-  <li><a href="#from-risk-pricing-to-rent-extraction" id="toc-from-risk-pricing-to-rent-extraction" class="nav-link" data-scroll-target="#from-risk-pricing-to-rent-extraction">2. From Risk Pricing to Rent Extraction</a></li>
-  <li><a href="#stylized-facts-and-hypotheses" id="toc-stylized-facts-and-hypotheses" class="nav-link" data-scroll-target="#stylized-facts-and-hypotheses">3. Stylized Facts and Hypotheses</a></li>
-  <li><a href="#the-dual-distortion-of-market-efficiency" id="toc-the-dual-distortion-of-market-efficiency" class="nav-link" data-scroll-target="#the-dual-distortion-of-market-efficiency">4. The Dual Distortion of Market Efficiency</a></li>
-  <li><a href="#the-tbtf-strategy-and-its-paradox" id="toc-the-tbtf-strategy-and-its-paradox" class="nav-link" data-scroll-target="#the-tbtf-strategy-and-its-paradox">5. The TBTF Strategy and Its Paradox</a></li>
-  <li><a href="#capital-mobility-lock-in-and-polarization" id="toc-capital-mobility-lock-in-and-polarization" class="nav-link" data-scroll-target="#capital-mobility-lock-in-and-polarization">6. Capital Mobility, Lock-In, and Polarization</a></li>
-  <li><a href="#implications-and-research-agenda" id="toc-implications-and-research-agenda" class="nav-link" data-scroll-target="#implications-and-research-agenda">7. Implications and Research Agenda</a></li>
-  <li><a href="#structure-of-the-paper" id="toc-structure-of-the-paper" class="nav-link" data-scroll-target="#structure-of-the-paper">8. Structure of the Paper</a></li>
-  </ul></li>
+  <li><a href="#structural-shifts-in-capital-markets" id="toc-structural-shifts-in-capital-markets" class="nav-link active" data-scroll-target="#structural-shifts-in-capital-markets"><span class="header-section-number">1</span> Structural Shifts in Capital Markets</a></li>
+  <li><a href="#from-risk-pricing-to-rent-extraction" id="toc-from-risk-pricing-to-rent-extraction" class="nav-link" data-scroll-target="#from-risk-pricing-to-rent-extraction"><span class="header-section-number">2</span> From Risk Pricing to Rent Extraction</a></li>
+  <li><a href="#stylized-facts-and-empirical-hypotheses" id="toc-stylized-facts-and-empirical-hypotheses" class="nav-link" data-scroll-target="#stylized-facts-and-empirical-hypotheses"><span class="header-section-number">3</span> Stylized Facts and Empirical Hypotheses</a></li>
+  <li><a href="#the-dual-erosion-of-market-efficiency" id="toc-the-dual-erosion-of-market-efficiency" class="nav-link" data-scroll-target="#the-dual-erosion-of-market-efficiency"><span class="header-section-number">4</span> The Dual Erosion of Market Efficiency</a></li>
+  <li><a href="#the-tbtf-strategy-and-its-structural-paradox" id="toc-the-tbtf-strategy-and-its-structural-paradox" class="nav-link" data-scroll-target="#the-tbtf-strategy-and-its-structural-paradox"><span class="header-section-number">5</span> The TBTF Strategy and Its Structural Paradox</a></li>
+  <li><a href="#capital-mobility-lock-in-and-structural-polarization" id="toc-capital-mobility-lock-in-and-structural-polarization" class="nav-link" data-scroll-target="#capital-mobility-lock-in-and-structural-polarization"><span class="header-section-number">6</span> Capital Mobility, Lock-In, and Structural Polarization</a></li>
+  <li><a href="#broader-implications-and-research-agenda" id="toc-broader-implications-and-research-agenda" class="nav-link" data-scroll-target="#broader-implications-and-research-agenda"><span class="header-section-number">7</span> Broader Implications and Research Agenda</a></li>
+  <li><a href="#structure-of-the-paper" id="toc-structure-of-the-paper" class="nav-link" data-scroll-target="#structure-of-the-paper"><span class="header-section-number">8</span> Structure of the Paper</a></li>
   </ul>
 </nav>
     </div>
@@ -306,82 +303,78 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<section id="structural-shifts-in-capital-markets" class="level2">
-<h2 class="anchored" data-anchor-id="structural-shifts-in-capital-markets">1. Structural Shifts in Capital Markets</h2>
-<p>Over the past two decades, U.S. financial markets have undergone a series of profound structural transformations. These changes—accelerated by post-2008 Federal Reserve interventions, the rise of passive investing, and the dominance of a few mega-cap firms—have gradually undermined the foundational assumptions of neoclassical asset pricing models. Most notably, the classical assumptions of global convexity, representative agents, and arbitrage-free pricing appear increasingly misaligned with empirical realities.</p>
-<p>Contemporary market dynamics no longer conform to the canonical vision of systematic risk being priced efficiently. Instead, capital appears to flow disproportionately toward a small set of dominant firms, driven not by marginal productivity or risk-adjusted returns, but by <strong>network effects, ETF-driven capital flows, and central bank distortions</strong>. These flows exhibit characteristics more consistent with <strong>structural rent allocation</strong> than with traditional risk-based compensation.</p>
+<section id="structural-shifts-in-capital-markets" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="structural-shifts-in-capital-markets"><span class="header-section-number">1</span> Structural Shifts in Capital Markets</h2>
+<p>Over the past two decades, U.S. financial markets have undergone profound structural transformations. These shifts—accelerated by post-2008 Federal Reserve interventions, the rise of passive investing, and the concentration of capital among a few mega-cap firms—have undermined core assumptions of neoclassical asset pricing models. The long-held tenets of global convexity, representative agents, and arbitrage-free pricing increasingly diverge from empirical realities.</p>
+<p>Modern capital markets no longer reflect a system in which risk is efficiently priced and capital is dynamically allocated. Instead, capital appears to flow persistently toward a small subset of dominant firms—not due to marginal productivity or higher expected returns, but through <strong>network effects, index-induced flows, and macro-policy distortions</strong>. These dynamics are more consistent with <strong>rent extraction</strong> than with equilibrium-based compensation for risk.</p>
 </section>
-<section id="from-risk-pricing-to-rent-extraction" class="level2">
-<h2 class="anchored" data-anchor-id="from-risk-pricing-to-rent-extraction">2. From Risk Pricing to Rent Extraction</h2>
-<p>This paper challenges the notion that financial markets primarily reward investors for bearing systematic risk. Instead, it proposes that post-crisis capital markets have evolved into a system of <strong>rent-based pricing</strong>, in which certain firms absorb a growing share of capital inflows due to structural advantage rather than economic fundamentals. This environment favors firms that are <strong>“too big to fail” (TBTF)</strong>—not because they are intrinsically more productive or efficient, but because the market structure allows them to persist at the top through passive flows and low volatility.</p>
-<p>The study investigates whether stock return distributions in the U.S. stock market now resemble a <strong>time-varying mixture of heterogeneous assets under arbitrage-limited dynamics</strong>, as opposed to a homogeneous no-arbitrage equilibrium. The market appears to be governed less by efficient risk sharing and more by <strong>path-dependent capital accumulation</strong>, leading to a form of <strong>structural capital lock-in and asymmetric mobility</strong> across capital ranks.</p>
+<section id="from-risk-pricing-to-rent-extraction" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="from-risk-pricing-to-rent-extraction"><span class="header-section-number">2</span> From Risk Pricing to Rent Extraction</h2>
+<p>This paper challenges the foundational belief that financial markets reward systematic risk-bearing. Instead, we argue that the post-crisis financial ecosystem has evolved into a system of <strong>rank-based rent allocation</strong>, where a handful of firms absorb disproportionate capital flows due to structural advantages embedded in the market itself.</p>
+<p>We empirically test whether U.S. stock return distributions now resemble a <strong>time-varying mixture of heterogeneous capital states under arbitrage limits</strong>, rather than a homogeneous no-arbitrage equilibrium. The evidence points to a market governed by <strong>path-dependent capital lock-in, asymmetric mobility, and structural concentration</strong>—a dynamic far removed from the efficient frontier.</p>
 </section>
-<section id="stylized-facts-and-hypotheses" class="level2">
-<h2 class="anchored" data-anchor-id="stylized-facts-and-hypotheses">3. Stylized Facts and Hypotheses</h2>
-<p>The study is guided by a set of empirical regularities and theoretical conjectures:</p>
+<section id="stylized-facts-and-empirical-hypotheses" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="stylized-facts-and-empirical-hypotheses"><span class="header-section-number">3</span> Stylized Facts and Empirical Hypotheses</h2>
+<p>This inquiry is guided by the following empirical regularities:</p>
 <ul>
-<li><strong>Return Distributions</strong> have become increasingly asymmetric and exhibit fat tails concentrated in top-cap stocks.</li>
-<li><strong>Capital Concentration</strong> is not only extreme in level but persistent in share and rank.</li>
-<li><strong>Transition Dynamics</strong> across size ranks show decreasing upward mobility and increasing lock-in duration for top-cap stocks.</li>
-<li><strong>Market Efficiency</strong> is being eroded by capital polarization, in which capital increasingly accumulates at the top while the rest of the distribution remains stagnant.</li>
-<li><strong>ETFs and QE Policies</strong> act as reinforcing mechanisms, feeding capital into already dominant firms, thereby reducing entropy and distorting allocative efficiency.</li>
+<li><strong>Return Distributions</strong> have become increasingly asymmetric and heavy-tailed, especially among top-cap stocks.</li>
+<li><strong>Capital Concentration</strong> is extreme, persistent, and exhibits rank-lock dynamics.</li>
+<li><strong>Transition Probabilities</strong> across market-cap quantiles show declining upward mobility and growing absorption at the top.</li>
+<li><strong>Market Efficiency</strong> is eroded by polarization, in which capital accumulates at the top while smaller firms stagnate or survive artificially.</li>
+<li><strong>Policy and Index Flows</strong> (via QE and ETFs) act as systemic amplifiers of these trends, reinforcing incumbency and reducing entropy in allocation.</li>
 </ul>
 </section>
-<section id="the-dual-distortion-of-market-efficiency" class="level2">
-<h2 class="anchored" data-anchor-id="the-dual-distortion-of-market-efficiency">4. The Dual Distortion of Market Efficiency</h2>
-<p>Importantly, the distortion of allocative efficiency is not limited to the top end of the market. At the lower end of the capitalization spectrum, another structural problem emerges: the survival and persistence of <strong>zombie firms</strong>—unproductive small-cap companies that continue to operate despite being economically non-viable.</p>
-<p>Fueled by prolonged low interest rates, government credit guarantees, and liquidity injections, these firms are shielded from market discipline and allowed to persist. As a result, the <strong>small-cap group no longer reflects a competitive set of risky but high-upside firms</strong>; rather, it includes a disproportionate share of structurally inefficient entities whose survival biases the return distribution downward and increases tail risk.</p>
-<p>This zombification effect is <strong>likely to depress the average excess return and Sharpe ratio of the small-cap segment</strong>, while simultaneously increasing the variance and skewness of returns. Though this paper does not directly model zombie firm identification, the empirical pattern—lower mean, higher volatility, greater downside asymmetry in small-cap returns—is consistent with this interpretation.</p>
-<p>Thus, the <strong>efficiency erosion in capital markets is dual-channel</strong>:<br>
-- <strong>Top-heavy concentration</strong> reinforces structural dominance and allocative inertia.<br>
-- <strong>Bottom-heavy zombification</strong> distorts the return-generating process and weakens the innovation–destruction cycle.</p>
-</section>
-<section id="the-tbtf-strategy-and-its-paradox" class="level2">
-<h2 class="anchored" data-anchor-id="the-tbtf-strategy-and-its-paradox">5. The TBTF Strategy and Its Paradox</h2>
-<p>Within this environment, the study evaluates a simple yet powerful investment strategy: the <strong>TBTF portfolio</strong>, which selects the 10 largest U.S. stocks by market capitalization from the full CRSP universe (NYSE, Nasdaq, AMEX), applies a quadratic weighting scheme based on rank, and rebalances at fixed intervals (e.g., monthly).</p>
-<p>Empirical results show that this strategy has delivered <strong>exceptional risk-adjusted performance</strong>, particularly after 2010. The strategy outperforms major indices and alternative benchmarks across multiple metrics, including Sharpe ratio, Sortino ratio, Omega ratio, and maximum drawdown—while maintaining low turnover.</p>
-<p>Yet the strategy’s success raises a paradox. It is <strong>“sadly optimal”</strong>:<br>
-- If the strategy <strong>continues to succeed</strong>, it signals a persistent mispricing and a further decline in market efficiency.<br>
-- If the strategy <strong>fails</strong>, it suggests a return to competitive capital allocation and improved economic welfare.<br>
-In either case, it remains optimal from an individual investor’s standpoint, but potentially damaging from a societal perspective.</p>
-</section>
-<section id="capital-mobility-lock-in-and-polarization" class="level2">
-<h2 class="anchored" data-anchor-id="capital-mobility-lock-in-and-polarization">6. Capital Mobility, Lock-In, and Polarization</h2>
-<p>A key innovation in this study is the use of <strong>percentile-based Markov transition matrices</strong> and <strong>stationary capital share distributions</strong> to analyze capital mobility. The findings indicate that:</p>
+<section id="the-dual-erosion-of-market-efficiency" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="the-dual-erosion-of-market-efficiency"><span class="header-section-number">4</span> The Dual Erosion of Market Efficiency</h2>
+<p>The erosion of allocative efficiency is twofold:</p>
 <ul>
-<li>Top decile firms exhibit extremely high persistence, acting as near-absorbing states.</li>
-<li>Lower decile firms display high volatility and minimal upward transition probability.</li>
-<li>The stationary distribution of capital shares shows <strong>growing convexity</strong> over time, resembling a structural Lorenz curve.</li>
-<li>Mobility inequality, measured via entropy and upward/downward transition asymmetry, is worsening.</li>
+<li>At the top, capital becomes <strong>trapped in dominant firms</strong> through structural lock-in, reducing competitive discipline.</li>
+<li>At the bottom, <strong>zombie firms</strong>—unproductive entities sustained by liquidity, not fundamentals—persist and bias the return distribution.</li>
 </ul>
-<p>These features mirror <strong>social stratification</strong>, where economic agents (firms, in this case) become locked into hierarchical capital classes, resulting in reduced dynamism and allocative efficiency.</p>
+<p>While we do not formally identify zombie firms, we observe that the small-cap segment exhibits <strong>lower average returns, higher variance, and greater downside skewness</strong>, consistent with capital misallocation and reduced creative destruction. Together, these effects form a <strong>dual-channel breakdown</strong> in market efficiency.</p>
 </section>
-<section id="implications-and-research-agenda" class="level2">
-<h2 class="anchored" data-anchor-id="implications-and-research-agenda">7. Implications and Research Agenda</h2>
-<p>The findings challenge the mainstream view that <strong>abnormal returns are primarily risk-based</strong>. Instead, they suggest that persistent outperformance may be due to <strong>capital concentration, structural inertia, policy distortions</strong>, and the survival of inefficient entities. This calls for the development of new asset pricing models that incorporate:</p>
+<section id="the-tbtf-strategy-and-its-structural-paradox" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="the-tbtf-strategy-and-its-structural-paradox"><span class="header-section-number">5</span> The TBTF Strategy and Its Structural Paradox</h2>
+<p>Within this environment, we evaluate a simple but powerful portfolio: the <strong>“Too Big to Fail” (TBTF) strategy</strong>. It selects the ten largest firms by market cap from the CRSP universe, applies a convex (quadratic or exponential) weighting scheme, and rebalances at fixed intervals.</p>
+<p>Despite its simplicity, the TBTF portfolio delivers <strong>persistent and superior risk-adjusted performance</strong>, especially in the post-2010 regime. It outperforms standard indices and academic benchmarks across multiple metrics while maintaining low turnover. Its success, however, is paradoxical:</p>
+<blockquote class="blockquote">
+<p>The strategy is optimal only if the market is inefficient.<br>
+If it fails, society wins. If it works, structural distortion persists.</p>
+</blockquote>
+<p>This <strong>“sadly optimal” paradox</strong> reveals that investors can rationally profit from a system that is collectively irrational.</p>
+</section>
+<section id="capital-mobility-lock-in-and-structural-polarization" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="capital-mobility-lock-in-and-structural-polarization"><span class="header-section-number">6</span> Capital Mobility, Lock-In, and Structural Polarization</h2>
+<p>To uncover the deeper structure, we construct <strong>percentile-based Markov transition matrices</strong> and <strong>stationary capital share distributions</strong>. Our findings indicate:</p>
 <ul>
-<li><strong>Structural inefficiency</strong> and non-ergodic dynamics<br>
-</li>
-<li><strong>Rank-based capital dynamics</strong><br>
-</li>
-<li><strong>Rent-based valuation in place of marginal utility or productivity</strong></li>
+<li><strong>Top-decile firms</strong> behave as near-absorbing states, showing extreme persistence.</li>
+<li><strong>Low-decile firms</strong> exhibit volatility and minimal upward mobility.</li>
+<li>The <strong>capital distribution grows increasingly convex</strong> over time, resembling a structural Lorenz curve.</li>
+<li><strong>Mobility inequality</strong> is worsening, consistent with a capital-based caste system.</li>
 </ul>
-<p>Such models could offer more realistic frameworks for understanding how capital markets operate in the presence of central bank intervention, passive investing dominance, and technological monopolization.</p>
+<p>These features parallel social stratification: the market mimics a hierarchy in which firms are locked into persistent capital classes, undermining both innovation and allocative justice.</p>
 </section>
-<section id="structure-of-the-paper" class="level2">
-<h2 class="anchored" data-anchor-id="structure-of-the-paper">8. Structure of the Paper</h2>
-<p>The remainder of the paper is organized as follows:</p>
+<section id="broader-implications-and-research-agenda" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="broader-implications-and-research-agenda"><span class="header-section-number">7</span> Broader Implications and Research Agenda</h2>
+<p>This study contributes to the asset pricing literature by highlighting that persistent outperformance may arise not from risk-bearing, but from <strong>capital lock-in, institutional frictions, and policy distortions</strong>. It motivates a new generation of asset pricing models that integrate:</p>
 <ul>
-<li><strong>Chapter 2 (Literature Review)</strong> situates this study within the broader asset pricing and inequality literature, covering theories of mobility, structural returns, and ETF-induced distortions.</li>
-<li><strong>Chapter 3 (Historical Context)</strong> summarizes the evolution of market structure post-2008, including the effects of QE and ETF proliferation.</li>
-<li><strong>Chapter 4 (Empirical Model)</strong> presents the core empirical study in seven modules: research overview, data, benchmark comparison, structural analysis, portfolio strategy, performance evaluation, and robustness checks.</li>
-<li><strong>Chapter 5 (Conclusion)</strong> reflects on the broader implications of the findings for asset pricing theory, policy intervention, and the future of financial capitalism.</li>
+<li><strong>Non-ergodic dynamics and structural path dependence</strong></li>
+<li><strong>Rank-based valuation and transition asymmetry</strong></li>
+<li><strong>Rent-based pricing in lieu of marginal productivity</strong></li>
+</ul>
+<p>Such models would better capture how capital markets behave in a world dominated by passive flows, interventionist policy, and endogenous concentration.</p>
+</section>
+<section id="structure-of-the-paper" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="structure-of-the-paper"><span class="header-section-number">8</span> Structure of the Paper</h2>
+<p>The remainder of the paper proceeds as follows:</p>
+<ul>
+<li><strong>Chapter 2 (Literature Review)</strong> situates this study within the literature on asset pricing, inequality, and ETF-induced capital distortions.</li>
+<li><strong>Chapter 3 (Historical Context)</strong> reviews the evolution of U.S. market structure post-2008, with emphasis on monetary policy and index construction.</li>
+<li><strong>Chapter 4 (Empirical Study)</strong> provides detailed analysis across seven modules: research framing, data, benchmark construction, structural modeling, strategy implementation, performance evaluation, and robustness testing.</li>
+<li><strong>Chapter 5 (Conclusion)</strong> reflects on the theoretical, empirical, and societal implications of a world in which TBTF is optimal.</li>
 </ul>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

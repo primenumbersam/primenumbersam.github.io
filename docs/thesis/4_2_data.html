@@ -9,7 +9,7 @@
 <meta name="author" content="gitSAM">
 <meta name="dcterms.date" content="2025-03-31">
 
-<title>02 Data – GitSAM</title>
+<title>02 Data Preprocessing – GitSAM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -159,7 +159,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./4_1_overview.html">Model</a></li><li class="breadcrumb-item"><a href="./4_2_data.html">02 Data</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./4_1_overview.html">Model</a></li><li class="breadcrumb-item"><a href="./4_2_data.html">02 Data Preprocessing</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -230,13 +230,13 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./4_2_data.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">02 Data</span></a>
+ <span class="menu-text">02 Data Preprocessing</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./4_3_ff_compare.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">03 Benchmarks</span></a>
+ <span class="menu-text">03 Size-Momentum Benchmark</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -287,33 +287,30 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#data-source-and-construction" id="toc-data-source-and-construction" class="nav-link active" data-scroll-target="#data-source-and-construction">Data Source and Construction</a>
+  <li><a href="#primary-data-crsp-monthly-stock-file" id="toc-primary-data-crsp-monthly-stock-file" class="nav-link active" data-scroll-target="#primary-data-crsp-monthly-stock-file"><span class="header-section-number">1</span> Primary Data: CRSP Monthly Stock File</a>
   <ul class="collapse">
-  <li><a href="#primary-data-crsp-monthly-stock-file" id="toc-primary-data-crsp-monthly-stock-file" class="nav-link" data-scroll-target="#primary-data-crsp-monthly-stock-file">Primary Data: CRSP Monthly Stock File</a>
-  <ul class="collapse">
-  <li><a href="#market-cap-based-valuation-perspective" id="toc-market-cap-based-valuation-perspective" class="nav-link" data-scroll-target="#market-cap-based-valuation-perspective">Market-Cap Based Valuation Perspective</a></li>
-  <li><a href="#delisting-treatment-terminal-value-zero" id="toc-delisting-treatment-terminal-value-zero" class="nav-link" data-scroll-target="#delisting-treatment-terminal-value-zero">Delisting Treatment: Terminal Value = Zero</a></li>
-  <li><a href="#ipo-treatment-external-entry-state" id="toc-ipo-treatment-external-entry-state" class="nav-link" data-scroll-target="#ipo-treatment-external-entry-state">IPO Treatment: External Entry State</a></li>
-  <li><a href="#survivorship-bias-adjustment" id="toc-survivorship-bias-adjustment" class="nav-link" data-scroll-target="#survivorship-bias-adjustment">Survivorship Bias Adjustment</a></li>
-  <li><a href="#state-classification-framework" id="toc-state-classification-framework" class="nav-link" data-scroll-target="#state-classification-framework">State Classification Framework</a></li>
-  <li><a href="#structural-implication" id="toc-structural-implication" class="nav-link" data-scroll-target="#structural-implication">Structural Implication</a></li>
+  <li><a href="#market-cap-based-valuation-perspective" id="toc-market-cap-based-valuation-perspective" class="nav-link" data-scroll-target="#market-cap-based-valuation-perspective"><span class="header-section-number">1.1</span> Market-Cap Based Valuation Perspective</a></li>
+  <li><a href="#delisting-treatment-terminal-value-zero" id="toc-delisting-treatment-terminal-value-zero" class="nav-link" data-scroll-target="#delisting-treatment-terminal-value-zero"><span class="header-section-number">1.2</span> Delisting Treatment: Terminal Value = Zero</a></li>
+  <li><a href="#ipo-treatment-external-entry-state" id="toc-ipo-treatment-external-entry-state" class="nav-link" data-scroll-target="#ipo-treatment-external-entry-state"><span class="header-section-number">1.3</span> IPO Treatment: External Entry State</a></li>
+  <li><a href="#survivorship-bias-adjustment" id="toc-survivorship-bias-adjustment" class="nav-link" data-scroll-target="#survivorship-bias-adjustment"><span class="header-section-number">1.4</span> Survivorship Bias Adjustment</a></li>
+  <li><a href="#state-classification-framework" id="toc-state-classification-framework" class="nav-link" data-scroll-target="#state-classification-framework"><span class="header-section-number">1.5</span> State Classification Framework</a></li>
+  <li><a href="#structural-implication" id="toc-structural-implication" class="nav-link" data-scroll-target="#structural-implication"><span class="header-section-number">1.6</span> Structural Implication</a></li>
   </ul></li>
-  <li><a href="#secondary-data-sources" id="toc-secondary-data-sources" class="nav-link" data-scroll-target="#secondary-data-sources">Secondary Data Sources</a>
+  <li><a href="#secondary-data-sources" id="toc-secondary-data-sources" class="nav-link" data-scroll-target="#secondary-data-sources"><span class="header-section-number">2</span> Secondary Data Sources</a>
   <ul class="collapse">
-  <li><a href="#fama-french-research-portfolios" id="toc-fama-french-research-portfolios" class="nav-link" data-scroll-target="#fama-french-research-portfolios">Fama-French Research Portfolios</a></li>
-  <li><a href="#index-and-etf-benchmarks" id="toc-index-and-etf-benchmarks" class="nav-link" data-scroll-target="#index-and-etf-benchmarks">Index and ETF Benchmarks</a></li>
+  <li><a href="#fama-french-research-portfolios" id="toc-fama-french-research-portfolios" class="nav-link" data-scroll-target="#fama-french-research-portfolios"><span class="header-section-number">2.1</span> Fama-French Research Portfolios</a></li>
+  <li><a href="#index-and-etf-benchmarks" id="toc-index-and-etf-benchmarks" class="nav-link" data-scroll-target="#index-and-etf-benchmarks"><span class="header-section-number">2.2</span> Index and ETF Benchmarks</a></li>
   </ul></li>
   
-  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./4_1_overview.html">Model</a></li><li class="breadcrumb-item"><a href="./4_2_data.html">02 Data</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./4_1_overview.html">Model</a></li><li class="breadcrumb-item"><a href="./4_2_data.html">02 Data Preprocessing</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">02 Data</h1>
+<h1 class="title">02 Data Preprocessing</h1>
 </div>
 
 
@@ -342,11 +339,9 @@ window.Quarto = {
 </header>
 
 
-<section id="data-source-and-construction" class="level1">
-<h1>Data Source and Construction</h1>
 <p>This section describes the data used to construct and evaluate the TBTF portfolio strategy. We utilize multiple sources to enable a comprehensive analysis of market structure, return distributions, and benchmark comparisons. The primary dataset is drawn from CRSP, with supplemental reference portfolios and index returns from Fama-French and Yahoo Finance, respectively.</p>
-<section id="primary-data-crsp-monthly-stock-file" class="level2">
-<h2 class="anchored" data-anchor-id="primary-data-crsp-monthly-stock-file">Primary Data: CRSP Monthly Stock File</h2>
+<section id="primary-data-crsp-monthly-stock-file" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="primary-data-crsp-monthly-stock-file"><span class="header-section-number">1</span> Primary Data: CRSP Monthly Stock File</h2>
 <p>We use the Center for Research in Security Prices (CRSP) monthly stock files from January 1996 to December 2023. The CRSP universe includes all listed common stocks on the NYSE, Nasdaq, and AMEX exchanges. Key variables include:</p>
 <ul>
 <li><strong>PERMNO</strong>: Unique stock identifier<br>
@@ -358,13 +353,13 @@ window.Quarto = {
 <li><strong>primaryexch</strong> : primary exchange</li>
 <li><strong>SIC Code</strong>: Optional industry classification</li>
 </ul>
-<section id="market-cap-based-valuation-perspective" class="level3">
-<h3 class="anchored" data-anchor-id="market-cap-based-valuation-perspective">Market-Cap Based Valuation Perspective</h3>
+<section id="market-cap-based-valuation-perspective" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="market-cap-based-valuation-perspective"><span class="header-section-number">1.1</span> Market-Cap Based Valuation Perspective</h3>
 <p>Unlike fixed-income instruments, public equities derive their economic value primarily from their <strong>tradeability</strong>. While dividends contribute to realized returns, they are secondary to a stock’s <strong>market capitalization path</strong>, which reflects its ability to attract and retain capital under uncertainty.</p>
 <p>We therefore adopt a <strong>market cap–based valuation approach</strong>, using capitalization time series as the core proxy for equity value and flow dynamics.</p>
 </section>
-<section id="delisting-treatment-terminal-value-zero" class="level3">
-<h3 class="anchored" data-anchor-id="delisting-treatment-terminal-value-zero">Delisting Treatment: Terminal Value = Zero</h3>
+<section id="delisting-treatment-terminal-value-zero" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="delisting-treatment-terminal-value-zero"><span class="header-section-number">1.2</span> Delisting Treatment: Terminal Value = Zero</h3>
 <p>When a stock is delisted:</p>
 <ul>
 <li>Its market capitalization becomes zero, and its final <strong>gross return is set to 0</strong>, implying <strong>net return of –1</strong>.</li>
@@ -372,8 +367,8 @@ window.Quarto = {
 <p><span class="math display">\[ R_{\text{gross}} = 0, \quad R_{\text{net}} = -1 \]</span></p>
 <p>This reflects the reality that delisted equities become practically untradeable and lose all resale value for investors. In contrast to fixed-income instruments, equities have no residual recovery claim.</p>
 </section>
-<section id="ipo-treatment-external-entry-state" class="level3">
-<h3 class="anchored" data-anchor-id="ipo-treatment-external-entry-state">IPO Treatment: External Entry State</h3>
+<section id="ipo-treatment-external-entry-state" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="ipo-treatment-external-entry-state"><span class="header-section-number">1.3</span> IPO Treatment: External Entry State</h3>
 <ul>
 <li>Newly listed stocks (IPOs) are initially placed in an <strong>external state</strong> (state 0).</li>
 <li>From their first full month after IPO:
@@ -383,16 +378,16 @@ window.Quarto = {
 </ul></li>
 </ul>
 </section>
-<section id="survivorship-bias-adjustment" class="level3">
-<h3 class="anchored" data-anchor-id="survivorship-bias-adjustment">Survivorship Bias Adjustment</h3>
+<section id="survivorship-bias-adjustment" class="level3" data-number="1.4">
+<h3 data-number="1.4" class="anchored" data-anchor-id="survivorship-bias-adjustment"><span class="header-section-number">1.4</span> Survivorship Bias Adjustment</h3>
 <p>To avoid survivorship bias:</p>
 <ul>
 <li>We <strong>retain all stocks</strong>, including those that were delisted during the sample period.</li>
 <li>This prevents the <strong>overestimation of returns</strong> and misrepresentation of capital mobility that arises from survivor-only datasets.</li>
 </ul>
 </section>
-<section id="state-classification-framework" class="level3">
-<h3 class="anchored" data-anchor-id="state-classification-framework">State Classification Framework</h3>
+<section id="state-classification-framework" class="level3" data-number="1.5">
+<h3 data-number="1.5" class="anchored" data-anchor-id="state-classification-framework"><span class="header-section-number">1.5</span> State Classification Framework</h3>
 <p>For transition matrix estimation and mixture modeling (Section 4), we define the following <strong>percentile-based state mapping</strong>:</p>
 <table class="caption-top table">
 <colgroup>
@@ -442,8 +437,8 @@ window.Quarto = {
 <li><strong>Exit fragility</strong> for lower states (transition to State 0)</li>
 </ul>
 </section>
-<section id="structural-implication" class="level3">
-<h3 class="anchored" data-anchor-id="structural-implication">Structural Implication</h3>
+<section id="structural-implication" class="level3" data-number="1.6">
+<h3 data-number="1.6" class="anchored" data-anchor-id="structural-implication"><span class="header-section-number">1.6</span> Structural Implication</h3>
 <p>This mapping enables a <strong>semi-absorbing, non-reversible Markov transition model</strong>, where:</p>
 <ul>
 <li>Delisted stocks enter the <strong>absorbing state (0)</strong> permanently.</li>
@@ -453,10 +448,10 @@ window.Quarto = {
 <p>This design forms the empirical backbone for <strong>transition matrix analysis, mixture decomposition</strong>, and <strong>long-run mobility asymmetry</strong> in Section 4.</p>
 </section>
 </section>
-<section id="secondary-data-sources" class="level2">
-<h2 class="anchored" data-anchor-id="secondary-data-sources">Secondary Data Sources</h2>
-<section id="fama-french-research-portfolios" class="level3">
-<h3 class="anchored" data-anchor-id="fama-french-research-portfolios">Fama-French Research Portfolios</h3>
+<section id="secondary-data-sources" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="secondary-data-sources"><span class="header-section-number">2</span> Secondary Data Sources</h2>
+<section id="fama-french-research-portfolios" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="fama-french-research-portfolios"><span class="header-section-number">2.1</span> Fama-French Research Portfolios</h3>
 <p>From the <a href="https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html">Ken French Data Library</a>, we collect the following datasets:</p>
 <ul>
 <li><strong>ME10 Decile Portfolios</strong>: Used to compare return characteristics between small-cap (<code>s_10</code>) and large-cap (<code>b_10</code>) portfolios.</li>
@@ -468,8 +463,8 @@ window.Quarto = {
 </ul>
 <p>These portfolios are value-weighted, rebalanced annually using NYSE breakpoints, and provided as monthly returns.</p>
 </section>
-<section id="index-and-etf-benchmarks" class="level3">
-<h3 class="anchored" data-anchor-id="index-and-etf-benchmarks">Index and ETF Benchmarks</h3>
+<section id="index-and-etf-benchmarks" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="index-and-etf-benchmarks"><span class="header-section-number">2.2</span> Index and ETF Benchmarks</h3>
 <p>To compare TBTF performance with market-traded investment vehicles, we incorporate the following index and ETF data:</p>
 <ul>
 <li><strong>Pre-2010 Indices</strong> (from Yahoo Finance):
@@ -489,12 +484,11 @@ window.Quarto = {
 </section>
 </section>
 
-</section>
 
-<div id="quarto-appendix" class="default"><section id="appendix" class="level2 appendix"><h2 class="anchored quarto-appendix-heading">Appendix</h2><div class="quarto-appendix-contents">
+<div id="quarto-appendix" class="default"><section id="appendix" class="level2 appendix" data-number="3"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">3</span> Appendix</h2><div class="quarto-appendix-contents">
 
-<section id="data-availability-and-frequency" class="level3">
-<h3 class="anchored" data-anchor-id="data-availability-and-frequency">Data Availability and Frequency</h3>
+<section id="data-availability-and-frequency" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="data-availability-and-frequency"><span class="header-section-number">3.1</span> Data Availability and Frequency</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 32%">
