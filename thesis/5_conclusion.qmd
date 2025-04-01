@@ -8,6 +8,7 @@ At the core of this transformation is the **“Too Big to Fail” (TBTF)** strat
 
 Yet, this success raises a sobering paradox:  
 The TBTF strategy is **"sadly optimal."**  
+
 - If it continues to outperform, it profits from a system that rewards scale over efficiency, entrenchment over innovation.  
 - If it falters, it may signal a long-overdue reversion to competitive capital allocation—a welcome but unlikely shift under current institutional dynamics.
 

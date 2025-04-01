@@ -4,7 +4,7 @@ format:
   html:
     code-fold: true
 execute:
-  enabled: true
+  enabled: false
 ---
 
 This section decomposes the structural mechanisms underlying the TBTF strategy across two economic regimes—pre-2010 and post-2010. By comparing these periods, we identify changes in distributional composition, capital concentration, and rank mobility that reflect broader shifts in financial market dynamics following systemic interventions and structural innovation—each of which challenges conventional assumptions in asset pricing and market efficiency.
@@ -41,6 +41,7 @@ crsp.head()
 > Is the market portfolio return better explained as a mixture of **distinct structural groups**, such as top decile vs. the rest, and how have their mixture weights changed across regimes?
 
 ### Framework & Method:
+
 - We define two return-generating groups:
   - **Group A**: Top 10% stocks by market cap (state = 10)
   - **Group B**: All other listed stocks (states < 10)
@@ -408,6 +409,7 @@ Across the full sample period (1996–2023), $\gamma_t$ remains **consistently p
 This **remarkable temporal consistency** suggests that the top ranks in the market-cap distribution have maintained a **structurally convex advantage**—absorbing disproportionately higher capital relative to their rank in nearly every month over the past three decades.
 
 A closer examination shows that:
+
 - Prior to 2010, there was **mild downward drift** in $\gamma_t$, consistent with episodic rebalancing and potential capital redistribution (e.g., during the post-dotcom or pre-GFC phase).
 - However, **post-2010**, $\gamma_t$ exhibits a **slight but stable upward trend**, indicating **reinforced convexity**—a steeper capital concentration curve among the top-ranked firms.
 

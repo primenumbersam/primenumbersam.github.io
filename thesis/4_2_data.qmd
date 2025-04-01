@@ -81,8 +81,9 @@ From the [Ken French Data Library](https://mba.tuck.dartmouth.edu/pages/faculty/
 
 - **ME10 Decile Portfolios**: Used to compare return characteristics between small-cap (`s_10`) and large-cap (`b_10`) portfolios.
 - **ME × PRIOR Portfolios**: Cross-sorted on size (ME) and prior 12-month return momentum. We focus on:
-  - `ME5 PRIOR4`: Large size, high momentum
-  - `ME4 PRIOR3`: Mid size, moderate momentum
+  - `ME5 PRIOR5`: Large size, high momentum
+  - `ME5 PRIOR3`: Mid size, moderate momentum
+  - `ME5 PRIOR1`: Mid size, low momentum
 
 These portfolios are value-weighted, rebalanced annually using NYSE breakpoints, and provided as monthly returns.
 

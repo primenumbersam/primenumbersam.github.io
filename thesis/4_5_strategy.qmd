@@ -1,7 +1,7 @@
 ---
 title: 05 Strategy
 execute:
-  enabled: true
+  enabled: false
 ---
 
 ## Strategy: Design, Assumptions, and Market Philosophy
@@ -42,7 +42,7 @@ crsp = pd.read_sql_query(
 
 #### Ranking and State Formation
 
-Each month, firms are ranked by market capitalization. These rankings define discrete capital states (percentile bins). We focus on the top-decile (state = 10), selecting the top-$n$ firms at time $t$ based on market-cap rank. The baseline is $n=10$, with robustness checks for $n \in \{5, 20, 30, 50\}$.
+Each month, firms are ranked by market capitalization. These rankings define discrete capital states (percentile bins). We focus on the top-decile (state = 10), selecting the top-$n$ firms at time $t$ based on market-cap rank. The baseline is $n=10$, with robustness checks for $n \in \{5, 7, 10, 15, 20\}$.
 
 A Markovian state transition framework is imposed to capture the temporal dynamics of capital flow between ranked states. The top state exhibits persistent and asymmetric capital retention, supporting the capital lock-in hypothesis.
 

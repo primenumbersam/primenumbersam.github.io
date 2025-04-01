@@ -249,7 +249,7 @@
     "href": "index.html",
     "title": "GitSAM",
     "section": "",
-    "text": "비판:상속세 제도 개편"
+    "text": "복잡한 세상은 수학적 언어로 구체화할 수 있고, 현실 문제를 융합적으로 해결하기 위해 수학적 모델링은 유용한 도구"
   },
   {
     "objectID": "index.html#footnotes",
@@ -873,5 +873,19 @@
     "title": "GitSAM",
     "section": "수학은 현실을 그려내는 언어다",
     "text": "수학은 현실을 그려내는 언어다\n\n복잡한 세상은 수학적 언어로 구체화할 수 있고, 현실 문제를 융합적으로 해결하기 위해서는 수학적 모델링이 가장 강력한 도구이다.\n\nGitSAM은 ‘수학’, ‘과학’, ‘AI’, ‘프로그래밍’, ’사회학’이 분리된 영역이 아니라\n하나의 언어, 하나의 사고도구로 연결되어 있다는 철학을 바탕으로 교육합니다.\n단순히 과목을 가르치는 것이 아니라, 현실을 이해하고 문제를 해결하는 방식을 훈련합니다."
+  },
+  {
+    "objectID": "index.html#수학은-현실을-그려내는-언어",
+    "href": "index.html#수학은-현실을-그려내는-언어",
+    "title": "GitSAM",
+    "section": "",
+    "text": "복잡한 세상은 수학적 언어로 구체화할 수 있고, 현실 문제를 융합적으로 해결하기 위해 수학적 모델링은 유용한 도구"
+  },
+  {
+    "objectID": "index.html#사용-기술",
+    "href": "index.html#사용-기술",
+    "title": "GitSAM",
+    "section": "사용 기술",
+    "text": "사용 기술\n\nComputation with Python in Google Colab\nPublication with Quarto in Local"
   }
 ]
