@@ -83,6 +83,11 @@ results_post = tbtf.backtest_pipeline(
 # 10 years in pre-2010 from 2000-01
 # 10 years in post-2010 from 2004-01
 
+import sys
+import os
+# 현재 경로 기준으로 상위 디렉토리로 경로 추가
+sys.path.append(os.path.abspath('../..'))
+
 import tbtf
 
 results_pre = tbtf.backtest_pipeline(
@@ -396,7 +401,6 @@ During the first decade, the TBTF strategy underperformed the Dow Jones Industri
 #### Post-2010 Period (2014–2023)
 
 ```{python}
-plot_drawdown(results_pre['returns'], pre_index, title="Drawdown Profile (Pre-2010)")
 plot_drawdown(results_post['returns'], post_index, title="Drawdown Profile (Post-2010)")
 plot_drawdown(results_post['returns'], post_ff, title="Drawdown Profile (Post-2010)")
 

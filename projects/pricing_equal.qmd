@@ -3,95 +3,159 @@ title: Market Price of Education
 subtitle: The seemingly Equal Opportunities under Structural Inequality
 author: GitSAM
 date: 03/08/2025
-abstract: This study examines the valuation of seemingly equal opportunities that, due to structural societal inequalities, hold different market values for distinct social classes. By applying the Equivalent Martingale Measure (EMM) approach within the framework of rational asset pricing theory, we analyze how capital constraints and limits to arbitrage perpetuate inefficiencies in opportunity valuation between the proletariat and capitalist classes.
+abstract: This study models the unequal valuation of educational qualifications in stratified economic systems. While educational standards appear uniform across classes, their realized economic value diverges due to inherited capital and opportunity access. We formalize this divergence by applying the Equivalent Martingale Measure (EMM) framework to a two-class model - the proletariat, who access general opportunities, and the capitalist class, who additionally access exclusive ones. In this model, capital constraints create structural "limits to arbitrage" between opportunity sets, embedding inequality into the very fabric of intergenerational mobility. We conceptualize educational qualifications as the strike price in an intergenerational call option - a child may claim inherited capital only upon satisfying a minimum educational standard. We quantify the differential option value of education across classes and interpret this as a measure of structural inefficiency in equal opportunity narratives.
+keywords: 
+  - equivalent martingale measure
+  - equal education opportunity
 bibliography: pricing_equal.bib
+jupyter: python3
+execute:
+  enabled: true
+  echo: false
+  warning: false
+  message: false
 format:
   html:
     code-fold: true
     toc: true
-jupyter: python3
+    number-sections: true
+  pdf:
+    documentclass: article
+    toc: true
+    number-sections: true
+    fontsize: 11pt
+    linestretch: 1.5
+    geometry: margin=1in
+    colorlinks: true
+    linkcolor: blue
+    #cite-method: biblatex      # biblatex로 설정 (권장)
+    #biblio-style: plain          # 스타일 (plain, apa, etc.)
+    reference-location: section  # "section"은 맨 뒤 별도 섹션으로 출력
+license: "CC BY-NC-SA"
 ---
 
-## Conclusion
+## Introduction
 
-By applying the EMM-based asset pricing approach, this study quantifies the impact of structural inequalities on the valuation of ostensibly equal opportunities. The results emphasize the importance of considering underlying economic disparities when evaluating the fairness and effectiveness of qualification standards in society.
+In economically stratified societies, opportunities presented as equal—such as access to education or standardized qualifications—often yield vastly unequal outcomes across social classes. This paradox arises not from individual differences in merit, but from structural disparities in access to capital, networks, and strategic opportunities. As a result, the same formal credential may function as a gateway to ownership and control for one class, and to employment and dependency for another.
 
-## Main
+While much of financial economics has focused on mispricings in asset markets, we consider an analogous but underexplored domain: the misvaluation of social opportunities under conditions of inherited inequality. In particular, we examine how intergenerational capital endowments determine the realized value of ostensibly equal qualifications.
 
-### Model Scenario
+To formalize this idea, we introduce a stylized model in which society is divided into two economic classes: the proletariat (P) and the capitalist (C). Members of both classes must meet an identical qualification standard (e.g., educational attainment) to realize their economic inheritance. However, the assets they stand to inherit differ fundamentally. While the capitalist class passes down productive capital and exclusive access to high-value opportunities, the proletariat transfers only general access to labor markets. In this framework, the qualification standard operates analogously to a strike price ($K$) in a call option: it must be met before the holder can claim the underlying asset.
 
-In short, we consider a society divided into two distinct classes:
+We argue that this metaphor captures a critical structural asymmetry. Even when the qualification threshold is formally equal, the option value of meeting that threshold is class-contingent. The resulting inequality is not a failure of access, but a mispricing of opportunity rooted in structural capital segmentation. Our model offers a formal interpretation of this mechanism, drawing from asset pricing logic—specifically the Equivalent Martingale Measure (EMM)—to quantify how inherited capital shapes the payoff structure of educational credentials.
 
-- **Proletariat (P)**: Individuals with access to general opportunities.
-- **Capitalist (C)**: Individuals with access to both general and exclusive special opportunities.
+## Literature Review
 
-Internally, both classes operate within perfectly competitive markets that adhere to the no-arbitrage principle. However, due to capital constraints, members of the P class cannot access the special opportunities available to the C class, rendering these opportunities unattainable. Consequently, while the absolute value of special opportunities is equal to or greater than that of general opportunities, the P class cannot exploit potential arbitrage opportunities due to these constraints. Both classes have offspring who inherit the economic outcomes of their parents' investments. To claim these inherited assets, all offspring must meet a minimum qualification standard (e.g., educational credentials), analogous to the strike price ($K$) in option pricing. Until this qualification is met, the offspring hold a call option on their parents' assets.
+The theoretical foundation of this study builds on the *limits to arbitrage* framework articulated by @shleifer1997limits, which departs from textbook descriptions of riskless, capital-free arbitrage. In reality, most arbitrage is conducted by specialized professionals who manage other people’s capital. This agency relationship introduces a key fragility: interim losses—even in positions with positive expected returns—can lead principals to withdraw funding, forcing premature liquidation. As a result, arbitrage fails not simply due to capital constraints, but because of institutional frictions, reputational risk, and moral hazard embedded in the principal-agent structure. @gromb2002equilibrium further formalize how capital-constrained arbitrageurs under agency costs produce persistent mispricings with adverse welfare implications. Complementary work by @xiong2001convergence emphasizes that convergence trades can be destabilized when arbitrageurs face redemption risks and cannot extend their positions during periods of amplified mispricing.
 
-In detail, consider two distinct social classes: the proletariat (P), representing working-class individuals, and the capitalist class (C), representing wealthy individuals. These two classes face fundamentally different opportunity sets due to deep-seated structural inequalities. Such societal barriers, from both democratic and utilitarian viewpoints, constitute a significant social inefficiency.
+@geanakoplos2010leverage contributes the concept of the **leverage cycle**, in which shifts in capital availability and margin requirements not only amplify financial volatility, but also entrench inequality. These dynamics resonate with the structural mechanisms examined in this paper, where economic opportunity is a function of both capital access and intertemporal credibility.
 
-To analyze the structural origins of this inefficiency, we apply the concept of **Limits to Arbitrage Theory**, which suggests markets are not always fully efficient. This inefficiency arises because of various constraints, such as behavioral biases, risk constraints, and notably, capital constraints. Capital constraints imply that significant capital is required to engage in arbitrage, effectively isolating classes economically. We assume, therefore, that the proletariat and capitalist classes are economically segregated due to these capital constraints.
+Behavioral finance research, as surveyed by @barberis2003survey, highlights how cognitive biases and non-Bayesian updating further limit arbitrage effectiveness. These behavioral frictions—when coupled with institutional rigidities—exacerbate price anomalies and contribute to enduring structural barriers in economic mobility.
 
-Within each class, economic opportunities exist in a perfectly competitive market, satisfying the no-arbitrage condition internally. Members of the proletariat (P) freely select from a common set of general opportunities available to them. Conversely, members of the capitalist class (C) not only share these general opportunities but also exclusively access additional "special opportunities." From the viewpoint of proletariat class members, these special opportunities represent unattainable benefits ("grapes beyond reach"), carrying higher or equal absolute value compared to general opportunities.
+Beyond finance, sociological theories and applied economic studies shed light on the broader mechanisms of **structural inequality**. Bourdieu’s theory of **social reproduction** @bourdieu1973cultural posits that cultural capital—acquired through family and class—perpetuates unequal opportunity across generations. Empirical work by @chetty2014family establishes a strong linkage between parental income and children’s educational and labor market outcomes, confirming that equal qualifications yield vastly unequal economic returns depending on class background. @piketty2014capital emphasizes that capital accumulation and intergenerational wealth transfers dominate earned income in determining long-term economic trajectories.
 
-Theoretically, if members of the capitalist class could short-sell general opportunities and simultaneously long-position special opportunities, they could realize arbitrage profits. However, due to aforementioned capital constraints ("limits to arbitrage"), such arbitrage trading is practically impossible within this model.
+Recent reports by the UK’s Social Mobility Commission @smc2023class and the OECD @oecd2018mobility corroborate this view, showing that economic mobility has stagnated despite rising access to education. @reeves2017glassfloor introduces the concept of the **“glass floor”**, where the upper class protects its status not by accelerating upward mobility but by shielding itself from downward mobility—often through mechanisms such as inherited networks, cultural signaling, and capital buffers.
 
-Both classes have offspring who inherit the economic results (absolute asset values) of their parents' investment choices. To claim these inherited assets, children from both classes must meet identical minimum qualification standards (e.g., university diplomas, basic educational credentials). Although the qualification standard is identical for both, outcomes differ significantly due to inherited assets. For instance, a business administration graduate from the capitalist class inherits and manages substantial capital (businesses), while an identically qualified individual from the proletariat class works as an employee, earning wages in capitalist-owned enterprises.
+Together, these literatures converge on a central insight: **nominally equal qualifications can mask radically unequal opportunity valuations**, shaped by capital endowments, behavioral constraints, and institutional structures. This study extends the literature by providing a formal asset pricing model in which educational qualifications function as **strike prices** in class-contingent call options on inherited capital. The framework quantifies how structurally identical credentials yield asymmetric economic outcomes, offering a new perspective on the market valuation of education under inequality.
 
-The minimum qualification standard can be understood as a fixed barrier or strike price (K) of a **call option**. Until the qualification requirement is fulfilled, the children effectively hold call options on their parents' assets. This model aims to quantify the absolute value of these call options for each class, reflecting the inherited economic outcomes accessible to the offspring.
 
-### EMM-based Call Option Valuation Theory
+## Structural Model of Opportunity Valuation
 
-Assume a simple 1 period setting with only two possible states (e.g. good or bad). Under the Equivalent Martingale Measure (EMM), the fair market value of a call option at time 0, denoted as $\hat{f}_0$, must satisfy:
+### Social Stratification and Inherited Access
 
-$$\hat{f_0}\cdot R = E^q[f_1]$$ where $f_1=max(S_0 \cdot U-K,0)$
+We consider a stylized economy consisting of two economically segregated classes:
 
-$$S_0\cdot R=E^q[S_1]$$ where $S_0$ = the current price of risky underlying asset
+- Proletariat (P): Access only to general economic opportunities.
+- Capitalist (C): Access to both general and exclusive special opportunities.
 
-From these two equations, we have the EMM or the state price density for good state $q$ as:
+Within each class, opportunities are traded in perfectly competitive markets that satisfy the no-arbitrage condition internally. However, capital constraints prevent members of the proletariat from accessing the exclusive opportunities available to the capitalist class. This segmentation effectively enforces a limit to arbitrage between classes, rendering superior opportunities inaccessible to the working class.
+
+From a pricing perspective, while special opportunities may have equal or higher intrinsic value than general ones, their inaccessibility to the proletariat implies a market inefficiency rooted in capital immobility. In theory, the capitalist class might profit by arbitraging—shorting general opportunities and longing special ones. However, such trades require the existence of a counterparty market for general opportunities. In this stratified economy, such a market is absent: general opportunities, often tied to future labor or positional access, are not formally tradable. Hence, arbitrage fails not due to capital constraints, but due to market incompleteness.
+
+Both classes transmit economic outcomes across generations. However, children must meet a common qualification threshold (e.g., educational degree) before they can claim their inherited assets. This threshold functions as a strike price ($K$) in a call option: until it is met, the offspring hold a contingent claim—a call option—on their parents' accumulated capital.
+
+Crucially, although the qualification standard is uniform, its realized economic payoff differs dramatically. A graduate from the capitalist class inherits and operates substantial capital, while a similarly qualified graduate from the proletariat class becomes an employee within capitalist-owned institutions.
+
+This section formalizes the option-like structure of intergenerational mobility, where equal credentials mask deeply unequal access to capital. The goal is to quantify this asymmetry through a structural valuation framework based on asset pricing theory.
+
+
+### EMM and the Qualification as a Call Option
+
+We consider a stylized one-period binomial framework with two possible future states—good (up) and bad (down). This minimal setting allows us to derive the present value of a **call option** under the **Equivalent Martingale Measure (EMM)**. Under EMM, asset prices discounted at the risk-free rate evolve as martingales in a risk-neutral world, ensuring no-arbitrage pricing.
+
+Let $S_0$ denote the current value of an asset and $R$ the gross risk-free return over the period. Then the value of a European call option with strike price $K$ at time 0, denoted $\hat{f}_0$, satisfies:
+
+$$
+\hat{f}_0 \cdot R = \mathbb{E}^q[f_1]
+$$
+
+where the terminal payoff is:
+
+$$
+f_1 = \max(S_0 \cdot U - K, 0)
+$$
+
+with $U$ representing the up-state return. The EMM condition for the underlying asset implies:
+
+$$
+S_0 \cdot R = \mathbb{E}^q[S_1]
+$$
+
+Solving for the **state price density** (risk-neutral probability) $q$ yields:
+
 $$
 q = \frac{R - D}{U - D}
 $$
 
-Thus, the present fair value of the call option is given by:
+Assuming the following normalization and notation:
+
+- Initial Asset Price: $S_0 = 1$
+- Strike Price (qualification threshold): $K = 1$
+- Up-state return: $U$
+- Down-state return: $D$
+- Gross risk-free return: $R$
+- Maturity: 18 years (quarterly steps = 72 periods)
+
+we derive the fair value of the option as:
 
 $$
-\hat{f}_0 = \frac{1}{R}\left[ \frac{R - D}{U - D}(S_0 \cdot U - K) + \frac{U - R}{U - D} \cdot 0 \right] = \frac{(R - D)(U - 1)}{R(U - D)}
+\hat{f}_0 = \frac{(R - D)(U - 1)}{R(U - D)}
 $$
 
-assuming that  
+This expression quantifies the present value of a future **qualification-based claim**, where the payoff depends on surpassing a common educational or institutional threshold. Crucially, while the strike price $K$ is identical across individuals, the valuation of the option varies across economic classes, depending on the underlying asset and pricing measure.
 
-* Initial Asset Price (normalized): $S_0=1$  
-* Strike Price (qualification threshold): $K=1$  
-* Maturity: 18 years (quarterly steps = 72 periods)  
+In our broader framework, the **underlying asset differs by class**:
 
-This formula indicates a clear proportional relationship for estimating current fair values representing inherited qualification-based claims for each class over a 18-year maturity period. While this valuation could be approximated using continuous distributions (e.g., Black-Scholes under symmetric assumptions $U \cdot D=1$), our discrete binomial model allows straightforward interpretation without loss of economic intuition.
+- For the **proletariat class (P)**, the risky asset is interpreted as human capital, with its return distribution proxied by wage growth rate. Their risk-free rate is taken to be the growth rate of real GDP per capita, reflecting limited access to financial instruments.
+- For the **capitalist class (C)**, the risky asset corresponds to equity (e.g., stock ownership), and the risk-free asset is approximated by long-term bond yields. Unlike P class, the C class has access to capital markets and can realize financial returns conditional on qualifications.
 
-### Empirical Analysis
+Although a continuous-time limit (e.g., Black-Scholes under $U \cdot D = 1$) could be adopted, we retain the discrete binomial structure for its interpretability and ability to directly compare inter-class valuation asymmetries. The model makes transparent how **seemingly equal qualifications can yield divergent option values**, driven by class-specific capital endowments and asset accessibility.
 
-We employ distinct underlying assets for each class. Using the historical dataset (Q1 1982–Q4 2019, 152 quarterly observations), we estimated the parameters and their associated fair values of call options for each class.
 
-**For Proletariat (P) Class Children:**  
+### Empirical Valuation Across Classes
 
-* **Risky Asset**: US Median usual weekly Real earnings (LES1252881600Q)  
-* **Risk-Free Asset**: US Real GDP per capita (A939RX0Q048SBEA)  
-* Parameters:  
-  - $U_p$:= 75th percentile growth of wage (risky asset)  
-  - $D_p$:= 25th percentile growth of wage  
-  - $R_p$:= Median growth rate of Real GDP per capita
+To quantify the asymmetry in opportunity valuation across social classes, we empirically estimate the EMM-based call option values for the proletariat and capitalist classes using historical U.S. data from Q1 1982 to Q4 2019 (152 quarterly observations). For each class, we identify distinct risky and risk-free asset proxies, reflecting their differential access to economic instruments.
 
-**For Capitalist (C) Class Children:**  
+**For Proletariat (P) Class Children:**
 
-* **Risky Asset**: S&P 500 equity (SPX)  
-* **Risk-Free Asset**: US 10-Year Treasury Bond
-* Parameters:  
-  - $U_c$:= 75th percentile quarterly growth of the equity index  
-  - $D_c$:= 25th percentile quarterly growth of the equity index  
-  - $R_c$:= Median of quarterly US 10-Year Treasury Bond Yield (DGS10)
+- Return on **Risky Asset**: growth rate of U.S. Median usual weekly real earnings (LES1252881600Q)
+- Return on **Risk-Free Asset**: growth rate of U.S. Real GDP per capita (A939RX0Q048SBEA)
+- **Estimated Parameters**:
+  - $U_p$: 75th percentile of quarterly wage growth 
+  - $D_p$: 25th percentile of quarterly wage growth
+  - $R_p$: Median quarterly growth rate of real GDP per capita
 
-**Empirical Results:**
+**For Capitalist (C) Class Children:**
 
-* **For Proletariat (P) class children**, $\hat{P}_0=?$  
-* **For Capitalist (C) class children**, $\hat{C}_0=?$  
+- Return on **Risky Asset**: growth rate of S&P 500 Total Return Index (SPX)
+- Return on **Risk-Free Asset**: 10-Year U.S. Treasury Bond Yield (DGS10)
+- **Estimated Parameters**:
+  - $U_c$: 75th percentile of equity return
+  - $D_c$: 25th percentile of equity return
+  - $R_c$:= Median of quarterly US 10-Year Treasury Bond Yield
+
+We now compute and compare $\hat{f}_0$ for each class.
+
 
 ```{python}
 import yfinance as yf
@@ -144,14 +208,14 @@ R_c = data['10yr_Treasury_Yield'].median()
 R_c = R_c / 100 +1
 
 print(f"Proletariat Class Children Parameters:")
-print(f"U_p: {U_p:.2f}")
-print(f"D_p: {D_p:.2f}")
-print(f"R_p: {R_p:.2f}")
+print(f"U_p: {U_p:.4f}")
+print(f"D_p: {D_p:.4f}")
+print(f"R_p: {R_p:.4f}")
 
 print(f"\nCapitalist Class Children Parameters:")
-print(f"U_c: {U_c:.2f}")
-print(f"D_c: {D_c:.2f}")
-print(f"R_c: {R_c:.2f}")
+print(f"U_c: {U_c:.4f}")
+print(f"D_c: {D_c:.4f}")
+print(f"R_c: {R_c:.4f}")
 
 
 # Binomial Option Pricing Model
@@ -165,7 +229,7 @@ def binomial_option_pricing(K, S_0, T, U, D, R, dt):
     R: Risk-free rate
     dt: Number of steps for each year
     """
-    n = T*dt # Number of steps in the binomial tree
+    n = int(T*dt) # Number of steps in the binomial tree
     q = (R - D) / (U - D)
 
     # Initialize option values at maturity
@@ -192,30 +256,53 @@ dt = 4 # Number of steps for each year
 option_price_proletariat = binomial_option_pricing(K, S_0, T, U_p, D_p, R_p, dt)
 option_price_capitalist = binomial_option_pricing(K, S_0, T, U_c, D_c, R_c, dt)
 
-print(f"\nFair price of Call Option, held by Proletariat Class Children:\n {option_price_proletariat:.2f}")
-print(f"Fair price of Call Option, held by Capitalist Class Children:\n {option_price_capitalist:.2f}")
+print(f"\nFair price of Call Option, held by Proletariat Class Children:\n {option_price_proletariat:.4f}")
+print(f"Fair price of Call Option, held by Capitalist Class Children:\n {option_price_capitalist:.4f}")
 ```
 
-### Discussion
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
 
-This model clarifies the stark inequality underlying "ostensibly equal" qualification standards. Although formally identical, the call options' absolute valuations significantly diverge, reflecting distinct economic inheritances accessible to each class. This disparity highlights structural inefficiencies and deep-rooted inequalities, persisting despite nominally identical qualification standards.
+# Define common U and D range covering both classes
+U_common = np.linspace(min(U_p, U_c) * 0.95, max(U_p, U_c) * 1.05, 60)
+D_common = np.linspace(min(D_p, D_c) * 0.95, max(D_p, D_c) * 1.05, 60)
+U_grid, D_grid = np.meshgrid(U_common, D_common)
+Z_diff = np.full(U_grid.shape, np.nan)
 
-Ultimately, this analysis underscores how asset-based class differentiation profoundly impacts the perceived and realized absolute value of educational and economic opportunities, illuminating critical implications for economic policy, educational equity, and social justice frameworks.
+# Compute difference surface: capitalist - proletariat
+for i in range(U_grid.shape[0]):
+    for j in range(U_grid.shape[1]):
+        U_val = U_grid[i, j]
+        D_val = D_grid[i, j]
+        if D_val < R_p < U_val and D_val < R_c < U_val:
+            f_p = binomial_option_pricing(K, S_0, T, U_val, D_val, R_p, dt)
+            f_c = binomial_option_pricing(K, S_0, T, U_val, D_val, R_c, dt)
+            Z_diff[i, j] = f_c - f_p
 
-## Introduction
+# Plot as contour map
+plt.figure(figsize=(8, 6))
+contour = plt.contourf(U_grid, D_grid, Z_diff, levels=20, cmap='RdBu_r')
+cbar = plt.colorbar(contour)
+cbar.set_label('Option Value Difference (C - P)')
+plt.xlabel('U (Up Return)')
+plt.ylabel('D (Down Return)')
+plt.title('Contour Plot of Option Value Difference: Capitalist − Proletariat')
+plt.tight_layout()
+plt.show()
 
-In societies characterized by pronounced economic stratification, opportunities presented as equal often yield disparate outcomes across different social strata. This disparity arises from inherent structural inefficiencies that restrict access to certain opportunities based on class. The **Limits to Arbitrage Theory** posits that market inefficiencies can persist due to various constraints, including capital limitations, preventing rational traders from correcting mispricings [@shleifer1997limits]. This paper explores how such constraints contribute to the unequal valuation of opportunities between the proletariat (P) and capitalist (C) classes.
+```
 
-## Literature Review
-The theoretical foundation relies primarily on the limits to arbitrage theory, initially articulated by Shleifer and Vishny [@shleifer1997limits]. Their seminal work shows how market inefficiencies persist due to practical constraints, particularly capital constraints, restricting the ability of arbitrageurs to exploit and correct mispricings. These constraints arise from significant capital requirements that effectively segregate participants into distinct economic spheres, as emphasized by subsequent studies on financially constrained arbitrageurs [@gromb2002equilibrium; @xiong2001convergence].
+As $U$ rises, improvements in $D$ drive option values faster, reflecting how convex opportunity structures magnify marginal safety. This highlights the asymmetry in asset-based opportunity structures—capitalist-class children benefit not only from better average returns, but also from a sharper convex payoff structure that amplifies improvements across all economic states.
 
-Geanakoplos' research introduces the leverage cycle, which explains how fluctuations in leverage and capital availability perpetuate systemic inequality and financial instability [@geanakoplos2010leverage]. Complementary studies, such as that by Gromb and Vayanos, also demonstrate the welfare implications of constrained arbitrageurs operating under capital limitations, further exacerbating persistent inequality [@gromb2002equilibrium]. Moreover, Barberis and Thaler's comprehensive survey on behavioral finance indicates how cognitive and behavioral constraints exacerbate market inefficiencies, reinforcing the structural barriers that differentiate economic outcomes across social strata [@barberis2003survey].
+### Structural Implications
 
-Extending beyond purely financial contexts, sociological and economic research provides additional perspectives on structural inequalities and opportunity valuation. Bourdieu's concept of social reproduction underscores how cultural capital perpetuates socioeconomic inequalities across generations [@bourdieu1973cultural]. Recent empirical evidence by Stansbury [@stansbury2024class] and findings by the Social Mobility Commission [@smc2023class] further demonstrate how economic capital inherited through generations shapes differential outcomes, even when individuals ostensibly possess identical qualifications.
+Empirical estimation reveals a stark asymmetry in the valuation of identical qualification thresholds across classes. The EMM-based fair value of the call option for proletariat-class children is approximately `0.3043`, while for capitalist-class children it is `0.9728` — a more than threefold difference.
 
-Chetty et al. provide compelling evidence linking parental economic conditions to children's educational outcomes and future earnings, strongly supporting the relevance of inherited economic positions in determining opportunity valuations [@chetty2014family]. Similarly, Piketty's influential book highlights the crucial role inherited wealth plays in perpetuating structural economic disparities, emphasizing the critical nature of capital inheritance in shaping individuals' economic trajectories and their access to opportunities [@piketty2014capital].
+This disparity does not stem from differences in effort or merit, but from structurally unequal asset endowments and access to opportunity. In our framework, the same strike price $K = 1$ results in class-specific valuations due to differing $(U, D, R)$ parameters. The qualification thus operates not as a universal gateway, but as a **contingent claim whose value is conditioned by class**.
 
-Policy implications regarding these structural inequalities and efforts to enhance social mobility have been explored extensively by institutions such as the OECD. Their analyses suggest policy frameworks that might alleviate the persistent inequalities discussed herein [@oecd2018mobility]. Reeves' concept of the "glass floor" further illustrates how affluent socioeconomic backgrounds systematically maintain class advantages despite equal or even lesser merit-based qualifications [@reeves2017glassfloor].
+This structural valuation gap challenges the premise of equal opportunity and underscores how asset-based class differentiation shapes the realized value of seemingly identical credentials. Our framework calls for a reassessment of how economic policy, educational equity, and social mobility are understood and modeled **under persistent inequality**.
 
-Collectively, these studies underline a coherent narrative: ostensibly equal opportunities often conceal significant disparities rooted in inherited structural inequalities, persistent capital constraints, and behavioral limitations to arbitrage. Our model complements this literature by quantitatively evaluating how these structural factors systematically influence the absolute value of identical qualification standards across distinct socioeconomic groups.
+### Conclusion
 
+This paper reframes education not as an equalizing force, but as an **option contract on inherited capital**—one whose value varies sharply across economic classes. When access to assets and opportunity is structurally segmented, qualifications lose their universal function and become class-contingent claims. The findings highlight the need to rethink educational fairness, not merely in terms of formal access, but through the lens of the payoff structures such access yields in unequal economic environments.

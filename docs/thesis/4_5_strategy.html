@@ -387,7 +387,7 @@ window.Quarto = {
 <section id="asset-universe" class="level4" data-number="1.2.1">
 <h4 data-number="1.2.1" class="anchored" data-anchor-id="asset-universe"><span class="header-section-number">1.2.1</span> Asset Universe</h4>
 <p>Our strategy operates on the full set of U.S. listed common stocks traded on NYSE, NASDAQ, and AMEX. Stocks with non-positive market capitalization are excluded to avoid bankrupt or illiquid firms.</p>
-<div id="7690ccbb" class="cell" data-execution_count="1">
+<div id="1d956410" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -425,25 +425,24 @@ Proportional to each firm’s market capitalization.</p></li>
 <li><p><strong>Equal-Weighted (EQ)</strong>:<br>
 Uniform allocation across all selected assets.</p></li>
 </ul>
-<div id="e9bd70eb" class="cell" data-execution_count="2">
+<div id="8aac1864" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> tbtf <span class="im">import</span> (</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    estimate_exponential_weights,</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    estimate_quadratic_weights,</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    split_in_out_sample,</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    plot_exponential_fit,</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    plot_quadratic_fit</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 현재 경로 기준으로 상위 디렉토리로 경로 추가</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>sys.path.append(os.path.abspath(<span class="st">'../..'</span>))</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tbtf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <section id="empirical-fit-of-capital-share-functions" class="level4" data-number="1.3.1">
 <h4 data-number="1.3.1" class="anchored" data-anchor-id="empirical-fit-of-capital-share-functions"><span class="header-section-number">1.3.1</span> Empirical Fit of Capital Share Functions</h4>
 <p>To empirically validate the structural weighting functions, we fit both quadratic and exponential models to the in-sample relationship between rank and capital share. The following plots show the cross-sectional fitting results based on a representative rebalance date.</p>
-<div id="7df91242" class="cell" data-execution_count="3">
+<div id="9e00bd02" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>in_end <span class="op">=</span> <span class="st">'2009-12-31'</span></span>
@@ -452,20 +451,20 @@ Uniform allocation across all selected assets.</p></li>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Snapshot at:'</span>, in_end)</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Look-back period:'</span>, in_sample_months, <span class="st">'months'</span>)</span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>df_in_sample, _ <span class="op">=</span> split_in_out_sample(crsp, in_end, in_sample_months)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>df_in_sample, _ <span class="op">=</span> tbtf.split_in_out_sample(crsp, in_end, in_sample_months)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Snapshot at: 2009-12-31
 Look-back period: 48 months</code></pre>
 </div>
 </div>
-<div id="0eb4ca42" class="cell" data-execution_count="4">
+<div id="25955216" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">5</span>))</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>plot_quadratic_fit(df_in_sample, n<span class="op">=</span><span class="dv">10</span>, state<span class="op">=</span><span class="dv">10</span>, ax<span class="op">=</span>axes[<span class="dv">0</span>])</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>plot_exponential_fit(df_in_sample, n<span class="op">=</span><span class="dv">10</span>, state<span class="op">=</span><span class="dv">10</span>, ax<span class="op">=</span>axes[<span class="dv">1</span>])</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>tbtf.plot_quadratic_fit(df_in_sample, n<span class="op">=</span><span class="dv">10</span>, state<span class="op">=</span><span class="dv">10</span>, ax<span class="op">=</span>axes[<span class="dv">0</span>])</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>tbtf.plot_exponential_fit(df_in_sample, n<span class="op">=</span><span class="dv">10</span>, state<span class="op">=</span><span class="dv">10</span>, ax<span class="op">=</span>axes[<span class="dv">1</span>])</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="ss">f"Fitted Capital Share Functions at </span><span class="sc">{</span>in_end<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -479,7 +478,7 @@ Look-back period: 48 months</code></pre>
 </div>
 </div>
 </div>
-<div id="516c251f" class="cell" data-execution_count="5">
+<div id="4fab8007" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>in_end <span class="op">=</span> <span class="st">'2023-12-31'</span></span>
@@ -488,20 +487,20 @@ Look-back period: 48 months</code></pre>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Snapshot at:'</span>, in_end)</span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Look-back period:'</span>, in_sample_months, <span class="st">'months'</span>)</span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>df_in_sample, _ <span class="op">=</span> split_in_out_sample(crsp, in_end, in_sample_months)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>df_in_sample, _ <span class="op">=</span> tbtf.split_in_out_sample(crsp, in_end, in_sample_months)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Snapshot at: 2023-12-31
 Look-back period: 48 months</code></pre>
 </div>
 </div>
-<div id="f047ef80" class="cell" data-execution_count="6">
+<div id="61e690ef" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">5</span>))</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>plot_quadratic_fit(df_in_sample, n<span class="op">=</span><span class="dv">10</span>, state<span class="op">=</span><span class="dv">10</span>, ax<span class="op">=</span>axes[<span class="dv">0</span>])</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>plot_exponential_fit(df_in_sample, n<span class="op">=</span><span class="dv">10</span>, state<span class="op">=</span><span class="dv">10</span>, ax<span class="op">=</span>axes[<span class="dv">1</span>])</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>tbtf.plot_quadratic_fit(df_in_sample, n<span class="op">=</span><span class="dv">10</span>, state<span class="op">=</span><span class="dv">10</span>, ax<span class="op">=</span>axes[<span class="dv">0</span>])</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>tbtf.plot_exponential_fit(df_in_sample, n<span class="op">=</span><span class="dv">10</span>, state<span class="op">=</span><span class="dv">10</span>, ax<span class="op">=</span>axes[<span class="dv">1</span>])</span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="ss">f"Fitted Capital Share Functions at </span><span class="sc">{</span>in_end<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

@@ -4,9 +4,8 @@ execute:
   enabled: true
 ---
 
-## Strategy: Design, Assumptions, and Market Philosophy
 
-### Motivation and Theoretical Background
+## Motivation and Market Philosophy
 
 Traditional asset pricing frameworks rest on no-arbitrage principles and risk-return tradeoffs, assuming that all assets exist to offer compensation for exposure to priced risks. Under such models, individual asset returns are interpreted as linear functions of sensitivities to systematic risk factors.
 
@@ -15,7 +14,7 @@ In contrast, the TBTF (Too Big To Fail) strategy is motivated by a fundamentally
 This motivates a strategy grounded not in diversification or risk exposure, but in capital persistence, market lock-in, and capital hierarchy.
 
 
-### Portfolio Selection Rule
+## Portfolio Selection Rule
 
 The TBTF strategy is constructed under When-What–How framework:
 
@@ -23,7 +22,7 @@ The TBTF strategy is constructed under When-What–How framework:
 - **What**: asset universe (e.g. all US-listed stocks) & selection rule (e.g. top-n market cap)
 - **How**: asset weighting scheme (e.g. convex capital concentration fit)
 
-#### Asset Universe
+### Asset Universe
 
 Our strategy operates on the full set of U.S. listed common stocks traded on NYSE, NASDAQ, and AMEX. Stocks with non-positive market capitalization are excluded to avoid bankrupt or illiquid firms.
 
@@ -40,13 +39,13 @@ crsp = pd.read_sql_query(
 )
 ```
 
-#### Ranking and State Formation
+### Ranking and State Formation
 
 Each month, firms are ranked by market capitalization. These rankings define discrete capital states (percentile bins). We focus on the top-decile (state = 10), selecting the top-$n$ firms at time $t$ based on market-cap rank. The baseline is $n=10$, with robustness checks for $n \in \{5, 7, 10, 15, 20\}$.
 
 A Markovian state transition framework is imposed to capture the temporal dynamics of capital flow between ranked states. The top state exhibits persistent and asymmetric capital retention, supporting the capital lock-in hypothesis.
 
-### Asset Weighting Schemes
+## Asset Weighting Schemes
 
 We evaluate three portfolio weighting methods:
 
@@ -68,18 +67,17 @@ We evaluate three portfolio weighting methods:
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-from tbtf import (
-    estimate_exponential_weights,
-    estimate_quadratic_weights,
-    split_in_out_sample,
-    plot_exponential_fit,
-    plot_quadratic_fit
-)
+# 현재 경로 기준으로 상위 디렉토리로 경로 추가
+import sys, os
+sys.path.append(os.path.abspath('../..'))
+
+import tbtf
+
 
 ```
 
 
-#### Empirical Fit of Capital Share Functions
+### Empirical Fit of Capital Share Functions
 
 To empirically validate the structural weighting functions, we fit both quadratic and exponential models to the in-sample relationship between rank and capital share. The following plots show the cross-sectional fitting results based on a representative rebalance date.
 
@@ -91,15 +89,15 @@ in_sample_months = 48
 print('Snapshot at:', in_end)
 print('Look-back period:', in_sample_months, 'months')
 
-df_in_sample, _ = split_in_out_sample(crsp, in_end, in_sample_months)
+df_in_sample, _ = tbtf.split_in_out_sample(crsp, in_end, in_sample_months)
 ```
 
 ```{python}
 #| fig-cap: "Quadratic vs. Exponential Fit at 2009-12-31"
 fig, axes = plt.subplots(1, 2, figsize=(12, 5))
 
-plot_quadratic_fit(df_in_sample, n=10, state=10, ax=axes[0])
-plot_exponential_fit(df_in_sample, n=10, state=10, ax=axes[1])
+tbtf.plot_quadratic_fit(df_in_sample, n=10, state=10, ax=axes[0])
+tbtf.plot_exponential_fit(df_in_sample, n=10, state=10, ax=axes[1])
 
 fig.suptitle(f"Fitted Capital Share Functions at {in_end}")
 plt.tight_layout()
@@ -112,15 +110,15 @@ in_sample_months = 48
 print('Snapshot at:', in_end)
 print('Look-back period:', in_sample_months, 'months')
 
-df_in_sample, _ = split_in_out_sample(crsp, in_end, in_sample_months)
+df_in_sample, _ = tbtf.split_in_out_sample(crsp, in_end, in_sample_months)
 ```
 
 ```{python}
 #| fig-cap: "Quadratic vs. Exponential Fit at 2023-12-31"
 fig, axes = plt.subplots(1, 2, figsize=(12, 5))
 
-plot_quadratic_fit(df_in_sample, n=10, state=10, ax=axes[0])
-plot_exponential_fit(df_in_sample, n=10, state=10, ax=axes[1])
+tbtf.plot_quadratic_fit(df_in_sample, n=10, state=10, ax=axes[0])
+tbtf.plot_exponential_fit(df_in_sample, n=10, state=10, ax=axes[1])
 
 fig.suptitle(f"Fitted Capital Share Functions at {in_end}")
 plt.tight_layout()
@@ -131,7 +129,7 @@ These cross-sectional plots confirm the superiority of the exponential fit in ca
 The exponential fit exhibits stronger monotonicity and structural convexity, particularly in the top-ranked firms, supporting its use in the TBTF weighting scheme.
 
 
-### Rebalancing Frequency
+## Rebalancing Frequency
 
 We test fixed-interval rebalancing schemes:
 
@@ -143,7 +141,7 @@ We test fixed-interval rebalancing schemes:
 Rebalancing frequency directly affects turnover and transaction cost implications. Monthly rebalancing is selected as the baseline to balance responsiveness with frictions.
 
 
-### Benchmark Portfolios
+## Benchmark Portfolios
 
 For external comparison, we use:
 
@@ -156,7 +154,7 @@ For external comparison, we use:
 - **Post-2010 Style Portfolios**: Fama-French ME5 × PRIOR1/3/5, constructed with rolling monthly value- or equal-weighting
 
 
-### Strategic Rationale
+## Strategic Rationale
 
 The TBTF strategy is not merely a rule-based selection method. It reflects a structural argument that allocative efficiency in modern markets is compromised by persistent capital concentration. Instead of diversifying away idiosyncratic risk, markets are increasingly dominated by capital lock-in, hierarchy reinforcement, and narrative legitimacy.
 
@@ -165,7 +163,7 @@ This framework reconceptualizes the role of financial assets from carriers of ri
 
 ## Appendix: TBTF Strategy Pipeline {.appendix}
 
-This section outlines the modular structure of the TBTF portfolio strategy, from input specification to out-of-sample return generation and performance evaluation. The pipeline is designed to be flexible across different weighting schemes, rebalance frequencies, and strategy parameters.
+This appendix section outlines the modular structure of the TBTF portfolio strategy, from input specification to out-of-sample return generation and performance evaluation. The pipeline is designed to be flexible across different weighting schemes, rebalance frequencies, and strategy parameters.
 
 ### Inputs (Arguments)
 

@@ -8,6 +8,7 @@
 
 <meta name="author" content="GitSAM">
 <meta name="dcterms.date" content="2025-03-08">
+<meta name="keywords" content="equivalent martingale measure, equal education opportunity">
 
 <title>Market Price of Education – GitSAM</title>
 <style>
@@ -21,40 +22,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 /* CSS for citations */
 div.csl-bib-body { }
@@ -329,18 +296,18 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link active" data-scroll-target="#conclusion">Conclusion</a></li>
-  <li><a href="#main" id="toc-main" class="nav-link" data-scroll-target="#main">Main</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#literature-review" id="toc-literature-review" class="nav-link" data-scroll-target="#literature-review"><span class="header-section-number">2</span> Literature Review</a></li>
+  <li><a href="#structural-model-of-opportunity-valuation" id="toc-structural-model-of-opportunity-valuation" class="nav-link" data-scroll-target="#structural-model-of-opportunity-valuation"><span class="header-section-number">3</span> Structural Model of Opportunity Valuation</a>
   <ul class="collapse">
-  <li><a href="#model-scenario" id="toc-model-scenario" class="nav-link" data-scroll-target="#model-scenario">Model Scenario</a></li>
-  <li><a href="#emm-based-call-option-valuation-theory" id="toc-emm-based-call-option-valuation-theory" class="nav-link" data-scroll-target="#emm-based-call-option-valuation-theory">EMM-based Call Option Valuation Theory</a></li>
-  <li><a href="#empirical-analysis" id="toc-empirical-analysis" class="nav-link" data-scroll-target="#empirical-analysis">Empirical Analysis</a></li>
-  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">Discussion</a></li>
+  <li><a href="#social-stratification-and-inherited-access" id="toc-social-stratification-and-inherited-access" class="nav-link" data-scroll-target="#social-stratification-and-inherited-access"><span class="header-section-number">3.1</span> Social Stratification and Inherited Access</a></li>
+  <li><a href="#emm-and-the-qualification-as-a-call-option" id="toc-emm-and-the-qualification-as-a-call-option" class="nav-link" data-scroll-target="#emm-and-the-qualification-as-a-call-option"><span class="header-section-number">3.2</span> EMM and the Qualification as a Call Option</a></li>
+  <li><a href="#empirical-valuation-across-classes" id="toc-empirical-valuation-across-classes" class="nav-link" data-scroll-target="#empirical-valuation-across-classes"><span class="header-section-number">3.3</span> Empirical Valuation Across Classes</a></li>
+  <li><a href="#structural-implications" id="toc-structural-implications" class="nav-link" data-scroll-target="#structural-implications"><span class="header-section-number">3.4</span> Structural Implications</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">3.5</span> Conclusion</a></li>
   </ul></li>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#literature-review" id="toc-literature-review" class="nav-link" data-scroll-target="#literature-review">Literature Review</a></li>
   </ul>
-</nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="pricing_equal.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -375,244 +342,159 @@ window.Quarto = {
 <div>
   <div class="abstract">
     <div class="block-title">Abstract</div>
-    This study examines the valuation of seemingly equal opportunities that, due to structural societal inequalities, hold different market values for distinct social classes. By applying the Equivalent Martingale Measure (EMM) approach within the framework of rational asset pricing theory, we analyze how capital constraints and limits to arbitrage perpetuate inefficiencies in opportunity valuation between the proletariat and capitalist classes.
+    This study models the unequal valuation of educational qualifications in stratified economic systems. While educational standards appear uniform across classes, their realized economic value diverges due to inherited capital and opportunity access. We formalize this divergence by applying the Equivalent Martingale Measure (EMM) framework to a two-class model - the proletariat, who access general opportunities, and the capitalist class, who additionally access exclusive ones. In this model, capital constraints create structural “limits to arbitrage” between opportunity sets, embedding inequality into the very fabric of intergenerational mobility. We conceptualize educational qualifications as the strike price in an intergenerational call option - a child may claim inherited capital only upon satisfying a minimum educational standard. We quantify the differential option value of education across classes and interpret this as a measure of structural inefficiency in equal opportunity narratives.
   </div>
 </div>
 
+<div>
+  <div class="keywords">
+    <div class="block-title">Keywords</div>
+    <p>equivalent martingale measure, equal education opportunity</p>
+  </div>
+</div>
 
 </header>
 
 
-<section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>By applying the EMM-based asset pricing approach, this study quantifies the impact of structural inequalities on the valuation of ostensibly equal opportunities. The results emphasize the importance of considering underlying economic disparities when evaluating the fairness and effectiveness of qualification standards in society.</p>
+<section id="introduction" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
+<p>In economically stratified societies, opportunities presented as equal—such as access to education or standardized qualifications—often yield vastly unequal outcomes across social classes. This paradox arises not from individual differences in merit, but from structural disparities in access to capital, networks, and strategic opportunities. As a result, the same formal credential may function as a gateway to ownership and control for one class, and to employment and dependency for another.</p>
+<p>While much of financial economics has focused on mispricings in asset markets, we consider an analogous but underexplored domain: the misvaluation of social opportunities under conditions of inherited inequality. In particular, we examine how intergenerational capital endowments determine the realized value of ostensibly equal qualifications.</p>
+<p>To formalize this idea, we introduce a stylized model in which society is divided into two economic classes: the proletariat (P) and the capitalist (C). Members of both classes must meet an identical qualification standard (e.g., educational attainment) to realize their economic inheritance. However, the assets they stand to inherit differ fundamentally. While the capitalist class passes down productive capital and exclusive access to high-value opportunities, the proletariat transfers only general access to labor markets. In this framework, the qualification standard operates analogously to a strike price (<span class="math inline">\(K\)</span>) in a call option: it must be met before the holder can claim the underlying asset.</p>
+<p>We argue that this metaphor captures a critical structural asymmetry. Even when the qualification threshold is formally equal, the option value of meeting that threshold is class-contingent. The resulting inequality is not a failure of access, but a mispricing of opportunity rooted in structural capital segmentation. Our model offers a formal interpretation of this mechanism, drawing from asset pricing logic—specifically the Equivalent Martingale Measure (EMM)—to quantify how inherited capital shapes the payoff structure of educational credentials.</p>
 </section>
-<section id="main" class="level2">
-<h2 class="anchored" data-anchor-id="main">Main</h2>
-<section id="model-scenario" class="level3">
-<h3 class="anchored" data-anchor-id="model-scenario">Model Scenario</h3>
-<p>In short, we consider a society divided into two distinct classes:</p>
+<section id="literature-review" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="literature-review"><span class="header-section-number">2</span> Literature Review</h2>
+<p>The theoretical foundation of this study builds on the <em>limits to arbitrage</em> framework articulated by <span class="citation" data-cites="shleifer1997limits">Shleifer and Vishny (<a href="#ref-shleifer1997limits" role="doc-biblioref">1997</a>)</span>, which departs from textbook descriptions of riskless, capital-free arbitrage. In reality, most arbitrage is conducted by specialized professionals who manage other people’s capital. This agency relationship introduces a key fragility: interim losses—even in positions with positive expected returns—can lead principals to withdraw funding, forcing premature liquidation. As a result, arbitrage fails not simply due to capital constraints, but because of institutional frictions, reputational risk, and moral hazard embedded in the principal-agent structure. <span class="citation" data-cites="gromb2002equilibrium">Gromb and Vayanos (<a href="#ref-gromb2002equilibrium" role="doc-biblioref">2002</a>)</span> further formalize how capital-constrained arbitrageurs under agency costs produce persistent mispricings with adverse welfare implications. Complementary work by <span class="citation" data-cites="xiong2001convergence">Xiong (<a href="#ref-xiong2001convergence" role="doc-biblioref">2001</a>)</span> emphasizes that convergence trades can be destabilized when arbitrageurs face redemption risks and cannot extend their positions during periods of amplified mispricing.</p>
+<p><span class="citation" data-cites="geanakoplos2010leverage">Geanakoplos (<a href="#ref-geanakoplos2010leverage" role="doc-biblioref">2010</a>)</span> contributes the concept of the <strong>leverage cycle</strong>, in which shifts in capital availability and margin requirements not only amplify financial volatility, but also entrench inequality. These dynamics resonate with the structural mechanisms examined in this paper, where economic opportunity is a function of both capital access and intertemporal credibility.</p>
+<p>Behavioral finance research, as surveyed by <span class="citation" data-cites="barberis2003survey">Barberis and Thaler (<a href="#ref-barberis2003survey" role="doc-biblioref">2003</a>)</span>, highlights how cognitive biases and non-Bayesian updating further limit arbitrage effectiveness. These behavioral frictions—when coupled with institutional rigidities—exacerbate price anomalies and contribute to enduring structural barriers in economic mobility.</p>
+<p>Beyond finance, sociological theories and applied economic studies shed light on the broader mechanisms of <strong>structural inequality</strong>. Bourdieu’s theory of <strong>social reproduction</strong> <span class="citation" data-cites="bourdieu1973cultural">Bourdieu (<a href="#ref-bourdieu1973cultural" role="doc-biblioref">1973</a>)</span> posits that cultural capital—acquired through family and class—perpetuates unequal opportunity across generations. Empirical work by <span class="citation" data-cites="chetty2014family">Chetty et al. (<a href="#ref-chetty2014family" role="doc-biblioref">2014</a>)</span> establishes a strong linkage between parental income and children’s educational and labor market outcomes, confirming that equal qualifications yield vastly unequal economic returns depending on class background. <span class="citation" data-cites="piketty2014capital">Piketty (<a href="#ref-piketty2014capital" role="doc-biblioref">2014</a>)</span> emphasizes that capital accumulation and intergenerational wealth transfers dominate earned income in determining long-term economic trajectories.</p>
+<p>Recent reports by the UK’s Social Mobility Commission <span class="citation" data-cites="smc2023class">Social Mobility Commission (<a href="#ref-smc2023class" role="doc-biblioref">2023</a>)</span> and the OECD <span class="citation" data-cites="oecd2018mobility">OECD (<a href="#ref-oecd2018mobility" role="doc-biblioref">2018</a>)</span> corroborate this view, showing that economic mobility has stagnated despite rising access to education. <span class="citation" data-cites="reeves2017glassfloor">Reeves (<a href="#ref-reeves2017glassfloor" role="doc-biblioref">2017</a>)</span> introduces the concept of the <strong>“glass floor”</strong>, where the upper class protects its status not by accelerating upward mobility but by shielding itself from downward mobility—often through mechanisms such as inherited networks, cultural signaling, and capital buffers.</p>
+<p>Together, these literatures converge on a central insight: <strong>nominally equal qualifications can mask radically unequal opportunity valuations</strong>, shaped by capital endowments, behavioral constraints, and institutional structures. This study extends the literature by providing a formal asset pricing model in which educational qualifications function as <strong>strike prices</strong> in class-contingent call options on inherited capital. The framework quantifies how structurally identical credentials yield asymmetric economic outcomes, offering a new perspective on the market valuation of education under inequality.</p>
+</section>
+<section id="structural-model-of-opportunity-valuation" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="structural-model-of-opportunity-valuation"><span class="header-section-number">3</span> Structural Model of Opportunity Valuation</h2>
+<section id="social-stratification-and-inherited-access" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="social-stratification-and-inherited-access"><span class="header-section-number">3.1</span> Social Stratification and Inherited Access</h3>
+<p>We consider a stylized economy consisting of two economically segregated classes:</p>
 <ul>
-<li><strong>Proletariat (P)</strong>: Individuals with access to general opportunities.</li>
-<li><strong>Capitalist (C)</strong>: Individuals with access to both general and exclusive special opportunities.</li>
+<li>Proletariat (P): Access only to general economic opportunities.</li>
+<li>Capitalist (C): Access to both general and exclusive special opportunities.</li>
 </ul>
-<p>Internally, both classes operate within perfectly competitive markets that adhere to the no-arbitrage principle. However, due to capital constraints, members of the P class cannot access the special opportunities available to the C class, rendering these opportunities unattainable. Consequently, while the absolute value of special opportunities is equal to or greater than that of general opportunities, the P class cannot exploit potential arbitrage opportunities due to these constraints. Both classes have offspring who inherit the economic outcomes of their parents’ investments. To claim these inherited assets, all offspring must meet a minimum qualification standard (e.g., educational credentials), analogous to the strike price (<span class="math inline">\(K\)</span>) in option pricing. Until this qualification is met, the offspring hold a call option on their parents’ assets.</p>
-<p>In detail, consider two distinct social classes: the proletariat (P), representing working-class individuals, and the capitalist class (C), representing wealthy individuals. These two classes face fundamentally different opportunity sets due to deep-seated structural inequalities. Such societal barriers, from both democratic and utilitarian viewpoints, constitute a significant social inefficiency.</p>
-<p>To analyze the structural origins of this inefficiency, we apply the concept of <strong>Limits to Arbitrage Theory</strong>, which suggests markets are not always fully efficient. This inefficiency arises because of various constraints, such as behavioral biases, risk constraints, and notably, capital constraints. Capital constraints imply that significant capital is required to engage in arbitrage, effectively isolating classes economically. We assume, therefore, that the proletariat and capitalist classes are economically segregated due to these capital constraints.</p>
-<p>Within each class, economic opportunities exist in a perfectly competitive market, satisfying the no-arbitrage condition internally. Members of the proletariat (P) freely select from a common set of general opportunities available to them. Conversely, members of the capitalist class (C) not only share these general opportunities but also exclusively access additional “special opportunities.” From the viewpoint of proletariat class members, these special opportunities represent unattainable benefits (“grapes beyond reach”), carrying higher or equal absolute value compared to general opportunities.</p>
-<p>Theoretically, if members of the capitalist class could short-sell general opportunities and simultaneously long-position special opportunities, they could realize arbitrage profits. However, due to aforementioned capital constraints (“limits to arbitrage”), such arbitrage trading is practically impossible within this model.</p>
-<p>Both classes have offspring who inherit the economic results (absolute asset values) of their parents’ investment choices. To claim these inherited assets, children from both classes must meet identical minimum qualification standards (e.g., university diplomas, basic educational credentials). Although the qualification standard is identical for both, outcomes differ significantly due to inherited assets. For instance, a business administration graduate from the capitalist class inherits and manages substantial capital (businesses), while an identically qualified individual from the proletariat class works as an employee, earning wages in capitalist-owned enterprises.</p>
-<p>The minimum qualification standard can be understood as a fixed barrier or strike price (K) of a <strong>call option</strong>. Until the qualification requirement is fulfilled, the children effectively hold call options on their parents’ assets. This model aims to quantify the absolute value of these call options for each class, reflecting the inherited economic outcomes accessible to the offspring.</p>
+<p>Within each class, opportunities are traded in perfectly competitive markets that satisfy the no-arbitrage condition internally. However, capital constraints prevent members of the proletariat from accessing the exclusive opportunities available to the capitalist class. This segmentation effectively enforces a limit to arbitrage between classes, rendering superior opportunities inaccessible to the working class.</p>
+<p>From a pricing perspective, while special opportunities may have equal or higher intrinsic value than general ones, their inaccessibility to the proletariat implies a market inefficiency rooted in capital immobility. In theory, the capitalist class might profit by arbitraging—shorting general opportunities and longing special ones. However, such trades require the existence of a counterparty market for general opportunities. In this stratified economy, such a market is absent: general opportunities, often tied to future labor or positional access, are not formally tradable. Hence, arbitrage fails not due to capital constraints, but due to market incompleteness.</p>
+<p>Both classes transmit economic outcomes across generations. However, children must meet a common qualification threshold (e.g., educational degree) before they can claim their inherited assets. This threshold functions as a strike price (<span class="math inline">\(K\)</span>) in a call option: until it is met, the offspring hold a contingent claim—a call option—on their parents’ accumulated capital.</p>
+<p>Crucially, although the qualification standard is uniform, its realized economic payoff differs dramatically. A graduate from the capitalist class inherits and operates substantial capital, while a similarly qualified graduate from the proletariat class becomes an employee within capitalist-owned institutions.</p>
+<p>This section formalizes the option-like structure of intergenerational mobility, where equal credentials mask deeply unequal access to capital. The goal is to quantify this asymmetry through a structural valuation framework based on asset pricing theory.</p>
 </section>
-<section id="emm-based-call-option-valuation-theory" class="level3">
-<h3 class="anchored" data-anchor-id="emm-based-call-option-valuation-theory">EMM-based Call Option Valuation Theory</h3>
-<p>Assume a simple 1 period setting with only two possible states (e.g.&nbsp;good or bad). Under the Equivalent Martingale Measure (EMM), the fair market value of a call option at time 0, denoted as <span class="math inline">\(\hat{f}_0\)</span>, must satisfy:</p>
-<p><span class="math display">\[\hat{f_0}\cdot R = E^q[f_1]\]</span> where <span class="math inline">\(f_1=max(S_0 \cdot U-K,0)\)</span></p>
-<p><span class="math display">\[S_0\cdot R=E^q[S_1]\]</span> where <span class="math inline">\(S_0\)</span> = the current price of risky underlying asset</p>
-<p>From these two equations, we have the EMM or the state price density for good state <span class="math inline">\(q\)</span> as: <span class="math display">\[
+<section id="emm-and-the-qualification-as-a-call-option" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="emm-and-the-qualification-as-a-call-option"><span class="header-section-number">3.2</span> EMM and the Qualification as a Call Option</h3>
+<p>We consider a stylized one-period binomial framework with two possible future states—good (up) and bad (down). This minimal setting allows us to derive the present value of a <strong>call option</strong> under the <strong>Equivalent Martingale Measure (EMM)</strong>. Under EMM, asset prices discounted at the risk-free rate evolve as martingales in a risk-neutral world, ensuring no-arbitrage pricing.</p>
+<p>Let <span class="math inline">\(S_0\)</span> denote the current value of an asset and <span class="math inline">\(R\)</span> the gross risk-free return over the period. Then the value of a European call option with strike price <span class="math inline">\(K\)</span> at time 0, denoted <span class="math inline">\(\hat{f}_0\)</span>, satisfies:</p>
+<p><span class="math display">\[
+\hat{f}_0 \cdot R = \mathbb{E}^q[f_1]
+\]</span></p>
+<p>where the terminal payoff is:</p>
+<p><span class="math display">\[
+f_1 = \max(S_0 \cdot U - K, 0)
+\]</span></p>
+<p>with <span class="math inline">\(U\)</span> representing the up-state return. The EMM condition for the underlying asset implies:</p>
+<p><span class="math display">\[
+S_0 \cdot R = \mathbb{E}^q[S_1]
+\]</span></p>
+<p>Solving for the <strong>state price density</strong> (risk-neutral probability) <span class="math inline">\(q\)</span> yields:</p>
+<p><span class="math display">\[
 q = \frac{R - D}{U - D}
 \]</span></p>
-<p>Thus, the present fair value of the call option is given by:</p>
-<p><span class="math display">\[
-\hat{f}_0 = \frac{1}{R}\left[ \frac{R - D}{U - D}(S_0 \cdot U - K) + \frac{U - R}{U - D} \cdot 0 \right] = \frac{(R - D)(U - 1)}{R(U - D)}
-\]</span></p>
-<p>assuming that</p>
+<p>Assuming the following normalization and notation:</p>
 <ul>
-<li>Initial Asset Price (normalized): <span class="math inline">\(S_0=1\)</span><br>
-</li>
-<li>Strike Price (qualification threshold): <span class="math inline">\(K=1\)</span><br>
-</li>
+<li>Initial Asset Price: <span class="math inline">\(S_0 = 1\)</span></li>
+<li>Strike Price (qualification threshold): <span class="math inline">\(K = 1\)</span></li>
+<li>Up-state return: <span class="math inline">\(U\)</span></li>
+<li>Down-state return: <span class="math inline">\(D\)</span></li>
+<li>Gross risk-free return: <span class="math inline">\(R\)</span></li>
 <li>Maturity: 18 years (quarterly steps = 72 periods)</li>
 </ul>
-<p>This formula indicates a clear proportional relationship for estimating current fair values representing inherited qualification-based claims for each class over a 18-year maturity period. While this valuation could be approximated using continuous distributions (e.g., Black-Scholes under symmetric assumptions <span class="math inline">\(U \cdot D=1\)</span>), our discrete binomial model allows straightforward interpretation without loss of economic intuition.</p>
+<p>we derive the fair value of the option as:</p>
+<p><span class="math display">\[
+\hat{f}_0 = \frac{(R - D)(U - 1)}{R(U - D)}
+\]</span></p>
+<p>This expression quantifies the present value of a future <strong>qualification-based claim</strong>, where the payoff depends on surpassing a common educational or institutional threshold. Crucially, while the strike price <span class="math inline">\(K\)</span> is identical across individuals, the valuation of the option varies across economic classes, depending on the underlying asset and pricing measure.</p>
+<p>In our broader framework, the <strong>underlying asset differs by class</strong>:</p>
+<ul>
+<li>For the <strong>proletariat class (P)</strong>, the risky asset is interpreted as human capital, with its return distribution proxied by wage growth rate. Their risk-free rate is taken to be the growth rate of real GDP per capita, reflecting limited access to financial instruments.</li>
+<li>For the <strong>capitalist class (C)</strong>, the risky asset corresponds to equity (e.g., stock ownership), and the risk-free asset is approximated by long-term bond yields. Unlike P class, the C class has access to capital markets and can realize financial returns conditional on qualifications.</li>
+</ul>
+<p>Although a continuous-time limit (e.g., Black-Scholes under <span class="math inline">\(U \cdot D = 1\)</span>) could be adopted, we retain the discrete binomial structure for its interpretability and ability to directly compare inter-class valuation asymmetries. The model makes transparent how <strong>seemingly equal qualifications can yield divergent option values</strong>, driven by class-specific capital endowments and asset accessibility.</p>
 </section>
-<section id="empirical-analysis" class="level3">
-<h3 class="anchored" data-anchor-id="empirical-analysis">Empirical Analysis</h3>
-<p>We employ distinct underlying assets for each class. Using the historical dataset (Q1 1982–Q4 2019, 152 quarterly observations), we estimated the parameters and their associated fair values of call options for each class.</p>
+<section id="empirical-valuation-across-classes" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="empirical-valuation-across-classes"><span class="header-section-number">3.3</span> Empirical Valuation Across Classes</h3>
+<p>To quantify the asymmetry in opportunity valuation across social classes, we empirically estimate the EMM-based call option values for the proletariat and capitalist classes using historical U.S. data from Q1 1982 to Q4 2019 (152 quarterly observations). For each class, we identify distinct risky and risk-free asset proxies, reflecting their differential access to economic instruments.</p>
 <p><strong>For Proletariat (P) Class Children:</strong></p>
 <ul>
-<li><strong>Risky Asset</strong>: US Median usual weekly Real earnings (LES1252881600Q)<br>
-</li>
-<li><strong>Risk-Free Asset</strong>: US Real GDP per capita (A939RX0Q048SBEA)<br>
-</li>
-<li>Parameters:
+<li>Return on <strong>Risky Asset</strong>: growth rate of U.S. Median usual weekly real earnings (LES1252881600Q)</li>
+<li>Return on <strong>Risk-Free Asset</strong>: growth rate of U.S. Real GDP per capita (A939RX0Q048SBEA)</li>
+<li><strong>Estimated Parameters</strong>:
 <ul>
-<li><span class="math inline">\(U_p\)</span>:= 75th percentile growth of wage (risky asset)<br>
-</li>
-<li><span class="math inline">\(D_p\)</span>:= 25th percentile growth of wage<br>
-</li>
-<li><span class="math inline">\(R_p\)</span>:= Median growth rate of Real GDP per capita</li>
+<li><span class="math inline">\(U_p\)</span>: 75th percentile of quarterly wage growth</li>
+<li><span class="math inline">\(D_p\)</span>: 25th percentile of quarterly wage growth</li>
+<li><span class="math inline">\(R_p\)</span>: Median quarterly growth rate of real GDP per capita</li>
 </ul></li>
 </ul>
 <p><strong>For Capitalist (C) Class Children:</strong></p>
 <ul>
-<li><strong>Risky Asset</strong>: S&amp;P 500 equity (SPX)<br>
-</li>
-<li><strong>Risk-Free Asset</strong>: US 10-Year Treasury Bond</li>
-<li>Parameters:
+<li>Return on <strong>Risky Asset</strong>: growth rate of S&amp;P 500 Total Return Index (SPX)</li>
+<li>Return on <strong>Risk-Free Asset</strong>: 10-Year U.S. Treasury Bond Yield (DGS10)</li>
+<li><strong>Estimated Parameters</strong>:
 <ul>
-<li><span class="math inline">\(U_c\)</span>:= 75th percentile quarterly growth of the equity index<br>
-</li>
-<li><span class="math inline">\(D_c\)</span>:= 25th percentile quarterly growth of the equity index<br>
-</li>
-<li><span class="math inline">\(R_c\)</span>:= Median of quarterly US 10-Year Treasury Bond Yield (DGS10)</li>
+<li><span class="math inline">\(U_c\)</span>: 75th percentile of equity return</li>
+<li><span class="math inline">\(D_c\)</span>: 25th percentile of equity return</li>
+<li><span class="math inline">\(R_c\)</span>:= Median of quarterly US 10-Year Treasury Bond Yield</li>
 </ul></li>
 </ul>
-<p><strong>Empirical Results:</strong></p>
-<ul>
-<li><strong>For Proletariat (P) class children</strong>, <span class="math inline">\(\hat{P}_0=?\)</span><br>
-</li>
-<li><strong>For Capitalist (C) class children</strong>, <span class="math inline">\(\hat{C}_0=?\)</span></li>
-</ul>
-<div id="b20b4acf" class="cell" data-execution_count="1">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> yfinance <span class="im">as</span> yf</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas_datareader.data <span class="im">as</span> web</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 데이터 기간 설정</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>start_date <span class="op">=</span> <span class="st">'1982-01-01'</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>end_date <span class="op">=</span> <span class="st">'2019-12-31'</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># S&amp;P 500 데이터 가져오기</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>sp500 <span class="op">=</span> yf.download(<span class="st">"^GSPC"</span>, start<span class="op">=</span>start_date, end<span class="op">=</span>end_date, interval<span class="op">=</span><span class="st">"1d"</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>sp500_q <span class="op">=</span> sp500[<span class="st">'Close'</span>].resample(<span class="st">'QE'</span>).last()  <span class="co"># 분기별 종가 데이터</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># FRED 데이터 가져오기</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>us_median_weekly_earnings <span class="op">=</span> web.DataReader(<span class="st">'LES1252881600Q'</span>, <span class="st">'fred'</span>, start_date, end_date)</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>us_real_gdp_per_capita <span class="op">=</span> web.DataReader(<span class="st">'A939RX0Q048SBEA'</span>, <span class="st">'fred'</span>, start_date, end_date)</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>us_10yr_treasury_yield <span class="op">=</span> web.DataReader(<span class="st">'DGS10'</span>, <span class="st">'fred'</span>, start_date, end_date)</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># 인덱스를 맞추기 위해 분기별로 재샘플링</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>us_median_weekly_earnings <span class="op">=</span> us_median_weekly_earnings.resample(<span class="st">'QE'</span>).last()</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>us_real_gdp_per_capita <span class="op">=</span> us_real_gdp_per_capita.resample(<span class="st">'QE'</span>).last()</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>us_10yr_treasury_yield <span class="op">=</span> us_10yr_treasury_yield.resample(<span class="st">'QE'</span>).last()</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co"># 데이터프레임으로 변환</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">'SP500'</span>: sp500_q.squeeze(),</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Median_Weekly_Earnings'</span>: us_median_weekly_earnings[<span class="st">'LES1252881600Q'</span>].squeeze(),</span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Real_GDP_per_Capita'</span>: us_real_gdp_per_capita[<span class="st">'A939RX0Q048SBEA'</span>].squeeze(),</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">'10yr_Treasury_Yield'</span>: us_10yr_treasury_yield[<span class="st">'DGS10'</span>].squeeze()</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>}, index<span class="op">=</span>sp500_q.index)</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co"># 결측값 제거</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>data.dropna(inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="co"># 수익률 계산</span></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'SP500_Return'</span>] <span class="op">=</span> data[<span class="st">'SP500'</span>].pct_change()</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'Earnings_Growth'</span>] <span class="op">=</span> data[<span class="st">'Median_Weekly_Earnings'</span>].pct_change()</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>data[<span class="st">'GDP_Growth'</span>] <span class="op">=</span> data[<span class="st">'Real_GDP_per_Capita'</span>].pct_change()</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="co"># 통계치 계산</span></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>U_p <span class="op">=</span> data[<span class="st">'Earnings_Growth'</span>].quantile(<span class="fl">0.75</span>)<span class="op">+</span><span class="dv">1</span></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>D_p <span class="op">=</span> data[<span class="st">'Earnings_Growth'</span>].quantile(<span class="fl">0.25</span>)<span class="op">+</span><span class="dv">1</span></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>R_p <span class="op">=</span> data[<span class="st">'GDP_Growth'</span>].median()<span class="op">+</span><span class="dv">1</span></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>U_c <span class="op">=</span> data[<span class="st">'SP500_Return'</span>].quantile(<span class="fl">0.75</span>)<span class="op">+</span><span class="dv">1</span></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>D_c <span class="op">=</span> data[<span class="st">'SP500_Return'</span>].quantile(<span class="fl">0.25</span>)<span class="op">+</span><span class="dv">1</span></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>R_c <span class="op">=</span> data[<span class="st">'10yr_Treasury_Yield'</span>].median()</span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>R_c <span class="op">=</span> R_c <span class="op">/</span> <span class="dv">100</span> <span class="op">+</span><span class="dv">1</span></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Proletariat Class Children Parameters:"</span>)</span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"U_p: </span><span class="sc">{</span>U_p<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"D_p: </span><span class="sc">{</span>D_p<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"R_p: </span><span class="sc">{</span>R_p<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Capitalist Class Children Parameters:"</span>)</span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"U_c: </span><span class="sc">{</span>U_c<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"D_c: </span><span class="sc">{</span>D_c<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"R_c: </span><span class="sc">{</span>R_c<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
-<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="co"># Binomial Option Pricing Model</span></span>
-<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> binomial_option_pricing(K, S_0, T, U, D, R, dt):</span>
-<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="co">    K: Strike price</span></span>
-<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="co">    S_0: Initial stock price</span></span>
-<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="co">    T: Time to maturity (in years)</span></span>
-<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="co">    U: Up factor</span></span>
-<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a><span class="co">    D: Down factor</span></span>
-<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="co">    R: Risk-free rate</span></span>
-<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="co">    dt: Number of steps for each year</span></span>
-<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> T<span class="op">*</span>dt <span class="co"># Number of steps in the binomial tree</span></span>
-<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>    q <span class="op">=</span> (R <span class="op">-</span> D) <span class="op">/</span> (U <span class="op">-</span> D)</span>
-<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Initialize option values at maturity</span></span>
-<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>    option_values <span class="op">=</span> np.zeros((n <span class="op">+</span> <span class="dv">1</span>, <span class="dv">1</span>))</span>
-<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>        ST <span class="op">=</span> S_0 <span class="op">*</span> (U <span class="op">**</span> i) <span class="op">*</span> (D <span class="op">**</span> (n <span class="op">-</span> i))</span>
-<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>        option_values[i] <span class="op">=</span> <span class="bu">max</span>(<span class="dv">0</span>, ST <span class="op">-</span> K)</span>
-<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Backward recursion for option values</span></span>
-<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(n <span class="op">-</span> <span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>):</span>
-<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(j <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>            option_values[i] <span class="op">=</span> (q <span class="op">*</span> option_values[i <span class="op">+</span> <span class="dv">1</span>] <span class="op">+</span> (<span class="dv">1</span> <span class="op">-</span> q) <span class="op">*</span> option_values[i]) <span class="op">/</span> R</span>
-<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> option_values[<span class="dv">0</span>, <span class="dv">0</span>]</span>
-<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters</span></span>
-<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>K <span class="op">=</span> <span class="dv">1</span>  <span class="co"># Strike price</span></span>
-<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>S_0 <span class="op">=</span> <span class="dv">1</span>  <span class="co"># Initial stock price</span></span>
-<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>T <span class="op">=</span> <span class="dv">18</span>  <span class="co"># Time to maturity (18 years)</span></span>
-<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>dt <span class="op">=</span> <span class="dv">4</span> <span class="co"># Number of steps for each year</span></span>
-<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate option prices</span></span>
-<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>option_price_proletariat <span class="op">=</span> binomial_option_pricing(K, S_0, T, U_p, D_p, R_p, dt)</span>
-<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>option_price_capitalist <span class="op">=</span> binomial_option_pricing(K, S_0, T, U_c, D_c, R_c, dt)</span>
-<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Fair price of Call Option, held by Proletariat Class Children:</span><span class="ch">\n</span><span class="ss"> </span><span class="sc">{</span>option_price_proletariat<span class="sc">:.2f}</span><span class="ss">"</span>)</span>
-<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Fair price of Call Option, held by Capitalist Class Children:</span><span class="ch">\n</span><span class="ss"> </span><span class="sc">{</span>option_price_capitalist<span class="sc">:.2f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>YF.download() has changed argument auto_adjust default to True</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>[*********************100%***********************]  1 of 1 completed</code></pre>
-</div>
+<p>We now compute and compare <span class="math inline">\(\hat{f}_0\)</span> for each class.</p>
+<div id="988415a5" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-stdout">
 <pre><code>Proletariat Class Children Parameters:
-U_p: 1.01
-D_p: 1.00
-R_p: 1.01
+U_p: 1.0060
+D_p: 0.9968
+R_p: 1.0051
 
 Capitalist Class Children Parameters:
-U_c: 1.07
-D_c: 0.99
-R_c: 1.05
+U_c: 1.0711
+D_c: 0.9916
+R_c: 1.0514
 
 Fair price of Call Option, held by Proletariat Class Children:
- 0.30
+ 0.3043
 Fair price of Call Option, held by Capitalist Class Children:
- 0.97</code></pre>
+ 0.9728</code></pre>
 </div>
 </div>
+<div id="b272a88c" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="pricing_equal_files/figure-html/cell-3-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>As <span class="math inline">\(U\)</span> rises, improvements in <span class="math inline">\(D\)</span> drive option values faster, reflecting how convex opportunity structures magnify marginal safety. This highlights the asymmetry in asset-based opportunity structures—capitalist-class children benefit not only from better average returns, but also from a sharper convex payoff structure that amplifies improvements across all economic states.</p>
 </section>
-<section id="discussion" class="level3">
-<h3 class="anchored" data-anchor-id="discussion">Discussion</h3>
-<p>This model clarifies the stark inequality underlying “ostensibly equal” qualification standards. Although formally identical, the call options’ absolute valuations significantly diverge, reflecting distinct economic inheritances accessible to each class. This disparity highlights structural inefficiencies and deep-rooted inequalities, persisting despite nominally identical qualification standards.</p>
-<p>Ultimately, this analysis underscores how asset-based class differentiation profoundly impacts the perceived and realized absolute value of educational and economic opportunities, illuminating critical implications for economic policy, educational equity, and social justice frameworks.</p>
+<section id="structural-implications" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="structural-implications"><span class="header-section-number">3.4</span> Structural Implications</h3>
+<p>Empirical estimation reveals a stark asymmetry in the valuation of identical qualification thresholds across classes. The EMM-based fair value of the call option for proletariat-class children is approximately <code>0.3043</code>, while for capitalist-class children it is <code>0.9728</code> — a more than threefold difference.</p>
+<p>This disparity does not stem from differences in effort or merit, but from structurally unequal asset endowments and access to opportunity. In our framework, the same strike price <span class="math inline">\(K = 1\)</span> results in class-specific valuations due to differing <span class="math inline">\((U, D, R)\)</span> parameters. The qualification thus operates not as a universal gateway, but as a <strong>contingent claim whose value is conditioned by class</strong>.</p>
+<p>This structural valuation gap challenges the premise of equal opportunity and underscores how asset-based class differentiation shapes the realized value of seemingly identical credentials. Our framework calls for a reassessment of how economic policy, educational equity, and social mobility are understood and modeled <strong>under persistent inequality</strong>.</p>
 </section>
-</section>
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>In societies characterized by pronounced economic stratification, opportunities presented as equal often yield disparate outcomes across different social strata. This disparity arises from inherent structural inefficiencies that restrict access to certain opportunities based on class. The <strong>Limits to Arbitrage Theory</strong> posits that market inefficiencies can persist due to various constraints, including capital limitations, preventing rational traders from correcting mispricings <span class="citation" data-cites="shleifer1997limits">(<a href="#ref-shleifer1997limits" role="doc-biblioref">Shleifer and Vishny 1997</a>)</span>. This paper explores how such constraints contribute to the unequal valuation of opportunities between the proletariat (P) and capitalist (C) classes.</p>
-</section>
-<section id="literature-review" class="level2">
-<h2 class="anchored" data-anchor-id="literature-review">Literature Review</h2>
-<p>The theoretical foundation relies primarily on the limits to arbitrage theory, initially articulated by Shleifer and Vishny <span class="citation" data-cites="shleifer1997limits">(<a href="#ref-shleifer1997limits" role="doc-biblioref">Shleifer and Vishny 1997</a>)</span>. Their seminal work shows how market inefficiencies persist due to practical constraints, particularly capital constraints, restricting the ability of arbitrageurs to exploit and correct mispricings. These constraints arise from significant capital requirements that effectively segregate participants into distinct economic spheres, as emphasized by subsequent studies on financially constrained arbitrageurs <span class="citation" data-cites="gromb2002equilibrium xiong2001convergence">(<a href="#ref-gromb2002equilibrium" role="doc-biblioref">Gromb and Vayanos 2002</a>; <a href="#ref-xiong2001convergence" role="doc-biblioref">Xiong 2001</a>)</span>.</p>
-<p>Geanakoplos’ research introduces the leverage cycle, which explains how fluctuations in leverage and capital availability perpetuate systemic inequality and financial instability <span class="citation" data-cites="geanakoplos2010leverage">(<a href="#ref-geanakoplos2010leverage" role="doc-biblioref">Geanakoplos 2010</a>)</span>. Complementary studies, such as that by Gromb and Vayanos, also demonstrate the welfare implications of constrained arbitrageurs operating under capital limitations, further exacerbating persistent inequality <span class="citation" data-cites="gromb2002equilibrium">(<a href="#ref-gromb2002equilibrium" role="doc-biblioref">Gromb and Vayanos 2002</a>)</span>. Moreover, Barberis and Thaler’s comprehensive survey on behavioral finance indicates how cognitive and behavioral constraints exacerbate market inefficiencies, reinforcing the structural barriers that differentiate economic outcomes across social strata <span class="citation" data-cites="barberis2003survey">(<a href="#ref-barberis2003survey" role="doc-biblioref">Barberis and Thaler 2003</a>)</span>.</p>
-<p>Extending beyond purely financial contexts, sociological and economic research provides additional perspectives on structural inequalities and opportunity valuation. Bourdieu’s concept of social reproduction underscores how cultural capital perpetuates socioeconomic inequalities across generations <span class="citation" data-cites="bourdieu1973cultural">(<a href="#ref-bourdieu1973cultural" role="doc-biblioref">Bourdieu 1973</a>)</span>. Recent empirical evidence by Stansbury <span class="citation" data-cites="stansbury2024class">(<a href="#ref-stansbury2024class" role="doc-biblioref">Stansbury 2024</a>)</span> and findings by the Social Mobility Commission <span class="citation" data-cites="smc2023class">(<a href="#ref-smc2023class" role="doc-biblioref">Social Mobility Commission 2023</a>)</span> further demonstrate how economic capital inherited through generations shapes differential outcomes, even when individuals ostensibly possess identical qualifications.</p>
-<p>Chetty et al.&nbsp;provide compelling evidence linking parental economic conditions to children’s educational outcomes and future earnings, strongly supporting the relevance of inherited economic positions in determining opportunity valuations <span class="citation" data-cites="chetty2014family">(<a href="#ref-chetty2014family" role="doc-biblioref">Chetty et al. 2014</a>)</span>. Similarly, Piketty’s influential book highlights the crucial role inherited wealth plays in perpetuating structural economic disparities, emphasizing the critical nature of capital inheritance in shaping individuals’ economic trajectories and their access to opportunities <span class="citation" data-cites="piketty2014capital">(<a href="#ref-piketty2014capital" role="doc-biblioref">Piketty 2014</a>)</span>.</p>
-<p>Policy implications regarding these structural inequalities and efforts to enhance social mobility have been explored extensively by institutions such as the OECD. Their analyses suggest policy frameworks that might alleviate the persistent inequalities discussed herein <span class="citation" data-cites="oecd2018mobility">(<a href="#ref-oecd2018mobility" role="doc-biblioref">OECD 2018</a>)</span>. Reeves’ concept of the “glass floor” further illustrates how affluent socioeconomic backgrounds systematically maintain class advantages despite equal or even lesser merit-based qualifications <span class="citation" data-cites="reeves2017glassfloor">(<a href="#ref-reeves2017glassfloor" role="doc-biblioref">Reeves 2017</a>)</span>.</p>
-<p>Collectively, these studies underline a coherent narrative: ostensibly equal opportunities often conceal significant disparities rooted in inherited structural inequalities, persistent capital constraints, and behavioral limitations to arbitrage. Our model complements this literature by quantitatively evaluating how these structural factors systematically influence the absolute value of identical qualification standards across distinct socioeconomic groups.</p>
+<section id="conclusion" class="level3" data-number="3.5">
+<h3 data-number="3.5" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">3.5</span> Conclusion</h3>
+<p>This paper reframes education not as an equalizing force, but as an <strong>option contract on inherited capital</strong>—one whose value varies sharply across economic classes. When access to assets and opportunity is structurally segmented, qualifications lose their universal function and become class-contingent claims. The findings highlight the need to rethink educational fairness, not merely in terms of formal access, but through the lens of the payoff structures such access yields in unequal economic environments.</p>
 
 
 
+</section>
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
@@ -646,13 +528,10 @@ Shleifer, Andrei, and Robert W. Vishny. 1997. <span>“The Limits of Arbitrage.�
 <div id="ref-smc2023class" class="csl-entry" role="listitem">
 Social Mobility Commission. 2023. <span>“State of the Nation Report 2023: Class, Meritocracy and Inequality.”</span> <em>UK Government Publication</em>. <a href="https://www.gov.uk/government/publications/social-mobility-commission-2023-report">https://www.gov.uk/government/publications/social-mobility-commission-2023-report</a>.
 </div>
-<div id="ref-stansbury2024class" class="csl-entry" role="listitem">
-Stansbury, Anna. 2024. <span>“Class and Career Outcomes Among the Highly Educated.”</span> <em>Financial Times</em>. <a href="https://www.ft.com/content/ddf5fe9b-cf67-48f8-a01b-69f1e5635a1b">https://www.ft.com/content/ddf5fe9b-cf67-48f8-a01b-69f1e5635a1b</a>.
-</div>
 <div id="ref-xiong2001convergence" class="csl-entry" role="listitem">
 Xiong, Wei. 2001. <span>“Convergence Trading with Wealth Effects.”</span> <em>Journal of Financial Economics</em> 62 (2): 247–92.
 </div>
-</div></section></div></main> <!-- /main -->
+</div></section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

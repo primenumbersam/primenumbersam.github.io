@@ -27,7 +27,13 @@ crsp = pd.read_sql_query(
 
 ```{python}
 # Out-of-sample Investment
+import sys
+import os
+# 현재 경로 기준으로 상위 디렉토리로 경로 추가
+sys.path.append(os.path.abspath('../..'))
+
 import tbtf
+
 
 # robust check 대상 파라미터 설정
 top_ns = [5, 7, 10, 15, 20]
