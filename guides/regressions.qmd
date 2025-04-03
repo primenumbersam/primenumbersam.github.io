@@ -1,6 +1,6 @@
 ---
 title: From Linear to Curved Structures to Fit the Data
-subtitle: Inner Products, Projection, and the Role of Positive Definite Kernels
+subtitle: Inner Product, Projection, and the Role of Positive Definite Kernels
 author: gitSAM
 date: '2025-03-21'
 abstract: This seminar note explores the geometric foundations of OLS, GLS, and GMM estimators through the lens of inner product spaces. We compare their respective objective functions as quadratic forms, analyze their level sets, and demonstrate how positive definite kernels reshape the geometry of estimation. By drawing parallels to Einstein's field equations, we highlight how the structure of estimation reflects deeper principles of information weighting and spatial deformation.
@@ -9,10 +9,11 @@ format:
   html:
     code-fold: true
     toc: true
+    number-sections: true
 jupyter: python3
 ---
 
-## 1. OLS as Orthogonal Projection in Euclidean Space
+## OLS as Orthogonal Projection in Euclidean Space
 
 OLS solves the following problem:
 
@@ -51,7 +52,7 @@ $$
 - In this sense, **OLS performs Euclidean projection** onto a linear subspace using the standard inner product.
 
 
-## 2. Generalized Least Squares (GLS)
+## Generalized Least Squares (GLS)
 
 GLS extends OLS by accounting for non-spherical error covariance structure:
 
@@ -77,7 +78,7 @@ $$
 > The **ellipsoidal level sets** visualized earlier correspond precisely to this GLS structure.
 
 
-## 3. GMM as Orthogonality of Moment Conditions (Not Projection)
+## GMM as Orthogonality of Moment Conditions (Not Projection)
 
 GMM generalizes the estimation framework by relying on **moment conditions**, not residuals:
 
@@ -127,9 +128,8 @@ which resembles GLS — but only **locally and approximately**.
 
 > Therefore, the geometric intuition of ellipsoids applies more precisely to GLS. For GMM, it’s a useful visual aid — but structurally distinct.
 
----
 
-## 4. Einstein Field Equations and GMM: Structural Analogy
+## Einstein Field Equations and GMM: Structural Analogy
 
 Einstein’s Field Equations (EFE) in general relativity:
 
@@ -170,7 +170,7 @@ results in a **pair of intersecting lines**: this represents all null (light-lik
 Thus, in both GMM and EFE, the **shape and degeneracy of level sets** encode deep information about the underlying structure — whether it is a statistical model or the geometry of spacetime.
 
 
-## 5. Conclusion
+## Summary
 
 - OLS performs **Euclidean projection** in a space endowed with the standard inner product.
 - GLS generalizes this using a **positive definite kernel** over the residual space, yielding ellipsoidal level sets.
