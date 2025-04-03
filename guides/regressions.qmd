@@ -12,12 +12,6 @@ format:
 jupyter: python3
 ---
 
-
-# GMM and OLS as Geometry over Inner Product Spaces: 
-
-This document is designed as an in-depth seminar material to explain the structural difference between **Ordinary Least Squares (OLS)** and the **Generalized Method of Moments (GMM)** from a geometric and mathematical standpoint, emphasizing their foundations in inner product spaces, with an analogy to **Einstein's Field Equations** in general relativity.
-
-
 ## 1. OLS as Orthogonal Projection in Euclidean Space
 
 OLS solves the following problem:
@@ -276,14 +270,14 @@ plt.show()
 
 | Method                | Objective Function                                                                 | Geometry of Norm         | Shape of Level Set         |
 |----------------------|--------------------------------------------------------------------------------------|---------------------------|-----------------------------|
-| **OLS (Unnormalized)** | \( (y - X\beta)^\top (y - X\beta) \)                                               | Euclidean norm            | Ellipsoidal (if \( X^\top X \neq I \)) |
-| **OLS (Normalized)**   | \( (\beta - \hat{\beta})^\top (X^\top X)^{-1} (\beta - \hat{\beta}) \)             | Mahalanobis norm          | **Spherical**               |
-| **GLS**               | \( (y - X\beta)^\top W (y - X\beta) \)                                              | Mahalanobis norm on residuals | Ellipsoidal               |
+| **OLS (Unnormalized)** | $(y - X\beta)^\top (y - X\beta)$                                              | Euclidean norm            | Ellipsoidal (if $X^\top X \neq I$) |
+| **OLS (Normalized)**   | $(\beta - \hat{\beta})^\top (X^\top X)^{-1} (\beta - \hat{\beta})$             | Mahalanobis norm          | Spherical               |
+| **GLS**               | $(y - X\beta)^\top W (y - X\beta)$                                              | Mahalanobis norm on residuals | Ellipsoidal               |
 
 **Note**: 
 
 - Although the GLS objective has the same mathematical form as GMM, its geometry is defined over the **residual space**, not over the space of moment conditions.  
-- The weighting matrix \( W \) in GLS is typically \( \Sigma^{-1} \), the inverse of the error covariance matrix.
+- The weighting matrix $W$ in GLS is typically $\Sigma^{-1}$, the inverse of the error covariance matrix.
 
 
 ```{python}

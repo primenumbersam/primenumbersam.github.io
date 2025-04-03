@@ -10,7 +10,7 @@
 <meta name="dcterms.date" content="2025-03-21">
 <meta name="keywords" content="OLS, GLS, GMM, inner product space, positive definite kernel, Mahalanobis norm, projection geometry, quadratic form, estimation theory, level set visualization, Einstein field equations, metric tensor, heteroskedasticity, moment conditions">
 
-<title>Bending Geometry to Fit the Data – GitSAM</title>
+<title>From Linear to Curved Structures to Fit the Data – GitSAM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -194,7 +194,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./pareto_index.html">수학</a></li><li class="breadcrumb-item"><a href="./regressions.html">Bending Geometry to Fit the Data</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./pareto_index.html">수학</a></li><li class="breadcrumb-item"><a href="./regressions.html">From Linear to Curved Structures to Fit the Data</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -294,7 +294,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./regressions.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Bending Geometry to Fit the Data</span></a>
+ <span class="menu-text">From Linear to Curved Structures to Fit the Data</span></a>
   </div>
 </li>
       </ul>
@@ -309,9 +309,7 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#gmm-and-ols-as-geometry-over-inner-product-spaces-from-linear-estimation-to-curved-structures" id="toc-gmm-and-ols-as-geometry-over-inner-product-spaces-from-linear-estimation-to-curved-structures" class="nav-link active" data-scroll-target="#gmm-and-ols-as-geometry-over-inner-product-spaces-from-linear-estimation-to-curved-structures">GMM and OLS as Geometry over Inner Product Spaces: From Linear Estimation to Curved Structures</a>
-  <ul class="collapse">
-  <li><a href="#ols-as-orthogonal-projection-in-euclidean-space" id="toc-ols-as-orthogonal-projection-in-euclidean-space" class="nav-link" data-scroll-target="#ols-as-orthogonal-projection-in-euclidean-space">1. OLS as Orthogonal Projection in Euclidean Space</a>
+  <li><a href="#ols-as-orthogonal-projection-in-euclidean-space" id="toc-ols-as-orthogonal-projection-in-euclidean-space" class="nav-link active" data-scroll-target="#ols-as-orthogonal-projection-in-euclidean-space">1. OLS as Orthogonal Projection in Euclidean Space</a>
   <ul class="collapse">
   <li><a href="#inner-product-and-geometry" id="toc-inner-product-and-geometry" class="nav-link" data-scroll-target="#inner-product-and-geometry">Inner Product and Geometry</a></li>
   </ul></li>
@@ -332,16 +330,15 @@ window.Quarto = {
   <li><a href="#ols-vs.-gls-different-projections-under-the-same-linear-model" id="toc-ols-vs.-gls-different-projections-under-the-same-linear-model" class="nav-link" data-scroll-target="#ols-vs.-gls-different-projections-under-the-same-linear-model">OLS vs.&nbsp;GLS: Different Projections Under the Same Linear Model</a></li>
   <li><a href="#different-level-set-of-objective-function-quadratic-form" id="toc-different-level-set-of-objective-function-quadratic-form" class="nav-link" data-scroll-target="#different-level-set-of-objective-function-quadratic-form">Different Level set of objective function (quadratic form)</a></li>
   </ul></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./pareto_index.html">수학</a></li><li class="breadcrumb-item"><a href="./regressions.html">Bending Geometry to Fit the Data</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./pareto_index.html">수학</a></li><li class="breadcrumb-item"><a href="./regressions.html">From Linear to Curved Structures to Fit the Data</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Bending Geometry to Fit the Data</h1>
+<h1 class="title">From Linear to Curved Structures to Fit the Data</h1>
 <p class="subtitle lead">Inner Products, Projection, and the Role of Positive Definite Kernels</p>
 </div>
 
@@ -383,9 +380,6 @@ window.Quarto = {
 </header>
 
 
-<section id="gmm-and-ols-as-geometry-over-inner-product-spaces-from-linear-estimation-to-curved-structures" class="level1">
-<h1>GMM and OLS as Geometry over Inner Product Spaces: From Linear Estimation to Curved Structures</h1>
-<p>This document is designed as an in-depth seminar material to explain the structural difference between <strong>Ordinary Least Squares (OLS)</strong> and the <strong>Generalized Method of Moments (GMM)</strong> from a geometric and mathematical standpoint, emphasizing their foundations in inner product spaces, with an analogy to <strong>Einstein’s Field Equations</strong> in general relativity.</p>
 <section id="ols-as-orthogonal-projection-in-euclidean-space" class="level2">
 <h2 class="anchored" data-anchor-id="ols-as-orthogonal-projection-in-euclidean-space">1. OLS as Orthogonal Projection in Euclidean Space</h2>
 <p>OLS solves the following problem:</p>
@@ -623,7 +617,7 @@ That is, the reliability of observations decreases toward the right end of the d
 <h4 class="anchored" data-anchor-id="interpretation">Interpretation</h4>
 <p>Even though both methods fit a linear model, they differ fundamentally in the <strong>geometry of projection</strong>: - <strong>OLS</strong> projects onto the column space of <span class="math inline">\(X\)</span> using the <strong>standard Euclidean inner product</strong>. - <strong>GLS</strong> projects in a space where the residuals are measured using a <strong>Mahalanobis-type norm</strong>, effectively reshaping the loss geometry.</p>
 <p>This difference becomes visually striking when we compare their fitted lines on heteroskedastic data — OLS follows the average trend, while GLS emphasizes the cleaner data and suppresses the noisy part.</p>
-<div id="65828e81" class="cell" data-execution_count="1">
+<div id="92d0329a" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -698,19 +692,19 @@ That is, the reliability of observations decreases toward the right end of the d
 <tbody>
 <tr class="odd">
 <td><strong>OLS (Unnormalized)</strong></td>
-<td>( (y - X)^(y - X) )</td>
+<td><span class="math inline">\((y - X\beta)^\top (y - X\beta)\)</span></td>
 <td>Euclidean norm</td>
-<td>Ellipsoidal (if ( X^X I ))</td>
+<td>Ellipsoidal (if <span class="math inline">\(X^\top X \neq I\)</span>)</td>
 </tr>
 <tr class="even">
 <td><strong>OLS (Normalized)</strong></td>
-<td>( (- )<sup>(X</sup>X)^{-1} (- ) )</td>
+<td><span class="math inline">\((\beta - \hat{\beta})^\top (X^\top X)^{-1} (\beta - \hat{\beta})\)</span></td>
 <td>Mahalanobis norm</td>
-<td><strong>Spherical</strong></td>
+<td>Spherical</td>
 </tr>
 <tr class="odd">
 <td><strong>GLS</strong></td>
-<td>( (y - X)^W (y - X) )</td>
+<td><span class="math inline">\((y - X\beta)^\top W (y - X\beta)\)</span></td>
 <td>Mahalanobis norm on residuals</td>
 <td>Ellipsoidal</td>
 </tr>
@@ -720,9 +714,9 @@ That is, the reliability of observations decreases toward the right end of the d
 <ul>
 <li>Although the GLS objective has the same mathematical form as GMM, its geometry is defined over the <strong>residual space</strong>, not over the space of moment conditions.<br>
 </li>
-<li>The weighting matrix ( W ) in GLS is typically ( ^{-1} ), the inverse of the error covariance matrix.</li>
+<li>The weighting matrix <span class="math inline">\(W\)</span> in GLS is typically <span class="math inline">\(\Sigma^{-1}\)</span>, the inverse of the error covariance matrix.</li>
 </ul>
-<div id="56f58ac8" class="cell" data-execution_count="2">
+<div id="d7dc8613" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ===============================================</span></span>
@@ -813,7 +807,6 @@ That is, the reliability of observations decreases toward the right end of the d
 </div>
 
 
-</section>
 </section>
 </section>
 
