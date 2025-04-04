@@ -273,7 +273,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./4_3_ff_compare.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">03 Size-Momentum Benchmark</span></a>
+ <span class="menu-text">03 Size Benchmark</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -381,7 +381,7 @@ window.Quarto = {
 </header>
 
 
-<div id="9701daa9" class="cell" data-execution_count="1">
+<div id="ca32fe91" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
@@ -444,57 +444,62 @@ To quantify downside risk, we use the Omega ratio, which captures the full shape
 <span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    eta<span class="op">=</span><span class="dv">3</span>,</span>
 <span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    p<span class="op">=</span><span class="fl">0.01</span></span>
 <span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div id="0360f40c" class="cell" data-execution_count="2">
+<div id="ddc12106" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Out-of-sample Investment</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 10 years in pre-2010 from 2000-01</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 10 years in post-2010 from 2004-01</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tbtf</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>results_pre <span class="op">=</span> tbtf.backtest_pipeline(</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    crsp<span class="op">=</span>crsp,</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    in_end<span class="op">=</span><span class="st">'1999-12-31'</span>,</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    out_end<span class="op">=</span><span class="st">'2009-12-31'</span>,</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    in_sample_months<span class="op">=</span><span class="dv">36</span>,</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    rebalance_freq<span class="op">=</span><span class="st">'3M'</span>,</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    weighting_method<span class="op">=</span><span class="st">'exponential'</span>,</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    top_n<span class="op">=</span><span class="dv">10</span>,</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    state<span class="op">=</span><span class="dv">10</span>,</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    eta<span class="op">=</span><span class="dv">3</span>,</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    p<span class="op">=</span><span class="fl">0.01</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>results_post <span class="op">=</span> tbtf.backtest_pipeline(</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    crsp<span class="op">=</span>crsp,</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    in_end<span class="op">=</span><span class="st">'2013-12-31'</span>,</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    out_end<span class="op">=</span><span class="st">'2023-12-31'</span>,</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    in_sample_months<span class="op">=</span><span class="dv">36</span>,</span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    rebalance_freq<span class="op">=</span><span class="st">'3M'</span>,</span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    weighting_method<span class="op">=</span><span class="st">'exponential'</span>,</span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    top_n<span class="op">=</span><span class="dv">10</span>,</span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    state<span class="op">=</span><span class="dv">10</span>,</span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    eta<span class="op">=</span><span class="dv">3</span>,</span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    p<span class="op">=</span><span class="fl">0.01</span></span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="co"># TBTF returns in the out-of-sample</span></span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>tbtf_returns_pre2010 <span class="op">=</span> results_pre[<span class="st">'returns'</span>].set_index(<span class="st">'date'</span>)[<span class="st">'portfolio_return'</span>]</span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>tbtf_returns_post2010 <span class="op">=</span> results_post[<span class="st">'returns'</span>].set_index(<span class="st">'date'</span>)[<span class="st">'portfolio_return'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 현재 경로 기준으로 상위 디렉토리로 경로 추가</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>sys.path.append(os.path.abspath(<span class="st">'../..'</span>))</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tbtf</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>results_pre <span class="op">=</span> tbtf.backtest_pipeline(</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    crsp<span class="op">=</span>crsp,</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    in_end<span class="op">=</span><span class="st">'1999-12-31'</span>,</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    out_end<span class="op">=</span><span class="st">'2009-12-31'</span>,</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    in_sample_months<span class="op">=</span><span class="dv">36</span>,</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    rebalance_freq<span class="op">=</span><span class="st">'3M'</span>,</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    weighting_method<span class="op">=</span><span class="st">'exponential'</span>,</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    top_n<span class="op">=</span><span class="dv">10</span>,</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    state<span class="op">=</span><span class="dv">10</span>,</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    eta<span class="op">=</span><span class="dv">3</span>,</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    p<span class="op">=</span><span class="fl">0.01</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>results_post <span class="op">=</span> tbtf.backtest_pipeline(</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>    crsp<span class="op">=</span>crsp,</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    in_end<span class="op">=</span><span class="st">'2013-12-31'</span>,</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    out_end<span class="op">=</span><span class="st">'2023-12-31'</span>,</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    in_sample_months<span class="op">=</span><span class="dv">36</span>,</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    rebalance_freq<span class="op">=</span><span class="st">'3M'</span>,</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>    weighting_method<span class="op">=</span><span class="st">'exponential'</span>,</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>    top_n<span class="op">=</span><span class="dv">10</span>,</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>    state<span class="op">=</span><span class="dv">10</span>,</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>    eta<span class="op">=</span><span class="dv">3</span>,</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>    p<span class="op">=</span><span class="fl">0.01</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="co"># TBTF returns in the out-of-sample</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>tbtf_returns_pre2010 <span class="op">=</span> results_pre[<span class="st">'returns'</span>].set_index(<span class="st">'date'</span>)[<span class="st">'portfolio_return'</span>]</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>tbtf_returns_post2010 <span class="op">=</span> results_post[<span class="st">'returns'</span>].set_index(<span class="st">'date'</span>)[<span class="st">'portfolio_return'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[START] backtest_pipeline 호출됨
-[INFO] In-sample: 1996-12-31 00:00:00 to 2009-12-31 00:00:00
-[INFO] Out-of-sample: 2000-01-31 00:00:00 to 2009-12-31 00:00:00
+[INFO] Total sample: 1996-12-31 00:00:00 to 2009-12-31 00:00:00
+[INFO] Total Out-of-sample: 2000-01-31 00:00:00 to 2009-12-31 00:00:00
 [DONE] Total returns recorded: 39
 [START] backtest_pipeline 호출됨
-[INFO] In-sample: 2010-12-31 00:00:00 to 2023-12-31 00:00:00
-[INFO] Out-of-sample: 2014-01-31 00:00:00 to 2023-12-31 00:00:00
+[INFO] Total sample: 2010-12-31 00:00:00 to 2023-12-31 00:00:00
+[INFO] Total Out-of-sample: 2014-01-31 00:00:00 to 2023-12-31 00:00:00
 [DONE] Total returns recorded: 39</code></pre>
 </div>
 </div>
-<div id="329aaaa9" class="cell" data-execution_count="3">
+<div id="8f9b893d" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>ff3 <span class="op">=</span> pd.read_sql_query(</span>
@@ -527,7 +532,7 @@ To quantify downside risk, we use the Omega ratio, which captures the full shape
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>tbtf.plot_return_distribution(tbtf_returns_pre2010, market_returns_pre2010, period_label<span class="op">=</span><span class="st">'pre-2010'</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>tbtf.plot_return_distribution(tbtf_returns_post2010, market_returns_post2010, period_label<span class="op">=</span><span class="st">'post-2010'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div id="7c6c45fd" class="cell quarto-layout-panel" data-layout-ncol="2" data-execution_count="4">
+<div id="ba4022db" class="cell quarto-layout-panel" data-execution_count="4" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
@@ -553,7 +558,7 @@ To quantify downside risk, we use the Omega ratio, which captures the full shape
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>tbtf.plot_price_level(tbtf_returns_pre2010, market_returns_pre2010, start_date<span class="op">=</span><span class="st">'2000-01-01'</span>, end_date<span class="op">=</span><span class="st">'2009-12-31'</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>tbtf.plot_price_level(tbtf_returns_post2010, market_returns_post2010, start_date<span class="op">=</span><span class="st">'2004-01-01'</span>, end_date<span class="op">=</span><span class="st">'2023-12-31'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div id="b6adaa0e" class="cell quarto-layout-panel" data-layout-ncol="2" data-execution_count="5">
+<div id="bd0f1e4d" class="cell quarto-layout-panel" data-execution_count="5" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
@@ -568,7 +573,7 @@ To quantify downside risk, we use the Omega ratio, which captures the full shape
 </div>
 </div>
 </div>
-<div id="26d3b036" class="cell" data-execution_count="6">
+<div id="5e3fd7a4" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>pre_index <span class="op">=</span> pd.read_sql_query(</span>
@@ -594,7 +599,7 @@ To quantify downside risk, we use the Omega ratio, which captures the full shape
 <section id="other-benchmark-comparison" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="other-benchmark-comparison"><span class="header-section-number">3</span> Other Benchmark Comparison</h2>
 <p>To further contextualize the performance of the TBTF strategy, we compare it against a wide set of benchmark portfolios, including major U.S. equity indices and Fama-French style-sorted portfolios. Each comparison is presented as a paired figure showing the <strong>monthly return distribution (left)</strong> and the <strong>cumulative price level evolution (right)</strong>.</p>
-<div id="6e142c19" class="cell" data-execution_count="7">
+<div id="2b6c7265" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>tbtf.plot_benchmark_comparison(tbtf_returns_pre2010, pre_index, period_label<span class="op">=</span><span class="st">'pre-2010'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -615,7 +620,7 @@ To quantify downside risk, we use the Omega ratio, which captures the full shape
 </div>
 </div>
 </div>
-<div id="16235886" class="cell" data-execution_count="8">
+<div id="3f3e826a" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>tbtf.plot_benchmark_comparison(tbtf_returns_post2010, post_index, period_label<span class="op">=</span><span class="st">'post-2010'</span>)</span>
@@ -745,7 +750,7 @@ To quantify downside risk, we use the Omega ratio, which captures the full shape
 <p>Tables below report the performance metrics for selected portfolios, sorted by <strong>Expected CRRA Utility</strong>.</p>
 <section id="pre-2010-period" class="level3" data-number="4.1">
 <h3 data-number="4.1" class="anchored" data-anchor-id="pre-2010-period"><span class="header-section-number">4.1</span> Pre-2010 Period</h3>
-<div id="152a9484" class="cell" data-execution_count="9">
+<div id="670128e1" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>returns_dict_pre2010 <span class="op">=</span> {</span>
@@ -853,7 +858,7 @@ To quantify downside risk, we use the Omega ratio, which captures the full shape
 </section>
 <section id="interpretation-post-2010-period" class="level3" data-number="4.2">
 <h3 data-number="4.2" class="anchored" data-anchor-id="interpretation-post-2010-period"><span class="header-section-number">4.2</span> Interpretation: Post-2010 Period</h3>
-<div id="3502baeb" class="cell" data-execution_count="10">
+<div id="14792d51" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>returns_dict_post2010 <span class="op">=</span> {</span>
@@ -1003,7 +1008,7 @@ To quantify downside risk, we use the Omega ratio, which captures the full shape
 <blockquote class="blockquote">
 <p>While TBTF suffered deeper losses than ^DJI during the 2008 crisis, its post-2010 drawdown profile proved significantly more resilient than traditional style portfolios and benchmark ETFs, with a rapid recovery trajectory by 2023.</p>
 </blockquote>
-<div id="24f51360" class="cell" data-execution_count="11">
+<div id="0e8121ee" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -1065,7 +1070,7 @@ To quantify downside risk, we use the Omega ratio, which captures the full shape
 </div>
 <section id="pre-2010-period-20002009" class="level4" data-number="5.1.1">
 <h4 data-number="5.1.1" class="anchored" data-anchor-id="pre-2010-period-20002009"><span class="header-section-number">5.1.1</span> Pre-2010 Period (2000–2009)</h4>
-<div id="b14beb0f" class="cell" data-execution_count="12">
+<div id="de2cd4eb" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>plot_drawdown(results_pre[<span class="st">'returns'</span>], pre_index, title<span class="op">=</span><span class="st">"Drawdown Profile (Pre-2010)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1082,12 +1087,11 @@ To quantify downside risk, we use the Omega ratio, which captures the full shape
 </section>
 <section id="post-2010-period-20142023" class="level4" data-number="5.1.2">
 <h4 data-number="5.1.2" class="anchored" data-anchor-id="post-2010-period-20142023"><span class="header-section-number">5.1.2</span> Post-2010 Period (2014–2023)</h4>
-<div id="e9a8acf0" class="cell" data-execution_count="13">
+<div id="37c7b89e" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>plot_drawdown(results_pre[<span class="st">'returns'</span>], pre_index, title<span class="op">=</span><span class="st">"Drawdown Profile (Pre-2010)"</span>)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>plot_drawdown(results_post[<span class="st">'returns'</span>], post_index, title<span class="op">=</span><span class="st">"Drawdown Profile (Post-2010)"</span>)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>plot_drawdown(results_post[<span class="st">'returns'</span>], post_ff, title<span class="op">=</span><span class="st">"Drawdown Profile (Post-2010)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>plot_drawdown(results_post[<span class="st">'returns'</span>], post_index, title<span class="op">=</span><span class="st">"Drawdown Profile (Post-2010)"</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>plot_drawdown(results_post[<span class="st">'returns'</span>], post_ff, title<span class="op">=</span><span class="st">"Drawdown Profile (Post-2010)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -1103,13 +1107,6 @@ To quantify downside risk, we use the Omega ratio, which captures the full shape
 </figure>
 </div>
 </div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="4_6_performance_files/figure-html/cell-14-output-3.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
 </div>
 <p>In contrast, during the second decade, TBTF demonstrated superior drawdown performance relative to all benchmark ETFs, particularly until late 2021. The strategy maintained shallow drawdowns through several volatility cycles, including the COVID-19 shock and inflation-driven rate adjustments, reflecting its structural bias toward persistent market leaders.</p>
 <p>However, in late 2021, TBTF experienced a notable drawdown phase, closely mirrored by the QQQ, indicating common exposure to high-growth tech stocks. Despite this synchronized decline, both TBTF and QQQ rebounded strongly by 2023, surpassing prior peaks.</p>
@@ -1118,7 +1115,7 @@ To quantify downside risk, we use the Omega ratio, which captures the full shape
 </section>
 <section id="tbtf-turnover" class="level3" data-number="5.2">
 <h3 data-number="5.2" class="anchored" data-anchor-id="tbtf-turnover"><span class="header-section-number">5.2</span> TBTF Turnover</h3>
-<div id="d7a40654" class="cell" data-execution_count="14">
+<div id="5174a023" class="cell" data-execution_count="14">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -1146,7 +1143,7 @@ To quantify downside risk, we use the Omega ratio, which captures the full shape
 <span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div id="b2e9a9f2" class="cell" data-execution_count="15">
+<div id="30c79e06" class="cell" data-execution_count="15">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pre-2010 turnover plot</span></span>

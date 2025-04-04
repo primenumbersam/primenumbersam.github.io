@@ -47,15 +47,16 @@ A Markovian state transition framework is imposed to capture the temporal dynami
 
 ## Asset Weighting Schemes
 
-We evaluate three portfolio weighting methods:
+We evaluate several portfolio weighting methods:
 
 - **TBTF (Convex Structural Weighting)**:  
-  Capital weights are determined by in-sample estimates of the convex relationship between market-cap rank and capital share. Two specifications are considered:
+  Capital weights are determined by in-sample estimates of the convex relationship between market-cap rank and capital share. For example, specifications can be :
 
   - *Quadratic Form*: $w_i \propto \alpha + \beta r_i + \gamma r_i^2$
   - *Exponential Form*: $w_i \propto \alpha e^{\beta r_i}$
+  - see @sec-appendix for more
   
-  The exponential form better fits observed capital share concentration and ensures structural monotonicity.
+  Note that the exponential form ensures structural monotonicity.
 
 - **Value-Weighted (VW)**:  
   Proportional to each firm’s market capitalization.
@@ -79,7 +80,7 @@ import tbtf
 
 ### Empirical Fit of Capital Share Functions
 
-To empirically validate the structural weighting functions, we fit both quadratic and exponential models to the in-sample relationship between rank and capital share. The following plots show the cross-sectional fitting results based on a representative rebalance date.
+To empirically validate the structural weighting functions, we fit several models to the in-sample relationship between rank and capital share. The following plots show the cross-sectional fitting results based on a representative rebalance date.
 
 
 ```{python}
@@ -95,11 +96,17 @@ df_in_sample, _ = tbtf.split_in_out_sample(crsp, in_end, in_sample_months)
 ```{python}
 #| fig-cap: "Quadratic vs. Exponential Fit at 2009-12-31"
 fig, axes = plt.subplots(1, 2, figsize=(12, 5))
-
 tbtf.plot_quadratic_fit(df_in_sample, n=10, state=10, ax=axes[0])
 tbtf.plot_exponential_fit(df_in_sample, n=10, state=10, ax=axes[1])
-
 fig.suptitle(f"Fitted Capital Share Functions at {in_end}")
+plt.tight_layout()
+
+fig, axes = plt.subplots(2, 2, figsize=(14, 10))
+tbtf.plot_mean_fit(df_in_sample, n=10, state=10, ax=axes[0, 0])
+tbtf.plot_loess_fit(df_in_sample, n=10, state=10, ax=axes[0, 1])
+tbtf.plot_bayes_fit(df_in_sample, n=10, state=10, ax=axes[1, 0])
+tbtf.plot_spline_fit(df_in_sample, n=10, state=10, ax=axes[1, 1])
+fig.suptitle(f"Fitted Capital Share Functions at {in_end}", fontsize=16)
 plt.tight_layout()
 ```
 
@@ -116,17 +123,19 @@ df_in_sample, _ = tbtf.split_in_out_sample(crsp, in_end, in_sample_months)
 ```{python}
 #| fig-cap: "Quadratic vs. Exponential Fit at 2023-12-31"
 fig, axes = plt.subplots(1, 2, figsize=(12, 5))
-
 tbtf.plot_quadratic_fit(df_in_sample, n=10, state=10, ax=axes[0])
 tbtf.plot_exponential_fit(df_in_sample, n=10, state=10, ax=axes[1])
-
 fig.suptitle(f"Fitted Capital Share Functions at {in_end}")
 plt.tight_layout()
+
+fig, axes = plt.subplots(2, 2, figsize=(14, 10))
+tbtf.plot_mean_fit(df_in_sample, n=10, state=10, ax=axes[0, 0])
+tbtf.plot_loess_fit(df_in_sample, n=10, state=10, ax=axes[0, 1])
+tbtf.plot_bayes_fit(df_in_sample, n=10, state=10, ax=axes[1, 0])
+tbtf.plot_spline_fit(df_in_sample, n=10, state=10, ax=axes[1, 1])
+fig.suptitle(f"Fitted Capital Share Functions at {in_end}", fontsize=16)
+plt.tight_layout()
 ```
-
-These cross-sectional plots confirm the superiority of the exponential fit in capturing the accelerating concentration of capital among top-ranked firms. The difference is especially pronounced in the post-2010 sample, reflecting a structural shift in capital dynamics during the QE era.
-
-The exponential fit exhibits stronger monotonicity and structural convexity, particularly in the top-ranked firms, supporting its use in the TBTF weighting scheme.
 
 
 ## Rebalancing Frequency
@@ -161,7 +170,7 @@ The TBTF strategy is not merely a rule-based selection method. It reflects a str
 This framework reconceptualizes the role of financial assets from carriers of risk to vehicles of structural dominance, and evaluates portfolio construction in light of this altered paradigm.
 
 
-## Appendix: TBTF Strategy Pipeline {.appendix}
+## TBTF Strategy Pipeline
 
 This appendix section outlines the modular structure of the TBTF portfolio strategy, from input specification to out-of-sample return generation and performance evaluation. The pipeline is designed to be flexible across different weighting schemes, rebalance frequencies, and strategy parameters.
 
@@ -271,7 +280,7 @@ Using out-of-sample return series, compute:
 | `turnover_df` | Time series of turnover at each rebalance point |
 | `metrics_dict` | Dictionary of strategy performance metrics |
 
-### Module Lits
+### Module Lists
 
 ```python
 #| label: TBTF Strategy Full Module
@@ -363,3 +372,124 @@ def plot_exponential_fit(df_in_sample, n=10, state=10):
 
 ```
 
+
+## Appendix: Alternative Fitting Methods for Capital Share Functions {#sec-appendix}
+
+To assess the robustness of nonparametric capital share estimation, we compare four smoothing methods, organized in paired subplots as follows:
+
+| **Subplot Left** | **Subplot Right** | **Objective**                                      |
+|------------------|-------------------|----------------------------------------------------|
+| Mean Fit         | LOESS Fit         | Comparison of nonparametric, empirical smoothing   |
+| Bayesian Fit     | Spline Fit        | Comparison of statistically regularized smoothers  |
+
+We begin with the first pair: **mean-based fitting** and **LOESS fitting**.
+
+
+### Mean-Based Estimation (1st Moment per Rank)
+
+**Definition**  
+For each rank $r \in \{1,\dots,10\}$, we estimate the average capital share over the in-sample period:
+$$
+\hat{w}_r = \frac{1}{T} \sum_{t=1}^{T} w_{r,t}
+$$
+
+**Statistical Structure**
+- A fully nonparametric approach, treating each rank as a discrete category.
+- Equivalent to a **fixed effect model without regressors**, estimating the group-wise sample mean.
+
+**Theoretical Interpretation**
+- This is a form of **empirical histogram fitting**, relying only on the sample mean of observed capital shares.
+- The method does not require distributional assumptions and treats the sample average as representative, regardless of time variation or non-stationarity.
+
+**Advantages**
+- Simple, intuitive, and computationally efficient.
+- Highly flexible due to the absence of structural assumptions.
+
+**Limitations**
+- Very sensitive to variance and outliers in the capital share distribution at each rank.
+- No extrapolation or smoothing is applied across ranks.
+
+### LOESS (Locally Weighted Scatterplot Smoothing)
+
+**Definition**  
+Capital share is estimated via local regression, using a kernel-weighted average of nearby observations:
+$$
+\hat{w}_r = \sum_{j} K\left(\frac{r - j}{h}\right) w_j
+$$
+- $K(\cdot)$ is a kernel function (e.g., tricube); $h$ controls the bandwidth and smoothness.
+
+**Statistical Structure**
+- A classic **nonparametric regression** method.
+- LOESS typically uses local polynomial regressions (order 0, 1, or 2) for smoothing.
+
+**Theoretical Interpretation**
+- Constructs the overall rank–capshare curve as a composition of **local approximations**, rather than a single global function.
+- Highly sensitive to the bias-variance tradeoff depending on bandwidth $h$.
+
+**Advantages**
+- Effectively captures local irregularities in the rank–capshare mapping.
+- Very flexible, with no functional form assumptions.
+
+**Limitations**
+- Poor extrapolation performance at boundary ranks (e.g., rank 1 and 10).
+- Bandwidth selection has a significant effect on smoothing behavior.
+
+
+### Bayesian Smoothing (Hierarchical Empirical Bayes)
+
+**Definition**  
+Each rank-specific capital share $w_r$ is modeled as a noisy observation from a latent distribution:
+$$
+w_r \sim \mathcal{N}(\theta_r, \sigma_r^2), \quad \theta_r \sim \mathcal{N}(\mu, \tau^2)
+$$
+
+**Statistical Structure**
+- A **hierarchical Bayesian model** that allows ranks to share strength through a common prior.
+- In the empirical Bayes setting, the hyperparameters $(\mu, \tau^2)$ are estimated from data.
+
+**Theoretical Interpretation**
+- Stabilizes estimates for ranks with high variance by **shrinking** them toward the global prior.
+- Ranks near the center are barely adjusted, while outlier ranks are pulled closer to the mean.
+
+**Advantages**
+- Produces stable estimates even under noisy or volatile capital share data.
+- Allows for uncertainty quantification via posterior distributions.
+
+**Limitations**
+- Sensitive to prior or hyperparameter specification.
+- Implementation can be more complex than standard nonparametric methods.
+
+
+### Spline Smoothing (Piecewise Polynomial with Smooth Joints)
+
+**Definition**  
+The rank–capshare function is approximated as a linear combination of spline basis functions:
+$$
+\hat{w}_r = \sum_{k} \beta_k B_k(r)
+$$
+- $B_k(r)$ are spline basis functions (e.g., B-splines or natural splines).
+
+**Statistical Structure**
+- A **semi-parametric regression** approach.
+- The model is similar to linear regression but extended via basis transformation.
+
+**Theoretical Interpretation**
+- Balances **global fitting** and **local flexibility** by using piecewise polynomial segments with smooth joints.
+- The number and placement of knots (and the degree of polynomials) determine flexibility.
+
+**Advantages**
+- Produces smooth and differentiable fits across the rank domain.
+- Extrapolation is partially feasible, especially when using natural splines.
+
+**Limitations**
+- Performance is highly dependent on the selection of knots.
+- Can overfit if too many basis functions are used.
+
+### Summary Table
+
+| Method        | Functional Form           | Statistical Interpretation        | Flexibility | Stability | Interpretability | Complexity |
+|---------------|---------------------------|-----------------------------------|-------------|-----------|------------------|------------|
+| Mean-Based    | Stepwise function          | Group-wise Sample Mean            | Low         | Low       | High             | Very Low   |
+| LOESS         | Local smoothing            | Nonparametric Local Regression    | Very High   | Medium    | Medium           | Moderate   |
+| Bayesian      | Global shrinkage estimator | Hierarchical Bayesian Model       | Medium      | High      | Medium           | Moderate–High |
+| Spline        | Smooth piecewise polynomial| Semi-parametric Regression        | High        | Medium    | Medium           | Moderate   |

@@ -321,16 +321,34 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#strategy-design-assumptions-and-market-philosophy" id="toc-strategy-design-assumptions-and-market-philosophy" class="nav-link active" data-scroll-target="#strategy-design-assumptions-and-market-philosophy"><span class="header-section-number">1</span> Strategy: Design, Assumptions, and Market Philosophy</a>
+  <li><a href="#motivation-and-market-philosophy" id="toc-motivation-and-market-philosophy" class="nav-link active" data-scroll-target="#motivation-and-market-philosophy"><span class="header-section-number">1</span> Motivation and Market Philosophy</a></li>
+  <li><a href="#portfolio-selection-rule" id="toc-portfolio-selection-rule" class="nav-link" data-scroll-target="#portfolio-selection-rule"><span class="header-section-number">2</span> Portfolio Selection Rule</a>
   <ul class="collapse">
-  <li><a href="#motivation-and-theoretical-background" id="toc-motivation-and-theoretical-background" class="nav-link" data-scroll-target="#motivation-and-theoretical-background"><span class="header-section-number">1.1</span> Motivation and Theoretical Background</a></li>
-  <li><a href="#portfolio-selection-rule" id="toc-portfolio-selection-rule" class="nav-link" data-scroll-target="#portfolio-selection-rule"><span class="header-section-number">1.2</span> Portfolio Selection Rule</a></li>
-  <li><a href="#asset-weighting-schemes" id="toc-asset-weighting-schemes" class="nav-link" data-scroll-target="#asset-weighting-schemes"><span class="header-section-number">1.3</span> Asset Weighting Schemes</a></li>
-  <li><a href="#rebalancing-frequency" id="toc-rebalancing-frequency" class="nav-link" data-scroll-target="#rebalancing-frequency"><span class="header-section-number">1.4</span> Rebalancing Frequency</a></li>
-  <li><a href="#benchmark-portfolios" id="toc-benchmark-portfolios" class="nav-link" data-scroll-target="#benchmark-portfolios"><span class="header-section-number">1.5</span> Benchmark Portfolios</a></li>
-  <li><a href="#strategic-rationale" id="toc-strategic-rationale" class="nav-link" data-scroll-target="#strategic-rationale"><span class="header-section-number">1.6</span> Strategic Rationale</a></li>
+  <li><a href="#asset-universe" id="toc-asset-universe" class="nav-link" data-scroll-target="#asset-universe"><span class="header-section-number">2.1</span> Asset Universe</a></li>
+  <li><a href="#ranking-and-state-formation" id="toc-ranking-and-state-formation" class="nav-link" data-scroll-target="#ranking-and-state-formation"><span class="header-section-number">2.2</span> Ranking and State Formation</a></li>
   </ul></li>
-  
+  <li><a href="#asset-weighting-schemes" id="toc-asset-weighting-schemes" class="nav-link" data-scroll-target="#asset-weighting-schemes"><span class="header-section-number">3</span> Asset Weighting Schemes</a>
+  <ul class="collapse">
+  <li><a href="#empirical-fit-of-capital-share-functions" id="toc-empirical-fit-of-capital-share-functions" class="nav-link" data-scroll-target="#empirical-fit-of-capital-share-functions"><span class="header-section-number">3.1</span> Empirical Fit of Capital Share Functions</a></li>
+  </ul></li>
+  <li><a href="#rebalancing-frequency" id="toc-rebalancing-frequency" class="nav-link" data-scroll-target="#rebalancing-frequency"><span class="header-section-number">4</span> Rebalancing Frequency</a></li>
+  <li><a href="#benchmark-portfolios" id="toc-benchmark-portfolios" class="nav-link" data-scroll-target="#benchmark-portfolios"><span class="header-section-number">5</span> Benchmark Portfolios</a></li>
+  <li><a href="#strategic-rationale" id="toc-strategic-rationale" class="nav-link" data-scroll-target="#strategic-rationale"><span class="header-section-number">6</span> Strategic Rationale</a></li>
+  <li><a href="#tbtf-strategy-pipeline" id="toc-tbtf-strategy-pipeline" class="nav-link" data-scroll-target="#tbtf-strategy-pipeline"><span class="header-section-number">7</span> TBTF Strategy Pipeline</a>
+  <ul class="collapse">
+  <li><a href="#inputs-arguments" id="toc-inputs-arguments" class="nav-link" data-scroll-target="#inputs-arguments"><span class="header-section-number">7.1</span> Inputs (Arguments)</a></li>
+  <li><a href="#strategy-pipeline-pseudo-code-logic" id="toc-strategy-pipeline-pseudo-code-logic" class="nav-link" data-scroll-target="#strategy-pipeline-pseudo-code-logic"><span class="header-section-number">7.2</span> Strategy Pipeline (Pseudo-code Logic)</a></li>
+  <li><a href="#outputs" id="toc-outputs" class="nav-link" data-scroll-target="#outputs"><span class="header-section-number">7.3</span> Outputs</a></li>
+  <li><a href="#module-lists" id="toc-module-lists" class="nav-link" data-scroll-target="#module-lists"><span class="header-section-number">7.4</span> Module Lists</a></li>
+  </ul></li>
+  <li><a href="#sec-appendix" id="toc-sec-appendix" class="nav-link" data-scroll-target="#sec-appendix"><span class="header-section-number">8</span> Appendix: Alternative Fitting Methods for Capital Share Functions</a>
+  <ul class="collapse">
+  <li><a href="#mean-based-estimation-1st-moment-per-rank" id="toc-mean-based-estimation-1st-moment-per-rank" class="nav-link" data-scroll-target="#mean-based-estimation-1st-moment-per-rank"><span class="header-section-number">8.1</span> Mean-Based Estimation (1st Moment per Rank)</a></li>
+  <li><a href="#loess-locally-weighted-scatterplot-smoothing" id="toc-loess-locally-weighted-scatterplot-smoothing" class="nav-link" data-scroll-target="#loess-locally-weighted-scatterplot-smoothing"><span class="header-section-number">8.2</span> LOESS (Locally Weighted Scatterplot Smoothing)</a></li>
+  <li><a href="#bayesian-smoothing-hierarchical-empirical-bayes" id="toc-bayesian-smoothing-hierarchical-empirical-bayes" class="nav-link" data-scroll-target="#bayesian-smoothing-hierarchical-empirical-bayes"><span class="header-section-number">8.3</span> Bayesian Smoothing (Hierarchical Empirical Bayes)</a></li>
+  <li><a href="#spline-smoothing-piecewise-polynomial-with-smooth-joints" id="toc-spline-smoothing-piecewise-polynomial-with-smooth-joints" class="nav-link" data-scroll-target="#spline-smoothing-piecewise-polynomial-with-smooth-joints"><span class="header-section-number">8.4</span> Spline Smoothing (Piecewise Polynomial with Smooth Joints)</a></li>
+  <li><a href="#summary-table" id="toc-summary-table" class="nav-link" data-scroll-target="#summary-table"><span class="header-section-number">8.5</span> Summary Table</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -368,26 +386,24 @@ window.Quarto = {
 </header>
 
 
-<section id="strategy-design-assumptions-and-market-philosophy" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="strategy-design-assumptions-and-market-philosophy"><span class="header-section-number">1</span> Strategy: Design, Assumptions, and Market Philosophy</h2>
-<section id="motivation-and-theoretical-background" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="motivation-and-theoretical-background"><span class="header-section-number">1.1</span> Motivation and Theoretical Background</h3>
+<section id="motivation-and-market-philosophy" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="motivation-and-market-philosophy"><span class="header-section-number">1</span> Motivation and Market Philosophy</h2>
 <p>Traditional asset pricing frameworks rest on no-arbitrage principles and risk-return tradeoffs, assuming that all assets exist to offer compensation for exposure to priced risks. Under such models, individual asset returns are interpreted as linear functions of sensitivities to systematic risk factors.</p>
 <p>In contrast, the TBTF (Too Big To Fail) strategy is motivated by a fundamentally different view of financial markets under late-stage capitalism. We argue that the secondary stock market reflects persistent dominance by a small subset of firms whose market power is self-reinforcing. These firms attract new capital not due to risk-efficiency, but due to narrative-driven legitimacy and path-dependent concentration of initial endowment.</p>
 <p>This motivates a strategy grounded not in diversification or risk exposure, but in capital persistence, market lock-in, and capital hierarchy.</p>
 </section>
-<section id="portfolio-selection-rule" class="level3" data-number="1.2">
-<h3 data-number="1.2" class="anchored" data-anchor-id="portfolio-selection-rule"><span class="header-section-number">1.2</span> Portfolio Selection Rule</h3>
+<section id="portfolio-selection-rule" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="portfolio-selection-rule"><span class="header-section-number">2</span> Portfolio Selection Rule</h2>
 <p>The TBTF strategy is constructed under When-What–How framework:</p>
 <ul>
 <li><strong>When</strong>: look-back window (in-sample estimation) &amp; look-forward window (rebalancing frequency)</li>
 <li><strong>What</strong>: asset universe (e.g.&nbsp;all US-listed stocks) &amp; selection rule (e.g.&nbsp;top-n market cap)</li>
 <li><strong>How</strong>: asset weighting scheme (e.g.&nbsp;convex capital concentration fit)</li>
 </ul>
-<section id="asset-universe" class="level4" data-number="1.2.1">
-<h4 data-number="1.2.1" class="anchored" data-anchor-id="asset-universe"><span class="header-section-number">1.2.1</span> Asset Universe</h4>
+<section id="asset-universe" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="asset-universe"><span class="header-section-number">2.1</span> Asset Universe</h3>
 <p>Our strategy operates on the full set of U.S. listed common stocks traded on NYSE, NASDAQ, and AMEX. Stocks with non-positive market capitalization are excluded to avoid bankrupt or illiquid firms.</p>
-<div id="1d956410" class="cell" data-execution_count="1">
+<div id="4f4cc015" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -403,46 +419,46 @@ window.Quarto = {
 </details>
 </div>
 </section>
-<section id="ranking-and-state-formation" class="level4" data-number="1.2.2">
-<h4 data-number="1.2.2" class="anchored" data-anchor-id="ranking-and-state-formation"><span class="header-section-number">1.2.2</span> Ranking and State Formation</h4>
+<section id="ranking-and-state-formation" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="ranking-and-state-formation"><span class="header-section-number">2.2</span> Ranking and State Formation</h3>
 <p>Each month, firms are ranked by market capitalization. These rankings define discrete capital states (percentile bins). We focus on the top-decile (state = 10), selecting the top-<span class="math inline">\(n\)</span> firms at time <span class="math inline">\(t\)</span> based on market-cap rank. The baseline is <span class="math inline">\(n=10\)</span>, with robustness checks for <span class="math inline">\(n \in \{5, 7, 10, 15, 20\}\)</span>.</p>
 <p>A Markovian state transition framework is imposed to capture the temporal dynamics of capital flow between ranked states. The top state exhibits persistent and asymmetric capital retention, supporting the capital lock-in hypothesis.</p>
 </section>
 </section>
-<section id="asset-weighting-schemes" class="level3" data-number="1.3">
-<h3 data-number="1.3" class="anchored" data-anchor-id="asset-weighting-schemes"><span class="header-section-number">1.3</span> Asset Weighting Schemes</h3>
-<p>We evaluate three portfolio weighting methods:</p>
+<section id="asset-weighting-schemes" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="asset-weighting-schemes"><span class="header-section-number">3</span> Asset Weighting Schemes</h2>
+<p>We evaluate several portfolio weighting methods:</p>
 <ul>
 <li><p><strong>TBTF (Convex Structural Weighting)</strong>:<br>
-Capital weights are determined by in-sample estimates of the convex relationship between market-cap rank and capital share. Two specifications are considered:</p>
+Capital weights are determined by in-sample estimates of the convex relationship between market-cap rank and capital share. For example, specifications can be :</p>
 <ul>
 <li><em>Quadratic Form</em>: <span class="math inline">\(w_i \propto \alpha + \beta r_i + \gamma r_i^2\)</span></li>
 <li><em>Exponential Form</em>: <span class="math inline">\(w_i \propto \alpha e^{\beta r_i}\)</span></li>
+<li>see <a href="#sec-appendix" class="quarto-xref">Section&nbsp;8</a> for more</li>
 </ul>
-<p>The exponential form better fits observed capital share concentration and ensures structural monotonicity.</p></li>
+<p>Note that the exponential form ensures structural monotonicity.</p></li>
 <li><p><strong>Value-Weighted (VW)</strong>:<br>
 Proportional to each firm’s market capitalization.</p></li>
 <li><p><strong>Equal-Weighted (EQ)</strong>:<br>
 Uniform allocation across all selected assets.</p></li>
 </ul>
-<div id="8aac1864" class="cell" data-execution_count="2">
+<div id="e02a9246" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 현재 경로 기준으로 상위 디렉토리로 경로 추가</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>sys.path.append(os.path.abspath(<span class="st">'../..'</span>))</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tbtf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 현재 경로 기준으로 상위 디렉토리로 경로 추가</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys, os</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>sys.path.append(os.path.abspath(<span class="st">'../..'</span>))</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tbtf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<section id="empirical-fit-of-capital-share-functions" class="level4" data-number="1.3.1">
-<h4 data-number="1.3.1" class="anchored" data-anchor-id="empirical-fit-of-capital-share-functions"><span class="header-section-number">1.3.1</span> Empirical Fit of Capital Share Functions</h4>
-<p>To empirically validate the structural weighting functions, we fit both quadratic and exponential models to the in-sample relationship between rank and capital share. The following plots show the cross-sectional fitting results based on a representative rebalance date.</p>
-<div id="9e00bd02" class="cell" data-execution_count="3">
+<section id="empirical-fit-of-capital-share-functions" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="empirical-fit-of-capital-share-functions"><span class="header-section-number">3.1</span> Empirical Fit of Capital Share Functions</h3>
+<p>To empirically validate the structural weighting functions, we fit several models to the in-sample relationship between rank and capital share. The following plots show the cross-sectional fitting results based on a representative rebalance date.</p>
+<div id="1a9a3cbd" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>in_end <span class="op">=</span> <span class="st">'2009-12-31'</span></span>
@@ -458,16 +474,22 @@ Uniform allocation across all selected assets.</p></li>
 Look-back period: 48 months</code></pre>
 </div>
 </div>
-<div id="25955216" class="cell" data-execution_count="4">
+<div id="268a100a" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">5</span>))</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>tbtf.plot_quadratic_fit(df_in_sample, n<span class="op">=</span><span class="dv">10</span>, state<span class="op">=</span><span class="dv">10</span>, ax<span class="op">=</span>axes[<span class="dv">0</span>])</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>tbtf.plot_exponential_fit(df_in_sample, n<span class="op">=</span><span class="dv">10</span>, state<span class="op">=</span><span class="dv">10</span>, ax<span class="op">=</span>axes[<span class="dv">1</span>])</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="ss">f"Fitted Capital Share Functions at </span><span class="sc">{</span>in_end<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>tbtf.plot_quadratic_fit(df_in_sample, n<span class="op">=</span><span class="dv">10</span>, state<span class="op">=</span><span class="dv">10</span>, ax<span class="op">=</span>axes[<span class="dv">0</span>])</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>tbtf.plot_exponential_fit(df_in_sample, n<span class="op">=</span><span class="dv">10</span>, state<span class="op">=</span><span class="dv">10</span>, ax<span class="op">=</span>axes[<span class="dv">1</span>])</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="ss">f"Fitted Capital Share Functions at </span><span class="sc">{</span>in_end<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">10</span>))</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>tbtf.plot_mean_fit(df_in_sample, n<span class="op">=</span><span class="dv">10</span>, state<span class="op">=</span><span class="dv">10</span>, ax<span class="op">=</span>axes[<span class="dv">0</span>, <span class="dv">0</span>])</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>tbtf.plot_loess_fit(df_in_sample, n<span class="op">=</span><span class="dv">10</span>, state<span class="op">=</span><span class="dv">10</span>, ax<span class="op">=</span>axes[<span class="dv">0</span>, <span class="dv">1</span>])</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>tbtf.plot_bayes_fit(df_in_sample, n<span class="op">=</span><span class="dv">10</span>, state<span class="op">=</span><span class="dv">10</span>, ax<span class="op">=</span>axes[<span class="dv">1</span>, <span class="dv">0</span>])</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>tbtf.plot_spline_fit(df_in_sample, n<span class="op">=</span><span class="dv">10</span>, state<span class="op">=</span><span class="dv">10</span>, ax<span class="op">=</span>axes[<span class="dv">1</span>, <span class="dv">1</span>])</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="ss">f"Fitted Capital Share Functions at </span><span class="sc">{</span>in_end<span class="sc">}</span><span class="ss">"</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -477,8 +499,15 @@ Look-back period: 48 months</code></pre>
 </figure>
 </div>
 </div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="4_5_strategy_files/figure-html/cell-5-output-2.png" class="img-fluid figure-img"></p>
+</figure>
 </div>
-<div id="4fab8007" class="cell" data-execution_count="5">
+</div>
+</div>
+<div id="4eb57c2c" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>in_end <span class="op">=</span> <span class="st">'2023-12-31'</span></span>
@@ -494,16 +523,22 @@ Look-back period: 48 months</code></pre>
 Look-back period: 48 months</code></pre>
 </div>
 </div>
-<div id="61e690ef" class="cell" data-execution_count="6">
+<div id="8beb50b1" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">5</span>))</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>tbtf.plot_quadratic_fit(df_in_sample, n<span class="op">=</span><span class="dv">10</span>, state<span class="op">=</span><span class="dv">10</span>, ax<span class="op">=</span>axes[<span class="dv">0</span>])</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>tbtf.plot_exponential_fit(df_in_sample, n<span class="op">=</span><span class="dv">10</span>, state<span class="op">=</span><span class="dv">10</span>, ax<span class="op">=</span>axes[<span class="dv">1</span>])</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="ss">f"Fitted Capital Share Functions at </span><span class="sc">{</span>in_end<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>tbtf.plot_quadratic_fit(df_in_sample, n<span class="op">=</span><span class="dv">10</span>, state<span class="op">=</span><span class="dv">10</span>, ax<span class="op">=</span>axes[<span class="dv">0</span>])</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>tbtf.plot_exponential_fit(df_in_sample, n<span class="op">=</span><span class="dv">10</span>, state<span class="op">=</span><span class="dv">10</span>, ax<span class="op">=</span>axes[<span class="dv">1</span>])</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="ss">f"Fitted Capital Share Functions at </span><span class="sc">{</span>in_end<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">10</span>))</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>tbtf.plot_mean_fit(df_in_sample, n<span class="op">=</span><span class="dv">10</span>, state<span class="op">=</span><span class="dv">10</span>, ax<span class="op">=</span>axes[<span class="dv">0</span>, <span class="dv">0</span>])</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>tbtf.plot_loess_fit(df_in_sample, n<span class="op">=</span><span class="dv">10</span>, state<span class="op">=</span><span class="dv">10</span>, ax<span class="op">=</span>axes[<span class="dv">0</span>, <span class="dv">1</span>])</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>tbtf.plot_bayes_fit(df_in_sample, n<span class="op">=</span><span class="dv">10</span>, state<span class="op">=</span><span class="dv">10</span>, ax<span class="op">=</span>axes[<span class="dv">1</span>, <span class="dv">0</span>])</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>tbtf.plot_spline_fit(df_in_sample, n<span class="op">=</span><span class="dv">10</span>, state<span class="op">=</span><span class="dv">10</span>, ax<span class="op">=</span>axes[<span class="dv">1</span>, <span class="dv">1</span>])</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="ss">f"Fitted Capital Share Functions at </span><span class="sc">{</span>in_end<span class="sc">}</span><span class="ss">"</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -513,13 +548,18 @@ Look-back period: 48 months</code></pre>
 </figure>
 </div>
 </div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="4_5_strategy_files/figure-html/cell-7-output-2.png" class="img-fluid figure-img"></p>
+</figure>
 </div>
-<p>These cross-sectional plots confirm the superiority of the exponential fit in capturing the accelerating concentration of capital among top-ranked firms. The difference is especially pronounced in the post-2010 sample, reflecting a structural shift in capital dynamics during the QE era.</p>
-<p>The exponential fit exhibits stronger monotonicity and structural convexity, particularly in the top-ranked firms, supporting its use in the TBTF weighting scheme.</p>
+</div>
+</div>
 </section>
 </section>
-<section id="rebalancing-frequency" class="level3" data-number="1.4">
-<h3 data-number="1.4" class="anchored" data-anchor-id="rebalancing-frequency"><span class="header-section-number">1.4</span> Rebalancing Frequency</h3>
+<section id="rebalancing-frequency" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="rebalancing-frequency"><span class="header-section-number">4</span> Rebalancing Frequency</h2>
 <p>We test fixed-interval rebalancing schemes:</p>
 <ul>
 <li>Monthly (default)</li>
@@ -529,8 +569,8 @@ Look-back period: 48 months</code></pre>
 </ul>
 <p>Rebalancing frequency directly affects turnover and transaction cost implications. Monthly rebalancing is selected as the baseline to balance responsiveness with frictions.</p>
 </section>
-<section id="benchmark-portfolios" class="level3" data-number="1.5">
-<h3 data-number="1.5" class="anchored" data-anchor-id="benchmark-portfolios"><span class="header-section-number">1.5</span> Benchmark Portfolios</h3>
+<section id="benchmark-portfolios" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="benchmark-portfolios"><span class="header-section-number">5</span> Benchmark Portfolios</h2>
 <p>For external comparison, we use:</p>
 <ul>
 <li><strong>Pre-2010 Index Benchmarks</strong>: Dow Jones Industrial Average (^DJI), Nasdaq-100 (^NDX)</li>
@@ -544,19 +584,16 @@ Look-back period: 48 months</code></pre>
 <li><strong>Post-2010 Style Portfolios</strong>: Fama-French ME5 × PRIOR1/3/5, constructed with rolling monthly value- or equal-weighting</li>
 </ul>
 </section>
-<section id="strategic-rationale" class="level3" data-number="1.6">
-<h3 data-number="1.6" class="anchored" data-anchor-id="strategic-rationale"><span class="header-section-number">1.6</span> Strategic Rationale</h3>
+<section id="strategic-rationale" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="strategic-rationale"><span class="header-section-number">6</span> Strategic Rationale</h2>
 <p>The TBTF strategy is not merely a rule-based selection method. It reflects a structural argument that allocative efficiency in modern markets is compromised by persistent capital concentration. Instead of diversifying away idiosyncratic risk, markets are increasingly dominated by capital lock-in, hierarchy reinforcement, and narrative legitimacy.</p>
 <p>This framework reconceptualizes the role of financial assets from carriers of risk to vehicles of structural dominance, and evaluates portfolio construction in light of this altered paradigm.</p>
 </section>
-</section>
-
-
-<div id="quarto-appendix" class="default"><section id="appendix-tbtf-strategy-pipeline" class="level2 appendix" data-number="2"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">2</span> Appendix: TBTF Strategy Pipeline</h2><div class="quarto-appendix-contents">
-
-<p>This section outlines the modular structure of the TBTF portfolio strategy, from input specification to out-of-sample return generation and performance evaluation. The pipeline is designed to be flexible across different weighting schemes, rebalance frequencies, and strategy parameters.</p>
-<section id="inputs-arguments" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="inputs-arguments"><span class="header-section-number">2.1</span> Inputs (Arguments)</h3>
+<section id="tbtf-strategy-pipeline" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="tbtf-strategy-pipeline"><span class="header-section-number">7</span> TBTF Strategy Pipeline</h2>
+<p>This appendix section outlines the modular structure of the TBTF portfolio strategy, from input specification to out-of-sample return generation and performance evaluation. The pipeline is designed to be flexible across different weighting schemes, rebalance frequencies, and strategy parameters.</p>
+<section id="inputs-arguments" class="level3" data-number="7.1">
+<h3 data-number="7.1" class="anchored" data-anchor-id="inputs-arguments"><span class="header-section-number">7.1</span> Inputs (Arguments)</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 43%">
@@ -604,10 +641,10 @@ Look-back period: 48 months</code></pre>
 </tbody>
 </table>
 </section>
-<section id="strategy-pipeline-pseudo-code-logic" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="strategy-pipeline-pseudo-code-logic"><span class="header-section-number">2.2</span> Strategy Pipeline (Pseudo-code Logic)</h3>
-<section id="step-1-data-partitioning-filtering" class="level4" data-number="2.2.1">
-<h4 data-number="2.2.1" class="anchored" data-anchor-id="step-1-data-partitioning-filtering"><span class="header-section-number">2.2.1</span> Step 1: Data Partitioning &amp; Filtering</h4>
+<section id="strategy-pipeline-pseudo-code-logic" class="level3" data-number="7.2">
+<h3 data-number="7.2" class="anchored" data-anchor-id="strategy-pipeline-pseudo-code-logic"><span class="header-section-number">7.2</span> Strategy Pipeline (Pseudo-code Logic)</h3>
+<section id="step-1-data-partitioning-filtering" class="level4" data-number="7.2.1">
+<h4 data-number="7.2.1" class="anchored" data-anchor-id="step-1-data-partitioning-filtering"><span class="header-section-number">7.2.1</span> Step 1: Data Partitioning &amp; Filtering</h4>
 <div class="sourceCode" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>in_sample <span class="op">=</span> df[(df[<span class="st">'date'</span>] <span class="op">&gt;=</span> in_sample_start) <span class="op">&amp;</span> (df[<span class="st">'date'</span>] <span class="op">&lt;=</span> in_sample_end)]</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>out_sample <span class="op">=</span> df[(df[<span class="st">'date'</span>] <span class="op">&gt;</span> in_sample_end) <span class="op">&amp;</span> (df[<span class="st">'date'</span>] <span class="op">&lt;=</span> out_sample_end)]</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>universe <span class="op">=</span> df[df[<span class="st">'state'</span>] <span class="op">==</span> state_level]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -615,8 +652,8 @@ Look-back period: 48 months</code></pre>
 <li>Restrict selection universe to target capital state (e.g., top decile).</li>
 </ul>
 </section>
-<section id="step-2-in-sample-weight-estimation" class="level4" data-number="2.2.2">
-<h4 data-number="2.2.2" class="anchored" data-anchor-id="step-2-in-sample-weight-estimation"><span class="header-section-number">2.2.2</span> Step 2: In-sample Weight Estimation</h4>
+<section id="step-2-in-sample-weight-estimation" class="level4" data-number="7.2.2">
+<h4 data-number="7.2.2" class="anchored" data-anchor-id="step-2-in-sample-weight-estimation"><span class="header-section-number">7.2.2</span> Step 2: In-sample Weight Estimation</h4>
 <p>If <code>weighting_method</code> is <code>'quadratic'</code> or <code>'exponential'</code>:</p>
 <ul>
 <li><p>Estimate the relationship between within-state rank and capital share using in-sample data:</p>
@@ -630,8 +667,8 @@ Look-back period: 48 months</code></pre>
 <div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>coefficients <span class="op">=</span> {<span class="st">'alpha'</span>: ..., <span class="st">'beta'</span>: ..., <span class="st">'gamma'</span>: ...}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 </ul>
 </section>
-<section id="step-3-out-of-sample-portfolio-construction" class="level4" data-number="2.2.3">
-<h4 data-number="2.2.3" class="anchored" data-anchor-id="step-3-out-of-sample-portfolio-construction"><span class="header-section-number">2.2.3</span> Step 3: Out-of-sample Portfolio Construction</h4>
+<section id="step-3-out-of-sample-portfolio-construction" class="level4" data-number="7.2.3">
+<h4 data-number="7.2.3" class="anchored" data-anchor-id="step-3-out-of-sample-portfolio-construction"><span class="header-section-number">7.2.3</span> Step 3: Out-of-sample Portfolio Construction</h4>
 <p>For each rebalance date in the out-sample period:</p>
 <ol type="1">
 <li>Filter to target state (<code>state == state_level</code>)</li>
@@ -646,8 +683,8 @@ Look-back period: 48 months</code></pre>
 <li>Store <code>[date, permno, weight]</code> for forward return application</li>
 </ol>
 </section>
-<section id="step-4-portfolio-return-computation" class="level4" data-number="2.2.4">
-<h4 data-number="2.2.4" class="anchored" data-anchor-id="step-4-portfolio-return-computation"><span class="header-section-number">2.2.4</span> Step 4: Portfolio Return Computation</h4>
+<section id="step-4-portfolio-return-computation" class="level4" data-number="7.2.4">
+<h4 data-number="7.2.4" class="anchored" data-anchor-id="step-4-portfolio-return-computation"><span class="header-section-number">7.2.4</span> Step 4: Portfolio Return Computation</h4>
 <p>At each evaluation date after rebalance:</p>
 <ul>
 <li>Merge forward returns of selected assets</li>
@@ -655,16 +692,16 @@ Look-back period: 48 months</code></pre>
 <li>Construct time series of out-of-sample portfolio returns</li>
 </ul>
 </section>
-<section id="step-5-turnover-calculation" class="level4" data-number="2.2.5">
-<h4 data-number="2.2.5" class="anchored" data-anchor-id="step-5-turnover-calculation"><span class="header-section-number">2.2.5</span> Step 5: Turnover Calculation</h4>
+<section id="step-5-turnover-calculation" class="level4" data-number="7.2.5">
+<h4 data-number="7.2.5" class="anchored" data-anchor-id="step-5-turnover-calculation"><span class="header-section-number">7.2.5</span> Step 5: Turnover Calculation</h4>
 <p>For each rebalance window:</p>
 <ul>
 <li>Calculate: <span class="math display">\[\text{Turnover}_t = \sum_i |w_{i,t} - w_{i,t-1}|\]</span></li>
 <li>Useful for assessing transaction costs and liquidity requirements</li>
 </ul>
 </section>
-<section id="step-6-performance-evaluation" class="level4" data-number="2.2.6">
-<h4 data-number="2.2.6" class="anchored" data-anchor-id="step-6-performance-evaluation"><span class="header-section-number">2.2.6</span> Step 6: Performance Evaluation</h4>
+<section id="step-6-performance-evaluation" class="level4" data-number="7.2.6">
+<h4 data-number="7.2.6" class="anchored" data-anchor-id="step-6-performance-evaluation"><span class="header-section-number">7.2.6</span> Step 6: Performance Evaluation</h4>
 <p>Using out-of-sample return series, compute:</p>
 <ul>
 <li><p><strong>Risk-Adjusted Metrics</strong>:</p>
@@ -686,8 +723,8 @@ Look-back period: 48 months</code></pre>
 </ul>
 </section>
 </section>
-<section id="outputs" class="level3" data-number="2.3">
-<h3 data-number="2.3" class="anchored" data-anchor-id="outputs"><span class="header-section-number">2.3</span> Outputs</h3>
+<section id="outputs" class="level3" data-number="7.3">
+<h3 data-number="7.3" class="anchored" data-anchor-id="outputs"><span class="header-section-number">7.3</span> Outputs</h3>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -715,8 +752,8 @@ Look-back period: 48 months</code></pre>
 </tbody>
 </table>
 </section>
-<section id="module-lits" class="level3" data-number="2.4">
-<h3 data-number="2.4" class="anchored" data-anchor-id="module-lits"><span class="header-section-number">2.4</span> Module Lits</h3>
+<section id="module-lists" class="level3" data-number="7.4">
+<h3 data-number="7.4" class="anchored" data-anchor-id="module-lists"><span class="header-section-number">7.4</span> Module Lists</h3>
 <div class="sourceCode" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: TBTF Strategy Full Module</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
@@ -803,10 +840,150 @@ Look-back period: 48 months</code></pre>
 <span id="cb12-84"><a href="#cb12-84" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_exponential_fit(df_in_sample, n<span class="op">=</span><span class="dv">10</span>, state<span class="op">=</span><span class="dv">10</span>):</span>
 <span id="cb12-85"><a href="#cb12-85" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Placeholder for plot generation</span></span>
 <span id="cb12-86"><a href="#cb12-86" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="sec-appendix" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="sec-appendix"><span class="header-section-number">8</span> Appendix: Alternative Fitting Methods for Capital Share Functions</h2>
+<p>To assess the robustness of nonparametric capital share estimation, we compare four smoothing methods, organized in paired subplots as follows:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 21%">
+<col style="width: 58%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Subplot Left</strong></th>
+<th><strong>Subplot Right</strong></th>
+<th><strong>Objective</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mean Fit</td>
+<td>LOESS Fit</td>
+<td>Comparison of nonparametric, empirical smoothing</td>
+</tr>
+<tr class="even">
+<td>Bayesian Fit</td>
+<td>Spline Fit</td>
+<td>Comparison of statistically regularized smoothers</td>
+</tr>
+</tbody>
+</table>
+<p>We begin with the first pair: <strong>mean-based fitting</strong> and <strong>LOESS fitting</strong>.</p>
+<section id="mean-based-estimation-1st-moment-per-rank" class="level3" data-number="8.1">
+<h3 data-number="8.1" class="anchored" data-anchor-id="mean-based-estimation-1st-moment-per-rank"><span class="header-section-number">8.1</span> Mean-Based Estimation (1st Moment per Rank)</h3>
+<p><strong>Definition</strong><br>
+For each rank <span class="math inline">\(r \in \{1,\dots,10\}\)</span>, we estimate the average capital share over the in-sample period: <span class="math display">\[
+\hat{w}_r = \frac{1}{T} \sum_{t=1}^{T} w_{r,t}
+\]</span></p>
+<p><strong>Statistical Structure</strong> - A fully nonparametric approach, treating each rank as a discrete category. - Equivalent to a <strong>fixed effect model without regressors</strong>, estimating the group-wise sample mean.</p>
+<p><strong>Theoretical Interpretation</strong> - This is a form of <strong>empirical histogram fitting</strong>, relying only on the sample mean of observed capital shares. - The method does not require distributional assumptions and treats the sample average as representative, regardless of time variation or non-stationarity.</p>
+<p><strong>Advantages</strong> - Simple, intuitive, and computationally efficient. - Highly flexible due to the absence of structural assumptions.</p>
+<p><strong>Limitations</strong> - Very sensitive to variance and outliers in the capital share distribution at each rank. - No extrapolation or smoothing is applied across ranks.</p>
+</section>
+<section id="loess-locally-weighted-scatterplot-smoothing" class="level3" data-number="8.2">
+<h3 data-number="8.2" class="anchored" data-anchor-id="loess-locally-weighted-scatterplot-smoothing"><span class="header-section-number">8.2</span> LOESS (Locally Weighted Scatterplot Smoothing)</h3>
+<p><strong>Definition</strong><br>
+Capital share is estimated via local regression, using a kernel-weighted average of nearby observations: <span class="math display">\[
+\hat{w}_r = \sum_{j} K\left(\frac{r - j}{h}\right) w_j
+\]</span> - <span class="math inline">\(K(\cdot)\)</span> is a kernel function (e.g., tricube); <span class="math inline">\(h\)</span> controls the bandwidth and smoothness.</p>
+<p><strong>Statistical Structure</strong> - A classic <strong>nonparametric regression</strong> method. - LOESS typically uses local polynomial regressions (order 0, 1, or 2) for smoothing.</p>
+<p><strong>Theoretical Interpretation</strong> - Constructs the overall rank–capshare curve as a composition of <strong>local approximations</strong>, rather than a single global function. - Highly sensitive to the bias-variance tradeoff depending on bandwidth <span class="math inline">\(h\)</span>.</p>
+<p><strong>Advantages</strong> - Effectively captures local irregularities in the rank–capshare mapping. - Very flexible, with no functional form assumptions.</p>
+<p><strong>Limitations</strong> - Poor extrapolation performance at boundary ranks (e.g., rank 1 and 10). - Bandwidth selection has a significant effect on smoothing behavior.</p>
+</section>
+<section id="bayesian-smoothing-hierarchical-empirical-bayes" class="level3" data-number="8.3">
+<h3 data-number="8.3" class="anchored" data-anchor-id="bayesian-smoothing-hierarchical-empirical-bayes"><span class="header-section-number">8.3</span> Bayesian Smoothing (Hierarchical Empirical Bayes)</h3>
+<p><strong>Definition</strong><br>
+Each rank-specific capital share <span class="math inline">\(w_r\)</span> is modeled as a noisy observation from a latent distribution: <span class="math display">\[
+w_r \sim \mathcal{N}(\theta_r, \sigma_r^2), \quad \theta_r \sim \mathcal{N}(\mu, \tau^2)
+\]</span></p>
+<p><strong>Statistical Structure</strong> - A <strong>hierarchical Bayesian model</strong> that allows ranks to share strength through a common prior. - In the empirical Bayes setting, the hyperparameters <span class="math inline">\((\mu, \tau^2)\)</span> are estimated from data.</p>
+<p><strong>Theoretical Interpretation</strong> - Stabilizes estimates for ranks with high variance by <strong>shrinking</strong> them toward the global prior. - Ranks near the center are barely adjusted, while outlier ranks are pulled closer to the mean.</p>
+<p><strong>Advantages</strong> - Produces stable estimates even under noisy or volatile capital share data. - Allows for uncertainty quantification via posterior distributions.</p>
+<p><strong>Limitations</strong> - Sensitive to prior or hyperparameter specification. - Implementation can be more complex than standard nonparametric methods.</p>
+</section>
+<section id="spline-smoothing-piecewise-polynomial-with-smooth-joints" class="level3" data-number="8.4">
+<h3 data-number="8.4" class="anchored" data-anchor-id="spline-smoothing-piecewise-polynomial-with-smooth-joints"><span class="header-section-number">8.4</span> Spline Smoothing (Piecewise Polynomial with Smooth Joints)</h3>
+<p><strong>Definition</strong><br>
+The rank–capshare function is approximated as a linear combination of spline basis functions: <span class="math display">\[
+\hat{w}_r = \sum_{k} \beta_k B_k(r)
+\]</span> - <span class="math inline">\(B_k(r)\)</span> are spline basis functions (e.g., B-splines or natural splines).</p>
+<p><strong>Statistical Structure</strong> - A <strong>semi-parametric regression</strong> approach. - The model is similar to linear regression but extended via basis transformation.</p>
+<p><strong>Theoretical Interpretation</strong> - Balances <strong>global fitting</strong> and <strong>local flexibility</strong> by using piecewise polynomial segments with smooth joints. - The number and placement of knots (and the degree of polynomials) determine flexibility.</p>
+<p><strong>Advantages</strong> - Produces smooth and differentiable fits across the rank domain. - Extrapolation is partially feasible, especially when using natural splines.</p>
+<p><strong>Limitations</strong> - Performance is highly dependent on the selection of knots. - Can overfit if too many basis functions are used.</p>
+</section>
+<section id="summary-table" class="level3" data-number="8.5">
+<h3 data-number="8.5" class="anchored" data-anchor-id="summary-table"><span class="header-section-number">8.5</span> Summary Table</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 20%">
+<col style="width: 26%">
+<col style="width: 9%">
+<col style="width: 8%">
+<col style="width: 13%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Functional Form</th>
+<th>Statistical Interpretation</th>
+<th>Flexibility</th>
+<th>Stability</th>
+<th>Interpretability</th>
+<th>Complexity</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mean-Based</td>
+<td>Stepwise function</td>
+<td>Group-wise Sample Mean</td>
+<td>Low</td>
+<td>Low</td>
+<td>High</td>
+<td>Very Low</td>
+</tr>
+<tr class="even">
+<td>LOESS</td>
+<td>Local smoothing</td>
+<td>Nonparametric Local Regression</td>
+<td>Very High</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Moderate</td>
+</tr>
+<tr class="odd">
+<td>Bayesian</td>
+<td>Global shrinkage estimator</td>
+<td>Hierarchical Bayesian Model</td>
+<td>Medium</td>
+<td>High</td>
+<td>Medium</td>
+<td>Moderate–High</td>
+</tr>
+<tr class="even">
+<td>Spline</td>
+<td>Smooth piecewise polynomial</td>
+<td>Semi-parametric Regression</td>
+<td>High</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Moderate</td>
+</tr>
+</tbody>
+</table>
 
 
 </section>
-</div></section></div></main> <!-- /main -->
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

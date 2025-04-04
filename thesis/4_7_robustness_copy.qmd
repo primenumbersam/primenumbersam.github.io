@@ -38,7 +38,7 @@ import tbtf
 # robust check 대상 파라미터 설정
 top_ns = [5, 7, 10, 15, 20]
 rebalance_freqs = ['3M', '6M', '12M']
-weighting_methods = ['exponential', 'quadratic', 'value', 'equal']
+weighting_methods = ['mean', 'quadratic', 'value', 'equal']
 
 # 기본 설정 정리
 in_end = '2009-12-31'         # in-sample 끝
@@ -87,7 +87,7 @@ performance_df = pd.DataFrame([r[0] for r in results])
 turnover_summary_df = pd.DataFrame([r[1] for r in results])
 ```
 
-## Performance by Weighting Method
+### Performance by Weighting Method
 We begin by comparing the four weighting schemes: exponential (TBTF baseline), quadratic, value-weighted, and equal-weighted portfolios. The results show that TBTF's exponential weighting yields consistently superior risk-adjusted performance, particularly in terms of expected CRRA utility and downside-sensitive metrics like the Omega ratio.
 
 ```{python}
@@ -114,7 +114,7 @@ plt.title("Metric Distribution by Weighting Method")
 
 These results suggest that nonlinear weighting schemes are critical to capturing the TBTF premium. Among them, the quadratic method slightly outperforms exponential weighting across most performance metrics, including the highest median Omega ratio (2.231) and lowest median drawdown (−13.2%). While exponential weighting reflects market power through CRRA-type concentration, the quadratic scheme appears to provide a more balanced tradeoff between concentration and diversification—delivering the best overall risk-adjusted profile among the tested methods.
 
-## Sensitivity to Asset Selection Size (`top_n`)
+### Sensitivity to Asset Selection Size (`top_n`)
 
 Next, we vary the number of selected stocks, ranging from 5 to 20. The results clearly show that performance declines as top_n increases, confirming that capital concentration—not mere size exposure—is the key driver.
 
@@ -144,7 +144,7 @@ This pattern suggests that the TBTF premium is not a smooth function of size, bu
 Interestingly, quadratic weighting exhibits the most stable decay, maintaining higher CRRA utility at larger $n$ relative to exponential or value weighting. This may reflect its slightly more diversified nature, balancing concentration with convex adjustment. Equal weighting, by contrast, consistently underperforms across all $n$ values, underscoring the importance of incorporating size asymmetry into portfolio design.
 
 
-## Rebalancing Frequency and Turnover Tradeoff
+### Rebalancing Frequency and Turnover Tradeoff
 
 We next examine the impact of rebalancing frequency—specifically, quarterly (`3M`), semiannual (`6M`), and annual (`12M`)—on risk-adjusted performance and underlying portfolio structure. As shown in the heatmap below, quarterly rebalancing tends to produce higher Sharpe ratios across most configurations, especially at smaller `n`. However, this benefit comes at the cost of substantially higher turnover, as discussed in below.
 
@@ -268,7 +268,7 @@ To further analyze this, we compute the expected CRRA per unit of turnover (i.e.
 These findings underscore the importance of considering macro-structural shocks in assessing turnover efficiency. While quarterly rebalancing ensures persistence and structural alignment, semiannual updates may offer better resilience under nonlinear market stress, at least in crisis regimes.
 
 
-## Summary of Robustness Findings
+### Summary of Robustness Findings
 
 Across a wide range of configurations, the TBTF strategy demonstrates a **remarkable degree of structural robustness**. Its performance remains strong under variations in portfolio size, weighting rules, and rebalancing frequency—indicating that its effectiveness is not narrowly dependent on any single implementation detail. 
 
