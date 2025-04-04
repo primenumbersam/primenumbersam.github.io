@@ -88,7 +88,7 @@ turnover_summary_df = pd.DataFrame([r[1] for r in results])
 ```
 
 ## Performance by Weighting Method
-We begin by comparing the four weighting schemes: exponential (TBTF baseline), quadratic, value-weighted, and equal-weighted portfolios. The results show that TBTF's exponential weighting yields consistently superior risk-adjusted performance, particularly in terms of expected CRRA utility and downside-sensitive metrics like the Omega ratio.
+We begin by comparing the four weighting schemes: exponential, quadratic, value-weighted, and equal-weighted portfolios. The results show that TBTF's convex weighting yields consistently superior risk-adjusted performance, particularly in terms of expected CRRA utility and downside-sensitive metrics like the Omega ratio.
 
 ```{python}
 #| tbl-cap: "Good Performance Metrics by Weighting Method"
@@ -110,6 +110,7 @@ import matplotlib.pyplot as plt
 #sns.violinplot(data=performance_df, x='weighting_method', y='Annualized Volatility')
 sns.boxplot(data=performance_df, x='weighting_method', y='Sharpe Ratio')
 plt.title("Metric Distribution by Weighting Method")
+plt.show()
 ```
 
 These results suggest that nonlinear weighting schemes are critical to capturing the TBTF premium. Among them, the quadratic method slightly outperforms exponential weighting across most performance metrics, including the highest median Omega ratio (2.231) and lowest median drawdown (−13.2%). While exponential weighting reflects market power through CRRA-type concentration, the quadratic scheme appears to provide a more balanced tradeoff between concentration and diversification—delivering the best overall risk-adjusted profile among the tested methods.
@@ -218,7 +219,9 @@ plt.title("Turnover Distribution by Weighting and Frequency")
 plt.grid(True)
 plt.tight_layout()
 plt.show()
-
+```
+```{python}
+#| fig-cap: "Total Turnover across Parameters"
 sns.boxplot(
     data=turnover_summary_df,
     x='weighting_method',
