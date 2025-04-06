@@ -87,8 +87,8 @@ performance_df = pd.DataFrame([r[0] for r in results])
 turnover_summary_df = pd.DataFrame([r[1] for r in results])
 ```
 
-## Performance by Weighting Method
-We begin by comparing the four weighting schemes: exponential, quadratic, value-weighted, and equal-weighted portfolios. The results show that TBTF's convex weighting yields consistently superior risk-adjusted performance, particularly in terms of expected CRRA utility and downside-sensitive metrics like the Omega ratio.
+## By Weighting Method
+We begin by comparing the four weighting schemes: exponential, quadratic, value-weighted, and equal-weighted portfolios. The results show that TBTF's **convex weighting** yields consistently superior risk-adjusted performance, particularly in terms of expected CRRA utility and downside-sensitive metrics like the Omega ratio. We set the CRRA parmater $\eta = 3$ to reflect moderate risk aversion and $p = 0.01$ to evaluate downside risk via the Omega Ratio at the minimum 1% monthly threshold.
 
 ```{python}
 #| tbl-cap: "Good Performance Metrics by Weighting Method"
@@ -113,9 +113,9 @@ plt.title("Metric Distribution by Weighting Method")
 plt.show()
 ```
 
-These results suggest that nonlinear weighting schemes are critical to capturing the TBTF premium. Among them, the quadratic method slightly outperforms exponential weighting across most performance metrics, including the highest median Omega ratio (2.231) and lowest median drawdown (−13.2%). While exponential weighting reflects market power through CRRA-type concentration, the quadratic scheme appears to provide a more balanced tradeoff between concentration and diversification—delivering the best overall risk-adjusted profile among the tested methods.
+These results suggest that nonlinear weighting schemes are critical to capturing the TBTF premium. Among them, the quadratic method slightly outperforms exponential weighting across most performance metrics, including the highest **median** Omega ratio (2.182) and lowest median max drawdown (−13.2%). Given that both exponential and quadratic weighting schemes yield nearly identical results under the median of CRRA-based metrics, the exponential weighting—though rooted in CRRA-type concentration—offers no clear advantage over the quadratic scheme, which continues to strike a robust balance between concentration and diversification.
 
-## Sensitivity to Asset Selection Size (`top_n`)
+## By Asset Selection Size (`top_n`)
 
 Next, we vary the number of selected stocks, ranging from 5 to 20. The results clearly show that performance declines as top_n increases, confirming that capital concentration—not mere size exposure—is the key driver.
 
@@ -138,16 +138,14 @@ performance_df.pivot_table(
 ).round(4)
 ```
 
-Varying the number of selected stocks from 5 to 20 reveals a consistent pattern: risk-adjusted performance declines as the portfolio expands, regardless of weighting method. This is most clearly visible in the expected CRRA utility, where values decrease monotonically for all methods. For instance, under exponential weighting, median CRRA utility drops from 0.0175 at $n=5$ to 0.0125 at $n=20$—a 29% reduction. Similarly, the Sharpe ratio decreases from 0.6367 to 0.6026.
+Varying the number of selected stocks from 5 to 20 reveals a consistent trend: risk-adjusted performance tends to decline once the portfolio exceeds $n=7$.
 
-This pattern suggests that the TBTF premium is not a smooth function of size, but rather anchored at the extreme upper tail of the capital distribution. The diminishing returns from including more assets reinforce the structural logic of capital lock-in: only the very top firms consistently benefit from persistent investor flows, narrative insulation, and index-based reinforcement.
+This pattern implies that the TBTF premium is not a gradual function of portfolio size, but instead concentrated at the extreme upper tail of the capital distribution. The declining marginal benefit of including additional assets reflects the structural nature of capital lock-in—only the very largest firms systematically attract persistent investor flows, benefit from narrative insulation, and receive reinforcement through index inclusion.
 
-Interestingly, quadratic weighting exhibits the most stable decay, maintaining higher CRRA utility at larger $n$ relative to exponential or value weighting. This may reflect its slightly more diversified nature, balancing concentration with convex adjustment. Equal weighting, by contrast, consistently underperforms across all $n$ values, underscoring the importance of incorporating size asymmetry into portfolio design.
+Notably, traditional weighting schemes (Value or Equal) consistently underperform compared to TBTF-based weightings (Exponential or Quadratic) when $n < 15$, highlighting the importance of embedding size asymmetry in portfolio construction.
 
 
 ## Rebalancing Frequency and Turnover Tradeoff
-
-We next examine the impact of rebalancing frequency—specifically, quarterly (`3M`), semiannual (`6M`), and annual (`12M`)—on risk-adjusted performance and underlying portfolio structure. As shown in the heatmap below, quarterly rebalancing tends to produce higher Sharpe ratios across most configurations, especially at smaller `n`. However, this benefit comes at the cost of substantially higher turnover, as discussed in below.
 
 ```{python}
 #| fig-cap: "Sharpe Ratio Heatmap (Top-n vs Rebalancing Frequency)"
@@ -200,14 +198,7 @@ plt.tight_layout()
 plt.show()
 
 ```
-
-Beyond performance, we investigate **portfolio stability across rebalancing intervals** using the correlation of portfolio weights between consecutive rebalancing periods. The results reveal distinct structural patterns:
-
-- Under **quarterly rebalancing (3M)**, the correlation of portfolio weights increases with `n`, rising from 0.95 at $n=5$ to nearly 1.00 at $n=20$. This reflects **high persistence** in capital allocation, especially when more firms are included.
-- In contrast, **semiannual rebalancing (6M)** exhibits a declining pattern: correlation decreases from 0.79 at $n=5$ to 0.75 at $n=20$, suggesting **greater portfolio reshuffling** under moderate rebalancing horizons.
-- For **annual rebalancing (12M)**, the relationship is **non-monotonic**, forming an inverted U-shape. Correlation peaks at $n=7$ (0.17), but falls off before and after—indicating that at longer rebalancing intervals, **the portfolio may drift**, and small shifts in top-ranked assets lead to more volatile allocations.
- 
-These findings suggest that **shorter rebalancing intervals better preserve the structural core** of TBTF portfolios. Quarterly updates maintain capital concentration and produce stable weight dynamics, while longer horizons may induce drift and dilute structural persistence—especially at smaller `n`.
+We next examine the impact of rebalancing frequency—specifically, quarterly (`3M`), semiannual (`6M`), and annual (`12M`)—on risk-adjusted performance and underlying portfolio structure. As shown in the heatmap above, quarterly rebalancing tends to produce higher Sharpe ratios across most configurations. However, this benefit comes at the cost of substantially higher turnover. We find that shorter rebalancing intervals better preserve the structural core of TBTF portfolios. Quarterly updates maintain capital concentration and produce stable weight dynamics, while longer horizons may induce drift and dilute structural persistence—especially at larger `n`.
 
 ```{python}
 #| fig-cap: "Total Turnover across Parameters"
@@ -234,16 +225,18 @@ plt.tight_layout()
 plt.show()
 ```
 
-To assess the implementability of the TBTF strategy, we analyze total turnover across all tested configurations. As shown in the boxplot below, turnover varies substantially by weighting method and rebalancing frequency.
+To assess the practical implementability of the TBTF strategy, we examine the total turnover across different weighting schemes and rebalancing frequencies. As illustrated in the boxplot above, turnover levels vary meaningfully by configuration, offering insights into the structural dynamics of each method.
 
-Notably, quadratic weighting exhibits the lowest interquartile range of turnover across all rebalancing frequencies, indicating a high degree of structural stability in its portfolio composition. In contrast, equal weighting shows the widest dispersion, reflecting greater volatility in asset inclusion and reallocation.
+TBTF weighting methods—particularly under less frequent rebalancing (e.g., quarterly or semiannual)—consistently exhibit lower interquartile ranges of turnover, indicating a high degree of structural stability in portfolio composition. In contrast, equal weighting yields the widest dispersion, reflecting more volatile asset entry and reallocation patterns due to its lack of embedded capital sensitivity.
 
-Across all weighting methods, the effect of rebalancing frequency is pronounced. Moving from quarterly to semiannual and annual updates results in roughly a twofold increase in average turnover at each step. This highlights the tradeoff between temporal granularity and stability: longer intervals allow larger portfolio drift, necessitating more aggressive repositioning upon rebalance.
+Across all weighting methods, turnover responds strongly to changes in rebalancing frequency. Reducing the frequency from quarterly to semiannual, and from semiannual to annual, results in approximately a twofold decline in average turnover at each step. This regularity highlights a core tradeoff: finer rebalancing intervals enable more timely tracking of short-term shifts but also introduce greater portfolio churn.
 
-Together, these findings suggest that quadratic weighting strikes the most consistent balance between return concentration and turnover control, and that quarterly rebalancing offers a pragmatic sweet spot for retaining capital lock-in without incurring excessive trading frictions.
+A noteworthy exception emerges within the TBTF schemes: quadratic weighting produces higher turnover when moving from semiannual to annual rebalancing—a reversal of the pattern observed in all other methods. This suggests that the quadratic weighting’s greater sensitivity to initial rank–capital structure may amplify reallocations over longer horizons, especially if the top decile membership becomes more volatile at lower rebalancing frequencies.
 
+Taken together, these findings suggest that TBTF-based weighting offers the most stable tradeoff between capital concentration and transaction frictions. In particular, rebalancing at a semiannual or quarterly frequency appears to strike a practical balance, preserving capital lock-in dynamics while keeping turnover at manageable levels.
 
-Finally, we visualize the performance-turnover tradeoff, showing how each strategy balances return and implementation frictions:
+We further analyze turnover as a function of the number of selected stocks, visualized in the "Turnover Distribution by Weighting and Top-n" plot. Here, TBTF, value-weighted, and equal-weighted portfolios all exhibit their most stable and lowest turnover levels at $n = 10$ and $n = 20$. Interestingly, turnover does not decline monotonically as the number of holdings increases. For example, moving from $n = 10$ to $n = 15$ slightly increases total turnover before falling again at $n = 20$. This non-monotonicity suggests that portfolio stability is not simply a function of size, but also of how concentration thresholds interact with the rank dynamics of capital allocation.
+
 
 ```{python}
 # Merge performance & turnover
@@ -262,7 +255,10 @@ plt.tight_layout()
 plt.show()
 
 ```
-The figure below visualizes the tradeoff between expected CRRA utility and total turnover across all strategy configurations. Each point represents a unique combination of `n`, `rebalance_freq`, and `weighting_method`.
+
+Finally, we visualize the performance-turnover tradeoff, showing how each strategy balances return and implementation frictions:
+
+The figure above visualizes the tradeoff between expected CRRA utility and total turnover across all strategy configurations. Each point represents a unique combination of `n`, `rebalance_freq`, and `weighting_method`.
 
 The resulting plot reveals distinct horizontal clusters by rebalancing frequency, especially under the post-2010 regime. This banding effect is most likely driven by regime-specific shocks—particularly the COVID-19 crash, which had sharply divergent effects depending on the timing of portfolio adjustment.
 
@@ -271,14 +267,12 @@ To further analyze this, we compute the expected CRRA per unit of turnover (i.e.
 These findings underscore the importance of considering macro-structural shocks in assessing turnover efficiency. While quarterly rebalancing ensures persistence and structural alignment, semiannual updates may offer better resilience under nonlinear market stress, at least in crisis regimes.
 
 
-## Summary of Robustness Findings
+## Summary of Robustness
 
-Across a wide range of configurations, the TBTF strategy demonstrates a **remarkable degree of structural robustness**. Its performance remains strong under variations in portfolio size, weighting rules, and rebalancing frequency—indicating that its effectiveness is not narrowly dependent on any single implementation detail. 
+Across a broad set of configurations, the TBTF strategy exhibits strong structural robustness. Its performance remains resilient to changes in portfolio size, weighting method, and rebalancing frequency, indicating that its effectiveness does not hinge on a narrow set of parameter choices.
 
-The **outperformance of nonlinear weighting schemes** (especially exponential and quadratic) confirms that TBTF benefits are not simply a function of size, but of deliberate capital concentration. At the same time, the degradation in performance as `top_n` increases reveals that the strategy’s strength derives from a small elite of dominant firms—those at the apex of the market’s allocative structure.
+The consistent superiority of nonlinear weighting schemes—particularly exponential and quadratic—underscores that the TBTF effect stems not merely from large-cap exposure, but from deliberate capital concentration. At the same time, the diminishing performance observed as the number of included assets increases confirms that the strategy draws its strength from a small group of dominant firms at the top of the capital hierarchy.
 
-In terms of implementation, **quarterly and semiannual rebalancing strike different tradeoffs**: the former preserves structural lock-in, while the latter appears more resilient during regime shocks, such as the COVID-19 crash. Turnover is manageable across both, especially under quadratic weighting, which delivers consistent stability without sacrificing performance.
+In implementation terms, both quarterly and semiannual rebalancing strike workable tradeoffs. Quarterly updates better preserve structural lock-in, while semiannual schedules offer greater resilience during regime shocks, such as the COVID-19 episode. Turnover remains moderate in both cases, especially under quadratic weighting, which achieves stability without compromising returns.
 
-Taken together, these findings highlight that TBTF is not an artifact of overfitting, nor a fragile construction. It is a **structurally grounded strategy** whose persistence reflects underlying economic forces—namely, the institutional, passive, and platform-driven mechanisms that reinforce capital incumbency in modern financial markets.
- 
-In what follows, we step back from empirical validation to consider the broader implications: **What does TBTF reveal about the evolution of market efficiency, wealth concentration, and the social contract embedded in asset pricing itself?**
+Taken together, the evidence suggests that TBTF is neither an artifact of tuning nor a fragile anomaly. Rather, it is a reflection of deeper structural features—platform dominance, passive reinforcement, and institutional persistence—that increasingly govern capital allocation in modern markets.

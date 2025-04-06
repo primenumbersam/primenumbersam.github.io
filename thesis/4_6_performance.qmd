@@ -214,7 +214,7 @@ tbtf.plot_benchmark_comparison(tbtf_returns_post2010, post_ff, period_label='pos
 
 ### Pre-2010: Market Dominance and Diversification
 
-In the pre-2010 sample, TBTF underperforms all major benchmarks both in terms of average monthly returns and cumulative price levels:
+In the pre-2010 sample, TBTF **underperforms** all major benchmarks both in terms of average monthly returns and cumulative price levels:
 
 - Compared to the **Dow Jones Industrial Average (^DJI)** and the **Nasdaq 100 (^NDX)**, TBTF lags significantly in mean returns, with its average return even falling below zero. This underperformance is visible in both the return histogram and the flattened price trajectory.
 - The **shape of the return distributions** further illustrates this divergence. While ^DJI displays a concentrated bell-shaped curve reflecting strong diversification benefits across sectors, TBTF's distribution is wider and flatter, and ^NDX’s distribution appears even flatter and fatter-tailed—consistent with its tech-heavy composition and lower effective diversification.
@@ -222,7 +222,7 @@ In the pre-2010 sample, TBTF underperforms all major benchmarks both in terms of
 
 ### Post-2010: Structural Convexity and Breakaway Performance
 
-Post-2010, the TBTF strategy decisively outperforms all benchmark portfolios, not only in cumulative performance but also in distributional characteristics:
+Post-2010, the TBTF strategy decisively **outperforms** all benchmark portfolios, not only in cumulative performance but also in distributional characteristics:
 
 - Most strikingly, **TBTF’s return distribution exhibits bi-modality**, a rare phenomenon in empirical asset returns. Both modes are positive, with the second, larger mode emerging after recovering from a brief period of negative returns during late 2021 to early 2022. This distributional structure reflects a convex outcome space where moderate and large gains dominate.
 - **DIA**, which tracks the 30 blue-chip constituents of ^DJI, displays a symmetric but left-skewed return profile and a relatively muted price level curve. By contrast, TBTF rapidly diverges post-2019, widening the performance gap year by year.

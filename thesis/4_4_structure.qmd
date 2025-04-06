@@ -23,10 +23,6 @@ import pandas as pd
 import sqlite3
 con = sqlite3.connect(database="../../tbtf.sqlite")
 
-#cursor = tbtf.cursor()
-#cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
-#print(cursor.fetchall())
-
 crsp = pd.read_sql_query(
   sql="SELECT * FROM crsp",
   con=con,
@@ -34,6 +30,7 @@ crsp = pd.read_sql_query(
 )
 crsp.head()
 ```
+
 
 ## Mixture Distribution Decomposition
 
@@ -187,7 +184,6 @@ plt.show()
 
 ```{python}
 # Unconditional Return Distribution by Period and Capital Rank Group
-
 
 # 요약 통계 (Pre-2010 vs Post-2010 비교 등)
 df_mix['period'] = np.where(df_mix['date'] < '2010-01-01', 'Pre-2010', 'Post-2010')
@@ -370,8 +366,7 @@ def compute_quadratic_coefficients(df):
 
     return pd.DataFrame(results)
 
-# 실제 데이터가 존재한다고 가정하고 이후 분석 및 시각화 준비
-# 아래는 시각화 함수만 준비
+
 def plot_gamma_time_series(gamma_df):
     plt.figure(figsize=(12, 6))
     plt.plot(gamma_df['date'], gamma_df['gamma'], label='Gamma (Quadratic Term)', color='darkred')
@@ -422,49 +417,138 @@ This further reinforces the central hypothesis of the TBTF framework: **top capi
 
 ## Persistence and Lock-In Dynamics
 
+좋습니다. 아래는 `4_4_structure.qmd`의 *"Persistence and Lock-In Dynamics"* 섹션 중, **Markov transition matrix 추정 방식**을 실제 구현된 10×10 matrix 기반으로 **수정 및 보완**한 내용입니다. 핵심은 다음 두 가지입니다:
+
+1. 원래 open system에서 `state = 0`(탈락 또는 미관측 상태)을 포함한 11×11 matrix는 **완전히 닫힌 체계(closed system)**가 아님
+2. 본 분석은 실용적 접근으로 `state = 1–10` 범위에만 집중한 **pseudo-closed system**으로 제한하고, 이에 따른 해석상의 제약은 *추후 확장 연구*로 남긴다는 코멘트를 명시
+
+---
+
+## Persistence and Lock-In Dynamics
+
 ### Core Question:
 > Is capital mobility declining, with firms increasingly **locked in** to top positions?
 
-### Framework & Method:
-- Define states:
-  - **State 10**: Top 10% (≥ 90th percentile)
-  - **States 6–9**: Middle 40% (50–90)
-  - **States 1–5**: Bottom 50%
-  - **State 0**: Delisted or unranked
+### Framework & Method
 
-- From the panel data, estimate empirical first-order transition matrix:
+- **States** are defined as decile ranks of market capitalization:
+  - **State 10**: Top 10% (≥ 90th percentile)
+  - **States 6–9**: Upper middle 40% (50–90 percentile)
+  - **States 1–5**: Bottom 50%
+  - **State 0**: Delisted or unranked (excluded from main estimation)
+
+- Using CRSP panel data, we construct an empirical first-order Markov transition matrix:
 
   $$
   P_{ij} = \Pr(\text{state}_{t+1} = j \mid \text{state}_t = i)
   $$
 
-- Compute:
-  - **Diagonal elements**: Retention probability (persistence)
-  - **Upward vs. downward transitions**: Asymmetry in mobility
-  - **Stationary distribution**: Long-run capital allocation across states
+- **Important Adjustment**:
+  - The original system includes **state 0**, representing delisting or unranked stocks.
+  - However, to focus on the relative dynamics of ranked firms and avoid structural imbalance caused by market entry/exit, we restrict the analysis to **states 1–10**, forming a **pseudo-closed system**.
+  - This restriction implicitly conditions on survival and omits net capital flow into or out of the system.
+  - A more comprehensive treatment including open-system dynamics (e.g., absorbing states, boundary flows) is deferred to future work.
+
+- We estimate:
+  - The 10×10 transition matrix $P_{ij}$ among ranked states only.
+  - **Diagonal elements** ($P_{ii}$): Represent state persistence or **retention probability**.
+  - **Off-diagonal elements**: Capture **mobility dynamics**, including upward or downward shifts.
+  - The **stationary distribution** $\pi$ is computed via eigen decomposition:
+  
+    $$
+    \pi' P = \pi', \quad \sum_i \pi_i = 1
+    $$
+
+- All transition counts are computed from actual firm-level changes in decile state based on monthly data, pre-processed to include both listing and delisting effects via augmented panel construction (`crsp_trunc`).
+
 
 ### Interpretation
 
-The estimated transition matrix and its long-run stationary distribution reveal clear signs of **capital lock-in, irreversibility, and structural mobility collapse** in the U.S. equity market.
+```{python}
+import sys
+import os
+# 현재 경로 기준으로 상위 디렉토리로 경로 추가
+sys.path.append(os.path.abspath('../..'))
+
+import tbtf_data
+
+ff3 = tbtf_data.load_ff3_factors(start_date=crsp['date'].min(), end_date=crsp['date'].max())
+crsp_trunc = tbtf_data.crsp_truncation(crsp,ff3)
+# crsp_full = tbtf_data.crsp_lifecycle(crsp_trunc)
+```
 
 ```{python}
-# transition_matrix, stationary_series
+# ================================================
+# transition_matrix : pd.DataFrame (10x10)
+# stationary_series : pd.Series (length 10)
+# ================================================
 
-# Step 1: Ensure 'state' and 'state_lag' are present and valid
-crsp_filtered = crsp[(crsp['state'].notnull()) & (crsp['state_lag'].notnull())].copy()
+# old-living만 선택 (full lifecycle이 없거나 right-truncated)
+#crsp_valid = crsp_full[crsp_full['lifetype'] == 'old-living'].copy()
 
-# Step 2: Compute empirical transition matrix
+#print("The number of stocks from state 0 to any states:", (crsp_trunc['state_lag'] == 0).sum())
+#print("The number of stocks from any states to state 0:", (crsp_trunc['state'] == 0).sum())
+#print("The number of Total In-flow stocks during the sample period:", (crsp_trunc['state_lag'] == 0).sum()-(crsp_trunc['state'] == 0).sum())
+
+# Transition matrix 계산 시점에서 filtering
+# 조건: state_lag ∈ [1, 10] AND state ∈ [1, 10]
+crsp_valid = crsp_trunc.query("state > 0 and state_lag > 0").copy()
+
+# Compute empirical transition counts
+# (state_lag → state) pair frequency table
 transition_counts = (
-    crsp_filtered
+    crsp_valid
     .groupby(['state_lag', 'state'])
     .size()
     .unstack(fill_value=0)
     .sort_index()
-    .reindex(columns=range(11), fill_value=0)
+    .reindex(columns=range(1, 11), fill_value=0)  # Ensure all states 0 to 10 are present
 )
 
-# Step 3: Convert counts to probabilities
+# Convert counts to row-wise probabilities
+# Each row represents conditional distribution: P(next state | current state)
 transition_matrix = transition_counts.div(transition_counts.sum(axis=1), axis=0)
+
+# Compute stationary distribution (long-run equilibrium distribution over states)
+# Method: Use eigen-decomposition of the transpose of the transition matrix
+eigvals, eigvecs = np.linalg.eig(transition_matrix.T.values)
+stationary = np.real(eigvecs[:, np.isclose(eigvals, 1)])
+
+# Normalize to sum to 1
+stationary = stationary[:, 0]
+stationary_dist = stationary / stationary.sum()
+
+# Format for output
+transition_matrix.index.name = 'From State'
+transition_matrix.columns.name = 'To State'
+
+stationary_series = pd.Series(stationary_dist, index=transition_matrix.columns, name='Stationary Dist.')
+
+# Markov Transition Matrix Heatmap (States 0–10)
+import seaborn as sns
+
+plt.figure(figsize=(10, 8))
+sns.heatmap(
+    transition_matrix,
+    annot=True,
+    fmt=".3f",
+    cmap="YlGnBu",
+    linewidths=0.5,
+    cbar_kws={'label': 'Transition Probability'},
+    xticklabels=[f"To {i}" for i in transition_matrix.columns],
+    yticklabels=[f"From {i}" for i in transition_matrix.index]
+)
+plt.title("Markov Transition Matrix Heatmap (States 0–10)")
+plt.xlabel("Next Period State")
+plt.ylabel("Current Period State")
+plt.tight_layout()
+plt.show()
+
+```
+
+
+```{python}
+# Long-Run Stationary Distribution by State (Excl. Exit)
 
 # Step 4: Compute stationary distribution
 # Method: Use eigen decomposition for the transpose of the transition matrix
@@ -478,45 +562,8 @@ transition_matrix.index.name = 'From State'
 transition_matrix.columns.name = 'To State'
 stationary_series = pd.Series(stationary_dist, index=transition_matrix.columns, name="Stationary Dist.")
 
-
-# Markov Transition Matrix Heatmap (States 0–10)
-import seaborn as sns
-
-plt.figure(figsize=(10, 8))
-sns.heatmap(
-    transition_matrix,
-    annot=True,
-    fmt=".2f",
-    cmap="YlGnBu",
-    linewidths=0.5,
-    cbar_kws={'label': 'Transition Probability'},
-    xticklabels=[f"To {i}" for i in transition_matrix.columns],
-    yticklabels=[f"From {i}" for i in transition_matrix.index]
-)
-plt.title("Markov Transition Matrix Heatmap (States 0–10)")
-plt.xlabel("Next Period State")
-plt.ylabel("Current Period State")
-plt.tight_layout()
-plt.show()
-```
-
-First, the **persistence of the top decile group (State = 10)** is striking. The monthly self-transition probability $P_{10,10}$ reaches 0.972, the highest among all states, implying an expected duration of stay exceeding 36 months:
-
-$$
-\mathbb{E}[\text{Duration} \mid \text{State } i] = \frac{1}{1 - P_{ii}}
-$$
-
-This result supports the characterization of the top decile as a **quasi-absorbing state**—once firms enter, they tend to remain for extended periods, creating a long-term **incumbency advantage**.
-
-Conversely, **states 4 and 5** show the **lowest diagonal entries** (both ≈ 0.79), yielding the shortest expected durations. This suggests that firms in these mid-level ranks are most prone to **reclassification**—either moving up, down, or out—indicating **local instability** near the center of the capital distribution.
-
-Despite expectations that **delisting risk** (i.e., transition to State 0) would dominate in the lower ranks, the empirical matrix reveals that **direct exits from States 1–10 are essentially zero**. This implies that delisting or market exit rarely occurs from within the ranked universe. Instead, new listings (from State 0) enter most frequently into **State 3**, resulting in a pronounced **inverted U-shape** in the transition row from State 0.
-
-```{python}
-# Long-Run Stationary Distribution by State (Excl. Exit)
-
 # State 1부터 10까지의 stationary probability
-stationary_series_nonzero = stationary_series.iloc[1:]
+stationary_series_nonzero = stationary_series.iloc[:]
 
 # Plot
 plt.figure(figsize=(8, 5))
@@ -542,30 +589,44 @@ plt.show()
 
 ```
 
-Second, the **stationary distribution**—the long-run probability of occupying each state—exhibits a **Pareto-like decay**. The highest steady-state probability is in **State 1 (≈ 16.6%)**, and declines monotonically through State 10 (≈ 7.9%), forming a shape reminiscent of the **density of a Pareto distribution** or a **discrete inverse-power law**:
+The estimated **Markov transition matrix** and **stationary distribution**, constructed using only ranked states (States 1–10), reveal a structurally persistent yet more symmetric capital mobility structure than previously observed in open-system models that included State 0. By excluding delisted or unranked firms, this framework focuses on rank-to-rank transitions within the surviving universe of firms and captures a distinct form of intra-market hierarchy.
 
-- While State 1 represents the largest share of firms at any point in time, this is **not reflective of capital dominance**.
-- Rather, it suggests that **the system structurally regenerates the bottom group**, maintaining a large base of small-cap firms with limited upward mobility.
+**High Persistence at the Extremes**
 
-This result aligns with prior findings in household wealth studies—such as those using FRED data—where the top 1% accumulates disproportionate wealth, but the **modal position** of individuals lies in the **bottom or middle deciles**. Our firm-level Markov model complements this view by adding **monthly transition granularity** and **dynamic persistence structure**, which cannot be captured by static wealth shares alone.
+The system continues to exhibit strong persistence at both ends of the distribution. In particular, the top decile (State 10) shows a self-transition probability of 0.972, implying an expected duration of over 36 months. This persistence confirms that once firms enter the top decile, they tend to remain there, reinforcing the notion that the highest tier functions as a quasi-absorbing state. 
 
-Taken together, the findings indicate that capital mobility is increasingly **non-reversible** and **stratified**, violating assumptions of **ergodicity**, **symmetry**, and **competitive reallocation** often found in representative-agent equilibrium models.
+Similarly, the bottom decile (State 1) displays a self-transition probability of 0.931, also associated with prolonged durations. This bilateral persistence at the extremes suggests a structural form of capital stratification, where firms, once classified into the highest or lowest decile, tend to stay put. These two tails behave like boundary layers of the rank system, characterized by entrenchment rather than fluid mobility.
 
-The U.S. equity market, viewed through the lens of Markovian state transitions, behaves less like a competitive allocation engine and more like a **stratified hierarchy**, where entry is rare, exits are asymmetric, and the top functions as a **structural sink** for capital.
+**Mobility in the Middle**
+
+In contrast, the middle states—especially States 4 and 5—display the lowest persistence, each with a diagonal transition probability near 0.79. These intermediate ranks represent the most unstable region of the system, acting as a transitory buffer between the stable top and bottom groups. Firms in these states face greater uncertainty and classification volatility, neither entrenched like the top-tier incumbents nor consistently relegated like small-cap firms. 
+
+This suggests that mid-cap firms are most exposed to competitive reshuffling. Their trajectories remain open-ended, with material probabilities of upward or downward movement depending on performance shocks or relative repricing, but with limited protection from persistent identity.
+
+**Absence of Exit/Entry Mechanisms**
+
+In this formulation, the Markov chain excludes transitions into or out of State 0. As such, delisting and new entries are not explicitly modeled. This simplification defines a pseudo-closed system designed to examine intra-system mobility rather than open-market turnover. The exclusion of exit risk makes the estimated transition probabilities purely conditional on being within the ranked universe, ideal for studying relative capital stickiness but less suited for estimating attrition or survivorship.
+
+This design choice removes the asymmetry introduced by non-reversible states such as delisting or IPO-based entry, which would otherwise distort the symmetry of the estimated chain. While this comes at the cost of completeness, it offers clarity in isolating the structural dynamics of persistence, volatility, and mobility within the active market.
+
+**Stationary Distribution: Skewed Toward Lower Deciles**
+
+The estimated stationary distribution across ranked states displays a gradual but consistent decline from lower to higher ranks. State 1 exhibits the highest long-run probability, at approximately 16 percent, while State 10 stabilizes at around 8 percent. This pattern suggests that lower-ranked firms are more prevalent in the long run, at least in terms of count, even though they may not dominate capital or influence.
+
+Two forces likely drive this skew: first, a disproportionately high entry frequency into the lower deciles, often from new listings or small restructurings; and second, a limited degree of upward mobility from these initial positions. The bottom deciles, while not formally absorbing, act as a sticky floor—consistently replenished by inflows yet rarely exited by transitions to higher states.
+
+The implication is that mobility across ranks is asymmetric even within the active market. Structural regeneration happens predominantly at the bottom, while upward reallocation remains limited. This reinforces the interpretation of the capital market not as a fluid mobility engine, but as a system with hierarchical layers, each marked by different persistence dynamics and long-run outcomes.
 
 
 ## Summary Table
 
-| Structural Channel | Mechanism                            | Interpretation                                            |
-|--------------------|--------------------------------------|-----------------------------------------------------------|
-| Mixture            | Return as weighted sum of 2 subgroups | Top decile increasingly **drives aggregate performance**  |
-| Convexity          | Capital share as function of rank     | **Lorenz-type concentration** intensifies over time       |
-| Transition         | Markov dynamics of rank-state mobility | Top and Exit states are **quasi-absorbing**, path-dependent |
-
-
-Integrated Interpretation:
+| Structural Channel | Mechanism                             | Interpretation                                                 |
+|--------------------|---------------------------------------|----------------------------------------------------------------|
+| Mixture            | Return as weighted sum of 2 subgroups | Top decile increasingly **drives aggregate performance**       |
+| Convexity          | Capital share as function of rank     | **Lorenz-type concentration** intensifies over time            |
+| Transition         | Markov dynamics of rank-state mobility| Top and Exit states are **quasi-absorbing**, path-dependent    |
 
 - **Top-decile persistence** reveals a form of **quasi-absorption**, where firms not only rise to the top but stay there disproportionately longer — effectively becoming "**Too Big to Exit**."
-- **Middle-rank volatility** suggests **structural fragility**, with firms unable to stabilize or ascend — reflecting a "**Fragile Middle**" unable to convert mobility into permanence.
-- **Lower-rank saturation** shows **pseudo-stationarity**, where exit is more likely than upward mobility — a symptom of "**regenerative failure**" in the bottom half of the market.
-- The **stationary distribution** over rank states closely resembles a **Pareto-like decay**, echoing wealth inequality in household distributions and reinforcing the idea that **capital mobility in financial markets has collapsed into hierarchical entrenchment**.
+- **Middle-rank volatility** suggests **structural fragility**, with firms unable to stabilize or ascend — reflecting a "**Fragile Middle**" that lacks lasting competitive foothold.
+- **Lower-rank saturation** reflects **systemic bottlenecks**, where inflows into low deciles are not matched by upward mobility — indicating a "**sticky floor**" rather than an active ladder.
+- The **long-run distribution** reinforces this structure: capital is **not symmetrically mobile**, but increasingly trapped in persistent states. This challenges foundational assumptions in representative-agent models, suggesting instead that capital flows in financial markets obey a **hierarchical and inertial logic**, not a fluid or ergodic one.

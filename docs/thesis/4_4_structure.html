@@ -337,13 +337,14 @@ window.Quarto = {
   <li><a href="#framework-method-1" id="toc-framework-method-1" class="nav-link" data-scroll-target="#framework-method-1"><span class="header-section-number">2.2</span> Framework &amp; Method:</a></li>
   <li><a href="#interpretation-1" id="toc-interpretation-1" class="nav-link" data-scroll-target="#interpretation-1"><span class="header-section-number">2.3</span> Interpretation</a></li>
   </ul></li>
-  <li><a href="#persistence-and-lock-in-dynamics" id="toc-persistence-and-lock-in-dynamics" class="nav-link" data-scroll-target="#persistence-and-lock-in-dynamics"><span class="header-section-number">3</span> Persistence and Lock-In Dynamics</a>
+  <li><a href="#persistence-and-lock-in-dynamics" id="toc-persistence-and-lock-in-dynamics" class="nav-link" data-scroll-target="#persistence-and-lock-in-dynamics"><span class="header-section-number">3</span> Persistence and Lock-In Dynamics</a></li>
+  <li><a href="#persistence-and-lock-in-dynamics-1" id="toc-persistence-and-lock-in-dynamics-1" class="nav-link" data-scroll-target="#persistence-and-lock-in-dynamics-1"><span class="header-section-number">4</span> Persistence and Lock-In Dynamics</a>
   <ul class="collapse">
-  <li><a href="#core-question-2" id="toc-core-question-2" class="nav-link" data-scroll-target="#core-question-2"><span class="header-section-number">3.1</span> Core Question:</a></li>
-  <li><a href="#framework-method-2" id="toc-framework-method-2" class="nav-link" data-scroll-target="#framework-method-2"><span class="header-section-number">3.2</span> Framework &amp; Method:</a></li>
-  <li><a href="#interpretation-2" id="toc-interpretation-2" class="nav-link" data-scroll-target="#interpretation-2"><span class="header-section-number">3.3</span> Interpretation</a></li>
+  <li><a href="#core-question-2" id="toc-core-question-2" class="nav-link" data-scroll-target="#core-question-2"><span class="header-section-number">4.1</span> Core Question:</a></li>
+  <li><a href="#framework-method-2" id="toc-framework-method-2" class="nav-link" data-scroll-target="#framework-method-2"><span class="header-section-number">4.2</span> Framework &amp; Method</a></li>
+  <li><a href="#interpretation-2" id="toc-interpretation-2" class="nav-link" data-scroll-target="#interpretation-2"><span class="header-section-number">4.3</span> Interpretation</a></li>
   </ul></li>
-  <li><a href="#summary-table" id="toc-summary-table" class="nav-link" data-scroll-target="#summary-table"><span class="header-section-number">4</span> Summary Table</a></li>
+  <li><a href="#summary-table" id="toc-summary-table" class="nav-link" data-scroll-target="#summary-table"><span class="header-section-number">5</span> Summary Table</a></li>
   </ul>
 </nav>
     </div>
@@ -382,7 +383,7 @@ window.Quarto = {
 
 
 <p>This section decomposes the structural mechanisms underlying the TBTF strategy across two economic regimes—pre-2010 and post-2010. By comparing these periods, we identify changes in distributional composition, capital concentration, and rank mobility that reflect broader shifts in financial market dynamics following systemic interventions and structural innovation—each of which challenges conventional assumptions in asset pricing and market efficiency.</p>
-<div id="47c03fc5" class="cell" data-execution_count="1">
+<div id="68aea5a5" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -398,16 +399,12 @@ window.Quarto = {
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sqlite3</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>con <span class="op">=</span> sqlite3.<span class="ex">connect</span>(database<span class="op">=</span><span class="st">"../../tbtf.sqlite"</span>)</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">#cursor = tbtf.cursor()</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">#cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">#print(cursor.fetchall())</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>crsp <span class="op">=</span> pd.read_sql_query(</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  sql<span class="op">=</span><span class="st">"SELECT * FROM crsp"</span>,</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  con<span class="op">=</span>con,</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  parse_dates<span class="op">=</span>{<span class="st">"date"</span>}</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>crsp.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>crsp <span class="op">=</span> pd.read_sql_query(</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  sql<span class="op">=</span><span class="st">"SELECT * FROM crsp"</span>,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  con<span class="op">=</span>con,</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  parse_dates<span class="op">=</span>{<span class="st">"date"</span>}</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>crsp.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display" data-execution_count="1">
 <div>
@@ -422,6 +419,7 @@ window.Quarto = {
 <th data-quarto-table-cell-role="th">mktcap</th>
 <th data-quarto-table-cell-role="th">ret</th>
 <th data-quarto-table-cell-role="th">primaryexch</th>
+<th data-quarto-table-cell-role="th">siccd</th>
 <th data-quarto-table-cell-role="th">industry</th>
 <th data-quarto-table-cell-role="th">mktcap_lag</th>
 <th data-quarto-table-cell-role="th">ret_excess</th>
@@ -437,6 +435,7 @@ window.Quarto = {
 <td>20.814125</td>
 <td>-0.026667</td>
 <td>Q</td>
+<td>4925</td>
 <td>Utilities</td>
 <td>21.384375</td>
 <td>-0.030967</td>
@@ -450,6 +449,7 @@ window.Quarto = {
 <td>21.099250</td>
 <td>0.013699</td>
 <td>Q</td>
+<td>4925</td>
 <td>Utilities</td>
 <td>20.814125</td>
 <td>0.009799</td>
@@ -463,6 +463,7 @@ window.Quarto = {
 <td>21.899480</td>
 <td>0.036423</td>
 <td>Q</td>
+<td>4925</td>
 <td>Utilities</td>
 <td>21.099250</td>
 <td>0.032523</td>
@@ -476,6 +477,7 @@ window.Quarto = {
 <td>20.348063</td>
 <td>-0.070840</td>
 <td>Q</td>
+<td>4925</td>
 <td>Utilities</td>
 <td>21.899480</td>
 <td>-0.075440</td>
@@ -489,6 +491,7 @@ window.Quarto = {
 <td>19.915125</td>
 <td>-0.021277</td>
 <td>Q</td>
+<td>4925</td>
 <td>Utilities</td>
 <td>20.348063</td>
 <td>-0.025477</td>
@@ -527,7 +530,7 @@ R_t^{\text{market}} = w_t \cdot R_t^{(10)} + (1 - w_t) \cdot R_t^{(&lt;10)}
 <section id="interpretation" class="level3" data-number="1.3">
 <h3 data-number="1.3" class="anchored" data-anchor-id="interpretation"><span class="header-section-number">1.3</span> Interpretation</h3>
 <p>The empirical results from the mixture decomposition provide compelling evidence of a <strong>structural shift</strong> in how market returns are generated and distributed. Unlike traditional interpretations that focus on regime switching (e.g., bull vs.&nbsp;bear), our analysis reveals a <strong>persistent cross-sectional asymmetry</strong>—notably between the <strong>top decile</strong> and the <strong>remaining 90%</strong> of firms by market capitalization.</p>
-<div id="de041205" class="cell" data-execution_count="2">
+<div id="66c2763a" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># df_mix</span></span>
@@ -653,7 +656,7 @@ R_t^{\text{market}} = w_t \cdot R_t^{(10)} + (1 - w_t) \cdot R_t^{(&lt;10)}
 </div>
 <section id="capital-lock-in-and-mixture-weight-dynamics" class="level4" data-number="1.3.1">
 <h4 data-number="1.3.1" class="anchored" data-anchor-id="capital-lock-in-and-mixture-weight-dynamics"><span class="header-section-number">1.3.1</span> Capital Lock-In and Mixture Weight Dynamics</h4>
-<div id="5a53eb98" class="cell" data-execution_count="3">
+<div id="43244c32" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Time-series Capital Weight of Top 10% (State = 10)</span></span>
@@ -685,7 +688,7 @@ R_t^{\text{market}} = w_t \cdot R_t^{(10)} + (1 - w_t) \cdot R_t^{(&lt;10)}
 </section>
 <section id="unconditional-return-distributions-top-vs.-rest" class="level4" data-number="1.3.2">
 <h4 data-number="1.3.2" class="anchored" data-anchor-id="unconditional-return-distributions-top-vs.-rest"><span class="header-section-number">1.3.2</span> Unconditional Return Distributions: Top vs.&nbsp;Rest</h4>
-<div id="3ab79f91" class="cell" data-execution_count="4">
+<div id="8bf694ca" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Unconditional Return Distribution: Actual vs. Estimated Mixture</span></span>
@@ -745,46 +748,45 @@ R_t^{\text{market}} = w_t \cdot R_t^{(10)} + (1 - w_t) \cdot R_t^{(&lt;10)}
 </div>
 </div>
 </div>
-<div id="7c6b9a48" class="cell" data-execution_count="5">
+<div id="c33d520a" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Unconditional Return Distribution by Period and Capital Rank Group</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 요약 통계 (Pre-2010 vs Post-2010 비교 등)</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>df_mix[<span class="st">'period'</span>] <span class="op">=</span> np.where(df_mix[<span class="st">'date'</span>] <span class="op">&lt;</span> <span class="st">'2010-01-01'</span>, <span class="st">'Pre-2010'</span>, <span class="st">'Post-2010'</span>)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 데이터 재구조화: long format</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>df_long <span class="op">=</span> pd.melt(</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    df_mix,</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    id_vars<span class="op">=</span>[<span class="st">'date'</span>, <span class="st">'period'</span>],</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    value_vars<span class="op">=</span>[<span class="st">'r_top'</span>, <span class="st">'r_rest'</span>],</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    var_name<span class="op">=</span><span class="st">'Group'</span>,</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    value_name<span class="op">=</span><span class="st">'Monthly Return'</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Group 이름 정리</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>df_long[<span class="st">'Group'</span>] <span class="op">=</span> df_long[<span class="st">'Group'</span>].replace({</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">'r_top'</span>: <span class="st">'Top 10%'</span>,</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">'r_rest'</span>: <span class="st">'Bottom 90%'</span></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Boxplot</span></span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>sns.boxplot(</span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>df_long,</span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'period'</span>,</span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">'Monthly Return'</span>,</span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>    hue<span class="op">=</span><span class="st">'Group'</span>,</span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>    palette<span class="op">=</span><span class="st">'Set2'</span></span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Unconditional Return Distribution by Period and Capital Rank Group'</span>)</span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>plt.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'gray'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Monthly Return'</span>)</span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Period'</span>)</span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Group'</span>, loc<span class="op">=</span><span class="st">'lower left'</span>)</span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 요약 통계 (Pre-2010 vs Post-2010 비교 등)</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>df_mix[<span class="st">'period'</span>] <span class="op">=</span> np.where(df_mix[<span class="st">'date'</span>] <span class="op">&lt;</span> <span class="st">'2010-01-01'</span>, <span class="st">'Pre-2010'</span>, <span class="st">'Post-2010'</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 데이터 재구조화: long format</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>df_long <span class="op">=</span> pd.melt(</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    df_mix,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    id_vars<span class="op">=</span>[<span class="st">'date'</span>, <span class="st">'period'</span>],</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    value_vars<span class="op">=</span>[<span class="st">'r_top'</span>, <span class="st">'r_rest'</span>],</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    var_name<span class="op">=</span><span class="st">'Group'</span>,</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    value_name<span class="op">=</span><span class="st">'Monthly Return'</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Group 이름 정리</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>df_long[<span class="st">'Group'</span>] <span class="op">=</span> df_long[<span class="st">'Group'</span>].replace({</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">'r_top'</span>: <span class="st">'Top 10%'</span>,</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">'r_rest'</span>: <span class="st">'Bottom 90%'</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Boxplot</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>sns.boxplot(</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>df_long,</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'period'</span>,</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span><span class="st">'Monthly Return'</span>,</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    hue<span class="op">=</span><span class="st">'Group'</span>,</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>    palette<span class="op">=</span><span class="st">'Set2'</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Unconditional Return Distribution by Period and Capital Rank Group'</span>)</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>plt.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'gray'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Monthly Return'</span>)</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Period'</span>)</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">'Group'</span>, loc<span class="op">=</span><span class="st">'lower left'</span>)</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -806,7 +808,7 @@ R_t^{\text{market}} = w_t \cdot R_t^{(10)} + (1 - w_t) \cdot R_t^{(&lt;10)}
 </section>
 <section id="gaussian-mixture-results-two-component-fit" class="level4" data-number="1.3.3">
 <h4 data-number="1.3.3" class="anchored" data-anchor-id="gaussian-mixture-results-two-component-fit"><span class="header-section-number">1.3.3</span> Gaussian Mixture Results: Two-Component Fit</h4>
-<div id="2ffaf0fc" class="cell" data-execution_count="6">
+<div id="9bbec028" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># GMM (k=2) for Top 10% and for Remining 90% </span></span>
@@ -854,7 +856,7 @@ GMM summary for Remaining 90%
 </section>
 <section id="testing-internal-heterogeneity-in-top-decile" class="level4" data-number="1.3.4">
 <h4 data-number="1.3.4" class="anchored" data-anchor-id="testing-internal-heterogeneity-in-top-decile"><span class="header-section-number">1.3.4</span> Testing Internal Heterogeneity in Top Decile</h4>
-<div id="f9836a26" class="cell" data-execution_count="7">
+<div id="fa073671" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># k Selection by AIC vs. BIC</span></span>
@@ -932,7 +934,7 @@ GMM summary for Remaining 90%
 </section>
 <section id="interpretation-1" class="level3" data-number="2.3">
 <h3 data-number="2.3" class="anchored" data-anchor-id="interpretation-1"><span class="header-section-number">2.3</span> Interpretation</h3>
-<div id="e3c5364c" class="cell" data-execution_count="8">
+<div id="740caf47" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Time-Series of Capital Share Convexity</span></span>
@@ -973,28 +975,27 @@ GMM summary for Remaining 90%
 <span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> pd.DataFrame(results)</span>
 <span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a><span class="co"># 실제 데이터가 존재한다고 가정하고 이후 분석 및 시각화 준비</span></span>
-<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a><span class="co"># 아래는 시각화 함수만 준비</span></span>
-<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_gamma_time_series(gamma_df):</span>
-<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
-<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>    plt.plot(gamma_df[<span class="st">'date'</span>], gamma_df[<span class="st">'gamma'</span>], label<span class="op">=</span><span class="st">'Gamma (Quadratic Term)'</span>, color<span class="op">=</span><span class="st">'darkred'</span>)</span>
-<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 기준선들</span></span>
-<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>    plt.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'gray'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>    plt.axvline(pd.to_datetime(<span class="st">"2010-01-01"</span>), color<span class="op">=</span><span class="st">'black'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="fl">1.2</span>, label<span class="op">=</span><span class="st">'2010 Breakpoint'</span>)</span>
-<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="st">'Time-Series of Capital Share Convexity (γₜ)'</span>)</span>
-<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">'Date'</span>)</span>
-<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">'Gamma Coefficient (Convexity)'</span>)</span>
-<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>    plt.legend()</span>
-<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>    plt.grid(<span class="va">True</span>)</span>
-<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a>    plt.tight_layout()</span>
-<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
-<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a>crsp_filtered <span class="op">=</span> crsp[crsp[<span class="st">'state'</span>] <span class="op">&gt;</span> <span class="dv">0</span>].copy()</span>
-<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a>gamma_df <span class="op">=</span> compute_quadratic_coefficients(crsp_filtered)</span>
-<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a>plot_gamma_time_series(gamma_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_gamma_time_series(gamma_df):</span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>    plt.plot(gamma_df[<span class="st">'date'</span>], gamma_df[<span class="st">'gamma'</span>], label<span class="op">=</span><span class="st">'Gamma (Quadratic Term)'</span>, color<span class="op">=</span><span class="st">'darkred'</span>)</span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 기준선들</span></span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>    plt.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">'gray'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>    plt.axvline(pd.to_datetime(<span class="st">"2010-01-01"</span>), color<span class="op">=</span><span class="st">'black'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="fl">1.2</span>, label<span class="op">=</span><span class="st">'2010 Breakpoint'</span>)</span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="st">'Time-Series of Capital Share Convexity (γₜ)'</span>)</span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">'Date'</span>)</span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(<span class="st">'Gamma Coefficient (Convexity)'</span>)</span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a>    plt.legend()</span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>    plt.grid(<span class="va">True</span>)</span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>    plt.tight_layout()</span>
+<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
+<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a>crsp_filtered <span class="op">=</span> crsp[crsp[<span class="st">'state'</span>] <span class="op">&gt;</span> <span class="dv">0</span>].copy()</span>
+<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a>gamma_df <span class="op">=</span> compute_quadratic_coefficients(crsp_filtered)</span>
+<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a>plot_gamma_time_series(gamma_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -1005,7 +1006,7 @@ GMM summary for Remaining 90%
 </div>
 </div>
 <p>The time-series of the capital share convexity coefficient, <span class="math inline">\(\gamma_t\)</span>, estimated via cross-sectional quadratic regressions, reveals a striking and persistent structure.</p>
-<div id="2d04de17" class="cell" data-execution_count="9">
+<div id="7bcd5f5f" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>gamma_df.drop(<span class="st">'date'</span>, axis<span class="op">=</span><span class="dv">1</span>).describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1110,135 +1111,140 @@ GMM summary for Remaining 90%
 </section>
 <section id="persistence-and-lock-in-dynamics" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="persistence-and-lock-in-dynamics"><span class="header-section-number">3</span> Persistence and Lock-In Dynamics</h2>
-<section id="core-question-2" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="core-question-2"><span class="header-section-number">3.1</span> Core Question:</h3>
+<p>좋습니다. 아래는 <code>4_4_structure.qmd</code>의 <em>“Persistence and Lock-In Dynamics”</em> 섹션 중, <strong>Markov transition matrix 추정 방식</strong>을 실제 구현된 10×10 matrix 기반으로 <strong>수정 및 보완</strong>한 내용입니다. 핵심은 다음 두 가지입니다:</p>
+<ol type="1">
+<li>원래 open system에서 <code>state = 0</code>(탈락 또는 미관측 상태)을 포함한 11×11 matrix는 <strong>완전히 닫힌 체계(closed system)</strong>가 아님</li>
+<li>본 분석은 실용적 접근으로 <code>state = 1–10</code> 범위에만 집중한 <strong>pseudo-closed system</strong>으로 제한하고, 이에 따른 해석상의 제약은 <em>추후 확장 연구</em>로 남긴다는 코멘트를 명시</li>
+</ol>
+<hr>
+</section>
+<section id="persistence-and-lock-in-dynamics-1" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="persistence-and-lock-in-dynamics-1"><span class="header-section-number">4</span> Persistence and Lock-In Dynamics</h2>
+<section id="core-question-2" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="core-question-2"><span class="header-section-number">4.1</span> Core Question:</h3>
 <blockquote class="blockquote">
 <p>Is capital mobility declining, with firms increasingly <strong>locked in</strong> to top positions?</p>
 </blockquote>
 </section>
-<section id="framework-method-2" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="framework-method-2"><span class="header-section-number">3.2</span> Framework &amp; Method:</h3>
+<section id="framework-method-2" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="framework-method-2"><span class="header-section-number">4.2</span> Framework &amp; Method</h3>
 <ul>
-<li><p>Define states:</p>
+<li><p><strong>States</strong> are defined as decile ranks of market capitalization:</p>
 <ul>
 <li><strong>State 10</strong>: Top 10% (≥ 90th percentile)</li>
-<li><strong>States 6–9</strong>: Middle 40% (50–90)</li>
+<li><strong>States 6–9</strong>: Upper middle 40% (50–90 percentile)</li>
 <li><strong>States 1–5</strong>: Bottom 50%</li>
-<li><strong>State 0</strong>: Delisted or unranked</li>
+<li><strong>State 0</strong>: Delisted or unranked (excluded from main estimation)</li>
 </ul></li>
-<li><p>From the panel data, estimate empirical first-order transition matrix:</p>
+<li><p>Using CRSP panel data, we construct an empirical first-order Markov transition matrix:</p>
 <p><span class="math display">\[
 P_{ij} = \Pr(\text{state}_{t+1} = j \mid \text{state}_t = i)
 \]</span></p></li>
-<li><p>Compute:</p>
+<li><p><strong>Important Adjustment</strong>:</p>
 <ul>
-<li><strong>Diagonal elements</strong>: Retention probability (persistence)</li>
-<li><strong>Upward vs.&nbsp;downward transitions</strong>: Asymmetry in mobility</li>
-<li><strong>Stationary distribution</strong>: Long-run capital allocation across states</li>
+<li>The original system includes <strong>state 0</strong>, representing delisting or unranked stocks.</li>
+<li>However, to focus on the relative dynamics of ranked firms and avoid structural imbalance caused by market entry/exit, we restrict the analysis to <strong>states 1–10</strong>, forming a <strong>pseudo-closed system</strong>.</li>
+<li>This restriction implicitly conditions on survival and omits net capital flow into or out of the system.</li>
+<li>A more comprehensive treatment including open-system dynamics (e.g., absorbing states, boundary flows) is deferred to future work.</li>
 </ul></li>
+<li><p>We estimate:</p>
+<ul>
+<li><p>The 10×10 transition matrix <span class="math inline">\(P_{ij}\)</span> among ranked states only.</p></li>
+<li><p><strong>Diagonal elements</strong> (<span class="math inline">\(P_{ii}\)</span>): Represent state persistence or <strong>retention probability</strong>.</p></li>
+<li><p><strong>Off-diagonal elements</strong>: Capture <strong>mobility dynamics</strong>, including upward or downward shifts.</p></li>
+<li><p>The <strong>stationary distribution</strong> <span class="math inline">\(\pi\)</span> is computed via eigen decomposition:</p>
+<p><span class="math display">\[
+\pi' P = \pi', \quad \sum_i \pi_i = 1
+\]</span></p></li>
+</ul></li>
+<li><p>All transition counts are computed from actual firm-level changes in decile state based on monthly data, pre-processed to include both listing and delisting effects via augmented panel construction (<code>crsp_trunc</code>).</p></li>
 </ul>
 </section>
-<section id="interpretation-2" class="level3" data-number="3.3">
-<h3 data-number="3.3" class="anchored" data-anchor-id="interpretation-2"><span class="header-section-number">3.3</span> Interpretation</h3>
-<p>The estimated transition matrix and its long-run stationary distribution reveal clear signs of <strong>capital lock-in, irreversibility, and structural mobility collapse</strong> in the U.S. equity market.</p>
-<div id="7e699e4c" class="cell" data-execution_count="10">
+<section id="interpretation-2" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="interpretation-2"><span class="header-section-number">4.3</span> Interpretation</h3>
+<div id="97496dd8" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># transition_matrix, stationary_series</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 1: Ensure 'state' and 'state_lag' are present and valid</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>crsp_filtered <span class="op">=</span> crsp[(crsp[<span class="st">'state'</span>].notnull()) <span class="op">&amp;</span> (crsp[<span class="st">'state_lag'</span>].notnull())].copy()</span>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 현재 경로 기준으로 상위 디렉토리로 경로 추가</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>sys.path.append(os.path.abspath(<span class="st">'../..'</span>))</span>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 2: Compute empirical transition matrix</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>transition_counts <span class="op">=</span> (</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    crsp_filtered</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    .groupby([<span class="st">'state_lag'</span>, <span class="st">'state'</span>])</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    .size()</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    .unstack(fill_value<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    .sort_index()</span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    .reindex(columns<span class="op">=</span><span class="bu">range</span>(<span class="dv">11</span>), fill_value<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 3: Convert counts to probabilities</span></span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>transition_matrix <span class="op">=</span> transition_counts.div(transition_counts.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>), axis<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 4: Compute stationary distribution</span></span>
-<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Method: Use eigen decomposition for the transpose of the transition matrix</span></span>
-<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>eigvals, eigvecs <span class="op">=</span> np.linalg.eig(transition_matrix.T.values)</span>
-<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>stationary <span class="op">=</span> np.real(eigvecs[:, np.isclose(eigvals, <span class="dv">1</span>)])</span>
-<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>stationary <span class="op">=</span> stationary[:, <span class="dv">0</span>]</span>
-<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>stationary_dist <span class="op">=</span> stationary <span class="op">/</span> stationary.<span class="bu">sum</span>()</span>
-<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare final transition matrix and stationary distribution</span></span>
-<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>transition_matrix.index.name <span class="op">=</span> <span class="st">'From State'</span></span>
-<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>transition_matrix.columns.name <span class="op">=</span> <span class="st">'To State'</span></span>
-<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>stationary_series <span class="op">=</span> pd.Series(stationary_dist, index<span class="op">=</span>transition_matrix.columns, name<span class="op">=</span><span class="st">"Stationary Dist."</span>)</span>
-<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Markov Transition Matrix Heatmap (States 0–10)</span></span>
-<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">8</span>))</span>
-<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>sns.heatmap(</span>
-<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>    transition_matrix,</span>
-<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a>    annot<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>    fmt<span class="op">=</span><span class="st">".2f"</span>,</span>
-<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">"YlGnBu"</span>,</span>
-<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a>    linewidths<span class="op">=</span><span class="fl">0.5</span>,</span>
-<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a>    cbar_kws<span class="op">=</span>{<span class="st">'label'</span>: <span class="st">'Transition Probability'</span>},</span>
-<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a>    xticklabels<span class="op">=</span>[<span class="ss">f"To </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span> <span class="cf">for</span> i <span class="kw">in</span> transition_matrix.columns],</span>
-<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a>    yticklabels<span class="op">=</span>[<span class="ss">f"From </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span> <span class="cf">for</span> i <span class="kw">in</span> transition_matrix.index]</span>
-<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Markov Transition Matrix Heatmap (States 0–10)"</span>)</span>
-<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Next Period State"</span>)</span>
-<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Current Period State"</span>)</span>
-<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> tbtf_data</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>ff3 <span class="op">=</span> tbtf_data.load_ff3_factors(start_date<span class="op">=</span>crsp[<span class="st">'date'</span>].<span class="bu">min</span>(), end_date<span class="op">=</span>crsp[<span class="st">'date'</span>].<span class="bu">max</span>())</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>crsp_trunc <span class="op">=</span> tbtf_data.crsp_truncation(crsp,ff3)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co"># crsp_full = tbtf_data.crsp_lifecycle(crsp_trunc)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="4_4_structure_files/figure-html/cell-11-output-1.png" class="img-fluid figure-img"></p>
-</figure>
 </div>
-</div>
-</div>
-<p>First, the <strong>persistence of the top decile group (State = 10)</strong> is striking. The monthly self-transition probability <span class="math inline">\(P_{10,10}\)</span> reaches 0.972, the highest among all states, implying an expected duration of stay exceeding 36 months:</p>
-<p><span class="math display">\[
-\mathbb{E}[\text{Duration} \mid \text{State } i] = \frac{1}{1 - P_{ii}}
-\]</span></p>
-<p>This result supports the characterization of the top decile as a <strong>quasi-absorbing state</strong>—once firms enter, they tend to remain for extended periods, creating a long-term <strong>incumbency advantage</strong>.</p>
-<p>Conversely, <strong>states 4 and 5</strong> show the <strong>lowest diagonal entries</strong> (both ≈ 0.79), yielding the shortest expected durations. This suggests that firms in these mid-level ranks are most prone to <strong>reclassification</strong>—either moving up, down, or out—indicating <strong>local instability</strong> near the center of the capital distribution.</p>
-<p>Despite expectations that <strong>delisting risk</strong> (i.e., transition to State 0) would dominate in the lower ranks, the empirical matrix reveals that <strong>direct exits from States 1–10 are essentially zero</strong>. This implies that delisting or market exit rarely occurs from within the ranked universe. Instead, new listings (from State 0) enter most frequently into <strong>State 3</strong>, resulting in a pronounced <strong>inverted U-shape</strong> in the transition row from State 0.</p>
-<div id="0734f0ab" class="cell" data-execution_count="11">
+<div id="df1afa6d" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Long-Run Stationary Distribution by State (Excl. Exit)</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># State 1부터 10까지의 stationary probability</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>stationary_series_nonzero <span class="op">=</span> stationary_series.iloc[<span class="dv">1</span>:]</span>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ================================================</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># transition_matrix : pd.DataFrame (10x10)</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># stationary_series : pd.Series (length 10)</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># ================================================</span></span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">5</span>))</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>sns.barplot(</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span>stationary_series_nonzero.index.astype(<span class="bu">str</span>),</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span>stationary_series_nonzero.values,</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">'steelblue'</span>,</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    edgecolor<span class="op">=</span><span class="st">'black'</span></span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Annotate each bar with its value</span></span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, val <span class="kw">in</span> <span class="bu">enumerate</span>(stationary_series_nonzero.values):</span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>    plt.text(i, val <span class="op">+</span> <span class="fl">0.001</span>, <span class="ss">f"</span><span class="sc">{</span>val<span class="sc">:.3f}</span><span class="ss">"</span>, ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'bottom'</span>, fontsize<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot labels and formatting</span></span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Long-Run Stationary Distribution by State (Excl. Exit)"</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
-<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"State (Market Cap Rank)"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
-<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Stationary Probability"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
-<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="dv">0</span>, stationary_series_nonzero.<span class="bu">max</span>() <span class="op">+</span> <span class="fl">0.01</span>)</span>
-<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co"># old-living만 선택 (full lifecycle이 없거나 right-truncated)</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">#crsp_valid = crsp_full[crsp_full['lifetype'] == 'old-living'].copy()</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co">#print("The number of stocks from state 0 to any states:", (crsp_trunc['state_lag'] == 0).sum())</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co">#print("The number of stocks from any states to state 0:", (crsp_trunc['state'] == 0).sum())</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="co">#print("The number of Total In-flow stocks during the sample period:", (crsp_trunc['state_lag'] == 0).sum()-(crsp_trunc['state'] == 0).sum())</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Transition matrix 계산 시점에서 filtering</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 조건: state_lag ∈ [1, 10] AND state ∈ [1, 10]</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>crsp_valid <span class="op">=</span> crsp_trunc.query(<span class="st">"state &gt; 0 and state_lag &gt; 0"</span>).copy()</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute empirical transition counts</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="co"># (state_lag → state) pair frequency table</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>transition_counts <span class="op">=</span> (</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>    crsp_valid</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>    .groupby([<span class="st">'state_lag'</span>, <span class="st">'state'</span>])</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>    .size()</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>    .unstack(fill_value<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>    .sort_index()</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>    .reindex(columns<span class="op">=</span><span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">11</span>), fill_value<span class="op">=</span><span class="dv">0</span>)  <span class="co"># Ensure all states 0 to 10 are present</span></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert counts to row-wise probabilities</span></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Each row represents conditional distribution: P(next state | current state)</span></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>transition_matrix <span class="op">=</span> transition_counts.div(transition_counts.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>), axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute stationary distribution (long-run equilibrium distribution over states)</span></span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Method: Use eigen-decomposition of the transpose of the transition matrix</span></span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>eigvals, eigvecs <span class="op">=</span> np.linalg.eig(transition_matrix.T.values)</span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>stationary <span class="op">=</span> np.real(eigvecs[:, np.isclose(eigvals, <span class="dv">1</span>)])</span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Normalize to sum to 1</span></span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>stationary <span class="op">=</span> stationary[:, <span class="dv">0</span>]</span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>stationary_dist <span class="op">=</span> stationary <span class="op">/</span> stationary.<span class="bu">sum</span>()</span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Format for output</span></span>
+<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a>transition_matrix.index.name <span class="op">=</span> <span class="st">'From State'</span></span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a>transition_matrix.columns.name <span class="op">=</span> <span class="st">'To State'</span></span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a>stationary_series <span class="op">=</span> pd.Series(stationary_dist, index<span class="op">=</span>transition_matrix.columns, name<span class="op">=</span><span class="st">'Stationary Dist.'</span>)</span>
+<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Markov Transition Matrix Heatmap (States 0–10)</span></span>
+<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">8</span>))</span>
+<span id="cb12-51"><a href="#cb12-51" aria-hidden="true" tabindex="-1"></a>sns.heatmap(</span>
+<span id="cb12-52"><a href="#cb12-52" aria-hidden="true" tabindex="-1"></a>    transition_matrix,</span>
+<span id="cb12-53"><a href="#cb12-53" aria-hidden="true" tabindex="-1"></a>    annot<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb12-54"><a href="#cb12-54" aria-hidden="true" tabindex="-1"></a>    fmt<span class="op">=</span><span class="st">".3f"</span>,</span>
+<span id="cb12-55"><a href="#cb12-55" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">"YlGnBu"</span>,</span>
+<span id="cb12-56"><a href="#cb12-56" aria-hidden="true" tabindex="-1"></a>    linewidths<span class="op">=</span><span class="fl">0.5</span>,</span>
+<span id="cb12-57"><a href="#cb12-57" aria-hidden="true" tabindex="-1"></a>    cbar_kws<span class="op">=</span>{<span class="st">'label'</span>: <span class="st">'Transition Probability'</span>},</span>
+<span id="cb12-58"><a href="#cb12-58" aria-hidden="true" tabindex="-1"></a>    xticklabels<span class="op">=</span>[<span class="ss">f"To </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span> <span class="cf">for</span> i <span class="kw">in</span> transition_matrix.columns],</span>
+<span id="cb12-59"><a href="#cb12-59" aria-hidden="true" tabindex="-1"></a>    yticklabels<span class="op">=</span>[<span class="ss">f"From </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span> <span class="cf">for</span> i <span class="kw">in</span> transition_matrix.index]</span>
+<span id="cb12-60"><a href="#cb12-60" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-61"><a href="#cb12-61" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Markov Transition Matrix Heatmap (States 0–10)"</span>)</span>
+<span id="cb12-62"><a href="#cb12-62" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Next Period State"</span>)</span>
+<span id="cb12-63"><a href="#cb12-63" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Current Period State"</span>)</span>
+<span id="cb12-64"><a href="#cb12-64" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb12-65"><a href="#cb12-65" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div>
@@ -1248,23 +1254,79 @@ P_{ij} = \Pr(\text{state}_{t+1} = j \mid \text{state}_t = i)
 </div>
 </div>
 </div>
-<p>Second, the <strong>stationary distribution</strong>—the long-run probability of occupying each state—exhibits a <strong>Pareto-like decay</strong>. The highest steady-state probability is in <strong>State 1 (≈ 16.6%)</strong>, and declines monotonically through State 10 (≈ 7.9%), forming a shape reminiscent of the <strong>density of a Pareto distribution</strong> or a <strong>discrete inverse-power law</strong>:</p>
-<ul>
-<li>While State 1 represents the largest share of firms at any point in time, this is <strong>not reflective of capital dominance</strong>.</li>
-<li>Rather, it suggests that <strong>the system structurally regenerates the bottom group</strong>, maintaining a large base of small-cap firms with limited upward mobility.</li>
-</ul>
-<p>This result aligns with prior findings in household wealth studies—such as those using FRED data—where the top 1% accumulates disproportionate wealth, but the <strong>modal position</strong> of individuals lies in the <strong>bottom or middle deciles</strong>. Our firm-level Markov model complements this view by adding <strong>monthly transition granularity</strong> and <strong>dynamic persistence structure</strong>, which cannot be captured by static wealth shares alone.</p>
-<p>Taken together, the findings indicate that capital mobility is increasingly <strong>non-reversible</strong> and <strong>stratified</strong>, violating assumptions of <strong>ergodicity</strong>, <strong>symmetry</strong>, and <strong>competitive reallocation</strong> often found in representative-agent equilibrium models.</p>
-<p>The U.S. equity market, viewed through the lens of Markovian state transitions, behaves less like a competitive allocation engine and more like a <strong>stratified hierarchy</strong>, where entry is rare, exits are asymmetric, and the top functions as a <strong>structural sink</strong> for capital.</p>
+<div id="8e80294e" class="cell" data-execution_count="12">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Long-Run Stationary Distribution by State (Excl. Exit)</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 4: Compute stationary distribution</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Method: Use eigen decomposition for the transpose of the transition matrix</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>eigvals, eigvecs <span class="op">=</span> np.linalg.eig(transition_matrix.T.values)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>stationary <span class="op">=</span> np.real(eigvecs[:, np.isclose(eigvals, <span class="dv">1</span>)])</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>stationary <span class="op">=</span> stationary[:, <span class="dv">0</span>]</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>stationary_dist <span class="op">=</span> stationary <span class="op">/</span> stationary.<span class="bu">sum</span>()</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare final transition matrix and stationary distribution</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>transition_matrix.index.name <span class="op">=</span> <span class="st">'From State'</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>transition_matrix.columns.name <span class="op">=</span> <span class="st">'To State'</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>stationary_series <span class="op">=</span> pd.Series(stationary_dist, index<span class="op">=</span>transition_matrix.columns, name<span class="op">=</span><span class="st">"Stationary Dist."</span>)</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="co"># State 1부터 10까지의 stationary probability</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>stationary_series_nonzero <span class="op">=</span> stationary_series.iloc[:]</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">5</span>))</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>sns.barplot(</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span>stationary_series_nonzero.index.astype(<span class="bu">str</span>),</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>    y<span class="op">=</span>stationary_series_nonzero.values,</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>    color<span class="op">=</span><span class="st">'steelblue'</span>,</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>    edgecolor<span class="op">=</span><span class="st">'black'</span></span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Annotate each bar with its value</span></span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, val <span class="kw">in</span> <span class="bu">enumerate</span>(stationary_series_nonzero.values):</span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>    plt.text(i, val <span class="op">+</span> <span class="fl">0.001</span>, <span class="ss">f"</span><span class="sc">{</span>val<span class="sc">:.3f}</span><span class="ss">"</span>, ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'bottom'</span>, fontsize<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot labels and formatting</span></span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Long-Run Stationary Distribution by State (Excl. Exit)"</span>, fontsize<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"State (Market Cap Rank)"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Stationary Probability"</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
+<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a>plt.ylim(<span class="dv">0</span>, stationary_series_nonzero.<span class="bu">max</span>() <span class="op">+</span> <span class="fl">0.01</span>)</span>
+<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="4_4_structure_files/figure-html/cell-13-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The estimated <strong>Markov transition matrix</strong> and <strong>stationary distribution</strong>, constructed using only ranked states (States 1–10), reveal a structurally persistent yet more symmetric capital mobility structure than previously observed in open-system models that included State 0. By excluding delisted or unranked firms, this framework focuses on rank-to-rank transitions within the surviving universe of firms and captures a distinct form of intra-market hierarchy.</p>
+<p><strong>High Persistence at the Extremes</strong></p>
+<p>The system continues to exhibit strong persistence at both ends of the distribution. In particular, the top decile (State 10) shows a self-transition probability of 0.972, implying an expected duration of over 36 months. This persistence confirms that once firms enter the top decile, they tend to remain there, reinforcing the notion that the highest tier functions as a quasi-absorbing state.</p>
+<p>Similarly, the bottom decile (State 1) displays a self-transition probability of 0.931, also associated with prolonged durations. This bilateral persistence at the extremes suggests a structural form of capital stratification, where firms, once classified into the highest or lowest decile, tend to stay put. These two tails behave like boundary layers of the rank system, characterized by entrenchment rather than fluid mobility.</p>
+<p><strong>Mobility in the Middle</strong></p>
+<p>In contrast, the middle states—especially States 4 and 5—display the lowest persistence, each with a diagonal transition probability near 0.79. These intermediate ranks represent the most unstable region of the system, acting as a transitory buffer between the stable top and bottom groups. Firms in these states face greater uncertainty and classification volatility, neither entrenched like the top-tier incumbents nor consistently relegated like small-cap firms.</p>
+<p>This suggests that mid-cap firms are most exposed to competitive reshuffling. Their trajectories remain open-ended, with material probabilities of upward or downward movement depending on performance shocks or relative repricing, but with limited protection from persistent identity.</p>
+<p><strong>Absence of Exit/Entry Mechanisms</strong></p>
+<p>In this formulation, the Markov chain excludes transitions into or out of State 0. As such, delisting and new entries are not explicitly modeled. This simplification defines a pseudo-closed system designed to examine intra-system mobility rather than open-market turnover. The exclusion of exit risk makes the estimated transition probabilities purely conditional on being within the ranked universe, ideal for studying relative capital stickiness but less suited for estimating attrition or survivorship.</p>
+<p>This design choice removes the asymmetry introduced by non-reversible states such as delisting or IPO-based entry, which would otherwise distort the symmetry of the estimated chain. While this comes at the cost of completeness, it offers clarity in isolating the structural dynamics of persistence, volatility, and mobility within the active market.</p>
+<p><strong>Stationary Distribution: Skewed Toward Lower Deciles</strong></p>
+<p>The estimated stationary distribution across ranked states displays a gradual but consistent decline from lower to higher ranks. State 1 exhibits the highest long-run probability, at approximately 16 percent, while State 10 stabilizes at around 8 percent. This pattern suggests that lower-ranked firms are more prevalent in the long run, at least in terms of count, even though they may not dominate capital or influence.</p>
+<p>Two forces likely drive this skew: first, a disproportionately high entry frequency into the lower deciles, often from new listings or small restructurings; and second, a limited degree of upward mobility from these initial positions. The bottom deciles, while not formally absorbing, act as a sticky floor—consistently replenished by inflows yet rarely exited by transitions to higher states.</p>
+<p>The implication is that mobility across ranks is asymmetric even within the active market. Structural regeneration happens predominantly at the bottom, while upward reallocation remains limited. This reinforces the interpretation of the capital market not as a fluid mobility engine, but as a system with hierarchical layers, each marked by different persistence dynamics and long-run outcomes.</p>
 </section>
 </section>
-<section id="summary-table" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="summary-table"><span class="header-section-number">4</span> Summary Table</h2>
+<section id="summary-table" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="summary-table"><span class="header-section-number">5</span> Summary Table</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 17%">
-<col style="width: 32%">
-<col style="width: 50%">
+<col style="width: 16%">
+<col style="width: 31%">
+<col style="width: 52%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1291,12 +1353,11 @@ P_{ij} = \Pr(\text{state}_{t+1} = j \mid \text{state}_t = i)
 </tr>
 </tbody>
 </table>
-<p>Integrated Interpretation:</p>
 <ul>
 <li><strong>Top-decile persistence</strong> reveals a form of <strong>quasi-absorption</strong>, where firms not only rise to the top but stay there disproportionately longer — effectively becoming “<strong>Too Big to Exit</strong>.”</li>
-<li><strong>Middle-rank volatility</strong> suggests <strong>structural fragility</strong>, with firms unable to stabilize or ascend — reflecting a “<strong>Fragile Middle</strong>” unable to convert mobility into permanence.</li>
-<li><strong>Lower-rank saturation</strong> shows <strong>pseudo-stationarity</strong>, where exit is more likely than upward mobility — a symptom of “<strong>regenerative failure</strong>” in the bottom half of the market.</li>
-<li>The <strong>stationary distribution</strong> over rank states closely resembles a <strong>Pareto-like decay</strong>, echoing wealth inequality in household distributions and reinforcing the idea that <strong>capital mobility in financial markets has collapsed into hierarchical entrenchment</strong>.</li>
+<li><strong>Middle-rank volatility</strong> suggests <strong>structural fragility</strong>, with firms unable to stabilize or ascend — reflecting a “<strong>Fragile Middle</strong>” that lacks lasting competitive foothold.</li>
+<li><strong>Lower-rank saturation</strong> reflects <strong>systemic bottlenecks</strong>, where inflows into low deciles are not matched by upward mobility — indicating a “<strong>sticky floor</strong>” rather than an active ladder.</li>
+<li>The <strong>long-run distribution</strong> reinforces this structure: capital is <strong>not symmetrically mobile</strong>, but increasingly trapped in persistent states. This challenges foundational assumptions in representative-agent models, suggesting instead that capital flows in financial markets obey a <strong>hierarchical and inertial logic</strong>, not a fluid or ergodic one.</li>
 </ul>
 
 
