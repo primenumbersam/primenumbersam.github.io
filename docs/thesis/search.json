@@ -959,7 +959,7 @@
     "href": "tbtf_data_plot.html#data-pre-processing",
     "title": "Equity Lifecycle",
     "section": "Data Pre-Processing",
-    "text": "Data Pre-Processing\n\n\n\n\n\n\n\n\n\npermno\ndate\nmktcap\nret\nprimaryexch\nsiccd\nindustry\nmktcap_lag\nret_excess\nstate\nstate_lag\nlifetype\nlife\n\n\n\n\n0\n10001\n1996-01-31\n20.814125\n-0.026667\nQ\n4925\nUtilities\n21.384375\n-0.030967\n3\n0\nold-death\n260\n\n\n1\n10001\n1996-02-29\n21.099250\n0.013699\nQ\n4925\nUtilities\n20.814125\n0.009799\n3\n3\nold-death\n260\n\n\n2\n10001\n1996-03-31\n21.899480\n0.036423\nQ\n4925\nUtilities\n21.099250\n0.032523\n3\n3\nold-death\n260\n\n\n3\n10001\n1996-04-30\n20.348063\n-0.070840\nQ\n4925\nUtilities\n21.899480\n-0.075440\n2\n3\nold-death\n260\n\n\n4\n10001\n1996-05-31\n19.915125\n-0.021277\nQ\n4925\nUtilities\n20.348063\n-0.025477\n2\n2\nold-death\n260",
+    "text": "Data Pre-Processing\n\n\nCode\nimport numpy as np\nimport pandas as pd\n\nimport sqlite3\ncon = sqlite3.connect(database=\"../../tbtf.sqlite\")\n\ncrsp = pd.read_sql_query(\n  sql=\"SELECT * FROM crsp\",\n  con=con,\n  parse_dates={\"date\"}\n)\n\nimport sys\nimport os\n# 현재 경로 기준으로 상위 디렉토리로 경로 추가\nsys.path.append(os.path.abspath('../..'))\n\nimport tbtf_data\n\nff3 = tbtf_data.load_ff3_factors(start_date=crsp['date'].min(), end_date=crsp['date'].max())\ncrsp_trunc = tbtf_data.crsp_truncation(crsp,ff3)\ncrsp_full = tbtf_data.crsp_lifecycle(crsp_trunc)\n\ncrsp_full.head()\n\n\n\n\n\n\n\n\n\npermno\ndate\nmktcap\nret\nprimaryexch\nsiccd\nindustry\nmktcap_lag\nret_excess\nstate\nstate_lag\nlifetype\nlife\n\n\n\n\n0\n10001\n1996-01-31\n20.814125\n-0.026667\nQ\n4925\nUtilities\n21.384375\n-0.030967\n3\n0\nold-death\n260\n\n\n1\n10001\n1996-02-29\n21.099250\n0.013699\nQ\n4925\nUtilities\n20.814125\n0.009799\n3\n3\nold-death\n260\n\n\n2\n10001\n1996-03-31\n21.899480\n0.036423\nQ\n4925\nUtilities\n21.099250\n0.032523\n3\n3\nold-death\n260\n\n\n3\n10001\n1996-04-30\n20.348063\n-0.070840\nQ\n4925\nUtilities\n21.899480\n-0.075440\n2\n3\nold-death\n260\n\n\n4\n10001\n1996-05-31\n19.915125\n-0.021277\nQ\n4925\nUtilities\n20.348063\n-0.025477\n2\n2\nold-death\n260",
     "crumbs": [
       "교육",
       "Equity Lifecycle"
@@ -970,7 +970,7 @@
     "href": "tbtf_data_plot.html#life-type-of-firms",
     "title": "Equity Lifecycle",
     "section": "Life Type of Firms",
-    "text": "Life Type of Firms\n\n\nlifetype\nnormal          5860\nold-death       5882\nold-living      1021\nshell             10\nyoung-living    3000\nName: permno, dtype: int64",
+    "text": "Life Type of Firms\n\n\nCode\n# crsp_full[crsp_full['permno']==90848] \n# permno, 제대로된 lifetype, 현재 lifetype, 현재 life, 입력 crsp_trunc 레코드가 2개 존재함\n# 30330, old-death, lifetype=old-death,life=2, first record date = sample_start\n# 14252, shell, lifetype= normal, life=2, sample_start &lt; first record date &lt; sample_end\n# 13010, shell, lifetype= normal, life=2, sample_start &lt; first record date &lt; sample_end\n# 90848, shell, lifetype= normal, life=2, sample_start &lt; first record date &lt; sample_end\n# Refco Inc, 90848\n\n# permno, 제대로된 lifetype, 현재 lifetype, 현재 life, 이 경우는 입력 crsp_trunc 레코드가 1개만 존재함\n# 15139, young-living, lifetype= shell, life=1, first record date = sample_end\n# 16815\n# crsp[crsp['permno']==14475] # Super Micro Computer (SMCI)라는 회사만 2019 상장폐지 후 2020년 재상장시 Permno (14475)가 유지되었다\n\nresult = crsp_full.groupby('lifetype')['permno'].nunique()\nprint(result)\n\nimport matplotlib.pyplot as plt\nimport seaborn as sns\n\n# Group by permno to get unique records for plotting (1 row per permno)\npermno_summary = (\n    crsp_full.sort_values(\"date\")\n    .groupby(\"permno\", as_index=False)\n    .first()\n    [[\"permno\", \"industry\", \"lifetype\", \"life\", \"state\"]]\n)\n\n\nlifetype\nnormal          5860\nold-death       5882\nold-living      1021\nshell             10\nyoung-living    3000\nName: permno, dtype: int64",
     "crumbs": [
       "교육",
       "Equity Lifecycle"
@@ -981,7 +981,7 @@
     "href": "tbtf_data_plot.html#life-for-each-lifetype-by-industry",
     "title": "Equity Lifecycle",
     "section": "Life for Each Lifetype by Industry",
-    "text": "Life for Each Lifetype by Industry",
+    "text": "Life for Each Lifetype by Industry\n\n\nCode\n# FacetGrid 생성\ng = sns.FacetGrid(permno_summary, col=\"industry\", col_wrap=4, height=4, sharex=False, sharey=False)\n\n# industry 이름 리스트\nindustry_names = g.col_names\n\n# 각 subplot에 대해 데이터 분할 및 그리기\nfor ax, industry in zip(g.axes.flat, industry_names):\n    data = permno_summary[permno_summary['industry'] == industry]\n    for lifetype, lifetype_data in data.groupby('lifetype'):\n        ax.hist(lifetype_data['life'], bins=20, alpha=0.7, label=lifetype)\n    ax.set_title(industry)\n    ax.legend()\n\nplt.tight_layout()\nplt.show()",
     "crumbs": [
       "교육",
       "Equity Lifecycle"
@@ -992,7 +992,7 @@
     "href": "tbtf_data_plot.html#permno-count-by-industry-for-lifetypes",
     "title": "Equity Lifecycle",
     "section": "Permno Count by Industry for lifetypes",
-    "text": "Permno Count by Industry for lifetypes",
+    "text": "Permno Count by Industry for lifetypes\n\n\nCode\n# 주요 lifetype만 사용\nmain_lifetypes = ['old-living', 'old-death', 'young-living', 'normal']\nfiltered_data = permno_summary[permno_summary['lifetype'].isin(main_lifetypes)]\n\n# industry 순서: old-death 기준\nindustry_order = (\n    filtered_data[filtered_data['lifetype'] == 'old-death']['industry']\n    .value_counts()\n    .index.tolist()\n)\n\n# 전체 industry 목록 확보\nall_industries = filtered_data['industry'].unique().tolist()\n\n# industry에 대한 색상 팔레트 생성\npalette_colors = sns.color_palette(\"tab20\", len(all_industries))\npalette = dict(zip(all_industries, palette_colors))\n\n# y축 최대값: old-death 기준\ny_max = (\n    filtered_data[filtered_data['lifetype'] == 'old-death']['industry']\n    .value_counts()\n    .max()\n)\n\n# 서브플롯 설정\nfig, axes = plt.subplots(2, 2, figsize=(14, 8))\naxes = axes.flatten()\n\nfor i, lifetype in enumerate(main_lifetypes):\n    ax = axes[i]\n    subset = filtered_data[filtered_data['lifetype'] == lifetype]\n    sns.countplot(\n        data=subset,\n        x='industry',\n        hue='industry',\n        order=industry_order,\n        palette=palette,\n        ax=ax\n    )\n    ax.set_title(f\"Permno Count by Industry for lifetype={lifetype}\")\n    ax.set_ylabel(\"Count\")\n    ax.set_ylim(0, y_max + 5)\n    ax.tick_params(axis='x', rotation=45)\n    ax.set_xlabel(\"Industry\")\n\n# 여분 subplot 제거\nfor j in range(len(main_lifetypes), len(axes)):\n    fig.delaxes(axes[j])\n\nplt.tight_layout()\nplt.show()",
     "crumbs": [
       "교육",
       "Equity Lifecycle"
@@ -1003,7 +1003,7 @@
     "href": "tbtf_data_plot.html#permno-count-by-initial-state-new-listings-only-for-each-industry",
     "title": "Equity Lifecycle",
     "section": "Permno Count by Initial State (New Listings Only) for Each Industry",
-    "text": "Permno Count by Initial State (New Listings Only) for Each Industry",
+    "text": "Permno Count by Initial State (New Listings Only) for Each Industry\n\n\nCode\n# in-sample 신규 상장된 permno\nin_sample_types = ['normal', 'young-living', 'shell']\nin_sample_df = permno_summary[permno_summary['lifetype'].isin(in_sample_types)]\n\n# 산업 순서 정의\nindustry_order = ['Manufacturing', 'Finance', 'Services', 'Retail', 'Transportation',\n                  'Mining', 'Wholesale', 'Utilities', 'Construction', 'Agriculture',\n                  'Public', 'Missing']\n\n# subplot 설정\nn_cols = 4\nn_rows = (len(industry_order) + n_cols - 1) // n_cols\nfig, axes = plt.subplots(n_rows, n_cols, figsize=(14, 8), sharey=True)\naxes = axes.flatten()\n\nfor i, industry in enumerate(industry_order):\n    ax = axes[i]\n    subset = in_sample_df[in_sample_df['industry'] == industry]\n    if subset.empty:\n        ax.set_title(industry)\n        ax.axis('off')\n        continue\n    sns.countplot(data=subset, x='state', ax=ax, order=sorted(subset['state'].dropna().unique()), color='skyblue')\n    ax.set_title(industry)\n    ax.set_xlabel('Initial Decile')\n    ax.set_ylabel('Permno Counts')\n    ax.tick_params(axis='x', rotation=0)\n\n# 남는 subplot 제거\nfor j in range(i + 1, len(axes)):\n    fig.delaxes(axes[j])\n\nfig.suptitle(\"Permno Count by Initial State (New Listings Only) for Each Industry\", fontsize=16)\nfig.tight_layout(rect=[0, 0, 1, 0.96])\nplt.show()",
     "crumbs": [
       "교육",
       "Equity Lifecycle"
@@ -1014,7 +1014,7 @@
     "href": "tbtf_data_plot.html#life-by-initial-state-for-each-industry-lifetype-normal",
     "title": "Equity Lifecycle",
     "section": "Life by Initial State for Each Industry (Lifetype = Normal)",
-    "text": "Life by Initial State for Each Industry (Lifetype = Normal)",
+    "text": "Life by Initial State for Each Industry (Lifetype = Normal)\n\n\nCode\n# 필터링: lifetype이 'normal'인 경우만\nnormal_df = permno_summary[permno_summary['lifetype'] == 'normal'].copy()\n\n# 산업 순서 지정\nindustry_order = ['Manufacturing', 'Finance', 'Services', 'Retail', 'Transportation', 'Mining',\n                  'Wholesale', 'Utilities', 'Construction', 'Agriculture', 'Public', 'Missing']\n\n# state와 life의 관계를 박스플롯으로 각 industry별 subplot 생성\nn_cols = 4\nn_rows = 3\nfig, axes = plt.subplots(n_rows, n_cols, figsize=(14, 8), sharey=True)\n\nfor ax, industry in zip(axes.flat, industry_order):\n    data = normal_df[normal_df['industry'] == industry]\n    if not data.empty and data['state'].nunique() &gt; 0:\n        sns.boxplot(data=data, x='state', y='life', ax=ax, order=sorted(data['state'].unique()))\n        ax.set_title(industry)\n    else:\n        ax.set_visible(False)\n\n    ax.set_xlabel('Initial Decile')\n    ax.set_ylabel('Life (Months)')\n\n# 빈 subplot 제거\nfor j in range(len(industry_order), len(axes.flat)):\n    fig.delaxes(axes.flat[j])\n\nfig.suptitle(\"Life by Initial State for Each Industry (Lifetype = Normal)\", fontsize=16)\nplt.tight_layout(rect=[0, 0, 1, 0.96])\nplt.show()",
     "crumbs": [
       "교육",
       "Equity Lifecycle"
@@ -1025,7 +1025,7 @@
     "href": "tbtf_data_plot.html#median-life-per-initial-state-by-industry-lifetypenormal",
     "title": "Equity Lifecycle",
     "section": "Median Life per Initial State by Industry (Lifetype=Normal)",
-    "text": "Median Life per Initial State by Industry (Lifetype=Normal)",
+    "text": "Median Life per Initial State by Industry (Lifetype=Normal)\n\n\nCode\n# lifetype이 'normal'인 permno만 필터링\nnormal_df = permno_summary[permno_summary['lifetype'] == 'normal'].copy()\n\n# subplot 순서 지정\nindustry_order = ['Manufacturing', 'Finance', 'Services', 'Retail', 'Transportation',\n                  'Mining', 'Wholesale', 'Utilities', 'Construction',\n                  'Agriculture', 'Public', 'Missing']\n\n# 산업과 state별로 median life 계산\ngrouped = normal_df.groupby(['industry', 'state'])['life'].median().reset_index()\n\n# plotting\nn_cols = 4\nn_rows = 3\nfig, axes = plt.subplots(n_rows, n_cols, figsize=(14, 8), sharey=True)\naxes = axes.flatten()\n\nfor i, industry in enumerate(industry_order):\n    ax = axes[i]\n    data = grouped[grouped['industry'] == industry]\n    if not data.empty:\n        sns.barplot(data=data, x='state', y='life', hue='state', ax=ax, palette='Blues_d', legend=False)\n        ax.set_title(industry)\n        ax.set_xlabel(\"Initial Decile\")\n        ax.set_ylabel(\"Median Life (Month)\")\n    else:\n        ax.set_visible(False)\n\nfig.suptitle(\"Median Life per Initial State by Industry (Lifetype=Normal)\", fontsize=16)\nplt.tight_layout()\nplt.show()",
     "crumbs": [
       "교육",
       "Equity Lifecycle"
@@ -1036,7 +1036,7 @@
     "href": "tbtf_data_plot.html#permno-count-by-initial-state-per-industry-lifetype-old-living",
     "title": "Equity Lifecycle",
     "section": "Permno Count by Initial State per Industry (lifetype = Old-Living)",
-    "text": "Permno Count by Initial State per Industry (lifetype = Old-Living)",
+    "text": "Permno Count by Initial State per Industry (lifetype = Old-Living)\n\n\nCode\n# Filter only 'old-living' lifetype\nold_living_data = permno_summary[permno_summary['lifetype'] == 'old-living']\n\n# Define industry order\nindustry_order = [\n    \"Manufacturing\", \"Finance\", \"Services\", \"Retail\", \"Transportation\",\n    \"Mining\", \"Wholesale\", \"Utilities\", \"Construction\",\n    \"Agriculture\", \"Public\", \"Missing\"\n]\n\n# Set up the subplot grid\nfig, axes = plt.subplots(3, 4, figsize=(14, 8), sharey=True)\naxes = axes.flatten()\n\nfor i, industry in enumerate(industry_order):\n    ax = axes[i]\n    data = old_living_data[old_living_data[\"industry\"] == industry]\n    if not data.empty:\n        state_counts = data[\"state\"].value_counts().sort_index()\n        bar_data = pd.DataFrame({\"state\": state_counts.index, \"count\": state_counts.values})\n        sns.barplot(data=bar_data, x=\"state\", y=\"count\", ax=ax, color=\"skyblue\", order=sorted(bar_data[\"state\"].unique()))\n    ax.set_title(industry)\n    ax.set_xlabel(\"Initial Decile\")\n    ax.set_ylabel(\"Permno Count\")\n    ax.set_xticks(range(10))\n    ax.set_xticklabels(range(1, 11))\n\n# Remove any unused subplots\nfor j in range(i + 1, len(axes)):\n    fig.delaxes(axes[j])\n\nplt.suptitle(\"Permno Count by Initial State per Industry (lifetype = Old-Living)\", fontsize=16)\nplt.tight_layout(rect=[0, 0, 1, 0.96])\nplt.show()",
     "crumbs": [
       "교육",
       "Equity Lifecycle"
@@ -1047,7 +1047,7 @@
     "href": "tbtf_data_plot.html#permno-count-by-initial-state-per-industry-lifetype-shell",
     "title": "Equity Lifecycle",
     "section": "Permno Count by Initial State per Industry (lifetype = Shell)",
-    "text": "Permno Count by Initial State per Industry (lifetype = Shell)",
+    "text": "Permno Count by Initial State per Industry (lifetype = Shell)\n\n\nCode\n# Filter only 'shell' lifetype\nshell_data = permno_summary[permno_summary['lifetype'] == 'shell'].copy()\n\n# Define industry order\nindustry_order = [\n    \"Manufacturing\", \"Finance\", \"Services\", \"Retail\", \"Transportation\",\n    \"Mining\", \"Wholesale\", \"Utilities\", \"Construction\",\n    \"Agriculture\", \"Public\", \"Missing\"\n]\n\n# Set up the subplot grid\nfig, axes = plt.subplots(3, 4, figsize=(14, 8), sharey=True)\naxes = axes.flatten()\n\nfor i, industry in enumerate(industry_order):\n    ax = axes[i]\n    data = shell_data[shell_data[\"industry\"] == industry]\n    if not data.empty:\n        # Count state values and convert to sorted DataFrame\n        bar_data = (\n            data.groupby(\"state\")\n            .size()\n            .reindex(range(1, 11), fill_value=0)\n            .reset_index(name=\"count\")\n        )\n        sns.barplot(data=bar_data, x=\"state\", y=\"count\", ax=ax, color=\"skyblue\")\n        ax.set_xticks(range(0, 10))\n        ax.set_xticklabels(range(1, 11))\n    ax.set_title(industry)\n    ax.set_xlabel(\"Initial Decile\")\n    ax.set_ylabel(\"Permno Count\")\n\n# Remove any unused subplots\nfor j in range(i + 1, len(axes)):\n    fig.delaxes(axes[j])\n\nplt.suptitle(\"Permno Count by Initial State per Industry (lifetype = Shell)\", fontsize=16)\nplt.tight_layout(rect=[0, 0, 1, 0.96])\nplt.show()",
     "crumbs": [
       "교육",
       "Equity Lifecycle"

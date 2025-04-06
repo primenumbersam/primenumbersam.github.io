@@ -11,11 +11,12 @@ keywords:
 jupyter: python3
 execute:
   enabled: true
-  echo: false
+  echo: true
   warning: false
   message: false
 format:
   revealjs:
+    code-fold: true
     theme: simple
     slide-number: true
     transition: slide
