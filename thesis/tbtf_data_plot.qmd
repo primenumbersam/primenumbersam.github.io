@@ -16,7 +16,7 @@ execute:
 format:
   revealjs:
     code-fold: true
-    theme: simple
+    theme: white
     slide-number: true
     transition: slide
 license: "CC BY-NC-SA"
@@ -48,7 +48,7 @@ ff3 = tbtf_data.load_ff3_factors(start_date=crsp['date'].min(), end_date=crsp['d
 crsp_trunc = tbtf_data.crsp_truncation(crsp,ff3)
 crsp_full = tbtf_data.crsp_lifecycle(crsp_trunc)
 
-crsp_full.head()
+print(crsp_full.head())
 ```
 
 ## Life Type of Firms
@@ -82,7 +82,7 @@ permno_summary = (
 )
 ```
 
-## Life for Each Lifetype by Industry 
+## Life Distribution for Each Lifetype
 
 ```{python}
 # FacetGrid 생성
@@ -104,7 +104,7 @@ plt.show()
 ```
 
 
-## Permno Count by Industry for lifetypes
+## Firm counts per Industry for Each Lifetype
 ```{python}
 
 # 주요 lifetype만 사용
@@ -133,7 +133,7 @@ y_max = (
 )
 
 # 서브플롯 설정
-fig, axes = plt.subplots(2, 2, figsize=(14, 8))
+fig, axes = plt.subplots(2, 2, figsize=(16, 10))
 axes = axes.flatten()
 
 for i, lifetype in enumerate(main_lifetypes):
@@ -147,7 +147,7 @@ for i, lifetype in enumerate(main_lifetypes):
         palette=palette,
         ax=ax
     )
-    ax.set_title(f"Permno Count by Industry for lifetype={lifetype}")
+    ax.set_title(f"Firm counts by Industry for Lifetype={lifetype}")
     ax.set_ylabel("Count")
     ax.set_ylim(0, y_max + 5)
     ax.tick_params(axis='x', rotation=45)
@@ -162,7 +162,8 @@ plt.show()
 
 ```
 
-## Permno Count by Initial State (New Listings Only) for Each Industry
+## Newly listed Firms per Initial Decile by Industry
+
 ```{python}
 
 # in-sample 신규 상장된 permno
@@ -177,7 +178,7 @@ industry_order = ['Manufacturing', 'Finance', 'Services', 'Retail', 'Transportat
 # subplot 설정
 n_cols = 4
 n_rows = (len(industry_order) + n_cols - 1) // n_cols
-fig, axes = plt.subplots(n_rows, n_cols, figsize=(14, 8), sharey=True)
+fig, axes = plt.subplots(n_rows, n_cols, figsize=(16, 10), sharey=True)
 axes = axes.flatten()
 
 for i, industry in enumerate(industry_order):
@@ -197,13 +198,13 @@ for i, industry in enumerate(industry_order):
 for j in range(i + 1, len(axes)):
     fig.delaxes(axes[j])
 
-fig.suptitle("Permno Count by Initial State (New Listings Only) for Each Industry", fontsize=16)
+fig.suptitle("Newly listed Firms per Initial Decile by Industry", fontsize=16)
 fig.tight_layout(rect=[0, 0, 1, 0.96])
 plt.show()
 
 ```
 
-## Life by Initial State for Each Industry (Lifetype = Normal)
+## Life per of Initial Decile by Industry (Full cycle Firms)
 ```{python}
 # 필터링: lifetype이 'normal'인 경우만
 normal_df = permno_summary[permno_summary['lifetype'] == 'normal'].copy()
@@ -215,7 +216,7 @@ industry_order = ['Manufacturing', 'Finance', 'Services', 'Retail', 'Transportat
 # state와 life의 관계를 박스플롯으로 각 industry별 subplot 생성
 n_cols = 4
 n_rows = 3
-fig, axes = plt.subplots(n_rows, n_cols, figsize=(14, 8), sharey=True)
+fig, axes = plt.subplots(n_rows, n_cols, figsize=(16, 10), sharey=True)
 
 for ax, industry in zip(axes.flat, industry_order):
     data = normal_df[normal_df['industry'] == industry]
@@ -232,12 +233,12 @@ for ax, industry in zip(axes.flat, industry_order):
 for j in range(len(industry_order), len(axes.flat)):
     fig.delaxes(axes.flat[j])
 
-fig.suptitle("Life by Initial State for Each Industry (Lifetype = Normal)", fontsize=16)
+fig.suptitle("Life per of Initial Decile by Industry (Lifetype=Normal)", fontsize=16)
 plt.tight_layout(rect=[0, 0, 1, 0.96])
 plt.show()
 ```
 
-## Median Life per Initial State by Industry (Lifetype=Normal)
+## Median Life per of Initial Decile by Industry (Full lifecycle Firms)
 ```{python}
 # lifetype이 'normal'인 permno만 필터링
 normal_df = permno_summary[permno_summary['lifetype'] == 'normal'].copy()
@@ -253,7 +254,7 @@ grouped = normal_df.groupby(['industry', 'state'])['life'].median().reset_index(
 # plotting
 n_cols = 4
 n_rows = 3
-fig, axes = plt.subplots(n_rows, n_cols, figsize=(14, 8), sharey=True)
+fig, axes = plt.subplots(n_rows, n_cols, figsize=(16, 10), sharey=True)
 axes = axes.flatten()
 
 for i, industry in enumerate(industry_order):
@@ -272,7 +273,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-## Permno Count by Initial State per Industry (lifetype = Old-Living)
+## The number of "continuously alive" firms per Initial State by Industry (lifetype = Old-Living)
 ```{python}
 # Filter only 'old-living' lifetype
 old_living_data = permno_summary[permno_summary['lifetype'] == 'old-living']
@@ -285,7 +286,7 @@ industry_order = [
 ]
 
 # Set up the subplot grid
-fig, axes = plt.subplots(3, 4, figsize=(14, 8), sharey=True)
+fig, axes = plt.subplots(3, 4, figsize=(16, 10), sharey=True)
 axes = axes.flatten()
 
 for i, industry in enumerate(industry_order):
@@ -305,12 +306,12 @@ for i, industry in enumerate(industry_order):
 for j in range(i + 1, len(axes)):
     fig.delaxes(axes[j])
 
-plt.suptitle("Permno Count by Initial State per Industry (lifetype = Old-Living)", fontsize=16)
+plt.suptitle("Permno Count per Initial State By Industry (lifetype = Old-Living)", fontsize=16)
 plt.tight_layout(rect=[0, 0, 1, 0.96])
 plt.show()
 ```
 
-## Permno Count by Initial State per Industry (lifetype = Shell)
+## The number of "1-month shell" firms per Initial State by Industry (lifetype = shell)
 ```{python}
 # Filter only 'shell' lifetype
 shell_data = permno_summary[permno_summary['lifetype'] == 'shell'].copy()
@@ -323,7 +324,7 @@ industry_order = [
 ]
 
 # Set up the subplot grid
-fig, axes = plt.subplots(3, 4, figsize=(14, 8), sharey=True)
+fig, axes = plt.subplots(3, 4, figsize=(16, 10), sharey=True)
 axes = axes.flatten()
 
 for i, industry in enumerate(industry_order):
@@ -348,7 +349,7 @@ for i, industry in enumerate(industry_order):
 for j in range(i + 1, len(axes)):
     fig.delaxes(axes[j])
 
-plt.suptitle("Permno Count by Initial State per Industry (lifetype = Shell)", fontsize=16)
+plt.suptitle("Permno Count per Initial State by Industry (lifetype = Shell)", fontsize=16)
 plt.tight_layout(rect=[0, 0, 1, 0.96])
 plt.show()
 
