@@ -3,7 +3,6 @@ title: Equity Lifecycle
 subtitle: Markov chain model for Open system
 author: GitSAM
 date: 04/07/2025
-abstract: This study examines 
 keywords: 
   - survivorship bias
   - truncation
