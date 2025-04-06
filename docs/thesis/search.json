@@ -953,5 +953,104 @@
       "Model",
       "07 Robustness"
     ]
+  },
+  {
+    "objectID": "tbtf_data_plot.html#data-pre-processing",
+    "href": "tbtf_data_plot.html#data-pre-processing",
+    "title": "Equity Lifecycle",
+    "section": "Data Pre-Processing",
+    "text": "Data Pre-Processing\n\n\n\n\n\n\n\n\n\npermno\ndate\nmktcap\nret\nprimaryexch\nsiccd\nindustry\nmktcap_lag\nret_excess\nstate\nstate_lag\nlifetype\nlife\n\n\n\n\n0\n10001\n1996-01-31\n20.814125\n-0.026667\nQ\n4925\nUtilities\n21.384375\n-0.030967\n3\n0\nold-death\n260\n\n\n1\n10001\n1996-02-29\n21.099250\n0.013699\nQ\n4925\nUtilities\n20.814125\n0.009799\n3\n3\nold-death\n260\n\n\n2\n10001\n1996-03-31\n21.899480\n0.036423\nQ\n4925\nUtilities\n21.099250\n0.032523\n3\n3\nold-death\n260\n\n\n3\n10001\n1996-04-30\n20.348063\n-0.070840\nQ\n4925\nUtilities\n21.899480\n-0.075440\n2\n3\nold-death\n260\n\n\n4\n10001\n1996-05-31\n19.915125\n-0.021277\nQ\n4925\nUtilities\n20.348063\n-0.025477\n2\n2\nold-death\n260",
+    "crumbs": [
+      "교육",
+      "Equity Lifecycle"
+    ]
+  },
+  {
+    "objectID": "tbtf_data_plot.html#life-type-of-firms",
+    "href": "tbtf_data_plot.html#life-type-of-firms",
+    "title": "Equity Lifecycle",
+    "section": "Life Type of Firms",
+    "text": "Life Type of Firms\n\n\nlifetype\nnormal          5860\nold-death       5882\nold-living      1021\nshell             10\nyoung-living    3000\nName: permno, dtype: int64",
+    "crumbs": [
+      "교육",
+      "Equity Lifecycle"
+    ]
+  },
+  {
+    "objectID": "tbtf_data_plot.html#life-for-each-lifetype-by-industry",
+    "href": "tbtf_data_plot.html#life-for-each-lifetype-by-industry",
+    "title": "Equity Lifecycle",
+    "section": "Life for Each Lifetype by Industry",
+    "text": "Life for Each Lifetype by Industry",
+    "crumbs": [
+      "교육",
+      "Equity Lifecycle"
+    ]
+  },
+  {
+    "objectID": "tbtf_data_plot.html#permno-count-by-industry-for-lifetypes",
+    "href": "tbtf_data_plot.html#permno-count-by-industry-for-lifetypes",
+    "title": "Equity Lifecycle",
+    "section": "Permno Count by Industry for lifetypes",
+    "text": "Permno Count by Industry for lifetypes",
+    "crumbs": [
+      "교육",
+      "Equity Lifecycle"
+    ]
+  },
+  {
+    "objectID": "tbtf_data_plot.html#permno-count-by-initial-state-new-listings-only-for-each-industry",
+    "href": "tbtf_data_plot.html#permno-count-by-initial-state-new-listings-only-for-each-industry",
+    "title": "Equity Lifecycle",
+    "section": "Permno Count by Initial State (New Listings Only) for Each Industry",
+    "text": "Permno Count by Initial State (New Listings Only) for Each Industry",
+    "crumbs": [
+      "교육",
+      "Equity Lifecycle"
+    ]
+  },
+  {
+    "objectID": "tbtf_data_plot.html#life-by-initial-state-for-each-industry-lifetype-normal",
+    "href": "tbtf_data_plot.html#life-by-initial-state-for-each-industry-lifetype-normal",
+    "title": "Equity Lifecycle",
+    "section": "Life by Initial State for Each Industry (Lifetype = Normal)",
+    "text": "Life by Initial State for Each Industry (Lifetype = Normal)",
+    "crumbs": [
+      "교육",
+      "Equity Lifecycle"
+    ]
+  },
+  {
+    "objectID": "tbtf_data_plot.html#median-life-per-initial-state-by-industry-lifetypenormal",
+    "href": "tbtf_data_plot.html#median-life-per-initial-state-by-industry-lifetypenormal",
+    "title": "Equity Lifecycle",
+    "section": "Median Life per Initial State by Industry (Lifetype=Normal)",
+    "text": "Median Life per Initial State by Industry (Lifetype=Normal)",
+    "crumbs": [
+      "교육",
+      "Equity Lifecycle"
+    ]
+  },
+  {
+    "objectID": "tbtf_data_plot.html#permno-count-by-initial-state-per-industry-lifetype-old-living",
+    "href": "tbtf_data_plot.html#permno-count-by-initial-state-per-industry-lifetype-old-living",
+    "title": "Equity Lifecycle",
+    "section": "Permno Count by Initial State per Industry (lifetype = Old-Living)",
+    "text": "Permno Count by Initial State per Industry (lifetype = Old-Living)",
+    "crumbs": [
+      "교육",
+      "Equity Lifecycle"
+    ]
+  },
+  {
+    "objectID": "tbtf_data_plot.html#permno-count-by-initial-state-per-industry-lifetype-shell",
+    "href": "tbtf_data_plot.html#permno-count-by-initial-state-per-industry-lifetype-shell",
+    "title": "Equity Lifecycle",
+    "section": "Permno Count by Initial State per Industry (lifetype = Shell)",
+    "text": "Permno Count by Initial State per Industry (lifetype = Shell)",
+    "crumbs": [
+      "교육",
+      "Equity Lifecycle"
+    ]
   }
 ]
