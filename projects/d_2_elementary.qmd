@@ -157,7 +157,7 @@ The **state space** $\mathcal{M}$ of such a system is typically modeled as a **s
 
 The essential idea is that the system’s trajectory is confined to this manifold—it does not escape, deform, or expand it. This confinement is a direct consequence of autonomy and closure. For instance, replicator dynamics preserve the normalization constraint $\sum x_i = 1$ by construction.
 
-> The manifold defines what kinds of motion are possible. The system’s evolution is not just determined by initial conditions, but by the **shape of the space itself**.
+> The manifold defines what kinds of motion are possible. The system’s evolution is not just determined by initial conditions, but by the shape of the space itself.
 
 This structural logic has a natural analogue in **discrete-time Markov chains**. Let $P$ be an $n \times n$ row-stochastic matrix, and let $\mathbf{x}_t$ be a probability distribution over $n$ states:
 
@@ -210,10 +210,7 @@ $$
 \dot{\ell} = \ell (f_L - \bar{f}), \quad \text{where } \bar{f} = \ell f_L + c f_C.
 $$
 
-This equation takes the exact form of **replicator dynamics**, familiar from evolutionary game theory. It describes the differential success of one component relative to the population-weighted average.
-
-This transformation reveals a deep structural insight:  
-> **Many nonlinear level-based systems can be recast as share-based, constrained systems evolving on a simplex.**
+This equation takes the exact form of **replicator dynamics**, familiar from evolutionary game theory. It describes the differential success of one component relative to the population-weighted average. Many nonlinear level-based systems can be recast as share-based, constrained systems evolving on a simplex.
 
 Generalizing to $n$-dimensional systems: suppose we have $\mathbf{x}(t) = (x_1, \dots, x_n) \in \mathbb{R}_+^n$, and define normalized shares:
 
@@ -243,16 +240,18 @@ $$
 
 where $\bar{a} = \tilde{\mathbf{x}}^\top A \mathbf{1}$ is the average growth rate. This dynamics mimics the evolution of a **discrete-time Markov chain** in continuous time—particularly when $A$ is column-stochastic (or conserves total mass, i.e., $\sum_i \dot{x}_i = 0$).
 
-> **Key Structural Insight:**  
-> - Level dynamics describe **absolute accumulation or depletion**.  
-> - Share dynamics describe **relative competition or reproduction**.  
-> - The latter induces a **geometry over the simplex**, mirroring that of **Markov chains** or **probabilistic flows**.
+**Key Structural Insight:**  
+
+- Level dynamics describe **absolute accumulation or depletion**.  
+- Share dynamics describe **relative competition or reproduction**.  
+- The latter induces a **geometry over the simplex**, mirroring that of **Markov chains** or **probabilistic flows**.
 
 This connection is more than formal. In applied settings, analyzing normalized dynamics often simplifies the structure, isolates systemic selection mechanisms, and aligns with probabilistic interpretations.
 
-> A closed ODE system can often be interpreted in **dual form**:  
-> - As **mass evolution** in $\mathbb{R}_+^n$  
-> - As **probability evolution** in $\Delta^{n-1}$  
+A closed ODE system can often be interpreted in **dual form**:  
+
+- As **mass evolution** in $\mathbb{R}_+^n$  
+- As **probability evolution** in $\Delta^{n-1}$  
 
 Both views preserve internal consistency but emphasize different types of systemic constraint: **conservation of total quantity** vs. **invariance of share structure**.
 
@@ -287,21 +286,18 @@ In the context of **replicator dynamics**, which often result from normalization
 
 In this setting, the equilibrium condition says that any strategy with positive share must yield the same expected payoff as the population average. The resulting fixed point $\mathbf{x}^*$ reflects **invariance under self-replicating dynamics**: if every strategy earns the average return, no further adjustment occurs.
 
-More broadly, fixed points serve as candidates for **global asymptotic behavior**—states toward which the system may converge over time. Whether or not this convergence occurs depends on their **stability**, a topic we will address in the next section. But even without stability, fixed points offer an essential structural insight:
-
-> **Fixed points are not always efficient.**  
-> They are not guaranteed to maximize a welfare function, only to satisfy internal consistency.
+More broadly, fixed points serve as candidates for **global asymptotic behavior**—states toward which the system may converge over time. Whether or not this convergence occurs depends on their **stability**, a topic we will address in the next section. But even without stability, fixed points offer an essential structural insight: **Fixed points are not always efficient.** They are not guaranteed to maximize a welfare function, only to satisfy internal consistency.
 
 This distinction is especially important in economic models. Market equilibria, for example, may persist due to structural constraints, not because they are Pareto optimal. In ecological models, predator-prey balance may be achieved at inefficient population levels, depending on the interaction parameters.
 
 Finally, fixed points are the bridge between **nonlinear systems** and their **linear approximations**. In order to study local stability, we must first locate these points. They form the anchors around which the system's behavior can be analyzed geometrically.
 
-> In summary:  
-> - Fixed points exist under mild conditions (Brouwer).  
-> - They are invariant under the system’s own dynamics.  
-> - They may correspond to equilibria in economic or evolutionary settings.  
-> - Their role is structural, not necessarily optimal.  
-> - Their stability and selection are matters of **local geometry**, not **global design**.
+**Fixed points** exist under mild conditions (Brouwer):
+
+- They are invariant under the system’s own dynamics.  
+- They may correspond to equilibria in economic or evolutionary settings.  
+- Their role is structural, not necessarily optimal.  
+- Their stability and selection are determined by local geometry, but they are ultimately constrained by the global topology of the system.
 
 
 ## Local Stability and Linear Approximation
@@ -334,13 +330,11 @@ This approximation turns the nonlinear system into a linear one locally, enablin
 > $$
 > This **community matrix** expresses how each population or strategy reacts to small changes in others.
 
-The **Jacobian spectrum** reflects the **local geometry** of the vector field. However, this geometry does not arise in isolation—it is a projection of the **global structure** of the system, determined by interaction rules, constraints, and feedback topology.
-
-> In this sense:  
-> The local geometry does not determine the system. It is a **localized expression of the global architecture**—visible through differential structure at the fixed point.
+The Jacobian spectrum captures the local geometry of the vector field, but this geometry does not emerge in isolation. It reflects a projection of the system’s global structure, shaped by its interaction rules, constraints, and feedback topology. In this sense, local geometry does not determine the system—it merely expresses, in differential form at the fixed point, the localized imprint of the global architecture.
 
 > **Example (Predator–Prey System):**  
-> In a Lotka–Volterra system, if $J(\mathbf{x}^*)$ has purely imaginary eigenvalues, the system exhibits **neutral cycles**.  
+> In a Lotka–Volterra system, 
+> if $J(\mathbf{x}^*)$ has purely imaginary eigenvalues, the system exhibits **neutral cycles**.  
 > If eigenvalues have negative real parts, trajectories **spiral back** to equilibrium.
 
 In finance or economics, **local stability** is often interpreted as **bounded response** of prices, capital stocks, or returns. But such interpretations are frequently **assumed**, not derived from first principles.
@@ -368,7 +362,7 @@ Thus, across frameworks:
 > Yet in mainstream economic models, these conditions are often treated as if **structurally self-evident**, when they are in fact **mathematical assumptions**—frequently unacknowledged and untested.  
 > Different parameterizations (e.g., gross vs. net returns) shift the meaning of “stability,” but this shift is rarely made explicit.
 
-What appears as “natural stability” is often a restatement of **basic spectral convergence conditions**. The deeper question is not whether the system is stable, but **what structural mechanisms** produce or undermine stability—and whether they correspond to economic reality or analytical convenience.
+What appears as “natural stability” is often a restatement of basic spectral convergence conditions. The deeper question is not whether the system is stable, but what structural mechanisms produce or undermine stability—and whether they correspond to economic reality or analytical convenience.
 
 Local linearization thus acts as a **microscope**: it allows us to classify equilibrium behavior based on **local differential structure**, even if the **global landscape** remains nonlinear and complex. Local stability is not a measure of global optimality. It is a statement about **local resilience**, shaped by the system's internal feedback at that point.
 
@@ -404,7 +398,7 @@ These fixed points reflect **internal compatibility**, not global optimality. Ev
 
 To analyze behavior near such equilibria, we compute the **Jacobian matrix** $J(\mathbf{x}^*)$ of the replicator dynamics. If none of its eigenvalues lie on the imaginary axis—i.e., if $\mathbf{x}^*$ is a **hyperbolic steady state**—then the local behavior is governed by the linearized system.
 
-> This is precisely where we invoke the Hartman–Grobman theorem (as previously discussed): local trajectories behave qualitatively like those of the linearized system near the fixed point.
+This is precisely where we invoke the Hartman–Grobman theorem (as previously discussed): local trajectories behave qualitatively like those of the linearized system near the fixed point.
 
 - If all eigenvalues have **negative real parts**, the Nash equilibrium is **locally asymptotically stable**.
 - If any eigenvalues have **positive real parts**, the point is **locally unstable**.
@@ -515,9 +509,7 @@ This applies equally in:
 - **Social networks** (e.g., attention concentrating on central nodes),
 - **Political systems** (e.g., power concentrating in deeply institutionalized actors).
 
-The Perron eigenvector is often invisible in short-run observations. It emerges over time—just as compound interest, reputation, or market share slowly diverge. It represents a kind of **topological power**: a state’s ability to maintain and attract flow simply by virtue of its **location in the interaction structure**.
-
-> **Mathematical analogy:** In spectral graph theory, centrality measures like **PageRank** are nothing but Perron vectors of stochastic adjacency matrices. The same applies here—dominance is the outcome of **structural centrality**, not performance in any exogenous sense.
+The Perron eigenvector is often invisible in short-run observations. It emerges over time—just as compound interest, reputation, or market share slowly diverge. It represents a kind of **topological power**: a state’s ability to maintain and attract flow simply by virtue of its **location in the interaction structure**. In spectral graph theory, centrality measures like **PageRank** are nothing but Perron vectors of stochastic adjacency matrices. The same may apply here—dominance is the outcome of **structural centrality**, not performance in any exogenous sense.
 
 The Perron–Frobenius theorem is not merely an algebraic artifact—it provides a **structural lens** for understanding long-run dominance:
 
@@ -544,7 +536,7 @@ Economic systems often display the same structural logic. Capital tends to conce
 
 This insight reveals why closed and quasi-closed models are so useful: they allow us to study how **structure itself generates inequality**. Within these frameworks, we can formally identify **fixed points**, **hyperbolic steady states**, and **invariant sets**. We can trace dominance to the **eigenstructure of interaction matrices**. We can classify local stability, and project global path dependence. But this analytical clarity comes with a cost. By design, such models **exclude structural mutation**. They assume that the architecture of the system is fixed—even as it generates asymmetry.
 
-Real-world economic history, however, is shaped as much by **ruptures** as by reinforcements. New technologies, regulatory collapses, and institutional realignments frequently destroy the closed logic of existing systems. These events cannot be interpreted as small shocks; they are **structural mutations**. When automation displaces labor, when digital platforms rewire capital flows, when financial regimes collapse—the topology of the system changes. These are not deviations within a closed phase space. They mark the birth of a new one.
+Real-world economic history, however, is shaped as much by ruptures as by reinforcements. New technologies, regulatory collapses, and institutional realignments frequently destroy the closed logic of existing systems. These events cannot be interpreted as small shocks; they are **structural mutations**. When automation displaces labor, when digital platforms rewire capital flows, when financial regimes collapse—the topology of the system changes. These are not deviations within a closed phase space. They mark the birth of a new one.
 
 The implication is clear. **Persistence is not proof of merit**. It is often the artifact of **selection under structural constraint**, reinforced by slowly evolving or frozen interaction rules. Such systems reveal how inequality can emerge and endure even when performance differences are minimal or absent. But they cannot explain how inequality transforms—how new forms emerge, how old structures collapse, how systems adapt or fail to adapt when their internal logics are broken.
 

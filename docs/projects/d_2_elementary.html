@@ -194,7 +194,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./d_overview.html">동역학</a></li><li class="breadcrumb-item"><a href="./d_2_elementary.html">동역학 기초수학</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./d_overview.html">비주류경제론-동역학</a></li><li class="breadcrumb-item"><a href="./d_2_elementary.html">동역학 기초수학</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -303,7 +303,7 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">동역학</span></a>
+ <span class="menu-text">비주류경제론-동역학</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -370,7 +370,7 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./d_overview.html">동역학</a></li><li class="breadcrumb-item"><a href="./d_2_elementary.html">동역학 기초수학</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./d_overview.html">비주류경제론-동역학</a></li><li class="breadcrumb-item"><a href="./d_2_elementary.html">동역학 기초수학</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">동역학 기초수학</h1>
 <p class="subtitle lead">Elementary Mathematics for Closed System Dynamics</p>
@@ -412,7 +412,7 @@ window.Quarto = {
 <p><strong>Mathematical Insight:</strong> These closed cycles correspond, in the frequency domain, to dominant harmonic modes—i.e., a natural periodicity. From a systems-theoretic perspective, this allows interpretation via <strong>Fourier decomposition</strong>, where the cyclical behavior of populations maps to periodic oscillators in signal processing.</p>
 </blockquote>
 <p>Thus, the Lotka–Volterra model offers a rich entry point for understanding <strong>non-equilibrium dynamics</strong>, <strong>nonlinear feedback</strong>, and <strong>structural cycles</strong>—core features of many biological and economic systems.</p>
-<div id="e2dc3831" class="cell" data-execution_count="1">
+<div id="c26e194a" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulation Plan</span></span>
@@ -560,7 +560,7 @@ All evolution is internally determined; no new variables, shocks, or external in
 </ul>
 <p>The essential idea is that the system’s trajectory is confined to this manifold—it does not escape, deform, or expand it. This confinement is a direct consequence of autonomy and closure. For instance, replicator dynamics preserve the normalization constraint <span class="math inline">\(\sum x_i = 1\)</span> by construction.</p>
 <blockquote class="blockquote">
-<p>The manifold defines what kinds of motion are possible. The system’s evolution is not just determined by initial conditions, but by the <strong>shape of the space itself</strong>.</p>
+<p>The manifold defines what kinds of motion are possible. The system’s evolution is not just determined by initial conditions, but by the shape of the space itself.</p>
 </blockquote>
 <p>This structural logic has a natural analogue in <strong>discrete-time Markov chains</strong>. Let <span class="math inline">\(P\)</span> be an <span class="math inline">\(n \times n\)</span> row-stochastic matrix, and let <span class="math inline">\(\mathbf{x}_t\)</span> be a probability distribution over <span class="math inline">\(n\)</span> states:</p>
 <p><span class="math display">\[
@@ -600,9 +600,7 @@ All evolution is internally determined; no new variables, shocks, or external in
 <p><span class="math display">\[
 \dot{\ell} = \ell (f_L - \bar{f}), \quad \text{where } \bar{f} = \ell f_L + c f_C.
 \]</span></p>
-<p>This equation takes the exact form of <strong>replicator dynamics</strong>, familiar from evolutionary game theory. It describes the differential success of one component relative to the population-weighted average.</p>
-<p>This transformation reveals a deep structural insight:<br>
-&gt; <strong>Many nonlinear level-based systems can be recast as share-based, constrained systems evolving on a simplex.</strong></p>
+<p>This equation takes the exact form of <strong>replicator dynamics</strong>, familiar from evolutionary game theory. It describes the differential success of one component relative to the population-weighted average. Many nonlinear level-based systems can be recast as share-based, constrained systems evolving on a simplex.</p>
 <p>Generalizing to <span class="math inline">\(n\)</span>-dimensional systems: suppose we have <span class="math inline">\(\mathbf{x}(t) = (x_1, \dots, x_n) \in \mathbb{R}_+^n\)</span>, and define normalized shares:</p>
 <p><span class="math display">\[
 \tilde{x}_i(t) = \frac{x_i(t)}{\sum_{j=1}^n x_j(t)}.
@@ -621,18 +619,21 @@ All evolution is internally determined; no new variables, shocks, or external in
 \dot{\tilde{\mathbf{x}}} = \tilde{\mathbf{x}} \cdot (A - \bar{a} I),
 \]</span></p>
 <p>where <span class="math inline">\(\bar{a} = \tilde{\mathbf{x}}^\top A \mathbf{1}\)</span> is the average growth rate. This dynamics mimics the evolution of a <strong>discrete-time Markov chain</strong> in continuous time—particularly when <span class="math inline">\(A\)</span> is column-stochastic (or conserves total mass, i.e., <span class="math inline">\(\sum_i \dot{x}_i = 0\)</span>).</p>
-<blockquote class="blockquote">
-<p><strong>Key Structural Insight:</strong><br>
-- Level dynamics describe <strong>absolute accumulation or depletion</strong>.<br>
-- Share dynamics describe <strong>relative competition or reproduction</strong>.<br>
-- The latter induces a <strong>geometry over the simplex</strong>, mirroring that of <strong>Markov chains</strong> or <strong>probabilistic flows</strong>.</p>
-</blockquote>
+<p><strong>Key Structural Insight:</strong></p>
+<ul>
+<li>Level dynamics describe <strong>absolute accumulation or depletion</strong>.<br>
+</li>
+<li>Share dynamics describe <strong>relative competition or reproduction</strong>.<br>
+</li>
+<li>The latter induces a <strong>geometry over the simplex</strong>, mirroring that of <strong>Markov chains</strong> or <strong>probabilistic flows</strong>.</li>
+</ul>
 <p>This connection is more than formal. In applied settings, analyzing normalized dynamics often simplifies the structure, isolates systemic selection mechanisms, and aligns with probabilistic interpretations.</p>
-<blockquote class="blockquote">
-<p>A closed ODE system can often be interpreted in <strong>dual form</strong>:<br>
-- As <strong>mass evolution</strong> in <span class="math inline">\(\mathbb{R}_+^n\)</span><br>
-- As <strong>probability evolution</strong> in <span class="math inline">\(\Delta^{n-1}\)</span></p>
-</blockquote>
+<p>A closed ODE system can often be interpreted in <strong>dual form</strong>:</p>
+<ul>
+<li>As <strong>mass evolution</strong> in <span class="math inline">\(\mathbb{R}_+^n\)</span><br>
+</li>
+<li>As <strong>probability evolution</strong> in <span class="math inline">\(\Delta^{n-1}\)</span></li>
+</ul>
 <p>Both views preserve internal consistency but emphasize different types of systemic constraint: <strong>conservation of total quantity</strong> vs.&nbsp;<strong>invariance of share structure</strong>.</p>
 </section>
 <section id="fixed-points-and-their-existence" class="level2">
@@ -659,21 +660,19 @@ Let <span class="math inline">\(\mathbf{x} = (x_1, x_2, x_3) \in \Delta^2\)</spa
 \]</span> Every <strong>Nash equilibrium</strong> corresponds to a fixed point of this system.</p>
 </blockquote>
 <p>In this setting, the equilibrium condition says that any strategy with positive share must yield the same expected payoff as the population average. The resulting fixed point <span class="math inline">\(\mathbf{x}^*\)</span> reflects <strong>invariance under self-replicating dynamics</strong>: if every strategy earns the average return, no further adjustment occurs.</p>
-<p>More broadly, fixed points serve as candidates for <strong>global asymptotic behavior</strong>—states toward which the system may converge over time. Whether or not this convergence occurs depends on their <strong>stability</strong>, a topic we will address in the next section. But even without stability, fixed points offer an essential structural insight:</p>
-<blockquote class="blockquote">
-<p><strong>Fixed points are not always efficient.</strong><br>
-They are not guaranteed to maximize a welfare function, only to satisfy internal consistency.</p>
-</blockquote>
+<p>More broadly, fixed points serve as candidates for <strong>global asymptotic behavior</strong>—states toward which the system may converge over time. Whether or not this convergence occurs depends on their <strong>stability</strong>, a topic we will address in the next section. But even without stability, fixed points offer an essential structural insight: <strong>Fixed points are not always efficient.</strong> They are not guaranteed to maximize a welfare function, only to satisfy internal consistency.</p>
 <p>This distinction is especially important in economic models. Market equilibria, for example, may persist due to structural constraints, not because they are Pareto optimal. In ecological models, predator-prey balance may be achieved at inefficient population levels, depending on the interaction parameters.</p>
 <p>Finally, fixed points are the bridge between <strong>nonlinear systems</strong> and their <strong>linear approximations</strong>. In order to study local stability, we must first locate these points. They form the anchors around which the system’s behavior can be analyzed geometrically.</p>
-<blockquote class="blockquote">
-<p>In summary:<br>
-- Fixed points exist under mild conditions (Brouwer).<br>
-- They are invariant under the system’s own dynamics.<br>
-- They may correspond to equilibria in economic or evolutionary settings.<br>
-- Their role is structural, not necessarily optimal.<br>
-- Their stability and selection are matters of <strong>local geometry</strong>, not <strong>global design</strong>.</p>
-</blockquote>
+<p><strong>Fixed points</strong> exist under mild conditions (Brouwer):</p>
+<ul>
+<li>They are invariant under the system’s own dynamics.<br>
+</li>
+<li>They may correspond to equilibria in economic or evolutionary settings.<br>
+</li>
+<li>Their role is structural, not necessarily optimal.<br>
+</li>
+<li>Their stability and selection are determined by local geometry, but they are ultimately constrained by the global topology of the system.</li>
+</ul>
 </section>
 <section id="local-stability-and-linear-approximation" class="level2">
 <h2 class="anchored" data-anchor-id="local-stability-and-linear-approximation">Local Stability and Linear Approximation</h2>
@@ -702,11 +701,7 @@ For a model such as <span class="math inline">\(\dot{\mathbf{x}} = \operatorname
 J(\mathbf{x}^*) = \operatorname{diag}(\mathbf{x}^*) A.
 \]</span> This <strong>community matrix</strong> expresses how each population or strategy reacts to small changes in others.</p>
 </blockquote>
-<p>The <strong>Jacobian spectrum</strong> reflects the <strong>local geometry</strong> of the vector field. However, this geometry does not arise in isolation—it is a projection of the <strong>global structure</strong> of the system, determined by interaction rules, constraints, and feedback topology.</p>
-<blockquote class="blockquote">
-<p>In this sense:<br>
-The local geometry does not determine the system. It is a <strong>localized expression of the global architecture</strong>—visible through differential structure at the fixed point.</p>
-</blockquote>
+<p>The Jacobian spectrum captures the local geometry of the vector field, but this geometry does not emerge in isolation. It reflects a projection of the system’s global structure, shaped by its interaction rules, constraints, and feedback topology. In this sense, local geometry does not determine the system—it merely expresses, in differential form at the fixed point, the localized imprint of the global architecture.</p>
 <blockquote class="blockquote">
 <p><strong>Example (Predator–Prey System):</strong><br>
 In a Lotka–Volterra system, if <span class="math inline">\(J(\mathbf{x}^*)\)</span> has purely imaginary eigenvalues, the system exhibits <strong>neutral cycles</strong>.<br>
@@ -734,7 +729,7 @@ If eigenvalues have negative real parts, trajectories <strong>spiral back</stron
 <p>Yet in mainstream economic models, these conditions are often treated as if <strong>structurally self-evident</strong>, when they are in fact <strong>mathematical assumptions</strong>—frequently unacknowledged and untested.<br>
 Different parameterizations (e.g., gross vs.&nbsp;net returns) shift the meaning of “stability,” but this shift is rarely made explicit.</p>
 </blockquote>
-<p>What appears as “natural stability” is often a restatement of <strong>basic spectral convergence conditions</strong>. The deeper question is not whether the system is stable, but <strong>what structural mechanisms</strong> produce or undermine stability—and whether they correspond to economic reality or analytical convenience.</p>
+<p>What appears as “natural stability” is often a restatement of basic spectral convergence conditions. The deeper question is not whether the system is stable, but what structural mechanisms produce or undermine stability—and whether they correspond to economic reality or analytical convenience.</p>
 <p>Local linearization thus acts as a <strong>microscope</strong>: it allows us to classify equilibrium behavior based on <strong>local differential structure</strong>, even if the <strong>global landscape</strong> remains nonlinear and complex. Local stability is not a measure of global optimality. It is a statement about <strong>local resilience</strong>, shaped by the system’s internal feedback at that point.</p>
 </section>
 <section id="replicator-dynamics-and-nash-equilibrium" class="level2">
@@ -759,9 +754,7 @@ x_i^* &gt; 0 \Rightarrow (A\mathbf{x}^*)_i = \mathbf{x}^{*\top} A \mathbf{x}^*, 
 <p>At such a point, no type has an incentive to grow or shrink—each performs identically in expectation, relative to the population average.</p>
 <p>These fixed points reflect <strong>internal compatibility</strong>, not global optimality. Even suboptimal strategies can persist if they are structurally embedded or protected by the system’s interaction structure.</p>
 <p>To analyze behavior near such equilibria, we compute the <strong>Jacobian matrix</strong> <span class="math inline">\(J(\mathbf{x}^*)\)</span> of the replicator dynamics. If none of its eigenvalues lie on the imaginary axis—i.e., if <span class="math inline">\(\mathbf{x}^*\)</span> is a <strong>hyperbolic steady state</strong>—then the local behavior is governed by the linearized system.</p>
-<blockquote class="blockquote">
 <p>This is precisely where we invoke the Hartman–Grobman theorem (as previously discussed): local trajectories behave qualitatively like those of the linearized system near the fixed point.</p>
-</blockquote>
 <ul>
 <li>If all eigenvalues have <strong>negative real parts</strong>, the Nash equilibrium is <strong>locally asymptotically stable</strong>.</li>
 <li>If any eigenvalues have <strong>positive real parts</strong>, the point is <strong>locally unstable</strong>.</li>
@@ -855,10 +848,7 @@ Suppose a set of firms or sectors reallocates capital over time according to a s
 <li><strong>Social networks</strong> (e.g., attention concentrating on central nodes),</li>
 <li><strong>Political systems</strong> (e.g., power concentrating in deeply institutionalized actors).</li>
 </ul>
-<p>The Perron eigenvector is often invisible in short-run observations. It emerges over time—just as compound interest, reputation, or market share slowly diverge. It represents a kind of <strong>topological power</strong>: a state’s ability to maintain and attract flow simply by virtue of its <strong>location in the interaction structure</strong>.</p>
-<blockquote class="blockquote">
-<p><strong>Mathematical analogy:</strong> In spectral graph theory, centrality measures like <strong>PageRank</strong> are nothing but Perron vectors of stochastic adjacency matrices. The same applies here—dominance is the outcome of <strong>structural centrality</strong>, not performance in any exogenous sense.</p>
-</blockquote>
+<p>The Perron eigenvector is often invisible in short-run observations. It emerges over time—just as compound interest, reputation, or market share slowly diverge. It represents a kind of <strong>topological power</strong>: a state’s ability to maintain and attract flow simply by virtue of its <strong>location in the interaction structure</strong>. In spectral graph theory, centrality measures like <strong>PageRank</strong> are nothing but Perron vectors of stochastic adjacency matrices. The same may apply here—dominance is the outcome of <strong>structural centrality</strong>, not performance in any exogenous sense.</p>
 <p>The Perron–Frobenius theorem is not merely an algebraic artifact—it provides a <strong>structural lens</strong> for understanding long-run dominance:</p>
 <ul>
 <li>In <strong>Markov chains</strong>, the invariant distribution reflects probabilistic entrenchment.</li>
@@ -877,7 +867,7 @@ Suppose a set of firms or sectors reallocates capital over time according to a s
 <p>Conventional economic narratives typically invoke a logic of <strong>selection by merit</strong>: those who persist must be those who perform better. But in quasi-closed systems, <strong>structural position outweighs competitive edge</strong>. Survival and dominance reflect where an agent begins, not necessarily how they behave. The analogy often drawn from biology—“survival of the fittest”—is more Spencerian than Darwinian. Spencer’s framework implies that survival evidences superiority. Darwin’s actual theory emphasized <strong>contextual fit</strong>: species survive when they are <strong>viable within given constraints</strong>, not because they are globally optimal. In this distinction lies a profound shift in explanatory logic: from <strong>performance-based selection</strong> to <strong>constraint-based persistence</strong>.</p>
 <p>Economic systems often display the same structural logic. Capital tends to concentrate not due to constant outperformance, but due to <strong>preferential attachment</strong>: once capital accumulates disproportionately, future inflows tend to reinforce this advantage. Even in the absence of marginal superiority, historical position becomes a gravitational center. As shown in <strong>Perron–Frobenius-type dynamics</strong>, long-run dominance is determined not by productivity, but by <strong>connectivity within the transition structure</strong>—topological advantage, not economic value, dictates persistence.</p>
 <p>This insight reveals why closed and quasi-closed models are so useful: they allow us to study how <strong>structure itself generates inequality</strong>. Within these frameworks, we can formally identify <strong>fixed points</strong>, <strong>hyperbolic steady states</strong>, and <strong>invariant sets</strong>. We can trace dominance to the <strong>eigenstructure of interaction matrices</strong>. We can classify local stability, and project global path dependence. But this analytical clarity comes with a cost. By design, such models <strong>exclude structural mutation</strong>. They assume that the architecture of the system is fixed—even as it generates asymmetry.</p>
-<p>Real-world economic history, however, is shaped as much by <strong>ruptures</strong> as by reinforcements. New technologies, regulatory collapses, and institutional realignments frequently destroy the closed logic of existing systems. These events cannot be interpreted as small shocks; they are <strong>structural mutations</strong>. When automation displaces labor, when digital platforms rewire capital flows, when financial regimes collapse—the topology of the system changes. These are not deviations within a closed phase space. They mark the birth of a new one.</p>
+<p>Real-world economic history, however, is shaped as much by ruptures as by reinforcements. New technologies, regulatory collapses, and institutional realignments frequently destroy the closed logic of existing systems. These events cannot be interpreted as small shocks; they are <strong>structural mutations</strong>. When automation displaces labor, when digital platforms rewire capital flows, when financial regimes collapse—the topology of the system changes. These are not deviations within a closed phase space. They mark the birth of a new one.</p>
 <p>The implication is clear. <strong>Persistence is not proof of merit</strong>. It is often the artifact of <strong>selection under structural constraint</strong>, reinforced by slowly evolving or frozen interaction rules. Such systems reveal how inequality can emerge and endure even when performance differences are minimal or absent. But they cannot explain how inequality transforms—how new forms emerge, how old structures collapse, how systems adapt or fail to adapt when their internal logics are broken.</p>
 <p>To understand these transitions, we must move beyond the closed framework. The next chapter begins here: with the breakage of internal feedback loops, the introduction of <strong>non-conservative flows</strong>, and the rise of <strong>irreversible dynamics</strong>. In this new setting, <strong>structure itself becomes endogenous</strong>—subject to mutation, decay, and displacement. Closed systems explain how inequality persists; open systems must explain how inequality evolves.</p>
 

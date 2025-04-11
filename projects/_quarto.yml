@@ -44,7 +44,7 @@ website:
         - capm_industry.qmd
         - structure_cointegration.qmd
         - structure_tfp.qmd
-      - section: "동역학"
+      - section: "비주류경제론-동역학"
         contents:
         - d_overview.qmd
         - d_1_critique.qmd

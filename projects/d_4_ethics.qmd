@@ -44,6 +44,7 @@ Justice, then, cannot be defined as fairness of outcomes alone. It must be defin
 We began with a structural question: what happens when capital reproduces without labor?
 
 We conclude with a geometric truth:  
+
 > If a system eliminates its own agents, it is not efficient—it is **pathologically optimized**.
 
 A fair system is not one in equilibrium.  
