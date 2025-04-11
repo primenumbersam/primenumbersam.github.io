@@ -1,0 +1,46 @@
+---
+title: "AI 시대의 자본과 노동"
+author: gitSAM
+date: '2025-03-23'
+abstract: This study constructs a nonlinear dynamical model to investigate the structural separation of capital from labor under conditions of automation, declining reinvestment, and elite saturation. Drawing from the ecological foundations of Lotka–Volterra systems and their reinterpretation in Goodwin-type class dynamics, we estimate time-varying parameters using U.S. wealth share data from 1989 to 2024. The empirical analysis reveals a persistent erosion of labor's structural role, not only among the general population but also within the most capital-intensive strata. A calibrated system with minimally positive transmission from labor to capital is sufficient to sustain realistic long-run dynamics, while full disconnection leads to terminal decay of capital itself. These results challenge conventional interpretations of equilibrium and redistribution, suggesting that economic survival is less about moral desert and more about positional geometry. The study concludes by proposing a normative framework for economic system design, where structural resilience and ethical intervention are understood as functions of dynamic curvature.
+keywords: automation, wealth inequality, nonlinear dynamics, capital-labor relations, replicator systems, predator-prey models, economic design, structural exclusion, endogenous stability
+format:
+  html:
+    code-fold: true
+    toc: true
+bibliography: d_references.bib
+---
+
+# Labor-Capital Dynamics in the Age of Automation
+
+## Highlights
+
+- Introduces a nonlinear dynamical model where capital can persist or collapse depending on minimal structural links to labor, calibrated on U.S. top-percentile wealth share data (1989–2024).
+
+- Shows that automation-led capital growth, without sufficient labor coupling, leads to systemic extinction—even for elite capital holders—revealing a degenerate equilibrium regime.
+
+- Reinterprets economic equilibrium not as a sign of fairness or efficiency, but as a geometric endpoint of exclusion, calling for ethical intervention based on structural curvature.
+
+
+## Contents
+
+1. Critique on Mainstream Economics
+2. Elementary Mathematics for Closed System Dynamics
+3. Structural Mutation Model via Automation
+4. Ethics in the Geometry of Capital–Labor
+
+## Literature Review
+
+The conceptual bridge between ecological modeling and economic dynamics spans a rich and varied intellectual history, reflecting the enduring quest to understand distributional conflicts and endogenous cycles in capitalist economies. The philosophical roots of this inquiry trace back to @marx1867kapital, who conceptualized capital as a historically contingent social relation grounded in the extraction of surplus labor. Our approach, however, diverges from Marx’s value-theoretic lens, prioritizing nonlinear dynamics, system trajectories, and bifurcation behaviors. We view the labor-capital relation as an evolving system, with equilibrium properties—and potential pathologies—emerging endogenously from its interactive structure.
+
+This economic analogy finds its mathematical antecedents in early biological systems research. The foundational contributions of [@lotka1925elements] and [@volterra1926fluctuations] established the Lotka-Volterra equations, which formalized population dynamics with a predator-prey metaphor. These models demonstrated considerable explanatory power, extending beyond ecology to inform macroeconomic theory. Building on this legacy, @rosenzweig1963graphical clarified the conditions fostering stable equilibria in such systems, a property later leveraged in economic models to capture endogenous oscillations. These ecological insights directly inspired [@goodwin1967], whose canonical growth-cycle model adapted Lotka-Volterra equations to depict the cyclical interplay between labor and capital classes. In Goodwin’s framework, wage-employment dynamics trace closed orbits: labor bargaining power strengthens during economic expansion, weakens as profits decline, and ultimately precipitates contraction, reverting to low employment and suppressed wages. This approach has since anchored heterodox macroeconomics.
+
+Efforts to integrate technological change into these dynamic systems, however, have often been constrained and stylized. @shah1981technical introduced labor-augmenting productivity growth as an exogenous shock, preserving the core dependency of capital on labor. Progressing this line of inquiry, @ploeg1987monetary incorporated inflationary dynamics, illuminating how monetary policy and interest rates shape the amplitude and persistence of labor-capital cycles. Further advancing the analysis of economic periodicity, @sportelli1995technological explored how shifts in capital intensity influence cyclical behavior, offering a nuanced perspective on structural dynamics. This focus on system stability was enriched by [@hofbauer1998evolutionary], whose replicator dynamics framework—rooted in evolutionary game theory—provided rigorous stability criteria derived from the system’s Jacobian near equilibrium. These ideas found economic resonance in [@flaschel2009macrodynamics], which examined the interplay of capital intensity and wage bargaining in shaping cyclical patterns. Subsequently, @grasselli2012goodwin extended the Goodwin model by integrating Keynesian demand channels, monetary effects, and fiscal policy, maintaining the endogenous nature of business cycles while addressing the intricate institutional realities of modern economies. In a similar vein, @tavani2015endogenous endogenized technological innovation within the Goodwin framework, demonstrating how distributional conflicts and profit dynamics steer the path of technological adoption. Nevertheless, these studies consistently assume that capital accumulation hinges on labor input.
+
+In contrast, mainstream approaches to automation and technological displacement, often grounded in general equilibrium theory, have evolved largely independently of ecological modeling traditions. @piketty2014capital reinvigorated discourse on structural inequality, underscoring the long-term dominance of capital returns over economic growth (r > g). While his empirical analysis of wealth concentration and redistributive implications is profound, it leaves unresolved how such patterns arise from micro- or meso-level interactions. Addressing automation’s socioeconomic impacts, @benzell2015robots employed overlapping generations (OLG) and DSGE models to simulate scenarios where automation drives rising inequality and wage stagnation, particularly absent robust redistributive policies. This focus on labor market dynamics was extended by [@acemoglu2018race] and [@berg2018future], who adopted task-based and structural macroeconomic approaches, respectively, to highlight automation’s dual effects: displacing labor in existing tasks while spurring productivity gains in newly automated sectors. @acemoglu2020wrong further refined these insights, yet their neoclassical reliance on optimization and equilibrium concepts abstracts from the nonlinear interactions central to dynamic systems.
+
+Our study introduces a pivotal innovation by adapting dynamic system analysis to accommodate time-varying parameters, drawing inspiration from advances in applied mathematics and systems ecology. This perspective aligns with forward-looking concerns raised by @susskind2020future, which cautions that technological automation may render human labor economically obsolete. Yet, such analyses remain largely qualitative or comparative-static, lacking the dynamic modeling tools needed to explore transition paths or threshold behaviors. We depart from this lineage by positing that technological change can fundamentally reshape the system’s structural topology. Specifically, we introduce an automation-driven growth coefficient that enables capital to accumulate autonomously, decoupled from labor. This yields a degenerate equilibrium where labor vanishes without precipitating capital collapse—a phase-space configuration unaddressed by prior models.
+
+In summary, our work synthesizes ecological modeling, dynamic systems theory, and labor economics to forge a novel framework for understanding the interplay of technological change and capital-labor relations. From the philosophical insights of [@marx1867kapital] to the ecological foundations of [@lotka1925elements] and the automation concerns of [@susskind2020future], we trace a century-long evolution of thought. By modeling automation as a channel for capital self-replication, we propose equilibrium outcomes where capital persists without labor, challenging the assumptions of both neoclassical and Marxian traditions. This invites a profound rethinking of what constitutes a structurally just, dynamically viable, and ethically acceptable economic system.
+
+

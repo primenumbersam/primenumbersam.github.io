@@ -44,6 +44,13 @@ website:
         - capm_industry.qmd
         - structure_cointegration.qmd
         - structure_tfp.qmd
+      - section: "동역학"
+        contents:
+        - d_overview.qmd
+        - d_1_critique.qmd
+        - d_2_elementary.qmd
+        - d_3_model.qmd
+        - d_4_ethics.qmd
 
 author: gitSAM
 
