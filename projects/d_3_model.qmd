@@ -258,7 +258,7 @@ This model reframes inequality not as an outcome of imbalance, but as a **phase-
 ### US Wealth Share Data
 
 ```{python}
-#| label: fig-us-data-load
+#| label: tbl-us-data-load
 #| tbl-cap: "Quarterly net wealth share data (Top 0.1%, 1%, and 10%) are retrieved directly from the FRED database and used to compute normalized capital share trajectories over the period 1989Q3 to 2024Q4."
 
 import pandas_datareader.data as web
