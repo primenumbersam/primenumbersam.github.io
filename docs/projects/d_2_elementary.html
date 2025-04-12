@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.22">
+<meta name="generator" content="quarto-1.7.21">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -72,7 +72,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b4406b7675125bc2ba204020e191172.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-b2bd955b7378b94aa8c2ba4fafa553c9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-bb5f9278568ae542f8467bdb635b70ac.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -312,7 +312,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./d_overview.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">AI 시대의 자본과 노동</span></a>
+ <span class="menu-text">AI시대 자본과 노동</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -336,7 +336,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./d_4_ethics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">AI 시대의 경제윤리</span></a>
+ <span class="menu-text">AI시대 경제윤리</span></a>
   </div>
 </li>
       </ul>
@@ -373,7 +373,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./d_overview.html">비주류경제론-동역학</a></li><li class="breadcrumb-item"><a href="./d_2_elementary.html">동역학 기초수학</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">동역학 기초수학</h1>
-<p class="subtitle lead">Elementary Mathematics for Closed System Dynamics</p>
+<p class="subtitle lead">Elementary Mathematics for System Dynamics</p>
 </div>
 
 
@@ -409,10 +409,10 @@ window.Quarto = {
 <p>There are no external shocks, migrations, or species mutations—only endogenous interaction between predator and prey. The predator grows by consuming the prey; the prey reproduces in the absence of predation.</p>
 <p>This system exhibits a distinctive dynamical feature: <strong>closed orbits</strong> in the phase plane. That is, solutions cycle indefinitely without converging to a fixed point or diverging to infinity. This reflects the conservative nature of the system—total “interaction energy” is preserved, and the system perpetually oscillates.</p>
 <blockquote class="blockquote">
-<p><strong>Mathematical Insight:</strong> These closed cycles correspond, in the frequency domain, to dominant harmonic modes—i.e., a natural periodicity. From a systems-theoretic perspective, this allows interpretation via <strong>Fourier decomposition</strong>, where the cyclical behavior of populations maps to periodic oscillators in signal processing.</p>
+<p><strong>Remarks:</strong> These closed cycles correspond, in the frequency domain, to dominant harmonic modes—i.e., a natural periodicity. From a systems-theoretic perspective, this allows interpretation via <strong>Fourier decomposition</strong>, where the cyclical behavior of populations maps to periodic oscillators in signal processing.</p>
 </blockquote>
 <p>Thus, the Lotka–Volterra model offers a rich entry point for understanding <strong>non-equilibrium dynamics</strong>, <strong>nonlinear feedback</strong>, and <strong>structural cycles</strong>—core features of many biological and economic systems.</p>
-<div id="c26e194a" class="cell" data-execution_count="1">
+<div id="910bcb89" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulation Plan</span></span>
@@ -508,21 +508,21 @@ window.Quarto = {
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="d_2_elementary_files/figure-html/cell-2-output-1.png" width="662" height="566" class="figure-img"></p>
+<p><img src="d_2_elementary_files/figure-html/cell-2-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="d_2_elementary_files/figure-html/cell-2-output-2.png" width="1142" height="470" class="figure-img"></p>
+<p><img src="d_2_elementary_files/figure-html/cell-2-output-2.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="d_2_elementary_files/figure-html/cell-2-output-3.png" width="950" height="374" class="figure-img"></p>
+<p><img src="d_2_elementary_files/figure-html/cell-2-output-3.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -530,50 +530,63 @@ window.Quarto = {
 </section>
 <section id="closed-system-dynamics" class="level2">
 <h2 class="anchored" data-anchor-id="closed-system-dynamics">Closed System Dynamics</h2>
-<p>The guiding question in any dynamical framework is deceptively simple:</p>
+<p>The guiding question of any dynamical system is deceptively simple:</p>
 <blockquote class="blockquote">
 <p><strong>“Given enough time, where does the system go?”</strong></p>
 </blockquote>
-<p>The canonical mathematical answer is that it approaches an <strong>equilibrium</strong>. But in <strong>closed systems</strong>, equilibrium should not be mistaken for a “rest state” reflecting optimality or efficiency. Instead, it emerges as a <strong>structural attractor</strong>—a state selected by internal constraints and interaction geometry. It may arise without innovation, adaptation, or optimal design. It is not necessarily <strong>best</strong>; it is simply <strong>allowed</strong> by the rules of the system.</p>
-<p>We formalize a dynamical system on a smooth state space <span class="math inline">\(\mathbb{R}^n\)</span> as:</p>
+<p>The conventional mathematical answer is that it converges to a <strong>steady-state path</strong>—a trajectory in which the internal forces of the system reach dynamic balance. Yet in <strong>closed systems</strong>, this “steady-state” is often mistaken for an indicator of optimality or efficiency. In reality, it is simply an outcome <strong>permitted by the structure</strong>, not selected for its virtue.</p>
+<p>Historically, equilibrium emerged in static contexts: balance of forces in classical mechanics, concentration in chemical equilibrium, or price equalization in Walrasian economics. These notions carried an implicit assumption of desirability: what is balanced is often assumed to be <em>good</em>. But in <strong>dynamical systems</strong>, particularly those expressed as <strong>vector fields</strong>, equilibrium must be reinterpreted. The long-run behavior may include <strong>fixed points</strong> (sinks, saddles, sources), or more complex attractors like <strong>limit cycles</strong>, <strong>quasi-periodic orbits</strong>, or <strong>chaotic regimes</strong>. The steady-state path is not a normative endpoint—it is a <strong>constraint-compatible attractor</strong>, shaped by the system’s geometry.</p>
+<p>In our context, a <strong>steady-state</strong> is defined as a location in the system’s state space where the vector field vanishes: <span class="math display">\[
+\dot{\mathbf{x}} = f(\mathbf{x}) = 0,
+\]</span> or, more broadly, where the system’s flow settles into a <strong>repeating or invariant configuration</strong> governed by internal dynamics alone.</p>
+<p>But crucially, <strong>in social and economic systems</strong>, the existence of such a steady-state <strong>does not justify its moral legitimacy</strong>. A dynamical system may converge toward labor extinction or monopolized capital reproduction—not because these are efficient or just, but because they are <strong>structurally encoded</strong>. That is:<br>
+&gt; <strong>Persistence is positional, not performative.</strong><br>
+&gt; <strong>Steady-states do not signal merit—they expose geometry.</strong></p>
+<p>We formalize our model within the general structure of an <strong>autonomous system</strong>:</p>
 <blockquote class="blockquote">
 <p><strong>Definition (Autonomous System):</strong><br>
-An autonomous dynamical system is a pair <span class="math inline">\((\mathbb{R}^n, f)\)</span>, where <span class="math inline">\(f: \mathbb{R}^n \to \mathbb{R}^n\)</span> is a continuously differentiable vector field. The evolution of state <span class="math inline">\(\mathbf{x}(t)\)</span> is governed by: <span class="math display">\[
-\dot{\mathbf{x}} = f(\mathbf{x}), \quad \mathbf{x}(0) = \mathbf{x}_0.
-\]</span></p>
+A system is autonomous if its evolution depends solely on state, not time: <span class="math display">\[
+\dot{\mathbf{x}} = f(\mathbf{x}), \quad \mathbf{x}(0) = \mathbf{x}_0,
+\]</span> where <span class="math inline">\(f : \mathbb{R}^n \rightarrow \mathbb{R}^n\)</span> is smooth.</p>
 </blockquote>
-<p>Here, the function <span class="math inline">\(f\)</span> captures the internal feedback structure—how the system updates itself from one moment to the next. The system is <strong>autonomous</strong> if <span class="math inline">\(f\)</span> is time-invariant, and <strong>closed</strong> if it excludes any external forcing or dimensional change.</p>
+<p>Such systems are <strong>closed</strong> if no external forcing, structural shocks, or additional dimensions intervene. These assumptions imply that the system’s <strong>phase space</strong> is governed by internal logic alone.</p>
 <blockquote class="blockquote">
-<p><strong>Assumption 1 (Autonomy):</strong><br>
-The dynamics do not depend explicitly on time: <span class="math inline">\(\partial f / \partial t = 0\)</span>. This preserves structural invariance over time.</p>
+<p><strong>Assumption 1 (Autonomy):</strong> The vector field <span class="math inline">\(f\)</span> is time-invariant: <span class="math inline">\(\partial f / \partial t = 0\)</span>.<br>
+<strong>Assumption 2 (Closure):</strong> All evolution arises from the existing state; no new variables or information enter.</p>
 </blockquote>
-<blockquote class="blockquote">
-<p><strong>Assumption 2 (Closedness):</strong><br>
-All evolution is internally determined; no new variables, shocks, or external information enter the system.</p>
-</blockquote>
-<p>These assumptions are not merely technical. They define systems whose trajectories are governed purely by internal geometry, initial conditions, and self-contained rules.</p>
-<p>The <strong>state space</strong> <span class="math inline">\(\mathcal{M}\)</span> of such a system is typically modeled as a <strong>smooth manifold</strong>—a space that is locally Euclidean but globally subject to constraints. This allows calculus to apply, while enabling the geometry to encode conservation laws, budget constraints, or normalization conditions.</p>
+<p>These assumptions are not cosmetic—they define a world in which <strong>only internally available motion is possible</strong>.</p>
+<p>Accordingly, the <strong>state space</strong> <span class="math inline">\(\mathcal{M}\)</span> is typically modeled as a <strong>smooth manifold</strong>, encoding both geometric constraints and domain-specific feasibility:</p>
 <ul>
-<li>In <strong>ecology</strong>, <span class="math inline">\(\mathbb{R}_+^n\)</span> encodes non-negativity of populations.</li>
-<li>In <strong>replicator dynamics</strong>, the state space is the <strong>unit simplex</strong> <span class="math inline">\(\Delta^{n-1} = \{ \mathbf{x} \in \mathbb{R}^n : \sum x_i = 1, x_i \geq 0 \}\)</span>.</li>
-<li>In <strong>capital allocation models</strong>, the feasible set may be a convex polytope defined by resource bounds or investment constraints.</li>
+<li>In <strong>ecology</strong>, <span class="math inline">\(\mathbb{R}_+^n\)</span> enforces non-negativity.</li>
+<li>In <strong>replicator dynamics</strong>, the <strong>unit simplex</strong> <span class="math inline">\(\Delta^{n-1}\)</span> ensures probabilistic normalization: <span class="math inline">\(\sum x_i = 1\)</span>.</li>
+<li>In <strong>capital-labor systems</strong>, we may constrain motion to the set of feasible capital/labor ratios or normalized wealth shares.</li>
 </ul>
-<p>The essential idea is that the system’s trajectory is confined to this manifold—it does not escape, deform, or expand it. This confinement is a direct consequence of autonomy and closure. For instance, replicator dynamics preserve the normalization constraint <span class="math inline">\(\sum x_i = 1\)</span> by construction.</p>
 <blockquote class="blockquote">
-<p>The manifold defines what kinds of motion are possible. The system’s evolution is not just determined by initial conditions, but by the shape of the space itself.</p>
+<p>The manifold does not just host the system—it constrains its fate.<br>
+Geometry is not inert background; it is <strong>active architecture</strong>.</p>
 </blockquote>
-<p>This structural logic has a natural analogue in <strong>discrete-time Markov chains</strong>. Let <span class="math inline">\(P\)</span> be an <span class="math inline">\(n \times n\)</span> row-stochastic matrix, and let <span class="math inline">\(\mathbf{x}_t\)</span> be a probability distribution over <span class="math inline">\(n\)</span> states:</p>
-<p><span class="math display">\[
-\mathbf{x}_{t+1} = P \mathbf{x}_t, \quad \text{with } \sum x_i = 1.
-\]</span></p>
-<p>Here, the state <span class="math inline">\(\mathbf{x}_t\)</span> evolves deterministically in distribution, remaining within the unit simplex <span class="math inline">\(\Delta^{n-1}\)</span>. Closure is strictly enforced: all transitions are internal, and the total measure is conserved.</p>
+<p>As a canonical illustration, consider a <strong>discrete-time Markov chain</strong>: <span class="math display">\[
+\mathbf{x}_{t+1} = P \mathbf{x}_t,
+\]</span> where <span class="math inline">\(P\)</span> is a row-stochastic matrix and <span class="math inline">\(\mathbf{x}_t \in \Delta^{n-1}\)</span>. The state evolves entirely within the simplex, preserving closure and total mass.</p>
 <ul>
-<li>The <strong>state space</strong> is again the simplex.</li>
-<li>The <strong>update rule</strong> is linear but structure-preserving.</li>
-<li>The <strong>equilibrium</strong> is a fixed point <span class="math inline">\(\mathbf{x}^*\)</span> satisfying <span class="math inline">\(P \mathbf{x}^* = \mathbf{x}^*\)</span>.</li>
+<li>The <strong>invariant distribution</strong> <span class="math inline">\(\mathbf{x}^*\)</span> satisfies <span class="math inline">\(P \mathbf{x}^* = \mathbf{x}^*\)</span>.</li>
+<li>The <strong>transition</strong> is internal, memoryless, and fully endogenous.</li>
 </ul>
-<p>This illustrates a shared architectural principle. Whether in <strong>continuous-time deterministic systems (e.g., ODEs)</strong> or <strong>discrete-time stochastic systems</strong> (e.g., Markov chains), the system evolves within a fixed, internally governed manifold. In both, long-run behavior—such as steady states, cycles, or invariant measures—is dictated not by external information, but by <strong>the shape and rules of the system itself</strong>. Whether deterministic or stochastic, closed systems are defined less by what they allow and more by what they prohibit: change without structure, innovation without rules, and motion without constraint.</p>
-<p>Absolutely. You’re exactly right: many ODE-based level models, especially those involving population or capital dynamics, can be <strong>normalized</strong> into share-based systems that resemble <strong>Markov chains</strong> (in structure if not in stochastic interpretation). Below is a continuation you can insert into the <strong>Closed System Dynamics</strong> section. It explains the normalization process, gives a concrete derivation, and highlights when and how the dynamics transition from nonlinear to linear under certain assumptions.</p>
+<p>This analogy demonstrates that <strong>both deterministic continuous-time systems</strong> (e.g., ODEs) and <strong>stochastic discrete-time systems</strong> (e.g., Markov chains) operate under the same architectural logic:<br>
+&gt; <strong>Change is allowed only within structure.</strong><br>
+&gt; <strong>Innovation is not generated—it is assumed absent.</strong></p>
+<p>Thus, when economic models use “equilibrium” to describe such systems, the term often smuggles in <strong>normative meaning</strong> under <strong>structural constraints</strong>. Our reformulation rejects this conflation. In our model:</p>
+<ul>
+<li>The steady-state may represent <strong>labor extinction</strong>.</li>
+<li>Capital may persist by <strong>structural inertia</strong>.</li>
+<li>Feedbacks may reinforce inequality even without growth.</li>
+</ul>
+<p>The central insight is that <strong>equilibrium is not a justification</strong>. It is a <strong>geometric consequence</strong>.<br>
+The system does not select for good outcomes—it selects <strong>what fits</strong>.</p>
+<blockquote class="blockquote">
+<p>Equilibrium is not the name for balance, but the <strong>limit of motion under constraint</strong>.<br>
+It is where the system stops—not because it should—but because it <strong>can go no further</strong>.</p>
+</blockquote>
 </section>
 <section id="normalization" class="level2">
 <h2 class="anchored" data-anchor-id="normalization">Normalization</h2>

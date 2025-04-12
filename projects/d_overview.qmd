@@ -1,8 +1,8 @@
 ---
-title: "AI 시대의 자본과 노동"
+title: "AI시대 자본과 노동"
 author: gitSAM
 date: '2025-03-23'
-abstract: This study constructs a nonlinear dynamical model to investigate the structural separation of capital from labor under conditions of automation, declining reinvestment, and elite saturation. Drawing from the ecological foundations of Lotka–Volterra systems and their reinterpretation in Goodwin-type class dynamics, we estimate time-varying parameters using U.S. wealth share data from 1989 to 2024. The empirical analysis reveals a persistent erosion of labor's structural role, not only among the general population but also within the most capital-intensive strata. A calibrated system with minimally positive transmission from labor to capital is sufficient to sustain realistic long-run dynamics, while full disconnection leads to terminal decay of capital itself. These results challenge conventional interpretations of equilibrium and redistribution, suggesting that economic survival is less about moral desert and more about positional geometry. The study concludes by proposing a normative framework for economic system design, where structural resilience and ethical intervention are understood as functions of dynamic curvature.
+abstract: Automation is reshaping the capital–labor relationship in ways that elude standard economic models of equilibrium and redistribution. Here, we develop a nonlinear dynamical system to investigate whether capital can persist when labor becomes structurally obsolete. Using time-varying parameter estimates from U.S. top-percentile wealth share data (1989–2024), we identify a transition regime in which capital increasingly reproduces without labor input. When labor-driven capital formation vanishes, the system collapses—even for the most capital-intensive groups. However, minimal transmission from labor suffices to sustain realistic long-run outcomes. These findings suggest that economic survival is governed less by fairness or merit than by the curvature of structural interactions. We propose that ethical system design must target the geometry of phase space—intervening not after exclusion has occurred, but where structural trajectories are still malleable.
 keywords: automation, wealth inequality, nonlinear dynamics, capital-labor relations, replicator systems, predator-prey models, economic design, structural exclusion, endogenous stability
 format:
   html:
@@ -21,11 +21,12 @@ bibliography: d_references.bib
 
 - Reinterprets economic equilibrium not as a sign of fairness or efficiency, but as a geometric endpoint of exclusion, calling for ethical intervention based on structural curvature.
 
+This study develops a nonlinear dynamical framework to examine the structural decoupling of capital from labor under automation, declining reinvestment, and saturation among elite holders. Building on the ecological foundations of Lotka–Volterra systems and their reinterpretation in Goodwin-type class dynamics, we estimate time-varying parameters using U.S. top-percentile wealth share data from 1989 to 2024. The empirical evidence reveals a gradual erosion of labor's functional relevance—not only across the general population, but also within the capital-dominant strata themselves. When labor’s contribution to capital formation is fully severed, the system undergoes a long-run collapse, including of capital itself. Yet even minimal positive linkage is sufficient to sustain realistic long-run distributions. These findings challenge conventional notions of equilibrium, merit, and redistribution by demonstrating that economic persistence is governed less by fairness than by structural geometry. We conclude by proposing a normative framework for economic design, emphasizing curvature-based intervention—where stability, justice, and inclusion are functions of the system’s underlying phase-space topology.
 
 ## Contents
 
 1. Critique on Mainstream Economics
-2. Elementary Mathematics for Closed System Dynamics
+2. Elementary Mathematics for System Dynamics
 3. Structural Mutation Model via Automation
 4. Ethics in the Geometry of Capital–Labor
 

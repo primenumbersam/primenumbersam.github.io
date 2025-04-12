@@ -1,6 +1,6 @@
 ---
 title: "동역학 기초수학"
-subtitle: Elementary Mathematics for Closed System Dynamics
+subtitle: Elementary Mathematics for System Dynamics
 format:
   html:
     code-fold: true
@@ -25,7 +25,7 @@ There are no external shocks, migrations, or species mutations—only endogenous
 
 This system exhibits a distinctive dynamical feature: **closed orbits** in the phase plane. That is, solutions cycle indefinitely without converging to a fixed point or diverging to infinity. This reflects the conservative nature of the system—total “interaction energy” is preserved, and the system perpetually oscillates.
 
-> **Mathematical Insight:** These closed cycles correspond, in the frequency domain, to dominant harmonic modes—i.e., a natural periodicity. From a systems-theoretic perspective, this allows interpretation via **Fourier decomposition**, where the cyclical behavior of populations maps to periodic oscillators in signal processing.
+> **Remarks:** These closed cycles correspond, in the frequency domain, to dominant harmonic modes—i.e., a natural periodicity. From a systems-theoretic perspective, this allows interpretation via **Fourier decomposition**, where the cyclical behavior of populations maps to periodic oscillators in signal processing.
 
 Thus, the Lotka–Volterra model offers a rich entry point for understanding **non-equilibrium dynamics**, **nonlinear feedback**, and **structural cycles**—core features of many biological and economic systems.
 
@@ -125,57 +125,73 @@ plt.show()
 
 ## Closed System Dynamics
 
-The guiding question in any dynamical framework is deceptively simple:
+The guiding question of any dynamical system is deceptively simple:
 
 > **“Given enough time, where does the system go?”**
 
-The canonical mathematical answer is that it approaches an **equilibrium**. But in **closed systems**, equilibrium should not be mistaken for a “rest state” reflecting optimality or efficiency. Instead, it emerges as a **structural attractor**—a state selected by internal constraints and interaction geometry. It may arise without innovation, adaptation, or optimal design. It is not necessarily **best**; it is simply **allowed** by the rules of the system.
+The conventional mathematical answer is that it converges to a **steady-state path**—a trajectory in which the internal forces of the system reach dynamic balance. Yet in **closed systems**, this "steady-state" is often mistaken for an indicator of optimality or efficiency. In reality, it is simply an outcome **permitted by the structure**, not selected for its virtue.
 
-We formalize a dynamical system on a smooth state space $\mathbb{R}^n$ as:
+Historically, equilibrium emerged in static contexts: balance of forces in classical mechanics, concentration in chemical equilibrium, or price equalization in Walrasian economics. These notions carried an implicit assumption of desirability: what is balanced is often assumed to be *good*. But in **dynamical systems**, particularly those expressed as **vector fields**, equilibrium must be reinterpreted. The long-run behavior may include **fixed points** (sinks, saddles, sources), or more complex attractors like **limit cycles**, **quasi-periodic orbits**, or **chaotic regimes**. The steady-state path is not a normative endpoint—it is a **constraint-compatible attractor**, shaped by the system’s geometry.
+
+In our context, a **steady-state** is defined as a location in the system’s state space where the vector field vanishes:
+$$
+\dot{\mathbf{x}} = f(\mathbf{x}) = 0,
+$$
+or, more broadly, where the system’s flow settles into a **repeating or invariant configuration** governed by internal dynamics alone.
+
+But crucially, **in social and economic systems**, the existence of such a steady-state **does not justify its moral legitimacy**. A dynamical system may converge toward labor extinction or monopolized capital reproduction—not because these are efficient or just, but because they are **structurally encoded**. That is:  
+> **Persistence is positional, not performative.**  
+> **Steady-states do not signal merit—they expose geometry.**
+
+We formalize our model within the general structure of an **autonomous system**:
 
 > **Definition (Autonomous System):**  
-> An autonomous dynamical system is a pair $(\mathbb{R}^n, f)$, where $f: \mathbb{R}^n \to \mathbb{R}^n$ is a continuously differentiable vector field. The evolution of state $\mathbf{x}(t)$ is governed by:
+> A system is autonomous if its evolution depends solely on state, not time:
 > $$
-> \dot{\mathbf{x}} = f(\mathbf{x}), \quad \mathbf{x}(0) = \mathbf{x}_0.
+> \dot{\mathbf{x}} = f(\mathbf{x}), \quad \mathbf{x}(0) = \mathbf{x}_0,
 > $$
+> where $f : \mathbb{R}^n \rightarrow \mathbb{R}^n$ is smooth.
 
-Here, the function $f$ captures the internal feedback structure—how the system updates itself from one moment to the next. The system is **autonomous** if $f$ is time-invariant, and **closed** if it excludes any external forcing or dimensional change.
+Such systems are **closed** if no external forcing, structural shocks, or additional dimensions intervene. These assumptions imply that the system’s **phase space** is governed by internal logic alone.
 
-> **Assumption 1 (Autonomy):**  
-> The dynamics do not depend explicitly on time: $\partial f / \partial t = 0$. This preserves structural invariance over time.
+> **Assumption 1 (Autonomy):** The vector field $f$ is time-invariant: $\partial f / \partial t = 0$.  
+> **Assumption 2 (Closure):** All evolution arises from the existing state; no new variables or information enter.
 
-> **Assumption 2 (Closedness):**  
-> All evolution is internally determined; no new variables, shocks, or external information enter the system.
+These assumptions are not cosmetic—they define a world in which **only internally available motion is possible**.
 
-These assumptions are not merely technical. They define systems whose trajectories are governed purely by internal geometry, initial conditions, and self-contained rules.
+Accordingly, the **state space** $\mathcal{M}$ is typically modeled as a **smooth manifold**, encoding both geometric constraints and domain-specific feasibility:
 
-The **state space** $\mathcal{M}$ of such a system is typically modeled as a **smooth manifold**—a space that is locally Euclidean but globally subject to constraints. This allows calculus to apply, while enabling the geometry to encode conservation laws, budget constraints, or normalization conditions.
+- In **ecology**, $\mathbb{R}_+^n$ enforces non-negativity.
+- In **replicator dynamics**, the **unit simplex** $\Delta^{n-1}$ ensures probabilistic normalization: $\sum x_i = 1$.
+- In **capital-labor systems**, we may constrain motion to the set of feasible capital/labor ratios or normalized wealth shares.
 
-- In **ecology**, $\mathbb{R}_+^n$ encodes non-negativity of populations.
-- In **replicator dynamics**, the state space is the **unit simplex** $\Delta^{n-1} = \{ \mathbf{x} \in \mathbb{R}^n : \sum x_i = 1, x_i \geq 0 \}$.
-- In **capital allocation models**, the feasible set may be a convex polytope defined by resource bounds or investment constraints.
+> The manifold does not just host the system—it constrains its fate.  
+> Geometry is not inert background; it is **active architecture**.
 
-The essential idea is that the system’s trajectory is confined to this manifold—it does not escape, deform, or expand it. This confinement is a direct consequence of autonomy and closure. For instance, replicator dynamics preserve the normalization constraint $\sum x_i = 1$ by construction.
-
-> The manifold defines what kinds of motion are possible. The system’s evolution is not just determined by initial conditions, but by the shape of the space itself.
-
-This structural logic has a natural analogue in **discrete-time Markov chains**. Let $P$ be an $n \times n$ row-stochastic matrix, and let $\mathbf{x}_t$ be a probability distribution over $n$ states:
-
+As a canonical illustration, consider a **discrete-time Markov chain**:
 $$
-\mathbf{x}_{t+1} = P \mathbf{x}_t, \quad \text{with } \sum x_i = 1.
+\mathbf{x}_{t+1} = P \mathbf{x}_t,
 $$
+where $P$ is a row-stochastic matrix and $\mathbf{x}_t \in \Delta^{n-1}$. The state evolves entirely within the simplex, preserving closure and total mass.
 
-Here, the state $\mathbf{x}_t$ evolves deterministically in distribution, remaining within the unit simplex $\Delta^{n-1}$. Closure is strictly enforced: all transitions are internal, and the total measure is conserved.
+- The **invariant distribution** $\mathbf{x}^*$ satisfies $P \mathbf{x}^* = \mathbf{x}^*$.
+- The **transition** is internal, memoryless, and fully endogenous.
 
-- The **state space** is again the simplex.
-- The **update rule** is linear but structure-preserving.
-- The **equilibrium** is a fixed point $\mathbf{x}^*$ satisfying $P \mathbf{x}^* = \mathbf{x}^*$.
+This analogy demonstrates that **both deterministic continuous-time systems** (e.g., ODEs) and **stochastic discrete-time systems** (e.g., Markov chains) operate under the same architectural logic:  
+> **Change is allowed only within structure.**  
+> **Innovation is not generated—it is assumed absent.**
 
-This illustrates a shared architectural principle. Whether in **continuous-time deterministic systems (e.g., ODEs)** or **discrete-time stochastic systems** (e.g., Markov chains), the system evolves within a fixed, internally governed manifold. In both, long-run behavior—such as steady states, cycles, or invariant measures—is dictated not by external information, but by **the shape and rules of the system itself**. Whether deterministic or stochastic, closed systems are defined less by what they allow and more by what they prohibit: change without structure, innovation without rules, and motion without constraint.
+Thus, when economic models use "equilibrium" to describe such systems, the term often smuggles in **normative meaning** under **structural constraints**. Our reformulation rejects this conflation. In our model:
 
+- The steady-state may represent **labor extinction**.
+- Capital may persist by **structural inertia**.
+- Feedbacks may reinforce inequality even without growth.
 
-Absolutely. You're exactly right: many ODE-based level models, especially those involving population or capital dynamics, can be **normalized** into share-based systems that resemble **Markov chains** (in structure if not in stochastic interpretation). Below is a continuation you can insert into the **Closed System Dynamics** section. It explains the normalization process, gives a concrete derivation, and highlights when and how the dynamics transition from nonlinear to linear under certain assumptions.
+The central insight is that **equilibrium is not a justification**. It is a **geometric consequence**.  
+The system does not select for good outcomes—it selects **what fits**.
 
+> Equilibrium is not the name for balance, but the **limit of motion under constraint**.  
+> It is where the system stops—not because it should—but because it **can go no further**.
 
 ## Normalization 
 

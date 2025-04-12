@@ -147,6 +147,7 @@ To address these limitations, the next section introduces a **share-based estima
 Traditional macroeconomic estimation strategies are typically rooted in level data—aggregate capital stock, total output, labor force levels—used to calibrate dynamic models of production, accumulation, and distribution. While effective in certain contexts, this approach suffers from scaling inconsistencies, comparability issues across time, and sensitivity to nominal shocks. Moreover, level data fails to reveal the **internal stratification** of economic systems—particularly the **distribution of capital** across heterogeneous agents.
 
 To address this, we introduce a share-based approach. Rather than modeling the absolute size of capital or labor, we model their **relative shares**: 
+
 - Capital share: $c(t) = \frac{C(t)}{C(t) + L(t)}$
 - Labor share: $\ell(t) = 1 - c(t)$
 
@@ -200,6 +201,7 @@ $$
 $$
 
 This **replicator-type equation** captures the nonlinear interplay between:
+
 - **Self-replicating capital** (via $a_{22}$), and
 - **Intra-elite saturation effects** (via $a_{24}$).
 
@@ -248,11 +250,7 @@ Policy interventions must thus go beyond redistribution. They must alter structu
 - Increase $a_{21}$ via labor-linked investment,
 - Shift $a_{22}$ toward inclusive automation.
 
-This model reframes inequality not as an outcome of imbalance, but as a **phase-space feature**—a geometrical consequence of structural dynamics.
-
-> Ethics, under this system, is not about equilibrium fairness—but about **intervening before absorption surfaces close**.
-
-In summary, share-based empirical modeling reveals structural dependencies invisible in level-data systems. The future of capital depends not on output maximization, but on the **topology of feedback and the fragility of replication**.
+This model reframes inequality not as an outcome of imbalance, but as a **phase-space feature**—a geometrical consequence of structural dynamics. In summary, share-based empirical modeling reveals structural dependencies invisible in level-data systems. The future of capital depends not on output maximization, but on the topology of feedback and the fragility of replication.
 
 
 ## Plots
@@ -261,7 +259,7 @@ In summary, share-based empirical modeling reveals structural dependencies invis
 
 ```{python}
 #| label: fig-us-data-load
-#| fig-cap: "Quarterly net wealth share data (Top 0.1%, 1%, and 10%) are retrieved directly from the FRED database and used to compute normalized capital share trajectories over the period 1989Q3 to 2024Q4."
+#| tbl-cap: "Quarterly net wealth share data (Top 0.1%, 1%, and 10%) are retrieved directly from the FRED database and used to compute normalized capital share trajectories over the period 1989Q3 to 2024Q4."
 
 import pandas_datareader.data as web
 import pandas as pd
