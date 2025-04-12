@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.42">
+<meta name="generator" content="quarto-1.7.21">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -32,15 +32,16 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-b2bd955b7378b94aa8c2ba4fafa553c9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-ddd961a2510921635943dfbbd19534c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-bb5f9278568ae542f8467bdb635b70ac.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -73,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed">
+<body class="nav-sidebar floating nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -207,7 +208,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./4_3_ff_compare.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">03 Size-Momentum Benchmark</span></a>
+ <span class="menu-text">03 Size Benchmark</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -248,6 +249,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Conclusion</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tbtf_data_plot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Equity Lifecycle</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -263,10 +270,12 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#pre-2010-volatility-deregulation-and-crisis" id="toc-pre-2010-volatility-deregulation-and-crisis" class="nav-link" data-scroll-target="#pre-2010-volatility-deregulation-and-crisis"><span class="header-section-number">2.1</span> Pre-2010: Volatility, Deregulation, and Crisis</a></li>
   <li><a href="#post-2010-qe-regime-and-capital-lock-in" id="toc-post-2010-qe-regime-and-capital-lock-in" class="nav-link" data-scroll-target="#post-2010-qe-regime-and-capital-lock-in"><span class="header-section-number">2.2</span> Post-2010: QE Regime and Capital Lock-In</a></li>
+  <li><a href="#us-top-10-stability-empirical-snapshot" id="toc-us-top-10-stability-empirical-snapshot" class="nav-link" data-scroll-target="#us-top-10-stability-empirical-snapshot"><span class="header-section-number">2.3</span> US Top 10 Stability: Empirical Snapshot</a></li>
+  <li><a href="#global-top-10-market-cap-stocks" id="toc-global-top-10-market-cap-stocks" class="nav-link" data-scroll-target="#global-top-10-market-cap-stocks"><span class="header-section-number">2.4</span> Global Top 10 Market-Cap Stocks</a></li>
   </ul></li>
-  <li><a href="#us-top-10-stability-empirical-snapshot" id="toc-us-top-10-stability-empirical-snapshot" class="nav-link" data-scroll-target="#us-top-10-stability-empirical-snapshot"><span class="header-section-number">3</span> US Top 10 Stability: Empirical Snapshot</a></li>
-  <li><a href="#global-top-10-market-cap-stocks" id="toc-global-top-10-market-cap-stocks" class="nav-link" data-scroll-target="#global-top-10-market-cap-stocks"><span class="header-section-number">4</span> Global Top 10 Market-Cap Stocks</a></li>
   
+  <li><a href="#market-adaptation" id="toc-market-adaptation" class="nav-link" data-scroll-target="#market-adaptation"><span class="header-section-number">4</span> Market Adaptation</a></li>
+  <li><a href="#the-rise-of-duration-based-capital-allocation" id="toc-the-rise-of-duration-based-capital-allocation" class="nav-link" data-scroll-target="#the-rise-of-duration-based-capital-allocation"><span class="header-section-number">5</span> The Rise of Duration-Based Capital Allocation</a></li>
   </ul>
 </nav>
     </div>
@@ -306,7 +315,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="as-a-structural-break" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="as-a-structural-break"><span class="header-section-number">1</span> 2010 as a Structural Break</h2>
-<p>This study defines <strong>January 1, 2010</strong> as a structural break in the evolution of U.S. financial markets. This point marks a transition from a period of crisis-driven volatility and deregulation to an era characterized by <strong>policy-dominated asset inflation, ETF proliferation, and asymmetric capital flows</strong>. By segmenting the data at this breakpoint, we aim to assess how financial market performance and capital concentration evolved across two distinct regimes.</p>
+<p>This study defines <strong>January 1, 2010</strong> as a structural break in the evolution of U.S. financial markets. This point marks a transition from a period of crisis-driven volatility and deregulation to an era characterized by policy-dominated asset inflation, ETF proliferation, and asymmetric capital flows. By segmenting the data at this breakpoint, we aim to assess how financial market performance and capital concentration evolved across two distinct regimes.</p>
 <p>The dataset spans <strong>January 1996 to December 2023</strong>, with a monthly frequency. It is segmented as follows:</p>
 <ul>
 <li><strong>Pre-2010</strong>: 1996–2009<br>
@@ -341,9 +350,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>These changes have amplified top-heavy capital concentration and reinforced inertia in market leadership. Importantly, they enabled the survival of inefficient firms at the lower end (zombie firms), distorting the small-cap return distribution.</p>
 </section>
-</section>
-<section id="us-top-10-stability-empirical-snapshot" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="us-top-10-stability-empirical-snapshot"><span class="header-section-number">3</span> US Top 10 Stability: Empirical Snapshot</h2>
+<section id="us-top-10-stability-empirical-snapshot" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="us-top-10-stability-empirical-snapshot"><span class="header-section-number">2.3</span> US Top 10 Stability: Empirical Snapshot</h3>
 <p>An empirical motivation for the TBTF strategy lies in the historical persistence of top-cap firms. From 2012 to 2023, only <strong>27 unique PERMNOs</strong> appeared in the top 10 by market cap. These include:</p>
 <ul>
 <li><strong>AAPL</strong>, <strong>MSFT</strong>, <strong>AMZN</strong>, <strong>GOOG</strong>, <strong>META</strong>, <strong>NVDA</strong>, <strong>TSLA</strong></li>
@@ -353,21 +361,57 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>This concentration implies that capital has become locked into a narrow subset of firms, with little room for new entrants—an observation with profound implications for allocative efficiency and market competition.</p>
 </section>
-<section id="global-top-10-market-cap-stocks" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="global-top-10-market-cap-stocks"><span class="header-section-number">4</span> Global Top 10 Market-Cap Stocks</h2>
+<section id="global-top-10-market-cap-stocks" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="global-top-10-market-cap-stocks"><span class="header-section-number">2.4</span> Global Top 10 Market-Cap Stocks</h3>
 <ul>
 <li>U.S. equities constitute nearly half of global equity market capitalization.</li>
 <li>The dominance of U.S. firms in global equity rankings</li>
 </ul>
 </section>
+</section>
+
+<section id="market-adaptation" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="market-adaptation"><span class="header-section-number">4</span> Market Adaptation</h2>
+<blockquote class="blockquote">
+<p>Why did ETF flows accelerate toward market-cap-weighted indices after 2010?<br>
+Why did the largest firms begin to dominate both flows and returns?<br>
+Why did the size premium—long treated as a cross-sectional regularity—reverse so abruptly?<br>
+Why did the TBTF strategy begin to outperform so persistently after 2010?</p>
+</blockquote>
+<p>These are not merely empirical anomalies. They signal a deeper structural transformation in how modern capital markets internalize crisis, encode institutional memory, and reshape investment behavior. The post-2008 financial order did not simply recalibrate asset valuations—it rewrote the underlying logic by which survivability, scale, and systemic legitimacy are recognized and rewarded.</p>
+<p>In the years following the crisis, capital allocation in U.S. markets underwent a subtle but profound transition. This shift was not driven by changes in earnings expectations or interest rate paths alone. Rather, it reflected a deeper reconfiguration in the way investors interpreted institutional risk, firm durability, and long-term capital positioning. At the center of this shift was a redefinition of <strong>duration</strong>—no longer as sensitivity to discount rates, but as a heuristic for <strong>projected survival within the investment ecosystem</strong>.</p>
+<p>Traditionally, equity duration refers to the maturity-weighted sensitivity of expected cash flows to discount rate changes—a core concept in valuation models. Yet post-crisis dynamics revealed that investors began treating duration less as a metric of interest rate exposure, and more as a proxy for institutional endurance. The relevant question was no longer “What is this firm worth?” but “Will this firm continue to exist in future index compositions?” In effect, duration became behavioral: an estimate of structural permanence rather than financial maturity.</p>
+<p>This behavioral shift was not irrational. Rather, it reflects a regime-level Bayesian updating process. The coordinated policy response to the crisis—Federal Reserve liquidity facilities, bailouts, TARP, and subsequent QE programs—signaled to investors that <strong>size now implied protection</strong>. Survival was no longer a function of profitability or innovation, but of <strong>systemic embeddedness</strong>. Market participants inferred a new asymmetry: certain firms, by virtue of their scale, had become too institutionalized to fail.</p>
+<p>ETFs and other passive vehicles further reinforced this inference. Because index-linked strategies allocate capital based on lagged market capitalization, persistence at the top of the distribution became a structural input to future flows. This generated a recursive loop: survival secured inclusion; inclusion secured flows; flows secured survival. This feedback mechanism did not reward expected productivity, but rather <strong>historical presence and structural resilience</strong>. As such, we observe the emergence of a <strong>duration-weighted survival premium</strong>, distinct from classical notions of risk premia.</p>
+<p>In this context, the TBTF strategy is not a market inefficiency but an adaptation to structure. It is a behavioral rationalization of post-crisis inference: capital flows to where <strong>failure is structurally unlikely</strong>. Outperformance no longer results from superior stock-picking, but from alignment with the attractor dynamics of institutional permanence.</p>
+<p>Traditional pricing models—CAPM, APT, and size/value factor models—assume frictionless reallocation, homogenous expectations, and competitive turnover. But these assumptions collapse in a market where <strong>survivability itself becomes the core priced asset</strong>. Post-2010 capital flows reveal a system where market cap is not the outcome of valuation—it is a reflexive signal of duration legitimacy.</p>
+<p>Thus, the post-2008 period should not merely be interpreted as the era of monetary intervention or ETF proliferation. It marks the onset of a <strong>new selection regime</strong>, where duration displaces alpha, and continuity substitutes for expected upside. The rational investor, under this structure, does not seek transitory outperformance but perpetual investability.</p>
+<blockquote class="blockquote">
+<p>Valuation shifted from pricing expected return to pricing expected duration.<br>
+Not, “How much will this firm return?”<br>
+But, “How long will this firm remain investable?”</p>
+</blockquote>
+</section>
+<section id="the-rise-of-duration-based-capital-allocation" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="the-rise-of-duration-based-capital-allocation"><span class="header-section-number">5</span> The Rise of Duration-Based Capital Allocation</h2>
+<p>Following the 2008 financial crisis, investor behavior in U.S. equity markets underwent a structural reorientation. Classical asset pricing frameworks—rooted in equilibrium assumptions and short-term risk–return optimization—became increasingly insufficient to account for new dynamics in capital flows, including the surge of ETF investments into large-cap indices, the reversal of the size premium, and the persistent outperformance of top-capitalization portfolios. These developments suggest a shift in the decision-making framework: from optimizing short-term efficiency to navigating long-term survivability under asymmetric institutional conditions.</p>
+<p>This behavioral realignment reflects what can be described as long-horizon structure learning. The extraordinary scale and nature of post-crisis interventions—ranging from quantitative easing to implicit guarantees for systemically important institutions—prompted a regime-level updating of expectations. Rather than adjusting beliefs about firm-specific cash flows or macroeconomic risk premia, investors internalized a more abstract signal: that scale now conferred structural protection. Market participants inferred that certain firms would persist not because they outperformed on fundamentals, but because their collapse would be institutionally intolerable.</p>
+<p>In this context, the conventional concept of equity duration—defined in discounted cash flow models as the maturity-weighted average of future earnings—underwent a conceptual transformation. It evolved into a proxy for <strong>institutional persistence</strong>. Post-2010 flows into passive vehicles, particularly market-cap-weighted ETFs, reflected not only a belief in informational efficiency but also a structural inference: that survival, rather than performance, had become the key determinant of long-run valuation. Allocation decisions became reflexive—past index inclusion predicted future capital inflows, and those flows further entrenched the firm’s systemic position. TBTF firms thus ceased to be merely large; they became narrative fixtures, anchoring investor expectations within an uncertain regime.</p>
+<p>This adaptive behavior is not readily explained by conventional cognitive biases. Instead, it aligns more closely with evolutionary theories of decision-making. Under uncertainty, agents are better served by favoring persistent structures over transient signals. Humans are cognitively predisposed to detect long-run patterns, assign value to endurance, and avoid volatility through structural heuristics. Investors, acting within this framework, did not merely chase safety—they responded to embedded institutional signals of continuity. What might appear as herding is, in this view, an expression of rationality calibrated to survival under systemic constraint.</p>
+<p>Such a structural reading of investor behavior challenges the core assumptions of many foundational asset pricing models. The CAPM and APT, for example, presuppose a world of frictionless adjustment, symmetric information, and rational expectations over marginal return distributions. Yet, the sustained outperformance of TBTF strategies post-2010 suggests that markets do not allocate capital solely based on marginal risk–return tradeoffs. Instead, they increasingly reward assets positioned to endure within structurally reinforced hierarchies. Similarly, factor models built on cross-sectional dispersion now conflate fundamental characteristics with recursive index mechanics, institutional design, and regulatory asymmetries.</p>
+<p>In this regime, equilibrium is no longer a normative ideal. It is a <strong>structural attractor</strong>—an emergent state stabilized not by efficiency, but by feedback loops between market cap, passive allocation, and policy memory. The system does not reward productivity; it rewards persistence. What emerges is a revised empirical hypothesis: that capital flows in the post-crisis era reflect beliefs about institutional durability and regime resilience, rather than expectations about marginal outperformance.</p>
+<p>This shift calls for new forms of empirical validation. Tests might include analyzing the sensitivity of ETF flows to prior survivorship during crisis periods, modeling index-induced path dependence in return generation, or tracing the co-evolution of firm rank and capital allocation through recursive reinforcement. Such analyses would illuminate the degree to which capital now flows according to expectations of structural durability, rather than redistributive efficiency.</p>
+<p>Ultimately, TBTF strategies do not function as classical arbitrage mechanisms. They align with the evolving architecture of financial survivability. In this context, market capitalization is no longer an output of valuation—it is a recursive input to it. Passive investment vehicles do not passively mirror the market—they help manufacture it. Investors are not merely optimizing—they are adapting to a stratified topology. The assets that persist are not necessarily the most innovative or productive, but the most embedded. What drives capital allocation today is not short-term alpha, but long-run legitimacy.</p>
 
 
-<div id="quarto-appendix" class="default"><section id="appendix" class="level2 appendix" data-number="5"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">5</span> Appendix</h2><div class="quarto-appendix-contents">
+</section>
 
-<section id="a.-key-financial-and-policy-events-by-period" class="level3" data-number="5.1">
-<h3 data-number="5.1" class="anchored" data-anchor-id="a.-key-financial-and-policy-events-by-period"><span class="header-section-number">5.1</span> A. Key Financial and Policy Events by Period</h3>
-<section id="pre-2010-19962009" class="level4" data-number="5.1.1">
-<h4 data-number="5.1.1" class="anchored" data-anchor-id="pre-2010-19962009"><span class="header-section-number">5.1.1</span> Pre-2010 (1996–2009)</h4>
+<div id="quarto-appendix" class="default"><section id="appendix" class="level2 appendix" data-number="3"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">3</span> Appendix</h2><div class="quarto-appendix-contents">
+
+<section id="a.-key-financial-and-policy-events-by-period" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="a.-key-financial-and-policy-events-by-period"><span class="header-section-number">3.1</span> A. Key Financial and Policy Events by Period</h3>
+<section id="pre-2010-19962009" class="level4" data-number="3.1.1">
+<h4 data-number="3.1.1" class="anchored" data-anchor-id="pre-2010-19962009"><span class="header-section-number">3.1.1</span> Pre-2010 (1996–2009)</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 16%">
@@ -420,8 +464,8 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 </section>
-<section id="post-2010-20102023" class="level4" data-number="5.1.2">
-<h4 data-number="5.1.2" class="anchored" data-anchor-id="post-2010-20102023"><span class="header-section-number">5.1.2</span> Post-2010 (2010–2023)</h4>
+<section id="post-2010-20102023" class="level4" data-number="3.1.2">
+<h4 data-number="3.1.2" class="anchored" data-anchor-id="post-2010-20102023"><span class="header-section-number">3.1.2</span> Post-2010 (2010–2023)</h4>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 16%">
@@ -458,242 +502,246 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-
-
 </section>
 </section>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
-window.document.addEventListener("DOMContentLoaded", function (event) {
-  const toggleBodyColorMode = (bsSheetEl) => {
-    const mode = bsSheetEl.getAttribute("data-mode");
-    const bodyEl = window.document.querySelector("body");
-    if (mode === "dark") {
-      bodyEl.classList.add("quarto-dark");
-      bodyEl.classList.remove("quarto-light");
-    } else {
-      bodyEl.classList.add("quarto-light");
-      bodyEl.classList.remove("quarto-dark");
-    }
-  }
-  const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
-  }
-  toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
-  const onCopySuccess = function(e) {
-    // button target
-    const button = e.trigger;
-    // don't keep focus
-    button.blur();
-    // flash "checked"
-    button.classList.add('code-copy-button-checked');
-    var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
-    let tooltip;
-    if (window.bootstrap) {
-      button.setAttribute("data-bs-toggle", "tooltip");
-      button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
-      tooltip = new bootstrap.Tooltip(button, 
-        { trigger: "manual", 
-          customClass: "code-copy-button-tooltip",
-          offset: [0, -8]});
-      tooltip.show();    
-    }
-    setTimeout(function() {
-      if (tooltip) {
-        tooltip.hide();
-        button.removeAttribute("data-bs-title");
-        button.removeAttribute("data-bs-toggle");
-        button.removeAttribute("data-bs-placement");
-      }
-      button.setAttribute("title", currentTitle);
-      button.classList.remove('code-copy-button-checked');
-    }, 1000);
-    // clear code selection
-    e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
-  });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-    const config = {
-      allowHTML: true,
-      maxWidth: 500,
-      delay: 100,
-      arrow: false,
-      appendTo: function(el) {
-          return el.parentElement;
-      },
-      interactive: true,
-      interactiveBorder: 10,
-      theme: 'quarto',
-      placement: 'bottom-start',
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
-    window.tippy(el, config); 
-  }
-  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-  for (var i=0; i<noterefs.length; i++) {
-    const ref = noterefs[i];
-    tippyHover(ref, function() {
-      // use id or data attribute instead here
-      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-      try { href = new URL(href).hash; } catch {}
-      const id = href.replace(/^#\/?/, "");
-      const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
         }
       }
+      return false;
     }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
           }
         }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
         }
-        return container.innerHTML
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
       } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
         if (window.Quarto?.typesetMath) {
           window.Quarto.typesetMath(note);
         }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
       }
     }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
           }
         } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
           .then(res => res.text())
           .then(html => {
             const parser = new DOMParser();
             const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
+            const note = htmlDoc.querySelector('main.content');
             if (note !== null) {
-              const html = processXRef(id, note);
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
               instance.setContent(html);
             } 
           }).finally(() => {
@@ -701,185 +749,161 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
-    });
-  }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            div.style.left = 0;
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
-      // Attach click handler to the DT
-      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
-      for (const annoteDlNode of annoteDls) {
-        annoteDlNode.addEventListener('click', (event) => {
-          const clickedEl = event.target;
-          if (clickedEl !== selectedAnnoteEl) {
-            unselectCodeLines();
-            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
-            if (activeEl) {
-              activeEl.classList.remove('code-annotation-active');
-            }
-            selectCodeLines(clickedEl);
-            clickedEl.classList.add('code-annotation-active');
-          } else {
-            // Unselect the line
-            unselectCodeLines();
-            clickedEl.classList.remove('code-annotation-active');
-          }
-        });
-      }
-  const findCites = (el) => {
-    const parentEl = el.parentElement;
-    if (parentEl) {
-      const cites = parentEl.dataset.cites;
-      if (cites) {
-        return {
-          el,
-          cites: cites.split(' ')
-        };
-      } else {
-        return findCites(el.parentElement)
-      }
-    } else {
-      return undefined;
-    }
-  };
-  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-  for (var i=0; i<bibliorefs.length; i++) {
-    const ref = bibliorefs[i];
-    const citeInfo = findCites(ref);
-    if (citeInfo) {
-      tippyHover(citeInfo.el, function() {
-        var popup = window.document.createElement('div');
-        citeInfo.cites.forEach(function(cite) {
-          var citeDiv = window.document.createElement('div');
-          citeDiv.classList.add('hanging-indent');
-          citeDiv.classList.add('csl-entry');
-          var biblioDiv = window.document.getElementById('ref-' + cite);
-          if (biblioDiv) {
-            citeDiv.innerHTML = biblioDiv.innerHTML;
-          }
-          popup.appendChild(citeDiv);
-        });
-        return popup.innerHTML;
+      }, function(instance) {
       });
     }
-  }
-});
-</script>
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
 </div> <!-- /content -->
 
 
