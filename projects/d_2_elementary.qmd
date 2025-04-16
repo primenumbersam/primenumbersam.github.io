@@ -140,8 +140,9 @@ $$
 or, more broadly, where the system’s flow settles into a **repeating or invariant configuration** governed by internal dynamics alone.
 
 But crucially, **in social and economic systems**, the existence of such a steady-state **does not justify its moral legitimacy**. A dynamical system may converge toward labor extinction or monopolized capital reproduction—not because these are efficient or just, but because they are **structurally encoded**. That is:  
-> **Persistence is positional, not performative.**  
-> **Steady-states do not signal merit—they expose geometry.**
+
+> Persistence is positional, not performative.
+> Steady-states do not signal merit—they expose geometry.
 
 We formalize our model within the general structure of an **autonomous system**:
 
@@ -178,8 +179,9 @@ where $P$ is a row-stochastic matrix and $\mathbf{x}_t \in \Delta^{n-1}$. The st
 - The **transition** is internal, memoryless, and fully endogenous.
 
 This analogy demonstrates that **both deterministic continuous-time systems** (e.g., ODEs) and **stochastic discrete-time systems** (e.g., Markov chains) operate under the same architectural logic:  
-> **Change is allowed only within structure.**  
-> **Innovation is not generated—it is assumed absent.**
+
+> Change is allowed only within structure
+> Innovation is not generated—it is assumed absent
 
 Thus, when economic models use "equilibrium" to describe such systems, the term often smuggles in **normative meaning** under **structural constraints**. Our reformulation rejects this conflation. In our model:
 
@@ -188,10 +190,9 @@ Thus, when economic models use "equilibrium" to describe such systems, the term 
 - Feedbacks may reinforce inequality even without growth.
 
 The central insight is that **equilibrium is not a justification**. It is a **geometric consequence**.  
-The system does not select for good outcomes—it selects **what fits**.
-
-> Equilibrium is not the name for balance, but the **limit of motion under constraint**.  
-> It is where the system stops—not because it should—but because it **can go no further**.
+The system does **not** select for **good** outcomes—it selects what fits according to the system's pre-existing structure.
+Equilibrium in a real dynamic model is not a name for a desirable or normatively fair path—as it often appears in unrealistic normative models—but rather the ideal limit of motion under realistically imposed constraints.
+It is where the system stops—not because it ought to—but because it can proceed no further within the model’s structure.
 
 ## Normalization 
 
