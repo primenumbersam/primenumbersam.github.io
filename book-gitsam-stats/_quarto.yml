@@ -1,0 +1,64 @@
+project:
+  type: website
+  output-dir: ../docs/book-gitsam-stats
+
+website:
+  title: "[GitSAM](../index.html)"
+  navbar:
+    left:
+      - text: "Papers"
+        menu:
+          - text: "Working"
+            href: ../papers/index.html
+          - text: "TBTF"
+            href: ../paper-tbtf/index.html
+      - text: "Books"
+        menu:
+          - text: "gitsam 기초통계학"
+            href: index.qmd
+          - text: "AI 응용 선형대수학"
+            href: https://primenumbersam.github.io/
+      - text: "Apps"
+        href: https://github.com/primenumbersam/
+      - text: "스터디클럽"
+        href: https://www.gitsam.com
+
+    tools:
+      - icon: shop
+        href: https://laroe.co.kr/
+      - icon: youtube
+        href: https://www.youtube.com/@primenumbersam
+      - icon: github
+        menu:
+          - text: Source Code
+            href: https://github.com/primenumbersam/primenumbersam.github.io
+          - text: Report a Bug
+            href: mailto:primenumbersam@gmail.com
+
+  sidebar:
+    style: "floating"
+    contents:
+      - index.qmd
+      - section: "섹션제목"
+        contents:
+        - index.qmd
+
+author: gitSAM
+
+date: "2025-04-30"
+
+license: "CC BY-NC-SA 4.0"
+
+format:
+  html:
+    theme: cosmo
+    css: ../styles.css
+    toc: true
+    number-sections: false
+    code-fold: true
+
+execute:
+  engine: jupyter
+  freeze: auto
+
+jupyter: python3

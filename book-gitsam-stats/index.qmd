@@ -1,0 +1,48 @@
+---
+title: "gitsam 기초통계학"
+subtitle: Intro to Economic Data Analysis
+format:
+  html:
+    code-fold: true
+    toc: true
+    number-sections: false
+---
+
+## 경제통계 분석 입문 
+
+![cover](../cover-stats.png){width=300}
+
+
+> 모든 모형은 틀렸다. 다만, 몇몇 모형은 유용하다.  
+> 잘못된 모형을 정밀하게 푸는 것보다, 정확한 모형을 근사적으로 푸는 것이 낫다.
+
+## 목차 (Contents)
+
+- 통계 데이터 (Statistical Data)
+	- 경제지표 (Economic indicators)
+	- 경제데이터 분석준비
+	- 활용목적에 따른 데이터의 질
+	- 부록-무작위 표본추출법 (Random sampling)
+- 데이터 탐색 (Exploration): 데이터를 요약하고, 눈으로 보는 힘
+	- 1D Statistics and Plots
+	- 2D Relationship
+- 확률 - 데이터와 가설의 연결고리 
+	- 수학적 확률 vs. 통계적 확률
+	- 확률변수 (random variable)는 함수
+	- 대수의 법칙 (Law of Large numbers)
+	- 중심극한정리 (Central Limit Theorem)
+- 데이터 활용 (Exploitation) 
+	- 단기 - 외생성 (exogeneity) vs. 내생성 (endogeneity): 경제 데이터로 인과 추론이 어려운 이유
+	- 중장기 - 인과관계 (Granger causality) vs. 공적분관계 (co-integration)
+	- 통계적 추론 (Statistical Inference) - 빈도주의자 vs. 베이지언
+	- 통계적 학습 (Statistical Learning) - Supervised vs. Unsupervised
+	- 부록 - 베이지안 통계학과 응용
+- 회귀모형의 계수 추정법과 통계적 가설
+	- 중회귀모형의 도입
+	- 중회귀모형 - 빈도주의자
+	- 중회귀모형 - 베이지언
+- 통계적 가설 검정 (Hypothesis test)
+	- 통계적 가설 검정의 오류: Type I and II error
+	- 유의수준, 통계량, p-value
+	- 두 집단을 비교
+	- 여러 집단을 한꺼번에 비교

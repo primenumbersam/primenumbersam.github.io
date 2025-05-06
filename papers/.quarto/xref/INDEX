@@ -1,0 +1,84 @@
+{
+  "index.qmd": {
+    "index.html": "cbf05acb"
+  },
+  "corner_solution.qmd": {
+    "corner_solution.html": "c6b88934"
+  },
+  "dichotomy.qmd": {
+    "dichotomy.html": "5077f253"
+  },
+  "gilded_age.qmd": {
+    "gilded_age.html": "dc98b7a7"
+  },
+  "pricing_equal.qmd": {
+    "pricing_equal.html": "3bfc02df",
+    "pricing_equal.tex": "46226cc4"
+  },
+  "capm.qmd": {
+    "capm.html": "edee29d7"
+  },
+  "capm_industry.qmd": {
+    "capm_industry.html": "bc382b81"
+  },
+  "market_conditions.qmd": {
+    "market_conditions.html": "843c7f3c"
+  },
+  "market_incomplete.qmd": {
+    "market_incomplete.html": "375c979b"
+  },
+  "structure_cointegration.qmd": {
+    "structure_cointegration.html": "1cab63c7"
+  },
+  "structure_tfp.qmd": {
+    "structure_tfp.html": "59fbb9e0"
+  },
+  "modern_matthew.qmd": {
+    "modern_matthew.html": "e73fe10d"
+  },
+  "d_overview.qmd": {
+    "d_overview.html": "18253cf8"
+  },
+  "d_1_critique.qmd": {
+    "d_1_critique.html": "2e247cdd"
+  },
+  "d_2_elementary.qmd": {
+    "d_2_elementary.html": "d8278133"
+  },
+  "d_4_ethics.qmd": {
+    "d_4_ethics.html": "53ddb9f5"
+  },
+  "d_3_model.qmd": {
+    "d_3_model.html": "81c175d4"
+  },
+  "correlation_crypto.qmd": {
+    "correlation_crypto.html": "37b88427"
+  },
+  "finance_asset_puzzle.qmd": {
+    "finance_asset_puzzle.html": "2982369a"
+  },
+  "finance_existence.qmd": {
+    "finance_existence.html": "692f8954"
+  },
+  "finance_linear.qmd": {
+    "finance_linear.html": "7a845137"
+  },
+  "gitsam_reading.qmd": {
+    "gitsam_reading.html": "1ce167e7"
+  },
+  "indicator_growth.qmd": {
+    "indicator_growth.html": "1e96cfd8"
+  },
+  "labor_decoupling.qmd": {
+    "labor_decoupling.html": "2cba1234"
+  },
+  "pareto_index.qmd": {
+    "pareto_index.html": "d8cda55a"
+  },
+  "regressions.qmd": {
+    "regressions.html": "95292852"
+  },
+  "yield_curve.qmd": {
+    "yield_curve.html": "a01de6a5"
+  }
+}

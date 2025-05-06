@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.21">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="gitSAM">
+<meta name="dcterms.date" content="2025-03-10">
+
+<title>Linear Models of Finance – GitSAM</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-b2bd955b7378b94aa8c2ba4fafa553c9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-bb5f9278568ae542f8467bdb635b70ac.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title"><a href="../index.html">GitSAM</a></span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-papers" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Papers</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-papers">    
+        <li>
+    <a class="dropdown-item" href="./index.html">
+ <span class="dropdown-text">Working</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./../paper-tbtf/index.qmd">
+ <span class="dropdown-text">TBTF</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-books" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Books</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-books">    
+        <li>
+    <a class="dropdown-item" href="./../book-gitsam-stats/index.qmd">
+ <span class="dropdown-text">gitsam 기초통계학</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://primenumbersam.github.io/">
+ <span class="dropdown-text">AI 응용 선형대수학</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/primenumbersam/"> 
+<span class="menu-text">Apps</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://www.gitsam.com"> 
+<span class="menu-text">스터디클럽</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools tools-wide">
+    <a href="https://laroe.co.kr/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-shop"></i></a>
+    <a href="https://www.youtube.com/@primenumbersam" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-youtube"></i></a>
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/primenumbersam/primenumbersam.github.io">
+            Source Code
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="mailto:primenumbersam@gmail.com">
+            Report a Bug
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./yield_curve.html">금융</a></li><li class="breadcrumb-item"><a href="./finance_linear.html">Linear Models of Finance</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GitSAM 교육+연구</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">경제</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gitsam_reading.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">gitsam 독후감</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./indicator_growth.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">경제성장 대표지표?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./labor_decoupling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">노동: 기여 vs.&nbsp;분배</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./regressions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">From Linear to Curved Structures to Fit the Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pareto_index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Modeling Wealth Distribution</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./gilded_age.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">New Gilded Age</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./modern_matthew.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Modern Matthew Effect</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dichotomy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Identifying Dichotomy</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./pricing_equal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Market Price of Education</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./corner_solution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Corner Solutions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./market_conditions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Free Market Conditions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./market_incomplete.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Incomplete Markets</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./structure_cointegration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Time-Varying Cointegration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./structure_tfp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Time-varying TFP</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">금융</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./yield_curve.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Yield curve</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./correlation_crypto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Correlation in Cryptos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./finance_asset_puzzle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Asset Premium Puzzles</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./finance_linear.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Linear Models of Finance</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./finance_existence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Rethinking Asset Existence</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./capm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Revisiting the CAPM</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./capm_industry.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Industry CAPM</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">돈의 동역학</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./d_overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">AI시대 자본과 노동</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./d_1_critique.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">주류경제학 비판</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./d_2_elementary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">동역학 기초수학</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./d_3_model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">AI시대 동역학 모형</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./d_4_ethics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">AI시대 경제윤리</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#dual-approaches-to-asset-management" id="toc-dual-approaches-to-asset-management" class="nav-link" data-scroll-target="#dual-approaches-to-asset-management">Dual Approaches to Asset Management</a></li>
+  <li><a href="#limitations-of-linear-asset-pricing-models" id="toc-limitations-of-linear-asset-pricing-models" class="nav-link" data-scroll-target="#limitations-of-linear-asset-pricing-models">Limitations of Linear Asset Pricing Models</a>
+  <ul class="collapse">
+  <li><a href="#statistical-limitations" id="toc-statistical-limitations" class="nav-link" data-scroll-target="#statistical-limitations">Statistical Limitations</a></li>
+  <li><a href="#the-inverse-relationship-between-risk-and-return-for-dominant-firms" id="toc-the-inverse-relationship-between-risk-and-return-for-dominant-firms" class="nav-link" data-scroll-target="#the-inverse-relationship-between-risk-and-return-for-dominant-firms">The Inverse Relationship Between Risk and Return for Dominant Firms</a></li>
+  <li><a href="#market-efficiency-and-structural-advantages" id="toc-market-efficiency-and-structural-advantages" class="nav-link" data-scroll-target="#market-efficiency-and-structural-advantages">Market Efficiency and Structural Advantages</a></li>
+  </ul></li>
+  <li><a href="#practical-asset-management" id="toc-practical-asset-management" class="nav-link" data-scroll-target="#practical-asset-management">Practical Asset Management</a>
+  <ul class="collapse">
+  <li><a href="#implications-of-model-failure-for-asset-management" id="toc-implications-of-model-failure-for-asset-management" class="nav-link" data-scroll-target="#implications-of-model-failure-for-asset-management">Implications of Model Failure for Asset Management</a></li>
+  <li><a href="#a-data-driven-alternative-stochastic-dominance" id="toc-a-data-driven-alternative-stochastic-dominance" class="nav-link" data-scroll-target="#a-data-driven-alternative-stochastic-dominance">A Data-Driven Alternative: Stochastic Dominance</a></li>
+  <li><a href="#complementary-tools" id="toc-complementary-tools" class="nav-link" data-scroll-target="#complementary-tools">Complementary Tools</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./yield_curve.html">금융</a></li><li class="breadcrumb-item"><a href="./finance_linear.html">Linear Models of Finance</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Linear Models of Finance</h1>
+<p class="subtitle lead">Wrong and Bad</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>gitSAM </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 10, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>The failure to rationally explain the excess returns for dominant firms reflects not merely model misspecification but a systematic failure to capture the fundamental nature of contemporary capitalism, where returns increasingly flow not as compensation for risk-bearing but as rents extracted through structural market advantages. This insight challenges the core assumptions of traditional asset management, which relies heavily on models like the Capital Asset Pricing Model (CAPM) or multi-factor frameworks to guide investment decisions. In an post-2008 era of quantitative easing (QE), ETF dominance, and mega-cap firms leveraging network effects, regulatory capture, and institutional protection to secure outsized profits, these models lead to suboptimal portfolio allocations. This study delves into the implications of this disconnect, critiques the limitations of conventional approaches, and proposes a data-driven alternative using stochastic dominance to better align asset management with the realities of modern markets.</p>
+<p>The evolution of portfolio optimization and asset pricing reflects a tension between theory and empirics:</p>
+<ul>
+<li><strong>Markowitz (1952)</strong>: Introduced mean-variance optimization, assuming normal returns and quadratic utility—elegant but empirically fragile.</li>
+<li><strong>CAPM (1964)</strong>: Linked returns to market risk, but anomalies (e.g., size, value) prompted multi-factor models.</li>
+<li><strong>Fama-French (1992)</strong>: Added factors, yet struggled with momentum and low-volatility effects.</li>
+<li><strong>Behavioral Finance</strong>: Addressed inefficiencies but lacked a cohesive framework.</li>
+</ul>
+<p>c.f. Tested Linear Models</p>
+<ul>
+<li><strong>Challenging Linear Factor Models</strong>
+<ul>
+<li><strong>Factor Selection</strong>: Highlight multicollinearity (mkt_excess, macro_bm) and limited explanatory power.<br>
+</li>
+<li><strong>Lasso Regression</strong>: Apply regularization to select predictors for FF 10 industry portfolio excess returns.<br>
+</li>
+</ul></li>
+<li><strong>Challenging Betting Against Beta</strong>
+<ul>
+<li><strong>Out-of-Sample Performance</strong>: Optimal assets have betas near 1, not high or low (SIC 10 portfolios).<br>
+</li>
+</ul></li>
+<li><strong>Challenging the traditional Mean-Variance weight Optimization</strong>
+<ul>
+<li><strong>Extreme Weights</strong>: Unconstrained MV yields impractical results; constraints (e.g., no short sales) added.<br>
+</li>
+<li><strong>Passive vs.&nbsp;Active</strong>: Passive value-weighted portfolios outperform MV with lower costs.<br>
+</li>
+</ul></li>
+<li><strong>Challenging the Parametric Mean-Variance Weight Optimization</strong>
+<ul>
+<li><strong>Bayesian update</strong> : Black and Litterman (1992)</li>
+<li><strong>Momentum and Size Tilting</strong>: Brandt et al.&nbsp;(2009) approach underperforms passive benchmarks.</li>
+</ul></li>
+</ul>
+</section>
+<section id="dual-approaches-to-asset-management" class="level2">
+<h2 class="anchored" data-anchor-id="dual-approaches-to-asset-management">Dual Approaches to Asset Management</h2>
+<p>In economics, a limited resource allocation involves relative price vectors (<span class="math inline">\(P\)</span>) and quantity vectors (<span class="math inline">\(Q\)</span>), often constrained by a structural inner product:</p>
+<p><span class="math display">\[P \cdot Q = \text{constant}\]</span></p>
+<p>With a convex or concave scalar function of <span class="math inline">\(P\)</span> or <span class="math inline">\(Q\)</span> which are complete and compact Euclidean spaces, this structure enables convex optimization tools. Duality in convex optimization posits that solving for <span class="math inline">\(Q\)</span> given <span class="math inline">\(P\)</span> (primal problem) or <span class="math inline">\(P\)</span> given <span class="math inline">\(Q\)</span> (dual problem) yields equivalent results under linear constraints, reflecting the Hahn-Banach theorem’s guarantee of consistent linear functionals.</p>
+<ol type="1">
+<li><strong>Asset Weight Optimization</strong>:
+<ul>
+<li><strong>Goal</strong>: Given <span class="math inline">\(P\)</span> (joint distribution of returns), find <span class="math inline">\(Q\)</span> (asset weights) to optimize an objective (e.g., maximize Sharpe ratio).</li>
+<li><strong>Critique</strong>: Modern Portfolio Theory (MPT) assumes elliptical distributions and time-separable utility (e.g., CRRA), which are unrealistic. Non-stationary or fat-tailed distributions (e.g., Cauchy) render moment estimates unreliable, and utility may not reflect diminishing marginal returns for future wealth.</li>
+</ul></li>
+<li><strong>Asset Pricing Optimization</strong>:
+<ul>
+<li><strong>Goal</strong>: Given <span class="math inline">\(Q\)</span> (future cash flows), find <span class="math inline">\(P\)</span> (state prices) to satisfy no-arbitrage conditions via the Euler equation.</li>
+<li><strong>Critique</strong>: If risk-return tradeoffs break down (as with mega-caps), linear factor models derived from local approximations fail, undermining theoretical predictions.</li>
+</ul></li>
+</ol>
+</section>
+<section id="limitations-of-linear-asset-pricing-models" class="level2">
+<h2 class="anchored" data-anchor-id="limitations-of-linear-asset-pricing-models">Limitations of Linear Asset Pricing Models</h2>
+<p>Traditional asset pricing theories operate on the fundamental premise that expected returns directly compensate for systematic risk exposure. However, the empirical reality of top-performing mega-cap stocks presents a profound contradiction: these entities often display disproportionate returns relative to their risk profiles. Consider Apple, which despite having relatively high beta compared to other mega-caps, has generated returns that consistently exceed what would be predicted by its systematic risk exposure alone.</p>
+<section id="statistical-limitations" class="level3">
+<h3 class="anchored" data-anchor-id="statistical-limitations">Statistical Limitations</h3>
+<p>The conventional approach to addressing anomalies involves extending traditional asset pricing models by incorporating additional factors. These extensions represent a fundamentally inadequate methodology as they merely perpetuate the linear structure of existing frameworks while appending explanatory variables. The standard multi-factor model takes the form:</p>
+<p><span class="math display">\[E(R_i) = R_f + \beta_{i,1}F_1 + \beta_{i,2}F_2 + ... + \beta_{i,n}F_n + \alpha_i\]</span></p>
+<p>Where <span class="math inline">\(E(R_i)\)</span> represents expected returns, <span class="math inline">\(R_f\)</span> is the risk-free rate, <span class="math inline">\(\beta_{i,j}\)</span> are factor loadings, and <span class="math inline">\(F_j\)</span> are risk factors. The proposed extensions for capturing phenomena such as network effects, winner-take-all dynamics, and regulatory capture simply add terms to this equation.</p>
+<p>This approach has several critical flaws related to both model specification and parameter estimation.</p>
+<p>Linear additive models inherently assume factor orthogonality, normal distribution of returns, and stable risk premiums—assumptions violated by the complex, non-linear relationships between institutional protection, market power, and returns. These models rely on the core statistical assumptions:</p>
+<ol type="1">
+<li><span class="math inline">\(E(\varepsilon_i) = 0\)</span> (zero-mean residuals)</li>
+<li><span class="math inline">\(Cov(F_j, \varepsilon_i) = 0\)</span> (factors uncorrelated with residuals)</li>
+<li><span class="math inline">\(Cov(F_j, F_k) = 0\)</span> for <span class="math inline">\(j \neq k\)</span> (orthogonal factors)</li>
+<li><span class="math inline">\(\varepsilon_i \sim N(0, \sigma^2)\)</span> (normally distributed residuals)</li>
+</ol>
+<p>Yet empirical tests would consistently reject these assumptions for mega-cap returns. A particularly problematic issue is multicollinearity between factors. When adding variables such as institutional protection, regulatory capture, and network effects to explain mega-cap performance, these factors often exhibit high correlation amongst themselves. This multicollinearity leads to unstable coefficient estimates, inflated standard errors, and ultimately, unreliable inference. For instance, a firm’s market power is often highly correlated with its regulatory influence, making it difficult to disentangle their individual effects.</p>
+<p>Moreover, adding qualitative variables like “network effects” to statistical models is particularly vulnerable to p-hacking, as these constructs can be operationalized in numerous ways. The improvement in in-sample fitting (<span class="math inline">\(R^2\)</span>) often comes at the expense of out-of-sample prediction accuracy—a fundamental manifestation of the bias-variance tradeoff in mean squared error:</p>
+<p><span class="math display">\[MSE(prediction) = Bias^2 + Variance + Irreducible\_Error\]</span></p>
+<p>Adding complex factors to capture mega-cap outperformance typically increases model complexity, which may reduce in-sample bias but simultaneously increases estimation variance. This increased variance occurs because more complex models with additional parameters require more data for stable estimation and are more prone to overfitting noise rather than signal. This relationship is particularly problematic for stock returns, which violate ergodicity assumptions necessary for consistent parameter estimation.</p>
+<p>Furthermore, traditional frameworks remain epistemologically constrained by their reliance on backward-looking statistical relationships. Consider the standard time-series approach to estimating factor models:</p>
+<p><span class="math display">\[R_{it} = \alpha_i + \beta_{i,MKT}R_{mt} + \beta_{i,SMB}SMB_t + \beta_{i,HML}HML_t + \varepsilon_{it}\]</span></p>
+<p>This specification assumes parameter stability over time (<span class="math inline">\(\beta_{i,j,t} = \beta_{i,j,t+1}\)</span>), an assumption violated when institutional dynamics create structural breaks. Microsoft’s evolving regulatory landscape demonstrates this challenge—its systematic risk profile has fundamentally changed as its market and political power have increased, rendering historical beta estimates increasingly irrelevant for forward-looking predictions.</p>
+</section>
+<section id="the-inverse-relationship-between-risk-and-return-for-dominant-firms" class="level3">
+<h3 class="anchored" data-anchor-id="the-inverse-relationship-between-risk-and-return-for-dominant-firms">The Inverse Relationship Between Risk and Return for Dominant Firms</h3>
+<p>The conventional understanding of systematic risk requires fundamental reconceptualization. The Capital Asset Pricing Model posits:</p>
+<p><span class="math display">\[E(R_i) = R_f + \beta_i(E(R_m) - R_f)\]</span></p>
+<p>Where <span class="math inline">\(\beta_i = \frac{Cov(R_i, R_m)}{Var(R_m)} = \rho_{i,m}\frac{\sigma_i}{\sigma_m}\)</span> measures systematic risk exposure. This can be decomposed into correlation (<span class="math inline">\(\rho_{i,m}\)</span>) and relative volatility components (<span class="math inline">\(\frac{\sigma_i}{\sigma_m}\)</span>).</p>
+<p>An empirical analysis of market data reveals a critical paradox for mega-cap stocks versus non-mega-cap stocks. Both categories typically exhibit similar correlation coefficients with the market (<span class="math inline">\(\rho_{i,m} \approx 1\)</span>), indicating strong co-movement with overall market trends. Similarly, their expected returns (<span class="math inline">\(E(R_i)\)</span>) are often comparable or even favor mega-caps. However, the crucial distinction emerges in their volatility profiles: mega-cap stocks consistently demonstrate lower idiosyncratic volatility (<span class="math inline">\(\sigma_i^{mega} &lt; \sigma_i^{non-mega}\)</span>) due to their institutional protection, diversified revenue streams, and market power.</p>
+<p>This creates a fundamental contradiction in the risk-return paradigm. When calculating the Sharpe ratio or other risk-adjusted return metrics:</p>
+<p><span class="math display">\[Sharpe_i = \frac{E(R_i) - R_f}{\sigma_i}\]</span></p>
+<p>Mega-cap stocks consistently outperform on a risk-adjusted basis. This superior risk-adjusted performance cannot be reconciled with traditional asset pricing theory, which predicts that lower risk should be associated with lower returns. <a href="#a-big-small">The empirical reality</a> suggests the opposite for market dominant stocks:</p>
+<p><span class="math display">\[\frac{E(R_i^{mega}) - R_f}{\sigma_i^{mega}} &gt; \frac{E(R_i^{non-mega}) - R_f}{\sigma_i^{non-mega}}\]</span></p>
+<p>Despite comparable raw returns and market correlations, the risk-adjusted outperformance of mega-cap stocks directly contradicts the foundational risk-return trade-off of asset pricing theory. Amazon exemplifies this phenomenon—its volatility has decreased relative to smaller competitors as its market dominance has increased, yet its returns have remained exceptional, generating superior risk-adjusted performance that cannot be explained by traditional models.</p>
+</section>
+<section id="market-efficiency-and-structural-advantages" class="level3">
+<h3 class="anchored" data-anchor-id="market-efficiency-and-structural-advantages">Market Efficiency and Structural Advantages</h3>
+<p>Market efficiency assumptions underlying traditional models presuppose:</p>
+<p><span class="math display">\[E[R_{i,t+1} | \Omega_t] := E_t[R_{i,t+1}]\]</span></p>
+<p>Where <span class="math inline">\(\Omega_t\)</span> represents the information set available at time <span class="math inline">\(t\)</span>, and <span class="math inline">\(E_t[\cdot]\)</span> denotes expectation conditional on information at time <span class="math inline">\(t\)</span>. However, the persistence of abnormal returns for dominant firms suggests either:</p>
+<ol type="1">
+<li>Information about institutional advantages is not fully incorporated in prices</li>
+<li>These advantages create structural market inefficiencies that cannot be arbitraged away</li>
+</ol>
+<p>Google’s digital advertising dominance illustrates these dynamics. Its network effects create increasing returns to scale that can be modeled as:</p>
+<p><span class="math display">\[Profit_t = f(MarketShare_{t-1})^{\gamma}\]</span></p>
+<p>Where <span class="math inline">\(\gamma &gt; 1\)</span> indicates increasing returns to scale. Traditional asset pricing models assume competitive markets where <span class="math inline">\(\gamma \leq 1\)</span>, making them structurally incapable of capturing the valuation implications of dominant market positions.</p>
+<p>The fundamental inadequacy of traditional models becomes evident when examining their predictive accuracy for top market-cap stocks. A comparison of realized returns versus CAPM-predicted returns for top 10 stocks from 2010-2020 shows systematic underestimation:</p>
+<p><span class="math display">\[\alpha_i:= E(R_i) - [R_f + \beta_i(R_m - R_f)] &gt; 0 \text{ for top 10 stocks}\]</span></p>
+<p>This persistent alpha cannot be explained as compensation for omitted risk factors, as these firms typically enjoy reduced risk through institutional protection and market dominance.</p>
+<p>This theoretical crisis demands not incremental additions to existing models but a comprehensive reconceptualization of capital market dynamics. The failure to accurately predict returns for dominant firms reflects not merely model misspecification but a systematic failure to capture the fundamental nature of contemporary capitalism, where returns increasingly flow not as compensation for risk-bearing but as rents extracted through structural market advantages.</p>
+<p>A more appropriate specification might acknowledge the non-linear relationship between institutional position and returns:</p>
+<p><span class="math display">\[E(R_i) = R_f + \beta_i(R_m - R_f) + g(MarketPower_i, InstitutionalProtection_i)\]</span></p>
+<p>Where <span class="math inline">\(g(\cdot)\)</span> is a non-linear function capturing the complex relationship between market power, institutional protection, and returns—a relationship that fundamentally contradicts the risk-return paradigm underlying traditional asset pricing theory.</p>
+</section>
+</section>
+<section id="practical-asset-management" class="level2">
+<h2 class="anchored" data-anchor-id="practical-asset-management">Practical Asset Management</h2>
+<section id="implications-of-model-failure-for-asset-management" class="level3">
+<h3 class="anchored" data-anchor-id="implications-of-model-failure-for-asset-management">Implications of Model Failure for Asset Management</h3>
+<p>Asset management involves making investment decisions to achieve financial objectives, such as maximizing returns or minimizing risk, typically by constructing portfolios based on expected returns and risk estimates derived from asset pricing models. However, the inadequacy of traditional models when applied to dominant firms—those “superstar” companies that capture disproportionate market value—creates significant practical challenges:</p>
+<ol type="1">
+<li><p><strong>Breakdown of Market Efficiency Assumptions</strong><br>
+Traditional models assume markets are efficient, with asset prices reflecting all available information. Yet, dominant firms consistently generate abnormal returns that persist over time, suggesting inefficiencies tied to structural advantages—like brand loyalty or data monopolies—that markets fail to fully price in. For asset managers, this means traditional models underestimate the value of these firms, leading to underweighting in portfolios.</p></li>
+<li><p><strong>Inverse Risk-Return Dynamics</strong><br>
+Models like the CAPM posit a linear relationship where higher risk (measured as beta) yields higher expected returns. For dominant firms, however, the opposite often holds: their entrenched positions reduce idiosyncratic risk—through diversified revenue streams or regulatory buffers—while delivering superior returns. This inversion misleads asset managers into overestimating the risk of mega-cap stocks and underestimating their return potential, skewing portfolio optimization.</p></li>
+<li><p><strong>Factor Instability and Omission</strong><br>
+Multi-factor models, such as those based on Fama-French factors, depend on stable relationships between risk factors (e.g., size, value) and returns. Yet, the market power of dominant firms evolves dynamically—through technological innovation or policy shifts—causing factor loadings to fluctuate. Moreover, these models lack factors that explicitly capture rents from structural advantages, leaving asset managers with incomplete tools to assess true risk-adjusted performance.</p></li>
+<li><p><strong>Inability to Model Non-Linear Effects</strong><br>
+The linear structure of traditional models cannot accommodate the non-linear dynamics of contemporary capitalism, such as increasing returns to scale or tipping points in market dominance. For example, a firm like Amazon benefits from self-reinforcing network effects that amplify its returns beyond what risk-based models predict, rendering traditional allocations ineffective.</p></li>
+</ol>
+<p>These shortcomings result in portfolios that miss out on the concentrated returns of dominant firms, which increasingly drive market performance. Asset managers relying on outdated frameworks risk underperformance in a landscape where structural advantages, not risk exposure, dictate success.</p>
+</section>
+<section id="a-data-driven-alternative-stochastic-dominance" class="level3">
+<h3 class="anchored" data-anchor-id="a-data-driven-alternative-stochastic-dominance">A Data-Driven Alternative: Stochastic Dominance</h3>
+<p>To address these challenges, asset management must shift toward empirical, data-driven approaches that eschew the restrictive assumptions of traditional models. One such method is <strong>stochastic dominance</strong>, which evaluates assets by comparing their entire return distributions rather than relying on summary statistics like mean and variance. This approach offers a practical way to identify investments that align with the empirical realities of contemporary markets.</p>
+<ul>
+<li><strong>How It Works</strong>
+<ul>
+<li><strong>First-Order Stochastic Dominance (FSD)</strong>: Asset A dominates Asset B if its cumulative distribution function (CDF) lies below B’s for all return levels, meaning A offers higher returns across all outcomes.<br>
+</li>
+<li><strong>Second-Order Stochastic Dominance (SSD)</strong>: For risk-averse investors, A dominates B if the area under A’s CDF (its integral) is less than B’s up to any point, indicating a better risk-return tradeoff.</li>
+</ul></li>
+<li><strong>Advantages</strong>
+<ul>
+<li><strong>Robustness</strong>: Unlike mean-variance optimization, stochastic dominance requires no assumptions about return distributions (e.g., normality), making it suitable for markets with fat tails or skewness—common in mega-cap stock performance.<br>
+</li>
+<li><strong>Empirical Focus</strong>: By analyzing historical return distributions, it captures the real-world impact of structural advantages, such as the persistent outperformance of firms like Apple or Microsoft.<br>
+</li>
+<li><strong>Flexibility</strong>: It accommodates diverse investor risk preferences without specifying a utility function, broadening its applicability.</li>
+</ul></li>
+<li><strong>Practical Implementation</strong><br>
+Asset managers can apply stochastic dominance by:
+<ul>
+<li><strong>Historical Simulations</strong>: Using past return data to estimate CDFs and calculate the likelihood of one asset dominating another.<br>
+</li>
+<li><strong>Resampling</strong>: Employing techniques like bootstrapping to test dominance under varying market conditions, enhancing robustness.</li>
+</ul></li>
+<li><strong>Challenges</strong>
+<ul>
+<li><strong>Data Requirements</strong>: Accurate CDF estimation demands extensive historical data, which may be scarce for newer firms or asset classes.<br>
+</li>
+<li><strong>Non-Stationarity</strong>: Return distributions shift over time—due to regulatory changes or competitive disruptions—limiting the reliability of historical dominance.<br>
+</li>
+<li><strong>Portfolio Complexity</strong>: Extending stochastic dominance to multi-asset portfolios is computationally intensive, often requiring simplifications or heuristic rules.</li>
+</ul></li>
+</ul>
+<p>Despite these hurdles, stochastic dominance provides a rigorous framework that sidesteps the theoretical pitfalls of traditional models. It allows asset managers to focus on observable performance, directly addressing the rent extraction that defines dominant firms.</p>
+</section>
+<section id="complementary-tools" class="level3">
+<h3 class="anchored" data-anchor-id="complementary-tools">Complementary Tools</h3>
+<p>While stochastic dominance serves as a strong foundation, asset managers can bolster their strategies with additional tools to capture the nuances of contemporary markets:</p>
+<ul>
+<li><p><strong>Fundamental Analysis</strong><br>
+Detailed assessments of a firm’s financials, competitive moat (e.g., patents, scale), and industry trends can reveal structural advantages missed by quantitative models. For instance, analyzing Tesla’s innovation pipeline or Alphabet’s data ecosystem offers insights into their sustained dominance.</p></li>
+<li><p><strong>Machine Learning</strong><br>
+Advanced algorithms can detect non-linear patterns in returns or predict shifts in market power, though they require careful tuning to avoid overfitting and ensure interpretability.</p></li>
+<li><p><strong>Liquidity Considerations</strong><br>
+Mega-cap stocks typically offer high liquidity, reducing transaction costs and making them practical choices for large portfolios—a factor stochastic dominance alone might not prioritize.</p></li>
+</ul>
+<p>Moreover, the concentration of returns in a few dominant firms suggests that a focused investment strategy—overweighting current mega-caps or scouting emerging leaders—may outperform broad diversification. However, identifying future dominants demands foresight into technological, regulatory, and economic trends, adding complexity to the process.</p>
+</section>
+<section id="conclusion" class="level3">
+<h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>
+<p>In a world where returns stem from structural market advantages rather than risk-bearing, traditional asset pricing models fail to guide effective asset management. Their inability to predict the performance of dominant firms—rooted in flawed assumptions about efficiency, risk, and linearity—leads to misallocated portfolios that undervalue mega-cap opportunities. A data-driven approach using stochastic dominance offers a compelling alternative, leveraging empirical return distributions to identify superior investments without theoretical baggage. While challenges like data demands and non-stationarity persist, combining this method with fundamental analysis and modern tools equips asset managers to navigate contemporary capitalism. By embracing flexibility and empiricism, asset management can better capture the rents that define today’s markets, delivering superior outcomes in an era of concentrated dominance.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

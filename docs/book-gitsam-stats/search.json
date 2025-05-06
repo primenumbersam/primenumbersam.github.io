@@ -1,0 +1,35 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "gitsam 기초통계학",
+    "section": "",
+    "text": "cover\n\n\n\n모든 모형은 틀렸다. 다만, 몇몇 모형은 유용하다.\n잘못된 모형을 정밀하게 푸는 것보다, 정확한 모형을 근사적으로 푸는 것이 낫다.",
+    "crumbs": [
+      "Apps",
+      "gitsam 기초통계학"
+    ]
+  },
+  {
+    "objectID": "index.html#경제통계-분석-입문",
+    "href": "index.html#경제통계-분석-입문",
+    "title": "gitsam 기초통계학",
+    "section": "",
+    "text": "cover\n\n\n\n모든 모형은 틀렸다. 다만, 몇몇 모형은 유용하다.\n잘못된 모형을 정밀하게 푸는 것보다, 정확한 모형을 근사적으로 푸는 것이 낫다.",
+    "crumbs": [
+      "Apps",
+      "gitsam 기초통계학"
+    ]
+  },
+  {
+    "objectID": "index.html#목차-contents",
+    "href": "index.html#목차-contents",
+    "title": "gitsam 기초통계학",
+    "section": "목차 (Contents)",
+    "text": "목차 (Contents)\n\n통계 데이터 (Statistical Data)\n\n경제지표 (Economic indicators)\n경제데이터 분석준비\n활용목적에 따른 데이터의 질\n부록-무작위 표본추출법 (Random sampling)\n\n데이터 탐색 (Exploration): 데이터를 요약하고, 눈으로 보는 힘\n\n1D Statistics and Plots\n2D Relationship\n\n확률 - 데이터와 가설의 연결고리\n\n수학적 확률 vs. 통계적 확률\n확률변수 (random variable)는 함수\n대수의 법칙 (Law of Large numbers)\n중심극한정리 (Central Limit Theorem)\n\n데이터 활용 (Exploitation)\n\n단기 - 외생성 (exogeneity) vs. 내생성 (endogeneity): 경제 데이터로 인과 추론이 어려운 이유\n중장기 - 인과관계 (Granger causality) vs. 공적분관계 (co-integration)\n통계적 추론 (Statistical Inference) - 빈도주의자 vs. 베이지언\n통계적 학습 (Statistical Learning) - Supervised vs. Unsupervised\n부록 - 베이지안 통계학과 응용\n\n회귀모형의 계수 추정법과 통계적 가설\n\n중회귀모형의 도입\n중회귀모형 - 빈도주의자\n중회귀모형 - 베이지언\n\n통계적 가설 검정 (Hypothesis test)\n\n통계적 가설 검정의 오류: Type I and II error\n유의수준, 통계량, p-value\n두 집단을 비교\n여러 집단을 한꺼번에 비교",
+    "crumbs": [
+      "Apps",
+      "gitsam 기초통계학"
+    ]
+  }
+]
