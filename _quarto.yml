@@ -49,3 +49,6 @@ execute:
   freeze: auto
 
 jupyter: python3
+
+resources:
+  - styles.css
