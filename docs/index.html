@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.21">
+<meta name="generator" content="quarto-1.7.22">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -36,7 +36,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-b2bd955b7378b94aa8c2ba4fafa553c9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b4406b7675125bc2ba204020e191172.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap-bb5f9278568ae542f8467bdb635b70ac.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -180,70 +180,97 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="math-is-an-effective-language" class="level2">
 <h2 class="anchored" data-anchor-id="math-is-an-effective-language">Math is an effective language</h2>
-<blockquote class="blockquote">
-<p>Clarify, Formulate, and Solve your problem Importantly, Interpret and Test your solution</p>
-</blockquote>
+<ul>
+<li>Formulate and Solve your problem</li>
+<li>Interpret and Test your solution</li>
+</ul>
 </section>
 <section id="computer-is-an-efficient-tool" class="level2">
 <h2 class="anchored" data-anchor-id="computer-is-an-efficient-tool">Computer is an efficient tool</h2>
 <ul>
-<li>Computation with Python in Google Colab</li>
+<li>Computation with Python in Colab</li>
 <li>Publication with Quarto in Local</li>
+</ul>
+</section>
+<section id="apps-in-progress" class="level2">
+<h2 class="anchored" data-anchor-id="apps-in-progress">Apps (In progress)</h2>
+<ul>
+<li>재테크 대시보드</li>
+<li>K-Learning</li>
+<li>FinTech</li>
+<li>벨벳토끼인형</li>
 </ul>
 </section>
 <section id="books" class="level2">
 <h2 class="anchored" data-anchor-id="books">Books</h2>
+<script>
+function filterBooks(tag) {
+  const cards = document.querySelectorAll('.book-card');
+  cards.forEach(card => {
+    const tags = card.getAttribute('data-tags').split(' ');
+    if (tag === 'all' || tags.includes(tag)) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+</script>
+<!-- 태그 필터 버튼 -->
+<div id="tag-filter">
+<p><button onclick="filterBooks('all')">All</button> <button onclick="filterBooks('How-to')">How-to</button> <button onclick="filterBooks('Why')">Why</button></p>
+</div>
 <div class="book-grid">
-<div class="book-card">
+<div class="book-card" data-tags="How-to">
 <a href="book_ai_algebra/index.html" target="_blank"> <img src="cover-algebra.png" alt="gitsam">
 <div class="book-title">
 AI 응용 선형대수학
 </div>
 </a><p><a href="book_ai_algebra/index.html" target="_blank"></a></p>
 </div>
-<div class="book-card">
+<div class="book-card" data-tags="How-to">
 <a href="book_ai_calculus/index.html" target="_blank"> <img src="cover-calculus.png" alt="gitsam">
 <div class="book-title">
 AI 응용 미적분학
 </div>
 </a><p><a href="book_ai_calculus/index.html" target="_blank"></a></p>
 </div>
-<div class="book-card">
+<div class="book-card" data-tags="How-to">
 <a href="book_ai_dev_log/index.html" target="_blank"> <img src="cover-app-log.png" alt="gitsam">
 <div class="book-title">
 AI LLM App 개발일지
 </div>
 </a><p><a href="book_ai_dev_log/index.html" target="_blank"></a></p>
 </div>
-<div class="book-card">
+<div class="book-card" data-tags="How-to">
 <a href="https://gitsam.notion.site/ab09bfb8292b464a846d55e7d3df7a8d?v=18fd716ee0de80b89148000c8a8bb9f9" target="_blank"> <img src="cover-liberal-arts.png" alt="gitsam">
 <div class="book-title">
 gitsam 지식 산책
 </div>
 </a><p><a href="https://gitsam.notion.site/ab09bfb8292b464a846d55e7d3df7a8d?v=18fd716ee0de80b89148000c8a8bb9f9" target="_blank"></a></p>
 </div>
-<div class="book-card">
+<div class="book-card" data-tags="Why">
 <a href="book-gitsam-stats/index.html" target="_blank"> <img src="cover-stats.png" alt="gitsam">
 <div class="book-title">
 gitsam 기초 통계학
 </div>
 </a><p><a href="book-gitsam-stats/index.html" target="_blank"></a></p>
 </div>
-<div class="book-card">
+<div class="book-card" data-tags="Why">
 <a href="book_gitsam_math/index.html" target="_blank"> <img src="cover-math.png" alt="gitsam">
 <div class="book-title">
 gitsam 초중고 수학
 </div>
 </a><p><a href="book_gitsam_math/index.html" target="_blank"></a></p>
 </div>
-<div class="book-card">
+<div class="book-card" data-tags="Why">
 <a href="book_gitsam_theory/index.html" target="_blank"> <img src="cover-theory.png" alt="gitsam">
 <div class="book-title">
 gitsam AI Theory
 </div>
 </a><p><a href="book_gitsam_theory/index.html" target="_blank"></a></p>
 </div>
-<div class="book-card">
+<div class="book-card" data-tags="Why">
 <a href="book_gitsam_han/index.html" target="_blank"> <img src="cover-han.png" alt="gitsam">
 <div class="book-title">
 gitsam 글짓기

@@ -2,7 +2,7 @@
 title: 07 Robustness
 subtitle: Is TBTF Sadly Optimal by Design?
 execute:
-  enabled: true
+  enabled: false
 ---
 
 While the previous section focused on the performance outcomes of the TBTF strategy, this section evaluates the **stability of those outcomes** under variation in core implementation parameters. We test whether the superior performance persists under changes in portfolio size, rebalancing frequency, weighting schemes, and look-back windows.

@@ -45,6 +45,7 @@ website:
         contents:
         - 3_1_history.qmd
         - 3_2_history_nyse.qmd
+        - 3_3_history_survivorship.qmd
       - section: "Model"
         contents:
         - 4_1_overview.qmd
@@ -56,7 +57,7 @@ website:
         - 4_7_robustness.qmd
         - 4_8_implementation.qmd
       - 5_conclusion.qmd
-      - tbtf_data_plot.qmd
+
 
 author: gitSAM
 date: '2025-03-31'

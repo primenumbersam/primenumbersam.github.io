@@ -7,19 +7,11 @@ keywords:
   - survivorship bias
   - truncation
   - conservative system
-jupyter: python3
 execute:
-  enabled: true
+  enabled: false
   echo: true
   warning: false
   message: false
-format:
-  revealjs:
-    code-fold: true
-    theme: white
-    slide-number: true
-    transition: slide
-license: "CC BY-NC-SA"
 ---
 
 ## Data Pre-Processing

@@ -39,7 +39,22 @@ website:
     style: "floating"
     contents:
       - index.qmd
-      - section: "섹션제목"
+      - section: "Statistical Data"
+        contents:
+        - index.qmd
+      - section: "Exploration"
+        contents:
+        - index.qmd
+      - section: "Probability"
+        contents:
+        - index.qmd
+      - section: "Exploitation"
+        contents:
+        - index.qmd
+      - section: "Estimation"
+        contents:
+        - index.qmd
+      - section: "Hypothesis Test"
         contents:
         - index.qmd
 

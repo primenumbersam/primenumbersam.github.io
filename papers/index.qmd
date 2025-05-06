@@ -5,9 +5,6 @@ format:
     code-fold: true
     toc: true
     number-sections: false
-jupyter: python3
-execute:
-  enabled: false
 ---
 
 ## 리더 (leader)를 위한 교육
@@ -47,9 +44,8 @@ e^{\pi i} = -1
 $$
 :::
 
-For a right triangle in the Euclidean space,
-
 ### 피타고라스 정리
+For a right triangle in the Euclidean space,
 $$
 a^2+b^2=c^2
 $${#eq-pythagorean}
@@ -65,24 +61,5 @@ $${#eq-pythagorean}
 : My Caption {#tbl-letters}
 
 ## 그리기
-### 극좌표계에서 직선
-```{python}
-#| label: fig-polar
-#| fig-cap: "A line plot on a polar axis"
-#| fig-alt: "Polar axis plot"
 
-import numpy as np
-import matplotlib.pyplot as plt
-
-r = np.arange(0, 2, 0.01)
-theta = 2 * np.pi * r
-fig, ax = plt.subplots(
-  subplot_kw = {'projection': 'polar'} 
-)
-ax.plot(theta, r)
-ax.set_rticks([0.5, 1, 1.5, 2])
-ax.grid(True)
-plt.show()
-```
-### gif 만들기
 ![image-web 대한민국 인구분포 변화](https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/South_korea_population_pyramid_1960-2020.gif/645px-South_korea_population_pyramid_1960-2020.gif)

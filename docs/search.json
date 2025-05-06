@@ -249,7 +249,7 @@
     "href": "index.html",
     "title": "GitSAM",
     "section": "",
-    "text": "Clarify, Formulate, and Solve your problem Importantly, Interpret and Test your solution"
+    "text": "Formulate and Solve your problem\nInterpret and Test your solution"
   },
   {
     "objectID": "index.html#footnotes",
@@ -893,14 +893,14 @@
     "href": "index.html#math-is-an-effective-language",
     "title": "GitSAM",
     "section": "",
-    "text": "Clarify, Formulate, and Solve your problem Importantly, Interpret and Test your solution"
+    "text": "Formulate and Solve your problem\nInterpret and Test your solution"
   },
   {
     "objectID": "index.html#computer-is-an-efficient-tool",
     "href": "index.html#computer-is-an-efficient-tool",
     "title": "GitSAM",
     "section": "Computer is an efficient tool",
-    "text": "Computer is an efficient tool\n\nComputation with Python in Google Colab\nPublication with Quarto in Local"
+    "text": "Computer is an efficient tool\n\nComputation with Python in Colab\nPublication with Quarto in Local"
   },
   {
     "objectID": "index.html#공개된-책-목록",
@@ -921,6 +921,13 @@
     "href": "index.html#books",
     "title": "GitSAM",
     "section": "Books",
-    "text": "Books\n\n\n \n\nAI 응용 선형대수학\n\n\n\n\n \n\nAI 응용 미적분학\n\n\n\n\n \n\nAI LLM App 개발일지\n\n\n\n\n \n\ngitsam 지식 산책\n\n\n\n\n \n\ngitsam 기초 통계학\n\n\n\n\n \n\ngitsam 초중고 수학\n\n\n\n\n \n\ngitsam AI Theory\n\n\n\n\n \n\ngitsam 글짓기"
+    "text": "Books\n\n\n\nAll How-to Why\n\n\n\n \n\nAI 응용 선형대수학\n\n\n\n\n \n\nAI 응용 미적분학\n\n\n\n\n \n\nAI LLM App 개발일지\n\n\n\n\n \n\ngitsam 지식 산책\n\n\n\n\n \n\ngitsam 기초 통계학\n\n\n\n\n \n\ngitsam 초중고 수학\n\n\n\n\n \n\ngitsam AI Theory\n\n\n\n\n \n\ngitsam 글짓기"
+  },
+  {
+    "objectID": "index.html#apps-in-progress",
+    "href": "index.html#apps-in-progress",
+    "title": "GitSAM",
+    "section": "Apps (In progress)",
+    "text": "Apps (In progress)\n\n재테크 대시보드\nK-Learning\nFinTech\n벨벳토끼인형"
   }
 ]

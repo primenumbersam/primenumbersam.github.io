@@ -1262,7 +1262,7 @@
     "href": "index.html#쓰기",
     "title": "GitSAM 교육+연구",
     "section": "쓰기",
-    "text": "쓰기\nSee My Streamlit Cloud\nSee Table 1.\nSee Definition 1.\nSee Equation 1.\n\nDefinition 1 (오일러 항등식) \\[\ne^{\\pi i} = -1\n\\]\n\nFor a right triangle in the Euclidean space,\n\n피타고라스 정리\n\\[\na^2+b^2=c^2\n\\tag{1}\\]\n\n\n표 쓰기\n\n\n\nTable 1: My Caption\n\n\n\n\n\nDefault\nLeft\nRight\nCenter\n\n\n\n\n12\n12\n12\n12\n\n\n123\n123\n123\n123\n\n\n1\n1\n1\n1",
+    "text": "쓰기\nSee My Streamlit Cloud\nSee Table 1.\nSee Definition 1.\nSee Equation 1.\n\nDefinition 1 (오일러 항등식) \\[\ne^{\\pi i} = -1\n\\]\n\n\n피타고라스 정리\nFor a right triangle in the Euclidean space, \\[\na^2+b^2=c^2\n\\tag{1}\\]\n\n\n표 쓰기\n\n\n\nTable 1: My Caption\n\n\n\n\n\nDefault\nLeft\nRight\nCenter\n\n\n\n\n12\n12\n12\n12\n\n\n123\n123\n123\n123\n\n\n1\n1\n1\n1",
     "crumbs": [
       "Apps",
       "GitSAM 교육+연구"
@@ -1273,7 +1273,7 @@
     "href": "index.html#그리기",
     "title": "GitSAM 교육+연구",
     "section": "그리기",
-    "text": "그리기\n\n극좌표계에서 직선\n\n\n\n\nCode\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nr = np.arange(0, 2, 0.01)\ntheta = 2 * np.pi * r\nfig, ax = plt.subplots(\n  subplot_kw = {'projection': 'polar'} \n)\nax.plot(theta, r)\nax.set_rticks([0.5, 1, 1.5, 2])\nax.grid(True)\nplt.show()\n\n\n\nFigure 1\n\n\n\n\n\ngif 만들기\n\n\n\nimage-web 대한민국 인구분포 변화",
+    "text": "그리기\n\n\n\nimage-web 대한민국 인구분포 변화",
     "crumbs": [
       "Apps",
       "GitSAM 교육+연구"

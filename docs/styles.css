@@ -13,34 +13,41 @@
 
 .book-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 20px;
-    padding-top: 1rem;
 }
   
+@media (max-width: 768px) {
+.book-grid {
+    grid-template-columns: repeat(2, 1fr); /* 모바일: 2개씩 */
+}
+}
+
+@media (max-width: 480px) {
+.book-grid {
+    grid-template-columns: 1fr; /* 아주 작은 화면: 1개 */
+}
+}
+
 .book-card {
-    text-align: center;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    transition: transform 0.2s ease-in-out;
-    background: white;
-    padding: 10px;
+text-align: center;
+border-radius: 12px;
+box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+transition: transform 0.2s;
+background: white;
+padding: 10px;
 }
-  
 .book-card:hover {
-    transform: scale(1.03);
+transform: scale(1.03);
 }
-  
 .book-card img {
-    width: 100%;
-    aspect-ratio: 1 / 1.5;
-    object-fit: cover;
-    border-radius: 8px;
+width: 100%;
+aspect-ratio: 1/1.5;
+object-fit: cover;
+border-radius: 8px;
 }
-  
 .book-title {
-    margin-top: 0.5rem;
-    font-weight: bold;
-    font-size: 1rem;
+margin-top: 0.5rem;
+font-weight: bold;
+font-size: 1rem;
 }
-  
