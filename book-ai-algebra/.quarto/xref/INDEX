@@ -1,0 +1,29 @@
+{
+  "index.qmd": {
+    "index.html": "62646e6b"
+  },
+  "0-preface (advanced).md": {
+    "0-preface (advanced).html": "a29b8bd1"
+  },
+  "0-preface.md": {
+    "0-preface.html": "fdcffdcd"
+  },
+  "1-Linear Programming Problem.md": {
+    "1-Linear Programming Problem.html": "b2aea819"
+  },
+  "1.1-LP-Geometric and Simplex method.md": {
+    "1.1-LP-Geometric and Simplex method.html": "c35a33aa"
+  },
+  "1.2-Duality.md": {
+    "1.2-Duality.html": "74e89244"
+  },
+  "8-Finite-State Markov Chains.md": {
+    "8-Finite-State Markov Chains.html": "3b898eb5"
+  },
+  "8.1-Communicating States.md": {
+    "8.1-Communicating States.html": "8e0a2b15"
+  },
+  "목차 by NotebookLM.md": {
+    "목차 by NotebookLM.html": "cdb377ae"
+  }
+}

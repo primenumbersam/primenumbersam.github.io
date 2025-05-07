@@ -1,0 +1,114 @@
+---
+title: 초중고 수학
+subtitle: 코딩+시각화
+---
+
+
+## 강의 대상
+
+- 이과성향인 학생들
+- N회독 문제풀이과정 외우기로는 1등급이 안 나오는 학생들
+- 기초(basic) 개념부터 차근차근 쌓아가고 싶은 사람들 
+- 초중고 수학 개념들을 **연결해서 이해**하고 싶은 사람들
+
+
+## 강의 결과물
+
+- 수학을 *효율적*으로 공부하고 (Efficiency), 
+- 수학을 *실용적*으로 써먹을 수 있게 됩니다 (Effectiveness).
+
+
+## 강의 내용과 특징
+
+- **초중고** 2022 교과과정 수학 개념들 (잡다한 교과서 및 온라인 자료들)
+	- **코딩**: ‘계산’을 위해 태어난 '컴퓨터'에게 손으로 계산시키는 방법
+	- **시각화**: 계산 결과를 눈으로 보는 방법
+- 도구들: 
+	- Desmos (2D, 3D, Geometry)
+	- Geogebra (2D, 3D, Geometry), 
+	- python (numpy, sympy, matplotlib)
+
+
+# 목차 (Table of Contents)
+
+## 산수 vs. 수학
+
+- [[수포자 산수문제 21]]
+- [[수능 시험 문제들과 미적분 도구]]
+- [[용어-등식, 부등식, 함수, 집합, 논리]]
+
+## 대수: 숫자의 사칙연산
+
+- 자연수의 성질 - 순서 (서수), 크기 (기수)
+- [[자연수-덧셈과 곱셈]]
+	- 1개 자연수의 소인수 분해
+	- 2개 이상 자연수들의 관계
+- [[정수-자연수의 뺄셈]]
+	- 숫자의 방향성: 부호
+	- 숫자의 크기: 절대값
+- [[유리수, 분수 - 정수의 나눗셈]]
+	- 과학용어-2개 정수들의 비율
+- 무리수-유리수가 아닌 실수
+	- 거듭제곱
+	- 거듭제곱 수의 연산
+- 실수-수열과 수직선 
+	- 실수체계의 성질 (완비성)
+	- 수열의 수렴
+
+## 기하: 유클리드공간-도형
+도형의 성질
+
+- [[평면, 점, 선, 각도, 도형]]
+	- [Geogebra Geometry](https://www.geogebra.org/t/geometry)
+- [[삼각형의 합동과 닮음]]
+	- 합동인 도형들간의 대칭성 기준 - 비례배분 (내분점, 무게중심) 
+	- 닮은 도형들의 확장성 기준 - Normalization
+- [[원, 직각삼각형, 삼각비, 부채꼴]]
+	- 삼각비의 성질: 대칭성 = 주기성 (반복)
+- [[입체도형, 회전체, 부피형식]]
+
+## 대수+기하 
+모눈종이에 지도 그리기 = 직교좌표계에서 도형 그리기
+
+- 함수와 그래프 
+	- [Desmos 2D](https://www.desmos.com/calculator?lang=ko)
+	- [Desmos 3D](https://www.desmos.com/3d?lang=ko)
+- 1차연립방정식: 선형대수학
+	- 2개 이상의 직선들이 만드는 도형 
+	- 계수와 미지수 (매개변수)
+- 2차방정식과 다항방정식 
+	- 근의 공식: 실수근과 허수근의 차이. Fixed point vs. Symmetry
+	- 3차함수의 대칭성 
+- 2차형식과 [[원뿔곡선]]
+- [[변량들의 관계]]
+	- 확률변수 공간의 특징과 관계
+
+
+### 결정론적 해석 모형들
+
+고전 역학 (Mechanics)
+
+- Kepler's laws of planetary motion (1609 and 1619)
+- Newton's laws of motion (1687)
+- Charles's law (1787) and Dalton's law of partial pressures (1801)
+- The ideal gas law (1834) and Van der Waals equation of state (1873)
+
+유체 역학 (Fluid Dynamics)
+
+- Bernoulli's principle (Daniel, 1738)
+- Euler equations in fluid dynamics (1757)
+- Navier-Stokes equations (1823)
+
+생화학 (Bio-Chemistry)
+
+- Redox reaction and Electrochemistry (Nernst equation, 1887)
+- Temperature dependence of reaction rates (Arrhenius equation, 1889)
+- Acid-Base reaction (Henderson–Hasselbalch equation, 1908-1917)
+- Enzyme kinetics model (Michaelis–Menten equation, 1913)
+
+상대론적 역학 (relativistic dynamics)
+
+- Wave Doppler effect (1842)
+- Maxwell's equations (1861)
+- Einstein field equations (1915)
+

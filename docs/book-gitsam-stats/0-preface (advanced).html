@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.22">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="gitSAM">
+<meta name="dcterms.date" content="2025-04-30">
+
+<title>preface-(advanced – [GitSAM](../index.html)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b4406b7675125bc2ba204020e191172.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-bb5f9278568ae542f8467bdb635b70ac.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title"><a href="../index.html">GitSAM</a></span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-papers" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Papers</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-papers">    
+        <li>
+    <a class="dropdown-item" href="./../papers/index.html">
+ <span class="dropdown-text">Working</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./../paper-tbtf/index.html">
+ <span class="dropdown-text">TBTF</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-books" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Books</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-books">    
+        <li>
+    <a class="dropdown-item" href="./index.html">
+ <span class="dropdown-text">gitsam 기초통계학</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://primenumbersam.github.io/">
+ <span class="dropdown-text">AI 응용 선형대수학</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/primenumbersam/"> 
+<span class="menu-text">Apps</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://www.gitsam.com"> 
+<span class="menu-text">스터디클럽</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools tools-wide">
+    <a href="https://laroe.co.kr/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-shop"></i></a>
+    <a href="https://www.youtube.com/@primenumbersam" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-youtube"></i></a>
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/primenumbersam/primenumbersam.github.io">
+            Source Code
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="mailto:primenumbersam@gmail.com">
+            Report a Bug
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">AI 응용 선형대수학</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">통계 데이터 (Statistical Data)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+ <span class="menu-text">1-1.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">1-2.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">1-3.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">1-4.qmd</span>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">데이터 탐색 (Exploration)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+ <span class="menu-text">2-1.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">2-2.qmd</span>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">데이터와 가설의 연결고리 (Probability)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+ <span class="menu-text">3-1.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">3-2.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">3-3.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">3-4.qmd</span>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">데이터 활용 (Exploitation)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+ <span class="menu-text">4-1.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">4-2.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">4-3.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">4-4.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">4-5.qmd</span>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">모형계수 추정법 (Estimation)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+ <span class="menu-text">5-1.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">5-2.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">5-3.qmd</span>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">가설 점정 (Hypothesis Test)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+ <span class="menu-text">6-1.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">6-2.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">6-3.qmd</span>
+  </li>
+          <li class="sidebar-item">
+ <span class="menu-text">6-4.qmd</span>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#커리큘럼" id="toc-커리큘럼" class="nav-link active" data-scroll-target="#커리큘럼"><span class="header-section-number">0.1</span> 커리큘럼</a></li>
+  <li><a href="#선형연립방정식-해석-xboldsymbolbeta-boldsymboly" id="toc-선형연립방정식-해석-xboldsymbolbeta-boldsymboly" class="nav-link" data-scroll-target="#선형연립방정식-해석-xboldsymbolbeta-boldsymboly"><span class="header-section-number">0.2</span> (선형연립방정식 해석) <span class="math inline">\(X\boldsymbol{\beta} = \boldsymbol{y}\)</span></a></li>
+  <li><a href="#선형공간의-구조와-분해-structures-of-linear-space" id="toc-선형공간의-구조와-분해-structures-of-linear-space" class="nav-link" data-scroll-target="#선형공간의-구조와-분해-structures-of-linear-space"><span class="header-section-number">0.3</span> (선형공간의 구조와 분해) Structures of Linear space</a></li>
+  <li><a href="#군과-구조-개념-group-and-structures" id="toc-군과-구조-개념-group-and-structures" class="nav-link" data-scroll-target="#군과-구조-개념-group-and-structures"><span class="header-section-number">0.4</span> (군과 구조 개념) Group and structures</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>gitSAM </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 30, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<blockquote class="blockquote">
+<p>주제: 선형 공간 안에 벡터 (방향성, 크기)들의 관계 (연산)</p>
+</blockquote>
+<p>이런 걸 배울 수 있어요</p>
+<ul>
+<li>행렬로 나타내고 그림으로 보는 선형 연립 방정식</li>
+<li>데이터 테이블 (행렬)과 데이터 (벡터)</li>
+<li>평행사변형과 선형공간</li>
+<li>미분방정식에서 고유벡터의 의미 (축척)</li>
+<li>선형회귀모형에서 수직이 아닌 방향</li>
+<li>최적화이론의 목적함수와 정부호행렬</li>
+<li>여러가지 행렬 분해법 활용</li>
+<li>군과 선형사상</li>
+</ul>
+<p>Introduction to Linear Algebra (6th edition): <a href="https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/ax-b-and-the-four-subspaces/">Gilbert Strang</a> in MIT OpenCourseWare (MIT OCW) ![[book-strang.png]]</p>
+<section id="커리큘럼" class="level3" data-number="0.1">
+<h3 data-number="0.1" class="anchored" data-anchor-id="커리큘럼"><span class="header-section-number">0.1</span> 커리큘럼</h3>
+<p><strong>선형연립방정식</strong>에서 출발해 선형<strong>공간과 고유값</strong>으로 확장하고, 이어서 <strong>내적공간·분해정리(SVD, QR)</strong> 및 <strong>최소제곱법</strong>·<strong>힐버트 공간</strong> 등 특수한 응용을 다룬 뒤, 마지막으로 <strong>군(群)과 추상구조</strong> 등 일반화 된 개념을 소개하며 전체 학습을 마무리합니다.</p>
+</section>
+<section id="선형연립방정식-해석-xboldsymbolbeta-boldsymboly" class="level3" data-number="0.2">
+<h3 data-number="0.2" class="anchored" data-anchor-id="선형연립방정식-해석-xboldsymbolbeta-boldsymboly"><span class="header-section-number">0.2</span> (선형연립방정식 해석) <span class="math inline">\(X\boldsymbol{\beta} = \boldsymbol{y}\)</span></h3>
+<ul>
+<li><strong>행렬 표현과 행렬의 연산법칙</strong></li>
+<li><strong>Geometry of Linear Equations</strong>:
+<ul>
+<li><strong>Gaussian Elimination (가우스 소거법), Row-reduced Echelon Form</strong></li>
+<li><strong>Pivot (피봇), Pivot Column (피봇 열)</strong>: 행렬의 랭크(rank)와 직결되며, 해의 개수 및 유·무결정성에 영향을 준다.</li>
+<li>Rank–Nullity Theorem (계수-퇴화차수 정리)와 4개의 부분공간 (열공간(Column space), 행공간(Row space), 영공간(Null space), 왼쪽 영공간(Left null space))</li>
+</ul></li>
+<li><strong>치환 (Permutation)과 대칭행렬 (Symmetric matrix)</strong>
+<ul>
+<li><strong>행렬식 (Determinant)이 결정하는 것</strong>
+<ul>
+<li>선형공간의 차원: <strong>초등 행렬 (Elementary matrix)</strong></li>
+<li>특이행렬(singular matrix)? 선형변환이 “부피(volume)를 0으로 만든다”</li>
+<li>비특이행렬(non-singular matrix): <strong>역행렬 (Inverse matrix)</strong>이 존재</li>
+</ul></li>
+<li><strong>LU factorization:</strong> 정방행렬 𝐴를 두 개의 삼각행렬로 분해해서 선형계를 빨리 풀기
+<ul>
+<li>필요 시 치환행렬(Permutation matrix)로 부분 피벗팅(Partial Pivoting)을 고려해 PA=LU 형태로 분해</li>
+<li><strong>Cholesky decomposition</strong>: 정방행렬이 양정부호인 경우는 더 빠르게.</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="선형공간의-구조와-분해-structures-of-linear-space" class="level3" data-number="0.3">
+<h3 data-number="0.3" class="anchored" data-anchor-id="선형공간의-구조와-분해-structures-of-linear-space"><span class="header-section-number">0.3</span> (선형공간의 구조와 분해) Structures of Linear space</h3>
+<ul>
+<li><strong>선형 공간 (Linear space = Vector space)</strong>
+<ul>
+<li>집합이 선형적 연산 (즉, 덧셈과 스칼라곱)에 대해 닫혀 있음: 덧셈에 대한 가환군 (Abelian Group)에 크기 늘리기 연산자 (스칼라곱, scalar multiplication)을 추가한 공간</li>
+<li>선형 공간: 선형적 벡터 공간, 선형적 함수 공간</li>
+<li><strong>선형결합 (Linear combination), 선형독립 (linear independence), 부분공간(subspace), 기저(basis), 차원(dimension)</strong></li>
+</ul></li>
+<li><strong>평행사변형에서의 대각선</strong>: 고유벡터(Eigenvector)와 고유값 (Eigenvalue)
+<ul>
+<li><strong>케일리-해밀턴 정리 (Cayley-Hamilton Theorem)</strong>: 행렬의 특성 방정식 (Characteristic equation)</li>
+<li><strong>고윳값분해(Eigendecomposition), 행렬의 대각화 (Diagonalization)</strong></li>
+<li>선형미분방정식 (Linear Differential Equations)과 지수행렬 (A t)</li>
+<li><strong>마크코프체인 모형 (Markov-Chain model):</strong> 전이행렬(transition matrix)에 의한 steady-state vector(정상분포)를 고유벡터로 해석</li>
+</ul></li>
+<li><strong>직사각형에서의 피타고라스 정리 (Pythagorean theorem): 수직 (perpendicularity)의 개념</strong>
+<ul>
+<li><strong>내적 연산자 (Inner product operator)가 있는 내적 공간 (Inner Product Space)</strong></li>
+<li>내적에서 유도되는 거리(길이) 개념인 놈(Norm)</li>
+<li>직교여공간(Orthogonal complement): 해 공간과 여공간의 관계</li>
+</ul></li>
+<li><strong>직교기저 분해정리 (Spectral Theorem)</strong>
+<ul>
+<li>표준기저(Standard Basis)를 정규직교기저(Orthonormal Basis)로 만드는 과정</li>
+<li><strong>QR decomposition</strong>: 직사각형 행렬 𝐴를 직교(orthonormal) 행렬 𝑄와 상삼각행렬(upper triangular matrix) 𝑅로 분해
+<ul>
+<li>Gram-Schmidt Algorithm 을 활용하여 Q, R 추출</li>
+</ul></li>
+<li><strong>SVD (Singular Value Decomposition)</strong>: 직사각형 행렬 𝐴를 정규직교 정사각행렬들과 직사각 대각행렬로 분해.</li>
+</ul></li>
+<li><strong>선형회귀모형 (Linear regression model)에서 최소제곱법 (Least Squares method)</strong>
+<ul>
+<li><strong>정규방정식(Normal equation)과 직교사영(Orthogonal Projection)</strong></li>
+</ul></li>
+<li><strong>힐버트 공간(Hilbert space)과 푸리에 급수(Fourier Series)</strong>
+<ul>
+<li>내적공간의 구조가 무한 차원으로 확장되는 예시</li>
+<li>기함수/짝함수 분해, 편의상 <span class="math inline">\([-\pi,\pi]\)</span> 구간에서의 직교기저</li>
+</ul></li>
+<li><strong>Bilinear form as a local volume form</strong>
+<ul>
+<li><strong>국소적 선형공간에서의 표준적 부피 형식 (Volume form)과 텐서 (Tensor)</strong></li>
+<li><strong>Positive definite kernel (양의정부호 커널)</strong>, <strong>Dual space (쌍대공간)</strong>, <strong>Optimization problems (최적화 문제들)</strong></li>
+<li>편미분방정식(PDE), 미분기하학 등 고급 응용과도 연결</li>
+</ul></li>
+</ul>
+</section>
+<section id="군과-구조-개념-group-and-structures" class="level3" data-number="0.4">
+<h3 data-number="0.4" class="anchored" data-anchor-id="군과-구조-개념-group-and-structures"><span class="header-section-number">0.4</span> (군과 구조 개념) Group and structures</h3>
+<ul>
+<li><strong>대수적 공간 (Algebraic space)</strong>: Space(공간) = Set(집합) + Structure(구조)
+<ul>
+<li>직합(Direct Sum, <span class="math inline">\(\oplus\)</span>): 두 개 이상의 선형 공간(또는 부분공간 subspace)을 하나의 더 큰 벡터 공간으로 묶는 연산.</li>
+<li>몫공간 (Quotient Space, <span class="math inline">\(V/W\)</span>): 벡터 공간 V에서 부분공간 W를 나누어 새로운 공간을 정의하는 개념. 몫공간 V/W의 원소는 <strong>여공간(coset) <span class="math inline">\(v+W\)</span></strong> 로 표현됨. 예를 들어, <span class="math inline">\(\mathbb{R}^3\)</span>에서 <span class="math inline">\(W = \operatorname{Span} \{(1,0,0)\}\)</span> 라고 하면, ,<span class="math inline">\(\mathbb{R}^3 / W\)</span>는 <strong>원점을 지나면서 x-축과 평행한 평면들의 공간</strong>.</li>
+<li>벡터 공간을 나누는 서로 다른 방법: 직합과 몫공간
+<ul>
+<li><span class="math inline">\(U \oplus W\)</span>이면, <span class="math inline">\(V/W \cong U\)</span>. 즉, 몫공간을 취하면 남은 부분이 원래 공간의 다른 부분과 동형이 됨.</li>
+</ul></li>
+</ul></li>
+<li>대수적 군 (Group) : 공간의 분류
+<ul>
+<li><strong>정사각형, 직사각형, 마름모, 평행사변형:</strong> 평행이동·회전·대칭 등 기하학적 변환을 “군” 관점에서 볼 수도 있음</li>
+<li><strong>몫공간 (Quotient space)</strong>,</li>
+<li><strong>일반선형군 (General linear group, GL(n))</strong>: 행렬 곱셈이 가능한 가역 정방행렬들의 집합. 역행렬이 존재하는 정방행렬들의 집합. 행렬식이 0이 아닌 모든 정방행렬
+<ul>
+<li>선형공간 내 벡터들에 벡터 내적연산을 추가해도 벡터들이 속한 선형공간은 가환군이지만, 선형공간 내 행렬들에 행렬 곱셈을 추가하면 행렬들이 속한 선형공간은 비가환군(Non-Abelian Group, )</li>
+<li>GL(n,R) (실수 계수 정방행렬의 군)</li>
+<li><strong>유니터리 군 (Unitary group, U(n))</strong>: 복소수 계수 n×n 행렬 중에서, <span class="math inline">\(U'U=I\)</span> 를 만족하는 (즉, 켤레전치가 역행렬) 유니터리 행렬(unitary matrix)의 집합. 행렬의 원소인 벡터의 길이(norm)와 각도(inner product)를 보존하는 변환. <strong>회전, 반사 등</strong>을 포함하는 복소수 변환들 (행렬군).
+<ul>
+<li>실수 행렬 버전이 <strong>직교군 (Orthogonal group, O(n))</strong>,</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><strong>구조 불변 변환 (Morphism)</strong>:
+<ul>
+<li>“구조 불변”이란 특정 성질(길이·각도·부피·위상 등)을 그대로 보존하는 변환을 의미하며, 군과 범주의 핵심 개념이다.</li>
+<li>선형사상(Linear map)</li>
+<li>동형사상(Isomorphism, same)</li>
+<li>준동형사상(Homomorphism, similar)</li>
+<li>Rank–Nullity Theorem as the first isomorphism theorem (<a href="https://en.wikipedia.org/wiki/Fundamental_theorem_on_homomorphisms">*Fundamental theorem on homomorphisms</a>)* in Noether’s isomorphism theorems</li>
+</ul></li>
+</ul>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -1,0 +1,141 @@
+---
+title: 부록-베이지안 통계학과 응용
+---
+
+## 베이지안 통계학 개요
+
+베이지안 통계학(Bayesian Statistics)은 **확률을 믿음의 정도(belief)**로 해석합니다.  
+관측 이전의 불확실성은 **사전 확률(Prior)**로,  
+관측 이후의 지식은 **사후 확률(Posterior)**로 표현되며,  
+이 둘은 **베이즈 정리(Bayes’ Theorem)**에 의해 연결됩니다:
+
+$$P(\theta \mid y) = \frac{P(y \mid \theta) \cdot P(\theta)}{P(y)} \propto P(y \mid \theta) \cdot P(\theta)$$
+
+여기서 $\theta$는 모수, $y$는 데이터, $P(y \mid \theta)$는 **가능도(likelihood)**입니다.  
+전체 확률 $P(y)$는 정규화 상수이며, 사후 분포를 확률분포로 만들기 위해 필요합니다.
+
+
+베이지안 추론은 다음 5단계로 요약할 수 있습니다:
+
+1. **모형 설정**: 데이터 $y$와 모수 $\theta$ 사이의 확률 구조를 정의
+    
+2. **사전 분포 설정**: $\theta$에 대한 사전 확률 $P(\theta)$를 지정 (정보적 또는 무정보적)
+    
+3. **데이터 관측**: 새로운 데이터를 수집
+    
+4. **사후 분포 계산**:
+    
+    - 베이즈 정리를 이용해 사후 확률 $P(\theta \mid y)$ 계산
+        
+    - 복잡한 경우에는 MCMC(Markov Chain Monte Carlo) 같은 수치적 근사 기법 필요
+        
+5. **사후 기반 추론**: 점 추정, 구간 추정, 가설 검정, 예측 등 수행
+    
+
+### 손실 함수 기반의 추정
+
+- **점 추정(point estimation)**은 손실 함수 $L(\theta, \hat{\theta})$에 따라 달라집니다.
+    
+    - 제곱 오차 손실(MSE, Mean Squared Error): 사후 평균 $\mathbb{E}[\theta \mid y]$ 사용
+        
+    - 절대 오차 손실(MAE, Mean Absolute Error): 사후 중앙값 사용
+        
+
+### 켤레 사전분포 (Conjugate Prior)
+
+베이지안 계산을 단순화하는 개념입니다.  
+예: 베타-이항 모형 (Beta-Binomial Model)
+
+- 관측값: $k$ successes in $n$ trials
+    
+- 가능도: $P(k \mid \theta, n) \propto \theta^k (1 - \theta)^{n - k}$
+    
+- 사전: $\theta \sim \text{Beta}(\alpha, \beta)$
+    
+- 사후: $\theta \mid k \sim \text{Beta}(\alpha + k, \beta + n - k)$
+    
+
+사전과 사후가 같은 분포족을 유지하므로 계산이 용이합니다.
+
+### 모델 비교 및 선택
+
+베이지안 모델 비교에서는 다음과 같은 기준을 사용합니다:
+
+- **Bayes Factor (BF)**:
+    
+    $$BF_{12} = \frac{P(y \mid M_1)}{P(y \mid M_2)}$$
+    
+    → 데이터가 주어졌을 때 모델 $M_1$이 $M_2$보다 얼마나 더 지지받는지를 정량화
+    
+- **사후 모델 확률**:
+    
+    $$P(M_i \mid y) \propto P(y \mid M_i) \cdot P(M_i)$$
+- **Model Averaging (모델 평균화)**:
+    
+    $$P(\theta \mid y) = \sum_i P(\theta \mid y, M_i) \cdot P(M_i \mid y)$$
+
+
+
+### 희귀병 '검사' 예시: 사전 확률의 중요성
+
+어떤 질병의 유병률이 매우 낮은 상황(예: $P(\text{Disease}) = 0.001$)을 생각해 봅시다.
+
+- **민감도(Sensitivity)**: $P(\text{Positive} \mid \text{Disease}) = 0.99$
+    
+- **특이도(Specificity)**: $P(\text{Negative} \mid \text{No Disease}) = 0.99$
+    
+
+한 사람이 **양성(Positive)** 판정을 받았을 때, 실제 병에 걸렸을 확률(PPV: Positive Predictive Value)은?
+
+$$P(\text{Disease} \mid \text{Positive}) = \frac{0.99 \cdot 0.001}{0.99 \cdot 0.001 + 0.01 \cdot 0.999} \approx 0.09$$
+
+→ 양성 반응자의 9%만 실제 환자.  
+**검사의 정확도는 사전 확률에 강하게 의존**함을 보여주는 고전적 예입니다.
+
+
+
+## 베이지안 통계학 응용
+
+### Multi-Armed Bandit (MAB, 다중 슬롯머신 문제)
+
+- **문제**: 여러 arm(옵션) 중 보상 확률이 가장 높은 arm을 찾아 **탐험(Exploration)**과 **활용(Exploitation)**을 균형 있게 수행
+    
+- **Thompson Sampling (톰슨 샘플링)**:
+    
+    1. 각 arm $i$의 성공 확률 $\theta_i$에 대해 Beta 사전분포 설정
+        
+    2. 각 사후 분포 $P(\theta_i \mid \text{data})$에서 $\theta_i^*$ 샘플링
+        
+    3. $\theta_i^*$가 가장 큰 arm 선택
+        
+    4. 선택 결과 관측, 사후 분포 업데이트
+        
+    5. 반복 수행 → 탐험과 활용이 자연스럽게 균형됨
+        
+- **Contextual Bandit (문맥 기반 밴딧)**:
+    
+    - 사용자 상태나 환경 $x$에 따라 보상 확률 $\theta(x, a)$를 모델링
+        
+    - 베이지안 회귀, 베이지안 신경망 등으로 확장 가능
+        
+
+### Naive Bayes Classifier (나이브 베이즈 분류기)
+
+- **문제**: 텍스트 분류, 감성 분석, 스팸 필터링
+    
+- **가정**: 단어들은 조건부 독립
+    
+- **공식**: $P(c \mid d) \propto P(c) \prod_i P(w_i \mid c)$
+
+
+### Hedonic Pricing Model (헤도닉 가격 모형)
+
+- **문제**: 재화의 가격을 품질 특성들의 함수로 설명
+    
+- **베이지안 회귀(Bayesian Regression)** 적용 시 장점:
+    
+    - 각 특성 기여도의 사후 분포 추정 가능
+        
+    - 사전 지식 반영
+        
+    - 예측 구간 등 불확실성 표현 가능

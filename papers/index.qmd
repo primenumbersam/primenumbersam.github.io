@@ -34,7 +34,7 @@ See @tbl-letters.
 
 See @def-euler.
 
-See @eq-pythagorean.
+See @thm-pythagorean.
 
 
 :::{#def-euler}
@@ -44,11 +44,13 @@ e^{\pi i} = -1
 $$
 :::
 
+::: {#thm-pythagorean}
 ### 피타고라스 정리
 For a right triangle in the Euclidean space,
 $$
 a^2+b^2=c^2
-$${#eq-pythagorean}
+$$
+:::
 
 ### 표 쓰기
 
@@ -61,5 +63,33 @@ $${#eq-pythagorean}
 : My Caption {#tbl-letters}
 
 ## 그리기
+
+```{mermaid}
+flowchart LR
+  A[Hard edge] --> B(Round edge)
+  B --> C{Decision}
+  C --> D[Result one]
+  C --> E[Result two]
+```
+
+```{dot}
+graph G {
+  layout=neato
+  run -- intr;
+  intr -- runbl;
+  runbl -- run;
+  run -- kernel;
+  kernel -- zombie;
+  kernel -- sleep;
+  kernel -- runmem;
+  sleep -- swap;
+  swap -- runswap;
+  runswap -- new;
+  runswap -- runmem;
+  new -- runmem;
+  sleep -- runmem;
+}
+```
+
 
 ![image-web 대한민국 인구분포 변화](https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/South_korea_population_pyramid_1960-2020.gif/645px-South_korea_population_pyramid_1960-2020.gif)

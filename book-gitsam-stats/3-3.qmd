@@ -1,0 +1,61 @@
+---
+title: 대수의 법칙 (Law of Large numbers)
+---
+한 투자자가 특정 주식(예: 삼성전자)에 매달 1회씩 투자한 후, 5년간의 월간 수익률을 기록했다고 가정해 봅시다. 매월의 수익률은 예측 불가능하게 등락을 반복하지만, 투자자는 “길게 보면 평균적으로 연 8%의 수익률을 기대할 수 있다”는 말을 듣고 투자를 유지하고 있습니다. 이런 질문을 해볼 수 있습니다:
+
+> “월간 수익률이 매월 달라지는데, **평균** 수익률은 언제 믿을만 할까?”
+
+여기에서 등장하는 것이 바로 **Law of Large Numbers (LLN)**입니다. LLN은 **경험적 평균(empirical average)**이 **수학적 기댓값(expected value)**에 수렴하는 조건을 보여주는 확률론의 가장 핵심적인 정리 중 하나입니다.
+
+
+## 확률변수의 반복과 평균
+
+다음과 같은 확률 모델을 상정합니다.
+
+- ${X_1, X_2, \dots, X_n}$는 **i.i.d. random variables (독립 동일 분포 확률변수)**입니다.
+- 각 $X_i$는 **finite expected value**를 가지며, $\mathbb{E}[X_i] = \mu < \infty$
+
+이때, 경험적 평균을 다음과 같이 정의합니다:
+
+$$\bar{X_n} = \frac{1}{n} \sum_{i=1}^n X_i$$
+
+**Law of Large Numbers**는 다음을 말합니다:
+
+$n \to \infty$일 때, $\bar{X}_n \to \mu$ with high probability (또는 almost surely)
+
+| 정리   | 수렴 방식          | 의미                                    |
+| ---- | -------------- | ------------------------------------- |
+| WLLN | in probability | 확률적으로 거의 대부분은 $\mu$ 근처에 모인다           |
+| SLLN | almost surely  | 거의 모든 개별적 sample path에서 평균이 $\mu$로 수렴 |
+
+## Weak Law of Large Numbers (WLLN)
+
+확률변수 $X_1, X_2, \dots, X_n$가 서로 독립이고 동일한 분포를 따르며, $\mathbb{E}[X_i] = \mu$, $\operatorname{Var}(X_i) = \sigma^2 < \infty$일 때, 다음이 성립합니다:
+
+$$\forall \varepsilon > 0, \quad \lim_{n \to \infty} \mathbb{P}(|\bar{X}_n - \mu| \geq \varepsilon) = 0$$
+
+이는 확률의 관점에서 $\bar{X_n}$이 $\mu$에 수렴한다는 **약한 의미의 수렴**입니다. **수렴의 형태는 in probability**입니다.
+
+## Strong Law of Large Numbers (SLLN)
+
+같은 조건 하에서 다음이 성립하면 이를 강한 대수의 법칙이라고 부릅니다:
+
+$$\mathbb{P}\left( \lim_{n \to \infty} \bar{X}_n = \mu \right) = 1$$
+
+이는 거의 모든 표본 경로(sample path)에서 평균이 기대값으로 수렴한다는 **강한 의미의 수렴**입니다. 확률론적으로 훨씬 강한 조건입니다. **수렴의 형태는 almost sure convergence**입니다. 
+
+
+월간 수익률을 확률변수 $X_t$로 보고, 장기 투자자의 총 누적 수익률은 다음과 같이 평균화된 형태로 정리됩니다:
+
+$$\bar{X_n} = \frac{1}{n} \sum_{t=1}^n X_t \to \mu \quad (\text{as } n \to \infty)$$
+
+이 수렴을 보장하는 것이 바로 LLN이며, 투자자에게 다음과 같은 의미를 제공합니다:
+
+> “매월 수익률이 변동성 있게 움직이더라도, **충분히 긴 시간** 동안 투자를 지속하면, **기대 수익률에 수렴**하게 된다.”
+
+물론, 이 같은 법칙은 **시장 구조가 stationarity를 갖고 있고**, **i.i.d. assumption이 현실적으로 적절한 경우**에만 한정됩니다. 금융자산들의 수익률 분포는 흔히 time-varying하고 heavy-tailed하기 때문에, LLN이 적용되지 않을 수 있습니다.
+
+- **Law of Large Numbers**는 확률적 반복 실험에서의 평균이 수렴하는 경향을 수학적으로 증명합니다.
+- WLLN은 **확률적 수렴**을, SLLN은 **거의 확실한 수렴**을 보장합니다.
+- 수학적으로는 $\bar{X}_n \to \mu$, 금융적으로는 “**평균 수익률은 언제 신뢰 가능한가**”라는 질문에 대한 답을 제공합니다.
+- 다음 절에서는, 평균값 뿐 아니라 평균값 주변에 어떤 분포가 형성되는지, 즉 표본 평균의 분포가 어떻게 정규분포로 근사되는지를 설명하는 중심극한정리(Central Limit Theorem)로 넘어가겠습니다.

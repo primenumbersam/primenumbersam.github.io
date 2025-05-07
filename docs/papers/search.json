@@ -1262,7 +1262,7 @@
     "href": "index.html#쓰기",
     "title": "GitSAM 교육+연구",
     "section": "쓰기",
-    "text": "쓰기\nSee My Streamlit Cloud\nSee Table 1.\nSee Definition 1.\nSee Equation 1.\n\nDefinition 1 (오일러 항등식) \\[\ne^{\\pi i} = -1\n\\]\n\n\n피타고라스 정리\nFor a right triangle in the Euclidean space, \\[\na^2+b^2=c^2\n\\tag{1}\\]\n\n\n표 쓰기\n\n\n\nTable 1: My Caption\n\n\n\n\n\nDefault\nLeft\nRight\nCenter\n\n\n\n\n12\n12\n12\n12\n\n\n123\n123\n123\n123\n\n\n1\n1\n1\n1",
+    "text": "쓰기\nSee My Streamlit Cloud\nSee Table 1.\nSee Definition 1.\nSee Theorem 1.\n\nDefinition 1 (오일러 항등식) \\[\ne^{\\pi i} = -1\n\\]\n\n\nTheorem 1 (피타고라스 정리) For a right triangle in the Euclidean space, \\[\na^2+b^2=c^2\n\\]\n\n\n표 쓰기\n\n\n\nTable 1: My Caption\n\n\n\n\n\nDefault\nLeft\nRight\nCenter\n\n\n\n\n12\n12\n12\n12\n\n\n123\n123\n123\n123\n\n\n1\n1\n1\n1",
     "crumbs": [
       "Apps",
       "GitSAM 교육+연구"
@@ -1273,7 +1273,7 @@
     "href": "index.html#그리기",
     "title": "GitSAM 교육+연구",
     "section": "그리기",
-    "text": "그리기\n\n\n\nimage-web 대한민국 인구분포 변화",
+    "text": "그리기\n\n\n\n\n\nflowchart LR\n  A[Hard edge] --&gt; B(Round edge)\n  B --&gt; C{Decision}\n  C --&gt; D[Result one]\n  C --&gt; E[Result two]\n\n\n\n\n\n\n\n\n\n\n\n\n\nG\n\n\n\nrun\n\nrun\n\n\n\nintr\n\nintr\n\n\n\nrun--intr\n\n\n\n\nkernel\n\nkernel\n\n\n\nrun--kernel\n\n\n\n\nrunbl\n\nrunbl\n\n\n\nintr--runbl\n\n\n\n\nrunbl--run\n\n\n\n\nzombie\n\nzombie\n\n\n\nkernel--zombie\n\n\n\n\nsleep\n\nsleep\n\n\n\nkernel--sleep\n\n\n\n\nrunmem\n\nrunmem\n\n\n\nkernel--runmem\n\n\n\n\nsleep--runmem\n\n\n\n\nswap\n\nswap\n\n\n\nsleep--swap\n\n\n\n\nrunswap\n\nrunswap\n\n\n\nswap--runswap\n\n\n\n\nrunswap--runmem\n\n\n\n\nnew\n\nnew\n\n\n\nrunswap--new\n\n\n\n\nnew--runmem\n\n\n\n\n\n\n\n\n\n\n\n\nimage-web 대한민국 인구분포 변화",
     "crumbs": [
       "Apps",
       "GitSAM 교육+연구"

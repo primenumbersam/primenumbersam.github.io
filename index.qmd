@@ -24,7 +24,7 @@ format:
 
 - 재테크 대시보드
 - K-Learning
-- FinTech
+- FinTech: simplywall.st, 
 - 벨벳토끼인형
 
 ## Books
@@ -53,21 +53,21 @@ function filterBooks(tag) {
 <div class="book-grid">
 
 <div class="book-card" data-tags="How-to">
-  <a href="book_ai_algebra/index.html" target="_blank">
+  <a href="book-ai-algebra/index.html" target="_blank">
     <img src="cover-algebra.png" alt="gitsam" />
     <div class="book-title">AI 응용 선형대수학</div>
   </a>
 </div>
 
 <div class="book-card" data-tags="How-to">
-  <a href="book_ai_calculus/index.html" target="_blank">
+  <a href="book-ai-calculus/index.html" target="_blank">
     <img src="cover-calculus.png" alt="gitsam" />
     <div class="book-title">AI 응용 미적분학</div>
   </a>
 </div>
 
 <div class="book-card" data-tags="How-to">
-  <a href="book_ai_dev_log/index.html" target="_blank">
+  <a href="book-ai-dev_log/index.html" target="_blank">
     <img src="cover-app-log.png" alt="gitsam" />
     <div class="book-title">AI LLM App 개발일지</div>
   </a>
@@ -88,21 +88,21 @@ function filterBooks(tag) {
 </div>
 
 <div class="book-card" data-tags="Why">
-  <a href="book_gitsam_math/index.html" target="_blank">
+  <a href="book-gitsam-math/index.html" target="_blank">
     <img src="cover-math.png" alt="gitsam" />
     <div class="book-title">gitsam 초중고 수학</div>
   </a>
 </div>
 
 <div class="book-card" data-tags="Why">
-  <a href="book_gitsam_theory/index.html" target="_blank">
+  <a href="book-ai-theory/index.html" target="_blank">
     <img src="cover-theory.png" alt="gitsam" />
     <div class="book-title">gitsam AI Theory</div>
   </a>
 </div>
 
 <div class="book-card" data-tags="Why">
-  <a href="book_gitsam_han/index.html" target="_blank">
+  <a href="book-gitsam-han/index.html" target="_blank">
     <img src="cover-han.png" alt="gitsam" />
     <div class="book-title">gitsam 글짓기</div>
   </a>

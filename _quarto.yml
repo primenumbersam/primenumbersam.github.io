@@ -18,7 +18,9 @@ website:
           - text: "gitsam 기초통계학"
             href: book-gitsam-stats/index.html
           - text: "AI 응용 선형대수학"
-            href: https://primenumbersam.github.io/
+            href: book-ai-algebra/index.html
+          - text: "gitsam Han(恨)"
+            href: book-gitsam-han/index.html
       - text: "Apps"
         href: https://github.com/primenumbersam/
       - text: "스터디클럽"

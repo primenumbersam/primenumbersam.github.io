@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.22">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="gitSAM">
+<meta name="dcterms.date" content="2025-04-30">
+
+<title>활용목적에 따른 데이터의 질 – GitSAM</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b4406b7675125bc2ba204020e191172.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-bb5f9278568ae542f8467bdb635b70ac.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title"><a href="../index.html">GitSAM</a></span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-papers" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Papers</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-papers">    
+        <li>
+    <a class="dropdown-item" href="./../papers/index.html">
+ <span class="dropdown-text">Working</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./../paper-tbtf/index.html">
+ <span class="dropdown-text">TBTF</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-books" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Books</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-books">    
+        <li>
+    <a class="dropdown-item" href="./index.html">
+ <span class="dropdown-text">gitsam 기초통계학</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="https://primenumbersam.github.io/">
+ <span class="dropdown-text">AI 응용 선형대수학</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/primenumbersam/"> 
+<span class="menu-text">Apps</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://www.gitsam.com"> 
+<span class="menu-text">스터디클럽</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools tools-wide">
+    <a href="https://laroe.co.kr/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-shop"></i></a>
+    <a href="https://www.youtube.com/@primenumbersam" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-youtube"></i></a>
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/primenumbersam/primenumbersam.github.io">
+            Source Code
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="mailto:primenumbersam@gmail.com">
+            Report a Bug
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./1-1.html">통계 데이터 (Statistical Data)</a></li><li class="breadcrumb-item"><a href="./1-3.html">활용목적에 따른 데이터의 질</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">gitsam 기초통계학</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">통계 데이터 (Statistical Data)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">경제지표 (Economic Indicators)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">경제데이터 분석준비</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1-3.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">활용목적에 따른 데이터의 질</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1-4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">부록-무작위 표본추출법 (Random Sampling)</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">데이터 탐색 (Exploration)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1D Statistics and Plots</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2D Relationship</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">데이터와 가설의 연결고리 (Probability)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./3-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">수학적 확률 vs.&nbsp;통계적 확률</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./3-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">확률변수 (random variable)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./3-3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">대수의 법칙 (Law of Large numbers)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./3-4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">중심극한정리 (Central Limit Theorem)</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">데이터 활용 (Exploitation)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./4-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">외생성 (exogeneity) vs.&nbsp;내생성 (endogeneity)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./4-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">인과관계 (Granger causality) vs.&nbsp;공적분관계 (co-integration)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./4-3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">통계적 추론 (Statistical Inference)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./4-4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">통계적 학습 (Statistical Learning)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./4-5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">부록-베이지안 통계학과 응용</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">모형계수 추정법 (Estimation)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./5-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">중회귀모형 도입</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./5-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">중회귀모형 - 빈도주의자 접근</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./5-3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">중회귀모형 - 베이지언 접근</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">가설 점정 (Hypothesis Test)</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6-1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">통계적 가설 검정의 오류</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">유의수준, 통계량, p-value</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6-3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">두 집단을 비교</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6-4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">여러 집단을 한꺼번에 비교</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#표본은-모집단을-대표하는가" id="toc-표본은-모집단을-대표하는가" class="nav-link active" data-scroll-target="#표본은-모집단을-대표하는가"><span class="header-section-number">1</span> 표본은 모집단을 대표하는가?</a></li>
+  <li><a href="#생존한-것만을-보면-진실은-보이지-않는다" id="toc-생존한-것만을-보면-진실은-보이지-않는다" class="nav-link" data-scroll-target="#생존한-것만을-보면-진실은-보이지-않는다"><span class="header-section-number">2</span> 생존한 것만을 보면, 진실은 보이지 않는다</a></li>
+  <li><a href="#데이터는-수치일-뿐-해석은-맥락이다" id="toc-데이터는-수치일-뿐-해석은-맥락이다" class="nav-link" data-scroll-target="#데이터는-수치일-뿐-해석은-맥락이다"><span class="header-section-number">3</span> 데이터는 수치일 뿐, 해석은 맥락이다</a></li>
+  <li><a href="#시간의-흐름은-데이터를-바꾼다" id="toc-시간의-흐름은-데이터를-바꾼다" class="nav-link" data-scroll-target="#시간의-흐름은-데이터를-바꾼다"><span class="header-section-number">4</span> 시간의 흐름은 데이터를 바꾼다</a></li>
+  <li><a href="#표본은-어디서-끊겼는가" id="toc-표본은-어디서-끊겼는가" class="nav-link" data-scroll-target="#표본은-어디서-끊겼는가"><span class="header-section-number">5</span> 표본은 어디서 끊겼는가?</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./1-1.html">통계 데이터 (Statistical Data)</a></li><li class="breadcrumb-item"><a href="./1-3.html">활용목적에 따른 데이터의 질</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">활용목적에 따른 데이터의 질</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>gitSAM </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">April 30, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>데이터는 본래 침묵합니다. 데이터를 말하게 하는 것은, 우리가 던지는 질문과 그것을 해석하려는 태도입니다. 그러나 질문이 아무리 정교하더라도, 데이터 자체가 왜곡되어 있다면 그 결론 역시 신뢰하기 어렵습니다. 따라서 데이터 분석에서 가장 먼저 점검해야 할 것은, 우리가 다루는 데이터가 “무엇을 반영하고 있고, 무엇을 누락하고 있는가”입니다.</p>
+<section id="표본은-모집단을-대표하는가" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="표본은-모집단을-대표하는가"><span class="header-section-number">1</span> 표본은 모집단을 대표하는가?</h2>
+<p>통계학은 관찰할 수 있는 일부(표본)를 바탕으로 전체(모집단)에 대해 추론하는 학문입니다. 이때 표본은 반드시 모집단의 속성을 잘 반영해야 합니다. 이것이 <strong>대표성(representativeness)</strong>입니다.</p>
+<p>예를 들어, 특정 시간대의 대도시 중심부에서 시민들의 정치 성향을 조사한 결과를 전체 유권자의 의견이라 주장하는 것은 무리일 수 있습니다. 이처럼 <strong>대표성 오류</strong>가 생기면, 아무리 정밀한 분석이라 해도 결론은 잘못된 방향으로 흐를 수 있습니다.</p>
+<p>더불어 <strong>선택 편향(selection bias)</strong>도 자주 발생하는 오류입니다. “지방도로에서 고속도로보다 보행자 사고가 많다”는 통계가 그 예입니다. 겉으로는 지방도로가 더 위험한 듯 보이지만, 고속도로에는 보행자 자체가 거의 존재하지 않는다는 사실을 간과하면 판단을 그르칠 수 있습니다.</p>
+<p>이러한 오류를 줄이기 위해 통계학은 <strong>무작위 표본추출(random sampling)</strong>을 기본 전제로 삼습니다. 모든 대상이 동등한 확률로 선택될 수 있어야 하며, 경우에 따라서는 <strong>층화 표본추출(stratified sampling)</strong> 같은 보정 기법도 함께 사용합니다. 단지 많은 양의 데이터를 확보하는 것보다, <strong>제대로 뽑은 적절한 표본을 확보하는 일</strong>이 더 중요합니다.</p>
+<p>c.f. <strong>Median Voter Theorem</strong>: 유권자의 선호가 1차원 선형 공간에 배열될 수 있는 특수한 경우, 다수결 제도 하에서는 중간 위치에 있는 유권자(중위 유권자, median voter)가 선호하는 정책이 선택됩니다. 이는 분포의 중앙값이 <strong>LAD (Least Absolute Deviation)</strong> 기준의 최적해이기 때문입니다. 두 개 정당이 경쟁하는 양당제(bipartisanship)에서는 양당 모두 중도 유권자층의 선호를 중심으로 정책을 조정하게 됩니다. 대표성 개념이 수학적으로 정당화되는 한 예입니다.</p>
+</section>
+<section id="생존한-것만을-보면-진실은-보이지-않는다" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="생존한-것만을-보면-진실은-보이지-않는다"><span class="header-section-number">2</span> 생존한 것만을 보면, 진실은 보이지 않는다</h2>
+<p>통계적 분석에서 자주 간과되는 또 하나의 오류는 <strong>생존 편의(survivorship bias)</strong>입니다. 이는 성공하거나 계속 존재하는 사례만을 대상으로 분석하는 경우 발생합니다.</p>
+<p>예컨대 30년간 주식시장에 존재한 기업들의 수익률을 분석할 때, 현재까지 상장된 기업만을 기준으로 삼는다면 실제보다 훨씬 우수한 성과가 관측될 수 있습니다. 그러나 이미 도태된 수많은 기업들은 결과에서 빠져 있고, 이는 전체 시장의 평균 성과를 왜곡시킬 수 있습니다.</p>
+<p><img src="https://wikidocs.net/images/page/282006/img-sample.png" class="img-fluid"> 1980년대에는 비재벌 기업이 상대적으로 높은 수익률을 보였지만, 2000년대 이후로는 재벌 계열사가 시장을 지배하며 성과 우위를 고착화하는 흐름을 보입니다.</p>
+</section>
+<section id="데이터는-수치일-뿐-해석은-맥락이다" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="데이터는-수치일-뿐-해석은-맥락이다"><span class="header-section-number">3</span> 데이터는 수치일 뿐, 해석은 맥락이다</h2>
+<p>수치는 객관적으로 보이지만, 해석은 언제나 주관적 판단과 연결되어 있습니다. <strong>현직 프리미엄</strong> 현상처럼, 통계적으로 반복되는 경향이 있다고 해서 그것이 ’좋은 현상’이라는 결론으로 바로 이어지는 것은 아닙니다. 유권자의 만족, 단순한 인지도 효과, 지역별 정치 성향, 시대적 분위기 등의 요인은 통계값 속에 명시되어 있지 않기 때문입니다.</p>
+<p>마찬가지로, “소득이 높을수록 행복도 높다”는 명제 역시 절대적으로 성립하지 않습니다. 일정 수준 이상의 소득을 넘어서면, 행복은 더 이상 단순한 함수처럼 증가하지 않습니다. 이런 경향은 문화권에 따라 달라지기도 하며, 시대적 맥락에 따라 다르게 해석됩니다.</p>
+<p>요컨대, 통계적 수치를 해석할 때에는 언제나 <strong>수치 바깥에 존재하는 구조적 요인들</strong>을 함께 고려해야 합니다. 통계학은 수치 그 자체보다는, <strong>그 수치가 어디서 왔고, 어디까지 말할 수 있는지를 따져보는 태도</strong>를 함께 요구합니다.</p>
+</section>
+<section id="시간의-흐름은-데이터를-바꾼다" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="시간의-흐름은-데이터를-바꾼다"><span class="header-section-number">4</span> 시간의 흐름은 데이터를 바꾼다</h2>
+<p>횡단면 자료가 ‘여럿을 동시에 보는’ 것이라면, 시계열 자료는 ‘하나를 계속해서 지켜보는’ 것입니다. 경제지표, 주가, 물가지수처럼 시간에 따라 변화하는 데이터를 분석할 때 우리는 시계열적 사고를 필요로 합니다.</p>
+<p>시계열 분석에서는 다음과 같은 개념들이 기본이 됩니다:</p>
+<ul>
+<li><p><strong>시차(lag)</strong><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>: 과거의 값이 현재에 영향을 미치는 시간적 거리입니다. 예를 들어, <span class="math inline">\(Y_{t-1}\)</span>은 이전 시점의 <span class="math inline">\(Y\)</span> 값을 의미합니다.</p></li>
+<li><p><strong>자기회귀모형(AR model)</strong><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>: 현재의 값을 과거의 값들로 설명하는 모델로, <span class="math inline">\(Y_t = \phi_1 Y_{t-1} + \phi_2 Y_{t-2} + \cdots + \varepsilon_t\)</span> 같은 형태를 가집니다.</p></li>
+<li><p><strong>정상성(stationarity)</strong><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>: 시계열이 시간에 따라 평균, 분산, 공분산 구조가 일정하게 유지되는 성질입니다. 정상성이 확보되어야 예측의 안정성과 신뢰성이 유지됩니다.</p></li>
+</ul>
+<p>예를 들어, 한 국가의 GDP가 꾸준히 상승한다면, 그 흐름은 <strong>장기 추세(long-term trend)</strong><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>로 이해할 수 있습니다. 반면 경기순환이나 고용률의 등락처럼 <strong>주기적 구조(cyclic pattern)</strong><a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>를 보이는 변수는 일정한 파동을 따를 수 있습니다.</p>
+<p>시계열 자료의 분석에서는 또 하나 중요한 개념이 바로 <strong>변동성(volatility)</strong><a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>입니다. 이는 주로 금융 시장에서 사용되는 개념으로, 수익률이 시간에 따라 얼마나 흔들리는지를 나타냅니다. 변동성이 클수록 불확실성은 커지지만, 역설적으로 옵션(option) 상품의 가치는 이러한 불확실성 덕분에 커지기도 합니다. 콜옵션의 가격은 자산가격이 급등할 때 크게 상승하며, 이처럼 <strong>비대칭적 payoff 구조</strong>를 가지는 파생상품에서는 변동성 자체가 중요한 분석 변수로 작용합니다.</p>
+<p>마지막으로, 시계열 자료는 여러 가지 구조적 컴포넌트로 구성됩니다. 이에는 <strong>추세(trend)</strong>, <strong>주기(cycle)</strong>, <strong>계절성(seasonality)</strong>이 있으며, 각각은 경제 현상에서 고유한 리듬을 형성합니다. 이러한 구조를 부드럽게 추정하기 위해 통계학에서는 <strong>헨더슨 가중치 스무딩(Henderson weight smoothing)</strong><a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> 같은 경험적 기법을 사용하기도 합니다. 이 방법은 과거와 현재의 관측값을 가중 평균하여, 급격한 단기 변동성을 제거하고 장기적인 흐름을 보다 선명하게 파악하는 데 도움을 줍니다.</p>
+</section>
+<section id="표본은-어디서-끊겼는가" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="표본은-어디서-끊겼는가"><span class="header-section-number">5</span> 표본은 어디서 끊겼는가?</h2>
+<p>마지막으로 주의해야 할 것은 <strong>결측 표본(truncated sample)</strong>의 문제입니다. 이는 표본 자체가 관측 대상의 일정 조건을 만족하는 일부만으로 구성되어 있을 때 발생합니다. 예를 들어, 범죄 사건 분석에서 특정 전과 기록이 있는 사람들만을 분석 대상으로 삼는다면, 우리는 ’범죄자’가 아닌 ’적발된 범죄자’만을 분석하게 됩니다. 마치 도박에서 딴 기억만 기억하는 도박꾼처럼, 통계 분석도 <strong>무엇이 관측되었고 무엇이 누락되었는가</strong>를 명확히 해야만 합리적 해석이 가능할 것입니다.</p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Lag는 시계열 데이터에서 변수의 과거 값을 기준 시점에 연결해 주는 시간 차이를 의미합니다. 예: <span class="math inline">\(Y_{t-1}, Y_{t-2}\)</span> 등.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Autoregressive (AR) model은 시계열 변수의 현재 값이 자신의 과거 값들의 선형 결합으로 표현되는 모형입니다.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Stationarity는 시계열의 평균, 분산, 자기상관 등이 시간에 따라 변하지 않는 성질로, 예측 가능성을 높이는 전제입니다. <span class="math inline">\(\mathbb{E}[Y_t] = \mu\)</span> (불변인 평균), <span class="math inline">\(\mathrm{Var}(Y_t) = \sigma^2\)</span> (불변인 분산), <span class="math inline">\(\mathrm{Cov}(Y_t, Y_{t+h}) = \gamma(h)\)</span> (시차 <span class="math inline">\(h\)</span>에만 의존하는 공분산)을 만족하는 경우를 말합니다. 이를 weak stationarity 또는 covariance stationarity라고 부릅니다.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Long-term trend는 데이터가 시간에 따라 보여주는 지속적인 증가 또는 감소의 방향성을 의미합니다. <span class="math inline">\(Y_t = \tau_t + \varepsilon_t\)</span> 와 같이 <strong>추세(trend) 성분</strong> <span class="math inline">\(\tau_t\)</span>와 오차 <span class="math inline">\(\varepsilon_t\)</span>로 분해했을 때, <span class="math inline">\(\tau_t\)</span>의 증가 혹은 감소 방향성을 의미합니다. 보통 선형 함수 <span class="math inline">\(\tau_t = \alpha + \beta t\)</span>나 비선형 함수(예: 로그, 지수)를 사용해 모델링됩니다.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Cyclic function은 경기에 따라 반복적으로 나타나는 파동, 즉 비정기적이나 반복되는 상승과 하강의 패턴을 설명합니다. <span class="math inline">\(f(t + T) = f(t) \quad \text{for all } t\)</span> 를 만족하는 함수를 의미합니다. 이는 <strong>정상적인 주기적 반복 구조</strong>를 가지는 이상적인 형태이며, 실제 시계열에서는 완전한 주기성은 드물고, 비정기적이나 유사한 파동이 반복되는 <strong>순환(cycle)</strong> 형태로 관측됩니다. 경기순환, 생산지수, 실업률 등의 경제지표가 이에 해당합니다.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>Volatility는 시간에 따른 수익률의 변화폭을 나타내며, 리스크의 정량적 지표로 사용됩니다. <span class="math inline">\(\sigma_t = \sqrt{\mathbb{E}[(r_t - \mu)^2]}\)</span> 또는 시계열 모델에서는 <span class="math inline">\(\mathrm{Var}(r_t | \mathcal{F}_{t-1})\)</span>처럼 <strong>조건부 분산</strong> 개념으로 확장됩니다. GARCH 등 변동성 모형에서는 시간이 지남에 따라 <span class="math inline">\(\sigma_t^2\)</span>가 동적으로 변화합니다.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>Henderson weight smoothing은 특정 시점 주변의 값을 가중 평균하여 노이즈를 제거하고, 데이터의 장기 추세를 부드럽게 표현하는 기법입니다. <span class="math inline">\(\hat{Y}_t = \sum_{k=-h}^{h} w_k Y_{t+k}\)</span> 의 형태를 취합니다. Henderson은 13항 또는 23항 등으로 구성된 경험적 필터를 제안하였으며, 추세 성분의 부드러운 변화를 포착하는 데 유용합니다.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

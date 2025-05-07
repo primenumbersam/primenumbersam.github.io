@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.22">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="gitSAM">
+<meta name="dcterms.date" content="2025-05-15">
+
+<title>quarto-inputfb44861c8dfa0a7a – [GitSAM](../index.html)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b4406b7675125bc2ba204020e191172.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-bb5f9278568ae542f8467bdb635b70ac.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title"><a href="../index.html">GitSAM</a></span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-papers" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Papers</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-papers">    
+        <li>
+    <a class="dropdown-item" href="./../papers/index.html">
+ <span class="dropdown-text">Working</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./../paper-tbtf/index.html">
+ <span class="dropdown-text">TBTF</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-books" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Books</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-books">    
+        <li>
+    <a class="dropdown-item" href="./../book-gitsam-stats/index.html">
+ <span class="dropdown-text">gitsam 기초통계학</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./index.html">
+ <span class="dropdown-text">AI 응용 선형대수학</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/primenumbersam/"> 
+<span class="menu-text">Apps</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://www.gitsam.com"> 
+<span class="menu-text">스터디클럽</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools tools-wide">
+    <a href="https://laroe.co.kr/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-shop"></i></a>
+    <a href="https://www.youtube.com/@primenumbersam" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-youtube"></i></a>
+    <div class="dropdown">
+      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/primenumbersam/primenumbersam.github.io">
+            Source Code
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item quarto-navbar-tools-item" href="mailto:primenumbersam@gmail.com">
+            Report a Bug
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">초중고 수학</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#직교좌표계에서의-도형" id="toc-직교좌표계에서의-도형" class="nav-link active" data-scroll-target="#직교좌표계에서의-도형"><span class="header-section-number">1</span> 직교좌표계에서의 도형</a></li>
+  <li><a href="#회전체" id="toc-회전체" class="nav-link" data-scroll-target="#회전체"><span class="header-section-number">2</span> 회전체</a>
+  <ul class="collapse">
+  <li><a href="#회전축-line-of-symmetry" id="toc-회전축-line-of-symmetry" class="nav-link" data-scroll-target="#회전축-line-of-symmetry"><span class="header-section-number">2.1</span> 회전축 (line of symmetry)</a></li>
+  <li><a href="#회전체의-종류" id="toc-회전체의-종류" class="nav-link" data-scroll-target="#회전체의-종류"><span class="header-section-number">2.2</span> 회전체의 종류</a></li>
+  <li><a href="#회전체의-전개도" id="toc-회전체의-전개도" class="nav-link" data-scroll-target="#회전체의-전개도"><span class="header-section-number">2.3</span> 회전체의 전개도</a></li>
+  </ul></li>
+  <li><a href="#부피-형식-canonical-volume-form" id="toc-부피-형식-canonical-volume-form" class="nav-link" data-scroll-target="#부피-형식-canonical-volume-form"><span class="header-section-number">3</span> 부피 형식 (canonical volume form)</a></li>
+  <li><a href="#원뿔의-겉넓이와-부피-아르키메데스" id="toc-원뿔의-겉넓이와-부피-아르키메데스" class="nav-link" data-scroll-target="#원뿔의-겉넓이와-부피-아르키메데스"><span class="header-section-number">4</span> 원뿔의 겉넓이와 부피 (아르키메데스)</a>
+  <ul class="collapse">
+  <li><a href="#원뿔의-겉넓이" id="toc-원뿔의-겉넓이" class="nav-link" data-scroll-target="#원뿔의-겉넓이"><span class="header-section-number">4.1</span> 원뿔의 겉넓이</a></li>
+  <li><a href="#원뿔의-부피" id="toc-원뿔의-부피" class="nav-link" data-scroll-target="#원뿔의-부피"><span class="header-section-number">4.2</span> 원뿔의 부피</a></li>
+  </ul></li>
+  <li><a href="#구의-겉넓이와-부피-미적분" id="toc-구의-겉넓이와-부피-미적분" class="nav-link" data-scroll-target="#구의-겉넓이와-부피-미적분"><span class="header-section-number">5</span> 구의 겉넓이와 부피 (미적분)</a>
+  <ul class="collapse">
+  <li><a href="#구의-겉넓이" id="toc-구의-겉넓이" class="nav-link" data-scroll-target="#구의-겉넓이"><span class="header-section-number">5.1</span> 구의 겉넓이</a></li>
+  <li><a href="#구의-부피" id="toc-구의-부피" class="nav-link" data-scroll-target="#구의-부피"><span class="header-section-number">5.2</span> 구의 부피</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>gitSAM </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 15, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="직교좌표계에서의-도형" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="직교좌표계에서의-도형"><span class="header-section-number">1</span> 직교좌표계에서의 도형</h2>
+<ul>
+<li><strong>정다면체 (regular polyhedra)</strong>: 각의 크기와 면의 넓이가 모두 같은 도형
+<ul>
+<li>정다면체는 딱 5개? 4, 6, 8, 12, 20 면체</li>
+</ul></li>
+<li>오일러 지표 (Euler characteristic) : <span class="math inline">\(V-F+E=2\)</span>
+<ul>
+<li>호모토피에 대한 불변량(homotopy invariant):</li>
+<li>3차원 유클리드 공간 내의 모든 볼록다면체 (convex polyhedron)들은 구 (sphere)와 서로 위상동형이며, 둘 다 오일러 지표가 2이다. Torus 처럼 ’구멍’이 뚫릴 때에만 오일러 지표가 다른 값으로 바뀌게 된다.</li>
+</ul></li>
+</ul>
+<p>![[Pasted image 20250211103013.png]]</p>
+<p>![[Pasted image 20250211102815.png]]</p>
+<p>![[Pasted image 20250211102314.png]]</p>
+</section>
+<section id="회전체" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="회전체"><span class="header-section-number">2</span> 회전체</h2>
+<ul>
+<li>회전체와 다면체는 다르다.</li>
+<li>다면체(polyhedron) = 유한 개의 평면으로 이루어진 면(face), 그 면들이 만나는 모서리(edge), 그리고 모서리들이 만나는 꼭짓점(vertex)으로 구성된 입체.</li>
+<li>회전체 (body of revolution) = 공간&nbsp;상의&nbsp;한&nbsp;직선(회전축,&nbsp;line&nbsp;of&nbsp;symmetry)를&nbsp;고정하고,이&nbsp;축에&nbsp;수직한&nbsp;평면&nbsp;안에&nbsp;있는&nbsp;곡선이나&nbsp;영역 (surface of revolution)&nbsp;등을&nbsp;360도&nbsp;회전시켰을&nbsp;때 얻어지는&nbsp;3차원&nbsp;도형</li>
+</ul>
+<section id="회전축-line-of-symmetry" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="회전축-line-of-symmetry"><span class="header-section-number">2.1</span> 회전축 (line of symmetry)</h3>
+<ul>
+<li>회전축은 회전체의 물리적 특성, 예를 들어 회전 운동의 안정성 및 진동 특성에도 영향을 미칩니다. 회전축의 위치와 형태는 회전체의 회전 운동에 대한 저항과 관련이 있으며, 이는 기계 설계 및 엔지니어링에서 중요한 요소입니다.</li>
+<li><a href="https://colab.research.google.com/drive/195sYayobeMiQo9bXmLZRreSi4l_uqm5i?usp=sharing">회전체 그림</a></li>
+<li>회전체를 회전축에 수직인 평면으로 자르면, 그 단면의 경계는 항상 <strong>원</strong>입니다.</li>
+<li>회전체를 회전축을 포함하는 평면으로 자르면, 그 단면은 도형에 따라 다르게 나타납니다.
+<ul>
+<li>원기둥을 회전축을 포함하는 평면으로 자르면 직사각형</li>
+<li>원뿔을 회전축을 포함하는 평면으로 자르면 삼각형</li>
+</ul></li>
+<li>회전체의 대칭성: 회전체는 회전축에 대해 좌우 대칭입니다.
+<ul>
+<li>경선 (Meridian): 지구의 경도 (같은 시간대). 지구의 북극과 남극을 연결하는 선</li>
+<li>측지선 (Geodesic): 곡면 위에서 두 점 사이의 최단 경로. 측지곡률이 0.</li>
+<li>측지 곡률 (Geodesic Curvature) : 곡선이 곡면 위에서 얼마나 휘어져 있는지를 나타내는 값.</li>
+<li><strong>구</strong>: 구는 어떤 방향으로 잘라도 단면의 경계가 항상 원이 됩니다. 이는 구가 모든 방향에서 대칭성을 가지고 모든 경선이 측지선이 되어 측지곡률이 0이 되기 때문.</li>
+</ul></li>
+</ul>
+</section>
+<section id="회전체의-종류" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="회전체의-종류"><span class="header-section-number">2.2</span> 회전체의 종류</h3>
+<p>![[Pasted image 20250210001446.png|400]]</p>
+<p>![[Pasted image 20250211074256.png]]</p>
+</section>
+<section id="회전체의-전개도" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="회전체의-전개도"><span class="header-section-number">2.3</span> 회전체의 전개도</h3>
+<p><a href="https://mathpowergen.com/wp-content/uploads/2024/10/%ED%9A%8C%EC%A0%84%EC%B2%B4%EC%9D%98-%EA%B2%A8%EB%83%A5%EB%8F%84%EC%99%80-%EC%A0%84%EA%B0%9C%EB%8F%84-1-1600x518.png">회전체의 전개도 그림</a></p>
+</section>
+</section>
+<section id="부피-형식-canonical-volume-form" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="부피-형식-canonical-volume-form"><span class="header-section-number">3</span> 부피 형식 (canonical volume form)</h2>
+<ul>
+<li>정사각형의 넓이 : = 가로 길이 x 수직인 서로 길이
+<ul>
+<li>빛의 속력 : = 파장 x 진동수</li>
+<li>주식의 시가총액 : = 주당 거래 가격 x 발행 주식 수</li>
+<li>물리량 변환</li>
+</ul></li>
+<li>회전체의 겉넓이
+<ul>
+<li>원기둥과 원뿔의 겉넓이 = 전개도에 나온 평면 넓이의 합</li>
+<li>구의 겉넓이 = <span class="math inline">\(4 \pi r^2\)</span></li>
+</ul></li>
+<li>회전체의 부피
+<ul>
+<li>Cube의 부피 = <span class="math inline">\(r^3\)</span></li>
+<li>원기둥의 부피 = <span class="math inline">\((\pi r^2) \cdot h\)</span></li>
+<li>원뿔의 부피 = <span class="math inline">\(\frac{1}{3}(\pi r^2)\cdot h\)</span>
+<ul>
+<li><a href="https://mblogthumb-phinf.pstatic.net/MjAyMDA5MjFfMTk1/MDAxNjAwNjc1NjMwNTE0.DBASqLnPIAEVTdgKMJxFlgIykTvOaMKaNxHmJWFqFwYg.rKZPb1WkmbEtdy70nmPxjBaDRM3febHoaYc53n2RLBgg.JPEG.sjmom806/%EC%9B%90%EB%BF%94%EB%B6%80%ED%94%BC.jpg?type=w800">원뿔의 부피는 원기둥 부피의 1/3</a> : 논리는 없지만 실용적</li>
+<li>카발리에리의 원리(Cavalieri’s principle) : 두 도형이 같은 높이를 가지며, 각 높이에서의 단면적이 동일할 경우, 이 두 도형의 부피가 같다는 수학적 원리</li>
+<li><a href="https://www.geogebra.org/m/srwmHzR2">split a cube into 3 identical pyramids</a></li>
+<li><a href="https://www.desmos.com/calculator/b4kkzhfqct?lang=ko">원뿔의 부피-미적분</a></li>
+</ul></li>
+<li>구의 부피 = <span class="math inline">\(\frac{4}{3}(\pi r^2)\cdot r\)</span>
+<ul>
+<li><a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTORDGgO_xPd-j21ObcEh0F7nWcp9deDnD-yEb1S0e4f1hEcU_NIWK4MlqEITERG832nQ&amp;usqp=CAU">구의 부피는 원기둥 부피의 2/3</a> : 논리는 없지만 실용적</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="원뿔의-겉넓이와-부피-아르키메데스" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="원뿔의-겉넓이와-부피-아르키메데스"><span class="header-section-number">4</span> 원뿔의 겉넓이와 부피 (아르키메데스)</h2>
+<section id="원뿔의-겉넓이" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="원뿔의-겉넓이"><span class="header-section-number">4.1</span> 원뿔의 겉넓이</h3>
+<ul>
+<li>핵심 논리:</li>
+</ul>
+</section>
+<section id="원뿔의-부피" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="원뿔의-부피"><span class="header-section-number">4.2</span> 원뿔의 부피</h3>
+<ul>
+<li>핵심 논리:</li>
+</ul>
+</section>
+</section>
+<section id="구의-겉넓이와-부피-미적분" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="구의-겉넓이와-부피-미적분"><span class="header-section-number">5</span> 구의 겉넓이와 부피 (미적분)</h2>
+<section id="구의-겉넓이" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="구의-겉넓이"><span class="header-section-number">5.1</span> 구의 겉넓이</h3>
+<ul>
+<li>핵심 공리:</li>
+</ul>
+</section>
+<section id="구의-부피" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="구의-부피"><span class="header-section-number">5.2</span> 구의 부피</h3>
+<ul>
+<li>핵심 공리:</li>
+</ul>
+
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

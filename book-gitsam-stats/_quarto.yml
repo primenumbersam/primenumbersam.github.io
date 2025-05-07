@@ -17,7 +17,9 @@ website:
           - text: "gitsam 기초통계학"
             href: index.qmd
           - text: "AI 응용 선형대수학"
-            href: https://primenumbersam.github.io/
+            href: ../book-ai-algebra/index.html
+          - text: "gitsam Han(恨)"
+            href: ../book-gitsam-han/index.html
       - text: "Apps"
         href: https://github.com/primenumbersam/
       - text: "스터디클럽"
@@ -39,24 +41,40 @@ website:
     style: "floating"
     contents:
       - index.qmd
-      - section: "Statistical Data"
+      - section: "통계 데이터 (Statistical Data)"
         contents:
-        - index.qmd
-      - section: "Exploration"
+        - 1-1.qmd
+        - 1-2.qmd
+        - 1-3.qmd
+        - 1-4.qmd
+      - section: "데이터 탐색 (Exploration)"
         contents:
-        - index.qmd
-      - section: "Probability"
+        - 2-1.qmd
+        - 2-2.qmd
+      - section: "데이터와 가설의 연결고리 (Probability)"
         contents:
-        - index.qmd
-      - section: "Exploitation"
+        - 3-1.qmd
+        - 3-2.qmd
+        - 3-3.qmd
+        - 3-4.qmd
+      - section: "데이터 활용 (Exploitation)"
         contents:
-        - index.qmd
-      - section: "Estimation"
+        - 4-1.qmd
+        - 4-2.qmd
+        - 4-3.qmd
+        - 4-4.qmd
+        - 4-5.qmd
+      - section: "모형계수 추정법 (Estimation)"
         contents:
-        - index.qmd
-      - section: "Hypothesis Test"
+        - 5-1.qmd
+        - 5-2.qmd
+        - 5-3.qmd
+      - section: "가설 점정 (Hypothesis Test)"
         contents:
-        - index.qmd
+        - 6-1.qmd
+        - 6-2.qmd
+        - 6-3.qmd
+        - 6-4.qmd
 
 author: gitSAM
 
@@ -69,7 +87,7 @@ format:
     theme: cosmo
     css: ../styles.css
     toc: true
-    number-sections: false
+    number-sections: true
     code-fold: true
 
 execute:
