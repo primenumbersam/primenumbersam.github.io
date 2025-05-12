@@ -1,10 +1,27 @@
+---
+title: Preface
+---
+
+## Prologue
+
+Let us not fall into the error of personifying objects.
+**People are subjects; mathematics is a tool.**
+
+We do not learn mathematics because it speaks to us,
+but because **it helps us express our own questions more beautifully and precisely**.
+
+This book is not about solving someone else’s problems.
+It is about discovering **how to express your own questions**—clearly, honestly, and elegantly—through the language of mathematics.
+
+## Contents
+
+> 수학의 자기 완결성? Nope. 수학의 효용성과 효율성.
+> Global Flow: Basic Grammar, Unsupervised Learning, Supervised Learning
+> Sub Flow: "Famous Problem -> Key Assumptions -> Python -> Interpretation".
+> Approach: the practical, visualization-focused.
 
 9 Optimization: Linear Programming
 - Duality
-
-8 Geometry of linear spaces
-- The Platonic Solids
-- Polytopes
 
 1 Linear Equations: Linear Models in Economics and Engineering
 - Systems of linear equations
@@ -15,10 +32,21 @@
 - The Leontief Input-Output Model
 - Applications to Computer Graphics
 
+
 3 Determinants: Random Paths and Distortion
 - Properties of Determinants, Volume
 
+8 Geometry of linear spaces
+- The Platonic Solids
+- Polytopes
+
+6 Orthogonality and Least Squares : GPS Navigation
+- Orthogonal Projection
+
+
 4 Linear Spaces: Control Systems
+The Geometry of Solution Spaces: Vector Spaces and Subspaces
+
 - Rank-Nullity theorem
 - Applications to **Difference** Equations
 - Applications to Markov Chains
@@ -27,14 +55,36 @@
 - Dynamic systems and Spotted Owls
 - Applications to **Differential** equations
 
+-   **Famous Problem:** Analyzing the long-term behavior of a system or process, like population distribution changes or Markov chains. (Eigenvectors show stable states).
+-   **Key Assumptions:** The matrix A represents the transition or transformation rules of the system. Eigenvectors represent directions that are only scaled by the transformation.
+-   **Python Visualization:** Visualizing eigenvectors (direction) and eigenvalues (magnitude of scaling) for a 2x2 matrix. Simulating the step-by-step application of a transition matrix (e.g., Lay's Markov chain example) and showing convergence to the eigenvector.
+-   **Interpretation Summary:** Eigenvectors reveal the fundamental directions or components of a linear transformation, and eigenvalues tell us the factor by which variance is scaled in those directions. This is key to understanding PCA.
+
+
 10 Finite-State Markov Chains : Google's PageRank
 - Steady-state vector
-
-6 Orthogonality and Least Squares : GPS Navigation
-- Orthogonal Projection
+-   **Famous Problem:** Solving very large systems of linear equations that arise from complex models or massive datasets (e.g., in finite element methods or network analysis). (Direct methods like Gaussian Elimination can be too slow or memory-intensive).
+-   **Key Assumptions:** Iterative methods approach the true solution Ax=b through successive approximations \[Strang 7.4\].
+-   **Python Visualization:** Implementing a simple iterative method (e.g., Jacobi or Gauss-Seidel, or gradient descent for Ax=b). Visualizing the convergence of the solution vector over iterations.
+-   **Interpretation Summary:** For very large problems, iterative methods provide a practical way to find approximate solutions to linear systems, essential in fields like numerical simulation and large-scale optimization (which underlies many machine learning algorithms).
 
 7 Symmetric matrices and Quadratic Forms : Multichannel Image Processing
 - SVD
+
+-   **Famous Problem:** Analyzing the spread and correlation within a dataset, represented by the covariance matrix.
+-   **Key Assumptions:** The covariance matrix is symmetric and (often) positive semidefinite or positive definite. Its eigenvectors point in directions of maximum variance (principal components).
+-   **Python Visualization:** Calculating the covariance matrix for a 2D/3D dataset using `numpy.cov`. Visualizing the data scatter plot. Overlaying the eigenvectors of the covariance matrix scaled by the eigenvalues to show the principal axes of variance (linking back to Unit 2.1/2.2).
+-   **Interpretation Summary:** The covariance matrix summarizes feature relationships. Positive definiteness is a key property related to variance and optimization objectives. Eigenanalysis of the covariance matrix reveals the principal components.
+
+Dimensionality Reduction & Data Compression: Singular Value Decomposition (SVD)
+- Famous Problem: Image compression or reducing the dimensionality of a dataset while retaining most information (Principal Component Analysis).
+- Key Assumptions: Any matrix can be decomposed into a product of three matrices (U, Σ, V^T). The singular values in Σ capture the "importance" of each dimension.
+- Python Visualization: Performing SVD on a simple data matrix or grayscale image using numpy.linalg.svd. Showing the singular values. Reconstructing the matrix/image using only the top k singular values and vectors, visualizing the compressed result. Illustrating the four fundamental subspaces using SVD.
+- Interpretation Summary: SVD provides a powerful way to understand a matrix's structure, identify its rank, find orthogonal bases for the fundamental subspaces, and approximate the matrix with lower rank, directly enabling techniques like PCA for dimensionality reduction.
+
+
+
+
 
 
 ### **Applied Linear Algebra: Practical Modules**

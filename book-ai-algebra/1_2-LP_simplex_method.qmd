@@ -1,6 +1,6 @@
-
-
-
+---
+title: How to Solve LP
+---
 
 ## Production Planning Problem
 
@@ -10,7 +10,7 @@ A factory produces two products, A and B.
 
 - Each unit of product A requires 3 hours of machine time, and product B requires 2 hours. The total available machine time per day is 180 hours.
 - Product A requires 2 kg of raw material per unit, and product B requires 3 kg. The total available raw material is 160 kg.
-- Profit per unit is $50 for product A and $40 for product B.
+- Profit per unit is $\$$ 50 for product A and $\$$40 for product B.
 
 Goal: Determine the production quantities of A and B that maximize profit without exceeding the resource constraints.
 
@@ -34,7 +34,7 @@ $$\begin{cases} 3x + 2y \leq 180 & \text{(machine time)} \\ 2x + 3y \leq 160 & \
 ## Solve with Python and Interpret
 
 
-```python
+```{python}
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -94,17 +94,14 @@ x_opt, y_opt, z_opt
 
 ```
 
+### Optimal Solution:
 
-최적해:
+* Quantity of product A: $x = 44$ units
+* Quantity of product B: $y = 24$ units
+* Maximum profit: $Z = 3160$
 
-- 제품 A 생산량 $x = 44.00$ 단위
-    
-- 제품 B 생산량 $y = 24.00$ 단위
-    
-- 총 이익 $Z = 3160.00$
+### Interpretation:
 
-해석:
+* Given the constraints on machine hours and raw materials, this production combination yields the **maximum attainable profit** among all feasible solutions. The **shaded region** in the graph represents the **feasible region**, and the **red point** indicates the **optimal production plan**.
+* Since the optimal solution occurs at the intersection of two binding constraints, this problem exemplifies a **classical linear programming (LP) formulation** in which the solution lies at a **vertex of the feasible polytope**.
 
-- 주어진 기계 시간 및 원재료 제약을 모두 고려했을 때, 해당 생산량 조합이 가능한 해 중에서 이익을 최대화합니다.
-- 그림에서 회색 영역은 feasible region이며, 붉은 점이 최적 생산량을 나타냅니다.
-- 두 제약조건이 교차하는 꼭짓점에서 최적해가 발생하므로, 이 문제는 다각형(polytope) 구조의 고전적인 LP 문제입니다.

@@ -1,3 +1,6 @@
+---
+title: Finite-State Markov Chain Model
+---
 
 A **Markov chain** is a model for movement between discrete states.  
 But this model only makes sense when the **Markov Property** holds — that is:
@@ -12,7 +15,6 @@ This assumption is **not universal**. It must be **justified by the nature of th
 
 > Markov property is not about the system itself, but about how you model information and relevance.
 
----
 
 ### When the Markov Property Fails
 
@@ -38,7 +40,6 @@ This assumption is **not universal**. It must be **justified by the nature of th
   The likelihood of a user jumping from one page to another depends only on the current page, not the full click history.  
   → Modeled as a Markov chain with transition matrix from current to next page.
 
----
 
 Hence, before using a Markov model, we must ask:
 

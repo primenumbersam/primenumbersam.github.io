@@ -1,0 +1,188 @@
+---
+title: Input–Output Model
+---
+
+## Two-Sector Example Problem
+
+### Problem Statement
+
+We model a simplified economy consisting of only two sectors:
+
+-   **High-tech (HT)**: A capital-intensive and R&D-driven sector with high market valuation, typically involving software, semiconductors, and electronics.
+-   **Energy (EN)**: A resource-intensive sector producing electricity, fuel, or renewables.
+
+Assume that both sectors consume intermediate goods from themselves and from each other. Let $A$ denote the **technical coefficient matrix**, and let $b$ be the vector of **final demands** from households, governments, or foreign buyers that are **not used as intermediate inputs**.
+
+Define:
+
+$$
+A = \begin{bmatrix}
+0.2 & 0.4 \\
+0.1 & 0.3 \\
+\end{bmatrix}, \quad
+b = \begin{bmatrix}
+300 \\
+200 \\
+\end{bmatrix}
+$$
+
+Then, total output vector $x$ satisfies:
+
+$$
+x = Ax + b \quad \Rightarrow \quad x = (I - A)^{-1} b
+$$
+
+The goal is to solve for $x$ and interpret its economic implications.
+
+### Solve with Python and Visualization
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Problem Setup:
+# Two sectors: High-tech (HT) and Energy (EN)
+# A: Input-output coefficient matrix
+# b: Final demand vector
+
+# Hypothetical technical coefficient matrix A
+A = np.array([[0.2, 0.4],  # Inputs required by High-tech from HT, EN
+              [0.1, 0.3]]) # Inputs required by Energy from HT, EN
+
+# Final demand vector (e.g., consumer/government demand not used as input in other sectors)
+b = np.array([300, 200])  # Final demand for HT and EN outputs respectively
+
+# Solve x = (I - A)^(-1) * b
+I = np.identity(2)
+x = np.linalg.inv(I - A) @ b
+
+# Visualization
+sectors = ['High-tech', 'Energy']
+
+fig, ax = plt.subplots()
+bars = ax.bar(sectors, x)
+ax.set_title('Total Output Required by Sector')
+ax.set_ylabel('Output Value')
+for bar in bars:
+    yval = bar.get_height()
+    ax.text(bar.get_x() + bar.get_width()/2.0, yval + 5, f'{yval:.1f}', ha='center', va='bottom')
+
+x
+```
+
+The resulting output vector is:
+
+$$
+x = \begin{bmatrix}
+557.7 \\
+365.4 \\
+\end{bmatrix}
+$$
+
+### Model Interpretation
+
+This means:
+
+-   The **High-tech sector** must produce approximately **558 units** of output.
+-   The **Energy sector** must produce approximately **365 units** of output.
+-   These values include both intermediate and final demand components.
+-   The **final demand** for High-tech (300) and Energy (200) requires significantly higher **total output** due to the recursive inter-sectoral dependencies (intermediate input flows).
+-   Although the direct final demand is relatively modest, the indirect requirements via intermediate consumption amplify the required production—illustrating the well-known **Leontief multiplier effect**.
+
+### Model Limitations
+
+- High-tech sectors are dominated by intangible assets (software, IP, human capital), which are poorly captured by fixed technical coefficients. Their production is not necessarily proportional to physical intermediate inputs.
+- Energy sectors involve long-term capital and depreciation (e.g., power plants), which require a dynamic investment-consumption framework, not present in static IO models.
+- The model assumes **linear, homogeneous production technology**, which does not reflect **technological substitution, productivity changes, or scaling effects** prevalent in both sectors.
+
+This underscores a broader critique: while the IO model captures **gross inter-sectoral dependence**, it lacks the capacity to represent **time, behavior, and optimization**, and hence must be used with interpretive caution—especially when applied to **modern, intangible-driven economies** like High-tech.
+
+
+## Comparison with Markov Chain Model
+
+The IO model’s only lasting contribution is that it was an early attempt to quantify inter-industry relationships using linear algebra. However, it must be acknowledged that:
+
+-   The model lacks theoretical coherence as an economic system.
+-   Its assumptions are unrealistic and static.
+-   It is highly sensitive to estimation errors.
+-   Its structure allows for serious misuse under the guise of policy relevance.
+
+Thus, the IO model should be treated **not** as a scientific theory, **but** as a primitive numerical exercise in linear systems, offering only limited descriptive insight and virtually no predictive or normative power.
+
+**Input–Output (IO) models** and **Markov chain models** share a superficially similar mathematical form: both utilize a square matrix that maps one vector into another through a linear transformation. However, despite this superficial similarity, the interpretational and structural properties of these models differ fundamentally.
+
+| Aspect | Input–Output (IO) Model | Markov Chain Model |
+|------------------|-------------------------|------------------------------|
+| **Basic Form** | $x = Ax + b$ or $x = (I - A)^{-1}b$ | $x_{t+1} = Px_t$ |
+| **Matrix Interpretation** | $A$: technical coefficients (input ratios) | $P$: transition probability matrix |
+| **Matrix Constraints** | $A_{ij} \geq 0$, no restriction on column sums | $P_{ij} \geq 0$, row-stochastic ($\sum_j P_{ij} = 1$) |
+| **Vector Interpretation** | $x$: gross output of each sector | $x_t$: probability distribution over states |
+| **Time Dimension** | Static (unless reinterpreted as dynamic) | Inherently dynamic |
+| **Economy Type** | Homogeneous (closed), Inhomogeneous (open) | Closed system |
+| **Equilibrium Concept** | None; algebraic solution only | Stationary distribution (under ergodicity) |
+| **Microfoundations** | Absent | Absent |
+| **Probabilistic Interpretation** | None | Central to the model |
+
+While both models use linear algebraic tools, the IO model lacks dynamic evolution, stochastic interpretation, and theoretical grounding, making it fundamentally weaker in analytical richness compared to Markov chains.
+
+## Criticisms on the IO Model
+
+### (a) Ambiguity in Temporal Structure
+
+Although often interpreted as static, the IO model is frequently applied in contexts that require dynamic causal chains (e.g., multiplier analysis). The equation $x = Ax + b$ assumes all interactions occur **within the same time period**, which contradicts the real-world structure of production, where raw materials become intermediate and then final goods across **multiple time periods**. A more realistic dynamic interpretation would resemble:
+
+$$
+x_t = A x_{t-1} + b_t
+$$
+
+However, this formulation **does not appear in Leontief’s original work**, and no temporal adjustment mechanism is explicitly modeled. Therefore, **even the temporal meaning of the solution vector $x$ remains undefined**, making any dynamic interpretation methodologically unsound.
+
+### (b) Model Specification Error
+
+The IO model assumes **fixed technical coefficients** ($A$), implying no technological change, substitution effects, or economies of scale. This static assumption fails to reflect the flexible and adaptive nature of real-world production structures. As a result, the model omits critical structural dynamics, leading to **specification bias**.
+
+### (c) Estimation Error
+
+Both $A$ and $b$ are constructed from national economic surveys and censuses, which are prone to **measurement errors**, sampling inconsistencies, and classification ambiguities. Since the solution is derived through the inverse $(I - A)^{-1}$, even small errors in $A$ may lead to large deviations in $x$, especially when the matrix is near singular.
+
+### (d) High Risk of Misuse
+
+Due to its superficial simplicity and algebraic tractability, the IO model is frequently applied to complex policy contexts without rigorous validation. This exposes the model to **systematic misuse**, particularly when used to simulate multiplier effects, industrial shocks, or intersectoral policies. The model’s apparent numerical precision can mislead users into overconfidence, despite weak underlying assumptions.
+
+## Reevaluating the Nobel Prize Model
+
+Wassily Leontief was awarded the **1973 Nobel Prize in Economics**:
+
+> "for the development of the input-output method and for its application to important economic problems."
+
+However, a critical reappraisal raises the following issues:
+
+-   The **method** is essentially an application of basic linear algebra (solving $Ax + b = x$).
+-   The **economic interpretation** lacks fundamental components: equilibrium conditions, microeconomic behavior, optimization, price mechanisms, and dynamics.
+-   The **“important economic problems”** the model addresses (e.g., production allocation, industrial dependency) are treated in a **reductionist and mechanistic manner**, lacking theoretical coherence.
+
+The award, therefore, appears to have recognized **a computational tool** rather than a scientifically grounded economic theory. In modern terms, this amounts to “imposing arithmetic onto economic reality” without justifiable economic structure.
+
+In 1949, Professor Wassily Leontief at Harvard University attempted to model how outputs from 500 economic sectors were distributed throughout the U.S. economy. At the time, the only computational resource available was the **Harvard Mark II**—an electromechanical computer known for giving rise to the term “bug” due to literal insects jamming the system.
+
+Due to severe computational constraints, Leontief reduced the system from **500 equations to 42**, and even then, solving this linear system took **over 56 hours**. In contrast, the same computation on a modern personal computer would take **under one second**.
+
+This illustrates that **at the time**, the novelty lay in **developing and implementing a solvable linear system** to represent inter-industry structure. However, in today’s context, the emphasis must shift from computational feasibility to model validity, interpretive consistency, and theoretical rigor.
+
+## Scientific Standards for Economic Modeling
+
+A scientifically valid economic model should satisfy the following criteria:
+
+1.  **Defined Equilibrium** The model must define how economic quantities adjust to reach a consistent state via supply-demand interaction or optimality conditions.
+
+2.  **Microfoundations** Behavior of agents must emerge from rational decision-making under constraints (e.g., utility or profit maximization).
+
+3.  **Dynamic Consistency** Economic variables should evolve over time through structurally consistent transition rules, incorporating lag effects and forward-looking expectations.
+
+4.  **Uncertainty and Information Constraints** Realistic models must allow for imperfect information, expectations, and stochastic elements.
+
+5.  **Testability and Robustness** The model must withstand parameter variation and be empirically testable across different domains and scales.
+
+The IO model, in contrast, **violates nearly all of these conditions**. It lacks equilibrium, optimization behavior, temporal transition logic, and empirical robustness.
+
+In summary, the IO model remains a historically significant yet conceptually limited tool. Its value lies in descriptive bookkeeping of industrial flows, not in offering structural insights or behavioral predictions. As such, it must be presented as a numerical device, not a scientific theory of production or equilibrium.
