@@ -1,5 +1,5 @@
 ---
-title: 초중고 수학과학
+title: AI 초중고 수학과학
 subtitle: 코딩+시각화
 ---
 

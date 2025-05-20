@@ -1,5 +1,5 @@
 ---
-title: "GitSAM"
+title: "Globally Interpretable"
 format:
   html:
     css: styles.css
@@ -22,12 +22,18 @@ format:
 
 ## Apps (In progress)
 
-- 재테크 대시보드
-- K-Learning
-- FinTech: simplywall.st, 
-- 벨벳토끼인형
+- FinTech Dashboard vs. simplywall.st : Bayesian RL
+- K-Learning vs. EBS Danchoo+ : simple DL model
+- K-culture pod vs. runpod : Community based GPU cloud
+- messenger vs. telegram : On-device small LM with RAG
+- 벨벳토끼인형 vs. cati 인형 : On-device Socratic small LM with TTS
 
-## Books
+## Video Arts (In progress)
+
+- stories, images and music by consistent character
+- Platonic vs. Erotic
+
+## Books (In progress)
 
 <script>
 function filterBooks(tag) {
@@ -46,62 +52,62 @@ function filterBooks(tag) {
 <!-- 태그 필터 버튼 -->
 <div id="tag-filter">
   <button onclick="filterBooks('all')">All</button>
-  <button onclick="filterBooks('How-to')">How-to</button>
-  <button onclick="filterBooks('Why')">Why</button>
+  <button onclick="filterBooks('basic')">초급</button>
+  <button onclick="filterBooks('advanced')">고급</button>
 </div>
 
 <div class="book-grid">
 
-<div class="book-card" data-tags="How-to">
+<div class="book-card" data-tags="advanced">
   <a href="book-ai-algebra/index.html" target="_blank">
     <img src="cover-algebra.png" alt="gitsam" />
     <div class="book-title">AI 응용 선형대수학</div>
   </a>
 </div>
 
-<div class="book-card" data-tags="How-to">
+<div class="book-card" data-tags="advanced">
   <a href="book-ai-calculus/index.html" target="_blank">
     <img src="cover-calculus.png" alt="gitsam" />
     <div class="book-title">AI 응용 미적분학</div>
   </a>
 </div>
 
-<div class="book-card" data-tags="How-to">
+<div class="book-card" data-tags="basic">
   <a href="book-ai-dev_log/index.html" target="_blank">
     <img src="cover-app-log.png" alt="gitsam" />
-    <div class="book-title">AI LLM App 개발일지</div>
+    <div class="book-title">AI App 개발일지</div>
   </a>
 </div>
 
-<div class="book-card" data-tags="How-to">
+<div class="book-card" data-tags="basic">
   <a href="https://gitsam.notion.site/ab09bfb8292b464a846d55e7d3df7a8d?v=18fd716ee0de80b89148000c8a8bb9f9" target="_blank">
     <img src="cover-liberal-arts.png" alt="gitsam" />
     <div class="book-title">gitsam 지식 산책</div>
   </a>
 </div>
 
-<div class="book-card" data-tags="Why">
-  <a href="book-gitsam-stats/index.html" target="_blank">
+<div class="book-card" data-tags="basic">
+  <a href="book-ai-stats/index.html" target="_blank">
     <img src="cover-stats.png" alt="gitsam" />
-    <div class="book-title">gitsam 기초 통계학</div>
+    <div class="book-title">AI 기초 통계학</div>
   </a>
 </div>
 
-<div class="book-card" data-tags="Why">
-  <a href="book-gitsam-math/index.html" target="_blank">
+<div class="book-card" data-tags="basic">
+  <a href="book-ai-math/index.html" target="_blank">
     <img src="cover-math.png" alt="gitsam" />
-    <div class="book-title">gitsam 초중고 수학</div>
+    <div class="book-title">AI 초중고 수학</div>
   </a>
 </div>
 
-<div class="book-card" data-tags="Why">
+<div class="book-card" data-tags="advanced">
   <a href="book-ai-theory/index.html" target="_blank">
     <img src="cover-theory.png" alt="gitsam" />
-    <div class="book-title">gitsam AI Theory</div>
+    <div class="book-title">AI Theory</div>
   </a>
 </div>
 
-<div class="book-card" data-tags="Why">
+<div class="book-card" data-tags="advanced">
   <a href="book-gitsam-han/index.html" target="_blank">
     <img src="cover-han.png" alt="gitsam" />
     <div class="book-title">gitsam 글짓기</div>

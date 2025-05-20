@@ -247,7 +247,7 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "GitSAM",
+    "title": "Globally Interpretable",
     "section": "",
     "text": "Formulate and Solve your problem\nInterpret and Test your solution"
   },
@@ -891,14 +891,14 @@
   {
     "objectID": "index.html#math-is-an-effective-language",
     "href": "index.html#math-is-an-effective-language",
-    "title": "GitSAM",
+    "title": "Globally Interpretable",
     "section": "",
     "text": "Formulate and Solve your problem\nInterpret and Test your solution"
   },
   {
     "objectID": "index.html#computer-is-an-efficient-tool",
     "href": "index.html#computer-is-an-efficient-tool",
-    "title": "GitSAM",
+    "title": "Globally Interpretable",
     "section": "Computer is an efficient tool",
     "text": "Computer is an efficient tool\n\nComputation with Python in Colab\nPublication with Quarto in Local"
   },
@@ -919,15 +919,29 @@
   {
     "objectID": "index.html#books",
     "href": "index.html#books",
-    "title": "GitSAM",
+    "title": "Globally Interpretable",
     "section": "Books",
-    "text": "Books\n\n\n\nAll How-to Why\n\n\n\n \n\nAI 응용 선형대수학\n\n\n\n\n \n\nAI 응용 미적분학\n\n\n\n\n \n\nAI LLM App 개발일지\n\n\n\n\n \n\ngitsam 지식 산책\n\n\n\n\n \n\ngitsam 기초 통계학\n\n\n\n\n \n\ngitsam 초중고 수학\n\n\n\n\n \n\ngitsam AI Theory\n\n\n\n\n \n\ngitsam 글짓기"
+    "text": "Books\n\n\n\nAll 초급 고급\n\n\n\n \n\nAI 응용 선형대수학\n\n\n\n\n \n\nAI 응용 미적분학\n\n\n\n\n \n\nAI App 개발일지\n\n\n\n\n \n\ngitsam 지식 산책\n\n\n\n\n \n\nAI 기초 통계학\n\n\n\n\n \n\nAI 초중고 수학\n\n\n\n\n \n\nAI Theory\n\n\n\n\n \n\ngitsam 글짓기"
   },
   {
     "objectID": "index.html#apps-in-progress",
     "href": "index.html#apps-in-progress",
-    "title": "GitSAM",
+    "title": "Globally Interpretable",
     "section": "Apps (In progress)",
-    "text": "Apps (In progress)\n\n재테크 대시보드\nK-Learning\nFinTech: simplywall.st,\n벨벳토끼인형"
+    "text": "Apps (In progress)\n\nFinTech Dashboard vs. simplywall.st : Bayesian RL\nK-Learning vs. EBS Danchoo+ : simple DL model\nK-culture pod vs. runpod : Community based GPU cloud\nmessenger vs. telegram : On-device small LM with RAG\n벨벳토끼인형 vs. cati 인형 : On-device Socratic small LM with TTS"
+  },
+  {
+    "objectID": "index.html#video-arts-in-progress",
+    "href": "index.html#video-arts-in-progress",
+    "title": "Globally Interpretable",
+    "section": "Video Arts (In progress)",
+    "text": "Video Arts (In progress)\n\nstories, images and music by consistent character\nPlatonic vs. Erotic"
+  },
+  {
+    "objectID": "index.html#books-in-progress",
+    "href": "index.html#books-in-progress",
+    "title": "Globally Interpretable",
+    "section": "Books (In progress)",
+    "text": "Books (In progress)\n\n\n\nAll 초급 고급\n\n\n\n \n\nAI 응용 선형대수학\n\n\n\n\n \n\nAI 응용 미적분학\n\n\n\n\n \n\nAI App 개발일지\n\n\n\n\n \n\ngitsam 지식 산책\n\n\n\n\n \n\nAI 기초 통계학\n\n\n\n\n \n\nAI 초중고 수학\n\n\n\n\n \n\nAI Theory\n\n\n\n\n \n\ngitsam 글짓기"
   }
 ]
