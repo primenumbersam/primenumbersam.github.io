@@ -49,6 +49,7 @@ website:
         - 02-williams.qmd
         - 03-roh.qmd
         - 04-kim.qmd
+        - 05-paramour.qmd
       - section: "매정함"
         contents:
         - c1-newton.qmd
