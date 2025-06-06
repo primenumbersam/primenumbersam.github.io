@@ -181,7 +181,7 @@ format:
 </div>
 
 <div class="book-card" data-tags="notion">
-  <a href="https://gitsam.notion.site/AI-Dev-Log-1fbd716ee0de801a8a22e31dc6b9c719" target="_blank">
+  <a href="https://gitsam.notion.site/1fbd716ee0de801a8a22e31dc6b9c719" target="_blank">
     <img src="/assets/cover-app-log.png" alt="gitsam" />
     <div class="book-title">앱 개발 일지</div>
   </a>
@@ -195,7 +195,7 @@ format:
 </div>
 
 <div class="book-card" data-tags="notion">
-  <a href="https://gitsam.notion.site/179d716ee0de8051bbadeac43a1600f1?v=58f18a25682848129e3293e8262bb370" target="_blank">
+  <a href="https://gitsam.notion.site/179d716ee0de8051bbadeac43a1600f1?v=20ad716ee0de8031afaf000cc3d2c6a1" target="_blank">
     <img src="/assets/cover-theory.png" alt="gitsam" />
     <div class="book-title">경제적 자유</div>
   </a>
