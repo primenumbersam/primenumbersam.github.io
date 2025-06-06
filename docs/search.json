@@ -249,7 +249,7 @@
     "href": "index.html",
     "title": "GITSAM",
     "section": "",
-    "text": "AI Era\n\n\n\n학원\nFree and Open Source Softwares"
+    "text": "Free and Open\n\n\n\nSource Data"
   },
   {
     "objectID": "index.html#footnotes",
@@ -921,7 +921,7 @@
     "href": "index.html#books",
     "title": "GITSAM",
     "section": "Books",
-    "text": "Books\n\n\nAll Quarto Notion\n\n\n\n \n\nAI 초중고 수학\n\n\n\n\n \n\nAI 기초 통계학\n\n\n\n\n \n\nAI 응용 선형대수학\n\n\n\n\n \n\nAI 응용 미적분학\n\n\n\n\n \n\ngitsam 앱 개발일지\n\n\n\n\n \n\ngitsam 지식 산책\n\n\n\n\n \n\ngitsam 경제적 자유\n\n\n\n\n \n\ngitsam 표현의 자유"
+    "text": "Books\n\n\nAll Quarto Notion\n\n\n\n \n\nAI 초중고 수학\n\n\n\n\n \n\nAI 기초 통계학\n\n\n\n\n \n\nAI 응용 선형대수학\n\n\n\n\n \n\nAI 응용 미적분학\n\n\n\n\n \n\n앱 개발 일지\n\n\n\n\n \n\n교양 산책\n\n\n\n\n \n\n경제적 자유\n\n\n\n\n \n\n표현의 자유\n\n\n\n\n\n\n\n\n\n\n\nFree and Open\n\n\n\nRe-source for your Re-search\n\n\n\nClipsVideos\n\n\n\n\nCreative stories with consistent character, images and music\nGoogle Lab Tools, Suno, Stable Diffusion\n\n\n\n\n\nPromising K-Culture contents\ncreated with LLM tools"
   },
   {
     "objectID": "index.html#apps-in-progress",
@@ -977,7 +977,7 @@
     "href": "index.html#apps",
     "title": "GITSAM",
     "section": "Apps",
-    "text": "Apps\n\n\n\n\nBlockchain Token\n\n\n보호종료아동에게 투명하고 확실하게 전달되는 기부금 장부\n\n\n(vs. givecherry.org)\n\n\n\n\n\nFintech\n\n\n각자도생시대에 필요한 금융투자 앱\n\n\n(vs. simplywall.st)\n\n\n\n\n\nEdutech\n\n\nLLM을 이용한 기초교육 앱\n\n\n(vs. EBS Dachoo+)\n\n\n\n\n\nCommunity GPU Cloud\n\n\nKubernetes를 이용한 GPU 연산 임대\n\n\n(vs. runpod.io)\n\n\n\n\n\nMessenger\n\n\nOn-device AI-assisted Messenger\n\n\n(vs. Telegram)\n\n\n\n\n\nSocratic Small LM\n\n\nOn-device 소크라틱 LM with TTS\n\n\n(vs. cati 인형)"
+    "text": "Apps\n\n\n\n\nBlockchain Token\n\n\n취약계층(보호종료아동)에게 투명하고 확실하게 전달되는 기부금 장부\n\n\n(vs. givecherry.org)\n\n\n\n\n\nFintech\n\n\n각자도생시대에 필요한 금융투자 앱\n\n\n(vs. simplywall.st)\n\n\n\n\n\nEdutech\n\n\nLLM을 이용한 기초교육 앱\n\n\n(vs. EBS Dachoo+)\n\n\n\n\n\nCommunity GPU Cloud\n\n\nKubernetes를 이용한 GPU 회로 임대\n\n\n(vs. runpod.io)\n\n\n\n\n\nMessenger\n\n\nOn-device AI-assisted Messenger\n\n\n(vs. Telegram)\n\n\n\n\n\nOn-device Socratic Small LM\n\n\n나의 친구 벨벳토끼인형\n\n\n(vs. cati 인형)"
   },
   {
     "objectID": "index.html#front-end-design",
@@ -1006,5 +1006,12 @@
     "title": "GITSAM",
     "section": "Features",
     "text": "Features\n\n\n\n\nBlockchain Token\n\n\n보호종료아동에게 투명하고 확실하게 전달되는 기부금 (vs. givecherry.org)\n\n\n\n\n\nFintech\n\n\n각자도생시대에 필요한 금융투자 앱 (vs. simplywall.st)\n\n\n\n\n\nEdutech\n\n\nLLM을 이용한 기초교육 앱 (vs. EBS Dachoo+)\n\n\n\n\n\nCommunity GPU Cloud\n\n\nKubernetes 도구를 이용한 GPU 클라우드 (vs. runpod.io)\n\n\n\n\n\nMessenger\n\n\nOn-device AI-assisted Messenger (vs. Telegram)\n\n\n\n\n\nSocratic Small LM\n\n\nOn-device 소크라틱 LM with TTS (vs. cati 인형)"
+  },
+  {
+    "objectID": "index.html#snippets",
+    "href": "index.html#snippets",
+    "title": "GITSAM",
+    "section": "",
+    "text": "Free and Open\n\n\n\nSource Data"
   }
 ]

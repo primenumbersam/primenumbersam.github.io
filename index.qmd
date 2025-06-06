@@ -5,22 +5,10 @@ format:
     toc: false
     echo: false
 ---
-::: {.callout-important}
-
-## AI Era 
-[학원](https://www.gitsam.com/)
-
-Free and Open Source Softwares
-
-:::
-
-::: {.panel-tabset}
-
-## Snippets
 
 <div class="text-center">
   <img src="assets/logo.png" alt="Logo" width="100" height="100" />
-  <h3>Globally Interpretable &nbsp; <span class="text blue"></span></h3>
+  <h4>Globally Interpretable</h4><h3><span class="text blue"></span></h3>
 </div>
 
 <script>
@@ -69,17 +57,6 @@ Free and Open Source Softwares
   printChar(words[gen.next().value]);
 </script>
 
-## Videos
-
-{{< video /assets/video-by-whisk.mp4 >}}
-
-- Google Lab Tools, Suno, Stable Diffusion
-- Creative stories with consistent character, images and music
-- Platonic vs. Erotic
-
-:::
-
-
 ## Apps
 
 <div class="feature-grid">
@@ -87,10 +64,10 @@ Free and Open Source Softwares
 <div class="feature-card" style="background-color: #FCE7F3;">
   <img src="assets/logo-pink.png" alt="Blockchain Token" />
   <p class="feature-title">
-    <a href="#">Blockchain Token</a>
+    <a href="https://www.gitsam.com/">Blockchain Token</a>
   </p>
   <p class="feature-text">
-    보호종료아동에게 투명하고 확실하게 전달되는 기부금 장부
+    취약계층(보호종료아동)에게 투명하고 확실하게 전달되는 기부금 장부
   </p>
   <p class="feature-subtext">
     (vs. givecherry.org)
@@ -100,7 +77,7 @@ Free and Open Source Softwares
 <div class="feature-card" style="background-color: #D1FAE5;">
   <img src="assets/logo-green.png" alt="Fintech" />
   <p class="feature-title">
-    <a href="#">Fintech</a>
+    <a href="https://www.gitsam.com/">Fintech</a>
   </p>
   <p class="feature-text">
     각자도생시대에 필요한 금융투자 앱
@@ -113,7 +90,7 @@ Free and Open Source Softwares
 <div class="feature-card" style="background-color: #DBEAFE;">
   <img src="assets/logo-blue.png" alt="Edutech" />
   <p class="feature-title">
-    <a href="#">Edutech</a>
+    <a href="https://www.gitsam.com/">Edutech</a>
   </p>
   <p class="feature-text">
     LLM을 이용한 기초교육 앱
@@ -126,10 +103,10 @@ Free and Open Source Softwares
 <div class="feature-card" style="background-color: #EDE9FE;">
   <img src="assets/logo-violet.png" alt="Community GPU Cloud" />
   <p class="feature-title">
-    <a href="#">Community GPU Cloud</a>
+    <a href="https://www.gitsam.com/">Community GPU Cloud</a>
   </p>
   <p class="feature-text">
-    Kubernetes를 이용한 GPU 연산 임대
+    Kubernetes를 이용한 GPU 회로 임대
   </p>
   <p class="feature-subtext">
     (vs. runpod.io)
@@ -139,7 +116,7 @@ Free and Open Source Softwares
 <div class="feature-card" style="background-color: #F3F4F6;">
   <img src="assets/logo-gray.png" alt="Messenger" />
   <p class="feature-title">
-    <a href="#">Messenger</a>
+    <a href="https://www.gitsam.com/">Messenger</a>
   </p>
   <p class="feature-text">
     On-device AI-assisted Messenger
@@ -152,10 +129,10 @@ Free and Open Source Softwares
 <div class="feature-card" style="background-color: #FEF9C3;">
   <img src="assets/logo-yellow.png" alt="Socratic LM" />
   <p class="feature-title">
-    <a href="#">Socratic Small LM</a>
+    <a href="https://www.gitsam.com/">On-device Socratic Small LM</a>
   </p>
   <p class="feature-text">
-    On-device 소크라틱 LM with TTS
+     나의 친구 벨벳토끼인형
   </p>
   <p class="feature-subtext">
     (vs. cati 인형)
@@ -163,8 +140,6 @@ Free and Open Source Softwares
 </div>
 
 </div>
-
-
 
 ## Books
 
@@ -208,28 +183,28 @@ Free and Open Source Softwares
 <div class="book-card" data-tags="notion">
   <a href="https://gitsam.notion.site/AI-Dev-Log-1fbd716ee0de801a8a22e31dc6b9c719" target="_blank">
     <img src="/assets/cover-app-log.png" alt="gitsam" />
-    <div class="book-title">gitsam 앱 개발일지</div>
+    <div class="book-title">앱 개발 일지</div>
   </a>
 </div>
 
 <div class="book-card" data-tags="notion">
   <a href="https://gitsam.notion.site/ab09bfb8292b464a846d55e7d3df7a8d?v=ac5787ddcbfe48958d3a8d2777c59c5c" target="_blank">
     <img src="/assets/cover-liberal-arts.png" alt="gitsam" />
-    <div class="book-title">gitsam 지식 산책</div>
+    <div class="book-title">교양 산책</div>
   </a>
 </div>
 
 <div class="book-card" data-tags="notion">
   <a href="https://gitsam.notion.site/179d716ee0de8051bbadeac43a1600f1?v=58f18a25682848129e3293e8262bb370" target="_blank">
     <img src="/assets/cover-theory.png" alt="gitsam" />
-    <div class="book-title">gitsam 경제적 자유</div>
+    <div class="book-title">경제적 자유</div>
   </a>
 </div>
 
 <div class="book-card" data-tags="notion">
   <a href="https://gitsam.notion.site/20ad716ee0de80fdacd7fe3516c4b608?v=20ad716ee0de801ea051000ce11ecfac" target="_blank">
     <img src="/assets/cover-han.png" alt="gitsam" />
-    <div class="book-title">gitsam 표현의 자유</div>
+    <div class="book-title">표현의 자유</div>
   </a>
 </div>
 
@@ -253,3 +228,30 @@ Free and Open Source Softwares
     btn.classList.add('active');
   }
 </script>
+
+
+::: {.callout-note}
+
+## Free and Open
+
+Re-source for your Re-search
+
+:::
+
+::: {.panel-tabset}
+
+## Clips
+
+{{< video /assets/video-by-whisk.mp4 >}}
+
+- Creative stories with consistent character, images and music
+- Google Lab Tools, Suno, Stable Diffusion
+
+## Videos
+
+{{< video https://www.youtube.com/watch?v=hqSupT0nTNw >}}
+
+- Promising K-Culture contents
+- created with LLM tools
+
+:::
