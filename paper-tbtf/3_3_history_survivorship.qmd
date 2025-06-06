@@ -8,7 +8,7 @@ keywords:
   - truncation
   - conservative system
 execute:
-  enabled: false
+  enabled: true
   echo: true
   warning: false
   message: false

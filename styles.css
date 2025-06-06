@@ -1,15 +1,4 @@
 /* css styles */
-.responsive-table {
-    overflow-x: auto;
-    display: block;
-    width: 100%;
-}
-  
-.responsive-table table {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 600px; /* 조정 가능 */
-}
 
 .book-grid {
     display: grid;
@@ -25,7 +14,7 @@
 
 @media (max-width: 480px) {
 .book-grid {
-    grid-template-columns: 1fr; /* 아주 작은 화면: 1개 */
+    grid-template-columns: repeat(2, 1fr);
 }
 }
 
@@ -50,4 +39,135 @@ border-radius: 8px;
 margin-top: 0.5rem;
 font-weight: bold;
 font-size: 1rem;
+}
+#tag-filter {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+#tag-filter button {
+  background-color: #f5f5f5;
+  border: 1px solid #d1d1d1;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+#tag-filter button:hover {
+  background-color: #e0e0e0;
+  border-color: #bfbfbf;
+}
+
+#tag-filter button.active {
+  background-color: #007acc;
+  color: white;
+  border-color: #007acc;
+}
+
+
+span.text {
+    padding-right: 4px;
+    border-right: 2px solid #747474;
+    animation: blink 0.75s infinite;
+}
+
+.blue {
+    color: #65b4f0;
+}
+
+.green {
+    color: #49e145;
+}
+
+.yellow {
+    color: #b6b400;
+}
+
+.red {
+    color: #f18180;
+}
+
+@keyframes blink {
+    0% {
+    border-color: transparent;
+    }
+    100% {
+    border-color: #747474;
+    }
+}
+
+
+/* -------------------------------------------------------------
+   1) feature-grid: book-grid 방식으로 그리드 레이아웃을 정의
+------------------------------------------------------------- */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* 화면 너비 768px 이하: 2개씩 */
+@media (max-width: 768px) {
+  .feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 화면 너비 480px 이하: 1개씩 */
+@media (max-width: 480px) {
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* -------------------------------------------------------------
+   2) feature-card: 기존 아트 스타일(크기, 그림자, 패딩 등) 그대로 유지
+------------------------------------------------------------- */
+.feature-card {
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  background: white;
+  padding: 10px;
+
+  /* 카드 내부 텍스트가 길어져도 줄바꿈, 넘침 방지 */
+  word-break: break-word;
+  white-space: normal;
+}
+
+.feature-card:hover {
+  transform: scale(1.03);
+}
+
+.feature-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 1rem auto 1rem;   /* mx-auto mb-4 */
+  width: 4rem;           /* w-16 (16 * 0.25rem = 4rem) */
+  height: 4rem;          /* h-16 */
+}
+
+.feature-title {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* 본문 텍스트 스타일 */
+.feature-text {
+  color: #4A4A4A;      /* 조금 진한 회색 (Tailwind text-gray-700 정도) */
+  font-size: 0.85rem; /* text-sm */
+}
+
+/* 설명 서브텍스트 스타일 */
+.feature-subtext {
+  color: #6C757D;      /* 중간 회색 (Tailwind text-gray-500 정도) */
+  font-size: 0.75rem;  /* text-xs */
 }

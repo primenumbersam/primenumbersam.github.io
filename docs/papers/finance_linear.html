@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.21">
+<meta name="generator" content="quarto-1.8.4">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="gitSAM">
 <meta name="dcterms.date" content="2025-03-10">
 
-<title>Linear Models of Finance – GitSAM</title>
+<title>Linear Models of Finance</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,16 +32,21 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./../assets/favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-b2bd955b7378b94aa8c2ba4fafa553c9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-19cd9126a9a9c64aacb03dc90954a64a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-c68da94286011e9302a35de07ef23a9e.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-19cd9126a9a9c64aacb03dc90954a64a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-bb5f9278568ae542f8467bdb635b70ac.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-05be89f7dc158724d6ec0523865b6986.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-1418392306ebdb7d3fb27066783eb1cf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-05be89f7dc158724d6ec0523865b6986.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,6 +74,23 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<!-- Google tag (gtag.js) -->
+
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LMQWVD1MKD"></script>
+
+<script>
+
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag(){dataLayer.push(arguments);}
+
+  gtag('js', new Date());
+
+
+
+  gtag('config', 'G-LMQWVD1MKD');
+
+</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -84,7 +106,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -100,18 +122,179 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed quarto-light">
+<body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title"><a href="../index.html">GitSAM</a></span>
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./../assets/logo-nav.png" alt="" class="navbar-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -120,6 +303,33 @@ window.Quarto = {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/primenumbersam/"> 
+<span class="menu-text">Apps</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-books" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Books</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-books">    
+        <li>
+    <a class="dropdown-item" href="./../book-ai-math/index.html">
+ <span class="dropdown-text">AI 기초 수학</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./../book-ai-stats/index.html">
+ <span class="dropdown-text">AI 기초 통계학</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./../book-ai-algebra/index.html">
+ <span class="dropdown-text">AI 응용 선형대수학</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./../book-ai-calculus/index.html">
+ <span class="dropdown-text">AI 응용 미적분학</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-papers" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Papers</span>
@@ -130,54 +340,16 @@ window.Quarto = {
  <span class="dropdown-text">Working</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./../paper-tbtf/index.qmd">
- <span class="dropdown-text">TBTF</span></a>
+    <a class="dropdown-item" href="./../paper-tbtf/index.html">
+ <span class="dropdown-text">Thesis</span></a>
   </li>  
     </ul>
   </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-books" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Books</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-books">    
-        <li>
-    <a class="dropdown-item" href="./../book-gitsam-stats/index.qmd">
- <span class="dropdown-text">gitsam 기초통계학</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://primenumbersam.github.io/">
- <span class="dropdown-text">AI 응용 선형대수학</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="https://github.com/primenumbersam/"> 
-<span class="menu-text">Apps</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="https://www.gitsam.com"> 
-<span class="menu-text">스터디클럽</span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools tools-wide">
-    <a href="https://laroe.co.kr/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-shop"></i></a>
-    <a href="https://www.youtube.com/@primenumbersam" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-youtube"></i></a>
-    <div class="dropdown">
-      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
-      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
-          <li>
-            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/primenumbersam/primenumbersam.github.io">
-            Source Code
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item quarto-navbar-tools-item" href="mailto:primenumbersam@gmail.com">
-            Report a Bug
-            </a>
-          </li>
-      </ul>
-    </div>
+            <div class="quarto-navbar-tools">
+    <a href="https://github.com/primenumbersam/primenumbersam.github.io" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -201,7 +373,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">GitSAM 교육+연구</span></a>
+ <span class="menu-text">gitsam 연구</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -234,7 +406,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./regressions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">From Linear to Curved Structures to Fit the Data</span></a>
+ <span class="menu-text">From Linear to Curved Structures</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -403,26 +575,27 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#dual-approaches-to-asset-management" id="toc-dual-approaches-to-asset-management" class="nav-link" data-scroll-target="#dual-approaches-to-asset-management">Dual Approaches to Asset Management</a></li>
-  <li><a href="#limitations-of-linear-asset-pricing-models" id="toc-limitations-of-linear-asset-pricing-models" class="nav-link" data-scroll-target="#limitations-of-linear-asset-pricing-models">Limitations of Linear Asset Pricing Models</a>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">1</span> Overview</a></li>
+  <li><a href="#dual-approaches-to-asset-management" id="toc-dual-approaches-to-asset-management" class="nav-link" data-scroll-target="#dual-approaches-to-asset-management"><span class="header-section-number">2</span> Dual Approaches to Asset Management</a></li>
+  <li><a href="#limitations-of-linear-asset-pricing-models" id="toc-limitations-of-linear-asset-pricing-models" class="nav-link" data-scroll-target="#limitations-of-linear-asset-pricing-models"><span class="header-section-number">3</span> Limitations of Linear Asset Pricing Models</a>
   <ul class="collapse">
-  <li><a href="#statistical-limitations" id="toc-statistical-limitations" class="nav-link" data-scroll-target="#statistical-limitations">Statistical Limitations</a></li>
-  <li><a href="#the-inverse-relationship-between-risk-and-return-for-dominant-firms" id="toc-the-inverse-relationship-between-risk-and-return-for-dominant-firms" class="nav-link" data-scroll-target="#the-inverse-relationship-between-risk-and-return-for-dominant-firms">The Inverse Relationship Between Risk and Return for Dominant Firms</a></li>
-  <li><a href="#market-efficiency-and-structural-advantages" id="toc-market-efficiency-and-structural-advantages" class="nav-link" data-scroll-target="#market-efficiency-and-structural-advantages">Market Efficiency and Structural Advantages</a></li>
+  <li><a href="#statistical-limitations" id="toc-statistical-limitations" class="nav-link" data-scroll-target="#statistical-limitations"><span class="header-section-number">3.1</span> Statistical Limitations</a></li>
+  <li><a href="#the-inverse-relationship-between-risk-and-return-for-dominant-firms" id="toc-the-inverse-relationship-between-risk-and-return-for-dominant-firms" class="nav-link" data-scroll-target="#the-inverse-relationship-between-risk-and-return-for-dominant-firms"><span class="header-section-number">3.2</span> The Inverse Relationship Between Risk and Return for Dominant Firms</a></li>
+  <li><a href="#market-efficiency-and-structural-advantages" id="toc-market-efficiency-and-structural-advantages" class="nav-link" data-scroll-target="#market-efficiency-and-structural-advantages"><span class="header-section-number">3.3</span> Market Efficiency and Structural Advantages</a></li>
   </ul></li>
-  <li><a href="#practical-asset-management" id="toc-practical-asset-management" class="nav-link" data-scroll-target="#practical-asset-management">Practical Asset Management</a>
+  <li><a href="#practical-asset-management" id="toc-practical-asset-management" class="nav-link" data-scroll-target="#practical-asset-management"><span class="header-section-number">4</span> Practical Asset Management</a>
   <ul class="collapse">
-  <li><a href="#implications-of-model-failure-for-asset-management" id="toc-implications-of-model-failure-for-asset-management" class="nav-link" data-scroll-target="#implications-of-model-failure-for-asset-management">Implications of Model Failure for Asset Management</a></li>
-  <li><a href="#a-data-driven-alternative-stochastic-dominance" id="toc-a-data-driven-alternative-stochastic-dominance" class="nav-link" data-scroll-target="#a-data-driven-alternative-stochastic-dominance">A Data-Driven Alternative: Stochastic Dominance</a></li>
-  <li><a href="#complementary-tools" id="toc-complementary-tools" class="nav-link" data-scroll-target="#complementary-tools">Complementary Tools</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#implications-of-model-failure-for-asset-management" id="toc-implications-of-model-failure-for-asset-management" class="nav-link" data-scroll-target="#implications-of-model-failure-for-asset-management"><span class="header-section-number">4.1</span> Implications of Model Failure for Asset Management</a></li>
+  <li><a href="#a-data-driven-alternative-stochastic-dominance" id="toc-a-data-driven-alternative-stochastic-dominance" class="nav-link" data-scroll-target="#a-data-driven-alternative-stochastic-dominance"><span class="header-section-number">4.2</span> A Data-Driven Alternative: Stochastic Dominance</a></li>
+  <li><a href="#complementary-tools" id="toc-complementary-tools" class="nav-link" data-scroll-target="#complementary-tools"><span class="header-section-number">4.3</span> Complementary Tools</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">4.4</span> Conclusion</a></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
+
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./yield_curve.html">금융</a></li><li class="breadcrumb-item"><a href="./finance_linear.html">Linear Models of Finance</a></li></ol></nav>
 <div class="quarto-title">
@@ -456,8 +629,8 @@ window.Quarto = {
 </header>
 
 
-<section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<section id="overview" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="overview"><span class="header-section-number">1</span> Overview</h2>
 <p>The failure to rationally explain the excess returns for dominant firms reflects not merely model misspecification but a systematic failure to capture the fundamental nature of contemporary capitalism, where returns increasingly flow not as compensation for risk-bearing but as rents extracted through structural market advantages. This insight challenges the core assumptions of traditional asset management, which relies heavily on models like the Capital Asset Pricing Model (CAPM) or multi-factor frameworks to guide investment decisions. In an post-2008 era of quantitative easing (QE), ETF dominance, and mega-cap firms leveraging network effects, regulatory capture, and institutional protection to secure outsized profits, these models lead to suboptimal portfolio allocations. This study delves into the implications of this disconnect, critiques the limitations of conventional approaches, and proposes a data-driven alternative using stochastic dominance to better align asset management with the realities of modern markets.</p>
 <p>The evolution of portfolio optimization and asset pricing reflects a tension between theory and empirics:</p>
 <ul>
@@ -494,8 +667,8 @@ window.Quarto = {
 </ul></li>
 </ul>
 </section>
-<section id="dual-approaches-to-asset-management" class="level2">
-<h2 class="anchored" data-anchor-id="dual-approaches-to-asset-management">Dual Approaches to Asset Management</h2>
+<section id="dual-approaches-to-asset-management" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="dual-approaches-to-asset-management"><span class="header-section-number">2</span> Dual Approaches to Asset Management</h2>
 <p>In economics, a limited resource allocation involves relative price vectors (<span class="math inline">\(P\)</span>) and quantity vectors (<span class="math inline">\(Q\)</span>), often constrained by a structural inner product:</p>
 <p><span class="math display">\[P \cdot Q = \text{constant}\]</span></p>
 <p>With a convex or concave scalar function of <span class="math inline">\(P\)</span> or <span class="math inline">\(Q\)</span> which are complete and compact Euclidean spaces, this structure enables convex optimization tools. Duality in convex optimization posits that solving for <span class="math inline">\(Q\)</span> given <span class="math inline">\(P\)</span> (primal problem) or <span class="math inline">\(P\)</span> given <span class="math inline">\(Q\)</span> (dual problem) yields equivalent results under linear constraints, reflecting the Hahn-Banach theorem’s guarantee of consistent linear functionals.</p>
@@ -512,11 +685,11 @@ window.Quarto = {
 </ul></li>
 </ol>
 </section>
-<section id="limitations-of-linear-asset-pricing-models" class="level2">
-<h2 class="anchored" data-anchor-id="limitations-of-linear-asset-pricing-models">Limitations of Linear Asset Pricing Models</h2>
+<section id="limitations-of-linear-asset-pricing-models" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="limitations-of-linear-asset-pricing-models"><span class="header-section-number">3</span> Limitations of Linear Asset Pricing Models</h2>
 <p>Traditional asset pricing theories operate on the fundamental premise that expected returns directly compensate for systematic risk exposure. However, the empirical reality of top-performing mega-cap stocks presents a profound contradiction: these entities often display disproportionate returns relative to their risk profiles. Consider Apple, which despite having relatively high beta compared to other mega-caps, has generated returns that consistently exceed what would be predicted by its systematic risk exposure alone.</p>
-<section id="statistical-limitations" class="level3">
-<h3 class="anchored" data-anchor-id="statistical-limitations">Statistical Limitations</h3>
+<section id="statistical-limitations" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="statistical-limitations"><span class="header-section-number">3.1</span> Statistical Limitations</h3>
 <p>The conventional approach to addressing anomalies involves extending traditional asset pricing models by incorporating additional factors. These extensions represent a fundamentally inadequate methodology as they merely perpetuate the linear structure of existing frameworks while appending explanatory variables. The standard multi-factor model takes the form:</p>
 <p><span class="math display">\[E(R_i) = R_f + \beta_{i,1}F_1 + \beta_{i,2}F_2 + ... + \beta_{i,n}F_n + \alpha_i\]</span></p>
 <p>Where <span class="math inline">\(E(R_i)\)</span> represents expected returns, <span class="math inline">\(R_f\)</span> is the risk-free rate, <span class="math inline">\(\beta_{i,j}\)</span> are factor loadings, and <span class="math inline">\(F_j\)</span> are risk factors. The proposed extensions for capturing phenomena such as network effects, winner-take-all dynamics, and regulatory capture simply add terms to this equation.</p>
@@ -536,8 +709,8 @@ window.Quarto = {
 <p><span class="math display">\[R_{it} = \alpha_i + \beta_{i,MKT}R_{mt} + \beta_{i,SMB}SMB_t + \beta_{i,HML}HML_t + \varepsilon_{it}\]</span></p>
 <p>This specification assumes parameter stability over time (<span class="math inline">\(\beta_{i,j,t} = \beta_{i,j,t+1}\)</span>), an assumption violated when institutional dynamics create structural breaks. Microsoft’s evolving regulatory landscape demonstrates this challenge—its systematic risk profile has fundamentally changed as its market and political power have increased, rendering historical beta estimates increasingly irrelevant for forward-looking predictions.</p>
 </section>
-<section id="the-inverse-relationship-between-risk-and-return-for-dominant-firms" class="level3">
-<h3 class="anchored" data-anchor-id="the-inverse-relationship-between-risk-and-return-for-dominant-firms">The Inverse Relationship Between Risk and Return for Dominant Firms</h3>
+<section id="the-inverse-relationship-between-risk-and-return-for-dominant-firms" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="the-inverse-relationship-between-risk-and-return-for-dominant-firms"><span class="header-section-number">3.2</span> The Inverse Relationship Between Risk and Return for Dominant Firms</h3>
 <p>The conventional understanding of systematic risk requires fundamental reconceptualization. The Capital Asset Pricing Model posits:</p>
 <p><span class="math display">\[E(R_i) = R_f + \beta_i(E(R_m) - R_f)\]</span></p>
 <p>Where <span class="math inline">\(\beta_i = \frac{Cov(R_i, R_m)}{Var(R_m)} = \rho_{i,m}\frac{\sigma_i}{\sigma_m}\)</span> measures systematic risk exposure. This can be decomposed into correlation (<span class="math inline">\(\rho_{i,m}\)</span>) and relative volatility components (<span class="math inline">\(\frac{\sigma_i}{\sigma_m}\)</span>).</p>
@@ -548,8 +721,8 @@ window.Quarto = {
 <p><span class="math display">\[\frac{E(R_i^{mega}) - R_f}{\sigma_i^{mega}} &gt; \frac{E(R_i^{non-mega}) - R_f}{\sigma_i^{non-mega}}\]</span></p>
 <p>Despite comparable raw returns and market correlations, the risk-adjusted outperformance of mega-cap stocks directly contradicts the foundational risk-return trade-off of asset pricing theory. Amazon exemplifies this phenomenon—its volatility has decreased relative to smaller competitors as its market dominance has increased, yet its returns have remained exceptional, generating superior risk-adjusted performance that cannot be explained by traditional models.</p>
 </section>
-<section id="market-efficiency-and-structural-advantages" class="level3">
-<h3 class="anchored" data-anchor-id="market-efficiency-and-structural-advantages">Market Efficiency and Structural Advantages</h3>
+<section id="market-efficiency-and-structural-advantages" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="market-efficiency-and-structural-advantages"><span class="header-section-number">3.3</span> Market Efficiency and Structural Advantages</h3>
 <p>Market efficiency assumptions underlying traditional models presuppose:</p>
 <p><span class="math display">\[E[R_{i,t+1} | \Omega_t] := E_t[R_{i,t+1}]\]</span></p>
 <p>Where <span class="math inline">\(\Omega_t\)</span> represents the information set available at time <span class="math inline">\(t\)</span>, and <span class="math inline">\(E_t[\cdot]\)</span> denotes expectation conditional on information at time <span class="math inline">\(t\)</span>. However, the persistence of abnormal returns for dominant firms suggests either:</p>
@@ -569,10 +742,10 @@ window.Quarto = {
 <p>Where <span class="math inline">\(g(\cdot)\)</span> is a non-linear function capturing the complex relationship between market power, institutional protection, and returns—a relationship that fundamentally contradicts the risk-return paradigm underlying traditional asset pricing theory.</p>
 </section>
 </section>
-<section id="practical-asset-management" class="level2">
-<h2 class="anchored" data-anchor-id="practical-asset-management">Practical Asset Management</h2>
-<section id="implications-of-model-failure-for-asset-management" class="level3">
-<h3 class="anchored" data-anchor-id="implications-of-model-failure-for-asset-management">Implications of Model Failure for Asset Management</h3>
+<section id="practical-asset-management" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="practical-asset-management"><span class="header-section-number">4</span> Practical Asset Management</h2>
+<section id="implications-of-model-failure-for-asset-management" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="implications-of-model-failure-for-asset-management"><span class="header-section-number">4.1</span> Implications of Model Failure for Asset Management</h3>
 <p>Asset management involves making investment decisions to achieve financial objectives, such as maximizing returns or minimizing risk, typically by constructing portfolios based on expected returns and risk estimates derived from asset pricing models. However, the inadequacy of traditional models when applied to dominant firms—those “superstar” companies that capture disproportionate market value—creates significant practical challenges:</p>
 <ol type="1">
 <li><p><strong>Breakdown of Market Efficiency Assumptions</strong><br>
@@ -586,8 +759,8 @@ The linear structure of traditional models cannot accommodate the non-linear dyn
 </ol>
 <p>These shortcomings result in portfolios that miss out on the concentrated returns of dominant firms, which increasingly drive market performance. Asset managers relying on outdated frameworks risk underperformance in a landscape where structural advantages, not risk exposure, dictate success.</p>
 </section>
-<section id="a-data-driven-alternative-stochastic-dominance" class="level3">
-<h3 class="anchored" data-anchor-id="a-data-driven-alternative-stochastic-dominance">A Data-Driven Alternative: Stochastic Dominance</h3>
+<section id="a-data-driven-alternative-stochastic-dominance" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="a-data-driven-alternative-stochastic-dominance"><span class="header-section-number">4.2</span> A Data-Driven Alternative: Stochastic Dominance</h3>
 <p>To address these challenges, asset management must shift toward empirical, data-driven approaches that eschew the restrictive assumptions of traditional models. One such method is <strong>stochastic dominance</strong>, which evaluates assets by comparing their entire return distributions rather than relying on summary statistics like mean and variance. This approach offers a practical way to identify investments that align with the empirical realities of contemporary markets.</p>
 <ul>
 <li><strong>How It Works</strong>
@@ -622,8 +795,8 @@ Asset managers can apply stochastic dominance by:
 </ul>
 <p>Despite these hurdles, stochastic dominance provides a rigorous framework that sidesteps the theoretical pitfalls of traditional models. It allows asset managers to focus on observable performance, directly addressing the rent extraction that defines dominant firms.</p>
 </section>
-<section id="complementary-tools" class="level3">
-<h3 class="anchored" data-anchor-id="complementary-tools">Complementary Tools</h3>
+<section id="complementary-tools" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="complementary-tools"><span class="header-section-number">4.3</span> Complementary Tools</h3>
 <p>While stochastic dominance serves as a strong foundation, asset managers can bolster their strategies with additional tools to capture the nuances of contemporary markets:</p>
 <ul>
 <li><p><strong>Fundamental Analysis</strong><br>
@@ -635,8 +808,8 @@ Mega-cap stocks typically offer high liquidity, reducing transaction costs and m
 </ul>
 <p>Moreover, the concentration of returns in a few dominant firms suggests that a focused investment strategy—overweighting current mega-caps or scouting emerging leaders—may outperform broad diversification. However, identifying future dominants demands foresight into technological, regulatory, and economic trends, adding complexity to the process.</p>
 </section>
-<section id="conclusion" class="level3">
-<h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>
+<section id="conclusion" class="level3" data-number="4.4">
+<h3 data-number="4.4" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">4.4</span> Conclusion</h3>
 <p>In a world where returns stem from structural market advantages rather than risk-bearing, traditional asset pricing models fail to guide effective asset management. Their inability to predict the performance of dominant firms—rooted in flawed assumptions about efficiency, risk, and linearity—leads to misallocated portfolios that undervalue mega-cap opportunities. A data-driven approach using stochastic dominance offers a compelling alternative, leveraging empirical return distributions to identify superior investments without theoretical baggage. While challenges like data demands and non-stationarity persist, combining this method with fundamental analysis and modern tools equips asset managers to navigate contemporary capitalism. By embracing flexibility and empiricism, asset management can better capture the rents that define today’s markets, delivering superior outcomes in an era of concentrated dominance.</p>
 
 
@@ -646,6 +819,19 @@ Mega-cap stocks typically offer high liquidity, reducing transaction costs and m
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
@@ -1044,6 +1230,38 @@ Mega-cap stocks typically offer high liquidity, reducing transaction costs and m
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2025 · GITSAM · All rights reserved</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/@primenumbersam">
+      <i class="bi bi-youtube" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://instagram.com/primenumbersam">
+      <i class="bi bi-instagram" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://laroe.co.kr/">
+      <i class="bi bi-shop" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
 
 
 

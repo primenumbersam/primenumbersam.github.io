@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.21">
+<meta name="generator" content="quarto-1.8.4">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,7 +10,7 @@
 <meta name="dcterms.date" content="2025-03-18">
 <meta name="keywords" content="경제성장, 자연성장률, 실질 GDP, 실질 중위임금, 시간당 실질 중위임금">
 
-<title>경제성장 대표지표? – GitSAM</title>
+<title>경제성장 대표지표?</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,16 +33,21 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./../assets/favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-b2bd955b7378b94aa8c2ba4fafa553c9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-19cd9126a9a9c64aacb03dc90954a64a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-c68da94286011e9302a35de07ef23a9e.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-19cd9126a9a9c64aacb03dc90954a64a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-bb5f9278568ae542f8467bdb635b70ac.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-05be89f7dc158724d6ec0523865b6986.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-1418392306ebdb7d3fb27066783eb1cf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-05be89f7dc158724d6ec0523865b6986.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,20 +75,198 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<!-- Google tag (gtag.js) -->
+
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LMQWVD1MKD"></script>
+
+<script>
+
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag(){dataLayer.push(arguments);}
+
+  gtag('js', new Date());
 
 
-<link rel="stylesheet" href="../styles.css">
+
+  gtag('config', 'G-LMQWVD1MKD');
+
+</script>
+
+
 </head>
 
-<body class="nav-sidebar floating nav-fixed quarto-light">
+<body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title"><a href="../index.html">GitSAM</a></span>
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./../assets/logo-nav.png" alt="" class="navbar-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -92,6 +275,33 @@ ul.task-list li input[type="checkbox"] {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/primenumbersam/"> 
+<span class="menu-text">Apps</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-books" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Books</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-books">    
+        <li>
+    <a class="dropdown-item" href="./../book-ai-math/index.html">
+ <span class="dropdown-text">AI 기초 수학</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./../book-ai-stats/index.html">
+ <span class="dropdown-text">AI 기초 통계학</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./../book-ai-algebra/index.html">
+ <span class="dropdown-text">AI 응용 선형대수학</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./../book-ai-calculus/index.html">
+ <span class="dropdown-text">AI 응용 미적분학</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-papers" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Papers</span>
@@ -102,54 +312,16 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Working</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./../paper-tbtf/index.qmd">
- <span class="dropdown-text">TBTF</span></a>
+    <a class="dropdown-item" href="./../paper-tbtf/index.html">
+ <span class="dropdown-text">Thesis</span></a>
   </li>  
     </ul>
   </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-books" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Books</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-books">    
-        <li>
-    <a class="dropdown-item" href="./../book-gitsam-stats/index.qmd">
- <span class="dropdown-text">gitsam 기초통계학</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://primenumbersam.github.io/">
- <span class="dropdown-text">AI 응용 선형대수학</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="https://github.com/primenumbersam/"> 
-<span class="menu-text">Apps</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="https://www.gitsam.com"> 
-<span class="menu-text">스터디클럽</span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools tools-wide">
-    <a href="https://laroe.co.kr/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-shop"></i></a>
-    <a href="https://www.youtube.com/@primenumbersam" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-youtube"></i></a>
-    <div class="dropdown">
-      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
-      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
-          <li>
-            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/primenumbersam/primenumbersam.github.io">
-            Source Code
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item quarto-navbar-tools-item" href="mailto:primenumbersam@gmail.com">
-            Report a Bug
-            </a>
-          </li>
-      </ul>
-    </div>
+            <div class="quarto-navbar-tools">
+    <a href="https://github.com/primenumbersam/primenumbersam.github.io" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -173,7 +345,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">GitSAM 교육+연구</span></a>
+ <span class="menu-text">gitsam 연구</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -206,7 +378,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./regressions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">From Linear to Curved Structures to Fit the Data</span></a>
+ <span class="menu-text">From Linear to Curved Structures</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -375,27 +547,28 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#real-gdp-vs.-real-median-hourly-wage" id="toc-real-gdp-vs.-real-median-hourly-wage" class="nav-link active" data-scroll-target="#real-gdp-vs.-real-median-hourly-wage">Real GDP vs.&nbsp;Real Median hourly Wage</a>
+  <li><a href="#real-gdp-vs.-real-median-hourly-wage" id="toc-real-gdp-vs.-real-median-hourly-wage" class="nav-link active" data-scroll-target="#real-gdp-vs.-real-median-hourly-wage"><span class="header-section-number">1</span> Real GDP vs.&nbsp;Real Median hourly Wage</a>
   <ul class="collapse">
-  <li><a href="#통화-공급과-명목-gdp-증가" id="toc-통화-공급과-명목-gdp-증가" class="nav-link" data-scroll-target="#통화-공급과-명목-gdp-증가">통화 공급과 명목 GDP 증가</a></li>
-  <li><a href="#착시-효과-cpi와-실질-gdp" id="toc-착시-효과-cpi와-실질-gdp" class="nav-link" data-scroll-target="#착시-효과-cpi와-실질-gdp">착시 효과: CPI와 실질 GDP</a></li>
-  <li><a href="#진짜-경제-성장-지표는-무엇인가" id="toc-진짜-경제-성장-지표는-무엇인가" class="nav-link" data-scroll-target="#진짜-경제-성장-지표는-무엇인가">진짜 경제 성장 지표는 무엇인가?</a></li>
-  <li><a href="#경제성장-예측-natural-gdp-rate-vs.-consumer-sentiment" id="toc-경제성장-예측-natural-gdp-rate-vs.-consumer-sentiment" class="nav-link" data-scroll-target="#경제성장-예측-natural-gdp-rate-vs.-consumer-sentiment">경제성장 예측: Natural GDP Rate vs.&nbsp;Consumer Sentiment</a></li>
-  <li><a href="#경제-성장의-진짜-의미를-다시-생각해야-한다" id="toc-경제-성장의-진짜-의미를-다시-생각해야-한다" class="nav-link" data-scroll-target="#경제-성장의-진짜-의미를-다시-생각해야-한다">경제 성장의 진짜 의미를 다시 생각해야 한다</a></li>
+  <li><a href="#통화-공급과-명목-gdp-증가" id="toc-통화-공급과-명목-gdp-증가" class="nav-link" data-scroll-target="#통화-공급과-명목-gdp-증가"><span class="header-section-number">1.1</span> 통화 공급과 명목 GDP 증가</a></li>
+  <li><a href="#착시-효과-cpi와-실질-gdp" id="toc-착시-효과-cpi와-실질-gdp" class="nav-link" data-scroll-target="#착시-효과-cpi와-실질-gdp"><span class="header-section-number">1.2</span> 착시 효과: CPI와 실질 GDP</a></li>
+  <li><a href="#진짜-경제-성장-지표는-무엇인가" id="toc-진짜-경제-성장-지표는-무엇인가" class="nav-link" data-scroll-target="#진짜-경제-성장-지표는-무엇인가"><span class="header-section-number">1.3</span> 진짜 경제 성장 지표는 무엇인가?</a></li>
+  <li><a href="#경제성장-예측-natural-gdp-rate-vs.-consumer-sentiment" id="toc-경제성장-예측-natural-gdp-rate-vs.-consumer-sentiment" class="nav-link" data-scroll-target="#경제성장-예측-natural-gdp-rate-vs.-consumer-sentiment"><span class="header-section-number">1.4</span> 경제성장 예측: Natural GDP Rate vs.&nbsp;Consumer Sentiment</a></li>
+  <li><a href="#경제-성장의-진짜-의미를-다시-생각해야-한다" id="toc-경제-성장의-진짜-의미를-다시-생각해야-한다" class="nav-link" data-scroll-target="#경제-성장의-진짜-의미를-다시-생각해야-한다"><span class="header-section-number">1.5</span> 경제 성장의 진짜 의미를 다시 생각해야 한다</a></li>
   </ul></li>
-  <li><a href="#부록-gdp-성장률의-한계와-대안적-경제지표" id="toc-부록-gdp-성장률의-한계와-대안적-경제지표" class="nav-link" data-scroll-target="#부록-gdp-성장률의-한계와-대안적-경제지표">부록: GDP 성장률의 한계와 대안적 경제지표</a>
+  <li><a href="#부록-gdp-성장률의-한계와-대안적-경제지표" id="toc-부록-gdp-성장률의-한계와-대안적-경제지표" class="nav-link" data-scroll-target="#부록-gdp-성장률의-한계와-대안적-경제지표"><span class="header-section-number">2</span> 부록: GDP 성장률의 한계와 대안적 경제지표</a>
   <ul class="collapse">
-  <li><a href="#gdp-성장률의-측정과-한계" id="toc-gdp-성장률의-측정과-한계" class="nav-link" data-scroll-target="#gdp-성장률의-측정과-한계">GDP 성장률의 측정과 한계</a></li>
-  <li><a href="#대안적-경제지표로서의-실질-중위임금real-median-wage" id="toc-대안적-경제지표로서의-실질-중위임금real-median-wage" class="nav-link" data-scroll-target="#대안적-경제지표로서의-실질-중위임금real-median-wage">대안적 경제지표로서의 실질 중위임금(Real Median Wage)</a></li>
-  <li><a href="#경제적-기대지표-consumer-sentiment-index의-우월성" id="toc-경제적-기대지표-consumer-sentiment-index의-우월성" class="nav-link" data-scroll-target="#경제적-기대지표-consumer-sentiment-index의-우월성">경제적 기대지표: Consumer Sentiment Index의 우월성</a></li>
-  <li><a href="#시사점" id="toc-시사점" class="nav-link" data-scroll-target="#시사점">시사점</a></li>
+  <li><a href="#gdp-성장률의-측정과-한계" id="toc-gdp-성장률의-측정과-한계" class="nav-link" data-scroll-target="#gdp-성장률의-측정과-한계"><span class="header-section-number">2.1</span> GDP 성장률의 측정과 한계</a></li>
+  <li><a href="#대안적-경제지표로서의-실질-중위임금real-median-wage" id="toc-대안적-경제지표로서의-실질-중위임금real-median-wage" class="nav-link" data-scroll-target="#대안적-경제지표로서의-실질-중위임금real-median-wage"><span class="header-section-number">2.2</span> 대안적 경제지표로서의 실질 중위임금(Real Median Wage)</a></li>
+  <li><a href="#경제적-기대지표-consumer-sentiment-index의-우월성" id="toc-경제적-기대지표-consumer-sentiment-index의-우월성" class="nav-link" data-scroll-target="#경제적-기대지표-consumer-sentiment-index의-우월성"><span class="header-section-number">2.3</span> 경제적 기대지표: Consumer Sentiment Index의 우월성</a></li>
+  <li><a href="#시사점" id="toc-시사점" class="nav-link" data-scroll-target="#시사점"><span class="header-section-number">2.4</span> 시사점</a></li>
   </ul></li>
-  <li><a href="#참고문헌" id="toc-참고문헌" class="nav-link" data-scroll-target="#참고문헌">참고문헌</a></li>
+  <li><a href="#참고문헌" id="toc-참고문헌" class="nav-link" data-scroll-target="#참고문헌"><span class="header-section-number">3</span> 참고문헌</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
+
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./gitsam_reading.html">경제</a></li><li class="breadcrumb-item"><a href="./indicator_growth.html">경제성장 대표지표?</a></li></ol></nav>
 <div class="quarto-title">
@@ -434,18 +607,18 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="real-gdp-vs.-real-median-hourly-wage" class="level2">
-<h2 class="anchored" data-anchor-id="real-gdp-vs.-real-median-hourly-wage">Real GDP vs.&nbsp;Real Median hourly Wage</h2>
-<section id="통화-공급과-명목-gdp-증가" class="level3">
-<h3 class="anchored" data-anchor-id="통화-공급과-명목-gdp-증가">통화 공급과 명목 GDP 증가</h3>
+<section id="real-gdp-vs.-real-median-hourly-wage" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="real-gdp-vs.-real-median-hourly-wage"><span class="header-section-number">1</span> Real GDP vs.&nbsp;Real Median hourly Wage</h2>
+<section id="통화-공급과-명목-gdp-증가" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="통화-공급과-명목-gdp-증가"><span class="header-section-number">1.1</span> 통화 공급과 명목 GDP 증가</h3>
 <p>중앙은행이 대기업(‘고래’ 기업)들에게만 몰빵으로 현금 유동성을 공급하고, 이 기업들은 새로운 회사를 설립하고 그 자금을 투자에 사용한다. 투자된 돈이 중위 소득 상승과 소비로 연결되지 않고 다시 주식시장으로 유입되어 주가가 상승하면, 명목 GDP(Nominal GDP)는 증가할 수 있다. 하지만 이러한 명목 GDP 증가는 실제 경제 성장(real growth)을 반영하는 것일까?</p>
 </section>
-<section id="착시-효과-cpi와-실질-gdp" class="level3">
-<h3 class="anchored" data-anchor-id="착시-효과-cpi와-실질-gdp">착시 효과: CPI와 실질 GDP</h3>
+<section id="착시-효과-cpi와-실질-gdp" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="착시-효과-cpi와-실질-gdp"><span class="header-section-number">1.2</span> 착시 효과: CPI와 실질 GDP</h3>
 <p>현금 유동성 공급으로 새롭게 만들어진 기업들이 소비자물가지수(CPI) 산정에 포함되지 않는 사업(B2B, 금융, AI, 데이터센터 등)을 한다면, CPI는 거의 변하지 않을 가능성이 매우 높다. 결과적으로, 명목 GDP 증가가 실질 GDP(Real GDP) 증가로 보이는 착시가 발생할 수 있다. 즉, 통계적으로 경제가 성장한 것처럼 보일 수 있지만, 실질적으로 대다수의 생활 수준은 나아지지 않아졌을 가능성이 매우 높다.</p>
 </section>
-<section id="진짜-경제-성장-지표는-무엇인가" class="level3">
-<h3 class="anchored" data-anchor-id="진짜-경제-성장-지표는-무엇인가">진짜 경제 성장 지표는 무엇인가?</h3>
+<section id="진짜-경제-성장-지표는-무엇인가" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="진짜-경제-성장-지표는-무엇인가"><span class="header-section-number">1.3</span> 진짜 경제 성장 지표는 무엇인가?</h3>
 <p>공리주의 사회에서 경제 성장의 핵심 목표는 단순한 GDP 증가가 아니라 <strong>대다수 국민의 실질적 생활 수준 향상</strong>이다. 이를 더 잘 반영하는 지표는 Real GDP per capita 보다 <strong>Median of Real hourly Wage (시간당 실질 임금의 중위값)</strong> 이 될 수 있다.</p>
 <ul>
 <li><strong>Real GDP per capita는 평균적인 경제 생산량 증가를 보여주지만, 실제로 국민 개개인의 소득 분배를 고려하지 않는다.</strong><br>
@@ -455,15 +628,15 @@ ul.task-list li input[type="checkbox"] {
 <li>만약 명목 GDP가 증가하지만 시간당 중위임금이 정체되거나 하락한다면, 이는 대기업과 자산가 중심의 성장일 뿐, 일반 국민들에게 혜택이 돌아가지 않는 성장일 가능성이 크다.</li>
 </ul>
 </section>
-<section id="경제성장-예측-natural-gdp-rate-vs.-consumer-sentiment" class="level3">
-<h3 class="anchored" data-anchor-id="경제성장-예측-natural-gdp-rate-vs.-consumer-sentiment">경제성장 예측: Natural GDP Rate vs.&nbsp;Consumer Sentiment</h3>
+<section id="경제성장-예측-natural-gdp-rate-vs.-consumer-sentiment" class="level3" data-number="1.4">
+<h3 data-number="1.4" class="anchored" data-anchor-id="경제성장-예측-natural-gdp-rate-vs.-consumer-sentiment"><span class="header-section-number">1.4</span> 경제성장 예측: Natural GDP Rate vs.&nbsp;Consumer Sentiment</h3>
 <p>경제 성장의 지속 가능성을 예측하는 데 있어, 현재 사용되는 <strong>Natural GDP Growth Rate(자연 경제 성장률) 모델</strong>은 구조적인 문제를 가질 수 있다.<br>
 - 이런 모델들은 과거 데이터를 기반으로 경제 성장률을 예측하지만, 금융시장 및 소비자 행동의 비선형적 변화를 제대로 반영하지 못한다.<br>
 - 반면 <strong>Consumer Sentiment Index(소비자 심리 지수)</strong> 는 실시간으로 소비자들의 기대와 시장 심리를 측정한다.<br>
 - 즉, 미래의 경제 성장 가능성을 예측하는 데 있어, 소비자들이 체감하는 경제 신뢰도와 구매 의향이 더 실질적인 지표가 될 수 있다.</p>
 </section>
-<section id="경제-성장의-진짜-의미를-다시-생각해야-한다" class="level3">
-<h3 class="anchored" data-anchor-id="경제-성장의-진짜-의미를-다시-생각해야-한다">경제 성장의 진짜 의미를 다시 생각해야 한다</h3>
+<section id="경제-성장의-진짜-의미를-다시-생각해야-한다" class="level3" data-number="1.5">
+<h3 data-number="1.5" class="anchored" data-anchor-id="경제-성장의-진짜-의미를-다시-생각해야-한다"><span class="header-section-number">1.5</span> 경제 성장의 진짜 의미를 다시 생각해야 한다</h3>
 <ul>
 <li>명목 GDP와 실질 GDP만으로 경제 성장을 평가하는 것은 한계가 있다.<br>
 </li>
@@ -474,40 +647,40 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 </section>
 </section>
-<section id="부록-gdp-성장률의-한계와-대안적-경제지표" class="level2">
-<h2 class="anchored" data-anchor-id="부록-gdp-성장률의-한계와-대안적-경제지표">부록: GDP 성장률의 한계와 대안적 경제지표</h2>
-<section id="gdp-성장률의-측정과-한계" class="level3">
-<h3 class="anchored" data-anchor-id="gdp-성장률의-측정과-한계">GDP 성장률의 측정과 한계</h3>
+<section id="부록-gdp-성장률의-한계와-대안적-경제지표" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="부록-gdp-성장률의-한계와-대안적-경제지표"><span class="header-section-number">2</span> 부록: GDP 성장률의 한계와 대안적 경제지표</h2>
+<section id="gdp-성장률의-측정과-한계" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="gdp-성장률의-측정과-한계"><span class="header-section-number">2.1</span> GDP 성장률의 측정과 한계</h3>
 <p>Gross Domestic Product(GDP)는 전통적으로 국가 경제 성장을 나타내는 핵심 지표로 활용되어 왔다. 그러나 최근 학계에서는 GDP 중심의 성장률 평가가 실제 국민의 삶의 질을 정확히 반영하지 못할 수 있다는 우려가 꾸준히 제기되고 있다(Kubiszewski et al., 2013; Stiglitz et al., 2009). 특히 금융 및 자산시장 중심의 성장 패턴이 강해질수록, GDP가 증가함에도 불구하고 소득 격차가 벌어지고 중산층의 생활 수준은 오히려 하락할 수 있다(Piketty, 2014).</p>
 <ul>
 <li><p><strong>Stiglitz, Sen, and Fitoussi (2009)</strong> 는 ’GDP가 단순한 생산물의 양적 증가만을 측정할 뿐, 불평등 심화와 실제 국민들이 체감하는 경제적 안녕(well-being)을 제대로 반영하지 못한다’는 문제를 공식적으로 제기한 바 있다. 이들은 GDP의 한계를 극복할 새로운 경제지표가 필요하다고 주장했다.</p></li>
 <li><p><strong>Coyle (2014)</strong> 역시 GDP 수치 자체가 금융시장의 과열 현상으로 인해 실질적 경제 생산성 및 개개인의 복지 향상과 크게 괴리될 가능성을 지적했다. 그는 특히 금융시장의 투자 활동이 명목 GDP를 상승시키지만, 이러한 상승이 곧 일반 대중의 삶의 질 향상과 연결되지 않을 수 있음을 명시했다.</p></li>
 </ul>
 </section>
-<section id="대안적-경제지표로서의-실질-중위임금real-median-wage" class="level3">
-<h3 class="anchored" data-anchor-id="대안적-경제지표로서의-실질-중위임금real-median-wage">대안적 경제지표로서의 실질 중위임금(Real Median Wage)</h3>
+<section id="대안적-경제지표로서의-실질-중위임금real-median-wage" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="대안적-경제지표로서의-실질-중위임금real-median-wage"><span class="header-section-number">2.2</span> 대안적 경제지표로서의 실질 중위임금(Real Median Wage)</h3>
 <p>경제학자들은 경제 성과 측정의 대안으로 소득분포의 중위값(median) 또는 중간층의 실질 소득 변화에 주목할 필요가 있다고 강조한다(Saez &amp; Zucman, 2016; Chetty et al., 2017). 특히 중위임금(Median Wage)은 경제 성장이 국민 개개인의 생활 수준에 실제로 기여하는지를 명확히 나타내는 핵심적 지표로 주목받는다.</p>
 <ul>
 <li><p><strong>Chetty et al.&nbsp;(2017)</strong> 의 연구에 따르면, 미국 경제에서 GDP의 꾸준한 상승에도 불구하고 최근 30년간 실질 중위 소득이 정체된 사례가 발견되었으며, 이는 GDP 중심의 경제 성장이 반드시 대다수의 국민에게 이득을 가져다주지 않는다는 사실을 보여준다. 이 연구는 중위 소득을 핵심적 지표로 삼아 경제 정책의 우선순위를 재조정할 필요가 있다고 제안한다.</p></li>
 <li><p><strong>Saez and Zucman (2016)</strong> 은 소득불평등의 증가가 GDP 성장률과 무관하게 진행되며, 중위 소득의 정체 또는 감소가 발생하면 경제 성장은 지속가능성을 잃게 된다고 경고한다. 그들은 중위 소득과 실질 생활 수준을 함께 고려하는 새로운 정책 프레임워크의 필요성을 강조한다.</p></li>
 </ul>
 </section>
-<section id="경제적-기대지표-consumer-sentiment-index의-우월성" class="level3">
-<h3 class="anchored" data-anchor-id="경제적-기대지표-consumer-sentiment-index의-우월성">경제적 기대지표: Consumer Sentiment Index의 우월성</h3>
+<section id="경제적-기대지표-consumer-sentiment-index의-우월성" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="경제적-기대지표-consumer-sentiment-index의-우월성"><span class="header-section-number">2.3</span> 경제적 기대지표: Consumer Sentiment Index의 우월성</h3>
 <p>경제 성장의 미래 전망을 평가할 때, 일반적으로 Central Bank 및 국제기구는 자연 경제 성장률(natural GDP rate)과 같은 구조적 모형 기반의 지표를 선호해왔다. 하지만 최근 연구들은 구조적 모형이 금융시장과 실물경제의 복잡한 상호작용을 잘 반영하지 못할 가능성이 있다고 지적한다(Sims, 2010; Coibion &amp; Gorodnichenko, 2015). 이에 따라 소비자심리지수(Consumer Sentiment Index)가 경제 전망의 보다 정확한 선행지표로 주목받기 시작했다.</p>
 <ul>
 <li><p><strong>Coibion and Gorodnichenko (2015)</strong> 는 소비자심리지수가 GDP 성장률, 특히 실질 소비지출의 미래 경로를 잘 예측하는 능력을 가졌음을 실증적으로 증명했다. 이 연구는 특히 불확실성이 높은 시기일수록 소비자심리지수가 공식적인 성장률 모형보다 경제 예측력에서 뛰어남을 보였다.</p></li>
 <li><p><strong>Sims (2010)</strong> 는 구조적 경제 예측 모형이 과거 데이터의 패턴에 과도하게 의존하여 금융 위기와 같은 비선형적 충격을 놓치는 경향이 있다고 지적했다. 반면 소비자 기대감은 그러한 경제적 충격을 보다 신속히 반영하며, 실물경제의 미래 변화에 대한 중요한 통찰력을 제공한다.</p></li>
 </ul>
 </section>
-<section id="시사점" class="level3">
-<h3 class="anchored" data-anchor-id="시사점">시사점</h3>
+<section id="시사점" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="시사점"><span class="header-section-number">2.4</span> 시사점</h3>
 <p>위 연구들의 공통된 결론은 명확하다. 전통적 GDP 성장률 측정 방식은 경제 성장과 국민 생활 수준 향상을 반드시 보장하지 않으며, 때로는 현실과 심각한 괴리를 일으킬 수 있다. 실질 중위임금(Real Median Wage)과 시간당 실질 중위임금 (Hourly Real Median Wage)은 국민들의 실제 생활수준 개선 여부를 평가하는 데 있어 GDP보다 더욱 정확한 지표이며, 미래 경제에 대한 소비자의 심리를 측정하는 소비자심리지수는 구조적 예측모델보다 현실적 통찰력을 제공한다.</p>
 <p>경제 정책은 GDP라는 숫자 증가에 매몰되지 않고, 개개인의 실질 생활수준과 소비자의 체감적 경제 기대감을 더 정확히 반영하는 지표 중심으로 전환해야 한다.</p>
 </section>
 </section>
-<section id="참고문헌" class="level2">
-<h2 class="anchored" data-anchor-id="참고문헌">참고문헌</h2>
+<section id="참고문헌" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="참고문헌"><span class="header-section-number">3</span> 참고문헌</h2>
 <ul>
 <li>Chetty, R., Grusky, D., Hell, M., Hendren, N., Manduca, R., &amp; Narang, J. (2017). <em>The fading American dream: Trends in absolute income mobility since 1940</em>. Science, 356(6336), 398-406.</li>
 <li>Coibion, O., &amp; Gorodnichenko, Y. (2015). <em>Information Rigidity and the Expectations Formation Process: A Simple Framework and New Facts</em>. American Economic Review, 105(8), 2644-2678.</li>
@@ -525,6 +698,19 @@ ul.task-list li input[type="checkbox"] {
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
@@ -923,6 +1109,38 @@ ul.task-list li input[type="checkbox"] {
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2025 · GITSAM · All rights reserved</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/@primenumbersam">
+      <i class="bi bi-youtube" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://instagram.com/primenumbersam">
+      <i class="bi bi-instagram" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://laroe.co.kr/">
+      <i class="bi bi-shop" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
 
 
 

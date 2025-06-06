@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Globally Interpretable – GitSAM</title>
+<title>GITSAM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,16 +30,23 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href=".//assets/favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-19cd9126a9a9c64aacb03dc90954a64a.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-19cd9126a9a9c64aacb03dc90954a64a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-c68da94286011e9302a35de07ef23a9e.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-19cd9126a9a9c64aacb03dc90954a64a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5b8a677417396a6e7de0ff5891f330dc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-05be89f7dc158724d6ec0523865b6986.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-1418392306ebdb7d3fb27066783eb1cf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-05be89f7dc158724d6ec0523865b6986.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/videojs/video.min.js"></script>
+<link href="site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -89,15 +96,177 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">GitSAM</span>
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./assets/logo-nav.png" alt="" class="navbar-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -106,6 +275,33 @@ ul.task-list li input[type="checkbox"] {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/primenumbersam/"> 
+<span class="menu-text">Apps</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-books" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Books</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-books">    
+        <li>
+    <a class="dropdown-item" href="./book-ai-math/index.html">
+ <span class="dropdown-text">AI 기초 수학</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./book-ai-stats/index.html">
+ <span class="dropdown-text">AI 기초 통계학</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./book-ai-algebra/index.html">
+ <span class="dropdown-text">AI 응용 선형대수학</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./book-ai-calculus/index.html">
+ <span class="dropdown-text">AI 응용 미적분학</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-papers" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Papers</span>
@@ -121,57 +317,11 @@ ul.task-list li input[type="checkbox"] {
   </li>  
     </ul>
   </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-books" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Books</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-books">    
-        <li>
-    <a class="dropdown-item" href="./book-ai-stats/index.html">
- <span class="dropdown-text">AI 기초 통계학</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./book-ai-algebra/index.html">
- <span class="dropdown-text">AI 응용 선형대수학</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./book-ai-calculus/index.html">
- <span class="dropdown-text">AI 응용 미적분학</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="./book-gitsam-han/index.html">
- <span class="dropdown-text">gitsam Han(恨)</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="https://github.com/primenumbersam/"> 
-<span class="menu-text">Apps</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="https://www.gitsam.com"> 
-<span class="menu-text">스터디클럽</span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools tools-wide">
-    <a href="https://laroe.co.kr/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-shop"></i></a>
-    <a href="https://www.youtube.com/@primenumbersam" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-youtube"></i></a>
-    <div class="dropdown">
-      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
-      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
-          <li>
-            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/primenumbersam/primenumbersam.github.io">
-            Source Code
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item quarto-navbar-tools-item" href="mailto:primenumbersam@gmail.com">
-            Report a Bug
-            </a>
-          </li>
-      </ul>
-    </div>
+            <div class="quarto-navbar-tools">
+    <a href="https://github.com/primenumbersam/primenumbersam.github.io" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -184,9 +334,10 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Globally Interpretable</h1>
+<h1 class="title">GITSAM</h1>
 </div>
 
 
@@ -203,115 +354,245 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="math-is-an-effective-language" class="level2">
-<h2 class="anchored" data-anchor-id="math-is-an-effective-language">Math is an effective language</h2>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+AI Era
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://www.gitsam.com/">학원</a></p>
+<p>Free and Open Source Softwares</p>
+</div>
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Snippets</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Videos</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="text-center">
+<img src="assets/logo.png" alt="Logo" width="100" height="100">
+<h3 class="anchored">
+Globally Interpretable &nbsp; <span class="text blue"></span>
+</h3>
+</div>
+<script>
+  const words = ["Tech", "Science", "Art", "Math"];
+  const colors = ["blue", "green", "yellow", "red"];
+  const text = document.querySelector(".text");
+
+  function* generator() {
+    let index = 0;
+    while (true) {
+      yield index++;
+      if (index >= words.length) index = 0;
+    }
+  }
+
+  function printChar(word) {
+    let i = 0;
+    text.innerHTML = "";
+    text.className = "text " + colors[words.indexOf(word)];
+    const id = setInterval(() => {
+      if (i >= word.length) {
+        clearInterval(id);
+        setTimeout(deleteChar, 800);
+      } else {
+        text.innerHTML += word[i];
+        i++;
+      }
+    }, 150);
+  }
+
+  function deleteChar() {
+    let word = text.innerHTML;
+    let i = word.length;
+    const id = setInterval(() => {
+      if (i > 0) {
+        text.innerHTML = word.substring(0, --i);
+      } else {
+        text.className = "text";
+        printChar(words[gen.next().value]);
+        clearInterval(id);
+      }
+    }, 100);
+  }
+
+  const gen = generator();
+  printChar(words[gen.next().value]);
+</script>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="quarto-video"><video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="./assets/video-by-whisk.mp4"></video></div>
 <ul>
-<li>Formulate and Solve your problem</li>
-<li>Interpret and Test your solution</li>
-</ul>
-</section>
-<section id="computer-is-an-efficient-tool" class="level2">
-<h2 class="anchored" data-anchor-id="computer-is-an-efficient-tool">Computer is an efficient tool</h2>
-<ul>
-<li>Computation with Python in Colab</li>
-<li>Publication with Quarto in Local</li>
-</ul>
-</section>
-<section id="apps-in-progress" class="level2">
-<h2 class="anchored" data-anchor-id="apps-in-progress">Apps (In progress)</h2>
-<ul>
-<li>FinTech Dashboard vs.&nbsp;simplywall.st : Bayesian RL</li>
-<li>K-Learning vs.&nbsp;EBS Danchoo+ : simple DL model</li>
-<li>K-culture pod vs.&nbsp;runpod : Community based GPU cloud</li>
-<li>messenger vs.&nbsp;telegram : On-device small LM with RAG</li>
-<li>벨벳토끼인형 vs.&nbsp;cati 인형 : On-device Socratic small LM with TTS</li>
-</ul>
-</section>
-<section id="video-arts-in-progress" class="level2">
-<h2 class="anchored" data-anchor-id="video-arts-in-progress">Video Arts (In progress)</h2>
-<ul>
-<li>stories, images and music by consistent character</li>
+<li>Google Lab Tools, Suno, Stable Diffusion</li>
+<li>Creative stories with consistent character, images and music</li>
 <li>Platonic vs.&nbsp;Erotic</li>
 </ul>
+</div>
+</div>
+</div>
+<section id="apps" class="level2">
+<h2 class="anchored" data-anchor-id="apps">Apps</h2>
+<div class="feature-grid">
+<div class="feature-card" style="background-color: #FCE7F3;">
+<img src="assets/logo-pink.png" alt="Blockchain Token">
+<p class="feature-title">
+<a href="#">Blockchain Token</a>
+</p>
+<p class="feature-text">
+보호종료아동에게 투명하고 확실하게 전달되는 기부금 장부
+</p>
+<p class="feature-subtext">
+(vs.&nbsp;givecherry.org)
+</p>
+</div>
+<div class="feature-card" style="background-color: #D1FAE5;">
+<img src="assets/logo-green.png" alt="Fintech">
+<p class="feature-title">
+<a href="#">Fintech</a>
+</p>
+<p class="feature-text">
+각자도생시대에 필요한 금융투자 앱
+</p>
+<p class="feature-subtext">
+(vs.&nbsp;simplywall.st)
+</p>
+</div>
+<div class="feature-card" style="background-color: #DBEAFE;">
+<img src="assets/logo-blue.png" alt="Edutech">
+<p class="feature-title">
+<a href="#">Edutech</a>
+</p>
+<p class="feature-text">
+LLM을 이용한 기초교육 앱
+</p>
+<p class="feature-subtext">
+(vs.&nbsp;EBS Dachoo+)
+</p>
+</div>
+<div class="feature-card" style="background-color: #EDE9FE;">
+<img src="assets/logo-violet.png" alt="Community GPU Cloud">
+<p class="feature-title">
+<a href="#">Community GPU Cloud</a>
+</p>
+<p class="feature-text">
+Kubernetes를 이용한 GPU 연산 임대
+</p>
+<p class="feature-subtext">
+(vs.&nbsp;runpod.io)
+</p>
+</div>
+<div class="feature-card" style="background-color: #F3F4F6;">
+<img src="assets/logo-gray.png" alt="Messenger">
+<p class="feature-title">
+<a href="#">Messenger</a>
+</p>
+<p class="feature-text">
+On-device AI-assisted Messenger
+</p>
+<p class="feature-subtext">
+(vs.&nbsp;Telegram)
+</p>
+</div>
+<div class="feature-card" style="background-color: #FEF9C3;">
+<img src="assets/logo-yellow.png" alt="Socratic LM">
+<p class="feature-title">
+<a href="#">Socratic Small LM</a>
+</p>
+<p class="feature-text">
+On-device 소크라틱 LM with TTS
+</p>
+<p class="feature-subtext">
+(vs.&nbsp;cati 인형)
+</p>
+</div>
+</div>
 </section>
-<section id="books-in-progress" class="level2">
-<h2 class="anchored" data-anchor-id="books-in-progress">Books (In progress)</h2>
-<script>
-function filterBooks(tag) {
-  const cards = document.querySelectorAll('.book-card');
-  cards.forEach(card => {
-    const tags = card.getAttribute('data-tags').split(' ');
-    if (tag === 'all' || tags.includes(tag)) {
-      card.style.display = 'block';
-    } else {
-      card.style.display = 'none';
-    }
-  });
-}
-</script>
+<section id="books" class="level2">
+<h2 class="anchored" data-anchor-id="books">Books</h2>
 <!-- 태그 필터 버튼 -->
 <div id="tag-filter">
-<p><button onclick="filterBooks('all')">All</button> <button onclick="filterBooks('basic')">초급</button> <button onclick="filterBooks('advanced')">고급</button></p>
+<p><button onclick="filterBooks('all')">All</button> <button onclick="filterBooks('quarto')">Quarto</button> <button onclick="filterBooks('notion')">Notion</button></p>
 </div>
 <div class="book-grid">
-<div class="book-card" data-tags="advanced">
-<a href="book-ai-algebra/index.html" target="_blank"> <img src="cover-algebra.png" alt="gitsam">
-<div class="book-title">
-AI 응용 선형대수학
-</div>
-</a><p><a href="book-ai-algebra/index.html" target="_blank"></a></p>
-</div>
-<div class="book-card" data-tags="advanced">
-<a href="book-ai-calculus/index.html" target="_blank"> <img src="cover-calculus.png" alt="gitsam">
-<div class="book-title">
-AI 응용 미적분학
-</div>
-</a><p><a href="book-ai-calculus/index.html" target="_blank"></a></p>
-</div>
-<div class="book-card" data-tags="basic">
-<a href="book-ai-dev_log/index.html" target="_blank"> <img src="cover-app-log.png" alt="gitsam">
-<div class="book-title">
-AI App 개발일지
-</div>
-</a><p><a href="book-ai-dev_log/index.html" target="_blank"></a></p>
-</div>
-<div class="book-card" data-tags="basic">
-<a href="https://gitsam.notion.site/ab09bfb8292b464a846d55e7d3df7a8d?v=18fd716ee0de80b89148000c8a8bb9f9" target="_blank"> <img src="cover-liberal-arts.png" alt="gitsam">
-<div class="book-title">
-gitsam 지식 산책
-</div>
-</a><p><a href="https://gitsam.notion.site/ab09bfb8292b464a846d55e7d3df7a8d?v=18fd716ee0de80b89148000c8a8bb9f9" target="_blank"></a></p>
-</div>
-<div class="book-card" data-tags="basic">
-<a href="book-ai-stats/index.html" target="_blank"> <img src="cover-stats.png" alt="gitsam">
-<div class="book-title">
-AI 기초 통계학
-</div>
-</a><p><a href="book-ai-stats/index.html" target="_blank"></a></p>
-</div>
-<div class="book-card" data-tags="basic">
-<a href="book-ai-math/index.html" target="_blank"> <img src="cover-math.png" alt="gitsam">
+<div class="book-card" data-tags="quarto">
+<a href="book-ai-math/index.html" target="_blank"> <img src="./assets/cover-math.png" alt="gitsam">
 <div class="book-title">
 AI 초중고 수학
 </div>
 </a><p><a href="book-ai-math/index.html" target="_blank"></a></p>
 </div>
-<div class="book-card" data-tags="advanced">
-<a href="book-ai-theory/index.html" target="_blank"> <img src="cover-theory.png" alt="gitsam">
+<div class="book-card" data-tags="quarto">
+<a href="book-ai-stats/index.html" target="_blank"> <img src="./assets/cover-stats.png" alt="gitsam">
 <div class="book-title">
-AI Theory
+AI 기초 통계학
 </div>
-</a><p><a href="book-ai-theory/index.html" target="_blank"></a></p>
+</a><p><a href="book-ai-stats/index.html" target="_blank"></a></p>
 </div>
-<div class="book-card" data-tags="advanced">
-<a href="book-gitsam-han/index.html" target="_blank"> <img src="cover-han.png" alt="gitsam">
+<div class="book-card" data-tags="quarto">
+<a href="book-ai-algebra/index.html" target="_blank"> <img src="./assets/cover-algebra.png" alt="gitsam">
 <div class="book-title">
-gitsam 글짓기
+AI 응용 선형대수학
 </div>
-</a><p><a href="book-gitsam-han/index.html" target="_blank"></a></p>
+</a><p><a href="book-ai-algebra/index.html" target="_blank"></a></p>
 </div>
-<!-- 필요 시 카드 항목을 계속 추가 -->
+<div class="book-card" data-tags="quarto">
+<a href="book-ai-calculus/index.html" target="_blank"> <img src="./assets/cover-calculus.png" alt="gitsam">
+<div class="book-title">
+AI 응용 미적분학
 </div>
+</a><p><a href="book-ai-calculus/index.html" target="_blank"></a></p>
+</div>
+<div class="book-card" data-tags="notion">
+<a href="https://gitsam.notion.site/AI-Dev-Log-1fbd716ee0de801a8a22e31dc6b9c719" target="_blank"> <img src="./assets/cover-app-log.png" alt="gitsam">
+<div class="book-title">
+gitsam 앱 개발일지
+</div>
+</a><p><a href="https://gitsam.notion.site/AI-Dev-Log-1fbd716ee0de801a8a22e31dc6b9c719" target="_blank"></a></p>
+</div>
+<div class="book-card" data-tags="notion">
+<a href="https://gitsam.notion.site/ab09bfb8292b464a846d55e7d3df7a8d?v=ac5787ddcbfe48958d3a8d2777c59c5c" target="_blank"> <img src="./assets/cover-liberal-arts.png" alt="gitsam">
+<div class="book-title">
+gitsam 지식 산책
+</div>
+</a><p><a href="https://gitsam.notion.site/ab09bfb8292b464a846d55e7d3df7a8d?v=ac5787ddcbfe48958d3a8d2777c59c5c" target="_blank"></a></p>
+</div>
+<div class="book-card" data-tags="notion">
+<a href="https://gitsam.notion.site/179d716ee0de8051bbadeac43a1600f1?v=58f18a25682848129e3293e8262bb370" target="_blank"> <img src="./assets/cover-theory.png" alt="gitsam">
+<div class="book-title">
+gitsam 경제적 자유
+</div>
+</a><p><a href="https://gitsam.notion.site/179d716ee0de8051bbadeac43a1600f1?v=58f18a25682848129e3293e8262bb370" target="_blank"></a></p>
+</div>
+<div class="book-card" data-tags="notion">
+<a href="https://gitsam.notion.site/20ad716ee0de80fdacd7fe3516c4b608?v=20ad716ee0de801ea051000ce11ecfac" target="_blank"> <img src="./assets/cover-han.png" alt="gitsam">
+<div class="book-title">
+gitsam 표현의 자유
+</div>
+</a><p><a href="https://gitsam.notion.site/20ad716ee0de80fdacd7fe3516c4b608?v=20ad716ee0de801ea051000ce11ecfac" target="_blank"></a></p>
+</div>
+</div>
+<script>
+  function filterBooks(tag, btn) {
+    const cards = document.querySelectorAll('.book-card');
+    cards.forEach(card => {
+      const tags = card.getAttribute('data-tags').split(' ');
+      if (tag === 'all' || tags.includes(tag)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    // === 버튼 활성화(active) 상태 관리 ===
+    const buttons = document.querySelectorAll('#tag-filter button');
+    buttons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+</script>
 
 
 </section>
@@ -319,6 +600,19 @@ gitsam 글짓기
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
@@ -717,6 +1011,39 @@ gitsam 글짓기
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2025 · GITSAM · All rights reserved</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/@primenumbersam">
+      <i class="bi bi-youtube" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://instagram.com/">
+      <i class="bi bi-instagram" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://laroe.co.kr/">
+      <i class="bi bi-shop" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+<script>videojs(video_shortcode_videojs_video1);</script>
 
 
 

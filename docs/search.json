@@ -247,9 +247,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Globally Interpretable",
+    "title": "GITSAM",
     "section": "",
-    "text": "Formulate and Solve your problem\nInterpret and Test your solution"
+    "text": "AI Era\n\n\n\n학원\nFree and Open Source Softwares"
   },
   {
     "objectID": "index.html#footnotes",
@@ -891,14 +891,14 @@
   {
     "objectID": "index.html#math-is-an-effective-language",
     "href": "index.html#math-is-an-effective-language",
-    "title": "Globally Interpretable",
+    "title": "gitsam",
     "section": "",
     "text": "Formulate and Solve your problem\nInterpret and Test your solution"
   },
   {
     "objectID": "index.html#computer-is-an-efficient-tool",
     "href": "index.html#computer-is-an-efficient-tool",
-    "title": "Globally Interpretable",
+    "title": "gitsam",
     "section": "Computer is an efficient tool",
     "text": "Computer is an efficient tool\n\nComputation with Python in Colab\nPublication with Quarto in Local"
   },
@@ -919,29 +919,92 @@
   {
     "objectID": "index.html#books",
     "href": "index.html#books",
-    "title": "Globally Interpretable",
+    "title": "GITSAM",
     "section": "Books",
-    "text": "Books\n\n\n\nAll 초급 고급\n\n\n\n \n\nAI 응용 선형대수학\n\n\n\n\n \n\nAI 응용 미적분학\n\n\n\n\n \n\nAI App 개발일지\n\n\n\n\n \n\ngitsam 지식 산책\n\n\n\n\n \n\nAI 기초 통계학\n\n\n\n\n \n\nAI 초중고 수학\n\n\n\n\n \n\nAI Theory\n\n\n\n\n \n\ngitsam 글짓기"
+    "text": "Books\n\n\nAll Quarto Notion\n\n\n\n \n\nAI 초중고 수학\n\n\n\n\n \n\nAI 기초 통계학\n\n\n\n\n \n\nAI 응용 선형대수학\n\n\n\n\n \n\nAI 응용 미적분학\n\n\n\n\n \n\ngitsam 앱 개발일지\n\n\n\n\n \n\ngitsam 지식 산책\n\n\n\n\n \n\ngitsam 경제적 자유\n\n\n\n\n \n\ngitsam 표현의 자유"
   },
   {
     "objectID": "index.html#apps-in-progress",
     "href": "index.html#apps-in-progress",
-    "title": "Globally Interpretable",
-    "section": "Apps (In progress)",
-    "text": "Apps (In progress)\n\nFinTech Dashboard vs. simplywall.st : Bayesian RL\nK-Learning vs. EBS Danchoo+ : simple DL model\nK-culture pod vs. runpod : Community based GPU cloud\nmessenger vs. telegram : On-device small LM with RAG\n벨벳토끼인형 vs. cati 인형 : On-device Socratic small LM with TTS"
+    "title": "Free and Open",
+    "section": "",
+    "text": "(Pale Pink) Blockchain Token vs. Cherry\n(Pale Green) FinTech vs. simplywall.st : Bayesian RL\n(Pale Blue) EduTech vs. EBS Danchoo+ : simple DL model\n(Pale Violet) Kubernetes vs. runpod : Community based GPU cloud\n(Pale Gray) Messenger vs. telegram : On-device small LM with RAG\n(Pale Yellow) Corpus Structuring vs. cati 인형 : On-device Socratic small LM with TTS"
   },
   {
     "objectID": "index.html#video-arts-in-progress",
     "href": "index.html#video-arts-in-progress",
-    "title": "Globally Interpretable",
+    "title": "gitsam",
     "section": "Video Arts (In progress)",
-    "text": "Video Arts (In progress)\n\nstories, images and music by consistent character\nPlatonic vs. Erotic"
+    "text": "Video Arts (In progress)\n\nuses Google Lab Tools\nstories, images and music by consistent character\nPlatonic (green) vs. Erotic (violet)"
   },
   {
     "objectID": "index.html#books-in-progress",
     "href": "index.html#books-in-progress",
-    "title": "Globally Interpretable",
+    "title": "Free and Open",
     "section": "Books (In progress)",
-    "text": "Books (In progress)\n\n\n\nAll 초급 고급\n\n\n\n \n\nAI 응용 선형대수학\n\n\n\n\n \n\nAI 응용 미적분학\n\n\n\n\n \n\nAI App 개발일지\n\n\n\n\n \n\ngitsam 지식 산책\n\n\n\n\n \n\nAI 기초 통계학\n\n\n\n\n \n\nAI 초중고 수학\n\n\n\n\n \n\nAI Theory\n\n\n\n\n \n\ngitsam 글짓기"
+    "text": "Books (In progress)\n\n\nAll Notion Quarto\n\n\n\n \n\nAI 초중고 수학\n\n\n\n\n \n\nAI 기초 통계학\n\n\n\n\n \n\nAI 응용 선형대수학\n\n\n\n\n \n\nAI 응용 미적분학\n\n\n\n\n \n\nAI App 개발일지\n\n\n\n\n \n\nAI 돈의 흐름\n\n\n\n\n \n\ngitsam 글짓기\n\n\n\n\n \n\ngitsam 지식 산책"
+  },
+  {
+    "objectID": "index.html#video-wi-ai",
+    "href": "index.html#video-wi-ai",
+    "title": "Free and Open",
+    "section": "Video wi AI",
+    "text": "Video wi AI\n\n\nGoogle Lab Tools, Suno, Stable Diffusion\nCreative stories with consistent character, images and music\nPlatonic vs. Erotic"
+  },
+  {
+    "objectID": "index.html#video-with-ai",
+    "href": "index.html#video-with-ai",
+    "title": "Free and Open",
+    "section": "Video with AI",
+    "text": "Video with AI\n\n\nGoogle Lab Tools, Suno, Stable Diffusion\nCreative stories with consistent character, images and music\nPlatonic vs. Erotic"
+  },
+  {
+    "objectID": "index.html#videos-in-progress",
+    "href": "index.html#videos-in-progress",
+    "title": "Free and Open",
+    "section": "Videos (In Progress)",
+    "text": "Videos (In Progress)\n\n\nGoogle Lab Tools, Suno, Stable Diffusion\nCreative stories with consistent character, images and music\nPlatonic vs. Erotic"
+  },
+  {
+    "objectID": "index.html#hero-section",
+    "href": "index.html#hero-section",
+    "title": "Free and Open",
+    "section": "",
+    "text": "Tab 1Videos\n\n\n\njs 이용한 animation 구현\n\n\n\n\n\n\n\n\n\n\n\nGoogle Lab Tools, Suno, Stable Diffusion\nCreative stories with consistent character, images and music\nPlatonic vs. Erotic"
+  },
+  {
+    "objectID": "index.html#apps",
+    "href": "index.html#apps",
+    "title": "GITSAM",
+    "section": "Apps",
+    "text": "Apps\n\n\n\n\nBlockchain Token\n\n\n보호종료아동에게 투명하고 확실하게 전달되는 기부금 장부\n\n\n(vs. givecherry.org)\n\n\n\n\n\nFintech\n\n\n각자도생시대에 필요한 금융투자 앱\n\n\n(vs. simplywall.st)\n\n\n\n\n\nEdutech\n\n\nLLM을 이용한 기초교육 앱\n\n\n(vs. EBS Dachoo+)\n\n\n\n\n\nCommunity GPU Cloud\n\n\nKubernetes를 이용한 GPU 연산 임대\n\n\n(vs. runpod.io)\n\n\n\n\n\nMessenger\n\n\nOn-device AI-assisted Messenger\n\n\n(vs. Telegram)\n\n\n\n\n\nSocratic Small LM\n\n\nOn-device 소크라틱 LM with TTS\n\n\n(vs. cati 인형)"
+  },
+  {
+    "objectID": "index.html#front-end-design",
+    "href": "index.html#front-end-design",
+    "title": "Free and Open",
+    "section": "",
+    "text": "Codepen SnippetsLLM VideosLayouts\n\n\n\n\n\n\n\n\n\n\n\nGoogle Lab Tools, Suno, Stable Diffusion\nCreative stories with consistent character, images and music\nPlatonic vs. Erotic\n\n\n\n\n\n\n\nItem X\nItem Y\nItem Z\n\n\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur gravida eu erat et fring. Morbi congue augue vel eros ullamcorper, eget convallis tortor sagittis. Fusce sodales viverra mauris a fringilla. Donec feugiat, justo eu blandit placerat, enim dui volutpat turpis, eu dictum lectus urna eu urna. Mauris sed massa ornare, interdum ipsum a, semper massa.\n\n\nthis is the section 3"
+  },
+  {
+    "objectID": "index.html#arts",
+    "href": "index.html#arts",
+    "title": "Free and Open",
+    "section": "",
+    "text": "Codepen SnippetsLLM VideosHobbies\n\n\n\n\n\n\n\n\n\n\n\nGoogle Lab Tools, Suno, Stable Diffusion\nCreative stories with consistent character, images and music\nPlatonic vs. Erotic\n\n\n\n\n\n\n\n\n모임형태: 소형견 보호자 산책 모임\n\n대상: 소형견(5kg 미만) 보호자\n최대 인원: 6명\n\n시간: 주중 매일 저녁 19:00 ~ 약 20:00\n\n장소: 여울공원 (경기 의왕시 학의동 1101번지)\n\n구성:\n\n매일 1시간 내외의 산책\n\n보호자 간 자연스러운 정보 교류 및 강아지 놀이 시간\n\n\n참여조건:\n\n소형견 보호자\n\n리드줄 착용 및 배변 수칙 준수\n\n강아지와 사람 모두에게 친절한 태도\n\n\n회비: 없음\n\n기타: 비공식 오픈 모임 / 반려견 중심의 교류 환영\n\n모집 채널: 당근마켓 ‘동네생활’, 카카오톡 오픈채팅\n\n\n\n\n\n모임형태: 무료 수학 과외\n\n대상: 수학이 싫은 중·고등학생\n최대 인원: 6명\n\n시간: 매주 토요일 오후 15:00 ~ 18:00\n\n장소: 더공간 스터디룸 (경기 의왕시 갈미2로 14, 502호)\n\n구성:\n\n수능 및 내신 수학 문제 질의응답 및 개념 설명\n\n학습 습관·진로 고민 상담\n\n\n참여조건:\n\n학습 의지가 있는 중·고등학생\n\nSNS, 게임이 아닌 검색 위주로 스마트폰을 사용하는 학생\n\n매주 참여 가능한 경우 우선\n\n\n회비: 없음\n\n기타: 개인/그룹 지도 병행 가능 / 학부모 상담 가능\n\n모집 채널: 당근마켓 ‘동네생활’, 카카오톡 오픈채팅\n\n\n\n\n\n모임형태: 성인 독서-술 모임\n\n대상: 35세 이상 성인\n\n최대 인원: 6명\n\n시간: 매주 토요일 저녁 19:00 ~ 22:00\n\n장소: 의왕시 학의동 ‘백운중앙로 + 바라산로’ 근처 밥집 (주마다 유동적으로 선정)\n\n구성:\n\n1.5시간: 각자 읽은 책 내용과 생각 공유\n\n1.5시간: 저녁 식사와 반주를 곁들인 자유 대화\n\n\n참여조건:\n\n책과 술을 좋아하는 35세 이상\n\n흡연자에 대한 강한 거부감 없는 분\n\n느슨한 분위기를 존중하는 분\n\n\n회비: 매회 식사 및 주류 N분의 1 정산\n\n기타: 별도 회비 없음 / 일회성 참여도 가능\n\n모집 채널: 당근마켓 ‘동네생활’, 카카오톡 오픈채팅"
+  },
+  {
+    "objectID": "index.html#community",
+    "href": "index.html#community",
+    "title": "GITSAM",
+    "section": "Community",
+    "text": "Community\n\nCodepen SnippetsLLM Videos\n\n\n\n\n\nGlobally Interpretable   \n\n\n\n\n\n\n\nGoogle Lab Tools, Suno, Stable Diffusion\nCreative stories with consistent character, images and music\nPlatonic vs. Erotic"
+  },
+  {
+    "objectID": "index.html#features",
+    "href": "index.html#features",
+    "title": "GITSAM",
+    "section": "Features",
+    "text": "Features\n\n\n\n\nBlockchain Token\n\n\n보호종료아동에게 투명하고 확실하게 전달되는 기부금 (vs. givecherry.org)\n\n\n\n\n\nFintech\n\n\n각자도생시대에 필요한 금융투자 앱 (vs. simplywall.st)\n\n\n\n\n\nEdutech\n\n\nLLM을 이용한 기초교육 앱 (vs. EBS Dachoo+)\n\n\n\n\n\nCommunity GPU Cloud\n\n\nKubernetes 도구를 이용한 GPU 클라우드 (vs. runpod.io)\n\n\n\n\n\nMessenger\n\n\nOn-device AI-assisted Messenger (vs. Telegram)\n\n\n\n\n\nSocratic Small LM\n\n\nOn-device 소크라틱 LM with TTS (vs. cati 인형)"
   }
 ]

@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="gitSAM">
 
-<title>GitSAM 교육+연구 – GitSAM</title>
+<title>gitsam 연구</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,16 +30,21 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./../assets/favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-19cd9126a9a9c64aacb03dc90954a64a.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-19cd9126a9a9c64aacb03dc90954a64a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-c68da94286011e9302a35de07ef23a9e.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-19cd9126a9a9c64aacb03dc90954a64a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5b8a677417396a6e7de0ff5891f330dc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-05be89f7dc158724d6ec0523865b6986.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-1418392306ebdb7d3fb27066783eb1cf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-05be89f7dc158724d6ec0523865b6986.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,6 +72,23 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<!-- Google tag (gtag.js) -->
+
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LMQWVD1MKD"></script>
+
+<script>
+
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag(){dataLayer.push(arguments);}
+
+  gtag('js', new Date());
+
+
+
+  gtag('config', 'G-LMQWVD1MKD');
+
+</script>
 <script src="site_libs/quarto-diagram/mermaid.min.js"></script>
 <script src="site_libs/quarto-diagram/mermaid-init.js"></script>
 <link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
@@ -102,18 +123,179 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed quarto-light">
+<body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title"><a href="../index.html">GitSAM</a></span>
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./../assets/logo-nav.png" alt="" class="navbar-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -122,26 +304,19 @@ window.Quarto = {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-papers" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Papers</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-papers">    
-        <li>
-    <a class="dropdown-item" href="./index.html">
- <span class="dropdown-text">Working</span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/primenumbersam/"> 
+<span class="menu-text">Apps</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="./../paper-tbtf/index.html">
- <span class="dropdown-text">TBTF</span></a>
-  </li>  
-    </ul>
-  </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-books" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Books</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-books">    
+        <li>
+    <a class="dropdown-item" href="./../book-ai-math/index.html">
+ <span class="dropdown-text">AI 기초 수학</span></a>
+  </li>  
         <li>
     <a class="dropdown-item" href="./../book-ai-stats/index.html">
  <span class="dropdown-text">AI 기초 통계학</span></a>
@@ -154,40 +329,28 @@ window.Quarto = {
     <a class="dropdown-item" href="./../book-ai-calculus/index.html">
  <span class="dropdown-text">AI 응용 미적분학</span></a>
   </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-papers" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Papers</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-papers">    
         <li>
-    <a class="dropdown-item" href="./../book-gitsam-han/index.html">
- <span class="dropdown-text">gitsam Han(恨)</span></a>
+    <a class="dropdown-item" href="./index.html">
+ <span class="dropdown-text">Working</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./../paper-tbtf/index.html">
+ <span class="dropdown-text">Thesis</span></a>
   </li>  
     </ul>
   </li>
-  <li class="nav-item">
-    <a class="nav-link" href="https://github.com/primenumbersam/"> 
-<span class="menu-text">Apps</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="https://www.gitsam.com"> 
-<span class="menu-text">스터디클럽</span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools tools-wide">
-    <a href="https://laroe.co.kr/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-shop"></i></a>
-    <a href="https://www.youtube.com/@primenumbersam" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-youtube"></i></a>
-    <div class="dropdown">
-      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
-      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
-          <li>
-            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/primenumbersam/primenumbersam.github.io">
-            Source Code
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item quarto-navbar-tools-item" href="mailto:primenumbersam@gmail.com">
-            Report a Bug
-            </a>
-          </li>
-      </ul>
-    </div>
+            <div class="quarto-navbar-tools">
+    <a href="https://github.com/primenumbersam/primenumbersam.github.io" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -196,7 +359,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">GitSAM 교육+연구</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">gitsam 연구</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -211,7 +374,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">GitSAM 교육+연구</span></a>
+ <span class="menu-text">gitsam 연구</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -413,33 +576,25 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#리더-leader를-위한-교육" id="toc-리더-leader를-위한-교육" class="nav-link active" data-scroll-target="#리더-leader를-위한-교육">리더 (leader)를 위한 교육</a></li>
-  <li><a href="#쓰기" id="toc-쓰기" class="nav-link" data-scroll-target="#쓰기">쓰기</a>
-  <ul class="collapse">
-  <li><a href="#표-쓰기" id="toc-표-쓰기" class="nav-link" data-scroll-target="#표-쓰기">표 쓰기</a></li>
-  </ul></li>
-  <li><a href="#그리기" id="toc-그리기" class="nav-link" data-scroll-target="#그리기">그리기</a></li>
+  <li><a href="#education-교육" id="toc-education-교육" class="nav-link active" data-scroll-target="#education-교육">Education (교육)</a></li>
+  <li><a href="#writings-쓰기" id="toc-writings-쓰기" class="nav-link" data-scroll-target="#writings-쓰기">Writings (쓰기)</a></li>
+  <li><a href="#images-그리기" id="toc-images-그리기" class="nav-link" data-scroll-target="#images-그리기">Images (그리기)</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">GitSAM 교육+연구</h1>
+<h1 class="title">gitsam 연구</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>gitSAM </p>
-          </div>
-  </div>
     
   
     
@@ -450,47 +605,63 @@ window.Quarto = {
 </header>
 
 
-<section id="리더-leader를-위한-교육" class="level2">
-<h2 class="anchored" data-anchor-id="리더-leader를-위한-교육">리더 (leader)를 위한 교육</h2>
-<blockquote class="blockquote">
-<p>구체적이고 책임 있는 사고로 미래를 여는 리더 (leader)</p>
-</blockquote>
-<p>현대 사회에서는 고위직 엘리트들이 공적인 자리에서 “모든 수사는 법과 절차에 따라 공정하게 진행됩니다.”와 같이 당연한 원칙만을 반복하며, 구체적인 정보를 회피하는 발언이 빈번합니다. 이러한 항진명제식 발언은 정보 비대칭을 이용한 책임 회피의 전략으로, 국민들에게 불투명한 소통을 강요합니다. GitSAM 학원은 이러한 사회적 모호함과 회피의 태도를 극복하고, 학생들이 문제를 단순히 풀어내는 것을 넘어 <strong>문제의 본질을 해석하고, 정의하며, 창의적인 해결책을 도출하는 사고력을 갖추도록 하는 교육</strong>을 지향합니다.</p>
-<p>GitSAM 교육은 전통적인 암기 위주의 수업 방식을 탈피하여, 현실 문제를 직접 경험하고 분석하는 <strong>실습 중심의 융합 교육</strong>을 제공합니다. 교수·박사 등 전문 멘토들이 학생 한 사람 한 사람의 사고 흐름을 꼼꼼히 지도하며, 주가, 소득, 날씨 등 실제 데이터를 바탕으로 문제를 모델링하고 해석하는 방법을 체득하게 합니다. 이로써 단기적인 점수 향상을 넘어, 장기적으로 사회의 복잡한 문제를 스스로 정의하고 해결할 수 있는 인재로 거듭날 수 있도록 돕습니다. 특히 GitSAM은 최신 기술을 적극 활용합니다. Python, Desmos 등의 도구로 수학과 과학의 추상적 개념을 시각화하고, 실전 응용 모형을 통해 산업 현장에서 활용되는 모델들을 구체적으로 이해하도록 돕습니다.</p>
-<p>GitSAM에서는 대수학, 기하학, 미적분학, 확률통계학을 비롯해, 고전역학, 상대성이론, 양자역학 등 심도 있는 과학 교육과 화폐금융론, 재무론, 리더십, 거시·미시경제학, 그리고 근대 문학에 이르기까지 다양한 분야를 융합하여 교육합니다. 이를 통해 학생들은 여러 학문이 하나의 통합된 사고 도구로 작용함을 깨닫고, 복합적 문제 해결 능력과 리더십을 기르게 됩니다.</p>
-<p>GitSAM의 교육 철학은, 단순한 암기나 모호한 책임 회피가 아니라, 구체적 근거와 명확한 사고를 바탕으로 학생들 스스로 세상을 해석하고 변화시킬 수 있는 힘을 기르도록 돕는 교육에 있습니다. 앞으로도 GitSAM은 혁신적 강의 방식, 융합 교육 프로그램, AI를 활용한 Prompt-based Evaluation 시스템 및 학습 과정을 블록체인에 저장하는 Proof of Thinking 시스템을 통해, 학생들이 단기적 성적 향상을 넘어, 장기적으로 사회에 기여할 수 있는 인재로 성장할 수 있도록 지속적인 노력을 기울일 것입니다.</p>
-</section>
-<section id="쓰기" class="level2">
-<h2 class="anchored" data-anchor-id="쓰기">쓰기</h2>
-<blockquote class="blockquote">
-<p>Free and Open Source Software (FOSS)</p>
-</blockquote>
-<p>See <a href="https://primenumbersam-altair.streamlit.app/">My Streamlit Cloud</a></p>
-<p>See <a href="#tbl-letters" class="quarto-xref">Table&nbsp;1</a>.</p>
+<section id="education-교육" class="level2">
+<h2 class="anchored" data-anchor-id="education-교육">Education (교육)</h2>
+<p>gitsam은 단기 성적 향상이 아닌, 구체적 사고력과 장기적 책임 의식을 갖춘 미래 리더 양성을 목표로 합니다. 교육은 “세상을 해석하고 변화시키는 힘이 되어야 한다”는 철학이 그 중심에 있습니다. 현대 사회의 공적 담론에서는 “모든 수사는 법과 절차에 따라 공정하게 진행됩니다”와 같은 항진명제적 발언이 반복되며, 구체적인 정보 제공은 회피됩니다. 이는 책임을 전가하고 정보 비대칭을 유지하려는 전략으로, 시민들에게 불투명한 사고를 강요하는 구조입니다. gitsam은 이러한 모호함을 극복하고자, “학생 스스로 문제를 구체적으로 정의하고 창의적으로 해석하며 책임감있게 해결할 수 있는 사고력 중심의 교육”을 지향합니다. 대수학, 미적분학, 확률통계, 고전역학, 리더십, 경제학 등 다양한 분야의 핵심 개념을 유기적으로 결합하며, 다양한 컴퓨터 도구들을 활용한 시각화 실습을 통해 수학과 과학 개념을 체화하게 합니다. 주가, 소득, 날씨 등 실제 데이터를 기반으로 문제를 수학적으로 모형화하고 해석하는 과정을 통해, 학생들은 단순한 풀이를 넘어 문제의 구조를 스스로 파악하고 다룰 수 있는 능력을 기르게 됩니다.</p>
+<p>gitsam이 강조하는 두 축:</p>
+<ul>
+<li>Math is an effective language
+<ul>
+<li>Formulate and solve your problem</li>
+<li>Interpret and test your solution</li>
+</ul></li>
+<li>Computer is an efficient tool
+<ul>
+<li>Compute and visualize with Python in Colab</li>
+<li>Publish with Quarto in local environment</li>
+</ul></li>
+</ul>
+<div class="grid">
+<div class="g-col-4">
+<p>See <a href="#tbl-panel" class="quarto-xref">Table&nbsp;1</a>.</p>
+</div>
+<div class="g-col-4">
 <p>See <a href="#def-euler" class="quarto-xref">Definition&nbsp;1</a>.</p>
+</div>
+<div class="g-col-4">
 <p>See <a href="#thm-pythagorean" class="quarto-xref">Theorem&nbsp;1</a>.</p>
+</div>
+</div>
+</section>
+<section id="writings-쓰기" class="level2">
+<h2 class="anchored" data-anchor-id="writings-쓰기">Writings (쓰기)</h2>
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div id="def-euler" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1 (오일러 항등식)</strong></span> <span class="math display">\[
 e^{\pi i} = -1
 \]</span></p>
 </div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div id="thm-pythagorean" class="theorem">
 <p><span class="theorem-title"><strong>Theorem 1 (피타고라스 정리)</strong></span> For a right triangle in the Euclidean space, <span class="math display">\[
 a^2+b^2=c^2
 \]</span></p>
 </div>
-<section id="표-쓰기" class="level3">
-<h3 class="anchored" data-anchor-id="표-쓰기">표 쓰기</h3>
-<div id="tbl-letters" class="quarto-float quarto-figure quarto-figure-center anchored">
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div id="tbl-panel" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-letters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-panel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;1: My Caption
 </figcaption>
-<div aria-describedby="tbl-letters-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="tbl-panel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <thead>
 <tr class="header">
-<th>Default</th>
+<th style="text-align: left;">Default</th>
 <th style="text-align: left;">Left</th>
 <th style="text-align: right;">Right</th>
 <th style="text-align: center;">Center</th>
@@ -498,19 +669,19 @@ Table&nbsp;1: My Caption
 </thead>
 <tbody>
 <tr class="odd">
-<td>12</td>
+<td style="text-align: left;">12</td>
 <td style="text-align: left;">12</td>
 <td style="text-align: right;">12</td>
 <td style="text-align: center;">12</td>
 </tr>
 <tr class="even">
-<td>123</td>
+<td style="text-align: left;">123</td>
 <td style="text-align: left;">123</td>
 <td style="text-align: right;">123</td>
 <td style="text-align: center;">123</td>
 </tr>
 <tr class="odd">
-<td>1</td>
+<td style="text-align: left;">1</td>
 <td style="text-align: left;">1</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: center;">1</td>
@@ -520,10 +691,19 @@ Table&nbsp;1: My Caption
 </div>
 </figure>
 </div>
+</div>
+</div>
+</div>
 </section>
-</section>
-<section id="그리기" class="level2">
-<h2 class="anchored" data-anchor-id="그리기">그리기</h2>
+<section id="images-그리기" class="level2">
+<h2 class="anchored" data-anchor-id="images-그리기">Images (그리기)</h2>
+<p>See <a href="https://primenumbersam-altair.streamlit.app/">My Streamlit Cloud</a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/South_korea_population_pyramid_1960-2020.gif/645px-South_korea_population_pyramid_1960-2020.gif" class="img-fluid figure-img"></p>
+<figcaption>image-web 대한민국 인구분포 변화</figcaption>
+</figure>
+</div>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -681,12 +861,6 @@ Table&nbsp;1: My Caption
 </div>
 </div>
 </div>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/South_korea_population_pyramid_1960-2020.gif/645px-South_korea_population_pyramid_1960-2020.gif" class="img-fluid figure-img"></p>
-<figcaption>image-web 대한민국 인구분포 변화</figcaption>
-</figure>
-</div>
 
 
 </section>
@@ -694,6 +868,19 @@ Table&nbsp;1: My Caption
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
@@ -1092,6 +1279,38 @@ Table&nbsp;1: My Caption
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2025 · GITSAM · All rights reserved</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/@primenumbersam">
+      <i class="bi bi-youtube" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://instagram.com/primenumbersam">
+      <i class="bi bi-instagram" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://laroe.co.kr/">
+      <i class="bi bi-shop" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
 
 
 

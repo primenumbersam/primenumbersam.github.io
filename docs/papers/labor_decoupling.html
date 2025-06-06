@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.21">
+<meta name="generator" content="quarto-1.8.4">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,7 +10,7 @@
 <meta name="dcterms.date" content="2025-03-16">
 <meta name="keywords" content="노동생산성, 노동분배성, 공정, decoupling">
 
-<title>노동: 기여 vs.&nbsp;분배 – [GitSAM](../index.html)</title>
+<title>노동: 기여 vs.&nbsp;분배</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -53,16 +53,21 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./../assets/favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-b2bd955b7378b94aa8c2ba4fafa553c9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-19cd9126a9a9c64aacb03dc90954a64a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-c68da94286011e9302a35de07ef23a9e.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-19cd9126a9a9c64aacb03dc90954a64a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-bb5f9278568ae542f8467bdb635b70ac.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-05be89f7dc158724d6ec0523865b6986.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-1418392306ebdb7d3fb27066783eb1cf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-05be89f7dc158724d6ec0523865b6986.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -90,6 +95,23 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
+<!-- Google tag (gtag.js) -->
+
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LMQWVD1MKD"></script>
+
+<script>
+
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag(){dataLayer.push(arguments);}
+
+  gtag('js', new Date());
+
+
+
+  gtag('config', 'G-LMQWVD1MKD');
+
+</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -105,7 +127,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -121,18 +143,179 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed quarto-light">
+<body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title"><a href="../index.html">GitSAM</a></span>
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./../assets/logo-nav.png" alt="" class="navbar-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -141,6 +324,33 @@ window.Quarto = {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/primenumbersam/"> 
+<span class="menu-text">Apps</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-books" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Books</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-books">    
+        <li>
+    <a class="dropdown-item" href="./../book-ai-math/index.html">
+ <span class="dropdown-text">AI 기초 수학</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./../book-ai-stats/index.html">
+ <span class="dropdown-text">AI 기초 통계학</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./../book-ai-algebra/index.html">
+ <span class="dropdown-text">AI 응용 선형대수학</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./../book-ai-calculus/index.html">
+ <span class="dropdown-text">AI 응용 미적분학</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-papers" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Papers</span>
@@ -151,54 +361,16 @@ window.Quarto = {
  <span class="dropdown-text">Working</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./../paper-tbtf/index.qmd">
- <span class="dropdown-text">TBTF</span></a>
+    <a class="dropdown-item" href="./../paper-tbtf/index.html">
+ <span class="dropdown-text">Thesis</span></a>
   </li>  
     </ul>
   </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-books" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Books</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-books">    
-        <li>
-    <a class="dropdown-item" href="./../book-gitsam-stats/index.qmd">
- <span class="dropdown-text">gitsam 기초통계학</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://primenumbersam.github.io/">
- <span class="dropdown-text">AI 응용 선형대수학</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="https://github.com/primenumbersam/"> 
-<span class="menu-text">Apps</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="https://www.gitsam.com"> 
-<span class="menu-text">스터디클럽</span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools tools-wide">
-    <a href="https://laroe.co.kr/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-shop"></i></a>
-    <a href="https://www.youtube.com/@primenumbersam" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-youtube"></i></a>
-    <div class="dropdown">
-      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
-      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
-          <li>
-            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/primenumbersam/primenumbersam.github.io">
-            Source Code
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item quarto-navbar-tools-item" href="mailto:primenumbersam@gmail.com">
-            Report a Bug
-            </a>
-          </li>
-      </ul>
-    </div>
+            <div class="quarto-navbar-tools">
+    <a href="https://github.com/primenumbersam/primenumbersam.github.io" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -222,7 +394,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">GitSAM 교육+연구</span></a>
+ <span class="menu-text">gitsam 연구</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -255,7 +427,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./regressions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">From Linear to Curved Structures to Fit the Data</span></a>
+ <span class="menu-text">From Linear to Curved Structures</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -424,20 +596,21 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#서론" id="toc-서론" class="nav-link active" data-scroll-target="#서론">서론</a></li>
-  <li><a href="#본론" id="toc-본론" class="nav-link" data-scroll-target="#본론">본론</a>
+  <li><a href="#서론" id="toc-서론" class="nav-link active" data-scroll-target="#서론"><span class="header-section-number">1</span> 서론</a></li>
+  <li><a href="#본론" id="toc-본론" class="nav-link" data-scroll-target="#본론"><span class="header-section-number">2</span> 본론</a>
   <ul class="collapse">
-  <li><a href="#노동생산성labor-productivity의-변화" id="toc-노동생산성labor-productivity의-변화" class="nav-link" data-scroll-target="#노동생산성labor-productivity의-변화">1. 노동생산성(Labor Productivity)의 변화</a></li>
-  <li><a href="#노동분배성labor-distributivity의-변화" id="toc-노동분배성labor-distributivity의-변화" class="nav-link" data-scroll-target="#노동분배성labor-distributivity의-변화">2. 노동분배성(Labor Distributivity)의 변화</a></li>
-  <li><a href="#노동분배성-감소의-원인" id="toc-노동분배성-감소의-원인" class="nav-link" data-scroll-target="#노동분배성-감소의-원인">3. 노동분배성 감소의 원인</a></li>
-  <li><a href="#노동참여율labor-force-participation-rate의-변화" id="toc-노동참여율labor-force-participation-rate의-변화" class="nav-link" data-scroll-target="#노동참여율labor-force-participation-rate의-변화">4. 노동참여율(Labor Force Participation Rate)의 변화</a></li>
+  <li><a href="#노동생산성labor-productivity의-변화" id="toc-노동생산성labor-productivity의-변화" class="nav-link" data-scroll-target="#노동생산성labor-productivity의-변화"><span class="header-section-number">2.1</span> 1. 노동생산성(Labor Productivity)의 변화</a></li>
+  <li><a href="#노동분배성labor-distributivity의-변화" id="toc-노동분배성labor-distributivity의-변화" class="nav-link" data-scroll-target="#노동분배성labor-distributivity의-변화"><span class="header-section-number">2.2</span> 2. 노동분배성(Labor Distributivity)의 변화</a></li>
+  <li><a href="#노동분배성-감소의-원인" id="toc-노동분배성-감소의-원인" class="nav-link" data-scroll-target="#노동분배성-감소의-원인"><span class="header-section-number">2.3</span> 3. 노동분배성 감소의 원인</a></li>
+  <li><a href="#노동참여율labor-force-participation-rate의-변화" id="toc-노동참여율labor-force-participation-rate의-변화" class="nav-link" data-scroll-target="#노동참여율labor-force-participation-rate의-변화"><span class="header-section-number">2.4</span> 4. 노동참여율(Labor Force Participation Rate)의 변화</a></li>
   </ul></li>
-  <li><a href="#결론" id="toc-결론" class="nav-link" data-scroll-target="#결론">결론</a></li>
+  <li><a href="#결론" id="toc-결론" class="nav-link" data-scroll-target="#결론"><span class="header-section-number">3</span> 결론</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
+
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./gitsam_reading.html">경제</a></li><li class="breadcrumb-item"><a href="./labor_decoupling.html">노동: 기여 vs.&nbsp;분배</a></li></ol></nav>
 <div class="quarto-title">
@@ -476,8 +649,8 @@ window.Quarto = {
 </header>
 
 
-<section id="서론" class="level2">
-<h2 class="anchored" data-anchor-id="서론">서론</h2>
+<section id="서론" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="서론"><span class="header-section-number">1</span> 서론</h2>
 <p>Neoclassical Growth Model(신고전적 성장 모형)은 경제성장의 핵심 지표로 총생산량(Gross Domestic Product, GDP)을 중시한다. 이 모형에서는 생산의 핵심 요소를 다음과 같이 세 가지로 구분한다 <span class="citation" data-cites="solow1956contribution">(<a href="#ref-solow1956contribution" role="doc-biblioref">Solow 1956</a>)</span>.</p>
 <ul>
 <li>총 노동량(Labor Input, <span class="math inline">\(L\)</span>)<br>
@@ -490,10 +663,10 @@ window.Quarto = {
 <p>모형(Model)은 본질적으로 이론적 가설이며, 경제성장에 대한 다양한 견해를 반영할 수 있는 도구이기 때문에, 각자의 가설과 주장을 펼치는 것은 학문적으로 허용될 수 있다. 그러나 문제의 본질은 해당 모형이 현실을 얼마나 정확하게 설명하고 예측할 수 있는지에 있다. 현실을 반영하지 못하고, 지속적으로 예측에 실패하는 경제성장 모형은 실질적으로 활용 가치가 떨어질 수밖에 없다 <span class="citation" data-cites="stiglitz2017macro">(<a href="#ref-stiglitz2017macro" role="doc-biblioref">Stiglitz 2017</a>)</span>.</p>
 <p>경제성장과 관련하여 실용적인 측면에서 가장 중요한 변수는 총 노동량(<span class="math inline">\(L\)</span>)이라고 볼 수 있다. 이는 비교적 객관적인 측정이 가능하며, 경제의 실질적 변화를 분석하는 데 유용하다. 이러한 맥락에서 노동 생산성(Productivity)과 노동 분배성(Distributivity)라는 두 가지 핵심 개념을 살펴볼 필요가 있다.</p>
 </section>
-<section id="본론" class="level2">
-<h2 class="anchored" data-anchor-id="본론">본론</h2>
-<section id="노동생산성labor-productivity의-변화" class="level3">
-<h3 class="anchored" data-anchor-id="노동생산성labor-productivity의-변화">1. 노동생산성(Labor Productivity)의 변화</h3>
+<section id="본론" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="본론"><span class="header-section-number">2</span> 본론</h2>
+<section id="노동생산성labor-productivity의-변화" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="노동생산성labor-productivity의-변화"><span class="header-section-number">2.1</span> 1. 노동생산성(Labor Productivity)의 변화</h3>
 <p>노동생산성은 단위 노동량당 산출량을 의미하며, 다음과 같이 정의할 수 있다 <span class="citation" data-cites="acemoglu2014labor">(<a href="#ref-acemoglu2014labor" role="doc-biblioref">Acemoglu et al. 2014</a>)</span>.</p>
 <p><span class="math display">\[
 \text{노동생산성} = \frac{Y_t}{L_t}
@@ -512,8 +685,8 @@ window.Quarto = {
 </ul>
 <p>이로부터 계산한 노동생산성(<span class="math inline">\(Y_t/L_t\)</span>) 역시 시간에 따라 증가하는 함수임을 확인할 수 있다. 즉, 경제가 성장함에 따라 노동자 1인당 산출하는 생산량은 꾸준히 증가해 왔다.</p>
 </section>
-<section id="노동분배성labor-distributivity의-변화" class="level3">
-<h3 class="anchored" data-anchor-id="노동분배성labor-distributivity의-변화">2. 노동분배성(Labor Distributivity)의 변화</h3>
+<section id="노동분배성labor-distributivity의-변화" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="노동분배성labor-distributivity의-변화"><span class="header-section-number">2.2</span> 2. 노동분배성(Labor Distributivity)의 변화</h3>
 <p>노동생산성이 증가하면, 일반적으로 노동자에게 돌아가는 보상 역시 증가해야 한다는 것이 경제적 정의(economic fairness)와 균형적 성장(balanced growth)의 핵심 원칙이다 <span class="citation" data-cites="piketty2014capital">(<a href="#ref-piketty2014capital" role="doc-biblioref">Piketty 2014</a>)</span>. 그렇다면 노동 분배성(Labor Distributivity) 역시 시간이 갈수록 증가하였을까?</p>
 <p>이를 확인하기 위해, 노동자의 시간당 실질 중위임금 (Real Median hourly Wage) 을 대리 변수로 활용하였다.</p>
 <ul>
@@ -531,8 +704,8 @@ window.Quarto = {
 <p><a href="https://fred.stlouisfed.org/graph/?g=1EBUJ"><strong>FRED Graph (1980년 이후 노동생산성과 노동분배성 비교)</strong></a></p>
 <p>그래프를 살펴보면, 1980년대 이후 노동생산성과 노동분배성 사이의 격차가 점점 더 커지고 있음을 확인할 수 있다. 이는 무엇을 의미하는가? 노동생산성이 증가함에도 불구하고, 노동자에게 돌아가는 보상의 증가 속도가 이에 미치지 못하고 있다는 점을 시사한다. 다시 말해, <strong>“노동생산성과 노동자 보상의 분리 현상(decoupling)”</strong>이 지속적으로 심화되고 있음을 보여준다 <span class="citation" data-cites="stansbury2020declining">(<a href="#ref-stansbury2020declining" role="doc-biblioref">Stansbury and Summers 2020</a>)</span>. 이러한 현상은 장기적으로 경제적 불평등(economic inequality)을 악화시키는 주요 원인 중 하나로 작용할 수 있다 <span class="citation" data-cites="stiglitz2012price">(<a href="#ref-stiglitz2012price" role="doc-biblioref">Stiglitz 2012</a>)</span>.</p>
 </section>
-<section id="노동분배성-감소의-원인" class="level3">
-<h3 class="anchored" data-anchor-id="노동분배성-감소의-원인">3. 노동분배성 감소의 원인</h3>
+<section id="노동분배성-감소의-원인" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="노동분배성-감소의-원인"><span class="header-section-number">2.3</span> 3. 노동분배성 감소의 원인</h3>
 <p>노동분배성(Labor distributivity)과 총노동소득분배율 (Labor share)의 감소에 대한 경제학적 분석은 다양한 요인을 고려해야 하지만, 주요한 원인으로 다음 두 가지가 지적된다.</p>
 <ol type="1">
 <li>AI 기술 진보(Technological Progress)
@@ -545,8 +718,8 @@ window.Quarto = {
 </ul></li>
 </ol>
 </section>
-<section id="노동참여율labor-force-participation-rate의-변화" class="level3">
-<h3 class="anchored" data-anchor-id="노동참여율labor-force-participation-rate의-변화">4. 노동참여율(Labor Force Participation Rate)의 변화</h3>
+<section id="노동참여율labor-force-participation-rate의-변화" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="노동참여율labor-force-participation-rate의-변화"><span class="header-section-number">2.4</span> 4. 노동참여율(Labor Force Participation Rate)의 변화</h3>
 <p>또한, 노동소득 분배율 감소와 노동시장 변화를 분석하기 위해, 노동참여율(Labor Force Participation Rate)을 함께 고려할 필요가 있다. 이를 위해 <a href="https://fred.stlouisfed.org/series/CIVPART"><strong>Current Population Survey (CPS)에서 조사한 Labor Force Participation Rate</strong></a>를 분석하였다.</p>
 <ul>
 <li>COVID-19 팬데믹이 발생한 2020년에는 노동참여율이 일시적으로 급락했으나, 이후 빠르게 정상 수준으로 회복되었다 <span class="citation" data-cites="coibion2020labor">(<a href="#ref-coibion2020labor" role="doc-biblioref">Coibion, Gorodnichenko, and Weber 2020</a>)</span>.<br>
@@ -555,8 +728,8 @@ window.Quarto = {
 </ul>
 </section>
 </section>
-<section id="결론" class="level2">
-<h2 class="anchored" data-anchor-id="결론">결론</h2>
+<section id="결론" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="결론"><span class="header-section-number">3</span> 결론</h2>
 <p>생산에 대한 노동의 <strong>기여</strong>와 노동자 <strong>보상</strong>의 분리 현상(decoupling)은 실증적 데이터에 의해 명확히 확인된다. 노동생산성이 지속적으로 증가함에도 불구하고, 노동자에게 분배되는 소득 상대적으로 감소해 왔다 <span class="citation" data-cites="karabarbounis2014global">(<a href="#ref-karabarbounis2014global" role="doc-biblioref">Karabarbounis and Neiman 2014</a>)</span>. 단위 노동량당 노동자에게 분배되는 소득도 감소해 왔다. 경제 전문가들은 이러한 현상의 주요 원인으로 AI 기술 진보와 선진국 주도형 세계화를 지목하고 있으며, 이는 장기적으로 노동시장 내 불평등 심화 및 경제적 불안정성을 초래할 가능성이 크다 <span class="citation" data-cites="milanovic2016global">(<a href="#ref-milanovic2016global" role="doc-biblioref">Milanovic 2016</a>)</span>. 향후 연구에서는 <strong>노동분배성 (Labor distributivity)</strong> 회복을 위한 제도적 개선책을 추가적으로 검토할 필요가 있다.</p>
 
 
@@ -609,6 +782,19 @@ Stiglitz, Joseph E. 2012. <em>The Price of Inequality: How Today’s Divided Soc
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
@@ -1007,6 +1193,38 @@ Stiglitz, Joseph E. 2012. <em>The Price of Inequality: How Today’s Divided Soc
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2025 · GITSAM · All rights reserved</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/@primenumbersam">
+      <i class="bi bi-youtube" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://instagram.com/primenumbersam">
+      <i class="bi bi-instagram" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://laroe.co.kr/">
+      <i class="bi bi-shop" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
 
 
 

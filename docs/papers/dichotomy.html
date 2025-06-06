@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.21">
+<meta name="generator" content="quarto-1.8.4">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="gitSAM">
 <meta name="dcterms.date" content="2025-03-10">
 
-<title>Identifying Dichotomy – GitSAM</title>
+<title>Identifying Dichotomy</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -87,16 +87,21 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./../assets/favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-b2bd955b7378b94aa8c2ba4fafa553c9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-19cd9126a9a9c64aacb03dc90954a64a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-c68da94286011e9302a35de07ef23a9e.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-19cd9126a9a9c64aacb03dc90954a64a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-bb5f9278568ae542f8467bdb635b70ac.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-05be89f7dc158724d6ec0523865b6986.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-1418392306ebdb7d3fb27066783eb1cf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-05be89f7dc158724d6ec0523865b6986.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -124,6 +129,23 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
+<!-- Google tag (gtag.js) -->
+
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LMQWVD1MKD"></script>
+
+<script>
+
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag(){dataLayer.push(arguments);}
+
+  gtag('js', new Date());
+
+
+
+  gtag('config', 'G-LMQWVD1MKD');
+
+</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -139,7 +161,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -155,18 +177,179 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed quarto-light">
+<body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title"><a href="../index.html">GitSAM</a></span>
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./../assets/logo-nav.png" alt="" class="navbar-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -175,6 +358,33 @@ window.Quarto = {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/primenumbersam/"> 
+<span class="menu-text">Apps</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-books" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Books</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-books">    
+        <li>
+    <a class="dropdown-item" href="./../book-ai-math/index.html">
+ <span class="dropdown-text">AI 기초 수학</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./../book-ai-stats/index.html">
+ <span class="dropdown-text">AI 기초 통계학</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./../book-ai-algebra/index.html">
+ <span class="dropdown-text">AI 응용 선형대수학</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./../book-ai-calculus/index.html">
+ <span class="dropdown-text">AI 응용 미적분학</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-papers" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Papers</span>
@@ -185,54 +395,16 @@ window.Quarto = {
  <span class="dropdown-text">Working</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./../paper-tbtf/index.qmd">
- <span class="dropdown-text">TBTF</span></a>
+    <a class="dropdown-item" href="./../paper-tbtf/index.html">
+ <span class="dropdown-text">Thesis</span></a>
   </li>  
     </ul>
   </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-books" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Books</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-books">    
-        <li>
-    <a class="dropdown-item" href="./../book-gitsam-stats/index.qmd">
- <span class="dropdown-text">gitsam 기초통계학</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://primenumbersam.github.io/">
- <span class="dropdown-text">AI 응용 선형대수학</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="https://github.com/primenumbersam/"> 
-<span class="menu-text">Apps</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="https://www.gitsam.com"> 
-<span class="menu-text">스터디클럽</span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools tools-wide">
-    <a href="https://laroe.co.kr/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-shop"></i></a>
-    <a href="https://www.youtube.com/@primenumbersam" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-youtube"></i></a>
-    <div class="dropdown">
-      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
-      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
-          <li>
-            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/primenumbersam/primenumbersam.github.io">
-            Source Code
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item quarto-navbar-tools-item" href="mailto:primenumbersam@gmail.com">
-            Report a Bug
-            </a>
-          </li>
-      </ul>
-    </div>
+            <div class="quarto-navbar-tools">
+    <a href="https://github.com/primenumbersam/primenumbersam.github.io" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -256,7 +428,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">GitSAM 교육+연구</span></a>
+ <span class="menu-text">gitsam 연구</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -289,7 +461,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./regressions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">From Linear to Curved Structures to Fit the Data</span></a>
+ <span class="menu-text">From Linear to Curved Structures</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -458,16 +630,17 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
-  <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology">Methodology</a></li>
-  <li><a href="#empirical-results" id="toc-empirical-results" class="nav-link" data-scroll-target="#empirical-results">Empirical Results</a></li>
-  <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions">Conclusions</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><span class="header-section-number">2</span> Data</a></li>
+  <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology"><span class="header-section-number">3</span> Methodology</a></li>
+  <li><a href="#empirical-results" id="toc-empirical-results" class="nav-link" data-scroll-target="#empirical-results"><span class="header-section-number">4</span> Empirical Results</a></li>
+  <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions"><span class="header-section-number">5</span> Conclusions</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
+
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./gitsam_reading.html">경제</a></li><li class="breadcrumb-item"><a href="./dichotomy.html">Identifying Dichotomy</a></li></ol></nav>
 <div class="quarto-title">
@@ -507,14 +680,14 @@ window.Quarto = {
 </header>
 
 
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<section id="introduction" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
 <p>Wealth concentration and inequality have long been central issues in economics, attracting renewed attention as wealth disparities continue to widen. The well-documented <strong>Pareto Principle</strong> suggests that the top 20% holds approximately 80% of total wealth, but empirical studies indicate that this ratio has become even more skewed over time <span class="citation" data-cites="piketty_saez_2003 alvaredo_2013 saez_zucman_2016">(<a href="#ref-piketty_saez_2003" role="doc-biblioref">Piketty and Saez 2003</a>; <a href="#ref-alvaredo_2013" role="doc-biblioref">Alvaredo et al. 2013</a>; <a href="#ref-saez_zucman_2016" role="doc-biblioref">Saez and Zucman 2016</a>)</span>. Such trends raise fundamental questions about the underlying dynamics of wealth distribution: Is wealth accumulation a <strong>zero-sum game</strong>? If so, what is the most <strong>evident dichotomy</strong> that best exposes this phenomenon?</p>
 <p>At every moment, newly created capital is introduced into the economic system through production, subsequently distributed among economic agents, and then either dissipated through consumption or retained through investment. Unlike a static framework where total wealth is fixed, real-world economic systems operate as dynamic entities where total wealth evolves over time. The interplay between <strong>production, distribution, consumption, and investment</strong> determines how wealth is allocated and reallocated across different socioeconomic groups. If the system maintains a stable and proportional allocation of new wealth over time, the <strong>relative shares of net worth</strong> for different groups remain unchanged. However, if allocation mechanisms fluctuate, then the wealth share of one group necessarily increases at the expense of another—reinforcing a <strong>zero-sum dynamic</strong>.</p>
 <p>The key question, therefore, is: <strong>How should we partition the population to most clearly expose this zero-sum characteristic?</strong> In other words, at which <strong>wealth cutoff percentile</strong> do we observe the highest absolute correlation between two complementary wealth groups? Should we divide the population into the top 10% versus the bottom 90%? Or is a more extreme division, such as top 0.1% versus bottom 99.9%, more effective in revealing these dynamics?</p>
 </section>
-<section id="data" class="level2">
-<h2 class="anchored" data-anchor-id="data">Data</h2>
+<section id="data" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="data"><span class="header-section-number">2</span> Data</h2>
 <p>Our empirical analysis is based on FRED (Federal Reserve Economic Data), covering <strong>quarterly</strong> observations from 1989 to 2024. The dataset is structured into wealth brackets representing net wealth shares at different percentile levels:</p>
 <p>Groups (stars)</p>
 <ul>
@@ -536,8 +709,8 @@ window.Quarto = {
 <li><span class="math inline">\(p_1\)</span> or 50th: Minimum Wealth Cutoff for the 50th to 90th Wealth Percentiles (WFRBLN40302)</li>
 </ul>
 </section>
-<section id="methodology" class="level2">
-<h2 class="anchored" data-anchor-id="methodology">Methodology</h2>
+<section id="methodology" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="methodology"><span class="header-section-number">3</span> Methodology</h2>
 <p>Given that total share of net wealth must always sum to one, any partition of the population into two groups remains complementary: <span class="math display">\[
 X_0 + X_1 + X_2 + X_3 + X_4 = 1.
 \]</span></p>
@@ -567,14 +740,14 @@ X_0 + X_1 + X_2 + X_3 + X_4 = 1.
 <p>We seek the wealth cutoff <span class="math inline">\(p\)</span> that maximizes the absolute correlation <span class="math inline">\(|y(p)|\)</span>, revealing the strongest inverse relationship between the two resulting wealth groups. A high absolute correlation suggests that fluctuations in one group’s net worth share are systematically mirrored by the other, reinforcing the zero-sum nature of wealth accumulation. This dichotomy provides insight into how different capital accumulation mechanisms—through labor or capital investment—shape long-term wealth distribution.</p>
 <p>Strong inverse correlations at certain percentiles may indicate critical thresholds where redistribution policies—such as capital taxation or inheritance taxation—could have the most pronounced effects <span class="citation" data-cites="piketty_2011 piketty_saez_stantcheva_2014 saez_zucman_2016">(<a href="#ref-piketty_2011" role="doc-biblioref">Piketty 2011</a>; <a href="#ref-piketty_saez_stantcheva_2014" role="doc-biblioref">Piketty, Saez, and Stantcheva 2014</a>; <a href="#ref-saez_zucman_2016" role="doc-biblioref">Saez and Zucman 2016</a>)</span>.</p>
 </section>
-<section id="empirical-results" class="level2">
-<h2 class="anchored" data-anchor-id="empirical-results">Empirical Results</h2>
+<section id="empirical-results" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="empirical-results"><span class="header-section-number">4</span> Empirical Results</h2>
 <p>After processing the quarterly dataset (excluding missing values), we find that the <strong>90th percentile cutoff (<span class="math inline">\(p_2\)</span>)</strong> exhibits the highest absolute correlation between the two complementary wealth groups. Specifically, as of <strong>2022-07-01</strong>, the <strong>minimum wealth required to be in the top 10% was approximately $2,152,788</strong>.</p>
 <p>This suggests that dividing the population into <strong>top 10% vs.&nbsp;bottom 90%</strong> most effectively reveals the zero-sum nature of wealth redistribution, compared to other partitions such as top 50% vs.&nbsp;bottom 50% or top 0.1% vs.&nbsp;bottom 99.9%.</p>
 <p>These findings imply that the most structurally significant wealth division occurs between the top 10% and the rest, rather than between the ultra-rich and lower percentiles. This observation aligns with broader discussions on wealth polarization, where the top 10% increasingly dominates capital ownership while the bottom 90% exhibits a more recessive trajectory.</p>
 </section>
-<section id="conclusions" class="level2">
-<h2 class="anchored" data-anchor-id="conclusions">Conclusions</h2>
+<section id="conclusions" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="conclusions"><span class="header-section-number">5</span> Conclusions</h2>
 <p>This study demonstrates that partitioning the population at the 90th wealth percentile provides the most evident dichotomy in revealing the zero-sum nature of capital accumulation. Over time, wealth redistribution mechanisms result in strong inverse correlations between net worth shares of different groups, underscoring the struggling aspects of capital accumulation. The analysis suggests that the structural division between the top 10% and the bottom 90% is more significant than commonly assumed top 1% vs.&nbsp;bottom 99% splits, reinforcing the notion that wealth concentration extends beyond the ultra-rich and affects broader socioeconomic strata.</p>
 <p>These findings hold important implications for public policy, particularly in debates surrounding progressive taxation, capital gains policies, and inheritance tax structures. A strong inverse correlation at the 90th percentile threshold suggests that redistributive policies targeted at this level could have significant implications for long-term wealth dynamics. This aligns with prior research emphasizing the role of tax policy in shaping wealth accumulation patterns and mitigating excessive concentration of economic power <span class="citation" data-cites="piketty_saez_stantcheva_2014 saez_zucman_2016">(<a href="#ref-piketty_saez_stantcheva_2014" role="doc-biblioref">Piketty, Saez, and Stantcheva 2014</a>; <a href="#ref-saez_zucman_2016" role="doc-biblioref">Saez and Zucman 2016</a>)</span>.</p>
 <p>While this study primarily focuses on empirical correlation analysis, future research should explore additional macroeconomic variables to refine our understanding of wealth distribution dynamics. Incorporating GDP growth rates, investment patterns, labor market structures, and monetary policy changes may provide further insights into how systemic wealth flows evolve in response to economic shocks and policy interventions. Additionally, extending the dataset to include international comparisons could offer a broader perspective on whether the 90th percentile threshold serves as a critical inflection point for wealth inequality across different economies. Further research integrating both empirical and theoretical approaches will be essential in developing more effective strategies for addressing wealth concentration and economic mobility.</p>
@@ -704,6 +877,19 @@ Saez, Emmanuel, and Gabriel Zucman. 2016. <span>“Wealth Inequality in the Unit
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
@@ -1102,6 +1288,38 @@ Saez, Emmanuel, and Gabriel Zucman. 2016. <span>“Wealth Inequality in the Unit
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2025 · GITSAM · All rights reserved</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/@primenumbersam">
+      <i class="bi bi-youtube" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://instagram.com/primenumbersam">
+      <i class="bi bi-instagram" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://laroe.co.kr/">
+      <i class="bi bi-shop" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
 
 
 

@@ -11,7 +11,7 @@ format:
     toc: true
 ---
 
-## 1. Research Overview
+## Research Overview
 
 This study investigates whether key U.S. economic indicators exhibit **time-varying cointegration** and how structural breaks affect their long-run relationships. The analysis aims to:
 
@@ -21,7 +21,7 @@ This study investigates whether key U.S. economic indicators exhibit **time-vary
 - Extend beyond traditional models by using **fractional and threshold cointegration** frameworks.
 
 
-## 2. Preliminaries
+## Preliminaries
 
 - **Spurious correlation vs. Cointegration**: High correlation between non-stationary variables may be misleading unless the variables are cointegrated.
 - **Cointegration**: A linear combination of I(1) variables that is stationary (I(0)) implies a stable long-term equilibrium.
@@ -31,7 +31,7 @@ This study investigates whether key U.S. economic indicators exhibit **time-vary
 
 
 
-## 3. Research Questions
+## Research Questions
 
 1. Which economic indicators form long-term relationships?
 2. How have these relationships changed over time?
@@ -39,7 +39,7 @@ This study investigates whether key U.S. economic indicators exhibit **time-vary
 
 
 
-## 4. Data and Preprocessing
+## Data and Preprocessing
 
 **Period**: January 1990 – December 2024 (34 years)  
 **Frequency**: Monthly  
@@ -57,9 +57,9 @@ This study investigates whether key U.S. economic indicators exhibit **time-vary
 
 
 
-## 5. Methodology
+## Methodology
 
-### A. Testing for Cointegration
+### Testing for Cointegration
 
 #### Step 1: Unit Root Testing
 - Ensure variables are I(1)
@@ -78,7 +78,7 @@ This study investigates whether key U.S. economic indicators exhibit **time-vary
 
 
 
-### B. Detecting Structural Breaks
+### Detecting Structural Breaks
 
 #### Step 1: Break Detection in Traditional Cointegration
 - Methods:
@@ -100,7 +100,7 @@ Overlay structural breaks with macroeconomic shocks, policy shifts, and global m
 
 
 
-### C. Fractional Cointegration Extension
+### Fractional Cointegration Extension
 
 #### Step 1: Testing
 - Estimate fractional differencing order ($d$) via:
@@ -115,13 +115,13 @@ Overlay structural breaks with macroeconomic shocks, policy shifts, and global m
 
 
 
-### D. Comparison of Breakpoints (Traditional vs. Fractional)
+### Comparison of Breakpoints (Traditional vs. Fractional)
 - Common breakpoints strengthen the validity of structural shifts.
 - Traditional: discrete shifts; Fractional: gradual long-memory transitions.
 
 
 
-### E. Threshold Cointegration Models
+### Threshold Cointegration Models
 
 #### Step 1: Apply TECM
 - Estimate threshold level ($\gamma$)
@@ -140,7 +140,7 @@ Overlay structural breaks with macroeconomic shocks, policy shifts, and global m
 
 
 
-### F. Threshold Fractional Cointegration (TFECM)
+### Threshold Fractional Cointegration (TFECM)
 
 #### Step 1: Estimation
 - Combine fractional differencing with threshold effects:
@@ -158,7 +158,7 @@ Overlay structural breaks with macroeconomic shocks, policy shifts, and global m
 
 
 
-## 6. Summary Evaluation
+## Summary Evaluation
 
 **Strengths**:
 - Systematic, step-by-step progression from standard to advanced models

@@ -1,21 +1,26 @@
 ---
 title: Rethinking Asset Existence
 subtitle: From Risk Compensation to Capital Dominance
-date: '2025-03-29'
 abstract: 주식거래시장에 주식들은 무엇을 위해 존재하는가?
+date: '2025-03-29'
+author: gitSAM
 format:
   html:
     toc: true
     number-sections: true
 ---
 
-### Conventional View: Financial Assets as Risk-Reward Instruments
+## Conventional View
+
+> Financial Assets as Risk-Reward Instruments
 
 In classical asset pricing theory, financial assets are presumed to exist to reward investors for bearing risk. Through mechanisms such as arbitrage and diversification, idiosyncratic risk is mitigated, and equilibrium returns are determined by each asset’s exposure to systematic risk. This framework justifies the *existence* of any asset through the promise of a fair, risk-adjusted return. Asset prices thus reflect not market power or concentration, but the *compensated cost of risk*.
 
 This view embeds a philosophical logic of **fairness**: that market participants are compensated proportionally for risk undertaken, and that capital flows dynamically toward efficiency. Such a model assumes fluid reallocations, reversibility of state transitions, and the dominance of fundamentals over flow mechanics.
 
-### TBTF View: Financial Assets as Power-Concentrating Instruments
+## TBTF View
+
+> Financial Assets as Power-Concentrating Instruments
 
 In contrast, the TBTF framework rejects this equilibrium-based justification. It posits that some financial assets (especially in the public secondary market) persist not because of their risk-return characteristics, but because they are capital sinks—entities with entrenched market dominance, self-reinforcing narratives, and structural insulation from volatility.
 
@@ -23,7 +28,7 @@ These assets do not *compensate* for uncertainty—they absorb uncertainty by of
 
 This redefines the rationale for capital allocation: from (short-run) return-maximization to (long-run) structure-maximization. Investors increasingly allocate not to "the best opportunities" in the short-term, but to "the safest dominant incumbents" in the long-term. The performance of TBTF strategies arises not from myopic risk pricing, but from farsighted market structure engineering—index inclusion, ETF flows, regulatory inertia, and the psychology of too-big-to-fail.
 
-### Philosophical and Mathematical Justification
+## Philosophical and Mathematical Justification
 
 This philosophical inversion has deep implications:
 
@@ -32,7 +37,7 @@ This philosophical inversion has deep implications:
 - **Mathematical Inertia**: TBTF assets exhibit relative **second-moment stationarity**, even when first moments shift. This aligns with the capital inertia hypothesis: relative structure is stable, absolute returns are residual.
 - **Narrative Economics**: Echoing Shiller and Gennaioli–Shleifer, capital allocation is driven less by fundamentals than by *narratives of dominance*, size, and safety.
 
-### Implication for Market Theory
+## Implication for Market Theory
 
 The TBTF perspective challenges the canonical assumptions of:
 

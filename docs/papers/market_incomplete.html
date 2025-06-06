@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.21">
+<meta name="generator" content="quarto-1.8.4">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="GitSAM">
 <meta name="dcterms.date" content="2025-03-19">
 
-<title>Incomplete Markets – GitSAM</title>
+<title>Incomplete Markets</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -52,16 +52,17 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./../assets/favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-b2bd955b7378b94aa8c2ba4fafa553c9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-19cd9126a9a9c64aacb03dc90954a64a.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-bb5f9278568ae542f8467bdb635b70ac.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-05be89f7dc158724d6ec0523865b6986.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -89,6 +90,23 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
+<!-- Google tag (gtag.js) -->
+
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LMQWVD1MKD"></script>
+
+<script>
+
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag(){dataLayer.push(arguments);}
+
+  gtag('js', new Date());
+
+
+
+  gtag('config', 'G-LMQWVD1MKD');
+
+</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -104,7 +122,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -120,7 +138,6 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-sidebar floating nav-fixed quarto-light">
@@ -130,8 +147,8 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title"><a href="../index.html">GitSAM</a></span>
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./../assets/logo-nav.png" alt="" class="navbar-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -140,6 +157,33 @@ window.Quarto = {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/primenumbersam/"> 
+<span class="menu-text">Apps</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-books" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Books</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-books">    
+        <li>
+    <a class="dropdown-item" href="./../book-ai-math/index.html">
+ <span class="dropdown-text">AI 기초 수학</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./../book-ai-stats/index.html">
+ <span class="dropdown-text">AI 기초 통계학</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./../book-ai-algebra/index.html">
+ <span class="dropdown-text">AI 응용 선형대수학</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./../book-ai-calculus/index.html">
+ <span class="dropdown-text">AI 응용 미적분학</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-papers" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Papers</span>
@@ -150,54 +194,16 @@ window.Quarto = {
  <span class="dropdown-text">Working</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./../paper-tbtf/index.qmd">
- <span class="dropdown-text">TBTF</span></a>
+    <a class="dropdown-item" href="./../paper-tbtf/index.html">
+ <span class="dropdown-text">Thesis</span></a>
   </li>  
     </ul>
   </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-books" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Books</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-books">    
-        <li>
-    <a class="dropdown-item" href="./../book-gitsam-stats/index.qmd">
- <span class="dropdown-text">gitsam 기초통계학</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://primenumbersam.github.io/">
- <span class="dropdown-text">AI 응용 선형대수학</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="https://github.com/primenumbersam/"> 
-<span class="menu-text">Apps</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="https://www.gitsam.com"> 
-<span class="menu-text">스터디클럽</span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools tools-wide">
-    <a href="https://laroe.co.kr/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-shop"></i></a>
-    <a href="https://www.youtube.com/@primenumbersam" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-youtube"></i></a>
-    <div class="dropdown">
-      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
-      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
-          <li>
-            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/primenumbersam/primenumbersam.github.io">
-            Source Code
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item quarto-navbar-tools-item" href="mailto:primenumbersam@gmail.com">
-            Report a Bug
-            </a>
-          </li>
-      </ul>
-    </div>
+            <div class="quarto-navbar-tools">
+    <a href="https://github.com/primenumbersam/primenumbersam.github.io" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -221,7 +227,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">GitSAM 교육+연구</span></a>
+ <span class="menu-text">gitsam 연구</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -254,7 +260,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./regressions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">From Linear to Curved Structures to Fit the Data</span></a>
+ <span class="menu-text">From Linear to Curved Structures</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -423,26 +429,26 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#core-assumptions-of-neoclassical-economics-and-monetarism" id="toc-core-assumptions-of-neoclassical-economics-and-monetarism" class="nav-link" data-scroll-target="#core-assumptions-of-neoclassical-economics-and-monetarism">Core Assumptions of Neoclassical Economics and Monetarism</a></li>
-  <li><a href="#complete-vs.-incomplete-markets" id="toc-complete-vs.-incomplete-markets" class="nav-link" data-scroll-target="#complete-vs.-incomplete-markets">Complete vs.&nbsp;Incomplete Markets</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#core-assumptions-of-neoclassical-economics-and-monetarism" id="toc-core-assumptions-of-neoclassical-economics-and-monetarism" class="nav-link" data-scroll-target="#core-assumptions-of-neoclassical-economics-and-monetarism"><span class="header-section-number">2</span> Core Assumptions of Neoclassical Economics and Monetarism</a></li>
+  <li><a href="#complete-vs.-incomplete-markets" id="toc-complete-vs.-incomplete-markets" class="nav-link" data-scroll-target="#complete-vs.-incomplete-markets"><span class="header-section-number">3</span> Complete vs.&nbsp;Incomplete Markets</a>
   <ul class="collapse">
-  <li><a href="#friedman-consumption-smoothing-model-complete-markets" id="toc-friedman-consumption-smoothing-model-complete-markets" class="nav-link" data-scroll-target="#friedman-consumption-smoothing-model-complete-markets">Friedman Consumption Smoothing Model (Complete Markets)</a></li>
-  <li><a href="#consumption-investment-trade-off-under-liquidity-constraints" id="toc-consumption-investment-trade-off-under-liquidity-constraints" class="nav-link" data-scroll-target="#consumption-investment-trade-off-under-liquidity-constraints">Consumption-Investment Trade-off under Liquidity Constraints</a></li>
-  <li><a href="#bewley-model-precautionary-savings-in-an-incomplete-market" id="toc-bewley-model-precautionary-savings-in-an-incomplete-market" class="nav-link" data-scroll-target="#bewley-model-precautionary-savings-in-an-incomplete-market">Bewley Model: Precautionary Savings in an Incomplete Market</a></li>
-  <li><a href="#aiyagari-model-general-equilibrium-with-incomplete-markets" id="toc-aiyagari-model-general-equilibrium-with-incomplete-markets" class="nav-link" data-scroll-target="#aiyagari-model-general-equilibrium-with-incomplete-markets">Aiyagari Model: General Equilibrium with Incomplete Markets</a></li>
-  <li><a href="#harrison-kreps-1978-model-asset-pricing-with-heterogeneous-beliefs" id="toc-harrison-kreps-1978-model-asset-pricing-with-heterogeneous-beliefs" class="nav-link" data-scroll-target="#harrison-kreps-1978-model-asset-pricing-with-heterogeneous-beliefs">Harrison &amp; Kreps (1978) Model: Asset Pricing with Heterogeneous Beliefs</a></li>
+  <li><a href="#friedman-consumption-smoothing-model-complete-markets" id="toc-friedman-consumption-smoothing-model-complete-markets" class="nav-link" data-scroll-target="#friedman-consumption-smoothing-model-complete-markets"><span class="header-section-number">3.1</span> Friedman Consumption Smoothing Model (Complete Markets)</a></li>
+  <li><a href="#consumption-investment-trade-off-under-liquidity-constraints" id="toc-consumption-investment-trade-off-under-liquidity-constraints" class="nav-link" data-scroll-target="#consumption-investment-trade-off-under-liquidity-constraints"><span class="header-section-number">3.2</span> Consumption-Investment Trade-off under Liquidity Constraints</a></li>
+  <li><a href="#bewley-model-precautionary-savings-in-an-incomplete-market" id="toc-bewley-model-precautionary-savings-in-an-incomplete-market" class="nav-link" data-scroll-target="#bewley-model-precautionary-savings-in-an-incomplete-market"><span class="header-section-number">3.3</span> Bewley Model: Precautionary Savings in an Incomplete Market</a></li>
+  <li><a href="#aiyagari-model-general-equilibrium-with-incomplete-markets" id="toc-aiyagari-model-general-equilibrium-with-incomplete-markets" class="nav-link" data-scroll-target="#aiyagari-model-general-equilibrium-with-incomplete-markets"><span class="header-section-number">3.4</span> Aiyagari Model: General Equilibrium with Incomplete Markets</a></li>
+  <li><a href="#harrison-kreps-1978-model-asset-pricing-with-heterogeneous-beliefs" id="toc-harrison-kreps-1978-model-asset-pricing-with-heterogeneous-beliefs" class="nav-link" data-scroll-target="#harrison-kreps-1978-model-asset-pricing-with-heterogeneous-beliefs"><span class="header-section-number">3.5</span> Harrison &amp; Kreps (1978) Model: Asset Pricing with Heterogeneous Beliefs</a></li>
   </ul></li>
-  <li><a href="#policy-implications-of-models" id="toc-policy-implications-of-models" class="nav-link" data-scroll-target="#policy-implications-of-models">Policy Implications of Models</a></li>
-  <li><a href="#bridging-the-gap-between-theory-and-reality" id="toc-bridging-the-gap-between-theory-and-reality" class="nav-link" data-scroll-target="#bridging-the-gap-between-theory-and-reality">Bridging the Gap Between Theory and Reality</a></li>
-  <li><a href="#empirical-review-evaluating-policy-recommendations-in-practice" id="toc-empirical-review-evaluating-policy-recommendations-in-practice" class="nav-link" data-scroll-target="#empirical-review-evaluating-policy-recommendations-in-practice">Empirical Review: Evaluating Policy Recommendations in Practice</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
-  <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix">Appendix</a>
+  <li><a href="#policy-implications-of-models" id="toc-policy-implications-of-models" class="nav-link" data-scroll-target="#policy-implications-of-models"><span class="header-section-number">4</span> Policy Implications of Models</a></li>
+  <li><a href="#bridging-the-gap-between-theory-and-reality" id="toc-bridging-the-gap-between-theory-and-reality" class="nav-link" data-scroll-target="#bridging-the-gap-between-theory-and-reality"><span class="header-section-number">5</span> Bridging the Gap Between Theory and Reality</a></li>
+  <li><a href="#empirical-review-evaluating-policy-recommendations-in-practice" id="toc-empirical-review-evaluating-policy-recommendations-in-practice" class="nav-link" data-scroll-target="#empirical-review-evaluating-policy-recommendations-in-practice"><span class="header-section-number">6</span> Empirical Review: Evaluating Policy Recommendations in Practice</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">7</span> Conclusion</a></li>
+  <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix"><span class="header-section-number">8</span> Appendix</a>
   <ul class="collapse">
-  <li><a href="#friedmans-permanent-income-model" id="toc-friedmans-permanent-income-model" class="nav-link" data-scroll-target="#friedmans-permanent-income-model">Friedman’s Permanent Income Model</a></li>
-  <li><a href="#bewley-model" id="toc-bewley-model" class="nav-link" data-scroll-target="#bewley-model">Bewley Model</a></li>
-  <li><a href="#aiyagari-model" id="toc-aiyagari-model" class="nav-link" data-scroll-target="#aiyagari-model">Aiyagari Model</a></li>
-  <li><a href="#harrison-kreps-model" id="toc-harrison-kreps-model" class="nav-link" data-scroll-target="#harrison-kreps-model">Harrison &amp; Kreps Model</a></li>
+  <li><a href="#friedmans-permanent-income-model" id="toc-friedmans-permanent-income-model" class="nav-link" data-scroll-target="#friedmans-permanent-income-model"><span class="header-section-number">8.1</span> Friedman’s Permanent Income Model</a></li>
+  <li><a href="#bewley-model" id="toc-bewley-model" class="nav-link" data-scroll-target="#bewley-model"><span class="header-section-number">8.2</span> Bewley Model</a></li>
+  <li><a href="#aiyagari-model" id="toc-aiyagari-model" class="nav-link" data-scroll-target="#aiyagari-model"><span class="header-section-number">8.3</span> Aiyagari Model</a></li>
+  <li><a href="#harrison-kreps-model" id="toc-harrison-kreps-model" class="nav-link" data-scroll-target="#harrison-kreps-model"><span class="header-section-number">8.4</span> Harrison &amp; Kreps Model</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -488,13 +494,13 @@ window.Quarto = {
 </header>
 
 
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<section id="introduction" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
 <p>Neoclassical economics emphasizes that rational individuals base decisions primarily on long-term trends rather than short-term fluctuations. In this view, rational agents with forward-looking expectations base decisions on an infinite-horizon optimization, meaning they will not invest in assets or projects that have a declining long-term trajectory or negative net present value. Market prices, in turn, are thought to reflect these rational expectations about future fundamentals. This philosophy is exemplified in models of Milton Friedman and his successors, where individuals smooth consumption over time and focus on permanent income, and in modern macroeconomic models that assume agents plan for the long run. The neoclassical mindset links naturally with Friedman’s monetarism, which asserts that steady, rules-based growth of the money supply yields better outcomes than reactive fine-tuning. Both frameworks assume that people anticipate the future well, so erratic policy shifts mainly lead to price changes rather than lasting gains in output or employment. Representative models include Friedman’s Permanent Income Hypothesis, Bewley’s incomplete-market model, Aiyagari’s general equilibrium model with heterogeneous agents, and the speculative asset-pricing model by Harrison &amp; Kreps <span class="citation" data-cites="friedman1957theory bewley1986stationary aiyagari1994uninsured harrison1978speculative">(<a href="#ref-friedman1957theory" role="doc-biblioref">Friedman 1957</a>; <a href="#ref-bewley1986stationary" role="doc-biblioref">Bewley 1986</a>; <a href="#ref-aiyagari1994uninsured" role="doc-biblioref">Aiyagari 1994</a>; <a href="#ref-harrison1978speculative" role="doc-biblioref">Harrison and Kreps 1978</a>)</span>.</p>
 <p>Friedman’s monetarism closely aligns with neoclassical thinking, promoting predictable, rules-based monetary policy to ensure market stability and long-term neutrality of money. In contrast, Keynesian and New Keynesian frameworks highlight the importance of short-term interventions due to market frictions such as price stickiness. New Keynesians agree that people are forward-looking, but they highlight that wages and prices can be “sticky” (slow to adjust), which prevents markets from clearing quickly. As a result, even rational agents may be temporarily unable to reach optimal outcomes, and monetary policy can have powerful real effects in the short term. For example, if prices cannot adjust immediately, an unexpected cut in interest rates may boost real spending and output rather than just raising prices. New Keynesian models therefore rationalize active stabilization policy – they contend that without it, the economy can suffer prolonged recessions or unemployment that a well-timed policy intervention could ameliorate. This stands in contrast to the monetarist/neoclassical view that markets self-correct relatively quickly. Despite these differences, both schools provide valuable insight: neoclassical and monetarist models offer clarity about long-run tendencies and private sector behavior under rational expectations, while Keynesian models stress the importance of short-run dynamics and coordination failures. The analysis in this paper bridges these perspectives by using theoretical models to examine how <strong>market imperfections</strong> – such as incomplete markets and heterogeneous expectations – modify the standard predictions. Although the models are abstract, each provides important long-term policy guidance. Understanding their lessons can help policymakers design monetary strategies that foster stability without creating new problems in the process.</p>
 </section>
-<section id="core-assumptions-of-neoclassical-economics-and-monetarism" class="level2">
-<h2 class="anchored" data-anchor-id="core-assumptions-of-neoclassical-economics-and-monetarism">Core Assumptions of Neoclassical Economics and Monetarism</h2>
+<section id="core-assumptions-of-neoclassical-economics-and-monetarism" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="core-assumptions-of-neoclassical-economics-and-monetarism"><span class="header-section-number">2</span> Core Assumptions of Neoclassical Economics and Monetarism</h2>
 <p>Three core assumptions underpin the neoclassical and monetarist perspective in macroeconomics:</p>
 <ul>
 <li><p><strong>Rational expectations and infinite-horizon optimization:</strong> Individuals and firms are assumed to form expectations about the future in a rational way (using all available information) and to optimize their decisions over an infinite time horizon. In practice, this means economic agents base current consumption, saving, and investment on the expected present value of long-term outcomes, rather than overreacting to short-lived changes. They anticipate the future effects of policies, so systematic policy actions are largely already “priced in” to decisions. This assumption was emphasized by the new classical economists who followed Friedman, such as Robert Lucas, in arguing that only unexpected policy moves affect real behavior in the short run. Under rational expectations, people won’t persistently spend windfalls or chase assets whose fundamentals don’t justify their price, since they foresee the eventual reversion to fundamental value.</p></li>
@@ -503,21 +509,21 @@ window.Quarto = {
 </ul>
 <p>These core assumptions shape the policy mindset in the neoclassical/monetarist framework. If agents are highly forward-looking and markets tend to clear, discretionary stabilization policy has limited power – it might only cause short-term blips or even destabilize expectations. Instead, maintaining credible, consistent policy (such as a steady money growth rule or inflation target) is viewed as the optimal approach for long-run welfare. In the next sections, we examine how relaxing some of these assumptions – by introducing incomplete markets, borrowing constraints, or heterogeneous beliefs – changes the conclusions and policy implications.</p>
 </section>
-<section id="complete-vs.-incomplete-markets" class="level2">
-<h2 class="anchored" data-anchor-id="complete-vs.-incomplete-markets">Complete vs.&nbsp;Incomplete Markets</h2>
+<section id="complete-vs.-incomplete-markets" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="complete-vs.-incomplete-markets"><span class="header-section-number">3</span> Complete vs.&nbsp;Incomplete Markets</h2>
 <p>Complete markets allow full insurance against risks and unlimited borrowing, resulting in smooth consumption aligned with permanent income. Incomplete markets, however, feature borrowing constraints and uninsurable shocks, creating heterogeneity and precautionary savings, leading to wealth disparities and more volatile consumption patterns <span class="citation" data-cites="aiyagari1994uninsured bewley1986stationary">(<a href="#ref-aiyagari1994uninsured" role="doc-biblioref">Aiyagari 1994</a>; <a href="#ref-bewley1986stationary" role="doc-biblioref">Bewley 1986</a>)</span>. Thus, one fundamental way real economies depart from the idealized benchmark is that <strong>markets are incomplete</strong>. In a <em>complete market</em> environment, individuals can fully insure against uncertainties and can borrow or save freely at a given interest rate. In that ideal case, people smooth their consumption over time nearly perfectly. Consumption ends up being much less volatile than income, because during bad times individuals can borrow or draw on savings, and during good times they can save extra income for the future. In fact, theory predicts that with complete markets, consumption at any point reflects an individual’s <em>permanent income</em> (the expected long-term average income), not the transitory ups and downs of current income. A direct implication is that temporary policy measures (like one-time stimulus checks or short-lived tax cuts) would have only a small effect on consumption—because rational consumers know such windfalls are transitory, they prefer to save a large portion of them, aiming to maintain a stable consumption path. In a complete market, households effectively pool risks and smooth out idiosyncratic shocks; as a result, their spending is steady and mainly influenced by changes in expected lifetime resources rather than short-term liquidity fluctuations.</p>
 <p>By contrast, in <strong>incomplete market</strong> settings, individuals do not have access to perfect insurance or unlimited borrowing. They face idiosyncratic income shocks (e.g., job loss, illness) that they must largely bear on their own. Additionally, they may encounter <strong>liquidity constraints</strong> or borrowing limits that prevent them from smoothing consumption fully. The models developed by Truman Bewley, S. Rao Aiyagari, and others formalize this situation. In these models, all agents are ex ante identical (they have the same preferences and potential income distribution), but they become <strong>ex post heterogeneous</strong> because each experiences different income shocks over time and they cannot completely insure against these shocks <span class="citation" data-cites="bewley1986stationary aiyagari1994uninsured">(<a href="#ref-bewley1986stationary" role="doc-biblioref">Bewley 1986</a>; <a href="#ref-aiyagari1994uninsured" role="doc-biblioref">Aiyagari 1994</a>)</span>. Households thus engage in <strong>precautionary saving</strong>—they tend to save more when they have income, building a buffer of assets to self-insure against future bad draws. Consumption is no longer completely smooth; when a negative shock hits a liquidity-constrained household, it may have to cut consumption sharply because it cannot borrow easily. Conversely, a positive shock to a hand-to-mouth household leads to a spike in consumption if they were previously constrained.</p>
 <p>Incomplete markets therefore produce higher <em>marginal propensities to consume</em> out of transitory income changes—in other words, constrained people would spend a larger fraction of any temporary income windfall than they would under complete markets <span class="citation" data-cites="aiyagari1994uninsured">(<a href="#ref-aiyagari1994uninsured" role="doc-biblioref">Aiyagari 1994</a>)</span>. This is consistent with empirical data showing many households, especially those with low wealth, quickly spend stimulus payments or bonuses, as they have unmet needs or debts to pay.</p>
 <p>Another key difference is that incomplete markets generate a non-trivial <strong>distribution of wealth</strong>. Since each individual’s asset accumulation depends on their history of shocks and their precautionary saving motive, over time the economy develops inequality in wealth and consumption. Some agents will build up sizable precautionary balances (if they experience good income luck or have frugal preferences), while others might remain near the borrowing constraint with minimal savings. The wealth distribution in such models is typically <strong>highly skewed</strong>, capturing the fact that a small fraction of people may hold a large share of total assets – a feature very much in line with real-world data. By contrast, in a representative agent or complete markets model, distributional issues are either absent or of no consequence, since everyone effectively pools risks together. Incomplete markets thus bring distributional considerations to the forefront of macroeconomic analysis.</p>
 <p>For policymakers, these differences mean that monetary and fiscal policy can have <strong>uneven effects</strong> across the population and can influence aggregate demand through channels that are muted in complete-market models. For example, an interest rate cut in an incomplete market setting might stimulate borrowing and spending for some agents, but for others it mainly reduces their interest income (if they are savers), potentially widening inequality. Likewise, a government stimulus targeted at liquidity-constrained households could yield a relatively large boost to consumption (due to their high propensity to consume out of additional income), whereas the same payment to a wealthier, fully insured household might just be saved. In summary, incomplete markets make the macroeconomy less “frictionless” and more sensitive to distribution and credit conditions. We next examine specific models that incorporate these features, to draw out their policy insights.</p>
-<section id="friedman-consumption-smoothing-model-complete-markets" class="level3">
-<h3 class="anchored" data-anchor-id="friedman-consumption-smoothing-model-complete-markets">Friedman Consumption Smoothing Model (Complete Markets)</h3>
+<section id="friedman-consumption-smoothing-model-complete-markets" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="friedman-consumption-smoothing-model-complete-markets"><span class="header-section-number">3.1</span> Friedman Consumption Smoothing Model (Complete Markets)</h3>
 <p>Milton Friedman’s model of consumption – known as the <strong>Permanent Income Hypothesis (PIH)</strong> – suggests consumption depends primarily on permanent rather than temporary income changes. Hence, monetary policy must focus on long-term credibility rather than short-run stimulus <span class="citation" data-cites="friedman1957theory hall1978stochastic">(<a href="#ref-friedman1957theory" role="doc-biblioref">Friedman 1957</a>; <a href="#ref-hall1978stochastic" role="doc-biblioref">Hall 1978</a>)</span>. This is a cornerstone of the neoclassical view on consumption behavior. Friedman proposed that an individual’s consumption at any given time is determined not by current income alone, but by their <strong>permanent income</strong>, which is the expected long-term average income. Temporary fluctuations in income, according to this theory, have only a small effect on consumption because people use saving and borrowing to smooth out those fluctuations. In other words, households act like long-term planners: if they receive an unexpectedly high income this year, they will not dramatically raise their spending, understanding that the extra income may not last. Instead, they will save most of it (or pay down debt), spreading the benefit over future years. Conversely, if income dips briefly, they can draw on past savings or borrow to maintain their usual consumption level, expecting to repay when income recovers. This behavior leads to relatively <strong>stable</strong> consumption paths, as illustrated by Friedman’s famous observation that consumption is much smoother than the often volatile income streams that individuals experience year to year.</p>
 <p>Friedman’s model assumes that credit markets function well (people can borrow against future income) and that consumers are forward-looking and rational. Under these conditions, <strong>monetary and fiscal policy have limited ability to alter consumption unless they affect expected long-term income</strong>. For example, a one-time tax rebate or a temporarily lower interest rate might not stimulate much extra spending – consumers recognize that this is a short-term change. Indeed, a key takeaway of the permanent income theory is that <strong>policies which only increase current income without raising expected future income will mostly lead to higher saving rather than higher spending</strong>. Friedman contrasted this with the Keynesian view in which consumers have a high marginal propensity to consume out of current income (perhaps because they are myopic or liquidity-constrained). He argued that the Keynesian assumption was flawed in ignoring forward-looking behavior. Empirical puzzles of the mid-20th century (such as why consumption didn’t rise one-for-one with income gains from, say, war-time fiscal expansions) could be explained by PIH: people understood those income gains were temporary and saved much of them.</p>
 <p>In policy terms, the Friedman consumption model supports a rather conservative use of demand management. A central bank that rapidly expands money or lowers interest rates might not trigger a large consumption boom unless people believe those actions will persist and raise their permanent income or wealth. Similarly, a government stimulus check will be partly saved if households treat it as a transitory windfall. An important implication is that <strong>discretionary policy “surprises” are not a reliable way to boost aggregate demand</strong> – rational agents will react mainly to the expected persistent components of policy. Monetarists like Friedman instead advocated <strong>rule-based policies</strong> (such as steadily growing the money supply at a fixed rate) to provide a stable environment for consumers and investors to plan. If policy is erratic, it could even be counterproductive: for instance, trying to exploit a short-run trade-off by pushing unemployment lower than its natural rate would just raise inflation expectations, with little lasting benefit to output (this is essentially Friedman’s adaptive expectations version of the Phillips Curve argument). In summary, Friedman’s complete-market consumption model underscores the importance of expectations and permanent income. It suggests that <strong>monetary policy should focus on the long-term nominal stability</strong> (controlling inflation) and avoid frequent discretionary shifts, because people will see through those shifts and adjust their saving behavior accordingly. It also implies that fiscal stabilization (e.g.&nbsp;stimulus payments) will be most effective when aimed at households likely to be liquidity-constrained, a point that becomes clearer once we consider incomplete market models.</p>
 </section>
-<section id="consumption-investment-trade-off-under-liquidity-constraints" class="level3">
-<h3 class="anchored" data-anchor-id="consumption-investment-trade-off-under-liquidity-constraints">Consumption-Investment Trade-off under Liquidity Constraints</h3>
+<section id="consumption-investment-trade-off-under-liquidity-constraints" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="consumption-investment-trade-off-under-liquidity-constraints"><span class="header-section-number">3.2</span> Consumption-Investment Trade-off under Liquidity Constraints</h3>
 <p>Liquidity constraints disrupt optimal consumption-investment trade-offs. Constrained agents cannot invest sufficiently during downturns, weakening monetary policy’s effectiveness, particularly in stimulating investment or consumption among constrained households. For example, consider a household facing liquidity constraints and uncertain future income. An interest rate cut reduces the returns on their precautionary savings, forcing the household to reduce the buffer stock meant to protect against income fluctuations. Consequently, this household may have limited resources available for productive investments such as education or small business expansion. Younger or non-saver households facing liquidity constraints prioritize current consumption over future consumption due to diminishing marginal returns of future utility. Thus, when interest rates decrease, these households are more likely to immediately spend additional available funds rather than accumulate precautionary savings or invest in long-term productive assets. In contrast, a wealthier, unconstrained household may use lower interest rates to cheaply finance additional investment opportunities, potentially increasing their wealth relative to constrained households.</p>
 <p>A central theme in a standard intertemporal choice problem is the <strong>trade-off between consuming today and investing for tomorrow</strong>. In a frictionless world, consumers equate the marginal benefit of spending an extra dollar today with the marginal benefit of saving that dollar (investing it to spend later). This optimality condition (often called the Euler equation in macroeconomics) ensures that resources are allocated to their most valued use over time. However, in reality many households and firms face <strong>liquidity constraints</strong> or borrowing limits that prevent them from freely making this trade-off. Such constraints are a key imperfection that alters the impact of monetary policy and other shocks.</p>
 <p>When agents are liquidity-constrained, they cannot borrow as much as they would like against future income. This means in bad times they might <em>want</em> to maintain consumption or invest in opportunities (human capital, business expansion, etc.), but they simply lack the funds or credit access to do so. Consequently, current consumption may fall below the level that would be chosen under complete markets, and valuable investments might be foregone. For instance, a skilled worker who becomes unemployed may cut back sharply on consumption – not because their lifetime income prospects are shattered, but because in that moment they don’t have liquid assets or credit to smooth over the gap. Likewise, a small business might pass up a profitable investment because banks refuse credit due to the firm’s lack of collateral. These scenarios lead to a suboptimal allocation of resources over time, amplifying short-run fluctuations and causing longer-run consequences (lost growth from underinvestment, etc.).</p>
@@ -526,8 +532,8 @@ window.Quarto = {
 <p>For investment, liquidity constraints imply that not all investment opportunities are realized, especially among smaller firms or entrepreneurs, if external finance is costly or unavailable. In a recession, even if the central bank slashes interest rates, banks may be risk-averse and tighten lending standards, so only the safest borrowers benefit from low rates. This can lead to a situation often described as “pushing on a string,” where monetary policy loses traction in stimulating additional private investment or consumption because the bottleneck is in credit access, not the cost of credit per se.</p>
 <p>In summary, the consumption-investment trade-off under liquidity constraints highlights that <strong>market imperfections can dampen or distort the transmission of monetary policy</strong>. A perfectly rational, unconstrained agent might respond to lower interest rates by optimally borrowing and spending more (since the opportunity cost of funds is lower). But a constrained agent does nothing (they can’t borrow anyway), and an unconstrained wealthy agent might already be satiated in consumption and only shift their portfolio. These dynamics mean that in downturns, monetary policy might need support from fiscal measures that <strong>target</strong> constrained agents to be fully effective. It also means that policymakers should be aware of credit conditions and possibly use regulatory tools to ensure that rate cuts get passed through to borrowers. The general principle is that <strong>in the presence of liquidity constraints, short-run fluctuations can have long-run costs (foregone investment, lower human capital accumulation) and policies should aim to alleviate these constraints during bad times</strong>.</p>
 </section>
-<section id="bewley-model-precautionary-savings-in-an-incomplete-market" class="level3">
-<h3 class="anchored" data-anchor-id="bewley-model-precautionary-savings-in-an-incomplete-market">Bewley Model: Precautionary Savings in an Incomplete Market</h3>
+<section id="bewley-model-precautionary-savings-in-an-incomplete-market" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="bewley-model-precautionary-savings-in-an-incomplete-market"><span class="header-section-number">3.3</span> Bewley Model: Precautionary Savings in an Incomplete Market</h3>
 <ul>
 <li>Assumes heterogeneous agents face idiosyncratic income shocks and borrowing limits.</li>
 <li>Exogenous interest rates.</li>
@@ -541,8 +547,8 @@ window.Quarto = {
 <p>An important extension of the Bewley model is to use it for <strong>wealth distribution insights</strong>. The model clarifies that even if everyone has identical earning potential, incomplete markets will generate inequality simply due to luck and precautionary behavior. This suggests that some observed inequality is not due to differences in skill or hard work, but due to insufficient insurance against life’s risks. Policymakers concerned with excessive inequality might draw on this insight to justify progressive taxation or public insurance programs that effectively do what missing markets would have – help smooth incomes and consumption across states of the world. Indeed, one policy implication highlighted in such models is that improving access to credit for credit-worthy but constrained households, or providing more public insurance, could make the overall economy better off by allowing more efficient consumption and investment choices (though there are always trade-offs and moral hazard issues to consider).</p>
 <p>In summary, the Bewley model provides a micro-founded explanation for why some people end up liquidity-constrained and how that influences their behavior. For monetary policy, it warns that aggregate demand may be more sensitive to the distribution of wealth and income than traditional models would suggest – if a recession hits the lower-wealth population hard, their consumption will contract strongly (since they can’t borrow), potentially deepening the downturn. Purely focusing on interest rates as a lever might be insufficient; fiscal redistributive tools or direct transfers could be more potent in such scenarios. The model’s relevance has grown as economists recognize the limitations of the representative-agent paradigm and seek to incorporate heterogeneous agent effects into macroeconomic policy analysis.</p>
 </section>
-<section id="aiyagari-model-general-equilibrium-with-incomplete-markets" class="level3">
-<h3 class="anchored" data-anchor-id="aiyagari-model-general-equilibrium-with-incomplete-markets">Aiyagari Model: General Equilibrium with Incomplete Markets</h3>
+<section id="aiyagari-model-general-equilibrium-with-incomplete-markets" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="aiyagari-model-general-equilibrium-with-incomplete-markets"><span class="header-section-number">3.4</span> Aiyagari Model: General Equilibrium with Incomplete Markets</h3>
 <ul>
 <li>Incorporates endogenous determination of interest rates through production equilibrium.</li>
 <li>Demonstrates “excess capital accumulation” due to precautionary motives.</li>
@@ -555,8 +561,8 @@ window.Quarto = {
 <p>For policymakers, Aiyagari’s work underscores a few points: (1) <strong>Monetary neutrality may not hold cleanly in the short run</strong> even if prices are flexible, because redistributions caused by interest rate changes can affect aggregate demand; (2) there may be a role for <strong>permanent fiscal policy</strong> (like capital taxation or debt issuance) to influence the long-run capital stock and interest rate in a way that improves welfare, countering the incomplete-market externality; (3) evaluating monetary policy requires understanding the underlying wealth distribution – for instance, a low interest rate environment will tend to benefit borrowers and younger households (via cheaper credit, higher asset values) while hurting those who rely on interest income (like pensioners or wealthier rentiers). If mismanaged, prolonged ultra-low rates can contribute to asset price inflation (as savers seek returns in real estate or stocks), thereby <strong>widening wealth inequality</strong> if only the already-wealthy hold those appreciating assets. Indeed, some attribute the rise in asset valuations and wealth concentration in recent decades partly to very low global real interest rates and ample liquidity, consistent with the mechanisms in Aiyagari-type models.</p>
 <p>In conclusion, the Aiyagari model enriches our understanding by marrying heterogeneity with production. It reminds us that <strong>macroeconomic policy cannot be divorced from distributional considerations</strong>. The long-term natural rate of interest, the effectiveness of fiscal redistribution, and the impact of monetary policy all look different once we acknowledge that not everyone is alike in the economy. By capturing how liquidity constraints and precautionary savings influence aggregate capital, this model provides guidance on questions like whether and how to tax wealth, and how aggressive monetary policy should be in, say, pushing interest rates to very low levels. Policymakers drawing on these insights might strive for a balance: ensuring there is enough aggregate saving for investment and growth, but not so much that it reflects unmet social insurance needs or creates financial imbalances.</p>
 </section>
-<section id="harrison-kreps-1978-model-asset-pricing-with-heterogeneous-beliefs" class="level3">
-<h3 class="anchored" data-anchor-id="harrison-kreps-1978-model-asset-pricing-with-heterogeneous-beliefs">Harrison &amp; Kreps (1978) Model: Asset Pricing with Heterogeneous Beliefs</h3>
+<section id="harrison-kreps-1978-model-asset-pricing-with-heterogeneous-beliefs" class="level3" data-number="3.5">
+<h3 data-number="3.5" class="anchored" data-anchor-id="harrison-kreps-1978-model-asset-pricing-with-heterogeneous-beliefs"><span class="header-section-number">3.5</span> Harrison &amp; Kreps (1978) Model: Asset Pricing with Heterogeneous Beliefs</h3>
 <ul>
 <li>Heterogeneous investor beliefs combined with short-sale constraints can cause speculative bubbles, elevating asset prices above fundamental values.</li>
 <li>Suggests improving market completeness and transparency to curb speculation and volatility <span class="citation" data-cites="harrison1978speculative">(<a href="#ref-harrison1978speculative" role="doc-biblioref">Harrison and Kreps 1978</a>)</span>.</li>
@@ -569,8 +575,8 @@ window.Quarto = {
 <p>In summary, the Harrison &amp; Kreps model adds another layer to our understanding: market outcomes can be <strong>inefficient</strong> not just because of <strong>real-side</strong> frictions (like incomplete insurance) but also because of <strong>financial-side</strong> frictions (like trading constraints and belief dispersion). It is a reminder that even with rational actors, markets may need regulatory oversight to ensure they reflect true economic value. For a policymaker, being aware of this mechanism is important. It cautions against assuming that all investors have the same expectations (they don’t), and it illustrates why asset price booms can develop even without obvious irrationality. Recognizing a speculative bubble early is notoriously difficult, but understanding models like this helps officials appreciate the warning signs (e.g., when asset prices only make sense under very optimistic scenarios and buyers cite the ability to resell as justification). It also supports measures to improve market completeness – such as permitting more sophisticated financial instruments – because a more complete market (ability to hedge, to short, etc.) ironically may prevent the wild swings that incomplete markets allow.</p>
 </section>
 </section>
-<section id="policy-implications-of-models" class="level2">
-<h2 class="anchored" data-anchor-id="policy-implications-of-models">Policy Implications of Models</h2>
+<section id="policy-implications-of-models" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="policy-implications-of-models"><span class="header-section-number">4</span> Policy Implications of Models</h2>
 <ul>
 <li>Monetarism emphasizes stable, predictable policy frameworks.</li>
 <li>Bewley and Aiyagari models highlight social insurance and targeted redistribution.</li>
@@ -589,8 +595,8 @@ The Harrison &amp; Kreps model highlights the necessity of financial market regu
 </ul>
 <p>In summary, a robust monetary policy approach integrates these perspectives, recognizing the importance of stable monetary frameworks, adequate social insurance, fiscal coordination, and prudent financial regulation. Successful policy practice involves using complementary tools (monetary, fiscal, regulatory) and adapting dynamically based on the interplay of inflation stability, wealth distribution, and financial stability. Historical experiences, such as the 2008 crisis and the COVID-19 response, illustrate the effectiveness of combining these insights into comprehensive, multidimensional policy strategies.</p>
 </section>
-<section id="bridging-the-gap-between-theory-and-reality" class="level2">
-<h2 class="anchored" data-anchor-id="bridging-the-gap-between-theory-and-reality">Bridging the Gap Between Theory and Reality</h2>
+<section id="bridging-the-gap-between-theory-and-reality" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="bridging-the-gap-between-theory-and-reality"><span class="header-section-number">5</span> Bridging the Gap Between Theory and Reality</h2>
 <p>Models should guide, not dictate, policy. No single model fully captures the complexity of real economies; thus, policymakers must integrate insights across multiple frameworks—complete markets, incomplete markets, and speculative dynamics—to design effective policies.</p>
 <p>Real economies simultaneously involve heterogeneous agents, liquidity constraints, price rigidities, and speculative market behavior. Friedman’s monetarism emphasizes stable rules and credible expectations; Bewley and Aiyagari highlight liquidity constraints and precautionary savings; Harrison &amp; Kreps emphasize speculation driven by belief heterogeneity. Modern macroeconomic approaches increasingly integrate these elements (e.g., Heterogeneous Agent New Keynesian models).</p>
 <p>However, real-world policymaking faces challenges not fully accounted for by theory:</p>
@@ -602,8 +608,8 @@ The Harrison &amp; Kreps model highlights the necessity of financial market regu
 <p>In practice, policymakers should stress-test policies using multiple models, employ targeted empirical approaches informed by microdata, and regularly update strategies based on observed outcomes. For instance, contrary to initial views, the monetary, fiscal, and financial-market policies implemented during the COVID-19 pandemic—particularly in the U.S.—highlight a failure of effective coordination, as evidenced by subsequent extreme wealth inequality and persistent inflation. Many experts criticize the lack of coherent policy integration, arguing it exacerbated economic distortions and reduced overall policy effectiveness.</p>
 <p>In summary, bridging theory and reality requires flexible and empirically informed policy strategies, recognizing theoretical insights and practical limitations while ensuring effective coordination to mitigate unintended adverse outcomes.</p>
 </section>
-<section id="empirical-review-evaluating-policy-recommendations-in-practice" class="level2">
-<h2 class="anchored" data-anchor-id="empirical-review-evaluating-policy-recommendations-in-practice">Empirical Review: Evaluating Policy Recommendations in Practice</h2>
+<section id="empirical-review-evaluating-policy-recommendations-in-practice" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="empirical-review-evaluating-policy-recommendations-in-practice"><span class="header-section-number">6</span> Empirical Review: Evaluating Policy Recommendations in Practice</h2>
 <p>Historical experience provides valuable tests for theoretical predictions, highlighting both successes and failures in policy implementation:</p>
 <ul>
 <li><p><strong>Great Depression:</strong> Friedman and Schwartz demonstrated that monetary contraction deepened the Depression. The period validated the importance of maintaining stable aggregate demand and money supply, while illustrating risks of debt-deflation spirals. It emphasized roles for both monetary stabilization and fiscal intervention (e.g., New Deal, WWII spending), leading to institutional innovations like deposit insurance and lender-of-last-resort roles for central banks.</p></li>
@@ -620,8 +626,8 @@ The Harrison &amp; Kreps model highlights the necessity of financial market regu
 </ol>
 <p>In sum, successful policy in practice requires combining disciplined monetary frameworks, proactive management of market imperfections and inequalities, and flexibility to adapt based on evolving empirical evidence and economic conditions.</p>
 </section>
-<section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<section id="conclusion" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">7</span> Conclusion</h2>
 <p>Effective monetary policy requires a balance between long-run credibility and stability (as emphasized by neoclassical and monetarist models) and short-run interventions addressing market imperfections and inequality. Stable monetary frameworks—such as credible inflation targets and rule-based policies—anchor expectations, reduce uncertainty, and support sustainable economic growth. However, real economies exhibit significant market frictions, requiring complementary fiscal and regulatory interventions.</p>
 <p>Incomplete-market models (Bewley, Aiyagari) highlight the necessity of policies that alleviate liquidity constraints and promote broader economic participation. Financial-market models (Harrison &amp; Kreps) stress the importance of regulatory vigilance to prevent speculative excesses. Recent empirical experiences—particularly the uncoordinated COVID-19 policy response in the U.S., which contributed to extreme wealth inequality and persistent inflation—underscore the risks of fragmented policy approaches.</p>
 <p>The long-term orientation of neoclassical models also reminds us that <strong>economic growth and efficiency are paramount for raising living standards broadly</strong>. Sustainable reductions in wealth inequality are best achieved through <em>inclusive growth</em>—ensuring more people can participate in economic advancement via skill-building, access to capital, and productive investments. Policies that enhance <strong>productivity—education, infrastructure, and innovation—are crucial complements to monetary policy</strong>. While these are typically fiscal or structural measures, monetary policy plays a role by maintaining a <strong>low-inflation, stable macroeconomic backdrop</strong> and preventing the misallocation of capital into unproductive speculative ventures.</p>
@@ -637,13 +643,13 @@ The Harrison &amp; Kreps model highlights the necessity of financial market regu
 </ul>
 <p>Ultimately, the most effective policy approach integrates <strong>monetary stability, fiscal coordination, and regulatory prudence</strong> to foster inclusive, sustainable economic prosperity while ensuring that short-term interventions do not undermine long-term growth and efficiency.</p>
 </section>
-<section id="appendix" class="level2">
-<h2 class="anchored" data-anchor-id="appendix">Appendix</h2>
+<section id="appendix" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="appendix"><span class="header-section-number">8</span> Appendix</h2>
 <p>The appendix provides technical details for the theoretical models referenced. Each section includes the formal derivation of key equations, calibration and simulation exercises, and case analyses illustrating the implications of each model.</p>
-<section id="friedmans-permanent-income-model" class="level3">
-<h3 class="anchored" data-anchor-id="friedmans-permanent-income-model">Friedman’s Permanent Income Model</h3>
-<section id="theoretical-formulation" class="level4">
-<h4 class="anchored" data-anchor-id="theoretical-formulation">1. Theoretical Formulation</h4>
+<section id="friedmans-permanent-income-model" class="level3" data-number="8.1">
+<h3 data-number="8.1" class="anchored" data-anchor-id="friedmans-permanent-income-model"><span class="header-section-number">8.1</span> Friedman’s Permanent Income Model</h3>
+<section id="theoretical-formulation" class="level4" data-number="8.1.1">
+<h4 data-number="8.1.1" class="anchored" data-anchor-id="theoretical-formulation"><span class="header-section-number">8.1.1</span> 1. Theoretical Formulation</h4>
 <p>Friedman’s Permanent Income Hypothesis (PIH) posits that an individual’s consumption at time <span class="math inline">\(t\)</span> is based on expected lifetime income rather than current income. The standard model assumes perfect capital markets, quadratic utility, and rational expectations.</p>
 <p>Let the consumer’s lifetime utility function be: <span class="math display">\[
 U = \sum_{t=0}^{\infty} \beta^t u(c_t),
@@ -657,15 +663,15 @@ E_t[c_{t+1}] = c_t.
 E_t[c_{t+1} - c_t] = 0.
 \]</span> Thus, only permanent changes in income affect consumption significantly, while transitory changes are mostly saved.</p>
 </section>
-<section id="calibration-and-simulation" class="level4">
-<h4 class="anchored" data-anchor-id="calibration-and-simulation">2. Calibration and Simulation</h4>
+<section id="calibration-and-simulation" class="level4" data-number="8.1.2">
+<h4 data-number="8.1.2" class="anchored" data-anchor-id="calibration-and-simulation"><span class="header-section-number">8.1.2</span> 2. Calibration and Simulation</h4>
 <p>We calibrate the model using standard parameter values: - Discount factor: <span class="math inline">\(\beta = 0.96\)</span> - Interest rate: <span class="math inline">\(r = 0.04\)</span> - Income process: <span class="math inline">\(Y_t = Y_p + Y_t^T\)</span>, where <span class="math inline">\(Y_p\)</span> is permanent income and <span class="math inline">\(Y_t^T\)</span> is a transitory shock. - Variance of transitory income shock: <span class="math inline">\(\sigma_T^2 = 0.02\)</span> - Variance of permanent income shock: <span class="math inline">\(\sigma_P^2 = 0.01\)</span></p>
 <p>Simulation results illustrate consumption smoothing. Given a one-time positive income shock of <span class="math inline">\(\Delta Y_T\)</span>, consumption increases only modestly: <span class="math display">\[
 \Delta C_t \approx \frac{\sigma_T^2}{\sigma_P^2 + \sigma_T^2} \Delta Y_T.
 \]</span> This highlights that temporary income changes have minimal effects on consumption compared to permanent income changes.</p>
 </section>
-<section id="case-analysis-impact-of-temporary-vs.-permanent-income-changes" class="level4">
-<h4 class="anchored" data-anchor-id="case-analysis-impact-of-temporary-vs.-permanent-income-changes">3. Case Analysis: Impact of Temporary vs.&nbsp;Permanent Income Changes</h4>
+<section id="case-analysis-impact-of-temporary-vs.-permanent-income-changes" class="level4" data-number="8.1.3">
+<h4 data-number="8.1.3" class="anchored" data-anchor-id="case-analysis-impact-of-temporary-vs.-permanent-income-changes"><span class="header-section-number">8.1.3</span> 3. Case Analysis: Impact of Temporary vs.&nbsp;Permanent Income Changes</h4>
 <p>To empirically validate the model, we compare U.S. consumption responses to temporary stimulus payments vs.&nbsp;permanent tax cuts:</p>
 <ul>
 <li><strong>2001 U.S. Tax Rebate</strong> (temporary): Studies found that only 20-40% of the rebate was spent immediately, consistent with PIH predictions.</li>
@@ -674,10 +680,10 @@ E_t[c_{t+1} - c_t] = 0.
 <p>This supports the policy conclusion that <strong>temporary monetary stimulus has limited consumption effects</strong>, reinforcing the monetarist argument for stable, rules-based policy frameworks over discretionary interventions.</p>
 </section>
 </section>
-<section id="bewley-model" class="level3">
-<h3 class="anchored" data-anchor-id="bewley-model">Bewley Model</h3>
-<section id="theoretical-formulation-1" class="level4">
-<h4 class="anchored" data-anchor-id="theoretical-formulation-1">1. Theoretical Formulation</h4>
+<section id="bewley-model" class="level3" data-number="8.2">
+<h3 data-number="8.2" class="anchored" data-anchor-id="bewley-model"><span class="header-section-number">8.2</span> Bewley Model</h3>
+<section id="theoretical-formulation-1" class="level4" data-number="8.2.1">
+<h4 data-number="8.2.1" class="anchored" data-anchor-id="theoretical-formulation-1"><span class="header-section-number">8.2.1</span> 1. Theoretical Formulation</h4>
 <p>The Bewley model describes a heterogeneous agent economy with idiosyncratic income shocks and liquidity constraints. Agents optimize consumption and savings in response to uncertain income paths, leading to precautionary savings behavior.</p>
 <p>The agent maximizes expected lifetime utility: <span class="math display">\[
 U = \sum_{t=0}^{\infty} \beta^t u(c_t),
@@ -692,8 +698,8 @@ Y_t = Y_p + \varepsilon_t,
 E_t \left[ u'(c_t) \right] = \beta (1+r) E_t \left[ u'(c_{t+1}) \right].
 \]</span> Binding borrowing constraints lead to higher marginal propensities to consume (MPC), distinguishing this model from the complete-market benchmark.</p>
 </section>
-<section id="calibration-and-simulation-1" class="level4">
-<h4 class="anchored" data-anchor-id="calibration-and-simulation-1">2. Calibration and Simulation</h4>
+<section id="calibration-and-simulation-1" class="level4" data-number="8.2.2">
+<h4 data-number="8.2.2" class="anchored" data-anchor-id="calibration-and-simulation-1"><span class="header-section-number">8.2.2</span> 2. Calibration and Simulation</h4>
 <p>We calibrate the model using empirically relevant parameters:</p>
 <ul>
 <li>Risk aversion: <span class="math inline">\(\sigma = 2\)</span></li>
@@ -703,8 +709,8 @@ E_t \left[ u'(c_t) \right] = \beta (1+r) E_t \left[ u'(c_{t+1}) \right].
 </ul>
 <p>Simulating the model shows the emergence of a stationary wealth distribution. Agents with lower wealth levels exhibit high MPCs, while wealthier agents accumulate savings to self-insure against income shocks.</p>
 </section>
-<section id="case-analysis-wealth-distribution-and-policy-implications" class="level4">
-<h4 class="anchored" data-anchor-id="case-analysis-wealth-distribution-and-policy-implications">3. Case Analysis: Wealth Distribution and Policy Implications</h4>
+<section id="case-analysis-wealth-distribution-and-policy-implications" class="level4" data-number="8.2.3">
+<h4 data-number="8.2.3" class="anchored" data-anchor-id="case-analysis-wealth-distribution-and-policy-implications"><span class="header-section-number">8.2.3</span> 3. Case Analysis: Wealth Distribution and Policy Implications</h4>
 <p>Empirical evidence shows that wealth inequality observed in real economies is well captured by Bewley models. For example:</p>
 <ul>
 <li><strong>U.S. Wealth Distribution:</strong> The model reproduces the fact that the top 10% of wealth holders own a disproportionately large share of total assets.</li>
@@ -714,18 +720,18 @@ E_t \left[ u'(c_t) \right] = \beta (1+r) E_t \left[ u'(c_{t+1}) \right].
 <p>This model underscores the importance of credit access and social insurance policies to counteract excessive precautionary savings and stabilize aggregate demand.</p>
 </section>
 </section>
-<section id="aiyagari-model" class="level3">
-<h3 class="anchored" data-anchor-id="aiyagari-model">Aiyagari Model</h3>
-<section id="theoretical-formulation-2" class="level4">
-<h4 class="anchored" data-anchor-id="theoretical-formulation-2">1. Theoretical Formulation</h4>
+<section id="aiyagari-model" class="level3" data-number="8.3">
+<h3 data-number="8.3" class="anchored" data-anchor-id="aiyagari-model"><span class="header-section-number">8.3</span> Aiyagari Model</h3>
+<section id="theoretical-formulation-2" class="level4" data-number="8.3.1">
+<h4 data-number="8.3.1" class="anchored" data-anchor-id="theoretical-formulation-2"><span class="header-section-number">8.3.1</span> 1. Theoretical Formulation</h4>
 <p>Building on the Bewley model, Aiyagari introduces production and general equilibrium. Households supply capital and labor, and firms use a Cobb-Douglas production function: <span class="math display">\[
 Y = K^\alpha L^{1-\alpha}.
 \]</span> The interest rate <span class="math inline">\(r\)</span> and wage <span class="math inline">\(w\)</span> adjust to ensure market clearing: <span class="math display">\[
 K = \sum A_i, \quad L = \sum l_i.
 \]</span> The stationary distribution of wealth results in an endogenous equilibrium interest rate lower than in the complete markets model due to precautionary savings.</p>
 </section>
-<section id="calibration-and-simulation-2" class="level4">
-<h4 class="anchored" data-anchor-id="calibration-and-simulation-2">2. Calibration and Simulation</h4>
+<section id="calibration-and-simulation-2" class="level4" data-number="8.3.2">
+<h4 data-number="8.3.2" class="anchored" data-anchor-id="calibration-and-simulation-2"><span class="header-section-number">8.3.2</span> 2. Calibration and Simulation</h4>
 <ul>
 <li>Capital share: <span class="math inline">\(\alpha = 0.36\)</span></li>
 <li>Discount factor: <span class="math inline">\(\beta = 0.96\)</span></li>
@@ -734,8 +740,8 @@ K = \sum A_i, \quad L = \sum l_i.
 </ul>
 <p>Simulations confirm excess capital accumulation, implying that moderate capital taxation can improve welfare by reallocating excess savings towards consumption.</p>
 </section>
-<section id="case-analysis-redistribution-and-policy-implications" class="level4">
-<h4 class="anchored" data-anchor-id="case-analysis-redistribution-and-policy-implications">3. Case Analysis: Redistribution and Policy Implications</h4>
+<section id="case-analysis-redistribution-and-policy-implications" class="level4" data-number="8.3.3">
+<h4 data-number="8.3.3" class="anchored" data-anchor-id="case-analysis-redistribution-and-policy-implications"><span class="header-section-number">8.3.3</span> 3. Case Analysis: Redistribution and Policy Implications</h4>
 <ul>
 <li><strong>Effect of Redistribution:</strong> Moderate taxation on capital income reallocates resources and increases aggregate welfare.</li>
 <li><strong>Impact on Interest Rates:</strong> The equilibrium interest rate is lower than in the complete markets model, reflecting the precautionary savings motive.</li>
@@ -743,10 +749,10 @@ K = \sum A_i, \quad L = \sum l_i.
 <p>This model highlights the distributional consequences of monetary and fiscal policy and suggests that targeted redistribution can enhance efficiency without major losses in output.</p>
 </section>
 </section>
-<section id="harrison-kreps-model" class="level3">
-<h3 class="anchored" data-anchor-id="harrison-kreps-model">Harrison &amp; Kreps Model</h3>
-<section id="theoretical-formulation-3" class="level4">
-<h4 class="anchored" data-anchor-id="theoretical-formulation-3">1. Theoretical Formulation</h4>
+<section id="harrison-kreps-model" class="level3" data-number="8.4">
+<h3 data-number="8.4" class="anchored" data-anchor-id="harrison-kreps-model"><span class="header-section-number">8.4</span> Harrison &amp; Kreps Model</h3>
+<section id="theoretical-formulation-3" class="level4" data-number="8.4.1">
+<h4 data-number="8.4.1" class="anchored" data-anchor-id="theoretical-formulation-3"><span class="header-section-number">8.4.1</span> 1. Theoretical Formulation</h4>
 <p>The Harrison &amp; Kreps (1978) model explores how heterogeneous beliefs among investors can lead to speculative bubbles in asset pricing. The key insight is that <strong>optimistic investors dominate the pricing mechanism when short-selling constraints exist</strong>, leading to equilibrium prices that can exceed fundamental values.</p>
 <p>Consider a two-period model where investors have differing subjective probabilities about a risky asset’s payoff in period <span class="math inline">\(t=2\)</span>. The risky asset pays <span class="math inline">\(X_H\)</span> with probability <span class="math inline">\(p_H\)</span> (optimists’ belief) and <span class="math inline">\(X_L\)</span> with probability <span class="math inline">\(1 - p_H\)</span>. Similarly, pessimists believe the probabilities are <span class="math inline">\(p_L\)</span> and <span class="math inline">\(1 - p_L\)</span>, where <span class="math inline">\(p_H &gt; p_L\)</span>.</p>
 <p>The price of the asset in period <span class="math inline">\(t=1\)</span> is determined by the highest bidder, given short-sale constraints: <span class="math display">\[
@@ -758,8 +764,8 @@ P_H = \frac{p_H X_H + (1 - p_H) X_L}{1 + r}, \quad P_L = \frac{p_L X_H + (1 - p_
 P_2 = X.
 \]</span> If the optimists’ belief was overly optimistic, <strong>a crash occurs</strong>, showing that speculative bubbles arise due to heterogeneous expectations rather than fundamental mispricing alone.</p>
 </section>
-<section id="calibration-and-simulation-3" class="level4">
-<h4 class="anchored" data-anchor-id="calibration-and-simulation-3">2. Calibration and Simulation</h4>
+<section id="calibration-and-simulation-3" class="level4" data-number="8.4.2">
+<h4 data-number="8.4.2" class="anchored" data-anchor-id="calibration-and-simulation-3"><span class="header-section-number">8.4.2</span> 2. Calibration and Simulation</h4>
 <p>To simulate this model, we set:</p>
 <ul>
 <li><strong>Risk-free rate:</strong> <span class="math inline">\(r = 0.03\)</span></li>
@@ -777,8 +783,8 @@ P_1 = \frac{0.5(120) + 0.5(80)}{1.03} = 97.09.
 <li>If short-selling is unrestricted, <strong>prices better reflect fundamentals</strong>, reducing volatility.</li>
 </ul>
 </section>
-<section id="case-analysis-speculative-bubbles-and-policy-implications" class="level4">
-<h4 class="anchored" data-anchor-id="case-analysis-speculative-bubbles-and-policy-implications">3. Case Analysis: Speculative Bubbles and Policy Implications</h4>
+<section id="case-analysis-speculative-bubbles-and-policy-implications" class="level4" data-number="8.4.3">
+<h4 data-number="8.4.3" class="anchored" data-anchor-id="case-analysis-speculative-bubbles-and-policy-implications"><span class="header-section-number">8.4.3</span> 3. Case Analysis: Speculative Bubbles and Policy Implications</h4>
 <p>Empirical applications of the Harrison &amp; Kreps model highlight key cases of speculative booms and busts:</p>
 <ul>
 <li><strong>Dot-com Bubble (1999–2000):</strong> Investor optimism, combined with limited mechanisms for short-selling, led to massive overvaluation.</li>
@@ -1224,6 +1230,38 @@ Marcet, Albert, Francesc Obiols-Homs, and Philippe Weil. 2007. <span>“Incomple
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2025 · GITSAM · All rights reserved</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/@primenumbersam">
+      <i class="bi bi-youtube" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://instagram.com/primenumbersam">
+      <i class="bi bi-instagram" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://laroe.co.kr/">
+      <i class="bi bi-shop" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
 
 
 

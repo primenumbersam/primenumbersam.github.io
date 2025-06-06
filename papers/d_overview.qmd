@@ -11,7 +11,7 @@ format:
 bibliography: d_references.bib
 ---
 
-# Labor-Capital Dynamics in the Age of Automation
+> Labor-Capital Dynamics in the Age of Automation
 
 ## Highlights
 

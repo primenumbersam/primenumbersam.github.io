@@ -1,6 +1,7 @@
 ---
 title: "Time-varying TFP"
 subtitle: "Stationarity and Structural Change"
+keywords: TFP (총요소생산성)
 author: "GitSAM"
 date: 03/15/2025
 format:
@@ -8,8 +9,6 @@ format:
     code-fold: true
     toc: true
 ---
-
-# TFP (총요소생산성)
 
 ## Introduction 
 
@@ -118,11 +117,13 @@ TFP growth is not uniform across industries; while aggregate TFP growth may be d
 As **sectoral divergence** in productivity widens, traditional macroeconomic models that assume **homogeneous TFP growth** may require revision. Future research should focus on developing **heterogeneous growth models** that account for **cross-sectoral differences**, while also employing more dynamic econometric techniques to capture the evolving nature of TFP trends.
 
 
-# Appendix: Covariance Stationarity, Integration Order, and Cointegration
+## Appendix
+
+**Covariance Stationarity, Integration Order, and Cointegration**
 
 Covariance stationarity and cointegration describe different statistical properties of time series data. **Covariance stationarity** applies to series where mean, variance, and autocovariance do not change over time, while **cointegration** describes cases where non-stationary $I(1)$ time-series maintain a stable long-run equilibrium. This study explores how these concepts relate and how **cointegration allows for non-stationary series to form stationary linear combinations**.
 
-## Integration Order
+### Integration Order
 
 The **integration order** of a time series determines how many times it must be **differenced** to become **stationary**. A series is:
 
@@ -132,11 +133,11 @@ The **integration order** of a time series determines how many times it must be 
 
 Economic time series such as **GDP, money supply, and asset prices** often exhibit $I(1)$ behavior, meaning they contain **stochastic trends** and require differencing to achieve **stationarity**.
 
-## Joint Covariance Stationarity vs. Cointegration
+### Joint Covariance Stationarity vs. Cointegration
 
 **Joint covariance stationarity** applies when **each** time-series maintains a constant mean, variance, and autocovariance over time. **Cointegration**, on the other hand, describes cases where **two or more** non-stationary $I(1)$ time-series **share** a long-term equilibrium, forming a **stationary linear combination**.
 
-### Joint Covariance Stationary Series (Weak-Sense Stationarity)
+#### Joint Covariance Stationary Series (Weak-Sense Stationarity)
 
 A set of time series $X_t$ and $Y_t$ are **jointly covariance stationary** if they satisfy:
 
@@ -146,7 +147,7 @@ A set of time series $X_t$ and $Y_t$ are **jointly covariance stationary** if th
 
 If two time series are both **weakly stationary**, then any **linear combination** of them is also stationary.
 
-### Cointegrated Series
+#### Cointegrated Series
 
 A set of time series $X_t$ and $Y_t$ are **cointegrated** if:
 
@@ -161,7 +162,7 @@ where $u_t$ is $I(0)$ (stationary) process.
 
 Thus, **even though individual variables are non-stationary, their linear combination is stationary**, implying a **long-run equilibrium relationship**.
 
-### The Relationship Between Covariance Stationarity and Cointegration
+#### The Relationship Between Covariance Stationarity and Cointegration
 
 | Property | Joint Covariance Stationary Series | Cointegrated Series |
 |----------|--------------------------------|---------------------|
@@ -181,7 +182,7 @@ If $X_t$ and $Y_t$ are both **already $I(0)$ (stationary)**, then any linear com
 - They cannot be cointegrated because cointegration only applies to non-stationary ($I(1)$) series.
 - If all series are already covariance stationary, testing for cointegration is unnecessary.
 
-## Implications for Empirical Analysis
+### Implications for Empirical Analysis
 
 - Before testing for cointegration, check for stationarity. If all series are $I(0)$, cointegration does not apply.
 - If series are cointegrated, their residuals (error correction term) should be covariance stationary.

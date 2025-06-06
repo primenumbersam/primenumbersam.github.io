@@ -2,8 +2,8 @@
 title: AI 응용 미적분학
 ---
 
-## Preface
+![cover](../assets/cover-calculus.png){width=300}
 
-![cover](../cover-calculus.png){width=300}
+## Preface
 
 우리는 “외국인 직접투자가 증가하면 경제성장률도 상승할까?” 

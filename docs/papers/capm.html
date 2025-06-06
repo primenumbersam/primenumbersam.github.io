@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.21">
+<meta name="generator" content="quarto-1.8.4">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,7 +10,7 @@
 <meta name="dcterms.date" content="2025-03-21">
 <meta name="keywords" content="Market Concentration, Diversification">
 
-<title>Revisiting the CAPM – GitSAM</title>
+<title>Revisiting the CAPM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -53,16 +53,21 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./../assets/favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-b2bd955b7378b94aa8c2ba4fafa553c9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-19cd9126a9a9c64aacb03dc90954a64a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-c68da94286011e9302a35de07ef23a9e.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-19cd9126a9a9c64aacb03dc90954a64a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-bb5f9278568ae542f8467bdb635b70ac.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-05be89f7dc158724d6ec0523865b6986.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-1418392306ebdb7d3fb27066783eb1cf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-05be89f7dc158724d6ec0523865b6986.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -90,6 +95,23 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
+<!-- Google tag (gtag.js) -->
+
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LMQWVD1MKD"></script>
+
+<script>
+
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag(){dataLayer.push(arguments);}
+
+  gtag('js', new Date());
+
+
+
+  gtag('config', 'G-LMQWVD1MKD');
+
+</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -105,7 +127,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -121,18 +143,179 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="../styles.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed quarto-light">
+<body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title"><a href="../index.html">GitSAM</a></span>
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./../assets/logo-nav.png" alt="" class="navbar-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -141,6 +324,33 @@ window.Quarto = {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/primenumbersam/"> 
+<span class="menu-text">Apps</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-books" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Books</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-books">    
+        <li>
+    <a class="dropdown-item" href="./../book-ai-math/index.html">
+ <span class="dropdown-text">AI 기초 수학</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./../book-ai-stats/index.html">
+ <span class="dropdown-text">AI 기초 통계학</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./../book-ai-algebra/index.html">
+ <span class="dropdown-text">AI 응용 선형대수학</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./../book-ai-calculus/index.html">
+ <span class="dropdown-text">AI 응용 미적분학</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-papers" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Papers</span>
@@ -151,54 +361,16 @@ window.Quarto = {
  <span class="dropdown-text">Working</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./../paper-tbtf/index.qmd">
- <span class="dropdown-text">TBTF</span></a>
+    <a class="dropdown-item" href="./../paper-tbtf/index.html">
+ <span class="dropdown-text">Thesis</span></a>
   </li>  
     </ul>
   </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-books" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Books</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-books">    
-        <li>
-    <a class="dropdown-item" href="./../book-gitsam-stats/index.qmd">
- <span class="dropdown-text">gitsam 기초통계학</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://primenumbersam.github.io/">
- <span class="dropdown-text">AI 응용 선형대수학</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="https://github.com/primenumbersam/"> 
-<span class="menu-text">Apps</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="https://www.gitsam.com"> 
-<span class="menu-text">스터디클럽</span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools tools-wide">
-    <a href="https://laroe.co.kr/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-shop"></i></a>
-    <a href="https://www.youtube.com/@primenumbersam" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-youtube"></i></a>
-    <div class="dropdown">
-      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
-      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
-          <li>
-            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/primenumbersam/primenumbersam.github.io">
-            Source Code
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item quarto-navbar-tools-item" href="mailto:primenumbersam@gmail.com">
-            Report a Bug
-            </a>
-          </li>
-      </ul>
-    </div>
+            <div class="quarto-navbar-tools">
+    <a href="https://github.com/primenumbersam/primenumbersam.github.io" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -222,7 +394,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">GitSAM 교육+연구</span></a>
+ <span class="menu-text">gitsam 연구</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -255,7 +427,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./regressions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">From Linear to Curved Structures to Fit the Data</span></a>
+ <span class="menu-text">From Linear to Curved Structures</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -424,14 +596,23 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#main" id="toc-main" class="nav-link" data-scroll-target="#main">Main</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#main" id="toc-main" class="nav-link" data-scroll-target="#main"><span class="header-section-number">2</span> Main</a>
+  <ul class="collapse">
+  <li><a href="#empirical-and-mathematical-foundations-of-diversification" id="toc-empirical-and-mathematical-foundations-of-diversification" class="nav-link" data-scroll-target="#empirical-and-mathematical-foundations-of-diversification"><span class="header-section-number">2.1</span> Empirical and Mathematical Foundations of Diversification</a></li>
+  <li><a href="#a-critique-of-risk-as-volatility" id="toc-a-critique-of-risk-as-volatility" class="nav-link" data-scroll-target="#a-critique-of-risk-as-volatility"><span class="header-section-number">2.2</span> A Critique of Risk as Volatility</a></li>
+  <li><a href="#diversification-and-the-risk-return-trade-off" id="toc-diversification-and-the-risk-return-trade-off" class="nav-link" data-scroll-target="#diversification-and-the-risk-return-trade-off"><span class="header-section-number">2.3</span> Diversification and the Risk-Return Trade-Off</a></li>
+  <li><a href="#market-concentration-and-the-upper-frontier" id="toc-market-concentration-and-the-upper-frontier" class="nav-link" data-scroll-target="#market-concentration-and-the-upper-frontier"><span class="header-section-number">2.4</span> Market Concentration and the Upper Frontier</a></li>
+  <li><a href="#implications-for-investors-and-market-stability" id="toc-implications-for-investors-and-market-stability" class="nav-link" data-scroll-target="#implications-for-investors-and-market-stability"><span class="header-section-number">2.5</span> Implications for Investors and Market Stability</a></li>
+  <li><a href="#broader-socioeconomic-consequences" id="toc-broader-socioeconomic-consequences" class="nav-link" data-scroll-target="#broader-socioeconomic-consequences"><span class="header-section-number">2.6</span> Broader Socioeconomic Consequences</a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">3</span> Conclusion</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
+
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./yield_curve.html">금융</a></li><li class="breadcrumb-item"><a href="./capm.html">Revisiting the CAPM</a></li></ol></nav>
 <div class="quarto-title">
@@ -477,16 +658,16 @@ window.Quarto = {
 </header>
 
 
-<section id="introduction" class="level3">
-<h3 class="anchored" data-anchor-id="introduction">Introduction</h3>
+<section id="introduction" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
 <p>The <strong>Capital Asset Pricing Model (CAPM)</strong>, developed by <span class="citation" data-cites="sharpe1964capital">Sharpe (<a href="#ref-sharpe1964capital" role="doc-biblioref">1964</a>)</span>, <span class="citation" data-cites="lintner1965valuation">Lintner (<a href="#ref-lintner1965valuation" role="doc-biblioref">1965</a>)</span>, and <span class="citation" data-cites="mossin1966equilibrium">Mossin (<a href="#ref-mossin1966equilibrium" role="doc-biblioref">1966</a>)</span>, remains a cornerstone of modern finance, linking expected returns to risk. It classifies risk into two categories: <strong>systematic risk</strong>, which stems from market-wide factors and cannot be diversified away, and <strong>unsystematic risk</strong>, which is asset-specific and can be mitigated through diversification. The CAPM posits that only systematic risk, measured by beta, justifies a return premium, as investors can eliminate unsystematic risk by holding a diversified portfolio, ideally approximating the market portfolio. This principle aligns with broader linear factor models like the <strong>Arbitrage Pricing Theory (APT)</strong> <span class="citation" data-cites="ross1976arbitrage">(<a href="#ref-ross1976arbitrage" role="doc-biblioref">Ross 1976</a>)</span>, which extends the CAPM by incorporating multiple systematic risk factors while similarly dismissing diversifiable risk under no-arbitrage conditions.</p>
 <p>However, the CAPM’s empirical validity has been contested. <span class="citation" data-cites="banz1981relationship">Banz (<a href="#ref-banz1981relationship" role="doc-biblioref">1981</a>)</span> documented the <strong>size effect</strong>, where small-cap stocks outperform CAPM predictions, while <span class="citation" data-cites="basu1977investment">Basu (<a href="#ref-basu1977investment" role="doc-biblioref">1977</a>)</span> identified the <strong>value effect</strong>, showing excess returns for stocks with high earnings-to-price ratios. These anomalies spurred the development of multifactor models, such as the <strong>Fama-French three-factor model</strong> <span class="citation" data-cites="fama1993common">(<a href="#ref-fama1993common" role="doc-biblioref">Fama and French 1993</a>)</span>, which augment beta with size and value factors. Beyond these, market concentration has emerged as a critical lens for understanding asset pricing deviations. <span class="citation" data-cites="hou2006industry">Hou and Robinson (<a href="#ref-hou2006industry" role="doc-biblioref">2006</a>)</span> found that firms in concentrated industries earn higher returns, attributing this to <strong>economic rents</strong> from market power. <span class="citation" data-cites="edmans2009blockholder">Edmans (<a href="#ref-edmans2009blockholder" role="doc-biblioref">2009</a>)</span> linked ownership concentration to superior performance, while <span class="citation" data-cites="choi2017portfolio">Choi et al. (<a href="#ref-choi2017portfolio" role="doc-biblioref">2017</a>)</span> showed that institutional investors with concentrated portfolios outperform diversified ones. <span class="citation" data-cites="neuhann2024financial">Neuhann and Sockin (<a href="#ref-neuhann2024financial" role="doc-biblioref">2024</a>)</span> explored how financial market concentration distorts capital allocation, and <span class="citation" data-cites="bustamante2017product">Bustamante and Donangelo (<a href="#ref-bustamante2017product" role="doc-biblioref">2017</a>)</span> tied product market concentration to industry returns.</p>
 <p>From a theoretical perspective, <span class="citation" data-cites="magill1996incomplete">Magill and Quinzii (<a href="#ref-magill1996incomplete" role="doc-biblioref">1996</a>)</span> argued that incomplete markets—lacking sufficient contingent claims—prevent full risk hedging, challenging CAPM assumptions. <span class="citation" data-cites="cochrane1996cross">Cochrane (<a href="#ref-cochrane1996cross" role="doc-biblioref">1996</a>)</span> emphasized the role of investment-based pricing, while <span class="citation" data-cites="campbell1992intertemporal">Campbell (<a href="#ref-campbell1992intertemporal" role="doc-biblioref">1992</a>)</span> critiqued volatility as an incomplete risk measure. Socioeconomic analyses, such as <span class="citation" data-cites="saez2016wealth">Saez and Zucman (<a href="#ref-saez2016wealth" role="doc-biblioref">2016</a>)</span>, further connect market concentration to wealth inequality, highlighting broader implications. This rich body of literature suggests that market structure and concentration significantly complicate the CAPM’s risk-return framework, necessitating a deeper examination.</p>
 </section>
-<section id="main" class="level3">
-<h3 class="anchored" data-anchor-id="main">Main</h3>
-<section id="empirical-and-mathematical-foundations-of-diversification" class="level4">
-<h4 class="anchored" data-anchor-id="empirical-and-mathematical-foundations-of-diversification">Empirical and Mathematical Foundations of Diversification</h4>
+<section id="main" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="main"><span class="header-section-number">2</span> Main</h2>
+<section id="empirical-and-mathematical-foundations-of-diversification" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="empirical-and-mathematical-foundations-of-diversification"><span class="header-section-number">2.1</span> Empirical and Mathematical Foundations of Diversification</h3>
 <p>Diversification’s risk-reducing power is well-established empirically and mathematically. <span class="citation" data-cites="elton1977risk">Elton and Gruber (<a href="#ref-elton1977risk" role="doc-biblioref">1977</a>)</span> analyzed 3,290 securities, demonstrating that a portfolio of just four stocks markedly reduces variance compared to a single stock, underscoring diversification’s practical utility.</p>
 <p>Mathematically, consider an equally weighted portfolio of <span class="math inline">\(n\)</span> securities. The portfolio variance <span class="math inline">\(\sigma_p^2\)</span> is given by:</p>
 <p><span class="math display">\[
@@ -500,29 +681,29 @@ window.Quarto = {
 </ul>
 <p>As <span class="math inline">\(n\)</span> increases, <span class="math inline">\(\sigma_p^2\)</span> converges to <span class="math inline">\(\bar{\rho} \bar{\sigma}^2\)</span>, indicating that covariance, not individual variance, dominates portfolio risk. When <span class="math inline">\(\bar{\rho} &lt; 1\)</span>, diversification lowers volatility, resembling how higher-order terms in Taylor polynomials diminish to smooth a function or how fractal geometry simplifies irregularities with scale.</p>
 </section>
-<section id="a-critique-of-risk-as-volatility" class="level4">
-<h4 class="anchored" data-anchor-id="a-critique-of-risk-as-volatility">A Critique of Risk as Volatility</h4>
+<section id="a-critique-of-risk-as-volatility" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="a-critique-of-risk-as-volatility"><span class="header-section-number">2.2</span> A Critique of Risk as Volatility</h3>
 <p>The CAPM equates risk with volatility, but this assumption is narrow. Long-term investors may prioritize structural risks—e.g., economic shifts or sector obsolescence—over short-term price swings. A volatile growth stock might be less “risky” to them than a stable but declining asset. <span class="citation" data-cites="campbell1992intertemporal">Campbell (<a href="#ref-campbell1992intertemporal" role="doc-biblioref">1992</a>)</span> supports this critique, arguing that volatility oversimplifies the multifaceted nature of risk, a view echoed by behavioral finance perspectives <span class="citation" data-cites="shiller2003efficient">(<a href="#ref-shiller2003efficient" role="doc-biblioref">Shiller 2003</a>)</span>.</p>
 </section>
-<section id="diversification-and-the-risk-return-trade-off" class="level4">
-<h4 class="anchored" data-anchor-id="diversification-and-the-risk-return-trade-off">Diversification and the Risk-Return Trade-Off</h4>
+<section id="diversification-and-the-risk-return-trade-off" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="diversification-and-the-risk-return-trade-off"><span class="header-section-number">2.3</span> Diversification and the Risk-Return Trade-Off</h3>
 <p>The CAPM ties diversification to the risk-return trade-off, suggesting investors can eliminate unsystematic risk while earning returns proportional to systematic risk exposure. In a stochastic setting, diverse agents (e.g., farmers, energy producers) share idiosyncratic risks, enhancing welfare <span class="citation" data-cites="cochrane2009asset">(<a href="#ref-cochrane2009asset" role="doc-biblioref">Cochrane 2009</a>)</span>. Yet, this assumes a broad, competitive market. When the market portfolio—say, the S&amp;P 500—is dominated by a few highly correlated stocks (e.g., tech giants), diversification falters. High <span class="math inline">\(\bar{\rho}\)</span> reduces variance’s sensitivity to <span class="math inline">\(n\)</span>, undermining the CAPM’s benefits <span class="citation" data-cites="grullon2019us">(<a href="#ref-grullon2019us" role="doc-biblioref">Grullon, Larkin, and Michaely 2019</a>)</span>.</p>
 </section>
-<section id="market-concentration-and-the-upper-frontier" class="level4">
-<h4 class="anchored" data-anchor-id="market-concentration-and-the-upper-frontier">Market Concentration and the Upper Frontier</h4>
+<section id="market-concentration-and-the-upper-frontier" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="market-concentration-and-the-upper-frontier"><span class="header-section-number">2.4</span> Market Concentration and the Upper Frontier</h3>
 <p>In the <a href="https://python-advanced.quantecon.org/asset_pricing_lph.html#mathematical-structure-of-frontier">standard arbitrage-free asset pricing framework</a>, the upper mean-variance frontier assets correlate perfectly (negatively) with the stochastic discount factor (SDF). In concentrated markets, dominant firms with <strong>economic moats</strong> <span class="citation" data-cites="bustamante2017product">(<a href="#ref-bustamante2017product" role="doc-biblioref">Bustamante and Donangelo 2017</a>)</span> act as principal components, compressing the payoff space. For example, if the <strong>Herfindahl-Hirschman Index (HHI)</strong> measures this dominance or concentration, then a high HHI signals reliance on few assets, limiting diversification. Investors may then seek arbitrage in these stocks, amplifying concentration <span class="citation" data-cites="valta2012competition">(<a href="#ref-valta2012competition" role="doc-biblioref">Valta 2012</a>)</span>.</p>
 </section>
-<section id="implications-for-investors-and-market-stability" class="level4">
-<h4 class="anchored" data-anchor-id="implications-for-investors-and-market-stability">Implications for Investors and Market Stability</h4>
+<section id="implications-for-investors-and-market-stability" class="level3" data-number="2.5">
+<h3 data-number="2.5" class="anchored" data-anchor-id="implications-for-investors-and-market-stability"><span class="header-section-number">2.5</span> Implications for Investors and Market Stability</h3>
 <p>In concentrated markets, diversification yields to capturing rents from dominant firms. These firms use primary-market capital to reinforce moats, distributing profits rather than fostering competition <span class="citation" data-cites="hou2006industry">(<a href="#ref-hou2006industry" role="doc-biblioref">Hou and Robinson 2006</a>)</span>. Secondary-market trading becomes zero-sum, redistributing wealth without value creation. Early investors in concentrated stocks gain disproportionately, widening inequality <span class="citation" data-cites="saez2016wealth">(<a href="#ref-saez2016wealth" role="doc-biblioref">Saez and Zucman 2016</a>)</span> and challenging the CAPM’s traditional data-driven risk-return logic.</p>
 </section>
-<section id="broader-socioeconomic-consequences" class="level4">
-<h4 class="anchored" data-anchor-id="broader-socioeconomic-consequences">Broader Socioeconomic Consequences</h4>
+<section id="broader-socioeconomic-consequences" class="level3" data-number="2.6">
+<h3 data-number="2.6" class="anchored" data-anchor-id="broader-socioeconomic-consequences"><span class="header-section-number">2.6</span> Broader Socioeconomic Consequences</h3>
 <p>Concentration reduces contingent claim diversity, impairing hedging capacity <span class="citation" data-cites="magill1996incomplete">(<a href="#ref-magill1996incomplete" role="doc-biblioref">Magill and Quinzii 1996</a>)</span>. A shock to a dominant sector triggers systemic ripples, increasing instability. This homogeneity shifts markets from managing uncertainty to rewarding market power, exacerbating wealth gaps and contradicting the CAPM’s egalitarian risk-sharing ideal.</p>
 </section>
 </section>
-<section id="conclusion" class="level3">
-<h3 class="anchored" data-anchor-id="conclusion">Conclusion</h3>
+<section id="conclusion" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">3</span> Conclusion</h2>
 <p>The CAPM’s diversification-driven risk-return framework faces significant challenges from market concentration. As diversification weakens, investors prioritize rents over risk reduction, simplifying markets into systems dominated by a few firms. This shift threatens stability, equity, and hedging capacity, urging a rethinking of the CAPM and policies to enhance market diversity.</p>
 
 
@@ -596,6 +777,19 @@ Valta, Philip. 2012. <span>“Competition and the Cost of Debt.”</span> <em>Jo
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
@@ -994,6 +1188,38 @@ Valta, Philip. 2012. <span>“Competition and the Cost of Debt.”</span> <em>Jo
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2025 · GITSAM · All rights reserved</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/@primenumbersam">
+      <i class="bi bi-youtube" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://instagram.com/primenumbersam">
+      <i class="bi bi-instagram" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://laroe.co.kr/">
+      <i class="bi bi-shop" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
 
 
 

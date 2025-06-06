@@ -11,16 +11,16 @@ format:
     toc: true
 ---
 
-## 1. Introduction
+## Introduction
 
 The **Pareto distribution** has long been used to model wealth or income distributions, starting from the seminal work of Vilfredo Pareto in the late 19th century [@pareto1897]. One of the most intuitive ways to visualize the inequality within such a distribution is through the **Lorenz curve**, introduced by Lorenz in 1905 [@lorenz1905]. The Lorenz curve describes the cumulative proportion of total wealth (or resources) held by the bottom fraction of the population. Closely related to the Lorenz curve is the **Gini coefficient**, which provides a scalar measure of inequality [@gini1912]. 
 
 This document first derives the Lorenz curve for a Pareto distribution, then demonstrates how to estimate the Pareto index (shape parameter) from Lorenz curve observations. We additionally relate the Pareto distribution to **Constant Relative Risk Aversion (CRRA) utility function**, highlighting the same shared structure in a differential equation that governs both.
 
 
-## 2. Deriving the Lorenz Curve of a Pareto Distribution
+## Deriving the Lorenz Curve of a Pareto Distribution
 
-### 2.1. Definition of the Lorenz Curve
+### Definition of the Lorenz Curve
 
 For a continuous distribution of wealth \(X\), the **Lorenz curve** $L(p)$ is defined as the fraction of total wealth owned by the bottom $p$ fraction of the population:
 
@@ -34,7 +34,7 @@ where
 - The numerator represents the cumulative wealth of the bottom $p$ fraction,
 - The denominator represents the total wealth in the system, given by the expected value of $X$ over its support.
 
-### 2.2. Pareto Distribution
+### Pareto Distribution
 
 A **Pareto distribution** with shape parameter $\alpha>0$ and scale parameter $x_m>0$ is defined by the PDF
 
@@ -58,7 +58,7 @@ p \;=\; 1 \;-\;\Bigl(\tfrac{x_m}{x(p)}\Bigr)^\alpha
 x(p) \;=\; \frac{x_m}{\bigl(1 - p\bigr)^{1/\alpha}}.
 $$
 
-### 2.3. Total Wealth
+### Total Wealth
 
 Let the **total wealth** be $W_{\text{total}} = E[X]$, the expected value of $X$. Substituting the PDF of the Pareto distribution into the definition of expectation,
 
@@ -77,7 +77,7 @@ W_{\text{total}}
 \;=\; \frac{\alpha\,x_m}{\alpha - 1}.
 $$
 
-### 2.4. Cumulative Wealth for the Bottom $p$ Fraction
+### Cumulative Wealth for the Bottom $p$ Fraction
 
 The cumulative wealth held by the bottom $p$ fraction is
 
@@ -97,7 +97,7 @@ W(p)
 \;\Bigl(1 - \bigl(\tfrac{x_m}{x(p)}\bigr)^{\alpha - 1}\Bigr).
 $$
 
-### 2.5. Lorenz Curve for the Pareto Distribution
+### Lorenz Curve for the Pareto Distribution
 
 By definition,
 
@@ -119,7 +119,7 @@ $$
 - If $\alpha$ is only slightly larger than 1, the distribution is more unequal, with significant concentration of wealth in the upper tail.
 
 
-## 3. Estimating the Pareto Index from the Lorenz Curve
+## Estimating the Pareto Index from the Lorenz Curve
 
 Suppose empirical data or external studies indicate specific points $(p, L(p))$ on the Lorenz curve. We can use
 
@@ -140,7 +140,7 @@ Several Empirical Illustrations
 - **Credit Suisse Global Wealth Report**: In 2013, it was reported that the top 1% control about 50% of global wealth, which implies $p=0.99$ and $L(p)=0.50$. Solving gives $\alpha \approx 1.18$. Additionally, the top 10% were said to own about 85% of global wealth ($p=0.90$, $L(p)=0.15$), giving $\alpha \approx 1.08$. Comparing such estimates across years (e.g., 2013 vs. 2020) can reveal the time dynamics of the global wealth distribution [@creditsuisse2013; @creditsuisse2020].
 
 
-## 4. The Gini Coefficient
+## The Gini Coefficient
 
 The **Gini coefficient** is a measure of wealth or income inequality that is closely related to the Lorenz curve. The Gini coefficient is defined as the **ratio** of the **area** between the Lorenz curve and the 45-degree equality line to the **total area** under the 45-degree line. Mathematically, the Gini coefficient \( G \) is given by:
 
@@ -175,7 +175,7 @@ Some features of the Gini coefficient:
 - **Non‐additivity**: One cannot simply average the Gini coefficients of subpopulations to obtain an overall Gini coefficient.  
 - **Sensitivity**: The Gini coefficient is sensitive to changes in the middle of the distribution, but less so at the tails.
 
-## 5. Pareto Distribution and CRRA Utility
+## Pareto Distribution and CRRA Utility
 
 In microeconomic theory, a widely used utility specification is the **Constant Relative Risk Aversion (CRRA)** form [@arrow1974; @pratt1978risk]. The CRRA utility function $u(x)$ satisfies
 
@@ -202,7 +202,7 @@ Furthermore, in mainstream economic theory, **marginal utility** $u'(x)$ is assu
 
 > **Remark**: There is a well‐known relationship via logarithmic transforms: if $X$ is Pareto($x_m,\alpha$), then $Y=\ln(X/x_m)$ is exponentially distributed with rate $\alpha$. This exponential distribution also arises from a first‐order linear differential equation, reinforcing these structural similarities.
 
-## 6. Conclusion
+## Conclusion
 
 Because the Pareto distribution has only **two parameters** ($x_m$ and $\alpha$), even minimal distributional data—such as “the bottom 80% own 20% of total wealth”—enables one to solve directly for the **Pareto index** $\alpha$. This simplicity makes the Pareto distribution a convenient model or **approximation for global wealth distribution**, although in practice the estimated $\alpha$ can vary greatly depending on the dataset, sampling, and specific segment of the population observed.
 

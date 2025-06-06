@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.21">
+<meta name="generator" content="quarto-1.8.4">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,7 +10,7 @@
 <meta name="dcterms.date" content="2025-03-10">
 <meta name="keywords" content="corner solution, optimization, convex, non-convex">
 
-<title>Corner Solutions – GitSAM</title>
+<title>Corner Solutions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -88,16 +88,21 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./../assets/favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-b2bd955b7378b94aa8c2ba4fafa553c9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-19cd9126a9a9c64aacb03dc90954a64a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-c68da94286011e9302a35de07ef23a9e.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-19cd9126a9a9c64aacb03dc90954a64a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-bb5f9278568ae542f8467bdb635b70ac.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-05be89f7dc158724d6ec0523865b6986.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-1418392306ebdb7d3fb27066783eb1cf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-05be89f7dc158724d6ec0523865b6986.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -125,20 +130,198 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
+<!-- Google tag (gtag.js) -->
+
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LMQWVD1MKD"></script>
+
+<script>
+
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag(){dataLayer.push(arguments);}
+
+  gtag('js', new Date());
 
 
-<link rel="stylesheet" href="../styles.css">
+
+  gtag('config', 'G-LMQWVD1MKD');
+
+</script>
+
+
 </head>
 
-<body class="nav-sidebar floating nav-fixed quarto-light">
+<body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title"><a href="../index.html">GitSAM</a></span>
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./../assets/logo-nav.png" alt="" class="navbar-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -147,6 +330,33 @@ div.csl-indent {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://github.com/primenumbersam/"> 
+<span class="menu-text">Apps</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-books" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Books</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-books">    
+        <li>
+    <a class="dropdown-item" href="./../book-ai-math/index.html">
+ <span class="dropdown-text">AI 기초 수학</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./../book-ai-stats/index.html">
+ <span class="dropdown-text">AI 기초 통계학</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./../book-ai-algebra/index.html">
+ <span class="dropdown-text">AI 응용 선형대수학</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./../book-ai-calculus/index.html">
+ <span class="dropdown-text">AI 응용 미적분학</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-papers" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Papers</span>
@@ -157,54 +367,16 @@ div.csl-indent {
  <span class="dropdown-text">Working</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./../paper-tbtf/index.qmd">
- <span class="dropdown-text">TBTF</span></a>
+    <a class="dropdown-item" href="./../paper-tbtf/index.html">
+ <span class="dropdown-text">Thesis</span></a>
   </li>  
     </ul>
   </li>
-  <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-books" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Books</span>
-    </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-books">    
-        <li>
-    <a class="dropdown-item" href="./../book-gitsam-stats/index.qmd">
- <span class="dropdown-text">gitsam 기초통계학</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="https://primenumbersam.github.io/">
- <span class="dropdown-text">AI 응용 선형대수학</span></a>
-  </li>  
-    </ul>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="https://github.com/primenumbersam/"> 
-<span class="menu-text">Apps</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="https://www.gitsam.com"> 
-<span class="menu-text">스터디클럽</span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools tools-wide">
-    <a href="https://laroe.co.kr/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-shop"></i></a>
-    <a href="https://www.youtube.com/@primenumbersam" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-youtube"></i></a>
-    <div class="dropdown">
-      <a href="" title="" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label=""><i class="bi bi-github"></i></a>
-      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
-          <li>
-            <a class="dropdown-item quarto-navbar-tools-item" href="https://github.com/primenumbersam/primenumbersam.github.io">
-            Source Code
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item quarto-navbar-tools-item" href="mailto:primenumbersam@gmail.com">
-            Report a Bug
-            </a>
-          </li>
-      </ul>
-    </div>
+            <div class="quarto-navbar-tools">
+    <a href="https://github.com/primenumbersam/primenumbersam.github.io" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -228,7 +400,7 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">GitSAM 교육+연구</span></a>
+ <span class="menu-text">gitsam 연구</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -261,7 +433,7 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./regressions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">From Linear to Curved Structures to Fit the Data</span></a>
+ <span class="menu-text">From Linear to Curved Structures</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -430,19 +602,20 @@ div.csl-indent {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">1. Introduction</a></li>
-  <li><a href="#convexity-in-economic-theory" id="toc-convexity-in-economic-theory" class="nav-link" data-scroll-target="#convexity-in-economic-theory">2. Convexity in Economic Theory</a></li>
-  <li><a href="#non-convexities-in-reality" id="toc-non-convexities-in-reality" class="nav-link" data-scroll-target="#non-convexities-in-reality">3. Non-Convexities in Reality</a></li>
-  <li><a href="#government-interventions" id="toc-government-interventions" class="nav-link" data-scroll-target="#government-interventions">4. Government Interventions</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">5. Conclusion</a></li>
-  <li><a href="#appendix-utilitarian-objective-function" id="toc-appendix-utilitarian-objective-function" class="nav-link" data-scroll-target="#appendix-utilitarian-objective-function">Appendix: Utilitarian Objective function</a></li>
-  <li><a href="#appendix-homogeneous-function-of-degree-1" id="toc-appendix-homogeneous-function-of-degree-1" class="nav-link" data-scroll-target="#appendix-homogeneous-function-of-degree-1">Appendix: Homogeneous function of degree 1</a></li>
-  <li><a href="#appendix-sigmoid-utility-function" id="toc-appendix-sigmoid-utility-function" class="nav-link" data-scroll-target="#appendix-sigmoid-utility-function">Appendix: Sigmoid utility function</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">0.1</span> 1. Introduction</a></li>
+  <li><a href="#convexity-in-economic-theory" id="toc-convexity-in-economic-theory" class="nav-link" data-scroll-target="#convexity-in-economic-theory"><span class="header-section-number">0.2</span> 2. Convexity in Economic Theory</a></li>
+  <li><a href="#non-convexities-in-reality" id="toc-non-convexities-in-reality" class="nav-link" data-scroll-target="#non-convexities-in-reality"><span class="header-section-number">0.3</span> 3. Non-Convexities in Reality</a></li>
+  <li><a href="#government-interventions" id="toc-government-interventions" class="nav-link" data-scroll-target="#government-interventions"><span class="header-section-number">0.4</span> 4. Government Interventions</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">0.5</span> 5. Conclusion</a></li>
+  <li><a href="#appendix-utilitarian-objective-function" id="toc-appendix-utilitarian-objective-function" class="nav-link" data-scroll-target="#appendix-utilitarian-objective-function"><span class="header-section-number">0.6</span> Appendix: Utilitarian Objective function</a></li>
+  <li><a href="#appendix-homogeneous-function-of-degree-1" id="toc-appendix-homogeneous-function-of-degree-1" class="nav-link" data-scroll-target="#appendix-homogeneous-function-of-degree-1"><span class="header-section-number">0.7</span> Appendix: Homogeneous function of degree 1</a></li>
+  <li><a href="#appendix-sigmoid-utility-function" id="toc-appendix-sigmoid-utility-function" class="nav-link" data-scroll-target="#appendix-sigmoid-utility-function"><span class="header-section-number">0.8</span> Appendix: Sigmoid utility function</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
+
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./gitsam_reading.html">경제</a></li><li class="breadcrumb-item"><a href="./corner_solution.html">Corner Solutions</a></li></ol></nav>
 <div class="quarto-title">
@@ -488,12 +661,12 @@ div.csl-indent {
 </header>
 
 
-<section id="introduction" class="level3">
-<h3 class="anchored" data-anchor-id="introduction">1. Introduction</h3>
+<section id="introduction" class="level3" data-number="0.1">
+<h3 data-number="0.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">0.1</span> 1. Introduction</h3>
 <p>In standard economic theory, both consumer preferences and production sets are generally assumed to exhibit <strong>convexity</strong> <span class="citation" data-cites="ArrowDebreu1954 Debreu1959">(<a href="#ref-ArrowDebreu1954" role="doc-biblioref">Arrow and Debreu 1954</a>; <a href="#ref-Debreu1959" role="doc-biblioref">Debreu 1959</a>)</span>. This assumption supports foundational results, including the existence and uniqueness of equilibrium and the efficiency of market allocations. In practice, however, features such as <strong>network externalities</strong> <span class="citation" data-cites="KatzShapiro1985 RochetTirole2003">(<a href="#ref-KatzShapiro1985" role="doc-biblioref">Katz and Shapiro 1985</a>; <a href="#ref-RochetTirole2003" role="doc-biblioref">Rochet and Tirole 2003</a>)</span>, <strong>rent-seeking</strong> <span class="citation" data-cites="ShleiferVishny1993">(<a href="#ref-ShleiferVishny1993" role="doc-biblioref">Shleifer and Vishny 1993</a>)</span>, and <strong>multiple equilibria</strong>—often culminating in pronounced market dominance—can produce outcomes resembling <strong>non-convex preferences</strong> <span class="citation" data-cites="Arthur1994">(<a href="#ref-Arthur1994" role="doc-biblioref">Arthur 1994</a>)</span>. In many cases, corner solutions and path-dependent equilibria emerge from winner-takes-all dynamics, concentrated economic power, and barriers to entry.</p>
 </section>
-<section id="convexity-in-economic-theory" class="level3">
-<h3 class="anchored" data-anchor-id="convexity-in-economic-theory">2. Convexity in Economic Theory</h3>
+<section id="convexity-in-economic-theory" class="level3" data-number="0.2">
+<h3 data-number="0.2" class="anchored" data-anchor-id="convexity-in-economic-theory"><span class="header-section-number">0.2</span> 2. Convexity in Economic Theory</h3>
 <p><strong>2.1 Convex Preferences and Production Sets</strong></p>
 <ul>
 <li>Consumer preferences are typically modeled with quasi-concave utility functions, yielding convex (or “bowl-shaped”) indifference curves. This setup implies a preference for <strong>diversity</strong> in consumption, rather than extreme or corner solutions <span class="citation" data-cites="Debreu1959">(<a href="#ref-Debreu1959" role="doc-biblioref">Debreu 1959</a>)</span>.</li>
@@ -510,8 +683,8 @@ div.csl-indent {
 <li>Consequently, government interventions usually aim to correct externalities, public goods issues, or information asymmetries within a broader context of largely convex preferences and production sets.</li>
 </ul>
 </section>
-<section id="non-convexities-in-reality" class="level3">
-<h3 class="anchored" data-anchor-id="non-convexities-in-reality">3. Non-Convexities in Reality</h3>
+<section id="non-convexities-in-reality" class="level3" data-number="0.3">
+<h3 data-number="0.3" class="anchored" data-anchor-id="non-convexities-in-reality"><span class="header-section-number">0.3</span> 3. Non-Convexities in Reality</h3>
 <p><strong>3.1 Network Externalities and Increasing Returns to Scale</strong></p>
 <ul>
 <li>In contrast to diminishing returns, many digital or platform-based markets exhibit <strong>network externalities</strong>, or increasing returns to scale <span class="citation" data-cites="KatzShapiro1985 RochetTirole2003">(<a href="#ref-KatzShapiro1985" role="doc-biblioref">Katz and Shapiro 1985</a>; <a href="#ref-RochetTirole2003" role="doc-biblioref">Rochet and Tirole 2003</a>)</span>. As additional users join a platform, its value to each user grows, often driving <strong>corner solutions</strong> in both production and consumption.</li>
@@ -533,8 +706,8 @@ div.csl-indent {
 <li><strong>Rent-seeking</strong> intensifies the misallocation of resources, as efforts are diverted to defending or reinforcing incumbents’ power, often via barriers to entry, reduced competition, and growing inequalities.</li>
 </ul>
 </section>
-<section id="government-interventions" class="level3">
-<h3 class="anchored" data-anchor-id="government-interventions">4. Government Interventions</h3>
+<section id="government-interventions" class="level3" data-number="0.4">
+<h3 data-number="0.4" class="anchored" data-anchor-id="government-interventions"><span class="header-section-number">0.4</span> 4. Government Interventions</h3>
 <p><strong>4.1 Theoretical View: Correcting Market Imperfections</strong></p>
 <ul>
 <li>Traditionally, policy interventions focus on addressing market failures, assuming that preferences and technologies remain fundamentally convex and that interventions are limited and transparent.</li>
@@ -550,12 +723,12 @@ div.csl-indent {
 <li>Consequently, once a market tips toward a specific firm, region, or product, effective competition may prove infeasible without sweeping policy reforms or disruptive innovation.</li>
 </ul>
 </section>
-<section id="conclusion" class="level3">
-<h3 class="anchored" data-anchor-id="conclusion">5. Conclusion</h3>
+<section id="conclusion" class="level3" data-number="0.5">
+<h3 data-number="0.5" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">0.5</span> 5. Conclusion</h3>
 <p>Although classical economic models lean on <strong>convex</strong> preferences and technologies to assert the existence of unique, efficient equilibria, real-world dynamics often revolve around <strong>non-convex</strong> phenomena. Network externalities, coordination failures, and rent-seeking can drive <strong>corner solutions</strong>, multiple equilibria, and <strong>lock-in</strong> that preserve incumbent advantages. Far from mitigating these issues, government policies sometimes exacerbate them through preferential treatment of dominant actors. Recognizing these <strong>non-convex realities</strong> is crucial for crafting policy frameworks that transcend purely theoretical assumptions of convexity and address the path-dependent complexity characterizing modern markets.</p>
 </section>
-<section id="appendix-utilitarian-objective-function" class="level3">
-<h3 class="anchored" data-anchor-id="appendix-utilitarian-objective-function">Appendix: Utilitarian Objective function</h3>
+<section id="appendix-utilitarian-objective-function" class="level3" data-number="0.6">
+<h3 data-number="0.6" class="anchored" data-anchor-id="appendix-utilitarian-objective-function"><span class="header-section-number">0.6</span> Appendix: Utilitarian Objective function</h3>
 <div id="6320be23" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
@@ -675,8 +848,8 @@ Extreme Point Type: Saddle</code></pre>
 </div>
 </div>
 </section>
-<section id="appendix-homogeneous-function-of-degree-1" class="level3">
-<h3 class="anchored" data-anchor-id="appendix-homogeneous-function-of-degree-1">Appendix: Homogeneous function of degree 1</h3>
+<section id="appendix-homogeneous-function-of-degree-1" class="level3" data-number="0.7">
+<h3 data-number="0.7" class="anchored" data-anchor-id="appendix-homogeneous-function-of-degree-1"><span class="header-section-number">0.7</span> Appendix: Homogeneous function of degree 1</h3>
 <div id="94b3e094" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Code</summary>
@@ -793,8 +966,8 @@ Extreme Point Type: Saddle</code></pre>
 </div>
 </div>
 </section>
-<section id="appendix-sigmoid-utility-function" class="level3">
-<h3 class="anchored" data-anchor-id="appendix-sigmoid-utility-function">Appendix: Sigmoid utility function</h3>
+<section id="appendix-sigmoid-utility-function" class="level3" data-number="0.8">
+<h3 data-number="0.8" class="anchored" data-anchor-id="appendix-sigmoid-utility-function"><span class="header-section-number">0.8</span> Appendix: Sigmoid utility function</h3>
 <div id="a5da5f13" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Code</summary>
@@ -880,6 +1053,19 @@ Tirole, Jean. 1988. <em>The Theory of Industrial Organization</em>. Cambridge, M
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
@@ -1278,6 +1464,38 @@ Tirole, Jean. 1988. <em>The Theory of Industrial Organization</em>. Cambridge, M
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2025 · GITSAM · All rights reserved</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.youtube.com/@primenumbersam">
+      <i class="bi bi-youtube" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://instagram.com/primenumbersam">
+      <i class="bi bi-instagram" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://laroe.co.kr/">
+      <i class="bi bi-shop" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
 
 
 

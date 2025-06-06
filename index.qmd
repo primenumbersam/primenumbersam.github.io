@@ -1,126 +1,255 @@
 ---
-title: "Globally Interpretable"
+title: "GITSAM"
 format:
   html:
-    css: styles.css
-    code-fold: true
     toc: false
-    number-sections: false
+    echo: false
 ---
+::: {.callout-important}
 
+## AI Era 
+[학원](https://www.gitsam.com/)
 
-## Math is an effective language
+Free and Open Source Softwares
 
-- Formulate and Solve your problem
-- Interpret and Test your solution
+:::
 
+::: {.panel-tabset}
 
-## Computer is an efficient tool
+## Snippets
 
-- Computation with Python in Colab
-- Publication with Quarto in Local
-
-## Apps (In progress)
-
-- FinTech Dashboard vs. simplywall.st : Bayesian RL
-- K-Learning vs. EBS Danchoo+ : simple DL model
-- K-culture pod vs. runpod : Community based GPU cloud
-- messenger vs. telegram : On-device small LM with RAG
-- 벨벳토끼인형 vs. cati 인형 : On-device Socratic small LM with TTS
-
-## Video Arts (In progress)
-
-- stories, images and music by consistent character
-- Platonic vs. Erotic
-
-## Books (In progress)
+<div class="text-center">
+  <img src="assets/logo.png" alt="Logo" width="100" height="100" />
+  <h3>Globally Interpretable &nbsp; <span class="text blue"></span></h3>
+</div>
 
 <script>
-function filterBooks(tag) {
-  const cards = document.querySelectorAll('.book-card');
-  cards.forEach(card => {
-    const tags = card.getAttribute('data-tags').split(' ');
-    if (tag === 'all' || tags.includes(tag)) {
-      card.style.display = 'block';
-    } else {
-      card.style.display = 'none';
+  const words = ["Tech", "Science", "Art", "Math"];
+  const colors = ["blue", "green", "yellow", "red"];
+  const text = document.querySelector(".text");
+
+  function* generator() {
+    let index = 0;
+    while (true) {
+      yield index++;
+      if (index >= words.length) index = 0;
     }
-  });
-}
+  }
+
+  function printChar(word) {
+    let i = 0;
+    text.innerHTML = "";
+    text.className = "text " + colors[words.indexOf(word)];
+    const id = setInterval(() => {
+      if (i >= word.length) {
+        clearInterval(id);
+        setTimeout(deleteChar, 800);
+      } else {
+        text.innerHTML += word[i];
+        i++;
+      }
+    }, 150);
+  }
+
+  function deleteChar() {
+    let word = text.innerHTML;
+    let i = word.length;
+    const id = setInterval(() => {
+      if (i > 0) {
+        text.innerHTML = word.substring(0, --i);
+      } else {
+        text.className = "text";
+        printChar(words[gen.next().value]);
+        clearInterval(id);
+      }
+    }, 100);
+  }
+
+  const gen = generator();
+  printChar(words[gen.next().value]);
 </script>
+
+## Videos
+
+{{< video /assets/video-by-whisk.mp4 >}}
+
+- Google Lab Tools, Suno, Stable Diffusion
+- Creative stories with consistent character, images and music
+- Platonic vs. Erotic
+
+:::
+
+
+## Apps
+
+<div class="feature-grid">
+
+<div class="feature-card" style="background-color: #FCE7F3;">
+  <img src="assets/logo-pink.png" alt="Blockchain Token" />
+  <p class="feature-title">
+    <a href="#">Blockchain Token</a>
+  </p>
+  <p class="feature-text">
+    보호종료아동에게 투명하고 확실하게 전달되는 기부금 장부
+  </p>
+  <p class="feature-subtext">
+    (vs. givecherry.org)
+  </p>
+</div>
+
+<div class="feature-card" style="background-color: #D1FAE5;">
+  <img src="assets/logo-green.png" alt="Fintech" />
+  <p class="feature-title">
+    <a href="#">Fintech</a>
+  </p>
+  <p class="feature-text">
+    각자도생시대에 필요한 금융투자 앱
+  </p>
+  <p class="feature-subtext">
+    (vs. simplywall.st)
+  </p>
+</div>
+
+<div class="feature-card" style="background-color: #DBEAFE;">
+  <img src="assets/logo-blue.png" alt="Edutech" />
+  <p class="feature-title">
+    <a href="#">Edutech</a>
+  </p>
+  <p class="feature-text">
+    LLM을 이용한 기초교육 앱
+  </p>
+  <p class="feature-subtext">
+    (vs. EBS Dachoo+)
+  </p>
+</div>
+
+<div class="feature-card" style="background-color: #EDE9FE;">
+  <img src="assets/logo-violet.png" alt="Community GPU Cloud" />
+  <p class="feature-title">
+    <a href="#">Community GPU Cloud</a>
+  </p>
+  <p class="feature-text">
+    Kubernetes를 이용한 GPU 연산 임대
+  </p>
+  <p class="feature-subtext">
+    (vs. runpod.io)
+  </p>
+</div>
+
+<div class="feature-card" style="background-color: #F3F4F6;">
+  <img src="assets/logo-gray.png" alt="Messenger" />
+  <p class="feature-title">
+    <a href="#">Messenger</a>
+  </p>
+  <p class="feature-text">
+    On-device AI-assisted Messenger
+  </p>
+  <p class="feature-subtext">
+    (vs. Telegram)
+  </p>
+</div>
+
+<div class="feature-card" style="background-color: #FEF9C3;">
+  <img src="assets/logo-yellow.png" alt="Socratic LM" />
+  <p class="feature-title">
+    <a href="#">Socratic Small LM</a>
+  </p>
+  <p class="feature-text">
+    On-device 소크라틱 LM with TTS
+  </p>
+  <p class="feature-subtext">
+    (vs. cati 인형)
+  </p>
+</div>
+
+</div>
+
+
+
+## Books
 
 <!-- 태그 필터 버튼 -->
 <div id="tag-filter">
   <button onclick="filterBooks('all')">All</button>
-  <button onclick="filterBooks('basic')">초급</button>
-  <button onclick="filterBooks('advanced')">고급</button>
+  <button onclick="filterBooks('quarto')">Quarto</button>
+  <button onclick="filterBooks('notion')">Notion</button>
 </div>
 
 <div class="book-grid">
 
-<div class="book-card" data-tags="advanced">
-  <a href="book-ai-algebra/index.html" target="_blank">
-    <img src="cover-algebra.png" alt="gitsam" />
-    <div class="book-title">AI 응용 선형대수학</div>
-  </a>
-</div>
-
-<div class="book-card" data-tags="advanced">
-  <a href="book-ai-calculus/index.html" target="_blank">
-    <img src="cover-calculus.png" alt="gitsam" />
-    <div class="book-title">AI 응용 미적분학</div>
-  </a>
-</div>
-
-<div class="book-card" data-tags="basic">
-  <a href="book-ai-dev_log/index.html" target="_blank">
-    <img src="cover-app-log.png" alt="gitsam" />
-    <div class="book-title">AI App 개발일지</div>
-  </a>
-</div>
-
-<div class="book-card" data-tags="basic">
-  <a href="https://gitsam.notion.site/ab09bfb8292b464a846d55e7d3df7a8d?v=18fd716ee0de80b89148000c8a8bb9f9" target="_blank">
-    <img src="cover-liberal-arts.png" alt="gitsam" />
-    <div class="book-title">gitsam 지식 산책</div>
-  </a>
-</div>
-
-<div class="book-card" data-tags="basic">
-  <a href="book-ai-stats/index.html" target="_blank">
-    <img src="cover-stats.png" alt="gitsam" />
-    <div class="book-title">AI 기초 통계학</div>
-  </a>
-</div>
-
-<div class="book-card" data-tags="basic">
+<div class="book-card" data-tags="quarto">
   <a href="book-ai-math/index.html" target="_blank">
-    <img src="cover-math.png" alt="gitsam" />
+    <img src="/assets/cover-math.png" alt="gitsam" />
     <div class="book-title">AI 초중고 수학</div>
   </a>
 </div>
 
-<div class="book-card" data-tags="advanced">
-  <a href="book-ai-theory/index.html" target="_blank">
-    <img src="cover-theory.png" alt="gitsam" />
-    <div class="book-title">AI Theory</div>
+<div class="book-card" data-tags="quarto">
+  <a href="book-ai-stats/index.html" target="_blank">
+    <img src="/assets/cover-stats.png" alt="gitsam" />
+    <div class="book-title">AI 기초 통계학</div>
   </a>
 </div>
 
-<div class="book-card" data-tags="advanced">
-  <a href="book-gitsam-han/index.html" target="_blank">
-    <img src="cover-han.png" alt="gitsam" />
-    <div class="book-title">gitsam 글짓기</div>
+<div class="book-card" data-tags="quarto">
+  <a href="book-ai-algebra/index.html" target="_blank">
+    <img src="/assets/cover-algebra.png" alt="gitsam" />
+    <div class="book-title">AI 응용 선형대수학</div>
   </a>
 </div>
 
+<div class="book-card" data-tags="quarto">
+  <a href="book-ai-calculus/index.html" target="_blank">
+    <img src="/assets/cover-calculus.png" alt="gitsam" />
+    <div class="book-title">AI 응용 미적분학</div>
+  </a>
+</div>
 
-<!-- 필요 시 카드 항목을 계속 추가 -->
+<div class="book-card" data-tags="notion">
+  <a href="https://gitsam.notion.site/AI-Dev-Log-1fbd716ee0de801a8a22e31dc6b9c719" target="_blank">
+    <img src="/assets/cover-app-log.png" alt="gitsam" />
+    <div class="book-title">gitsam 앱 개발일지</div>
+  </a>
+</div>
+
+<div class="book-card" data-tags="notion">
+  <a href="https://gitsam.notion.site/ab09bfb8292b464a846d55e7d3df7a8d?v=ac5787ddcbfe48958d3a8d2777c59c5c" target="_blank">
+    <img src="/assets/cover-liberal-arts.png" alt="gitsam" />
+    <div class="book-title">gitsam 지식 산책</div>
+  </a>
+</div>
+
+<div class="book-card" data-tags="notion">
+  <a href="https://gitsam.notion.site/179d716ee0de8051bbadeac43a1600f1?v=58f18a25682848129e3293e8262bb370" target="_blank">
+    <img src="/assets/cover-theory.png" alt="gitsam" />
+    <div class="book-title">gitsam 경제적 자유</div>
+  </a>
+</div>
+
+<div class="book-card" data-tags="notion">
+  <a href="https://gitsam.notion.site/20ad716ee0de80fdacd7fe3516c4b608?v=20ad716ee0de801ea051000ce11ecfac" target="_blank">
+    <img src="/assets/cover-han.png" alt="gitsam" />
+    <div class="book-title">gitsam 표현의 자유</div>
+  </a>
+</div>
 
 </div>
 
+<script>
+  function filterBooks(tag, btn) {
+    const cards = document.querySelectorAll('.book-card');
+    cards.forEach(card => {
+      const tags = card.getAttribute('data-tags').split(' ');
+      if (tag === 'all' || tags.includes(tag)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
 
-
-
-
-
+    // === 버튼 활성화(active) 상태 관리 ===
+    const buttons = document.querySelectorAll('#tag-filter button');
+    buttons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+</script>

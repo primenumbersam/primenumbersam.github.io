@@ -1,6 +1,5 @@
 ---
 title: "Recent History"
-format: html
 ---
 
 ## 2010 as a Structural Break

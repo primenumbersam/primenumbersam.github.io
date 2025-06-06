@@ -3,41 +3,45 @@ project:
   output-dir: ../docs/paper-tbtf
 
 website:
-  title: "[GitSAM](../index.html)"
+  favicon: ../assets/favicon.png
   navbar:
+    logo: ../assets/logo-nav.png
+    logo-href: ../index.html
+    search: true
     left:
-      - text: "Papers"
-        menu:
-          - text: "Working"
-            href: ../papers/index.html
-          - text: "TBTF"
-            href: index.html
+      - text: "Apps"
+        href: https://github.com/primenumbersam/
       - text: "Books"
         menu:
+          - text: "AI 기초 수학"
+            href: ../book-ai-math/index.html
           - text: "AI 기초 통계학"
             href: ../book-ai-stats/index.html
           - text: "AI 응용 선형대수학"
             href: ../book-ai-algebra/index.html
           - text: "AI 응용 미적분학"
             href: ../book-ai-calculus/index.html
-          - text: "gitsam Han(恨)"
-            href: ../book-gitsam-han/index.html
-      - text: "Apps"
-        href: https://github.com/primenumbersam/
-      - text: "스터디클럽"
-        href: https://www.gitsam.com
-
+      - text: "Papers"
+        menu:
+          - text: "Working"
+            href: ../papers/index.html
+          - text: "Thesis"
+            href: index.html
     tools:
-      - icon: shop
-        href: https://laroe.co.kr/
+      - icon: github
+        href: https://github.com/primenumbersam/primenumbersam.github.io
+
+  page-footer:
+    border: false
+    background: light
+    left: "© 2025 · GITSAM · All rights reserved"
+    right:
       - icon: youtube
         href: https://www.youtube.com/@primenumbersam
-      - icon: github
-        menu:
-          - text: Source Code
-            href: https://github.com/primenumbersam/primenumbersam.github.io
-          - text: Report a Bug
-            href: mailto:primenumbersam@gmail.com
+      - icon: instagram
+        href: https://instagram.com/primenumbersam
+      - icon: shop
+        href: https://laroe.co.kr/
 
   sidebar:
     style: floating
@@ -69,8 +73,11 @@ bibliography: references.bib
 
 format:
   html:
-    theme: cosmo
-    css: ../styles.css
+    include-in-header: "../analytics.html"
+    theme:
+      light: cosmo
+      dark: cyborg
+    appearance: toogle
     toc: true
     number-sections: true
     code-fold: true
