@@ -61,26 +61,13 @@ format:
 
 <div class="feature-grid">
 
-<div class="feature-card" style="background-color: #FCE7F3;">
-  <img src="assets/logo-pink.png" alt="Blockchain Token" />
-  <p class="feature-title">
-    <a href="https://www.gitsam.com/">Blockchain Token</a>
-  </p>
-  <p class="feature-text">
-    취약계층(보호종료아동)에게 투명하고 확실하게 전달되는 기부금 장부
-  </p>
-  <p class="feature-subtext">
-    (vs. givecherry.org)
-  </p>
-</div>
-
 <div class="feature-card" style="background-color: #D1FAE5;">
   <img src="assets/logo-green.png" alt="Fintech" />
   <p class="feature-title">
     <a href="https://www.gitsam.com/">Fintech</a>
   </p>
   <p class="feature-text">
-    각자도생시대에 필요한 금융투자 앱
+    투자상품의 단기·장기 수익률 예측 도구
   </p>
   <p class="feature-subtext">
     (vs. simplywall.st)
@@ -93,49 +80,62 @@ format:
     <a href="https://www.gitsam.com/">Edutech</a>
   </p>
   <p class="feature-text">
-    LLM을 이용한 기초교육 앱
+    MoE 기반 LLM을 활용한 학습 도구
   </p>
   <p class="feature-subtext">
     (vs. EBS Dachoo+)
   </p>
 </div>
 
-<div class="feature-card" style="background-color: #EDE9FE;">
-  <img src="assets/logo-violet.png" alt="Community GPU Cloud" />
+<div class="feature-card" style="background-color: #FCE7F3;">
+  <img src="assets/logo-pink.png" alt="Blockchain Token" />
   <p class="feature-title">
-    <a href="https://www.gitsam.com/">Community GPU Cloud</a>
+    <a href="https://www.gitsam.com/">Blockchain Token</a>
   </p>
   <p class="feature-text">
-    Kubernetes를 이용한 GPU 회로 임대
+    보호종료아동에게 투명하게 전달된 기부금 내역 장부
   </p>
   <p class="feature-subtext">
-    (vs. runpod.io)
+    (vs. givecherry.org)
   </p>
 </div>
 
-<div class="feature-card" style="background-color: #F3F4F6;">
-  <img src="assets/logo-gray.png" alt="Messenger" />
+<div class="feature-card" style="background-color: #FEF9C3;">
+  <img src="assets/logo-yellow.png" alt="AI Messenger" />
   <p class="feature-title">
-    <a href="https://www.gitsam.com/">Messenger</a>
+    <a href="https://www.gitsam.com/">AI Messenger</a>
   </p>
   <p class="feature-text">
-    On-device AI-assisted Messenger
+     경량 LLM이 탑재된 on-device 메신저
   </p>
   <p class="feature-subtext">
     (vs. Telegram)
   </p>
 </div>
 
-<div class="feature-card" style="background-color: #FEF9C3;">
-  <img src="assets/logo-yellow.png" alt="Socratic LM" />
+<div class="feature-card" style="background-color: #F3F4F6;">
+  <img src="assets/logo-gray.png" alt="News Curation" />
   <p class="feature-title">
-    <a href="https://www.gitsam.com/">On-device Socratic Small LM</a>
+    <a href="https://www.gitsam.com/">News Curation</a>
   </p>
   <p class="feature-text">
-     나의 친구 벨벳토끼인형
+    보도의 편향을 분석한 뉴스 포털
   </p>
   <p class="feature-subtext">
-    (vs. cati 인형)
+    (vs. Ground News, News Minimalist)
+  </p>
+</div>
+
+<div class="feature-card" style="background-color: #EDE9FE;">
+  <img src="assets/logo-violet.png" alt="Data Curation" />
+  <p class="feature-title">
+    <a href="https://www.gitsam.com/">Data Curation</a>
+  </p>
+  <p class="feature-text">
+    목적 기반 데이터 정제·가공 도구 모음
+  </p>
+  <p class="feature-subtext">
+    (vs. Newen AI, AIMMO, SelectStar)
   </p>
 </div>
 

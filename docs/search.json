@@ -977,7 +977,7 @@
     "href": "index.html#apps",
     "title": "GITSAM",
     "section": "Apps",
-    "text": "Apps\n\n\n\n\nBlockchain Token\n\n\n취약계층(보호종료아동)에게 투명하고 확실하게 전달되는 기부금 장부\n\n\n(vs. givecherry.org)\n\n\n\n\n\nFintech\n\n\n각자도생시대에 필요한 금융투자 앱\n\n\n(vs. simplywall.st)\n\n\n\n\n\nEdutech\n\n\nLLM을 이용한 기초교육 앱\n\n\n(vs. EBS Dachoo+)\n\n\n\n\n\nCommunity GPU Cloud\n\n\nKubernetes를 이용한 GPU 회로 임대\n\n\n(vs. runpod.io)\n\n\n\n\n\nMessenger\n\n\nOn-device AI-assisted Messenger\n\n\n(vs. Telegram)\n\n\n\n\n\nOn-device Socratic Small LM\n\n\n나의 친구 벨벳토끼인형\n\n\n(vs. cati 인형)"
+    "text": "Apps\n\n\n\n\nFintech\n\n\n투자상품의 단기·장기 수익률 예측 도구\n\n\n(vs. simplywall.st)\n\n\n\n\n\nEdutech\n\n\nMoE 기반 LLM을 활용한 학습 도구\n\n\n(vs. EBS Dachoo+)\n\n\n\n\n\nBlockchain Token\n\n\n보호종료아동에게 투명하게 전달된 기부금 내역 장부\n\n\n(vs. givecherry.org)\n\n\n\n\n\nAI Messenger\n\n\n경량 LLM이 탑재된 on-device 메신저\n\n\n(vs. Telegram)\n\n\n\n\n\nNews Curation\n\n\n보도의 편향을 분석한 뉴스 포털\n\n\n(vs. Ground News, News Minimalist)\n\n\n\n\n\nData Curation\n\n\n목적 기반 데이터 정제·가공 도구 모음\n\n\n(vs. Newen AI, AIMMO, SelectStar)"
   },
   {
     "objectID": "index.html#front-end-design",
