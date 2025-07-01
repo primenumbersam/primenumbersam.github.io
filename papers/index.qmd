@@ -5,6 +5,25 @@ format:
     number-sections: false
 ---
 
+## Empathy (공감)
+
+::: {.panel-tabset}
+
+## Makoto-style
+
+{{< video ../assets/video-by-whisk.mp4 >}}
+
+- Creative stories with consistent character, images and music
+- Google Lab Tools, Suno, Stable Diffusion
+
+## AI Videos
+
+{{< video https://www.youtube.com/watch?v=hqSupT0nTNw >}}
+
+- Promising K-Culture contents
+- created with LLM tools
+
+:::
 
 ## Education (교육)
 

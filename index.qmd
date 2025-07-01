@@ -61,36 +61,49 @@ format:
 
 <div class="feature-grid">
 
-<div class="feature-card" style="background-color: #D1FAE5;">
-  <img src="assets/logo-green.png" alt="Fintech" />
-  <p class="feature-title">
-    <a href="https://www.gitsam.com/">Fintech</a>
-  </p>
-  <p class="feature-text">
-    투자상품의 단기·장기 수익률 예측 도구
-  </p>
-  <p class="feature-subtext">
-    (vs. simplywall.st)
-  </p>
-</div>
-
 <div class="feature-card" style="background-color: #DBEAFE;">
-  <img src="assets/logo-blue.png" alt="Edutech" />
+  <img src="assets/logo-blue.png" alt="gitsam" />
   <p class="feature-title">
-    <a href="https://www.gitsam.com/">Edutech</a>
+    <a href="https://github.com/primenumbersam/">Minimal CMS</a>
   </p>
   <p class="feature-text">
-    MoE 기반 LLM을 활용한 학습 도구
+    Notion-like Corpus, AI Auto-tagging
   </p>
   <p class="feature-subtext">
-    (vs. EBS Dachoo+)
+    (vs. Notion with AI Autofill)
   </p>
 </div>
 
-<div class="feature-card" style="background-color: #FCE7F3;">
-  <img src="assets/logo-pink.png" alt="Blockchain Token" />
+<div class="feature-card" style="background-color: #F3F4F6;">
+  <img src="assets/logo-gray.png" alt="gitsam" />
   <p class="feature-title">
-    <a href="https://www.gitsam.com/">Blockchain Token</a>
+    <a href="https://github.com/primenumbersam/">Curated Press</a>
+  </p>
+  <p class="feature-text">
+    News Filtering & Sorting with LLM
+  </p>
+  <p class="feature-subtext">
+    (vs. Ground News, News Minimalist)
+  </p>
+</div>
+
+<div class="feature-card" style="background-color: #D1FAE5;">
+  <img src="assets/logo-green.png" alt="gitsam" />
+  <p class="feature-title">
+    <a href="https://github.com/primenumbersam/">Money-Flow Tracking</a>
+  </p>
+  <p class="feature-text">
+    TBTF-based monthly & LLM-based daily Financial Simulator
+  </p>
+  <p class="feature-subtext">
+    (vs. 네이버증권, DeepSearch, Finviz)
+  </p>
+</div>
+
+<!-- <div class="feature-card" style="background-color: #FCE7F3;">
+  <img src="assets/logo-pink.png" alt="gitsam" />
+  <p class="feature-title">
+    <a href="https://github.com/primenumbersam/">Blockchain Token</a>
   </p>
   <p class="feature-text">
     보호종료아동에게 투명하게 전달된 기부금 내역 장부
@@ -101,43 +114,30 @@ format:
 </div>
 
 <div class="feature-card" style="background-color: #FEF9C3;">
-  <img src="assets/logo-yellow.png" alt="AI Messenger" />
+  <img src="assets/logo-yellow.png" alt="gitsam" />
   <p class="feature-title">
-    <a href="https://www.gitsam.com/">AI Messenger</a>
+    <a href="https://www.gitsam.com/">Data Parsing & Labeling</a>
   </p>
   <p class="feature-text">
-     경량 LLM이 탑재된 on-device 메신저
+     From Raw to Structured Data
   </p>
   <p class="feature-subtext">
-    (vs. Telegram)
-  </p>
-</div>
-
-<div class="feature-card" style="background-color: #F3F4F6;">
-  <img src="assets/logo-gray.png" alt="News Curation" />
-  <p class="feature-title">
-    <a href="https://www.gitsam.com/">News Curation</a>
-  </p>
-  <p class="feature-text">
-    보도의 편향을 분석한 뉴스 포털
-  </p>
-  <p class="feature-subtext">
-    (vs. Ground News, News Minimalist)
+    (vs. Palantir, SelectStar, Newen AI, AIMMO)
   </p>
 </div>
 
 <div class="feature-card" style="background-color: #EDE9FE;">
-  <img src="assets/logo-violet.png" alt="Data Curation" />
+  <img src="assets/logo-violet.png" alt="gitsam" />
   <p class="feature-title">
-    <a href="https://www.gitsam.com/">Data Curation</a>
+    <a href="https://www.gitsam.com/">Personal Server Solution</a>
   </p>
   <p class="feature-text">
-    목적 기반 데이터 정제·가공 도구 모음
+    Decentralized Cloud vOS with SLM
   </p>
   <p class="feature-subtext">
-    (vs. Newen AI, AIMMO, SelectStar)
+    (vs. UmbrelOS, CasaOS)
   </p>
-</div>
+</div> -->
 
 </div>
 
@@ -181,30 +181,30 @@ format:
 </div>
 
 <div class="book-card" data-tags="notion">
-  <a href="https://gitsam.notion.site/1fbd716ee0de801a8a22e31dc6b9c719" target="_blank">
+  <a href="https://gitsam.notion.site/1fbd716ee0de80b48d3ac1fdbd0d7783?v=223d716ee0de80a2870c000cadead38d" target="_blank">
     <img src="/assets/cover-app-log.png" alt="gitsam" />
-    <div class="book-title">앱 개발 일지</div>
+    <div class="book-title">컴덕후 일기</div>
   </a>
 </div>
 
 <div class="book-card" data-tags="notion">
-  <a href="https://gitsam.notion.site/ab09bfb8292b464a846d55e7d3df7a8d?v=ac5787ddcbfe48958d3a8d2777c59c5c" target="_blank">
+  <a href="https://gitsam.notion.site/ab09bfb8292b464a846d55e7d3df7a8d?v=222d716ee0de805b80f3000c87413f0f" target="_blank">
     <img src="/assets/cover-liberal-arts.png" alt="gitsam" />
-    <div class="book-title">교양 산책</div>
-  </a>
-</div>
-
-<div class="book-card" data-tags="notion">
-  <a href="https://gitsam.notion.site/179d716ee0de8051bbadeac43a1600f1?v=20ad716ee0de8031afaf000cc3d2c6a1" target="_blank">
-    <img src="/assets/cover-theory.png" alt="gitsam" />
-    <div class="book-title">경제적 자유</div>
+    <div class="book-title">과학적 교양</div>
   </a>
 </div>
 
 <div class="book-card" data-tags="notion">
   <a href="https://gitsam.notion.site/20ad716ee0de80fdacd7fe3516c4b608?v=20ad716ee0de801ea051000ce11ecfac" target="_blank">
     <img src="/assets/cover-han.png" alt="gitsam" />
-    <div class="book-title">표현의 자유</div>
+    <div class="book-title">미디어 독후감</div>
+  </a>
+</div>
+
+<div class="book-card" data-tags="notion">
+  <a href="https://gitsam.notion.site/179d716ee0de8051bbadeac43a1600f1?v=223d716ee0de8036b7bc000ccd9b9bd9" target="_blank">
+    <img src="/assets/cover-theory.png" alt="gitsam" />
+    <div class="book-title">금융경제 독후감</div>
   </a>
 </div>
 
@@ -229,29 +229,21 @@ format:
   }
 </script>
 
+::: {.callout-important collapse="true"}
 
-::: {.callout-note}
+## 무료 Apps & Books
 
-## Free and Open
+- Re-source for Re-search
+- Personalize. Minimalize. Decentralize.
 
-Re-source for your Re-search
+:::
+
+::: {.callout-note collapse="false"}
+
+## 유료 B2B Services
+
+- **Data Parsing & Labeling:** From Raw to Structured Data (vs. Palantir, SelectStar, Newen AI, AIMMO)
+- **Personal Server Solution:** Decentralized Cloud vOS with SLM (vs. UmbrelOS, CasaOS)
 
 :::
 
-::: {.panel-tabset}
-
-## Clips
-
-{{< video /assets/video-by-whisk.mp4 >}}
-
-- Creative stories with consistent character, images and music
-- Google Lab Tools, Suno, Stable Diffusion
-
-## Videos
-
-{{< video https://www.youtube.com/watch?v=hqSupT0nTNw >}}
-
-- Promising K-Culture contents
-- created with LLM tools
-
-:::
