@@ -67,7 +67,7 @@ format:
     <a href="https://github.com/primenumbersam/">Minimal CMS</a>
   </p>
   <p class="feature-text">
-    Notion-like Corpus, AI Auto-tagging
+    Corpus System with AI tagging & refinement
   </p>
   <p class="feature-subtext">
     (vs. Notion with AI Autofill)
@@ -231,7 +231,7 @@ format:
 
 ::: {.callout-important collapse="true"}
 
-## Apps & Books = 무료
+## Apps & Books (Free)
 
 - Re-source for Re-search
 - Personalize. Minimalize. Decentralize.
@@ -240,11 +240,12 @@ format:
 
 ::: {.callout-note collapse="false"}
 
-## Services & Solution = 유료
+## Services & Solution (Paid)
 
-- **Online Lecture:** Math Exam, Business **AppScripts**, (vs. inflearn, teachable)
-- **Data Parsing & Labeling:** From Raw data to Structured **Dashboard** (vs. Palantir, SelectStar, Newen AI, AIMMO)
-- **Personal Server Solution:** Decentralized Cloud vOS with SLM (vs. UmbrelOS, CasaOS)
-- **Socratic SLM Solution:** AI-equipped doll (vs. 카티 인형)
+- **Data Parsing & Labeling:** AppScript and Dashboard (vs. SelectStar, Newen AI, AIMMO)
+- **Mini Education:** Math Lectures, Macroeconomic SWOT (via inflearn, youtube) 
+- **Mini Server Solution:** Decentralized Cloud vOS with LLM (vs. UmbrelOS, CasaOS)
+- **Mini Socratic AI Solution:** AI-powered interactive doll (vs. Cati)
+
 :::
 
