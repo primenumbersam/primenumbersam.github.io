@@ -169,7 +169,7 @@ format:
 <div class="book-card" data-tags="quarto">
   <a href="book-ai-algebra/index.html" target="_blank">
     <img src="/assets/cover-algebra.png" alt="gitsam" />
-    <div class="book-title">AI 응용 선형대수학</div>
+    <div class="book-title">AI 선형 대수학</div>
   </a>
 </div>
 
@@ -231,7 +231,7 @@ format:
 
 ::: {.callout-important collapse="true"}
 
-## 무료 Apps & Books
+## Apps & Books = 무료
 
 - Re-source for Re-search
 - Personalize. Minimalize. Decentralize.
@@ -240,8 +240,9 @@ format:
 
 ::: {.callout-note collapse="false"}
 
-## 유료 B2B Services
+## Services & Solution = 유료
 
+- **온라인 수학강의:**: (vs. inflearn, teachable)
 - **Data Parsing & Labeling:** From Raw to Structured Data (vs. Palantir, SelectStar, Newen AI, AIMMO)
 - **Personal Server Solution:** Decentralized Cloud vOS with SLM (vs. UmbrelOS, CasaOS)
 
