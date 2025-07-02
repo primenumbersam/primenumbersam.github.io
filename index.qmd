@@ -234,7 +234,7 @@ format:
 ## Apps & Books (Free)
 
 - Re-source for Re-search
-- Personalize. Minimalize. Decentralize.
+- Personalize, Minimalize, Decentralize.
 
 :::
 
@@ -242,10 +242,8 @@ format:
 
 ## Services & Solution (Paid)
 
-- **Data Parsing & Labeling:** AppScript and Dashboard (vs. SelectStar, Newen AI, AIMMO)
-- **Mini Education:** Math Lectures, Macroeconomic SWOT (via inflearn, youtube) 
+- **Education Courses:** Math Lectures, Market SWOT (via inflearn, youtube) 
 - **Mini Server Solution:** Decentralized Cloud vOS with LLM (vs. UmbrelOS, CasaOS)
-- **Mini Socratic AI Solution:** AI-powered interactive doll (vs. Cati)
 
 :::
 
