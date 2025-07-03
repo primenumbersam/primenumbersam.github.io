@@ -64,13 +64,13 @@ format:
 <div class="feature-card" style="background-color: #DBEAFE;">
   <img src="assets/logo-blue.png" alt="gitsam" />
   <p class="feature-title">
-    <a href="https://github.com/primenumbersam/">Minimal CMS</a>
+    <a href="https://github.com/primenumbersam/">Collaborative AI System</a>
   </p>
   <p class="feature-text">
-    Corpus System with AI tagging & refinement
+    Re-fined Re-Search Re-source
   </p>
   <p class="feature-subtext">
-    (vs. Notion with AI Autofill)
+    (vs. LangGraph, AutoGPT)
   </p>
 </div>
 
@@ -220,6 +220,7 @@ format:
       } else {
         card.style.display = 'none';
       }
+      
     });
 
     // === 버튼 활성화(active) 상태 관리 ===
@@ -233,17 +234,18 @@ format:
 
 ## Apps & Books (Free)
 
-- Re-source for Re-search
-- Personalize, Minimalize, Decentralize.
+- Decentralize, Personalize, Collaborate.
 
 :::
 
 ::: {.callout-note collapse="false"}
 
-## Services & Solution (Paid)
+## Manual Services (Paid)
 
 - **Education Courses:** Math Lectures, Market SWOT (via inflearn, youtube) 
-- **Mini Server Solution:** Decentralized Cloud vOS with LLM (vs. UmbrelOS, CasaOS)
+- **Customized Notion:** Corpus with AI tagging & refinement (vs. Notion with AI Autofill)
+- **Personal Mini-Server:** Decentralized Cloud vOS with LLM (vs. UmbrelOS, CasaOS)
+- **Personal Interactive Doll:** Korean-speaking & Socratic qLLM (vs. 카티 인형)
 
 :::
 
