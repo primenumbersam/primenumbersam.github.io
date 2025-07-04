@@ -64,39 +64,39 @@ format:
 <div class="feature-card" style="background-color: #DBEAFE;">
   <img src="assets/logo-blue.png" alt="gitsam" />
   <p class="feature-title">
-    <a href="https://github.com/primenumbersam/">Collaborative AI System</a>
+    <a href="https://github.com/primenumbersam/">AI Collaborative System</a>
   </p>
   <p class="feature-text">
-    Re-fined Re-Search Re-source
+    A peer-reviewed multi-agent framework to refine, cross-check, and vote on LLM outputs — modeling human-like collective intelligence
   </p>
   <p class="feature-subtext">
-    (vs. LangGraph, AutoGPT)
+    (vs. LangGraph, MetaGPT, AutoGPT)
   </p>
 </div>
 
 <div class="feature-card" style="background-color: #F3F4F6;">
-  <img src="assets/logo-gray.png" alt="gitsam" />
+  <img src="assets/logo-gray.png" alt="Own Your Corpus, Control Your Context" />
   <p class="feature-title">
-    <a href="https://github.com/primenumbersam/">Curated Press</a>
+    <a href="https://github.com/primenumbersam/">AI CMS</a>
   </p>
   <p class="feature-text">
-    News Filtering & Sorting with LLM
+    A self-hosted Corpus hub to store, tag, and refine your AI-generated knowledge — all properties and relationships in your hands, not theirs
   </p>
   <p class="feature-subtext">
-    (vs. Ground News, News Minimalist)
+    (vs. Notion AI, MS Office Copilot)
   </p>
 </div>
 
 <div class="feature-card" style="background-color: #D1FAE5;">
-  <img src="assets/logo-green.png" alt="gitsam" />
+  <img src="assets/logo-green.png" alt="News Stream, Verified & Personalized" />
   <p class="feature-title">
-    <a href="https://github.com/primenumbersam/">Money-Flow Tracking</a>
+    <a href="https://github.com/primenumbersam/">AI Curated Press</a>
   </p>
   <p class="feature-text">
-    TBTF-based monthly & LLM-based daily Financial Simulator
+    An LLM-powered fact-checking pipeline that filters, analyzes, and ranks media feeds — your dashboard for bias-checked narratives
   </p>
   <p class="feature-subtext">
-    (vs. 네이버증권, DeepSearch, Finviz)
+    (vs. Ground News, News Minimalist)
   </p>
 </div>
 
@@ -230,22 +230,30 @@ format:
   }
 </script>
 
-::: {.callout-important collapse="true"}
+::: {.callout-important collapse="false"}
 
-## Apps & Books (Free)
+##  WebTools (Free)
 
-- Decentralize, Personalize, Collaborate.
+*GTM (Go-to-Market) 목적의 각종 Vibe-Coding Tools를 이용한 실습*
+
+- **금융상품 투자 현황판:** 네이버금융 데이터 이용. 금융상품 정보 및 개인 재무제표 시각화 
+- **관심지역 주택가격 현황판:** 전국 아파트 시세/변동 추이를 한눈에 시각화하는 실시간 대시보드
+- **경쟁 상품 분석기:** 네이버 스마트스토어, 쿠팡 등에서 경쟁 상품의 가격, 리뷰, 상세내용을 비교/분석
+- **SNS 자동 좋아요 및 댓글 관리기:** Instagram, Youtube 계정 내 포스트 반응 '반수동' 관리
+- **Blog 자동 포스팅 기계:** 매일 '키워드' 하나로 네이버블로그, tistory, brunch, medium 에 자동 포스팅
 
 :::
 
-::: {.callout-note collapse="false"}
+::: {.callout-note collapse="true"}
 
-## Manual Services (Paid)
+## Solutions (Paid)
 
-- **Education Courses:** Math Lectures, Market SWOT (via inflearn, youtube) 
-- **Customized Notion:** Corpus with AI tagging & refinement (vs. Notion with AI Autofill)
-- **Personal Mini-Server:** Decentralized Cloud vOS with LLM (vs. UmbrelOS, CasaOS)
-- **Personal Interactive Doll:** Korean-speaking & Socratic qLLM (vs. 카티 인형)
+*Decentralize, Personalize, Collaborate*
+
+<!-- - **Education Courses:** Math Lectures, Market SWOT (via inflearn, youtube)  -->
+- **Money-Flow Tracker:** A $250/m dual-layer simulator: long-term macro strategy (TBTF framework) + daily LLM-driven pattern scan — build your own conviction index (vs. Naver Finance, DeepSearch, Finviz)
+- **Personal AI Mini-Server:** A $250 low-power vOS box — preloaded with your own decentralized cloud, Docker stack, LLM router, and storage (vs. UmbrelOS, CasaOS)
+- **Personal Interactive AI Doll:** A $250 modular, upgradable AI plush — local Socratic mini-LLM, Korean-language tuned, forever yours, with no hidden cloud tether (vs. 카티 인형)
 
 :::
 

@@ -1,71 +1,62 @@
+## Personal AI Node
 
-## GitSAM을 시작하며
+**The right to compute and connect should return to the individual.**
 
-**안녕하세요. GitSAM 대표 Sam입니다.**
+### 1. Background
 
-이 글은 단순한 소개가 아닙니다.  
-왜 제가 이 학원을 시작했는지,  
-그리고 왜 지금의 교육 시스템에 도전하고 있는지에 대한 **진심 어린 고백**입니다.
+Computation was once centralized.
+Unix was the mainframe.
+PC gave compute back to the individual.
+Cloud recentralized it.
 
-저는 어릴 때부터 ‘공부 잘한다’는 말을 들었지만,  
-사실 지능검사에서는 **집단 내 평균 이하**의 아이큐를 받은 적도 있었습니다.
+---
 
-그런데도 저는  
-항상 **시험을 가장 빠르게, 가장 높은 점수로** 마쳤고,  
-서울과학고, KAIST(수학), 서울대(경제학), 미국 전문대학원 (의대,법대) 등  
-많은 사람들이 선망하는 길을 걸었습니다.
+Communication was once just connection.
+E-mail was an address.
+Social media became a gatekeeper.
+Data flows, but ownership is trapped.
+AI learns from me — yet returns nothing.
 
-그 이유는 단순합니다.  
-저는 **문제를 푸는 법보다 먼저, 문제를 해석하는 법**을 배웠기 때문입니다.
+### 2. Problem
 
-그래서 확신합니다.  
-**사고력을 제대로 훈련하면, 누구나 성과는 극적으로 바뀔 수 있습니다.**
+Cloud is powerful, but authority hides in the middle.
+Behavior is recorded, repackaged, resold.
+What is mine is not mine.
 
-하지만 아이러니하게도,  
-저는 그 가능성을 오랫동안 사람들에게 **보여줄 수 없었습니다.**
+### 3. Purpose
 
-졸업 후, 개인적 가정의 사정으로  
-제가 가장 사랑하던 교육을 떠나  
-**완전히 다른 세계에서 생존을 위한 삶**을 살아야 했기 때문입니다.
+Compute is mine again.
+Communication is mine again.
+Corpus is my behavior.
+AI is my companion.
 
-명문대 졸업장이 있었지만  
-그것으로 일을 하거나, 사람들의 도움을 받은 적은 없었습니다.
+### 4. Structure
 
-돌아보면,  
-명문대에서 배운 지식들은 돈을 버는 데도, 현실을 살아가는 데도 **거의 도움이 되지 않았습니다.**
+* **AI CMS:** My private data ledger.
+* **Collaborative AI:** Peer review for trust.
+* **Curated Press:** Fact-check and unmask bias.
+* **Personal vOS Node:** My server, my compute.
+* **Velvet AI Doll:** My emotional agent.
+* **Money Flow:** My economic trace.
 
-그리고  
-제가 정작 하고 싶었던 연구와 교육 같은 **공공적 가치 있는 일들**은  
-언제나 뒷전으로 밀려났습니다.
+### 5. Principles
 
-20년 넘는 시간 동안,  
-저 개인에게 남은 것은 거의 없었습니다.  
-사회는 더 불공정해졌고,  
-교육 시스템은 여전히 시대에 뒤처지고 있습니다.
+* All compute runs on my node.
+* All flows connect peer-to-peer.
+* Sharing is voluntary.
+* Storage stays local.
+* AI learns from my data — for me.
+* The center is open but not sovereign.
 
-그때 저는 확실히 알게 됐습니다.
+### 6. Trajectory
 
-> **교육**은 한 사람의 삶뿐 아니라  
-> 사회 전체가 퇴보하지 않고  
-> 함께 앞으로 나아가기 위해 반드시 혁신되어야 하는,  
-> 가장 근본적인 사회 시스템이다.
+> **Unix → PC → Cloud → Personal AI Node**
 
-그래서 저는 돌아왔습니다.  
-그리고 GitSAM을 만들었습니다.
+First decentralization gave back compute.
+Second decentralization gives back communication.
 
-단지 쓸데 없는 수학 문제를 풀게 하는 것이 아니라,  
-> 복잡한 세상을 수학적으로 해석하고,  
-> 쓸모 있는 AI 도구로 구현하며,  
-> 자기 사고로 설명하는 힘을 기르는 공간.
+### 7. Conclusion
 
-그리고,  
-세상의 어려운 문제를  
-혼자가 아닌 **집단 지성**을 통해 함께 해결해 가는 **훈련장**.
-
-이것이 바로 GitSAM입니다.  
-이제 그 의미 있는 여정에,  
-당신을 초대합니다.
-
-감사합니다.  
-
-**대표 Sam 드림.**
+Compute is a node.
+Communication is a peer.
+Corpus is the self.
