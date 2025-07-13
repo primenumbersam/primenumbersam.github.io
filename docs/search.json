@@ -919,9 +919,9 @@
   {
     "objectID": "index.html#books",
     "href": "index.html#books",
-    "title": "GITSAM",
+    "title": "GITSAM Hacker Lab",
     "section": "Books",
-    "text": "Books\n\n\nAll Quarto Notion\n\n\n\n \n\nAI 초중고 수학\n\n\n\n\n \n\nAI 기초 통계학\n\n\n\n\n \n\nAI 선형 대수학\n\n\n\n\n \n\nAI 응용 미적분학\n\n\n\n\n \n\n컴덕후 일기\n\n\n\n\n \n\n과학적 교양\n\n\n\n\n \n\n미디어 독후감\n\n\n\n\n \n\n금융경제 독후감\n\n\n\n\n\n\n\n\n\n\n\nWebTools (Free)\n\n\n\n\n\nGTM (Go-to-Market) 목적의 각종 Vibe-Coding Tools를 이용한 실습\n\n금융상품 투자 현황판: 네이버금융 데이터 이용. 금융상품 정보 및 개인 재무제표 시각화\n관심지역 주택가격 현황판: 전국 아파트 시세/변동 추이를 한눈에 시각화하는 실시간 대시보드\n경쟁 상품 분석기: 네이버 스마트스토어, 쿠팡 등에서 경쟁 상품의 가격, 리뷰, 상세내용을 비교/분석\nSNS 자동 좋아요 및 댓글 관리기: Instagram, Youtube 계정 내 포스트 반응 ‘반수동’ 관리\nBlog 자동 포스팅 기계: 매일 ‘키워드’ 하나로 네이버블로그, tistory, brunch, medium 에 자동 포스팅\n\n\n\n\n\n\n\n\n\n\nSolutions (Paid)\n\n\n\n\n\nDecentralize, Personalize, Collaborate\n\n\nMoney-Flow Tracker: A $250/m dual-layer simulator: long-term macro strategy (TBTF framework) + daily LLM-driven pattern scan — build your own conviction index (vs. Naver Finance, DeepSearch, Finviz)\nPersonal AI Mini-Server: A $250 low-power vOS box — preloaded with your own decentralized cloud, Docker stack, LLM router, and storage (vs. UmbrelOS, CasaOS)\nPersonal Interactive AI Doll: A $250 modular, upgradable AI plush — local Socratic mini-LLM, Korean-language tuned, forever yours, with no hidden cloud tether (vs. 카티 인형)"
+    "text": "Books\n\n\nAll Quarto Notion\n\n\n\n \n\nAI 초중고 수학\n\n\n\n\n \n\nAI 기초 통계학\n\n\n\n\n \n\nAI 선형 대수학\n\n\n\n\n \n\nAI 응용 미적분학\n\n\n\n\n \n\n컴덕후 일기\n\n\n\n\n \n\n과학적 교양\n\n\n\n\n \n\n미디어 독후감\n\n\n\n\n \n\n금융경제 독후감\n\n\n\n\n\n\n\n\n\n\n\nExperimental Algorithm with AI\n\n\n\n\n\nLego-like OSS + Vibe-Coding Playground\n\nSNS Recipe (Workflow Manual, Blueprint, Playbook): Naver SmartStore, Coupang\n\nBranding ‘Text’ Generator\nBranding ‘Media’ Generator\n\nSNS Bot (Workflow App, FlowBot, Script): Naver Blog, Tistory, Youtube, Instagram\n\nAuto Post Text Generator (GET+LLM)\nAuto Post Uploader (POST) : Comment, re-Comment, Likes\n\nMarket & Personal Asset Dashboard: Daily insights from companiesmarketcap, Naver Finance\nAuto Grader: Data Conversion (OCR + Parsing + Grading) + Human Rubric (vs. pensieve.co, essaygrader.ai)\n\n\n\n\n\n\n\n\n\n\nExperimental Gadgets with AI\n\n\n\n\n\nDecentralize · Personalize · Collaborate\n\nPersonal AI Mini-Server: A $250 low-power vOS box — Preloaded with decentralized cloud, Docker stack, LLM router, and file storage. (vs. CasaOS, UmbrelOS)\nPersonal Interactive AI Doll: A $250 modular AI plush companion — Korean-speaking, locally hosted mini-LLM, upgradable hardware, and emotion-safe design (vs. Catius, Hiwonder, Nvidia Nano)"
   },
   {
     "objectID": "index.html#apps-in-progress",
@@ -975,9 +975,9 @@
   {
     "objectID": "index.html#apps",
     "href": "index.html#apps",
-    "title": "GITSAM",
+    "title": "GITSAM Hacker Lab",
     "section": "Apps",
-    "text": "Apps\n\n\n\n\nAI Collaborative System\n\n\nA peer-reviewed multi-agent framework to refine, cross-check, and vote on LLM outputs — modeling human-like collective intelligence\n\n\n(vs. LangGraph, MetaGPT, AutoGPT)\n\n\n\n\n\nAI CMS\n\n\nA self-hosted Corpus hub to store, tag, and refine your AI-generated knowledge — all properties and relationships in your hands, not theirs\n\n\n(vs. Notion AI, MS Office Copilot)\n\n\n\n\n\nAI Curated Press\n\n\nAn LLM-powered fact-checking pipeline that filters, analyzes, and ranks media feeds — your dashboard for bias-checked narratives\n\n\n(vs. Ground News, News Minimalist)"
+    "text": "Apps\n\n\n\n\nAI Collaborative System\n\n\nA peer-reviewed multi-agent framework to refine, cross-check, and vote on LLM outputs — modeling human-like collective intelligence\n\n\n(vs. LangGraph, MetaGPT, AutoGPT)\n\n\n\n\n\nAI Curated Press\n\n\nAn LLM-powered search & fact-checking pipeline that analyzes, filters, and ranks media feeds — your dashboard for bias-checked news\n\n\n(vs. Perplexity, Ground News, Minimalist)\n\n\n\n\n\nAI Moneyflow Simulator\n\n\nA dual-layer simulator: long-term macro strategy (TBTF framework) + daily LLM-driven pattern scan — build your own conviction index\n\n\n(vs. Naver Finance, DeepSearch, Finviz)"
   },
   {
     "objectID": "index.html#front-end-design",
@@ -1013,5 +1013,12 @@
     "title": "GITSAM",
     "section": "",
     "text": "Free and Open\n\n\n\nSource Data"
+  },
+  {
+    "objectID": "index.html#key-algorithms",
+    "href": "index.html#key-algorithms",
+    "title": "GITSAM Hacker Lab",
+    "section": "Key Algorithms",
+    "text": "Key Algorithms\n\n\n\n\nAI Collaborative System\n\n\nA peer-reviewed multi-agent framework to refine, cross-check, and vote on LLM outputs — modeling human-like collective intelligence\n\n\n(vs. LangGraph, MetaGPT, AutoGPT)\n\n\n\n\n\nAI Curated Press\n\n\nAn LLM-powered search & fact-checking pipeline that analyzes, filters, and ranks media feeds — your dashboard for bias-checked news\n\n\n(vs. Perplexity, Ground News, Minimalist)\n\n\n\n\n\nAI Moneyflow Simulator\n\n\nA dual-layer simulator: long-term macro strategy (TBTF framework) + daily LLM-driven pattern scan — build your own conviction index\n\n\n(vs. Naver Finance, DeepSearch, Finviz)"
   }
 ]

@@ -4,16 +4,14 @@
 
 ### 1. Background
 
-Computation was once centralized.
-Unix was the mainframe.
-PC gave compute back to the individual.
-Cloud recentralized it.
+Computation was once centralized. 
+Unix was the mainframe. 
+PC gave compute back to the individual. 
+Cloud recentralized it. 
 
----
-
-Communication was once just connection.
-E-mail was an address.
-Social media became a gatekeeper.
+Communication was once just connection. 
+E-mail was an address. 
+Social media became a gatekeeper. 
 Data flows, but ownership is trapped.
 AI learns from me — yet returns nothing.
 
