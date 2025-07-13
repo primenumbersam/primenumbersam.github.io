@@ -1,6 +1,6 @@
 ---
 title: "GITSAM Hacker Lab"
-subtitle: for FOSS (Free, Open, Simple, Solutions)
+subtitle: Anti-Elite Open Sources
 format:
   html:
     toc: false
@@ -71,7 +71,7 @@ format:
     A peer-reviewed multi-agent framework to refine, cross-check, and vote on LLM outputs — modeling human-like collective intelligence
   </p>
   <p class="feature-subtext">
-    (vs. LangGraph, MetaGPT, AutoGPT)
+    (vs. LangGraph, CrewAI, MetaGPT, AutoGPT)
   </p>
 </div>
 
@@ -97,7 +97,7 @@ format:
     A dual-layer simulator: long-term macro strategy (TBTF framework) + daily LLM-driven pattern scan — build your own conviction index
   </p>
   <p class="feature-subtext">
-    (vs. Naver Finance, DeepSearch, Finviz)
+    (vs. TradingView, Finviz, DeepSearch)
   </p>
 </div>
 
@@ -235,15 +235,15 @@ format:
 
 ##  Experimental Algorithm with AI
 
-*Lego-like OSS + Vibe-Coding Playground*
+*Lego-like FOSS + Vibe-Coding Playground*
 
-- SNS Recipe (Workflow Manual, Blueprint, Playbook): Naver SmartStore, Coupang
+- SNS Recipe (Workflow Manual): Naver Shop, Coupang
   - Branding ‘Text’ Generator
   - Branding ‘Media’ Generator
-- SNS Bot (Workflow App, FlowBot, Script): Naver Blog, Tistory, Youtube, Instagram
-  - Auto Post Text Generator (GET+LLM)
-  - Auto Post Uploader (POST) : Comment, re-Comment, Likes
-- Market & Personal Asset Dashboard: Daily insights from companiesmarketcap, Naver Finance
+- SNS Bot (Workflow Script): Naver Blog, Tistory, Instagram
+  - Auto Post Generator (GET+LLM): Text, Media, metadata
+  - Auto Post Uploader (POST): Comment, re-Comment, Likes
+- Market & Personal Asset Dashboard: Daily insights from Naver Finance, etc
 - Auto Grader: Data Conversion (OCR + Parsing + Grading) + Human Rubric (vs. pensieve.co, essaygrader.ai)
 
 :::
