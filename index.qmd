@@ -68,10 +68,10 @@ format:
     <a href="https://github.com/primenumbersam/">AI Collaborative System</a>
   </p>
   <p class="feature-text">
-    A peer-reviewed multi-agent framework to refine, cross-check, and vote on LLM outputs — modeling human-like collective intelligence
+    A peer-reviewed multi-agent logic to refine, cross-check, and vote on LLM outputs — modeling human-like collective intelligence
   </p>
   <p class="feature-subtext">
-    (vs. LangGraph, CrewAI, MetaGPT, AutoGPT)
+    (vs. LangGraph, CrewAI, AutoGen, MetaGPT)
   </p>
 </div>
 
@@ -94,7 +94,7 @@ format:
     <a href="https://github.com/primenumbersam/">AI Moneyflow Simulator</a>
   </p>
   <p class="feature-text">
-    A dual-layer simulator: long-term macro strategy (TBTF framework) + daily LLM-driven pattern scan — build your own conviction index
+    A dual-layer simulator: long-term TBTF-based strategy + short-term LLM-driven pattern scan — build your own conviction index
   </p>
   <p class="feature-subtext">
     (vs. TradingView, Finviz, DeepSearch)
