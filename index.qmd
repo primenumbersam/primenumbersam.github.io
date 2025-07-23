@@ -58,22 +58,9 @@ format:
   printChar(words[gen.next().value]);
 </script>
 
-## Key Algorithms
+## Apps (Daily Routines)
 
 <div class="feature-grid">
-
-<div class="feature-card" style="background-color: #DBEAFE;">
-  <img src="assets/logo-blue.png" alt="gitsam" />
-  <p class="feature-title">
-    <a href="https://github.com/primenumbersam/">AI Collaborative System</a>
-  </p>
-  <p class="feature-text">
-    A peer-reviewed multi-agent logic to refine, cross-check, and vote on LLM outputs — modeling human-like collective intelligence
-  </p>
-  <p class="feature-subtext">
-    (vs. LangGraph, CrewAI, AutoGen, MetaGPT)
-  </p>
-</div>
 
 <div class="feature-card" style="background-color: #F3F4F6;">
   <img src="assets/logo-gray.png" alt="gitsam" />
@@ -81,10 +68,23 @@ format:
     <a href="https://github.com/primenumbersam/">AI Curated Press</a>
   </p>
   <p class="feature-text">
-    An LLM-powered search & fact-checking pipeline that analyzes, filters, and ranks media feeds — your dashboard for bias-checked news
+    A BERT + Transformer–powered news dashboard that deduplicates, scores for bias, and structures media feeds with community IP-hash comments — an open blog for reflective news consumption.
   </p>
   <p class="feature-subtext">
-    (vs. Perplexity, Ground News, Minimalist)
+    (vs. Perplexity, Ground News, News Minimalist)
+  </p>
+</div>
+
+<div class="feature-card" style="background-color: #DBEAFE;">
+  <img src="assets/logo-blue.png" alt="gitsam" />
+  <p class="feature-title">
+    <a href="https://github.com/primenumbersam/">AI Collaborative System</a>
+  </p>
+  <p class="feature-text">
+    A dual system of AI-powered debate agents and e-commerce automation — run LibreChat-based peer-reviewed arguments in science and political economics, or orchestrate E-Commerce workflows with generative AI and bot scripts.
+  </p>
+  <p class="feature-subtext">
+    (vs. mascara.ai, LangGraph, CrewAI, Apify, n8n)
   </p>
 </div>
 
@@ -94,27 +94,27 @@ format:
     <a href="https://github.com/primenumbersam/">AI Moneyflow Simulator</a>
   </p>
   <p class="feature-text">
-    A dual-layer simulator: long-term TBTF-based strategy + short-term LLM-driven pattern scan — build your own conviction index
+    A backtesting playground combining macro-level TBTF strategy and micro-level daily patterns — simulate, compare, and explain portfolio strategies using LLM+SHAP hybrid logic.
   </p>
   <p class="feature-subtext">
-    (vs. TradingView, Finviz, DeepSearch)
+    (vs. QuantConnect, TradingView, Finviz)
   </p>
 </div>
 
-<!-- <div class="feature-card" style="background-color: #FCE7F3;">
+<div class="feature-card" style="background-color: #FCE7F3;">
   <img src="assets/logo-pink.png" alt="gitsam" />
   <p class="feature-title">
-    <a href="https://github.com/primenumbersam/">Blockchain Token</a>
+    <a href="https://github.com/primenumbersam/">AI Private Companion</a>
   </p>
   <p class="feature-text">
-    보호종료아동에게 투명하게 전달된 기부금 내역 장부
+    A locally hosted NSFW-ready character chatbot with self-installing Docker stack on mini-PC — built for full immersion, privacy, and anime interaction in a self-contained system.
   </p>
   <p class="feature-subtext">
-    (vs. givecherry.org)
+    (vs. otherhalf.ai, ElatoAI, UmbrelOS, CasaOS)
   </p>
 </div>
 
-<div class="feature-card" style="background-color: #FEF9C3;">
+<!-- <div class="feature-card" style="background-color: #FEF9C3;">
   <img src="assets/logo-yellow.png" alt="gitsam" />
   <p class="feature-title">
     <a href="https://www.gitsam.com/">Data Parsing & Labeling</a>
@@ -136,7 +136,7 @@ format:
     A self-hosted note-taking database to store, refine, and tag your knowledge with multiple LLMs — all properties and relationships in your hands
   </p>
   <p class="feature-subtext">
-    (vs. Notion AI, Appflowy, Affine, MS Office Copilot)
+    (vs. Notion AI, Appflowy, Anytype, MS Office Copilot)
   </p>
 </div> -->
 
@@ -233,29 +233,36 @@ format:
 
 ::: {.callout-important collapse="false"}
 
-##  Experimental Algorithm with AI
+## Hacker's Values
 
-*Lego-like FOSS + Vibe-Coding Playground*
+*Decentralize · Personalize · Collaborate*
 
-- SNS Recipe (Workflow Manual): Naver Shop, Coupang
-  - Branding ‘Text’ Generator
-  - Branding ‘Media’ Generator
-- SNS Bot (Workflow Script): Naver Blog, Tistory, Instagram
-  - Auto Post Generator (GET+LLM): Text, Media, metadata
-  - Auto Post Uploader (POST): Comment, re-Comment, Likes
-- Market & Personal Asset Dashboard: Daily insights from Naver Finance, etc
-- Auto Grader: Data Conversion (OCR + Parsing + Grading) + Human Rubric (vs. pensieve.co, essaygrader.ai)
+- Centralized (monopoly) → **Decentralized Power (democracy)**
+- Cloud → **Local & Private storage**
+- Closed → **Open source & knowledge**
+- Big fluffy → **Small structured data**
+- Vertical → **Modular architecture**
+- Abstract → **Interpretable language**
+- Artificial → **Real world application**
+- Rule-based model → **Deep-learning based model** (e.g. AI, LLM, Transformer, Diffusion)
 
 :::
 
 ::: {.callout-note collapse="false"}
 
-## Experimental Gadgets with AI
+## Lego-like Vibe-Coding 
 
-*Decentralize · Personalize · Collaborate*
+*Workflow Solution*
 
-- **Personal AI Mini-Server:** A $250 low-power vOS box — Preloaded with decentralized cloud, Docker stack, LLM router, and file storage. (vs. CasaOS, UmbrelOS)
-- **Personal Interactive AI Doll:** A $250 modular AI plush companion — Korean-speaking, locally hosted mini-LLM, upgradable hardware, and emotion-safe design (vs. Catius, Hiwonder, Nvidia Nano)
+- SNS Branding Recipe (Manual): Naver Shop, Coupang
+  - Branding ‘Text’ Generator
+  - Branding ‘Media’ Generator
+- SNS Branding Bot (Script): Naver Blog, Tistory, Instagram
+  - Auto Post Generator (GET+LLM): Text, Media, metadata
+  - Auto Post Uploader (POST+Playwright): Comment, re-Comment, Likes
+- Experimental Playground (Sandbox)
+  - Market & Personal Asset Dashboard: Google AppSheet + Naver Finance
+  - Auto Grader: Data Conversion (OCR + Parsing + Grading) + Human Rubric (vs. pensieve.co, essaygrader.ai)
 
 :::
 
