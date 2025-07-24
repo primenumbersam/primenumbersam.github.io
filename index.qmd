@@ -68,7 +68,7 @@ format:
     <a href="https://github.com/primenumbersam/">AI Curated Press</a>
   </p>
   <p class="feature-text">
-    A BERT + Transformer–powered news dashboard that deduplicates, scores for bias, and structures media feeds with community IP-hash comments — an open blog for reflective news consumption.
+    A BERT + Transformer–powered news dashboard that deduplicates, scores for bias, and structures media feeds with community IP-hash comments — an open blog for trustworthy news consumption.
   </p>
   <p class="feature-subtext">
     (vs. Perplexity, Ground News, News Minimalist)
@@ -81,7 +81,7 @@ format:
     <a href="https://github.com/primenumbersam/">AI Collaborative System</a>
   </p>
   <p class="feature-text">
-    A dual system of AI-powered debate agents and e-commerce automation — run LibreChat-based peer-reviewed arguments in science and political economics, or orchestrate E-Commerce workflows with generative AI and bot scripts.
+    A dual system of AI-powered Debate agents and E-commerce automation — run LibreChat-based peer-reviewed arguments in science and political economics, or orchestrate E-Commerce workflows with generative AI and bot scripts.
   </p>
   <p class="feature-subtext">
     (vs. mascara.ai, LangGraph, CrewAI, Apify, n8n)
@@ -94,7 +94,7 @@ format:
     <a href="https://github.com/primenumbersam/">AI Moneyflow Simulator</a>
   </p>
   <p class="feature-text">
-    A backtesting playground combining macro-level TBTF strategy and micro-level daily patterns — simulate, compare, and explain portfolio strategies using LLM+SHAP hybrid logic.
+    A backtesting playground combining macro-level TBTF strategy and micro-level daily patterns — predict, compare, and explain portfolio strategies using LLM+SHAP hybrid logic.
   </p>
   <p class="feature-subtext">
     (vs. QuantConnect, TradingView, Finviz)
@@ -107,7 +107,7 @@ format:
     <a href="https://github.com/primenumbersam/">AI Private Companion</a>
   </p>
   <p class="feature-text">
-    A locally hosted NSFW-ready character chatbot with self-installing Docker stack on mini-PC — built for full immersion, privacy, and anime interaction in a self-contained system.
+    A local NSFW-ready character chatbot with self-installing Docker stack on Windows mini-PC — built for full immersion, privacy, and anime interaction in a self-hosted system.
   </p>
   <p class="feature-subtext">
     (vs. otherhalf.ai, ElatoAI, UmbrelOS, CasaOS)
@@ -244,7 +244,7 @@ format:
 - Vertical → **Modular architecture**
 - Abstract → **Interpretable language**
 - Artificial → **Real world application**
-- Rule-based model → **Deep-learning based model** (e.g. AI, LLM, Transformer, Diffusion)
+- Rule-based model → **Deep-learning based model**
 
 :::
 
@@ -252,17 +252,18 @@ format:
 
 ## Lego-like Vibe-Coding 
 
-*Workflow Solution*
+*E-Commerce Branding Recipe (Manual)*
 
-- SNS Branding Recipe (Manual): Naver Shop, Coupang
-  - Branding ‘Text’ Generator
-  - Branding ‘Media’ Generator
-- SNS Branding Bot (Script): Naver Blog, Tistory, Instagram
-  - Auto Post Generator (GET+LLM): Text, Media, metadata
-  - Auto Post Uploader (POST+Playwright): Comment, re-Comment, Likes
-- Experimental Playground (Sandbox)
-  - Market & Personal Asset Dashboard: Google AppSheet + Naver Finance
-  - Auto Grader: Data Conversion (OCR + Parsing + Grading) + Human Rubric (vs. pensieve.co, essaygrader.ai)
+- Competitor Analyzer: with Naver Shop, Coupang
+- Branding Text Generator: for Naver Blog, Tistory
+- Branding Media Generator: for Instagram, Youtube
+- CS Bot (Playwright): for SNS Comment, re-Comment, Likes
+
+*Practice Playground (Sandbox)*
+
+- Market & Personal Asset Dashboard: Google AppSheet + Naver Finance
+- Auto Grader: Data Conversion (OCR + Parsing + Labeling) + Human Rubric (vs. pensieve.co, essaygrader.ai)
+
 
 :::
 
