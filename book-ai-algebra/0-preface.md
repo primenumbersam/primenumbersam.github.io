@@ -61,12 +61,28 @@ The Geometry of Solution Spaces: Vector Spaces and Subspaces
 -   **Interpretation Summary:** Eigenvectors reveal the fundamental directions or components of a linear transformation, and eigenvalues tell us the factor by which variance is scaled in those directions. This is key to understanding PCA.
 
 
-10 Finite-State Markov Chains : Google's PageRank
+10 Finite-State Markov Chains : **Google's PageRank**
 - Steady-state vector
 -   **Famous Problem:** Solving very large systems of linear equations that arise from complex models or massive datasets (e.g., in finite element methods or network analysis). (Direct methods like Gaussian Elimination can be too slow or memory-intensive).
--   **Key Assumptions:** Iterative methods approach the true solution Ax=b through successive approximations \[Strang 7.4\].
+-   **Key Assumptions:** Iterative methods approach the true solution Ax=b through successive approximations [[Strang 7.4]].
 -   **Python Visualization:** Implementing a simple iterative method (e.g., Jacobi or Gauss-Seidel, or gradient descent for Ax=b). Visualizing the convergence of the solution vector over iterations.
 -   **Interpretation Summary:** For very large problems, iterative methods provide a practical way to find approximate solutions to linear systems, essential in fields like numerical simulation and large-scale optimization (which underlies many machine learning algorithms).
+
+- **구글 페이지랭크**는 개념은 **스탠포드 대학**에서 연구되었으며, 구글의 창립자인 **래리 페이지**와 **세르게이 브린**이 개발하였다. 구글의 탄생 배경이 되는 중요한 개념이다.
+- 페이지랭크는 웹 페이지의 **인기도**를 측정하는 알고리즘으로, 웹 페이지 간의 **링크 구조**를 기반으로 한다. 페이지랭크는 웹 페이지의 **상대적 중요성**을 평가하기 위해 사용되며, 이는 검색 엔진의 **효율성**을 높이는 데 기여한다.
+- 첫 번째 웹페이지의 **파워 인덱스**는 해당 페이지가 **인용된 전체 갯수**로 정리할 수 있다.
+- 파워 인덱스는 웹 페이지의 **인용 횟수**를 기반으로 하며, 이는 페이지의 **신뢰성**을 나타낸다.
+- 각 웹 페이지는 다른 페이지들로부터 **인용**을 받을 수 있으며, 이 인용의 수가 많을수록 파워 인덱스는 **높아진다**.
+- 파워 인덱스는 웹 페이지의 **상대적 위치**를 결정하는 데 중요한 역할을 한다.
+- 페이지랭크는 **행렬** 형태로 표현할 수 있다.
+- 각 웹 페이지의 인용 관계를 나타내는 **행렬**을 구성하여, 이를 통해 파워 인덱스를 계산한다.
+- 이 행렬은 **대칭 행렬**로, 각 페이지 간의 인용 관계를 명확히 나타낸다.
+- 행렬의 **고유값**을 통해 각 페이지의 파워 인덱스를 도출할 수 있다.
+- 대칭 행렬은 **방향성이 없는 네트워크**를 나타낸다.
+- 방향성이 있는 경우, **디렉티드 네트워크**로 표현된다.
+- 이러한 행렬은 각 노드 간의 **관계를 명확히** 나타내는 데 기여한다.
+- 행렬의 **구조**는 네트워크의 **특성을 이해**하는 데 중요한 요소이다.
+
 
 7 Symmetric matrices and Quadratic Forms : Multichannel Image Processing
 - SVD

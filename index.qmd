@@ -68,7 +68,7 @@ format:
     <a href="https://github.com/primenumbersam/">AI Curated Press</a>
   </p>
   <p class="feature-text">
-    A BERT + Transformer–powered news dashboard that deduplicates, scores for bias, and structures media feeds with community IP-hash comments — an open blog for trustworthy news consumption.
+    A BERT + Transformer–powered news dashboard that deduplicates, scores for bias, and structures media feeds with community IP-hash comments — an open blog for trustworthy news consumption. 뉴밍 (Yes24), 뉴스픽
   </p>
   <p class="feature-subtext">
     (vs. Perplexity, Ground News, News Minimalist)
@@ -104,13 +104,13 @@ format:
 <div class="feature-card" style="background-color: #FCE7F3;">
   <img src="assets/logo-pink.png" alt="gitsam" />
   <p class="feature-title">
-    <a href="https://github.com/primenumbersam/">AI Private Companion</a>
+    <a href="https://github.com/primensumbersam/">AI Private Companion</a>
   </p>
   <p class="feature-text">
     A local NSFW-ready character chatbot with self-installing Docker stack on Windows mini-PC — built for full immersion, privacy, and anime interaction in a self-hosted system.
   </p>
   <p class="feature-subtext">
-    (vs. otherhalf.ai, ElatoAI, UmbrelOS, CasaOS)
+    (vs. 아리메이트, otherhalf.ai, ElatoAI, CasaOS)
   </p>
 </div>
 
@@ -142,7 +142,7 @@ format:
 
 </div>
 
-## Books
+## Books (Learning with Nudge)
 
 <!-- 태그 필터 버튼 -->
 <div id="tag-filter">
@@ -196,16 +196,16 @@ format:
 </div>
 
 <div class="book-card" data-tags="notion">
-  <a href="https://gitsam.notion.site/20ad716ee0de80fdacd7fe3516c4b608?v=20ad716ee0de801ea051000ce11ecfac" target="_blank">
-    <img src="/assets/cover-han.png" alt="gitsam" />
-    <div class="book-title">미디어 독후감</div>
+  <a href="https://gitsam.notion.site/179d716ee0de8051bbadeac43a1600f1?v=223d716ee0de8036b7bc000ccd9b9bd9" target="_blank">
+    <img src="/assets/cover-theory.png" alt="gitsam" />
+    <div class="book-title">금융경제 독후감</div>
   </a>
 </div>
 
 <div class="book-card" data-tags="notion">
-  <a href="https://gitsam.notion.site/179d716ee0de8051bbadeac43a1600f1?v=223d716ee0de8036b7bc000ccd9b9bd9" target="_blank">
-    <img src="/assets/cover-theory.png" alt="gitsam" />
-    <div class="book-title">금융경제 독후감</div>
+  <a href="https://blog.gitsam.com/" target="_blank">
+    <img src="/assets/cover-han.png" alt="gitsam" />
+    <div class="book-title">미디어 독후감</div>
   </a>
 </div>
 
@@ -250,19 +250,19 @@ format:
 
 ::: {.callout-note collapse="false"}
 
-## Lego-like Vibe-Coding 
+## Vibe/Low/No Coding: Lego-like Workflows 
 
 *E-Commerce Branding Recipe (Manual)*
-
+- Google Labs Opal, Flow, Project Mariner vs. Flowith
 - Competitor Analyzer: with Naver Shop, Coupang
-- Branding Text Generator: for Naver Blog, Tistory
-- Branding Media Generator: for Instagram, Youtube
+- Text Generator: for Naver Blog, Tistory
+- Media Generator: for Instagram, Youtube
 - CS Bot (Playwright): for SNS Comment, re-Comment, Likes
 
-*Practice Playground (Sandbox)*
+*AI Wrapper Practice (Playground)*
 
-- Market & Personal Asset Dashboard: Google AppSheet + Naver Finance
-- Auto Grader: Data Conversion (OCR + Parsing + Labeling) + Human Rubric (vs. pensieve.co, essaygrader.ai)
+- Google AppSheet + Naver Finance -> Market & Personal Asset Dashboard (vs. 증권플러스, 투자 대시보드)
+- Sider AI -> Auto Grader : Data Conversion (OCR + Parsing + Labeling) + Human Rubric (vs. pensieve.co, essaygrader.ai)
 
 
 :::

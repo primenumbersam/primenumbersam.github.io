@@ -15,6 +15,9 @@
 Introduction to Linear Algebra (6th edition): [Gilbert Strang](https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/pages/ax-b-and-the-four-subspaces/) in MIT OpenCourseWare (MIT OCW)
 ![[book-strang.png]]
 
+
+
+
 ### 커리큘럼
 
 **선형연립방정식**에서 출발해 선형**공간과 고유값**으로 확장하고, 이어서 **내적공간·분해정리(SVD, QR)** 및 **최소제곱법**·**힐버트 공간** 등 특수한 응용을 다룬 뒤, 마지막으로 **군(群)과 추상구조** 등 일반화 된 개념을 소개하며 전체 학습을 마무리합니다.
