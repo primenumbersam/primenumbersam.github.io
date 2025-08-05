@@ -65,43 +65,43 @@ format:
 <div class="feature-card" style="background-color: #F3F4F6;">
   <img src="assets/logo-gray.png" alt="gitsam" />
   <p class="feature-title">
-    <a href="https://github.com/primenumbersam/">AI Curated Press</a>
+    <a href="https://github.com/primenumbersam/">DL Curated Press</a>
   </p>
   <p class="feature-text">
-    A BERT + Transformer–powered news dashboard that deduplicates, scores for bias, and structures media feeds with community IP-hash comments — an open blog for trustworthy news consumption.
+    BERT + Transformer–powered news dashboard that filters and scores media feeds — an open blog for trustworthy news.
   </p>
   <p class="feature-subtext">
-    (vs. Perplexity, Ground News, News Minimalist)
+    (vs. Perplexity, Ground News, News Minimalist, Naver News, 뉴밍)
   </p>
 </div>
 
 <div class="feature-card" style="background-color: #DBEAFE;">
   <img src="assets/logo-blue.png" alt="gitsam" />
   <p class="feature-title">
-    <a href="https://github.com/primenumbersam/">AI Collaborative System</a>
+    <a href="https://github.com/primenumbersam/">LLM Collaborative System</a>
   </p>
   <p class="feature-text">
-    A dual system of AI-powered Debate agents and E-commerce automation — run LibreChat-based peer-reviewed arguments in science and political economics, or orchestrate E-Commerce workflows with generative AI and bot scripts.
+    Debating AI agents in science and political economics — Peer-reviewd high-quality responses wrapped in LibreChat-based UI.
   </p>
   <p class="feature-subtext">
-    (vs. mascara.ai, LangGraph, CrewAI, Apify, n8n)
+    (vs. maskara.ai, Dify, LangGraph, CrewAI, Apify, n8n)
   </p>
 </div>
 
 <div class="feature-card" style="background-color: #D1FAE5;">
   <img src="assets/logo-green.png" alt="gitsam" />
   <p class="feature-title">
-    <a href="https://github.com/primenumbersam/">AI Moneyflow Simulator</a>
+    <a href="https://github.com/primenumbersam/">ML Moneyflow Simulator</a>
   </p>
   <p class="feature-text">
-    A backtesting playground combining macro-level TBTF strategy and micro-level daily patterns — predict, compare, and explain portfolio strategies using LLM+SHAP hybrid logic.
+    Backtesting playground combining long-term TBTF strategy and short-term patterns — predict, compare, and explain investment strategies.
   </p>
   <p class="feature-subtext">
     (vs. QuantConnect, TradingView, Finviz)
   </p>
 </div>
 
-<div class="feature-card" style="background-color: #FCE7F3;">
+<!-- <div class="feature-card" style="background-color: #FCE7F3;">
   <img src="assets/logo-pink.png" alt="gitsam" />
   <p class="feature-title">
     <a href="https://github.com/primenumbersam/">AI Private Companion</a>
@@ -110,11 +110,11 @@ format:
     A local NSFW-ready character chatbot with self-installing Docker stack on Windows mini-PC — built for full immersion, privacy, and anime interaction in a self-hosted system.
   </p>
   <p class="feature-subtext">
-    (vs. otherhalf.ai, ElatoAI, UmbrelOS, CasaOS)
+    (vs. 아리메이트, otherhalf.ai, ElatoAI, UmbrelOS, CasaOS, minisforum)
   </p>
 </div>
 
-<!-- <div class="feature-card" style="background-color: #FEF9C3;">
+<div class="feature-card" style="background-color: #FEF9C3;">
   <img src="assets/logo-yellow.png" alt="gitsam" />
   <p class="feature-title">
     <a href="https://www.gitsam.com/">Data Parsing & Labeling</a>
@@ -123,7 +123,7 @@ format:
      From Raw to Structured Data
   </p>
   <p class="feature-subtext">
-    (vs. Palantir, SelectStar, Newen AI, AIMMO)
+    (vs. Mistral OCR, Palantir, SelectStar, Newen AI, AIMMO)
   </p>
 </div>
 
@@ -231,7 +231,7 @@ format:
   }
 </script>
 
-::: {.callout-important collapse="false"}
+::: {.callout-important collapse="true"}
 
 ## Hacker's Values
 
@@ -250,20 +250,20 @@ format:
 
 ::: {.callout-note collapse="false"}
 
-## Lego-like Vibe-Coding 
+## Vibe/Low/No Coding (Lego-like Workflow/Recipe/Manual)
 
-*E-Commerce Branding Recipe (Manual)*
+*AI Orchestration for E-Commerce Recipe*
 
+- **Google Labs** Opal, Flow, Project Mariner vs. Flowith
 - Competitor Analyzer: with Naver Shop, Coupang
-- Branding Text Generator: for Naver Blog, Tistory
-- Branding Media Generator: for Instagram, Youtube
+- Text Generator: for Naver Blog, Tistory
+- Media Generator: for **Mockup**, Instagram, Youtube
 - CS Bot (Playwright): for SNS Comment, re-Comment, Likes
 
-*Practice Playground (Sandbox)*
+*AI Wrapper Practice (Playground)*
 
-- Market & Personal Asset Dashboard: Google AppSheet + Naver Finance
-- Auto Grader: Data Conversion (OCR + Parsing + Labeling) + Human Rubric (vs. pensieve.co, essaygrader.ai)
-
+- **Google Firebase Studio + AppSheet** + Naver Finance → Market & Personal Asset Dashboard (vs. 증권플러스)
+- **Sider AI** → Auto Grader using Human Rubric (vs. pensieve.co, essaygrader.ai)
 
 :::
 
