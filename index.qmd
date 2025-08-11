@@ -65,7 +65,7 @@ format:
 <div class="feature-card" style="background-color: #F3F4F6;">
   <img src="assets/logo-gray.png" alt="gitsam" />
   <p class="feature-title">
-    <a href="https://github.com/primenumbersam/">DL Curated Press</a>
+    <a href="https://github.com/primenumbersam/">AI Filtering & Scoring Press</a>
   </p>
   <p class="feature-text">
     BERT + Transformer–powered news dashboard that filters and scores media feeds — an open blog for trustworthy news.
@@ -78,10 +78,10 @@ format:
 <div class="feature-card" style="background-color: #DBEAFE;">
   <img src="assets/logo-blue.png" alt="gitsam" />
   <p class="feature-title">
-    <a href="https://github.com/primenumbersam/">LLM Collaborative System</a>
+    <a href="https://github.com/primenumbersam/">AI Low Coding E-Commerce</a>
   </p>
   <p class="feature-text">
-    Debating AI agents in science and political economics — Peer-reviewd high-quality responses wrapped in LibreChat-based UI.
+    Competitor Analyzer with Marketplace + Text Generator for Blog + Media Generator for Mockup + Customer Support Bot for SNS
   </p>
   <p class="feature-subtext">
     (vs. maskara.ai, Dify, LangGraph, CrewAI, Apify, n8n)
@@ -91,7 +91,7 @@ format:
 <div class="feature-card" style="background-color: #D1FAE5;">
   <img src="assets/logo-green.png" alt="gitsam" />
   <p class="feature-title">
-    <a href="https://github.com/primenumbersam/">ML Moneyflow Simulator</a>
+    <a href="https://github.com/primenumbersam/">AI Moneyflow Simulator</a>
   </p>
   <p class="feature-text">
     Backtesting playground combining long-term TBTF strategy and short-term patterns — predict, compare, and explain investment strategies.
@@ -101,18 +101,32 @@ format:
   </p>
 </div>
 
-<!-- <div class="feature-card" style="background-color: #FCE7F3;">
+<!-- <div class="feature-card" style="background-color: #DBEAFE;">
+  <img src="assets/logo-blue.png" alt="gitsam" />
+  <p class="feature-title">
+    <a href="https://github.com/primenumbersam/">AI Collaborative System</a>
+  </p>
+  <p class="feature-text">
+    Debating AI agents in science and political economics — Peer-reviewd high-quality responses wrapped in LibreChat-based UI.
+  </p>
+  <p class="feature-subtext">
+    (vs. maskara.ai, Dify, LangGraph, CrewAI, Apify, n8n)
+  </p>
+</div>
+
+<div class="feature-card" style="background-color: #FCE7F3;">
   <img src="assets/logo-pink.png" alt="gitsam" />
   <p class="feature-title">
-    <a href="https://github.com/primenumbersam/">AI Private Companion</a>
+    <a href="https://github.com/primensumbersam/">AI Private Companion</a>
   </p>
   <p class="feature-text">
     A local NSFW-ready character chatbot with self-installing Docker stack on Windows mini-PC — built for full immersion, privacy, and anime interaction in a self-hosted system.
   </p>
   <p class="feature-subtext">
-    (vs. 아리메이트, otherhalf.ai, ElatoAI, UmbrelOS, CasaOS, minisforum)
+    (vs. 아리메이트, otherhalf.ai, ElatoAI, CasaOS)
   </p>
 </div>
+
 
 <div class="feature-card" style="background-color: #FEF9C3;">
   <img src="assets/logo-yellow.png" alt="gitsam" />
@@ -123,7 +137,7 @@ format:
      From Raw to Structured Data
   </p>
   <p class="feature-subtext">
-    (vs. Mistral OCR, Palantir, SelectStar, Newen AI, AIMMO)
+    (vs. Palantir, SelectStar, Newen AI, AIMMO)
   </p>
 </div>
 
@@ -182,13 +196,6 @@ format:
 </div>
 
 <div class="book-card" data-tags="notion">
-  <a href="https://gitsam.notion.site/1fbd716ee0de80b48d3ac1fdbd0d7783?v=223d716ee0de80a2870c000cadead38d" target="_blank">
-    <img src="/assets/cover-app-log.png" alt="gitsam" />
-    <div class="book-title">컴덕후 일기</div>
-  </a>
-</div>
-
-<div class="book-card" data-tags="notion">
   <a href="https://gitsam.notion.site/ab09bfb8292b464a846d55e7d3df7a8d?v=222d716ee0de805b80f3000c87413f0f" target="_blank">
     <img src="/assets/cover-liberal-arts.png" alt="gitsam" />
     <div class="book-title">과학적 교양</div>
@@ -196,16 +203,23 @@ format:
 </div>
 
 <div class="book-card" data-tags="notion">
-  <a href="https://gitsam.notion.site/20ad716ee0de80fdacd7fe3516c4b608?v=20ad716ee0de801ea051000ce11ecfac" target="_blank">
+  <a href="https://blog.gitsam.com/" target="_blank">
     <img src="/assets/cover-han.png" alt="gitsam" />
-    <div class="book-title">미디어 독후감</div>
+    <div class="book-title">현타 독후감</div>
+  </a>
+</div>
+
+<div class="book-card" data-tags="notion">
+  <a href="https://gitsam.notion.site/1fbd716ee0de80b48d3ac1fdbd0d7783?v=223d716ee0de80a2870c000cadead38d" target="_blank">
+    <img src="/assets/cover-app-log.png" alt="gitsam" />
+    <div class="book-title">컴덕후 일기</div>
   </a>
 </div>
 
 <div class="book-card" data-tags="notion">
   <a href="https://gitsam.notion.site/179d716ee0de8051bbadeac43a1600f1?v=223d716ee0de8036b7bc000ccd9b9bd9" target="_blank">
     <img src="/assets/cover-theory.png" alt="gitsam" />
-    <div class="book-title">금융경제 독후감</div>
+    <div class="book-title">각자도생 실무</div>
   </a>
 </div>
 
@@ -231,7 +245,7 @@ format:
   }
 </script>
 
-::: {.callout-important collapse="true"}
+::: {.callout-important collapse="false"}
 
 ## Hacker's Values
 
@@ -244,26 +258,17 @@ format:
 - Vertical → **Modular architecture**
 - Abstract → **Interpretable language**
 - Artificial → **Real world application**
-- Rule-based model → **Deep-learning based model**
+- Rule-based → **Deep-learning based model**
 
 :::
 
 ::: {.callout-note collapse="false"}
 
-## Vibe/Low/No Coding (Lego-like Workflow/Recipe/Manual)
+## Lego-like AI Wrapping Practice
 
-*AI Orchestration for E-Commerce Recipe*
-
-- **Google Labs** Opal, Flow, Project Mariner vs. Flowith
-- Competitor Analyzer: with Naver Shop, Coupang
-- Text Generator: for Naver Blog, Tistory
-- Media Generator: for **Mockup**, Instagram, Youtube
-- CS Bot (Playwright): for SNS Comment, re-Comment, Likes
-
-*AI Wrapper Practice (Playground)*
-
-- **Google Firebase Studio + AppSheet** + Naver Finance → Market & Personal Asset Dashboard (vs. 증권플러스)
-- **Sider AI** → Auto Grader using Human Rubric (vs. pensieve.co, essaygrader.ai)
+- Google Labs Opal, Flow, Project Mariner vs. Flowith
+- Google Firebase Studio + AppSheet + Naver Finance → Market & Personal Asset Dashboard (vs. 증권플러스)
+- Sider AI → Auto Grader using Human Rubric (vs. pensieve.co, essaygrader.ai)
 
 :::
 

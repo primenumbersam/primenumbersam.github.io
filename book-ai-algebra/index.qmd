@@ -12,6 +12,21 @@ title: "AI 응용 선형대수학"
 
 이러한 인식이 선형 대수학의 출발.
 
+- **대상**: 대학생 및 실무자 (AI, 수학 기초 다지기)  
+- **난이도**: 중상 (대학 2학년 수준)  
+- **교재 기반**: 
+  - Gilbert Strang – MIT Linear Algebra  
+  - David Lay - Linear Algebra and Its Applications  
+- **사용 도구**: Python (NumPy, Matplotlib, Pandas, PyTorch), Google Colab  
+- **결과물 중심**:  
+  - 문제풀이 템플릿  
+  - AI 수학 기반 구현 실습 (예: 선형회귀, 벡터 시각화 등)  
+  - 시험 대비 요약 정리 PDF 제공  
+
+> **[홍보 문구]**  
+> “MIT 교재, AI 실습으로 직접 풀고 이해하는 선형대수학.”  
+> “수학 이론과 AI 실습, 이제는 따로 배우지 마세요.”
+
 
 ## 목차 (Contents)
 
