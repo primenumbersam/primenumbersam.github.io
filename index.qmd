@@ -196,28 +196,28 @@ format:
 </div>
 
 <div class="book-card" data-tags="notion">
-  <a href="https://gitsam.notion.site/ab09bfb8292b464a846d55e7d3df7a8d?v=222d716ee0de805b80f3000c87413f0f" target="_blank">
+  <a href="#" target="_blank">
     <img src="/assets/cover-liberal-arts.png" alt="gitsam" />
     <div class="book-title">과학적 교양</div>
   </a>
 </div>
 
 <div class="book-card" data-tags="notion">
-  <a href="https://blog.gitsam.com/" target="_blank">
+  <a href="https://gitsam.notion.site/" target="_blank">
     <img src="/assets/cover-han.png" alt="gitsam" />
     <div class="book-title">현타 독후감</div>
   </a>
 </div>
 
 <div class="book-card" data-tags="notion">
-  <a href="https://gitsam.notion.site/1fbd716ee0de80b48d3ac1fdbd0d7783?v=223d716ee0de80a2870c000cadead38d" target="_blank">
+  <a href="#" target="_blank">
     <img src="/assets/cover-app-log.png" alt="gitsam" />
     <div class="book-title">컴덕후 일기</div>
   </a>
 </div>
 
 <div class="book-card" data-tags="notion">
-  <a href="https://gitsam.notion.site/179d716ee0de8051bbadeac43a1600f1?v=223d716ee0de8036b7bc000ccd9b9bd9" target="_blank">
+  <a href="#" target="_blank">
     <img src="/assets/cover-theory.png" alt="gitsam" />
     <div class="book-title">각자도생 실무</div>
   </a>
