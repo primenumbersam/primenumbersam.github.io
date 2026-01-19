@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GITSAM: Quant Hacker</title>
+    <style>
+        :root { --bg:#fff; --tx:#000; --hm:#999; --fw:800px; --bc:#eee; }
+        body { font-family: ui-monospace, monospace; margin:0; background:var(--bg); color:var(--tx); line-height:1.6; }
+        nav { display:flex; flex-direction:column; align-items:center; padding:2rem 0; border-bottom:1px solid var(--bc); }
+        .lang-switch { cursor:pointer; font-size:.75rem; border:1px solid var(--tx); padding:2px 8px; margin-bottom:1.5rem; transition:.2s; }
+        .lang-switch:hover { background:var(--tx); color:var(--bg); }
+        .nav-menu-container { display:flex; justify-content:center; list-style:none; padding:0; margin:0; width:100%; }
+        .nav-item { position:relative; padding:.5rem 1rem; cursor:pointer; font-size:.95rem; }
+        .nav-item:hover { text-decoration:underline; }
+        .dropdown { display:none; position:absolute; top:100%; left:50%; transform:translateX(-50%); border:1px solid var(--tx); background:var(--bg); min-width:180px; z-index:100; text-align:center; }
+        .nav-item:hover .dropdown { display:block; }
+        .dropdown-item { padding:.5rem; text-decoration:none; color:inherit; display:block; font-size:.85rem; }
+        .dropdown-item:hover { background:#f8f8f8; }
+        #hero-section { max-width:var(--fw); margin:2rem auto; padding:0 1.5rem; text-align:center; }
+        #hero-art-frame { font-size:8px; line-height:1.1; white-space:pre; margin-bottom:2rem; user-select:none; display:inline-block; }
+        .tab-container { display:flex; gap:1.5rem; justify-content:center; margin-bottom:2rem; padding-bottom:.5rem; }
+        .tab-btn { cursor:pointer; padding:.2rem .5rem; border:none; background:none; font-family:inherit; font-size:1rem; color:var(--hm); }
+        .tab-btn.active { color:var(--tx); font-weight:bold; }
+        .tab-btn.active::before { content:"[ "; }
+        .tab-btn.active::after { content:" ]"; }
+        #hero-content-wrapper { text-align:left; width:100%; display:flex; justify-content:center; }
+        #hero-content { width:100%; max-width:600px; min-height:160px; white-space:pre-wrap; word-break:break-all; }
+        .content-line { display:block; margin-bottom:1rem; unicode-bidi:embed; }
+        .hero-cta-container { display:flex; gap:20px; justify-content:center; margin-top:2rem; }
+        .brutal-btn { font-family:inherit; font-weight:bold; text-transform:uppercase; text-decoration:none; color:var(--tx); background:var(--bg); padding:12px 24px; border:3px solid var(--tx); box-shadow:5px 5px 0px var(--tx); transition:.1s; font-size:.9rem; }
+        .brutal-btn:hover { transform:translate(-2px,-2px); box-shadow:7px 7px 0px var(--tx); }
+        .brutal-btn:active { transform:translate(2px,2px); box-shadow:0px 0px 0px var(--tx); }
+        footer { max-width:var(--fw); margin:4rem auto 2rem; padding:2rem 1.5rem 0; border-top:1px solid var(--bc); text-align:center; font-size:.8rem; color:var(--hm); }
+        .footer-content { display:flex; flex-direction:column; gap:.5rem; }
+        .footer-links { display:flex; justify-content:center; gap:1.5rem; margin-top:.5rem; }
+        .footer-links a { color:var(--hm); text-decoration:none; border-bottom:1px solid transparent; }
+        .footer-links a:hover { color:var(--tx); border-bottom:1px solid var(--tx); }
+        .copyright a { color:inherit; text-decoration:underline; }
+    </style>
+</head>
+<body>
+<nav>
+    <div class="lang-switch" onclick="toggleLang()">MODE: EN / KO</div>
+    <div class="nav-menu-container" id="nav-container"></div>
+</nav>
+<section id="hero-section">
+    <pre id="hero-art-frame">Loading...</pre>
+    <div class="tab-container" id="tab-headers"></div>
+    <div id="hero-content-wrapper"><div id="hero-content"></div></div>
+    <div class="hero-cta-container">
+        <a href="#" class="brutal-btn" id="btn-math"></a><a href="#" class="brutal-btn" id="btn-comp"></a>
+    </div>
+</section>
+<footer>
+    <div class="footer-content">
+        <div class="copyright">2023-<span id="current-year"></span> &copy; <a href="mailto:primenumbersam@gmail.com">GITSAM</a></div>
+        <div class="footer-links">
+            <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a>
+            <a href="disclaimer.md">Disclaimer</a>
+        </div>
+    </div>
+</footer>
+<script id="nav-data" type="text/plain">
+- Education, 강의팔이
+    - Math Training, 수학 훈련과정
+    - ICT Training, 컴터 훈련과정
+- Essays, 책팔이
+    - Investment, 現實主義 금융재테크
+    - Economics, 實實求에 정치경제학
+    - Mainstream, 惑世誣民 경제학원론
+    - Equations, 자연의 수학적구조
+    - Science, 자연과학 호기심
+    - History, 인물·컴퓨터 역사
+- Papers, 연구문서
+    - Notes, 무료서적
+    - Stats, 주요통계
+    - Articles, 학술연구
+    - Thesis, 박사논문
+- Hobby, 취미공유
+    - Art Contents, 작품집
+    - Book Review, 독후감
+    - Apps Review, 어플비교
+    - Mini Server, 소형서버
+</script>
+<script id="hero-data" type="text/plain">
+- WHO, 누구
+    - Quant: Professional problem formulator in Math., 퀀트: 현실 문제 수학적 모형화 전문가
+    - Hacker: Independent problem solver in ICT., 해커: 정보통신기술 문제 독립적 해결가
+- WHY, 왜
+    - Adapting to the AX Era., 인공지능 전환 시대 적응
+    - Spec-driven VibeOps., AI 활용 명세 주도형 개발법
+    - Minimalism for Sustainability., 지속가능성을 위한 최소주의
+- HOW, 어떻게
+    - Math = an effective language; Computer = an efficient tool., 수학은 효과적 언어; 컴퓨팅은 효율적 도구
+    - Specialized in Math & ICT Training., 수학 및 정보통신기술 훈련과정 특화
+    - Educe your potential with Quant Hacker GITSAM., 퀀트해커 깃샘과 함께 당신의 잠재력을 이끌어내세요
+</script>
+<script>
+    let curL=1, hTabs=[], aIdx=0, tT=null;
+    const $ = id => document.getElementById(id);
+
+    function renderNav() {
+        const c = $('nav-container'); c.innerHTML = '';
+        $('nav-data').innerText.trim().split('\n').forEach(l => {
+            const i = l.search(/\S/), [en, ko] = l.trim().substring(2).split(',').map(s=>s.trim());
+            const txt = curL?ko:en;
+            if(!i) {
+                const d = document.createElement('div'); d.className='nav-item';
+                d.innerHTML = `${txt}<div class="dropdown"></div>`;
+                c.appendChild(d);
+            } else {
+                const a = document.createElement('a'); a.className='dropdown-item';
+                a.href=`#${en.toLowerCase().replace(/\s+/g,'-')}`; a.innerText=txt;
+                c.lastChild.querySelector('.dropdown').appendChild(a);
+            }
+        });
+    }
+
+    function parseHero() {
+        hTabs = []; let t = null;
+        $('hero-data').innerText.trim().split('\n').forEach(l => {
+            const i = l.search(/\S/), [en, ko] = l.trim().substring(2).split(',').map(s=>s.trim());
+            if(!i) { if(t) hTabs.push(t); t={title:{en,ko},items:[]}; }
+            else t.items.push({en,ko});
+        });
+        if(t) hTabs.push(t);
+    }
+
+    function renderHero() {
+        const h = $('tab-headers'); h.innerHTML = '';
+        hTabs.forEach((t, i) => {
+            const b = document.createElement('button'); b.className=`tab-btn ${i===aIdx?'active':''}`;
+            b.innerText = curL?t.title.ko:t.title.en;
+            b.onclick = () => { if(aIdx===i) return; aIdx=i; renderHero(); renderContent(); };
+            h.appendChild(b);
+        });
+    }
+
+    async function renderContent() {
+        const c = $('hero-content'); c.innerHTML = ''; if(tT) clearTimeout(tT);
+        for (const item of hTabs[aIdx].items) {
+            const txt = curL?item.ko:item.en, l = document.createElement('div');
+            l.className='content-line'; l.textContent='> '; c.appendChild(l);
+            await new Promise(r => {
+                let j=0; function ty() {
+                    if(j<txt.length) { l.textContent+=txt[j++]; tT=setTimeout(ty,20); } else r();
+                } ty();
+            });
+        }
+    }
+
+    function updateBtn() {
+        $('btn-math').innerText = curL?'수학 훈련':'Math Training';
+        $('btn-comp').innerText = curL?'컴터 훈련':'ICT Training';
+    }
+
+    function toggleLang() { curL=curL?0:1; renderNav(); renderHero(); renderContent(); updateBtn(); }
+
+    document.addEventListener('DOMContentLoaded', async () => {
+        parseHero(); renderNav(); renderHero(); renderContent(); updateBtn();
+        $('current-year').textContent = new Date().getFullYear();
+        try { const r = await fetch('ascii-text-art.txt'); if(r.ok) $('hero-art-frame').textContent = await r.text(); } catch(e){}
+    });
+</script>
+</body>
+</html>
