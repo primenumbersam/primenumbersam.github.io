@@ -1,7 +1,7 @@
 # Quant Hacker Portfolio
 
-**Professional** Problem Formulator in **Math** 
-**Independent** Problem Solver in **ICT**
+- **Professional** Problem Formulator in **Math** 
+- **Independent** Problem Solver in **ICT**
 
 ![Favicon](favicon.png)
 
