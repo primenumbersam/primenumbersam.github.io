@@ -108,6 +108,8 @@
             margin-bottom: 2rem;
             user-select: none;
             display: inline-block;
+            max-width: 100%;
+            overflow-x: auto;
         }
 
         .tab-container {
@@ -260,17 +262,17 @@
         </div>
     </footer>
     <script id="nav-data" type="text/plain">
+- Decoding, 보그체번역
+    - Tech Guide, 컴맹탈출 가이드, https://primenumbersam.github.io/astro
+    - Book Review, 서적·컬럼 독후감, https://blog.naver.com/primenumbersam
+    - Youtube Briefing, 유튜브영상 브리핑, https://primenumbersam.blogspot.com/
+- Publishing, 저술출판
+    - Book Library, 집필서적, https://primenumbersam.gitlab.io/books/
+    - Working Papers, 작업논문, https://primenumbersam.gitlab.io/mkdocs/
+    - PhD Thesis, 박사논문, https://primenumbersam.gitlab.io/quarto/
 - Training, 강의팔이
     - Math Training,수학응용 훈련, https://primenumbersam.github.io/quarto/
-    - ICT Training, ICT설계 훈련
-- Publishing, 저술출판
-    - Thesis, 박사논문, https://primenumbersam.gitlab.io/quarto/
-    - Articles, 학술연구, https://primenumbersam.gitlab.io/mkdocs/
-    - Essays, 공개서적, https://primenumbersam.gitlab.io/quartz/
-- Decoding, 보그체번역
-    - Book Review, 서적·컬럼 독후감, https://blog.naver.com/primenumbersam
-    - Tech Guide, 컴맹탈출 가이드, https://primenumbersam.github.io/astro
-    - Youtube Briefing, 유튜브영상 브리핑, https://primenumbersam.blogspot.com/
+    - ICT Training, ICT설계 훈련, https://gitsam.com/training
 </script>
     <script id="hero-data" type="text/plain">
 - WHO, 누구
@@ -280,7 +282,7 @@
 - WHY, 왜
     - Adapting to the AX Era VibeOps., 인공지능전환시대 느좋코딩 적응
     - Master Abstraction & Structuring Skills., 추상화 및 구조화 역량 개발
-    - For thinking reeds who walk the talk., 言行一致 하려는 생각하는 갈대들을 위해
+    - For thinking reeds who walk the talk., 言行一致 하며 생각하는 갈대들을 위해
 - HOW, 어떻게
     - High-Logic but Low-Code., 생각은 깊게 구현은 쉽게
     - Math = an effective language; Computer = an efficient tool., 수학은 효과적 언어; 컴퓨팅은 효율적 도구
@@ -288,7 +290,7 @@
 </script>
     <script>
         // To change default language to English, change curL = 1 to curL = 0
-        let curL = 0, hTabs = [], aIdx = 0, tT = null;
+        let curL = 1, hTabs = [], aIdx = 0, tT = null;
         const $ = id => document.getElementById(id);
 
         function renderNav() {
