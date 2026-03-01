@@ -1,14 +1,14 @@
 # Quant Hacker Portfolio
 
-- **Professional** Problem Formulator in **Math** 
-- **Independent** Problem Solver in **ICT**
+- **Professional** Problem Modeler in **Math** 
+- **Independent** Problem reSolver in **ICT**
 
 ![Favicon](favicon.png)
 
 ## Project Overview
 - **Architecture**: Single HTML Architecture with Vanilla JS.
 - **Philosophy**: Extreme Minimalism & Sustainability.
-- **Size**: ~8.7 KiB (Compressed).
+- **Size**: ~12 KiB (Compressed).
 - **Dependencies**: None (Zero-dependency).
 
 ## File Structure
