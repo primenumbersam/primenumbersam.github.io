@@ -170,6 +170,12 @@
             word-break: break-all;
         }
 
+        #text-intro {
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--hm);
+        }
+
         .content-line {
             display: block;
             margin-bottom: 1rem;
@@ -259,6 +265,7 @@
         <div id="hero-content-wrapper">
             <div id="hero-content"></div>
         </div>
+        <div id="text-intro"></div>
         <div class="hero-cta-container">
             <a href="#" class="brutal-btn" id="btn-math"></a><a href="#" class="brutal-btn" id="btn-comp"></a>
         </div>
@@ -285,7 +292,7 @@
 - Training, 교습소
     - Math Training, 수학응용 훈련, #
     - ICT Training, ICT설계 훈련, https://sites.gitsam.com
-    - No-code Class, 딸깍부업 구축, https://gitsam.notion.site/Templates-243d716ee0de801ba510d76792aef641
+    - No-code E-commerce, 딸깍 온라인업, https://gitsam.notion.site/243d716ee0de801ba510d76792aef641
 </script>
     <script id="hero-data" type="text/plain">
 - WHO, 누구
@@ -294,12 +301,12 @@
     - Philosophy: Minimalism for Sustainability, 철학: 지속가능성을 위한 최소주의
 - WHY, 왜
     - Adapt to the AX Era VibeOps, 인공지능전환시대 느좋코딩 적응
-    - Necessity of Math & ICT Literacy, 수학 및 정보통신기술 문해력 필요성
-    - For thinking reeds who walk the talk, 생각하고 言行一致하는 갈대들을 위해
+    - Priority of Global Structuring over Local Analysis, 국소적 분석을 넘어선 전역적 구조화 지향
+    - For the thinking reeds who walk the talk, 생각하고 言行一致하는 갈대들을 위해
 - HOW, 어떻게
     - High-Logic but Low-Code, 생각은 깊게 구현은 쉽게
-    - Master Abstraction & Structuring Skills, 추상화 및 구조화 역량 개발
-    - Use Math for effectiveness; Computing for efficiency, 효과를 위한 수학과 효율을 위한 컴퓨팅
+    - Cultivate Math & ICT Literacy, 수학 및 정보통신기술 문해력 함양
+    - Abstract Math for effectiveness; Structured Computing for efficiency, 효과를 위한 추상적 수학과 효율을 위한 구조적 컴퓨팅    
 </script>
     <script>
         // To change default language to English, change curL = 1 to curL = 0
@@ -356,17 +363,30 @@
             }
         }
 
+        // 일반 대중들이 성공팔이와 보그병신체에 호구잡히지 않는 기초적 문해력을 가지기 바라며 만든 실습 프로젝트
+        
+        function updateLiteracyText() {
+            const introEl = $('text-intro'); // 해당 텍스트가 들어갈 element ID
+            
+            // 국문: 날카롭고 직관적인 '호구 방지' 메시지
+            // 영문: 'Literacy as a Shield' (방패로서의 문해력) 철학 반영
+            const msgKO = "딸깍부업구축: 성공팔이와 보그병신체에 호구잡히지 않는 기초 문해력 실습";
+            const msgEN = "No-code Side-Hustle: Literacy against fake gurus and jargon scams";
+
+            introEl.innerText = curL ? msgKO : msgEN;
+        }
+
         function updateBtn() {
-            $('btn-math').innerText = curL ? '딸깍 잔문작가' : 'Publishing Bot';
+            $('btn-math').innerText = curL ? '딸깍 잔문작가' : 'Expert-Mimic Bot';
             $('btn-math').href = 'https://primenumbersam.github.io/bot-publish/';
-            $('btn-comp').innerText = curL ? '딸깍 팔이피플' : 'Promotion Bot';
+            $('btn-comp').innerText = curL ? '딸깍 팔이피플' : 'Shill-Marketing Bot';
             $('btn-comp').href = 'https://primenumbersam.github.io/bot-promote/';
         }
 
-        function toggleLang() { curL = curL ? 0 : 1; renderNav(); renderHero(); renderContent(); updateBtn(); }
+        function toggleLang() { curL = curL ? 0 : 1; renderNav(); renderHero(); renderContent(); updateBtn(); updateLiteracyText(); }
 
         document.addEventListener('DOMContentLoaded', async () => {
-            parseHero(); renderNav(); renderHero(); renderContent(); updateBtn();
+            parseHero(); renderNav(); renderHero(); renderContent(); updateBtn(); updateLiteracyText();
             $('current-year').textContent = new Date().getFullYear();
             try { const r = await fetch('ascii-text-art.txt'); if (r.ok) $('hero-art-frame').textContent = await r.text(); } catch (e) { }
         });
