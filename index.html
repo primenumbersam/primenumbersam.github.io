@@ -267,7 +267,7 @@
         </div>
         <div id="text-intro"></div>
         <div class="hero-cta-container">
-            <a href="#" class="brutal-btn" id="btn-math"></a><a href="#" class="brutal-btn" id="btn-comp"></a>
+            <a href="#" class="brutal-btn" id="btn-1"></a><a href="#" class="brutal-btn" id="btn-2"></a>
         </div>
     </section>
     <footer>
@@ -282,32 +282,31 @@
     </footer>
     <script id="nav-data" type="text/plain">
 - Decoding, 소음제거
-    - Naver Blog, 딸깍부업 실험실, https://blog.naver.com/primenumbersam
+    - Review Lab, 호구방지 연구소, https://blog.naver.com/primenumbersam
     - Youtube Briefing, 유튜브영상 브리핑, https://primenumbersam.blogspot.com/
-    - Google Tools, 구글도구 데모, https://sites.gitsam.com/
-    - Tech Guide, ICT도구 가이드, https://blog.gitsam.com    
+    - Tech Guide, ICT 가이드, https://blog.gitsam.com    
 - Publishing, 저술출판
     - Book Library, 집필서적, https://books.gitsam.com
     - Working Papers, 작업논문, https://primenumbersam.gitlab.io/mkdocs/
     - PhD Thesis, 박사논문, https://primenumbersam.gitlab.io/quarto/
 - Training, 교습소
-    - No-code Literacy, 딸깍 문해력, https://class101.net/
-    - ICT Training, ICT설계 훈련, https://www.inflearn.com/
-    - Math Training, 수학응용 훈련, https://sites.gitsam.com/
+    - No-code Literacy, 딸깍기반 문해력, https://class101.net
+    - Low-code Training, ICT 응용훈련, https://www.inflearn.com
+    - High-logic Mastery, 최적설계 훈련, https://www.liveklass.com
 </script>
     <script id="hero-data" type="text/plain">
 - WHO, 누구
     - Quant: Professional problem modeler in Math, 퀀트: 현실 문제 수학적 모델링 전문가
     - Hacker: Independent problem resolver in ICT, 해커: 정보통신기술 문제 독립적 해결가
-    - Philosophy: Minimalism for Sustainability, 철학: 지속가능성을 위한 최소주의
+    - Ethos: Minimalism for Sustainability, 철학: 지속가능성을 위한 최소주의
 - WHY, 왜
-    - Adapt to the AX Era VibeOps, 인공지능전환시대 느좋코딩 적응
-    - Cultivate Math & ICT Literacy, 수학 및 정보통신기술 문해력 함양
-    - For the thinking reeds who walk the talk, 생각하고 言行一致하는 갈대들을 위해
+    - Adapt to AX Era (VibeOps), 인공지능전환기 느좋코딩 적응
+    - Build Math & ICT Literacy, 수학과 정보통신기술 문해력 장착
+    - For The Thinking Reeds who walk the talk, 생각하며 言行一致하는 갈대들을 위해
 - HOW, 어떻게
     - High-Logic but Low-Code, 생각은 깊게 구현은 쉽게
-    - Priority of Global Structuring over Local Analysis, 국소적 분석을 넘어선 전역적 구조화 지향
-    - Abstract Math for effectiveness; Structured Computing for efficiency, 효과를 위한 추상적 수학과 효율을 위한 구조적 컴퓨팅    
+    - Global Structuring over Local Analysis, 국소적 분석을 넘은 전역적 구조화
+    - Math for Power; Computing for Speed, 효과는 추상적 수학; 효율은 구조적 연산   
 </script>
     <script>
         // To change default language to English, change curL = 1 to curL = 0
@@ -364,24 +363,18 @@
             }
         }
 
-        // 일반 대중들이 성공팔이와 보그병신체에 호구잡히지 않는 기초적 문해력을 가지기 바라며 만든 실습 프로젝트
-        
         function updateLiteracyText() {
-            const introEl = $('text-intro'); // 해당 텍스트가 들어갈 element ID
-            
-            // 국문: 날카롭고 직관적인 '호구 방지' 메시지
-            // 영문: 'Literacy as a Shield' (방패로서의 문해력) 철학 반영
-            const msgKO = "딸깍부업구축: 보그병신체와 성공팔이에 호구잡히지 않는 기초 문해력 실습";
-            const msgEN = "No-code Side-Hustle: Literacy against fake gurus and jargon scams";
-
+            const introEl = $('text-intro');
+            const msgKO = "호갱흑우방지 자료: 성공팔이와 보그병신체에 낚이지 않기 위한 문해력 함양 자료";
+            const msgEN = "Anti-Scam Resource: For your Literacy against fake gurus and jargon scams";
             introEl.innerText = curL ? msgKO : msgEN;
         }
 
         function updateBtn() {
-            $('btn-math').innerText = curL ? '딸깍 팔이피플' : 'Stooge-Mimic Bot';
-            $('btn-math').href = 'https://primenumbersam.github.io/bot-promote/';
-            $('btn-comp').innerText = curL ? '딸깍 잔문작가' : 'Pundit-Mimic Bot';
-            $('btn-comp').href = 'https://primenumbersam.github.io/bot-publish/';
+            $('btn-1').innerText = curL ? '팔이피플 흉내자료' : 'Grifter-Mimic Archive';
+            $('btn-1').href = 'https://sites.gitsam.com/';
+            $('btn-2').innerText = curL ? '잔문작가 흉내도구' : 'Pundit-Mimic Bot';
+            $('btn-2').href = 'https://primenumbersam.github.io/bot-publish/';
         }
 
         function toggleLang() { curL = curL ? 0 : 1; renderNav(); renderHero(); renderContent(); updateLiteracyText(); updateBtn(); }
