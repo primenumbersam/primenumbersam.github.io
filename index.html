@@ -282,9 +282,10 @@
     </footer>
     <script id="nav-data" type="text/plain">
 - Decoding, 소음제거
-    - Tech Guide, 컴맹탈출 가이드, https://blog.gitsam.com
-    - Book Review, 서적·컬럼 독후감, https://blog.naver.com/primenumbersam
+    - Naver Blog, 딸깍부업 실험실, https://blog.naver.com/primenumbersam
     - Youtube Briefing, 유튜브영상 브리핑, https://primenumbersam.blogspot.com/
+    - Google Tools, 구글도구 데모, https://sites.gitsam.com/
+    - Tech Guide, ICT도구 가이드, https://blog.gitsam.com    
 - Publishing, 저술출판
     - Book Library, 집필서적, https://books.gitsam.com
     - Working Papers, 작업논문, https://primenumbersam.gitlab.io/mkdocs/
@@ -370,20 +371,20 @@
             
             // 국문: 날카롭고 직관적인 '호구 방지' 메시지
             // 영문: 'Literacy as a Shield' (방패로서의 문해력) 철학 반영
-            const msgKO = "딸깍부업구축: 성공팔이와 보그병신체에 호구잡히지 않는 기초 문해력 실습";
+            const msgKO = "딸깍부업구축: 보그병신체와 성공팔이에 호구잡히지 않는 기초 문해력 실습";
             const msgEN = "No-code Side-Hustle: Literacy against fake gurus and jargon scams";
 
             introEl.innerText = curL ? msgKO : msgEN;
         }
 
         function updateBtn() {
-            $('btn-math').innerText = curL ? '딸깍 잔문작가' : 'Pundit-Mimic Bot';
-            $('btn-math').href = 'https://primenumbersam.github.io/bot-publish/';
-            $('btn-comp').innerText = curL ? '딸깍 팔이피플' : 'Stooge-Mimic Bot';
-            $('btn-comp').href = 'https://primenumbersam.github.io/bot-promote/';
+            $('btn-math').innerText = curL ? '딸깍 팔이피플' : 'Stooge-Mimic Bot';
+            $('btn-math').href = 'https://primenumbersam.github.io/bot-promote/';
+            $('btn-comp').innerText = curL ? '딸깍 잔문작가' : 'Pundit-Mimic Bot';
+            $('btn-comp').href = 'https://primenumbersam.github.io/bot-publish/';
         }
 
-        function toggleLang() { curL = curL ? 0 : 1; renderNav(); renderHero(); renderContent(); updateBtn(); updateLiteracyText(); }
+        function toggleLang() { curL = curL ? 0 : 1; renderNav(); renderHero(); renderContent(); updateLiteracyText(); updateBtn(); }
 
         document.addEventListener('DOMContentLoaded', async () => {
             parseHero(); renderNav(); renderHero(); renderContent(); updateBtn(); updateLiteracyText();
