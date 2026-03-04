@@ -1,46 +1,79 @@
 <!DOCTYPE html>
-<!-- To change default language to English, change lang="ko" to lang="en" below -->
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LMQWVD1MKD"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-LMQWVD1MKD');
-</script>
+    <!-- Google Analytics (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMQWVD1MKD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-LMQWVD1MKD');
+    </script>
 
+    <!-- Basic Meta Tags -->
     <link rel="icon" type="image/png" href="/favicon.png">
     <title>GITSAM: Quant Hacker</title>
+    <meta name="description"
+        content="GITSAM: 퀀트 해커의 문제 해결 연구소. 성공팔이와 보그병신체로부터 자유로운 AI 자동화, 수학적 모델링, ICT 최적 설계 가이드를 제공합니다.">
+    <meta name="keywords" content="퀀트해커, 호구방지, 성공팔이방지, AI자동화, 노코드, 로코드, ICT설계, gitsam, 퀀트, 수학모델링">
+    <meta name="author" content="gitsam">
+    <link rel="canonical" href="https://gitsam.com">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://gitsam.com">
+    <meta property="og:title" content="GITSAM: Quant Hacker - 호구낚시 엮임 방지 및 ICT 최적 설계">
+    <meta property="og:description" content="생각은 깊게, 구현은 쉽게. 인공지능 전환 시대에 생존하기 위한 퀀트 해커의 실전 문해력과 자동화 시스템 구축 가이드.">
+    <meta property="og:image" content="https://gitsam.com/favicon.png">
+
+    <!-- Search Engine Configuration -->
+    <meta name="robots" content="index, follow">
+
+    <!-- SEO: Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "gitsam",
+        "alternateName": "Quant Hacker",
+        "url": "https://gitsam.com",
+        "description": "Professional problem modeler in Math & Independent problem resolver in ICT",
+        "jobTitle": "Quant Hacker",
+        "knowsAbout": ["Mathematics", "Computer Science", "AI Automation", "Quantitative Analysis"],
+        "sameAs": ["https://blog.gitsam.com", "https://blog.naver.com/primenumbersam", "https://primenumbersam.blogspot.com/"]
+    }
+    </script>
+
     <style>
+        /* Design Tokens */
         :root {
             --bg: #fff;
             --tx: #000;
             --hm: #999;
             --fw: 800px;
-            --bc: #eee;
+            --bc: #eee
         }
 
+        /* Base */
         body {
             font-family: ui-monospace, monospace;
             margin: 0;
             background: var(--bg);
             color: var(--tx);
-            line-height: 1.6;
+            line-height: 1.6
         }
 
+        /* Navigation */
         nav {
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 2rem 0;
-            border-bottom: 1px solid var(--bc);
+            border-bottom: 1px solid var(--bc)
         }
 
         .lang-switch {
@@ -49,12 +82,12 @@
             border: 1px solid var(--tx);
             padding: 2px 8px;
             margin-bottom: 1.5rem;
-            transition: .2s;
+            transition: .2s
         }
 
         .lang-switch:hover {
             background: var(--tx);
-            color: var(--bg);
+            color: var(--bg)
         }
 
         .nav-menu-container {
@@ -63,20 +96,21 @@
             list-style: none;
             padding: 0;
             margin: 0;
-            width: 100%;
+            width: 100%
         }
 
         .nav-item {
             position: relative;
             padding: .5rem 1rem;
             cursor: pointer;
-            font-size: .95rem;
+            font-size: .95rem
         }
 
         .nav-item:hover {
-            text-decoration: underline;
+            text-decoration: underline
         }
 
+        /* Dropdown Menu */
         .dropdown {
             display: none;
             position: absolute;
@@ -87,11 +121,11 @@
             background: var(--bg);
             min-width: 180px;
             z-index: 100;
-            text-align: center;
+            text-align: center
         }
 
         .nav-item:hover .dropdown {
-            display: block;
+            display: block
         }
 
         .dropdown-item {
@@ -99,18 +133,19 @@
             text-decoration: none;
             color: inherit;
             display: block;
-            font-size: .85rem;
+            font-size: .85rem
         }
 
         .dropdown-item:hover {
-            background: #f8f8f8;
+            background: #f8f8f8
         }
 
+        /* Hero Section */
         #hero-section {
             max-width: var(--fw);
             margin: 2rem auto;
             padding: 0 1.5rem;
-            text-align: center;
+            text-align: center
         }
 
         #hero-art-frame {
@@ -121,15 +156,16 @@
             user-select: none;
             display: inline-block;
             max-width: 100%;
-            overflow-x: auto;
+            overflow-x: auto
         }
 
+        /* Tabs Interface */
         .tab-container {
             display: flex;
             gap: 1.5rem;
             justify-content: center;
             margin-bottom: 2rem;
-            padding-bottom: .5rem;
+            padding-bottom: .5rem
         }
 
         .tab-btn {
@@ -139,27 +175,27 @@
             background: none;
             font-family: inherit;
             font-size: 1rem;
-            color: var(--hm);
+            color: var(--hm)
         }
 
         .tab-btn.active {
             color: var(--tx);
-            font-weight: bold;
+            font-weight: bold
         }
 
         .tab-btn.active::before {
-            content: "[ ";
+            content: "[ "
         }
 
         .tab-btn.active::after {
-            content: " ]";
+            content: " ]"
         }
 
         #hero-content-wrapper {
             text-align: left;
             width: 100%;
             display: flex;
-            justify-content: center;
+            justify-content: center
         }
 
         #hero-content {
@@ -167,26 +203,27 @@
             max-width: 600px;
             min-height: 160px;
             white-space: pre-wrap;
-            word-break: break-all;
+            word-break: break-all
         }
 
         #text-intro {
-            margin-top: 1.5rem;
-            font-size: 0.85rem;
-            color: var(--hm);
+            margin-top: 1rem;
+            font-size: .8rem;
+            color: var(--hm)
         }
 
         .content-line {
             display: block;
             margin-bottom: 1rem;
-            unicode-bidi: embed;
+            unicode-bidi: embed
         }
 
+        /* CTA Buttons (Neo-Brutalism) */
         .hero-cta-container {
             display: flex;
             gap: 20px;
             justify-content: center;
-            margin-top: 2rem;
+            margin-top: 2rem
         }
 
         .brutal-btn {
@@ -198,21 +235,22 @@
             background: var(--bg);
             padding: 12px 24px;
             border: 3px solid var(--tx);
-            box-shadow: 5px 5px 0px var(--tx);
+            box-shadow: 5px 5px 0 var(--tx);
             transition: .1s;
-            font-size: .9rem;
+            font-size: .9rem
         }
 
         .brutal-btn:hover {
             transform: translate(-2px, -2px);
-            box-shadow: 7px 7px 0px var(--tx);
+            box-shadow: 7px 7px 0 var(--tx)
         }
 
         .brutal-btn:active {
             transform: translate(2px, 2px);
-            box-shadow: 0px 0px 0px var(--tx);
+            box-shadow: 0 0 0 var(--tx)
         }
 
+        /* Footer */
         footer {
             max-width: var(--fw);
             margin: 4rem auto 2rem;
@@ -220,45 +258,48 @@
             border-top: 1px solid var(--bc);
             text-align: center;
             font-size: .8rem;
-            color: var(--hm);
+            color: var(--hm)
         }
 
         .footer-content {
             display: flex;
             flex-direction: column;
-            gap: .5rem;
+            gap: .5rem
         }
 
         .footer-links {
             display: flex;
             justify-content: center;
             gap: 1.5rem;
-            margin-top: .5rem;
+            margin-top: .5rem
         }
 
         .footer-links a {
             color: var(--hm);
             text-decoration: none;
-            border-bottom: 1px solid transparent;
+            border-bottom: 1px solid transparent
         }
 
         .footer-links a:hover {
             color: var(--tx);
-            border-bottom: 1px solid var(--tx);
+            border-bottom: 1px solid var(--tx)
         }
 
         .copyright a {
             color: inherit;
-            text-decoration: underline;
+            text-decoration: underline
         }
     </style>
 </head>
 
 <body>
+    <!-- Main Navigation -->
     <nav>
         <div class="lang-switch" onclick="toggleLang()">MODE: EN / KO</div>
         <div class="nav-menu-container" id="nav-container"></div>
     </nav>
+
+    <!-- Content Section -->
     <section id="hero-section">
         <pre id="hero-art-frame">Loading...</pre>
         <div class="tab-container" id="tab-headers"></div>
@@ -267,118 +308,147 @@
         </div>
         <div id="text-intro"></div>
         <div class="hero-cta-container">
-            <a href="#" class="brutal-btn" id="btn-1"></a><a href="#" class="brutal-btn" id="btn-2"></a>
+            <!-- JavaScript(updateBtn)에서 텍스트와 링크가 동적으로 주입됩니다 -->
+            <a class="brutal-btn" id="btn-1"></a>
+            <a class="brutal-btn" id="btn-2"></a>
         </div>
     </section>
+
+    <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <div class="copyright">2023-<span id="current-year"></span> &copy; <a href="about.html">GITSAM</a> <a
-                    href="mailto:primenumbersam@gmail.com">Email</a></div>
+            <div class="copyright">
+                2023-<span id="current-year"></span> &copy;
+                <a href="about.html">GITSAM</a>
+                <a href="mailto:primenumbersam@gmail.com">Email</a>
+            </div>
             <div class="footer-links">
                 <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a>
                 <a href="disclaimer.html">Disclaimer</a>
             </div>
         </div>
     </footer>
+
+    <!-- RAW Data for Navigation -->
     <script id="nav-data" type="text/plain">
 - Decoding, 소음제거
     - Review Lab, 호구방지 연구소, https://blog.naver.com/primenumbersam
     - Youtube Briefing, 유튜브영상 브리핑, https://primenumbersam.blogspot.com/
     - Tech Guide, ICT 가이드, https://blog.gitsam.com    
+- Training, 훈련소
+    - No-code Literacy, 딸깍기반 문해력, https://class101.net
+    - Low-code Training, ICT응용 훈련, https://www.inflearn.com
+    - High-logic Mastery, 최적설계 훈련, https://www.liveklass.com
 - Publishing, 저술출판
     - Book Library, 집필서적, https://books.gitsam.com
     - Working Papers, 작업논문, https://primenumbersam.gitlab.io/mkdocs/
     - PhD Thesis, 박사논문, https://primenumbersam.gitlab.io/quarto/
-- Training, 교습소
-    - No-code Literacy, 딸깍기반 문해력, https://class101.net
-    - Low-code Training, ICT응용 훈련, https://www.inflearn.com
-    - High-logic Mastery, 최적설계 훈련, https://www.liveklass.com
-</script>
+    </script>
+
+    <!-- RAW Data for Hero Content -->
     <script id="hero-data" type="text/plain">
 - WHO, 누구
     - Quant: Professional problem modeler in Math, 퀀트: 현실 문제 수학적 모델링 전문가
     - Hacker: Independent problem resolver in ICT, 해커: 정보통신기술 문제 독립적 해결가
-    - Ethos: Minimalism for Sustainability, 철학: 지속가능성을 위한 최소주의
+    - Ethos: Sustainable Minimalism, 철학: 지속가능성을 위한 최소주의
 - WHY, 왜
     - Adapt to AX Era (VibeOps), 인공지능전환기 느좋코딩 적응
-    - Build Math & ICT Literacy, 수학과 정보통신기술 문해력 장착
+    - Shield from Grifter Scams, 잔문집단 호구낚시 방어 문해력
     - For The Thinking Reeds who walk the talk, 생각하며 言行一致하는 갈대들을 위해
 - HOW, 어떻게
     - High-Logic but Low-Code, 생각은 깊게 구현은 쉽게
     - Global Structuring over Local Analysis, 국소적 분석을 넘은 전역적 구조화
     - Math for Power; Computing for Speed, 효과=추상적 수학; 효율=구조적 연산   
-</script>
+    </script>
+
     <script>
-        // To change default language to English, change curL = 1 to curL = 0
+        /**
+         * STATE & HELPERS
+         * curL: 0=EN, 1=KO (change to 0 for English default)
+         */
         let curL = 1, hTabs = [], aIdx = 0, tT = null;
         const $ = id => document.getElementById(id);
 
+        /* Shared line parser for raw data scripts */
+        function parseLines(id, cb) {
+            $(id).innerText.trim().split('\n').forEach(l => {
+                cb(l.search(/\S/), l.trim().substring(2).split(',').map(s => s.trim()));
+            });
+        }
+
+        /* Lang-aware text picker */
+        const L = (en, ko) => curL ? ko : en;
+
+        /** NAVIGATION: Parses #nav-data into hierarchical menu */
         function renderNav() {
             const c = $('nav-container'); c.innerHTML = '';
-            $('nav-data').innerText.trim().split('\n').forEach(l => {
-                const i = l.search(/\S/), [en, ko, url] = l.trim().substring(2).split(',').map(s => s.trim());
-                const txt = curL ? ko : en;
-                if (!i) {
+            parseLines('nav-data', (indent, [en, ko, url]) => {
+                if (!indent) {
                     const d = document.createElement('div'); d.className = 'nav-item';
-                    d.innerHTML = `${txt}<div class="dropdown"></div>`;
+                    d.innerHTML = `${L(en, ko)}<div class="dropdown"></div>`;
                     c.appendChild(d);
                 } else {
                     const a = document.createElement('a'); a.className = 'dropdown-item';
-                    a.href = url || `#${en.toLowerCase().replace(/\s+/g, '-')}`; a.innerText = txt;
+                    a.href = url || `#${en.toLowerCase().replace(/\s+/g, '-')}`;
+                    a.innerText = L(en, ko);
                     c.lastChild.querySelector('.dropdown').appendChild(a);
                 }
             });
         }
 
+        /** HERO DATA: Converts #hero-data into structured tabs */
         function parseHero() {
             hTabs = []; let t = null;
-            $('hero-data').innerText.trim().split('\n').forEach(l => {
-                const i = l.search(/\S/), [en, ko] = l.trim().substring(2).split(',').map(s => s.trim());
-                if (!i) { if (t) hTabs.push(t); t = { title: { en, ko }, items: [] }; }
+            parseLines('hero-data', (indent, [en, ko]) => {
+                if (!indent) { if (t) hTabs.push(t); t = { title: { en, ko }, items: [] }; }
                 else t.items.push({ en, ko });
             });
             if (t) hTabs.push(t);
         }
 
+        /** HERO TABS RENDERING */
         function renderHero() {
             const h = $('tab-headers'); h.innerHTML = '';
             hTabs.forEach((t, i) => {
-                const b = document.createElement('button'); b.className = `tab-btn ${i === aIdx ? 'active' : ''}`;
-                b.innerText = curL ? t.title.ko : t.title.en;
-                b.onclick = () => { if (aIdx === i) return; aIdx = i; renderHero(); renderContent(); };
+                const b = document.createElement('button');
+                b.className = `tab-btn${i === aIdx ? ' active' : ''}`;
+                b.innerText = L(t.title.en, t.title.ko);
+                b.onclick = () => { if (aIdx !== i) { aIdx = i; renderHero(); renderContent(); } };
                 h.appendChild(b);
             });
         }
 
+        /** TYPING EFFECT */
         async function renderContent() {
             const c = $('hero-content'); c.innerHTML = ''; if (tT) clearTimeout(tT);
             for (const item of hTabs[aIdx].items) {
-                const txt = curL ? item.ko : item.en, l = document.createElement('div');
-                l.className = 'content-line'; l.textContent = '> '; c.appendChild(l);
+                const txt = L(item.en, item.ko), el = document.createElement('div');
+                el.className = 'content-line'; el.textContent = '> '; c.appendChild(el);
                 await new Promise(r => {
-                    let j = 0; function ty() {
-                        if (j < txt.length) { l.textContent += txt[j++]; tT = setTimeout(ty, 20); } else r();
-                    } ty();
+                    let j = 0;
+                    (function ty() { j < txt.length ? (el.textContent += txt[j++], tT = setTimeout(ty, 20)) : r(); })();
                 });
             }
         }
 
+        /** UI UPDATES */
         function updateLiteracyText() {
-            const introEl = $('text-intro');
-            const msgKO = "호갱흑우방지 자료: 성공팔이 보그병신체에 낚이지 않기 위한 문해력 함양";
-            const msgEN = "Anti-Scam Resource: For your Literacy against fake gurus and jargon scams";
-            introEl.innerText = curL ? msgKO : msgEN;
+            $('text-intro').innerText = L(
+                "Anti-Scam Resource: Defense Literacy against fake gurus and jargon scams",
+                "호갱흑우방지 자료: '보그병신체/팔이피플/성공팔이' 방어 문해력 함양"
+            );
         }
-
         function updateBtn() {
-            $('btn-1').innerText = curL ? '딸깍부업 흉내연구' : 'Grifter-Mimic Study';
+            $('btn-1').innerText = L('Grifter-Mimic Study', '딸깍부업 흉내연구');
             $('btn-1').href = 'https://gitsam.notion.site/Notion-318d716ee0de80bd900ff4962cc2079f';
-            $('btn-2').innerText = curL ? '잔문작가 흉내도구' : 'Pundit-Mimic Bot';
+            $('btn-2').innerText = L('Pundit-Mimic Bot', '잔문작가 흉내도구');
             $('btn-2').href = 'https://primenumbersam.github.io/bot-publish/';
         }
 
-        function toggleLang() { curL = curL ? 0 : 1; renderNav(); renderHero(); renderContent(); updateLiteracyText(); updateBtn(); }
+        /** LANGUAGE TOGGLE */
+        function toggleLang() { curL ^= 1; renderNav(); renderHero(); renderContent(); updateLiteracyText(); updateBtn(); }
 
+        /** INITIALIZATION */
         document.addEventListener('DOMContentLoaded', async () => {
             parseHero(); renderNav(); renderHero(); renderContent(); updateBtn(); updateLiteracyText();
             $('current-year').textContent = new Date().getFullYear();
