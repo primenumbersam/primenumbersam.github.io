@@ -208,7 +208,7 @@
 
         #text-intro {
             margin-top: 1rem;
-            font-size: .8rem;
+            font-size: 0.8rem;
             color: var(--hm)
         }
 
@@ -336,13 +336,13 @@
     - Youtube Briefing, 유튜브영상 브리핑, https://primenumbersam.blogspot.com/
     - Tech Guide, ICT 가이드, https://blog.gitsam.com    
 - Training, 훈련소
-    - No-code Literacy, 딸깍기반 문해력, https://class101.net
+    - No-code Literacy, 딸깍부업 훈련, https://class101.net
     - Low-code Training, ICT응용 훈련, https://www.inflearn.com
-    - High-logic Mastery, 최적설계 훈련, https://www.liveklass.com
+    - High-logic Mastery, 최적설계 훈련, https://course.gitsam.com
 - Publishing, 저술출판
     - Book Library, 집필서적, https://books.gitsam.com
     - Working Papers, 작업논문, https://primenumbersam.gitlab.io/mkdocs/
-    - PhD Thesis, 박사논문, https://primenumbersam.gitlab.io/quarto/
+    - PhD Thesis, 연구논문, https://primenumbersam.gitlab.io/quarto/
     </script>
 
     <!-- RAW Data for Hero Content -->
@@ -431,18 +431,19 @@
             }
         }
 
-        /** UI UPDATES */
+        /** Grifter-Mimic Study', '딸깍부업 흉내연구' */
+        /** Pundit-Mimic Bot', '잔문작가 흉내도구' */
         function updateLiteracyText() {
             $('text-intro').innerText = L(
-                "Anti-Scam Resource: Defense Literacy against fake gurus and jargon scams",
-                "호갱흑우방지 자료: '보그병신체/팔이피플/성공팔이' 방어 문해력 함양"
+                "Anti-Scam Tools: Literacy Defense against Power Asymmetry",
+                "호갱흑우방지 도구: '불투명/권위/보그병신체' 방어 문해력 함양"
             );
         }
         function updateBtn() {
-            $('btn-1').innerText = L('Grifter-Mimic Study', '딸깍부업 흉내연구');
-            $('btn-1').href = 'https://gitsam.notion.site/Notion-318d716ee0de80bd900ff4962cc2079f';
-            $('btn-2').innerText = L('Pundit-Mimic Bot', '잔문작가 흉내도구');
-            $('btn-2').href = 'https://primenumbersam.github.io/pdf-bot/';
+            $('btn-1').innerText = L('Open-Plutocrat', '대마불사 투자도구');
+            $('btn-1').href = 'https://finance.gitsam.com';
+            $('btn-2').innerText = L('Open-Publisher', '잔문작가 흉내도구');
+            $('btn-2').href = 'https://publish.gitsam.com';
         }
 
         /** LANGUAGE TOGGLE */
