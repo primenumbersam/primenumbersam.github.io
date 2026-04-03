@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KR Stock Naver Charts</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .chart-container {
+            display: grid;
+            grid-template-columns: 1fr; /* Default to single column on small screens */
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        @media (min-width: 768px) { /* Two columns on screens wider than 768px */
+            .chart-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        .chart-item img {
+            max-width: 100%;
+            height: auto;
+            display: block; /* Remove extra space below image */
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <h2>국내주식 가격 차트 (최근3달)</h2>
+    <p>출처: 네이버금융</p>
+    <div class="chart-container">
+        <div class="chart-item">
+            <h2>삼성전자 (005930)</h2>
+            <img src="https://ssl.pstatic.net/imgfinance/chart/item/area/month3/005930.png?sidcode=1775014816911" alt="삼성전자 3개월 차트" onerror="this.src='https://ssl.pstatic.net/imgstock/chart3/world2008/error_700x289.png'">
+        </div>
+        <div class="chart-item">
+            <h2>SK하이닉스 (000660)</h2>
+            <img src="https://ssl.pstatic.net/imgfinance/chart/item/area/month3/000660.png?sidcode=1775015125328" alt="SK하이닉스 3개월 차트" onerror="this.src='https://ssl.pstatic.net/imgstock/chart3/world2008/error_700x289.png'">
+        </div>
+    </div>
+</body>
+</html>

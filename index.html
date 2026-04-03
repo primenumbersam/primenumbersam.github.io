@@ -437,12 +437,14 @@
         }
         function updateBtn() {
             $('btn-1').innerText = L('RaaS-Invest', '투자모형 연구');
-            $('btn-1').href = '#';
-            $('btn-2').innerText = L('SaaS-Diary', '딸깍일기 어플');
-            $('btn-2').href = '#';
+            $('btn-1').href = 'naver.html';
+            $('btn-2').innerText = L('SaaS-LMS', '느좋강의 팔이');
+            $('btn-2').href = 'popup.html';
         }
-// https://primenumbersam-finance.hf.space
-// https://diary.gitsam.com
+        
+        // https://primenumbersam-finance.hf.space
+        // https://invest.gitsam.com
+        // https://lms.gitsam.com
 
         /** LANGUAGE TOGGLE */
         function toggleLang() { curL ^= 1; renderNav(); renderHero(); renderContent(); updateLiteracyText(); updateBtn(); }
