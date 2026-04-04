@@ -331,10 +331,10 @@
     <!-- RAW Data for Navigation -->
     <script id="nav-data" type="text/plain">
 - Decoding, 소음제거
+    - Opinion Review, 서적컬럼 비평록, https://blog.naver.com/primenumbersam
     - Tech Guide, 컴터기술 안내서, https://blog.gitsam.com
     - Crypto Briefer, 코인시장 현황판, https://primenumbersam.vercel.app
     - Youtube Briefer, 유튜브뉴스 분석록, https://primenumbersam.blogspot.com 
-    - Opinion Review, 서적컬럼 비평록, https://blog.naver.com/primenumbersam
 - Publishing, 저술출판
     - Books (Multi SSG), 집필서적, https://books.gitsam.com
     - Papers (quarto), 연구논문, https://papers.gitsam.com
@@ -436,15 +436,14 @@
             );
         }
         function updateBtn() {
-            $('btn-1').innerText = L('RaaS-Invest', '투자모형 연구');
+            $('btn-1').innerText = L('App-Web', '투자모형 웹앱');
             $('btn-1').href = 'naver.html';
-            $('btn-2').innerText = L('SaaS-LMS', '느좋강의 팔이');
+            $('btn-2').innerText = L('App-Mobile', '수학퍼즐 어플');
             $('btn-2').href = 'popup.html';
         }
         
         // https://primenumbersam-finance.hf.space
         // https://invest.gitsam.com
-        // https://lms.gitsam.com
 
         /** LANGUAGE TOGGLE */
         function toggleLang() { curL ^= 1; renderNav(); renderHero(); renderContent(); updateLiteracyText(); updateBtn(); }
