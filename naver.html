@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,39 +11,128 @@
             margin: 20px;
             background-color: #f4f4f4;
         }
+
         .chart-container {
             display: grid;
-            grid-template-columns: 1fr; /* Default to single column on small screens */
+            grid-template-columns: 1fr;
+            /* Default to single column on small screens */
             gap: 20px;
             max-width: 1400px;
             margin: 0 auto;
         }
-        @media (min-width: 768px) { /* Two columns on screens wider than 768px */
+
+        @media (min-width: 768px) {
+
+            /* Two columns on screens wider than 768px */
             .chart-container {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
+
         .chart-item img {
             max-width: 100%;
             height: auto;
-            display: block; /* Remove extra space below image */
+            display: block;
+            /* Remove extra space below image */
             border: 1px solid #ddd;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Music Toggle Button Style */
+        #music-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid #ddd;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, background 0.3s ease;
+            z-index: 1000;
+        }
+
+        #music-toggle:hover {
+            transform: scale(1.1);
+            background: #fff;
+        }
+
+        #music-toggle.playing {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 10px rgba(0, 123, 255, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
+            }
         }
     </style>
 </head>
+
 <body>
     <h2>국내주식 가격 차트 (최근3달)</h2>
     <p>출처: 네이버금융</p>
     <div class="chart-container">
         <div class="chart-item">
             <h2>삼성전자 (005930)</h2>
-            <img src="https://ssl.pstatic.net/imgfinance/chart/item/area/month3/005930.png?sidcode=1775014816911" alt="삼성전자 3개월 차트" onerror="this.src='https://ssl.pstatic.net/imgstock/chart3/world2008/error_700x289.png'">
+            <img src="https://ssl.pstatic.net/imgfinance/chart/item/area/month3/005930.png?sidcode=1775014816911"
+                alt="삼성전자 3개월 차트"
+                onerror="this.src='https://ssl.pstatic.net/imgstock/chart3/world2008/error_700x289.png'">
         </div>
         <div class="chart-item">
             <h2>SK하이닉스 (000660)</h2>
-            <img src="https://ssl.pstatic.net/imgfinance/chart/item/area/month3/000660.png?sidcode=1775015125328" alt="SK하이닉스 3개월 차트" onerror="this.src='https://ssl.pstatic.net/imgstock/chart3/world2008/error_700x289.png'">
+            <img src="https://ssl.pstatic.net/imgfinance/chart/item/area/month3/000660.png?sidcode=1775015125328"
+                alt="SK하이닉스 3개월 차트"
+                onerror="this.src='https://ssl.pstatic.net/imgstock/chart3/world2008/error_700x289.png'">
         </div>
     </div>
+
+    <audio id="bgm" src="bgm.mp3" loop></audio>
+    <button id="music-toggle" title="Toggle Music">🎵</button>
+
+    <script>
+        const bgm = document.getElementById('bgm');
+        const toggle = document.getElementById('music-toggle');
+        let isPlaying = false;
+
+        toggle.addEventListener('click', () => {
+            if (isPlaying) {
+                bgm.pause();
+                toggle.textContent = '🔇';
+                toggle.classList.remove('playing');
+            } else {
+                bgm.play().catch(e => console.log("Playback failed:", e));
+                toggle.textContent = '🎵';
+                toggle.classList.add('playing');
+            }
+            isPlaying = !isPlaying;
+        });
+
+        // Try to autoplay (might be blocked by browser)
+        window.addEventListener('load', () => {
+            bgm.play().then(() => {
+                isPlaying = true;
+                toggle.classList.add('playing');
+            }).catch(() => {
+                console.log("Autoplay blocked. Waiting for user interaction.");
+            });
+        });
+    </script>
 </body>
+
 </html>
