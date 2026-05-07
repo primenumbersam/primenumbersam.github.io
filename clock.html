@@ -12,50 +12,7 @@
             background-color: #f4f4f4;
         }
 
-        /* Music Toggle Button Style */
-        #music-toggle {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            border: 1px solid #ddd;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, background 0.3s ease;
-            z-index: 1000;
-        }
-
-        #music-toggle:hover {
-            transform: scale(1.1);
-            background: #fff;
-        }
-
-        #music-toggle.playing {
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.4);
-            }
-
-            70% {
-                box-shadow: 0 0 0 10px rgba(0, 123, 255, 0);
-            }
-
-            100% {
-                box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
-            }
-        }
-
+        /* === CLOCK WIDGET START: CSS === */
         /* World Clock Widget Style */
         .world-clock-container {
             text-align: center;
@@ -106,6 +63,7 @@
             color: #1a1a1a;
             font-family: 'Monaco', 'Consolas', monospace;
             background: linear-gradient(135deg, #2c3e50, #000);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 5px;
@@ -140,10 +98,12 @@
                 min-width: auto;
             }
         }
+        /* === CLOCK WIDGET END: CSS === */
     </style>
 </head>
 
 <body>
+    <!-- === CLOCK WIDGET START: HTML === -->
     <div class="world-clock-container">
         <div id="global-date" class="global-date">----.--.-- (---)</div>
         <div class="clocks-wrapper">
@@ -173,38 +133,10 @@
             </div>
         </div>
     </div>
-
-    <audio id="bgm" src="bgm.mp3" loop></audio>
-    <button id="music-toggle" title="Toggle Music">🎵</button>
+    <!-- === CLOCK WIDGET END: HTML === -->
 
     <script>
-        const bgm = document.getElementById('bgm');
-        const toggle = document.getElementById('music-toggle');
-        let isPlaying = false;
-
-        toggle.addEventListener('click', () => {
-            if (isPlaying) {
-                bgm.pause();
-                toggle.textContent = '🔇';
-                toggle.classList.remove('playing');
-            } else {
-                bgm.play().catch(e => console.log("Playback failed:", e));
-                toggle.textContent = '🎵';
-                toggle.classList.add('playing');
-            }
-            isPlaying = !isPlaying;
-        });
-
-        // Try to autoplay (might be blocked by browser)
-        window.addEventListener('load', () => {
-            bgm.play().then(() => {
-                isPlaying = true;
-                toggle.classList.add('playing');
-            }).catch(() => {
-                console.log("Autoplay blocked. Waiting for user interaction.");
-            });
-        });
-
+        /* === CLOCK WIDGET START: JS === */
         // World Clock Update Logic
         function updateClocks() {
             const now = new Date();
@@ -215,19 +147,16 @@
             ];
 
             // Update Global Date (using Seoul as reference)
-            const globalDateFormatter = new Intl.DateTimeFormat('en-GB', {
+            const dateParts = new Intl.DateTimeFormat('en-GB', {
                 year: 'numeric',
                 month: '2-digit',
                 day: '2-digit',
                 weekday: 'short',
                 timeZone: 'Asia/Seoul'
-            }).formatToParts(now);
+            }).formatToParts(now).reduce((acc, part) => ({ ...acc, [part.type]: part.value }), {});
 
-            const gd = globalDateFormatter.find(p => p.type === 'day').value;
-            const gm = globalDateFormatter.find(p => p.type === 'month').value;
-            const gy = globalDateFormatter.find(p => p.type === 'year').value;
-            const gwd = globalDateFormatter.find(p => p.type === 'weekday').value;
-            document.getElementById('global-date').textContent = `${gy}.${gm}.${gd} (${gwd})`;
+            document.getElementById('global-date').textContent = 
+                `${dateParts.year}.${dateParts.month}.${dateParts.day} (${dateParts.weekday})`;
 
             zones.forEach(z => {
                 const timeStr = new Intl.DateTimeFormat('en-GB', {
@@ -243,6 +172,7 @@
 
         setInterval(updateClocks, 1000);
         updateClocks();
+        /* === CLOCK WIDGET END: JS === */
     </script>
 </body>
 

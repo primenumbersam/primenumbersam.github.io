@@ -331,16 +331,16 @@
 
     <!-- RAW Data for Navigation -->
     <script id="nav-data" type="text/plain">
-- Produce, 느좋공장
-    - Labs, 창작실험실, https://gitsam.com/labs
-    - Agent-LMS, 자동 강의생산, #
-    - Agent-Invest, 자동 뉴스정리, #
-- Decode, 좋문필터
-    - Notion+Astro, 반자동 기술안내, https://blog.gitsam.com
-    - Obsidian+Quartz, 반자동 투자정보, https://wiki.gitsam.com
-- Publish, 좋소출판
+- Decode, 좋문공부
+    - Notion+Astro, 반자동 기술공부, https://blog.gitsam.com
+    - Obsidian+Quartz, 반자동 투자공부, https://obsidian.gitsam.com
+- Produce, 좋소공장
+    - Agent-Wiki, 자료생성 부서, https://wiki.gitsam.com
+    - Agent-Invest, 투자토론 부서, http://forum.gitsam.com
+- Deliver, 느좋실전
     - Books, 집필서적 모음, https://books.gitsam.com
     - Papers, 연구논문 공개, https://papers.gitsam.com
+    - Apps, 개인용 블대리, https://invest.gitsam.com
     </script>
 
     <!-- RAW Data for Hero Content -->
@@ -351,8 +351,8 @@
     - Ethos: Clear|Consistent|Minimal, 철학: 투명성·일관성·경량성
 - WHY, 왜
     - Adapt to AX Era (VibeOps), 인공지능전환기 느좋개발 적응
-    - Shield from fake guru, 잔문집단 호구낚시 방어 문해력
-    - For the Thinking Reeds walking the talk, 생각하며 言行一致하는 갈대들을 위해
+    - Shield from fake guru, 불투명/불명확/권위/보그병신체 방어 문해력
+    - For the Thinking Reeds, 생각하며 言行一致하는 갈대들을 위해
 - HOW, 어떻게
     - High-Logic but Low-Code, 생각은 깊게 구현은 쉽게
     - Global Structure > Local Analysis, 국소적 분석을 넘은 전역적 구조화
@@ -429,21 +429,22 @@
             }
         }
 
+        function updateBtn() {
+            $('btn-1').innerText = L('Labs', '실험실');
+            $('btn-1').href = 'https://gitsam.com/labs';
+            $('btn-2').innerText = L('Training', '훈련소');
+            $('btn-2').href = 'https://lms.gitsam.com';
+        }
+
         function updateLiteracyText() {
             $('text-intro').innerText = L(
-                "Anti-Scam Tools: Literacy Defense against Power Asymmetry",
-                "호갱흑우탈출 훈련: '불투명/불명확/권위/보그병신체' 방어 문해력 함양"
+                "Literacy Defense against Power Asymmetry",
+                "호갱흑우낚시 방어 문해력 훈련"
             );
         }
-        function updateBtn() {
-            $('btn-1').innerText = L('App-LMS', '느좋 강의실');
-            $('btn-1').href = 'https://lms.gitsam.com';
-            $('btn-2').innerText = L('App-Invest', '느좋 블대리');
-            $('btn-2').href = 'https://invest.gitsam.com';
-        }
-        
+
         /** LANGUAGE TOGGLE */
-        function toggleLang() { curL ^= 1; renderNav(); renderHero(); renderContent(); updateLiteracyText(); updateBtn(); }
+        function toggleLang() { curL ^= 1; renderNav(); renderHero(); renderContent(); updateBtn(); updateLiteracyText(); }
 
         /** INITIALIZATION */
         document.addEventListener('DOMContentLoaded', async () => {
