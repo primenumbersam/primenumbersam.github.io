@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Betting Diary MVP</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Space Grotesk & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Space Grotesk', 'Noto Sans KR', sans-serif;
+            background-color: #fafafa;
+        }
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        /* Line Art / Brutalism Style Utility */
+        .brutal-border {
+            border: 2px solid #000000;
+        }
+        .brutal-shadow {
+            box-shadow: 4px 4px 0px 0px #000000;
+        }
+        .brutal-shadow-sm {
+            box-shadow: 2px 2px 0px 0px #000000;
+        }
+        .brutal-btn {
+            transition: all 0.15s ease-in-out;
+        }
+        .brutal-btn:active {
+            transform: translate(2px, 2px);
+            box-shadow: 0px 0px 0px 0px #000000;
+        }
+        /* Custom Tab Transitions */
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="text-black p-4 md:p-8 min-h-screen">
+
+    <div class="max-w-7xl mx-auto">
+        <!-- HEADER -->
+        <header class="mb-8 flex flex-col md:flex-row md:items-end justify-between border-b-4 border-black pb-6">
+            <div>
+                <span class="text-sm font-mono uppercase tracking-widest border border-black px-2 py-0.5 bg-yellow-100 brutal-shadow-sm">System Status: Active</span>
+                <h1 class="text-4xl md:text-5xl font-bold mt-3 tracking-tight uppercase">Betting Diary</h1>
+                <p class="text-gray-600 mt-1">인과관계 기반의 주관적 신뢰도와 객관적 성과 추적 도구</p>
+            </div>
+            <div class="mt-4 md:mt-0 text-left md:text-right font-mono">
+                <p class="text-sm text-gray-500">Current Standard Date</p>
+                <p class="text-xl font-bold">2026/07/05</p>
+            </div>
+        </header>
+
+        <!-- BRUTALIST TAB NAVIGATION -->
+        <div class="flex flex-wrap gap-2 md:gap-3 mb-8 border-b-2 border-black pb-4">
+            <button onclick="switchTab('dashboard')" id="btn-tab-dashboard" class="px-4 py-2 text-sm md:text-base font-bold uppercase tracking-wider brutal-border brutal-shadow-sm bg-yellow-300 brutal-btn hover:bg-yellow-400">
+                대시보드 Overview
+            </button>
+            <button onclick="switchTab('signals')" id="btn-tab-signals" class="px-4 py-2 text-sm md:text-base font-bold uppercase tracking-wider brutal-border brutal-shadow-sm bg-white brutal-btn hover:bg-neutral-100">
+                1. 신호 관찰 대장
+            </button>
+            <button onclick="switchTab('plans')" id="btn-tab-plans" class="px-4 py-2 text-sm md:text-base font-bold uppercase tracking-wider brutal-border brutal-shadow-sm bg-white brutal-btn hover:bg-neutral-100">
+                2. 사전 계획
+            </button>
+            <button onclick="switchTab('outcomes')" id="btn-tab-outcomes" class="px-4 py-2 text-sm md:text-base font-bold uppercase tracking-wider brutal-border brutal-shadow-sm bg-white brutal-btn hover:bg-neutral-100">
+                3. 사후 실현 결과
+            </button>
+            <button onclick="switchTab('items')" id="btn-tab-items" class="px-4 py-2 text-sm md:text-base font-bold uppercase tracking-wider brutal-border brutal-shadow-sm bg-white brutal-btn hover:bg-neutral-100">
+                기초 상품 정보
+            </button>
+        </div>
+
+        <!-- 1) DASHBOARD TAB -->
+        <div id="tab-dashboard" class="tab-content active space-y-8">
+            <!-- KPI SUMMARY OVERVIEW -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white brutal-border brutal-shadow p-5 flex flex-col justify-between">
+                    <span class="text-xs font-mono uppercase text-gray-500">기록된 매크로 신호</span>
+                    <span class="text-3xl font-bold font-mono mt-2" id="kpi-signals">0</span>
+                    <span class="text-xs text-gray-400 mt-1">Signals Captured</span>
+                </div>
+                <div class="bg-white brutal-border brutal-shadow p-5 flex flex-col justify-between">
+                    <span class="text-xs font-mono uppercase text-gray-500">수립된 사전 계획</span>
+                    <span class="text-3xl font-bold font-mono mt-2" id="kpi-plans">0</span>
+                    <span class="text-xs text-gray-400 mt-1">Ex Ante Plans</span>
+                </div>
+                <div class="bg-white brutal-border brutal-shadow p-5 flex flex-col justify-between">
+                    <span class="text-xs font-mono uppercase text-gray-500">실행 및 종결된 결과</span>
+                    <span class="text-3xl font-bold font-mono mt-2" id="kpi-outcomes">0</span>
+                    <span class="text-xs text-gray-400 mt-1">Ex Post Outcomes</span>
+                </div>
+                <div class="bg-white brutal-border brutal-shadow p-5 flex flex-col justify-between bg-emerald-50">
+                    <span class="text-xs font-mono uppercase text-gray-700">포트폴리오 가중 손익</span>
+                    <span class="text-2xl font-bold font-mono mt-2 text-emerald-800" id="kpi-pnl">0.00%</span>
+                    <span class="text-xs text-emerald-600 mt-1">Weighted Cumulative PnL</span>
+                </div>
+            </div>
+
+            <!-- VISUAL DIAGNOSTICS: SVG LINE ART CHARTS -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- DIAGNOSTIC 1: Confidence vs Outcome Alignment -->
+                <div class="bg-white brutal-border brutal-shadow p-6">
+                    <h4 class="text-base font-bold uppercase border-b-2 border-black pb-2 mb-3">
+                        신뢰도 대비 실현 수익 매칭도 (Diagnostic Scatter)
+                    </h4>
+                    <div class="relative w-full h-64 bg-neutral-50 brutal-border p-2">
+                        <!-- SVG Scatter Plot representing Line Art -->
+                        <svg id="scatter-plot" viewBox="0 0 100 100" class="w-full h-full" preserveAspectRatio="none">
+                            <!-- Center Zero Line -->
+                            <line x1="10" y1="50" x2="90" y2="50" stroke="#000" stroke-width="0.5" stroke-dasharray="2,2"/>
+                            <!-- Y Axis (PnL: +30% to -30%) -->
+                            <line x1="20" y1="10" x2="20" y2="90" stroke="#000" stroke-width="0.7"/>
+                            <!-- X Axis (Confidence: 0.0 to 1.0) -->
+                            <line x1="20" y1="90" x2="95" y2="90" stroke="#000" stroke-width="0.7"/>
+                            <text x="12" y="15" font-family="monospace" font-size="6" text-anchor="middle">+30%</text>
+                            <text x="12" y="52" font-family="monospace" font-size="6" text-anchor="middle">0%</text>
+                            <text x="12" y="88" font-family="monospace" font-size="6" text-anchor="middle">-30%</text>
+                            <text x="57" y="97" font-family="monospace" font-size="5" text-anchor="middle">Confidence</text>
+                            
+                            <!-- Dynamic points will be injected here -->
+                            <g id="scatter-points"></g>
+                        </svg>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-2">
+                        X축은 주관적 신뢰도(Confidence), Y축은 개별 실현 손익률(%)을 나타냅니다. 우상향 궤적을 보일수록 스스로의 예측 정합성이 강건함을 의미합니다.
+                    </p>
+                </div>
+
+                <!-- DIAGNOSTIC 2: Cumulative Portfolio Curve -->
+                <div class="bg-white brutal-border brutal-shadow p-6">
+                    <h4 class="text-base font-bold uppercase border-b-2 border-black pb-2 mb-3">
+                        시간 흐름에 따른 포트폴리오 가중 누적 손익 추이
+                    </h4>
+                    <div class="relative w-full h-64 bg-neutral-50 brutal-border p-2">
+                        <!-- SVG Line Chart for Portfolio PnL -->
+                        <svg id="pnl-chart" viewBox="0 0 100 100" class="w-full h-full" preserveAspectRatio="none">
+                            <line x1="10" y1="50" x2="95" y2="50" stroke="#aaa" stroke-width="0.5"/>
+                            <line x1="15" y1="10" x2="15" y2="90" stroke="#000" stroke-width="0.7"/>
+                            <!-- Dynamic path injected here -->
+                            <path id="pnl-chart-path" d="" fill="none" stroke="#000" stroke-width="1.5"/>
+                            <g id="pnl-chart-points"></g>
+                        </svg>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-2">
+                        각 거래 성과의 마감 시점별 누적 손익 기여도를 가중 비중 기준으로 환산한 포트폴리오 자산 성장 곡선입니다.
+                    </p>
+                </div>
+            </div>
+
+            <!-- RESET DATA & SETTINGS ACTION AREA -->
+            <div class="bg-white brutal-border brutal-shadow p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div>
+                    <h4 class="font-bold uppercase">시스템 설정 및 관리</h4>
+                    <p class="text-xs text-gray-500">테스트용 기본 데이터를 언제든 초기 기획 상태로 되돌리거나, 기록을 비울 수 있습니다.</p>
+                </div>
+                <button onclick="openResetModal()" class="w-full sm:w-auto text-sm font-mono font-bold text-red-600 border-2 border-red-600 px-4 py-2 brutal-shadow-sm hover:bg-red-50 brutal-btn">
+                    데이터 초기화 실행
+                </button>
+            </div>
+        </div>
+
+        <!-- 2) SIGNALS TAB -->
+        <div id="tab-signals" class="tab-content space-y-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Left: Form -->
+                <div class="lg:col-span-1 bg-white brutal-border brutal-shadow p-6">
+                    <h3 class="text-lg font-bold uppercase border-b-2 border-black pb-2 mb-4 flex items-center justify-between">
+                        <span>신호 및 관찰 상품 추가</span>
+                        <span class="text-xs font-mono text-gray-400">Add Signal</span>
+                    </h3>
+                    <form id="signal-form" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-mono uppercase mb-1">발생 일자</label>
+                            <input type="date" id="sig-date" class="w-full brutal-border p-2 font-mono text-sm focus:outline-none focus:bg-yellow-50" value="2026-07-03" required>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-mono uppercase mb-1">해당 상품</label>
+                            <select id="sig-item-id" class="w-full brutal-border p-2 font-mono text-sm focus:outline-none focus:bg-yellow-50">
+                                <option value="KRX_MINI_KOSPI_F">미니코스피 F (KRX_MINI_KOSPI_F)</option>
+                                <option value="US_USD">미국달러 (US_USD)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-mono uppercase mb-1">신호 분류</label>
+                            <select id="sig-category" class="w-full brutal-border p-2 font-mono text-sm focus:outline-none" required>
+                                <option value="B2B">B2B (FinOps, Fatigue 등)</option>
+                                <option value="B2C">B2C (수요절벽 등)</option>
+                                <option value="MACRO">Macro (통화정책, 제도변경 등)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-mono uppercase mb-1">시장 변화 / 내러티브 기록</label>
+                            <textarea id="sig-desc" rows="4" class="w-full brutal-border p-2 text-sm focus:outline-none focus:bg-yellow-50" placeholder="시장에서 발생한 신호나 제도적 변화를 상세히 기록하세요." required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-black text-white brutal-border brutal-shadow-sm p-3 text-sm font-bold uppercase tracking-wider brutal-btn hover:bg-neutral-800">
+                            신호 등록하기
+                        </button>
+                    </form>
+                </div>
+                <!-- Right: Table -->
+                <div class="lg:col-span-2 bg-white brutal-border brutal-shadow p-6">
+                    <h3 class="text-lg font-bold uppercase border-b-2 border-black pb-2 mb-4">
+                        신호 관찰 대장 (Signals Captured)
+                    </h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse text-xs">
+                            <thead>
+                                <tr class="bg-neutral-100 border-b-2 border-black font-mono">
+                                    <th class="p-3 brutal-border w-24">관측일</th>
+                                    <th class="p-3 brutal-border w-24">분류</th>
+                                    <th class="p-3 brutal-border w-40">매핑 상품</th>
+                                    <th class="p-3 brutal-border">관측 내러티브 (신호 세부사항)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="signals-table-body" class="font-mono">
+                                <!-- Loaded via script -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3) PLANS TAB -->
+        <div id="tab-plans" class="tab-content space-y-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Left: Form -->
+                <div class="lg:col-span-1 bg-white brutal-border brutal-shadow p-6">
+                    <h3 class="text-lg font-bold uppercase border-b-2 border-black pb-2 mb-4 flex items-center justify-between">
+                        <span>사전 주관적 계획 등록</span>
+                        <span class="text-xs font-mono text-gray-400">Create Plan</span>
+                    </h3>
+                    <form id="plan-form" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-mono uppercase mb-1">관련 시장 신호 연결</label>
+                            <select id="plan-signal-id" class="w-full brutal-border p-2 text-sm focus:outline-none" required>
+                                <!-- Dynamically loaded -->
+                            </select>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <div>
+                                <label class="block text-xs font-mono uppercase mb-1">계획 수립일</label>
+                                <input type="date" id="plan-date" class="w-full brutal-border p-2 font-mono text-sm focus:outline-none" value="2026-07-08" required>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-mono uppercase mb-1">진입 포지션</label>
+                                <select id="plan-side" class="w-full brutal-border p-2 font-mono text-sm focus:outline-none" required>
+                                    <option value="SHORT">SHORT (매도)</option>
+                                    <option value="LONG">LONG (매수)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-3 gap-2">
+                            <div>
+                                <label class="block text-xs font-mono uppercase mb-1">진입 예상가</label>
+                                <input type="number" step="0.01" id="plan-price-est" class="w-full brutal-border p-2 font-mono text-sm focus:outline-none" placeholder="1450" required>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-mono uppercase mb-1">손절 목표가</label>
+                                <input type="number" step="0.01" id="plan-price-sl" class="w-full brutal-border p-2 font-mono text-sm focus:outline-none" placeholder="1650" required>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-mono uppercase mb-1">익절 목표가</label>
+                                <input type="number" step="0.01" id="plan-price-tp" class="w-full brutal-border p-2 font-mono text-sm focus:outline-none" placeholder="700" required>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-mono uppercase mb-1 flex justify-between">
+                                <span>주관적 신뢰도 (Confidence)</span>
+                                <span id="conf-val-display" class="font-bold">0.5</span>
+                            </label>
+                            <input type="range" id="plan-confidence" min="0.1" max="1.0" step="0.05" class="w-full h-2 bg-neutral-200 brutal-border appearance-none cursor-pointer accent-black" value="0.5">
+                            <p class="text-2xs text-gray-400 mt-1">포트폴리오 비중 배분의 가중치 기준이 됩니다.</p>
+                        </div>
+                        <button type="submit" class="w-full bg-black text-white brutal-border brutal-shadow-sm p-3 text-sm font-bold uppercase tracking-wider brutal-btn hover:bg-neutral-800">
+                            투자 계획 등록
+                        </button>
+                    </form>
+                </div>
+                <!-- Right: Table -->
+                <div class="lg:col-span-2 bg-white brutal-border brutal-shadow p-6">
+                    <h3 class="text-lg font-bold uppercase border-b-2 border-black pb-2 mb-4 flex justify-between items-center">
+                        <span>사전 계획 및 가중치 분포 (Ex Ante Trading Plans)</span>
+                    </h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse text-xs">
+                            <thead>
+                                <tr class="bg-neutral-100 border-b-2 border-black font-mono">
+                                    <th class="p-3 brutal-border w-20">수립일</th>
+                                    <th class="p-3 brutal-border">상품명</th>
+                                    <th class="p-3 brutal-border w-16 text-center">방향</th>
+                                    <th class="p-3 brutal-border text-right">예상가</th>
+                                    <th class="p-3 brutal-border text-right">손절가</th>
+                                    <th class="p-3 brutal-border text-right">익절가</th>
+                                    <th class="p-3 brutal-border text-right font-bold bg-yellow-50">신뢰도</th>
+                                    <th class="p-3 brutal-border text-right font-bold bg-emerald-50">배분 비중</th>
+                                </tr>
+                            </thead>
+                            <tbody id="plans-table-body" class="font-mono">
+                                <!-- Loaded via script -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="mt-3 text-right">
+                        <p class="text-2xs text-gray-500">* 배분 비중(Weight)은 아직 청산되지 않은 실행 대기 또는 진행중인 계획의 Confidence 비율에 맞추어 실시간으로 정규화(Sum to 1)됩니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4) OUTCOMES TAB -->
+        <div id="tab-outcomes" class="tab-content space-y-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Left: Form -->
+                <div class="lg:col-span-1 bg-white brutal-border brutal-shadow p-6">
+                    <h3 class="text-lg font-bold uppercase border-b-2 border-black pb-2 mb-4 flex items-center justify-between">
+                        <span>사후 결과 기록 (실행 완료)</span>
+                        <span class="text-xs font-mono text-gray-400">Record Outcome</span>
+                    </h3>
+                    <form id="outcome-form" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-mono uppercase mb-1">연결할 사전 계획</label>
+                            <select id="out-plan-id" class="w-full brutal-border p-2 text-sm focus:outline-none" required>
+                                <!-- Dynamically loaded -->
+                            </select>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <div>
+                                <label class="block text-xs font-mono uppercase mb-1">실제 진입일</label>
+                                <input type="date" id="out-entry-date" class="w-full brutal-border p-2 font-mono text-sm focus:outline-none" value="2026-07-10" required>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-mono uppercase mb-1">실제 청산일</label>
+                                <input type="date" id="out-exit-date" class="w-full brutal-border p-2 font-mono text-sm focus:outline-none" value="2026-07-20">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <div>
+                                <label class="block text-xs font-mono uppercase mb-1">실제 진입단가</label>
+                                <input type="number" step="0.01" id="out-price-entry" class="w-full brutal-border p-2 font-mono text-sm focus:outline-none" placeholder="1460" required>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-mono uppercase mb-1">실제 청산단가</label>
+                                <input type="number" step="0.01" id="out-price-exit" class="w-full brutal-border p-2 font-mono text-sm focus:outline-none" placeholder="1300">
+                            </div>
+                        </div>
+                        <button type="submit" class="w-full bg-black text-white brutal-border brutal-shadow-sm p-3 text-sm font-bold uppercase tracking-wider brutal-btn hover:bg-neutral-800">
+                            거래 성과 확정
+                        </button>
+                    </form>
+                </div>
+                <!-- Right: Table -->
+                <div class="lg:col-span-2 bg-white brutal-border brutal-shadow p-6">
+                    <h3 class="text-lg font-bold uppercase border-b-2 border-black pb-2 mb-4">
+                        사후 실현 결과 추적대장 (Ex Post Performance)
+                    </h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse text-xs">
+                            <thead>
+                                <tr class="bg-neutral-100 border-b-2 border-black font-mono">
+                                    <th class="p-3 brutal-border">진입/청산일</th>
+                                    <th class="p-3 brutal-border">상품 및 방향</th>
+                                    <th class="p-3 brutal-border text-right">진입단가</th>
+                                    <th class="p-3 brutal-border text-right">청산단가</th>
+                                    <th class="p-3 brutal-border text-right bg-emerald-50 font-bold">투자 비중</th>
+                                    <th class="p-3 brutal-border text-right">개별 수익률</th>
+                                    <th class="p-3 brutal-border text-right font-bold bg-neutral-900 text-white">가중 손익기여</th>
+                                </tr>
+                            </thead>
+                            <tbody id="outcomes-table-body" class="font-mono">
+                                <!-- Loaded via script -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5) ITEMS TAB -->
+        <div id="tab-items" class="tab-content space-y-8">
+            <div class="bg-white brutal-border brutal-shadow p-6">
+                <h3 class="text-lg font-bold uppercase border-b-2 border-black pb-2 mb-4 flex justify-between items-center">
+                    <span>상수 성격의 기초 상품 사전 정보 (Market Items)</span>
+                    <span class="text-xs font-mono bg-neutral-100 px-2 py-0.5 brutal-border">Item Specs</span>
+                </h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse font-mono text-sm">
+                        <thead>
+                            <tr class="bg-neutral-100 border-b-2 border-black">
+                                <th class="p-3 brutal-border">상품 코드</th>
+                                <th class="p-3 brutal-border">상품명</th>
+                                <th class="p-3 brutal-border">위탁증거금률</th>
+                                <th class="p-3 brutal-border">거래승수</th>
+                                <th class="p-3 brutal-border text-right">1계약 매매 최소 필요 자금</th>
+                            </tr>
+                        </thead>
+                        <tbody id="items-table-body">
+                            <!-- Loaded via script -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- CUSTOM BRUTALIST MODAL FOR CONFIRMATION -->
+    <div id="reset-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
+        <div class="bg-white brutal-border brutal-shadow max-w-md w-full p-6 m-4">
+            <h3 class="text-xl font-bold uppercase border-b-2 border-black pb-2 mb-4">정말 데이터를 초기화하시겠습니까?</h3>
+            <p class="text-sm text-gray-700 mb-6 font-sans">
+                이 작업은 신규 등록한 모든 관찰 신호, 주관적 계획 및 사후 실현 거래 데이터를 영구히 삭제하고 초기 템플릿 데이터 구조로 복구합니다.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-3 justify-end font-mono">
+                <button onclick="closeResetModal()" class="px-4 py-2 border-2 border-black brutal-shadow-sm font-bold hover:bg-neutral-100 brutal-btn">
+                    취소 (No)
+                </button>
+                <button onclick="confirmResetData()" class="px-4 py-2 bg-red-600 text-white border-2 border-black brutal-shadow-sm font-bold hover:bg-red-700 brutal-btn">
+                    강제 초기화 (Yes)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER LICENSE -->
+    <footer class="max-w-7xl mx-auto mt-16 pt-8 border-t border-gray-300 text-center font-mono text-xs text-gray-400 pb-12">
+        <p>Betting Diary Project MVP &copy; 2026. Built with Vanilla JS & Tailwind CSS brutalism line-style.</p>
+    </footer>
+
+    <script>
+        // --- DATA STRUCTURES ---
+        
+        // 1. Market Items (Core Constant Metadata)
+        const MARKET_ITEMS = {
+            "KRX_MINI_KOSPI_F": {
+                name: "미니코스피 F",
+                margin_rate: 0.1950,
+                multiplier: 50000,
+                min_required: 51268 // 만원 단위
+            },
+            "US_USD": {
+                name: "미국달러",
+                margin_rate: 0.0512,
+                multiplier: 10000, 
+                min_required: 177 // 만원 단위
+            }
+        };
+
+        // 2. Default Signals
+        const DEFAULT_SIGNALS = [
+            {
+                id: "SIG-001",
+                date: "2026-07-03",
+                category: "B2B",
+                item_id: "KRX_MINI_KOSPI_F",
+                description: "B2B 관점에서의 AI FinOps 부상 및 하드웨어 인프라 한계로 인한 AI Fatigue 확대 우려"
+            },
+            {
+                id: "SIG-002",
+                date: "2026-07-03",
+                category: "B2C",
+                item_id: "KRX_MINI_KOSPI_F",
+                description: "내수 가계 부채 증가와 경기 침체로 인한 B2C 소비 수요절벽 현상 감지"
+            },
+            {
+                id: "SIG-003",
+                date: "2026-07-06",
+                category: "MACRO",
+                item_id: "US_USD",
+                description: "매크로 지표 상 Bear Steeping 심화 우려 및 7월 6일부터 개시되는 24시간 외환거래 실시간 거래 유입 대비"
+            }
+        ];
+
+        // 3. Default Ex Ante Subjective Plans
+        const DEFAULT_PLANS = [
+            {
+                id: "PLN-001",
+                signal_id: "SIG-002", 
+                date: "2026-07-08",
+                item_id: "KRX_MINI_KOSPI_F",
+                side: "SHORT",
+                price_est: 1450.0,
+                price_sl: 1650.0,
+                price_tp: 700.0,
+                confidence: 0.50
+            },
+            {
+                id: "PLN-002",
+                signal_id: "SIG-002",
+                date: "2026-07-16",
+                item_id: "KRX_MINI_KOSPI_F",
+                side: "SHORT",
+                price_est: 1450.0,
+                price_sl: 1650.0,
+                price_tp: 700.0,
+                confidence: 0.20
+            },
+            {
+                id: "PLN-003",
+                signal_id: "SIG-003", 
+                date: "2026-07-16",
+                item_id: "US_USD",
+                side: "LONG",
+                price_est: 1500.0,
+                price_sl: 1400.0,
+                price_tp: 1600.0,
+                confidence: 0.30
+            }
+        ];
+
+        // 4. Default Ex Post Objective Outcomes
+        const DEFAULT_OUTCOMES = [
+            {
+                id: "OUT-001",
+                plan_id: "PLN-001", 
+                entry_date: "2026-07-10",
+                exit_date: "2026-07-20", 
+                price_entry: 1460.0,
+                price_exit: 1320.0, 
+                status: "CLOSED"
+            },
+            {
+                id: "OUT-002",
+                plan_id: "PLN-002", 
+                entry_date: "2026-07-18",
+                exit_date: "2026-07-28", 
+                price_entry: 1440.0,
+                price_exit: 1510.0, 
+                status: "CLOSED"
+            },
+            {
+                id: "OUT-003",
+                plan_id: "PLN-003", 
+                entry_date: "2026-07-17",
+                exit_date: "2026-07-29", 
+                price_entry: 1505.0,
+                price_exit: 1580.0, 
+                status: "CLOSED"
+            }
+        ];
+
+        // --- APP STATE ---
+        let signals = [];
+        let plans = [];
+        let outcomes = [];
+
+        function initApp() {
+            if (localStorage.getItem("betting_diary_signals")) {
+                signals = JSON.parse(localStorage.getItem("betting_diary_signals"));
+                plans = JSON.parse(localStorage.getItem("betting_diary_plans"));
+                outcomes = JSON.parse(localStorage.getItem("betting_diary_outcomes"));
+            } else {
+                signals = [...DEFAULT_SIGNALS];
+                plans = [...DEFAULT_PLANS];
+                outcomes = [...DEFAULT_OUTCOMES];
+                saveToStorage();
+            }
+            renderAll();
+        }
+
+        function saveToStorage() {
+            localStorage.setItem("betting_diary_signals", JSON.stringify(signals));
+            localStorage.setItem("betting_diary_plans", JSON.stringify(plans));
+            localStorage.setItem("betting_diary_outcomes", JSON.stringify(outcomes));
+        }
+
+        // --- CUSTOM MODAL EVENT HANDLERS ---
+        function openResetModal() {
+            document.getElementById("reset-modal").classList.remove("hidden");
+        }
+
+        function closeResetModal() {
+            document.getElementById("reset-modal").classList.add("hidden");
+        }
+
+        function confirmResetData() {
+            localStorage.removeItem("betting_diary_signals");
+            localStorage.removeItem("betting_diary_plans");
+            localStorage.removeItem("betting_diary_outcomes");
+            closeResetModal();
+            initApp();
+        }
+
+        // --- TAB SWITCH LOGIC ---
+        function switchTab(tabId) {
+            // Hide all tab contents
+            const contents = document.querySelectorAll(".tab-content");
+            contents.forEach(content => content.classList.remove("active"));
+
+            // Remove active classes from all tab buttons
+            const buttons = document.querySelectorAll("div.flex button");
+            buttons.forEach(btn => {
+                btn.classList.remove("bg-yellow-300");
+                btn.classList.add("bg-white");
+            });
+
+            // Show active tab content
+            document.getElementById("tab-" + tabId).classList.add("active");
+
+            // Style active button
+            const activeBtn = document.getElementById("btn-tab-" + tabId);
+            activeBtn.classList.remove("bg-white");
+            activeBtn.classList.add("bg-yellow-300");
+
+            // Redraw charts if switching to dashboard to guarantee visual accuracy
+            if (tabId === "dashboard") {
+                renderCharts();
+            }
+        }
+
+        // --- DATA CALCULATION HELPER FUNCTIONS ---
+        function calculateNormalizedWeights() {
+            const sumOfConfidence = plans.reduce((sum, p) => sum + parseFloat(p.confidence || 0), 0);
+            return plans.reduce((acc, p) => {
+                acc[p.id] = sumOfConfidence > 0 ? (parseFloat(p.confidence) / sumOfConfidence) : 0;
+                return acc;
+            }, {});
+        }
+
+        function calculatePnLRate(side, entryPrice, exitPrice) {
+            if (!entryPrice || !exitPrice) return 0;
+            if (side === "LONG") {
+                return (exitPrice - entryPrice) / entryPrice;
+            } else {
+                return (entryPrice - exitPrice) / entryPrice;
+            }
+        }
+
+        // --- RENDERING ---
+        function renderAll() {
+            renderItemsTable();
+            renderSignalsTable();
+            renderPlansTable();
+            renderOutcomesTable();
+            updateFormSelectors();
+            updateKPIs();
+            renderCharts();
+        }
+
+        function renderItemsTable() {
+            const tbody = document.getElementById("items-table-body");
+            tbody.innerHTML = "";
+            Object.keys(MARKET_ITEMS).forEach(key => {
+                const item = MARKET_ITEMS[key];
+                tbody.innerHTML += `
+                    <tr class="border-b border-black hover:bg-neutral-50">
+                        <td class="p-3 brutal-border font-bold">${key}</td>
+                        <td class="p-3 brutal-border">${item.name}</td>
+                        <td class="p-3 brutal-border">${(item.margin_rate * 100).toFixed(2)}%</td>
+                        <td class="p-3 brutal-border">${item.multiplier.toLocaleString()}</td>
+                        <td class="p-3 brutal-border text-right font-bold text-neutral-800">${item.min_required.toLocaleString()} 만원</td>
+                    </tr>
+                `;
+            });
+        }
+
+        function renderSignalsTable() {
+            const tbody = document.getElementById("signals-table-body");
+            tbody.innerHTML = "";
+            signals.forEach(sig => {
+                const itemObj = MARKET_ITEMS[sig.item_id] || { name: "알 수 없음" };
+                let catClass = "bg-neutral-100 text-black";
+                if (sig.category === "B2B") catClass = "bg-blue-100 text-blue-900";
+                if (sig.category === "B2C") catClass = "bg-orange-100 text-orange-900";
+                if (sig.category === "MACRO") catClass = "bg-purple-100 text-purple-900";
+
+                tbody.innerHTML += `
+                    <tr class="border-b border-black hover:bg-neutral-50">
+                        <td class="p-3 brutal-border">${sig.date.replace(/-/g, '/')}</td>
+                        <td class="p-3 brutal-border">
+                            <span class="px-1.5 py-0.5 rounded border border-black ${catClass} font-bold text-3xs">${sig.category}</span>
+                        </td>
+                        <td class="p-3 brutal-border">${itemObj.name} <span class="text-gray-400 text-3xs">[${sig.item_id}]</span></td>
+                        <td class="p-3 brutal-border text-xs text-neutral-700 font-sans font-medium">${sig.description}</td>
+                    </tr>
+                `;
+            });
+        }
+
+        function renderPlansTable() {
+            const tbody = document.getElementById("plans-table-body");
+            tbody.innerHTML = "";
+            const weights = calculateNormalizedWeights();
+
+            plans.forEach(plan => {
+                const itemObj = MARKET_ITEMS[plan.item_id] || { name: "알 수 없음" };
+                const weight = weights[plan.id] || 0;
+                const sideColor = plan.side === "LONG" ? "text-red-600 font-bold" : "text-blue-600 font-bold";
+
+                tbody.innerHTML += `
+                    <tr class="border-b border-black hover:bg-neutral-50">
+                        <td class="p-3 brutal-border">${plan.date.replace(/-/g, '/')}</td>
+                        <td class="p-3 brutal-border">${itemObj.name}</td>
+                        <td class="p-3 brutal-border text-center"><span class="${sideColor}">${plan.side}</span></td>
+                        <td class="p-3 brutal-border text-right">${plan.price_est.toLocaleString()}</td>
+                        <td class="p-3 brutal-border text-right text-red-500">${plan.price_sl.toLocaleString()}</td>
+                        <td class="p-3 brutal-border text-right text-emerald-600">${plan.price_tp.toLocaleString()}</td>
+                        <td class="p-3 brutal-border text-right font-bold bg-yellow-50">${(parseFloat(plan.confidence)).toFixed(2)}</td>
+                        <td class="p-3 brutal-border text-right font-bold bg-emerald-50 text-emerald-800">${(weight * 100).toFixed(2)}%</td>
+                    </tr>
+                `;
+            });
+        }
+
+        function renderOutcomesTable() {
+            const tbody = document.getElementById("outcomes-table-body");
+            tbody.innerHTML = "";
+            const weights = calculateNormalizedWeights();
+
+            outcomes.forEach(out => {
+                const plan = plans.find(p => p.id === out.plan_id);
+                if (!plan) return;
+
+                const itemObj = MARKET_ITEMS[plan.item_id] || { name: "알 수 없음" };
+                const weight = weights[plan.id] || 0;
+                const rawPnL = calculatePnLRate(plan.side, out.price_entry, out.price_exit);
+                const weightedPnLContribution = rawPnL * weight;
+                
+                const pnlClass = rawPnL >= 0 ? "text-emerald-600" : "text-red-500";
+                const sideColor = plan.side === "LONG" ? "text-red-600 font-bold" : "text-blue-600 font-bold";
+
+                tbody.innerHTML += `
+                    <tr class="border-b border-black hover:bg-neutral-50">
+                        <td class="p-3 brutal-border">
+                            <span class="text-gray-400">In:</span> ${out.entry_date.replace(/-/g, '/')} <br/>
+                            <span class="text-gray-400">Out:</span> ${out.exit_date.replace(/-/g, '/')}
+                        </td>
+                        <td class="p-3 brutal-border">
+                            <span class="font-bold">${itemObj.name}</span> <br/>
+                            <span class="text-3xs px-1 py-0.2 brutal-border bg-neutral-100 ${sideColor}">${plan.side}</span>
+                        </td>
+                        <td class="p-3 brutal-border text-right">${out.price_entry.toLocaleString()}</td>
+                        <td class="p-3 brutal-border text-right">${out.price_exit.toLocaleString()}</td>
+                        <td class="p-3 brutal-border text-right bg-emerald-50 font-bold text-emerald-800">${(weight * 100).toFixed(2)}%</td>
+                        <td class="p-3 brutal-border text-right font-bold ${pnlClass}">${(rawPnL * 100).toFixed(2)}%</td>
+                        <td class="p-3 brutal-border text-right font-bold bg-neutral-900 text-white ${weightedPnLContribution >= 0 ? 'text-green-300' : 'text-red-300'}">
+                            ${(weightedPnLContribution * 100).toFixed(2)}%
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+
+        function updateFormSelectors() {
+            const sigSelect = document.getElementById("plan-signal-id");
+            sigSelect.innerHTML = "";
+            signals.forEach(sig => {
+                sigSelect.innerHTML += `<option value="${sig.id}">[${sig.category}] ${sig.description.substring(0, 35)}...</option>`;
+            });
+
+            const planSelect = document.getElementById("out-plan-id");
+            planSelect.innerHTML = "";
+            plans.forEach(plan => {
+                const itemObj = MARKET_ITEMS[plan.item_id] || { name: "알 수 없음" };
+                planSelect.innerHTML += `<option value="${plan.id}">[${plan.side}] ${itemObj.name} @ 예상가 ${plan.price_est} (Confidence: ${plan.confidence})</option>`;
+            });
+        }
+
+        function updateKPIs() {
+            document.getElementById("kpi-signals").innerText = signals.length;
+            document.getElementById("kpi-plans").innerText = plans.length;
+            document.getElementById("kpi-outcomes").innerText = outcomes.length;
+
+            const weights = calculateNormalizedWeights();
+            let cumulativePnL = 0;
+            outcomes.forEach(out => {
+                const plan = plans.find(p => p.id === out.plan_id);
+                if (plan) {
+                    const rawPnL = calculatePnLRate(plan.side, out.price_entry, out.price_exit);
+                    const weight = weights[plan.id] || 0;
+                    cumulativePnL += rawPnL * weight;
+                }
+            });
+
+            const kpiPnl = document.getElementById("kpi-pnl");
+            kpiPnl.innerText = (cumulativePnL * 100).toFixed(2) + "%";
+            if (cumulativePnL >= 0) {
+                kpiPnl.className = "text-2xl font-bold font-mono mt-2 text-emerald-800";
+            } else {
+                kpiPnl.className = "text-2xl font-bold font-mono mt-2 text-red-600";
+            }
+        }
+
+        function renderCharts() {
+            const weights = calculateNormalizedWeights();
+
+            // 1. Scatter Plot
+            const scatterGroup = document.getElementById("scatter-points");
+            scatterGroup.innerHTML = "";
+
+            outcomes.forEach(out => {
+                const plan = plans.find(p => p.id === out.plan_id);
+                if (!plan) return;
+
+                const confidence = parseFloat(plan.confidence);
+                const rawPnL = calculatePnLRate(plan.side, out.price_entry, out.price_exit);
+
+                const cx = 20 + (confidence * 75);
+                let cy = 50 - ((rawPnL / 0.3) * 40);
+                if (cy < 10) cy = 10;
+                if (cy > 90) cy = 90;
+
+                const colorClass = rawPnL >= 0 ? "fill-emerald-500" : "fill-red-500";
+                
+                scatterGroup.innerHTML += `
+                    <circle cx="${cx}" cy="${cy}" r="3" class="${colorClass} stroke-black" stroke-width="0.7" />
+                    <text x="${cx}" y="${cy - 4}" font-family="monospace" font-size="4.5" text-anchor="middle" fill="#000">${plan.id}</text>
+                `;
+            });
+
+            // 2. Portfolio PnL Line Chart
+            const sortedOutcomes = [...outcomes].sort((a, b) => new Date(a.exit_date) - new Date(b.exit_date));
+            
+            let cumulative = 0;
+            const points = [{ x: 15, y: 50 }]; 
+
+            sortedOutcomes.forEach((out, idx) => {
+                const plan = plans.find(p => p.id === out.plan_id);
+                if (!plan) return;
+
+                const rawPnL = calculatePnLRate(plan.side, out.price_entry, out.price_exit);
+                const weight = weights[plan.id] || 0;
+                cumulative += rawPnL * weight;
+
+                const x = 15 + ((idx + 1) / sortedOutcomes.length) * 75;
+                let y = 50 - ((cumulative / 0.3) * 40);
+                if (y < 10) y = 10;
+                if (y > 90) y = 90;
+
+                points.push({ x, y, label: `${out.exit_date.slice(5)}` });
+            });
+
+            const pathElement = document.getElementById("pnl-chart-path");
+            let dAttr = `M ${points[0].x} ${points[0].y}`;
+            for (let i = 1; i < points.length; i++) {
+                dAttr += ` L ${points[i].x} ${points[i].y}`;
+            }
+            pathElement.setAttribute("d", dAttr);
+
+            const chartPointsGroup = document.getElementById("pnl-chart-points");
+            chartPointsGroup.innerHTML = "";
+            points.forEach((pt, i) => {
+                if (i === 0) return;
+                chartPointsGroup.innerHTML += `
+                    <circle cx="${pt.x}" cy="${pt.y}" r="2" class="fill-black stroke-white" stroke-width="0.5" />
+                    <text x="${pt.x}" y="${pt.y + 6}" font-family="monospace" font-size="4" text-anchor="middle" fill="#666">${pt.label}</text>
+                `;
+            });
+        }
+
+        // --- SUBMISSION HANDLERS ---
+
+        document.getElementById("plan-confidence").addEventListener("input", function(e) {
+            document.getElementById("conf-val-display").innerText = parseFloat(e.target.value).toFixed(2);
+        });
+
+        document.getElementById("signal-form").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const date = document.getElementById("sig-date").value;
+            const itemId = document.getElementById("sig-item-id").value;
+            const category = document.getElementById("sig-category").value;
+            const desc = document.getElementById("sig-desc").value;
+
+            const newId = "SIG-" + String(signals.length + 1).padStart(3, '0');
+            signals.push({ id: newId, date, item_id: itemId, category, description: desc });
+            
+            saveToStorage();
+            renderAll();
+            document.getElementById("sig-desc").value = "";
+            switchTab("signals"); // Switch tab to show updated signals
+        });
+
+        document.getElementById("plan-form").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const signalId = document.getElementById("plan-signal-id").value;
+            const date = document.getElementById("plan-date").value;
+            const side = document.getElementById("plan-side").value;
+            const priceEst = parseFloat(document.getElementById("plan-price-est").value);
+            const priceSl = parseFloat(document.getElementById("plan-price-sl").value);
+            const priceTp = parseFloat(document.getElementById("plan-price-tp").value);
+            const confidence = parseFloat(document.getElementById("plan-confidence").value);
+
+            const refSig = signals.find(s => s.id === signalId);
+            const itemId = refSig ? refSig.item_id : "KRX_MINI_KOSPI_F";
+
+            const newId = "PLN-" + String(plans.length + 1).padStart(3, '0');
+            plans.push({
+                id: newId,
+                signal_id: signalId,
+                date,
+                item_id: itemId,
+                side,
+                price_est: priceEst,
+                price_sl: priceSl,
+                price_tp: priceTp,
+                confidence
+            });
+
+            saveToStorage();
+            renderAll();
+            
+            document.getElementById("plan-price-est").value = "";
+            document.getElementById("plan-price-sl").value = "";
+            document.getElementById("plan-price-tp").value = "";
+            switchTab("plans"); // Switch tab to show updated plans
+        });
+
+        document.getElementById("outcome-form").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const planId = document.getElementById("out-plan-id").value;
+            const entryDate = document.getElementById("out-entry-date").value;
+            const exitDate = document.getElementById("out-exit-date").value;
+            const priceEntry = parseFloat(document.getElementById("out-price-entry").value);
+            const priceExit = parseFloat(document.getElementById("out-price-exit").value);
+
+            const newId = "OUT-" + String(outcomes.length + 1).padStart(3, '0');
+            outcomes.push({
+                id: newId,
+                plan_id: planId,
+                entry_date: entryDate,
+                exit_date: exitDate,
+                price_entry: priceEntry,
+                price_exit: priceExit,
+                status: "CLOSED"
+            });
+
+            saveToStorage();
+            renderAll();
+
+            document.getElementById("out-price-entry").value = "";
+            document.getElementById("out-price-exit").value = "";
+            switchTab("outcomes"); // Switch tab to show updated outcomes
+        });
+
+        window.onload = function() {
+            initApp();
+        };
+    </script>
+</body>
+</html>
