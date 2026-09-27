@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>gitsam book — ASCII Blackjack</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    :root {
+      --bg: #050505;
+      --card-bg: #0c0c0c;
+      --fg: #e5e5e5;
+      --fg-dim: #737373;
+      --border: #2e2e2e;
+      --border-bright: #ffffff;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--fg);
+      font-family: ui-monospace, "SF Mono", "Fira Code", "Courier New", monospace;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      user-select: none;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .top-banner {
+      width: 100%;
+      max-width: 640px;
+      border: 1px solid var(--border-bright);
+      background: var(--card-bg);
+      padding: 0.6rem 1rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      border-radius: 4px;
+    }
+    .top-banner .title {
+      font-weight: 700;
+      color: var(--fg);
+    }
+    .top-banner .author {
+      color: var(--fg-dim);
+      font-size: 0.7rem;
+    }
+
+    .terminal {
+      width: 100%;
+      max-width: 640px;
+      border: 1px solid var(--border-bright);
+      background: var(--card-bg);
+      box-shadow: 0 0 24px rgba(255, 255, 255, 0.05);
+      border-radius: 4px;
+      padding: 1.25rem;
+    }
+    header {
+      border-bottom: 1px dashed var(--border);
+      padding-bottom: 0.75rem;
+      margin-bottom: 1.25rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+    .brand {
+      font-weight: 700;
+      color: var(--fg);
+    }
+    .status-line {
+      font-size: 0.75rem;
+      color: var(--fg-dim);
+    }
+
+    .table-section {
+      margin-bottom: 1.25rem;
+    }
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .cards-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      min-height: 90px;
+      align-items: center;
+    }
+    .empty-placeholder {
+      font-size: 0.75rem;
+      color: var(--fg-dim);
+    }
+
+    .ascii-card {
+      font-size: 0.75rem;
+      line-height: 1.1;
+      white-space: pre;
+      color: var(--fg);
+      display: inline-block;
+      border: 1px solid var(--border);
+      padding: 0.25rem 0.4rem;
+      background: #000000;
+    }
+
+    .message-box {
+      border: 1px solid var(--border);
+      background: #000000;
+      padding: 0.65rem 0.75rem;
+      font-size: 0.8rem;
+      margin-bottom: 1.25rem;
+      min-height: 2.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .action-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    button {
+      flex: 1 1 auto;
+      background: transparent;
+      border: 1px solid var(--border-bright);
+      color: var(--fg);
+      font-family: inherit;
+      font-size: 0.75rem;
+      padding: 0.65rem 1rem;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      transition: background 0.15s, color 0.15s;
+    }
+    button:hover:not(:disabled) {
+      background: var(--fg);
+      color: #000;
+    }
+    button:disabled {
+      border-color: var(--border);
+      color: var(--fg-dim);
+      cursor: not-allowed;
+    }
+    button:active:not(:disabled) {
+      transform: translateY(1px);
+    }
+
+    footer {
+      margin-top: 1rem;
+      padding-top: 0.75rem;
+      border-top: 1px dashed var(--border);
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.7rem;
+      color: var(--fg-dim);
+    }
+    @media (max-width: 480px) {
+      .terminal { padding: 1rem; }
+      .ascii-card { font-size: 0.65rem; padding: 0.2rem 0.3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-banner">
+    <span class="title">GITSAM BOOK // COMING SOON</span>
+    <span class="author">BY GITSAM</span>
+  </div>
+
+  <div class="terminal">
+    <header>
+      <span class="brand">ASCII BLACKJACK</span>
+      <span class="status-line">TERMINAL EDITION</span>
+    </header>
+
+    <!-- Dealer Area -->
+    <div class="table-section">
+      <div class="section-header">
+        <span>[ DEALER ]</span>
+        <span id="dealer-total">SCORE: ?</span>
+      </div>
+      <div id="dealer-cards" class="cards-row">
+        <span class="empty-placeholder">NO ACTIVE HAND</span>
+      </div>
+    </div>
+
+    <!-- Player Area -->
+    <div class="table-section">
+      <div class="section-header">
+        <span>[ PLAYER ]</span>
+        <span id="player-total">SCORE: 0</span>
+      </div>
+      <div id="player-cards" class="cards-row">
+        <span class="empty-placeholder">PRESS [DEAL] TO PLAY</span>
+      </div>
+    </div>
+
+    <!-- Terminal Status Message -->
+    <div class="message-box" id="msg-box">
+      <span id="game-status">&gt; Ready for next hand.</span>
+      <span id="streak-info" class="status-line">STREAK: 0</span>
+    </div>
+
+    <!-- Controls -->
+    <div class="action-bar">
+      <button id="btn-deal">Deal</button>
+      <button id="btn-hit" disabled>Hit</button>
+      <button id="btn-stand" disabled>Stand</button>
+      <button id="btn-reset">Reset</button>
+    </div>
+
+    <footer>
+      <span>MONOCHROME LINE ART</span>
+      <span>DEALER STANDS ON 17</span>
+    </footer>
+  </div>
+
+  <script>
+    const suits = ['S', 'H', 'D', 'C'];
+    const values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+
+    let deck = [];
+    let playerHand = [];
+    let dealerHand = [];
+    let isGameOver = true;
+    let streak = 0;
+
+    const btnDeal = document.getElementById('btn-deal');
+    const btnHit = document.getElementById('btn-hit');
+    const btnStand = document.getElementById('btn-stand');
+    const btnReset = document.getElementById('btn-reset');
+
+    const dealerCardsEl = document.getElementById('dealer-cards');
+    const playerCardsEl = document.getElementById('player-cards');
+    const dealerTotalEl = document.getElementById('dealer-total');
+    const playerTotalEl = document.getElementById('player-total');
+    const gameStatusEl = document.getElementById('game-status');
+    const streakInfoEl = document.getElementById('streak-info');
+
+    function buildDeck() {
+      const d = [];
+      for (const s of suits) {
+        for (const v of values) {
+          d.push({ suit: s, value: v });
+        }
+      }
+      for (let i = d.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [d[i], d[j]] = [d[j], d[i]];
+      }
+      return d;
+    }
+
+    function getScore(hand) {
+      let score = 0;
+      let aces = 0;
+      for (const card of hand) {
+        if (card.value === 'A') {
+          aces++;
+          score += 11;
+        } else if (['K', 'Q', 'J', '10'].includes(card.value)) {
+          score += 10;
+        } else {
+          score += parseInt(card.value, 10);
+        }
+      }
+      while (score > 21 && aces > 0) {
+        score -= 10;
+        aces--;
+      }
+      return score;
+    }
+
+    function renderAsciiCard(card, isHidden = false) {
+      if (isHidden) {
+        return `<pre class="ascii-card">+-----+
+|? # ?|
+| ### |
+|? # ?|
++-----+</pre>`;
+      }
+      const vL = card.value.padEnd(2, ' ');
+      const vR = card.value.padStart(2, ' ');
+      return `<pre class="ascii-card">+-----+
+|${vL}   |
+|  ${card.suit}  |
+|   ${vR}|
++-----+</pre>`;
+    }
+
+    function render(hideHoleCard = true) {
+      if (playerHand.length === 0) {
+        playerCardsEl.innerHTML = '<span class="empty-placeholder">PRESS [DEAL] TO PLAY</span>';
+        dealerCardsEl.innerHTML = '<span class="empty-placeholder">NO ACTIVE HAND</span>';
+        playerTotalEl.textContent = 'SCORE: 0';
+        dealerTotalEl.textContent = 'SCORE: ?';
+        streakInfoEl.textContent = `STREAK: ${streak}`;
+        return;
+      }
+
+      playerCardsEl.innerHTML = playerHand.map(c => renderAsciiCard(c)).join('');
+      playerTotalEl.textContent = `SCORE: ${getScore(playerHand)}`;
+
+      if (hideHoleCard && dealerHand.length > 0) {
+        dealerCardsEl.innerHTML = renderAsciiCard(dealerHand[0]) + renderAsciiCard(null, true);
+        dealerTotalEl.textContent = 'SCORE: ?';
+      } else {
+        dealerCardsEl.innerHTML = dealerHand.map(c => renderAsciiCard(c)).join('');
+        dealerTotalEl.textContent = `SCORE: ${getScore(dealerHand)}`;
+      }
+
+      streakInfoEl.textContent = `STREAK: ${streak}`;
+    }
+
+    function deal() {
+      deck = buildDeck();
+      playerHand = [deck.pop(), deck.pop()];
+      dealerHand = [deck.pop(), deck.pop()];
+      isGameOver = false;
+
+      btnDeal.disabled = true;
+      btnHit.disabled = false;
+      btnStand.disabled = false;
+
+      gameStatusEl.textContent = '> Card dealt. [HIT] or [STAND]?';
+      render(true);
+
+      if (getScore(playerHand) === 21) {
+        endRound('blackjack');
+      }
+    }
+
+    function hit() {
+      if (isGameOver) return;
+      playerHand.push(deck.pop());
+      render(true);
+
+      const score = getScore(playerHand);
+      if (score > 21) {
+        endRound('bust');
+      } else if (score === 21) {
+        stand();
+      }
+    }
+
+    function stand() {
+      if (isGameOver) return;
+      while (getScore(dealerHand) < 17) {
+        dealerHand.push(deck.pop());
+      }
+      endRound('compare');
+    }
+
+    function endRound(outcome) {
+      isGameOver = true;
+      btnDeal.disabled = false;
+      btnHit.disabled = true;
+      btnStand.disabled = true;
+
+      render(false);
+
+      const pScore = getScore(playerHand);
+      const dScore = getScore(dealerHand);
+
+      if (outcome === 'blackjack') {
+        streak++;
+        gameStatusEl.textContent = '> NATURAL 21! BLACKJACK!';
+      } else if (outcome === 'bust') {
+        streak = 0;
+        gameStatusEl.textContent = `> BUSTED (${pScore}). DEALER WINS.`;
+      } else {
+        if (dScore > 21) {
+          streak++;
+          gameStatusEl.textContent = `> DEALER BUSTED (${dScore}). YOU WIN.`;
+        } else if (pScore > dScore) {
+          streak++;
+          gameStatusEl.textContent = `> YOU WIN (${pScore} vs ${dScore}).`;
+        } else if (pScore < dScore) {
+          streak = 0;
+          gameStatusEl.textContent = `> DEALER WINS (${dScore} vs ${pScore}).`;
+        } else {
+          gameStatusEl.textContent = `> PUSH / TIE (${pScore}).`;
+        }
+      }
+      streakInfoEl.textContent = `STREAK: ${streak}`;
+    }
+
+    function reset() {
+      isGameOver = true;
+      deck = [];
+      playerHand = [];
+      dealerHand = [];
+      streak = 0;
+      btnDeal.disabled = false;
+      btnHit.disabled = true;
+      btnStand.disabled = true;
+      gameStatusEl.textContent = '> Session reset. Press [DEAL] to play.';
+      render(false);
+    }
+
+    btnDeal.addEventListener('click', deal);
+    btnHit.addEventListener('click', hit);
+    btnStand.addEventListener('click', stand);
+    btnReset.addEventListener('click', reset);
+  </script>
+</body>
+</html>
